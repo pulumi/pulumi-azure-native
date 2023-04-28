@@ -22,7 +22,9 @@ class MECRoleArgs:
                  resource_group_name: pulumi.Input[str],
                  role_status: pulumi.Input[Union[str, 'RoleStatus']],
                  connection_string: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 controller_endpoint: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_unique_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MECRole resource.
         :param pulumi.Input[str] device_name: The device name.
@@ -31,7 +33,9 @@ class MECRoleArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'RoleStatus']] role_status: Role status.
         :param pulumi.Input['AsymmetricEncryptedSecretArgs'] connection_string: Activation key of the MEC.
+        :param pulumi.Input[str] controller_endpoint: Controller Endpoint.
         :param pulumi.Input[str] name: The role name.
+        :param pulumi.Input[str] resource_unique_id: Unique Id of the Resource.
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "kind", 'MEC')
@@ -39,8 +43,12 @@ class MECRoleArgs:
         pulumi.set(__self__, "role_status", role_status)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if controller_endpoint is not None:
+            pulumi.set(__self__, "controller_endpoint", controller_endpoint)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resource_unique_id is not None:
+            pulumi.set(__self__, "resource_unique_id", resource_unique_id)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -104,6 +112,18 @@ class MECRoleArgs:
         pulumi.set(self, "connection_string", value)
 
     @property
+    @pulumi.getter(name="controllerEndpoint")
+    def controller_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controller Endpoint.
+        """
+        return pulumi.get(self, "controller_endpoint")
+
+    @controller_endpoint.setter
+    def controller_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "controller_endpoint", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -115,6 +135,18 @@ class MECRoleArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="resourceUniqueId")
+    def resource_unique_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique Id of the Resource.
+        """
+        return pulumi.get(self, "resource_unique_id")
+
+    @resource_unique_id.setter
+    def resource_unique_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_unique_id", value)
+
 
 class MECRole(pulumi.CustomResource):
     @overload
@@ -122,24 +154,29 @@ class MECRole(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_string: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 controller_endpoint: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_unique_id: Optional[pulumi.Input[str]] = None,
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
                  __props__=None):
         """
         MEC role.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] connection_string: Activation key of the MEC.
+        :param pulumi.Input[str] controller_endpoint: Controller Endpoint.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] kind: Role type.
                Expected value is 'MEC'.
         :param pulumi.Input[str] name: The role name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] resource_unique_id: Unique Id of the Resource.
         :param pulumi.Input[Union[str, 'RoleStatus']] role_status: Role status.
         """
         ...
@@ -150,7 +187,8 @@ class MECRole(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         MEC role.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param MECRoleArgs args: The arguments to use to populate this resource's properties.
@@ -168,10 +206,12 @@ class MECRole(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_string: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
+                 controller_endpoint: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_unique_id: Optional[pulumi.Input[str]] = None,
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -183,6 +223,7 @@ class MECRole(pulumi.CustomResource):
             __props__ = MECRoleArgs.__new__(MECRoleArgs)
 
             __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["controller_endpoint"] = controller_endpoint
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
@@ -193,6 +234,7 @@ class MECRole(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_unique_id"] = resource_unique_id
             if role_status is None and not opts.urn:
                 raise TypeError("Missing required property 'role_status'")
             __props__.__dict__["role_status"] = role_status
@@ -223,8 +265,10 @@ class MECRole(pulumi.CustomResource):
         __props__ = MECRoleArgs.__new__(MECRoleArgs)
 
         __props__.__dict__["connection_string"] = None
+        __props__.__dict__["controller_endpoint"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["resource_unique_id"] = None
         __props__.__dict__["role_status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -237,6 +281,14 @@ class MECRole(pulumi.CustomResource):
         Activation key of the MEC.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="controllerEndpoint")
+    def controller_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        Controller Endpoint.
+        """
+        return pulumi.get(self, "controller_endpoint")
 
     @property
     @pulumi.getter
@@ -256,6 +308,14 @@ class MECRole(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="resourceUniqueId")
+    def resource_unique_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Unique Id of the Resource.
+        """
+        return pulumi.get(self, "resource_unique_id")
+
+    @property
     @pulumi.getter(name="roleStatus")
     def role_status(self) -> pulumi.Output[str]:
         """
@@ -267,7 +327,7 @@ class MECRole(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Role configured on ASE resource
+        Metadata pertaining to creation and last modification of Role
         """
         return pulumi.get(self, "system_data")
 

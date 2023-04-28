@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkSecurityGroup resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("flowLogs")]
         public Output<ImmutableArray<Outputs.FlowLogResponse>> FlowLogs { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        /// </summary>
+        [Output("flushConnection")]
+        public Output<bool?> FlushConnection { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -180,6 +187,12 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class NetworkSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        /// </summary>
+        [Input("flushConnection")]
+        public Input<bool>? FlushConnection { get; set; }
+
         /// <summary>
         /// Resource ID.
         /// </summary>

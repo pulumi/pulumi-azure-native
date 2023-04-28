@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Backend details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Backend extends pulumi.CustomResource {
     /**
@@ -47,7 +48,7 @@ export class Backend extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -59,11 +60,11 @@ export class Backend extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
-     * Backend Proxy Contract Properties
+     * Backend gateway Contract Properties
      */
     public readonly proxy!: pulumi.Output<outputs.apimanagement.BackendProxyContractResponse | undefined>;
     /**
-     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+     * Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
      */
     public readonly resourceId!: pulumi.Output<string | undefined>;
     /**
@@ -75,7 +76,7 @@ export class Backend extends pulumi.CustomResource {
      */
     public readonly tls!: pulumi.Output<outputs.apimanagement.BackendTlsPropertiesResponse | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -165,15 +166,15 @@ export interface BackendArgs {
      */
     protocol: pulumi.Input<string | enums.apimanagement.BackendProtocol>;
     /**
-     * Backend Proxy Contract Properties
+     * Backend gateway Contract Properties
      */
     proxy?: pulumi.Input<inputs.apimanagement.BackendProxyContractArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+     * Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
      */
     resourceId?: pulumi.Input<string>;
     /**

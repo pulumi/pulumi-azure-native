@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get tag associated with the API.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getTagByApi(args: GetTagByApiArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByApiResult> {
 
@@ -25,7 +25,7 @@ export interface GetTagByApiArgs {
      */
     apiId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -47,21 +47,21 @@ export interface GetTagByApiResult {
      */
     readonly displayName: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get tag associated with the API.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getTagByApiOutput(args: GetTagByApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByApiResult> {
     return pulumi.output(args).apply((a: any) => getTagByApi(a, opts))
@@ -73,7 +73,7 @@ export interface GetTagByApiOutputArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

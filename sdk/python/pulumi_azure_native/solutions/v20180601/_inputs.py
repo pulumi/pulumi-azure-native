@@ -11,108 +11,12 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ApplicationAuthorizationArgs',
-    'ApplicationDefinitionArtifactArgs',
     'ApplicationJitAccessPolicyArgs',
-    'ApplicationPolicyArgs',
     'IdentityArgs',
     'JitApproverDefinitionArgs',
-    'JitAuthorizationPoliciesArgs',
-    'JitSchedulingPolicyArgs',
     'PlanArgs',
     'SkuArgs',
 ]
-
-@pulumi.input_type
-class ApplicationAuthorizationArgs:
-    def __init__(__self__, *,
-                 principal_id: pulumi.Input[str],
-                 role_definition_id: pulumi.Input[str]):
-        """
-        The managed application provider authorization.
-        :param pulumi.Input[str] principal_id: The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-        :param pulumi.Input[str] role_definition_id: The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[str]:
-        """
-        The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[str]:
-        """
-        The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_definition_id", value)
-
-
-@pulumi.input_type
-class ApplicationDefinitionArtifactArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']],
-                 type: pulumi.Input['ApplicationArtifactType'],
-                 uri: pulumi.Input[str]):
-        """
-        Application definition artifact.
-        :param pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']] name: The managed application definition artifact name.
-        :param pulumi.Input['ApplicationArtifactType'] type: The managed application definition artifact type.
-        :param pulumi.Input[str] uri: The managed application definition artifact blob uri.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']]:
-        """
-        The managed application definition artifact name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['ApplicationArtifactType']:
-        """
-        The managed application definition artifact type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['ApplicationArtifactType']):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def uri(self) -> pulumi.Input[str]:
-        """
-        The managed application definition artifact blob uri.
-        """
-        return pulumi.get(self, "uri")
-
-    @uri.setter
-    def uri(self, value: pulumi.Input[str]):
-        pulumi.set(self, "uri", value)
-
 
 @pulumi.input_type
 class ApplicationJitAccessPolicyArgs:
@@ -183,62 +87,6 @@ class ApplicationJitAccessPolicyArgs:
     @maximum_jit_access_duration.setter
     def maximum_jit_access_duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maximum_jit_access_duration", value)
-
-
-@pulumi.input_type
-class ApplicationPolicyArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[str]] = None,
-                 policy_definition_id: Optional[pulumi.Input[str]] = None):
-        """
-        Managed application policy.
-        :param pulumi.Input[str] name: The policy name
-        :param pulumi.Input[str] parameters: The policy parameters.
-        :param pulumi.Input[str] policy_definition_id: The policy definition Id.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The policy name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[str]]:
-        """
-        The policy parameters.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "parameters", value)
-
-    @property
-    @pulumi.getter(name="policyDefinitionId")
-    def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The policy definition Id.
-        """
-        return pulumi.get(self, "policy_definition_id")
-
-    @policy_definition_id.setter
-    def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_definition_id", value)
 
 
 @pulumi.input_type
@@ -333,93 +181,6 @@ class JitApproverDefinitionArgs:
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'JitApproverType']]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class JitAuthorizationPoliciesArgs:
-    def __init__(__self__, *,
-                 principal_id: pulumi.Input[str],
-                 role_definition_id: pulumi.Input[str]):
-        """
-        The JIT authorization policies.
-        :param pulumi.Input[str] principal_id: The the principal id that will be granted JIT access.
-        :param pulumi.Input[str] role_definition_id: The role definition id that will be granted to the Principal.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[str]:
-        """
-        The the principal id that will be granted JIT access.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[str]:
-        """
-        The role definition id that will be granted to the Principal.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_definition_id", value)
-
-
-@pulumi.input_type
-class JitSchedulingPolicyArgs:
-    def __init__(__self__, *,
-                 duration: pulumi.Input[str],
-                 start_time: pulumi.Input[str],
-                 type: pulumi.Input[Union[str, 'JitSchedulingType']]):
-        """
-        The JIT scheduling policies.
-        :param pulumi.Input[str] start_time: The start time of the request.
-        :param pulumi.Input[Union[str, 'JitSchedulingType']] type: The type of JIT schedule.
-        """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "duration")
-
-    @duration.setter
-    def duration(self, value: pulumi.Input[str]):
-        pulumi.set(self, "duration", value)
-
-    @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> pulumi.Input[str]:
-        """
-        The start time of the request.
-        """
-        return pulumi.get(self, "start_time")
-
-    @start_time.setter
-    def start_time(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_time", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'JitSchedulingType']]:
-        """
-        The type of JIT schedule.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'JitSchedulingType']]):
         pulumi.set(self, "type", value)
 
 

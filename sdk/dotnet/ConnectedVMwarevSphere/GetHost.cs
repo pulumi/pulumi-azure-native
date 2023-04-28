@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements host GET method.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2022-07-15-preview.
         /// </summary>
         public static Task<GetHostResult> InvokeAsync(GetHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements host GET method.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2022-07-15-preview.
         /// </summary>
         public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string CustomResourceName;
         /// <summary>
+        /// Gets or sets the datastore ARM ids.
+        /// </summary>
+        public readonly ImmutableArray<string> DatastoreIds;
+        /// <summary>
         /// Gets or sets the extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -107,6 +111,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Gets or sets the name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Gets or sets the network ARM ids.
+        /// </summary>
+        public readonly ImmutableArray<string> NetworkIds;
         /// <summary>
         /// Gets or sets the provisioning state.
         /// </summary>
@@ -140,6 +148,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         private GetHostResult(
             string customResourceName,
 
+            ImmutableArray<string> datastoreIds,
+
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,
@@ -156,6 +166,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string name,
 
+            ImmutableArray<string> networkIds,
+
             string provisioningState,
 
             ImmutableArray<Outputs.ResourceStatusResponse> statuses,
@@ -171,6 +183,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             string? vCenterId)
         {
             CustomResourceName = customResourceName;
+            DatastoreIds = datastoreIds;
             ExtendedLocation = extendedLocation;
             Id = id;
             InventoryItemId = inventoryItemId;
@@ -179,6 +192,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             MoName = moName;
             MoRefId = moRefId;
             Name = name;
+            NetworkIds = networkIds;
             ProvisioningState = provisioningState;
             Statuses = statuses;
             SystemData = systemData;

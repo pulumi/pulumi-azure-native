@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a network manager security configuration admin rule.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleResult> {
 
@@ -25,7 +25,7 @@ export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions
 
 export interface GetAdminRuleArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: string;
     /**
@@ -71,10 +71,6 @@ export interface GetAdminRuleResult {
      */
     readonly direction: string;
     /**
-     * A friendly name for the rule.
-     */
-    readonly displayName?: string;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -94,7 +90,7 @@ export interface GetAdminRuleResult {
     /**
      * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    readonly priority?: number;
+    readonly priority: number;
     /**
      * Network protocol this rule applies to.
      */
@@ -122,7 +118,7 @@ export interface GetAdminRuleResult {
 }
 /**
  * Gets a network manager security configuration admin rule.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getAdminRuleOutput(args: GetAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleResult> {
     return pulumi.output(args).apply((a: any) => getAdminRule(a, opts))
@@ -130,7 +126,7 @@ export function getAdminRuleOutput(args: GetAdminRuleOutputArgs, opts?: pulumi.I
 
 export interface GetAdminRuleOutputArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

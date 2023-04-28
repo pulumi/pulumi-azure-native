@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified packet core control plane.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-11-01.
  */
 export function getPacketCoreControlPlane(args: GetPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreControlPlaneResult> {
 
@@ -44,18 +44,6 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly coreNetworkTechnology?: string;
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -64,33 +52,21 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly identity?: outputs.mobilenetwork.ManagedServiceIdentityResponse;
     /**
+     * The installation state of the packet core control plane resource.
+     */
+    readonly installation: outputs.mobilenetwork.InstallationResponse;
+    /**
      * Settings to allow interoperability with third party components e.g. RANs and UEs.
      */
     readonly interopSettings?: any;
     /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
-    /**
      * The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
      */
-    readonly localDiagnosticsAccess?: outputs.mobilenetwork.LocalDiagnosticsAccessConfigurationResponse;
+    readonly localDiagnosticsAccess: outputs.mobilenetwork.LocalDiagnosticsAccessConfigurationResponse;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
-    /**
-     * Mobile network in which this packet core control plane is deployed.
-     */
-    readonly mobileNetwork: outputs.mobilenetwork.MobileNetworkResourceIdResponse;
     /**
      * The name of the resource
      */
@@ -98,11 +74,19 @@ export interface GetPacketCoreControlPlaneResult {
     /**
      * The platform where the packet core is deployed.
      */
-    readonly platform?: outputs.mobilenetwork.PlatformConfigurationResponse;
+    readonly platform: outputs.mobilenetwork.PlatformConfigurationResponse;
     /**
      * The provisioning state of the packet core control plane resource.
      */
     readonly provisioningState: string;
+    /**
+     * The previous version of the packet core software that was deployed. Used when performing the rollback action.
+     */
+    readonly rollbackVersion: string;
+    /**
+     * Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
+     */
+    readonly sites: outputs.mobilenetwork.SiteResourceIdResponse[];
     /**
      * The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
      */
@@ -120,13 +104,17 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly type: string;
     /**
+     * The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
+     */
+    readonly ueMtu?: number;
+    /**
      * The version of the packet core software that is deployed.
      */
     readonly version?: string;
 }
 /**
  * Gets information about the specified packet core control plane.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-11-01.
  */
 export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
     return pulumi.output(args).apply((a: any) => getPacketCoreControlPlane(a, opts))

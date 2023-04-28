@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a scaling plan definition.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2022-09-09.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlan")]
     public partial class ScalingPlan : global::Pulumi.CustomResource
@@ -89,19 +90,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// The ring number of scaling plan.
-        /// </summary>
-        [Output("ring")]
-        public Output<int?> Ring { get; private set; } = null!;
-
-        /// <summary>
-        /// List of ScalingSchedule definitions.
+        /// List of ScalingPlanPooledSchedule definitions.
         /// </summary>
         [Output("schedules")]
         public Output<ImmutableArray<Outputs.ScalingScheduleResponse>> Schedules { get; private set; } = null!;
 
         [Output("sku")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -113,7 +114,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Timezone of the scaling plan.
         /// </summary>
         [Output("timeZone")]
-        public Output<string?> TimeZone { get; private set; } = null!;
+        public Output<string> TimeZone { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -214,7 +215,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// HostPool type for desktop.
         /// </summary>
         [Input("hostPoolType")]
-        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.HostPoolType>? HostPoolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.ScalingHostPoolType>? HostPoolType { get; set; }
 
         [Input("identity")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
@@ -247,12 +248,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ring number of scaling plan.
-        /// </summary>
-        [Input("ring")]
-        public Input<int>? Ring { get; set; }
-
-        /// <summary>
         /// The name of the scaling plan.
         /// </summary>
         [Input("scalingPlanName")]
@@ -262,7 +257,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         private InputList<Inputs.ScalingScheduleArgs>? _schedules;
 
         /// <summary>
-        /// List of ScalingSchedule definitions.
+        /// List of ScalingPlanPooledSchedule definitions.
         /// </summary>
         public InputList<Inputs.ScalingScheduleArgs> Schedules
         {
@@ -288,11 +283,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Timezone of the scaling plan.
         /// </summary>
-        [Input("timeZone")]
-        public Input<string>? TimeZone { get; set; }
+        [Input("timeZone", required: true)]
+        public Input<string> TimeZone { get; set; } = null!;
 
         public ScalingPlanArgs()
         {
+            HostPoolType = "Pooled";
         }
         public static new ScalingPlanArgs Empty => new ScalingPlanArgs();
     }

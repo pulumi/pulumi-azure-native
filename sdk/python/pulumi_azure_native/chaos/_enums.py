@@ -5,10 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'FilterType',
     'ResourceIdentityType',
     'SelectorType',
     'TargetReferenceType',
 ]
+
+
+class FilterType(str, Enum):
+    """
+    Enum that discriminates between filter types. Currently only `Simple` type is supported.
+    """
+    SIMPLE = "Simple"
 
 
 class ResourceIdentityType(str, Enum):

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string Extension;
         /// <summary>
+        /// The extension instance view.
+        /// </summary>
+        public readonly Outputs.ExtensionInstanceViewResponse InstanceView;
+        /// <summary>
         /// Name of the node in HCI Cluster.
         /// </summary>
         public readonly string Name;
@@ -28,18 +32,28 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// State of Arc Extension in this node.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Specifies the version of the script handler.
+        /// </summary>
+        public readonly string TypeHandlerVersion;
 
         [OutputConstructor]
         private PerNodeExtensionStateResponse(
             string extension,
 
+            Outputs.ExtensionInstanceViewResponse instanceView,
+
             string name,
 
-            string state)
+            string state,
+
+            string typeHandlerVersion)
         {
             Extension = extension;
+            InstanceView = instanceView;
             Name = name;
             State = state;
+            TypeHandlerVersion = typeHandlerVersion;
         }
     }
 }

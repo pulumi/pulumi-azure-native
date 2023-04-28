@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the details of a registered vCenter server(Add vCenter server.)
- * API Version: 2018-07-10.
+ * Gets the details of a registered vCenter server(Add vCenter server).
+ * API Version: 2023-02-01.
  */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
 
@@ -18,7 +18,7 @@ export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pu
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
-        "vCenterName": args.vCenterName,
+        "vcenterName": args.vcenterName,
     }, opts);
 }
 
@@ -36,9 +36,9 @@ export interface GetReplicationvCenterArgs {
      */
     resourceName: string;
     /**
-     * vCenter name.
+     * vcenter name.
      */
-    vCenterName: string;
+    vcenterName: string;
 }
 
 /**
@@ -67,8 +67,8 @@ export interface GetReplicationvCenterResult {
     readonly type: string;
 }
 /**
- * Gets the details of a registered vCenter server(Add vCenter server.)
- * API Version: 2018-07-10.
+ * Gets the details of a registered vCenter server(Add vCenter server).
+ * API Version: 2023-02-01.
  */
 export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationvCenterResult> {
     return pulumi.output(args).apply((a: any) => getReplicationvCenter(a, opts))
@@ -88,7 +88,7 @@ export interface GetReplicationvCenterOutputArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * vCenter name.
+     * vcenter name.
      */
-    vCenterName: pulumi.Input<string>;
+    vcenterName: pulumi.Input<string>;
 }

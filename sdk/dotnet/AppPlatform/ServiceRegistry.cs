@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Service Registry resource
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ServiceRegistry")]
     public partial class ServiceRegistry : global::Pulumi.CustomResource
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ServiceRegistry"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:ServiceRegistry"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ServiceRegistry"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ServiceRegistry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

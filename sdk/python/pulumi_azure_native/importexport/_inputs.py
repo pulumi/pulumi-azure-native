@@ -104,7 +104,7 @@ class DriveStatusArgs:
                  manifest_file: Optional[pulumi.Input[str]] = None,
                  manifest_hash: Optional[pulumi.Input[str]] = None,
                  manifest_uri: Optional[pulumi.Input[str]] = None,
-                 percent_complete: Optional[pulumi.Input[int]] = None,
+                 percent_complete: Optional[pulumi.Input[float]] = None,
                  state: Optional[pulumi.Input[Union[str, 'DriveState']]] = None,
                  verbose_log_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -118,7 +118,7 @@ class DriveStatusArgs:
         :param pulumi.Input[str] manifest_file: The relative path of the manifest file on the drive. 
         :param pulumi.Input[str] manifest_hash: The Base16-encoded MD5 hash of the manifest file on the drive.
         :param pulumi.Input[str] manifest_uri: A URI that points to the blob containing the drive manifest file. 
-        :param pulumi.Input[int] percent_complete: Percentage completed for the drive. 
+        :param pulumi.Input[float] percent_complete: Percentage completed for the drive. 
         :param pulumi.Input[Union[str, 'DriveState']] state: The drive's current state. 
         :param pulumi.Input[str] verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation. 
         """
@@ -259,14 +259,14 @@ class DriveStatusArgs:
 
     @property
     @pulumi.getter(name="percentComplete")
-    def percent_complete(self) -> Optional[pulumi.Input[int]]:
+    def percent_complete(self) -> Optional[pulumi.Input[float]]:
         """
         Percentage completed for the drive. 
         """
         return pulumi.get(self, "percent_complete")
 
     @percent_complete.setter
-    def percent_complete(self, value: Optional[pulumi.Input[int]]):
+    def percent_complete(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "percent_complete", value)
 
     @property
@@ -421,7 +421,7 @@ class JobDetailsArgs:
                  incomplete_blob_list_uri: Optional[pulumi.Input[str]] = None,
                  job_type: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
-                 percent_complete: Optional[pulumi.Input[int]] = None,
+                 percent_complete: Optional[pulumi.Input[float]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  return_address: Optional[pulumi.Input['ReturnAddressArgs']] = None,
                  return_package: Optional[pulumi.Input['PackageInformationArgs']] = None,
@@ -441,7 +441,7 @@ class JobDetailsArgs:
         :param pulumi.Input[str] incomplete_blob_list_uri: A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
         :param pulumi.Input[str] job_type: The type of job
         :param pulumi.Input[str] log_level: Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-        :param pulumi.Input[int] percent_complete: Overall percentage completed for the job.
+        :param pulumi.Input[float] percent_complete: Overall percentage completed for the job.
         :param pulumi.Input[str] provisioning_state: Specifies the provisioning state of the job.
         :param pulumi.Input['ReturnAddressArgs'] return_address: Specifies the return address information for the job. 
         :param pulumi.Input['PackageInformationArgs'] return_package: Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
@@ -615,14 +615,14 @@ class JobDetailsArgs:
 
     @property
     @pulumi.getter(name="percentComplete")
-    def percent_complete(self) -> Optional[pulumi.Input[int]]:
+    def percent_complete(self) -> Optional[pulumi.Input[float]]:
         """
         Overall percentage completed for the job.
         """
         return pulumi.get(self, "percent_complete")
 
     @percent_complete.setter
-    def percent_complete(self, value: Optional[pulumi.Input[int]]):
+    def percent_complete(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "percent_complete", value)
 
     @property

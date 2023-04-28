@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// Extension resource.
-    /// API Version: 2020-05-12-preview.
+    /// API Version: 2021-09-01-preview.
+    /// Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional api properties.
+        /// </summary>
+        [Output("additionalApiProperties")]
+        public Output<ImmutableDictionary<string, Outputs.ApiPropertiesResponse>> AdditionalApiProperties { get; private set; } = null!;
+
         /// <summary>
         /// The ETag value to implement optimistic concurrency.
         /// </summary>
@@ -59,7 +66,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -120,11 +127,29 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
     public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalApiProperties")]
+        private InputMap<Inputs.ApiPropertiesArgs>? _additionalApiProperties;
+
+        /// <summary>
+        /// Additional Api Properties.
+        /// </summary>
+        public InputMap<Inputs.ApiPropertiesArgs> AdditionalApiProperties
+        {
+            get => _additionalApiProperties ?? (_additionalApiProperties = new InputMap<Inputs.ApiPropertiesArgs>());
+            set => _additionalApiProperties = value;
+        }
+
         /// <summary>
         /// Id of extension resource.
         /// </summary>
         [Input("extensionId")]
         public Input<string>? ExtensionId { get; set; }
+
+        /// <summary>
+        /// Extension Version.
+        /// </summary>
+        [Input("extensionVersion")]
+        public Input<string>? ExtensionVersion { get; set; }
 
         /// <summary>
         /// FarmBeats resource name.

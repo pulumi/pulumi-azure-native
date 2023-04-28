@@ -11,16 +11,23 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// The security connector resource.
-    /// API Version: 2021-07-01-preview.
+    /// API Version: 2022-08-01-preview.
+    /// Previous API Version: 2021-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityConnector")]
     public partial class SecurityConnector : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The security connector environment data.
+        /// </summary>
+        [Output("environmentData")]
+        public Output<object?> EnvironmentData { get; private set; } = null!;
+
+        /// <summary>
         /// The multi cloud resource's cloud name.
         /// </summary>
-        [Output("cloudName")]
-        public Output<string?> CloudName { get; private set; } = null!;
+        [Output("environmentName")]
+        public Output<string?> EnvironmentName { get; private set; } = null!;
 
         /// <summary>
         /// Entity tag is used for comparing two or more entities from the same requested resource.
@@ -29,10 +36,16 @@ namespace Pulumi.AzureNative.Security
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The multi cloud resource identifier (account id in case of AWS connector).
+        /// The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         /// </summary>
         [Output("hierarchyIdentifier")]
         public Output<string?> HierarchyIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The date on which the trial period will end, if applicable. Trial period exists for 30 days after upgrading to payed offerings.
+        /// </summary>
+        [Output("hierarchyIdentifierTrialEndDate")]
+        public Output<string> HierarchyIdentifierTrialEndDate { get; private set; } = null!;
 
         /// <summary>
         /// Kind of the resource
@@ -57,12 +70,6 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("offerings")]
         public Output<ImmutableArray<object>> Offerings { get; private set; } = null!;
-
-        /// <summary>
-        /// The multi cloud account's organizational data
-        /// </summary>
-        [Output("organizationalData")]
-        public Output<Outputs.SecurityConnectorPropertiesResponseOrganizationalData?> OrganizationalData { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -111,6 +118,7 @@ namespace Pulumi.AzureNative.Security
                     new global::Pulumi.Alias { Type = "azure-native:security/v20211201preview:SecurityConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:security/v20220501preview:SecurityConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:security/v20220801preview:SecurityConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20230301preview:SecurityConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,13 +143,19 @@ namespace Pulumi.AzureNative.Security
     public sealed class SecurityConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The multi cloud resource's cloud name.
+        /// The security connector environment data.
         /// </summary>
-        [Input("cloudName")]
-        public InputUnion<string, Pulumi.AzureNative.Security.CloudName>? CloudName { get; set; }
+        [Input("environmentData")]
+        public object? EnvironmentData { get; set; }
 
         /// <summary>
-        /// The multi cloud resource identifier (account id in case of AWS connector).
+        /// The multi cloud resource's cloud name.
+        /// </summary>
+        [Input("environmentName")]
+        public InputUnion<string, Pulumi.AzureNative.Security.CloudName>? EnvironmentName { get; set; }
+
+        /// <summary>
+        /// The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         /// </summary>
         [Input("hierarchyIdentifier")]
         public Input<string>? HierarchyIdentifier { get; set; }
@@ -169,12 +183,6 @@ namespace Pulumi.AzureNative.Security
             get => _offerings ?? (_offerings = new InputList<object>());
             set => _offerings = value;
         }
-
-        /// <summary>
-        /// The multi cloud account's organizational data
-        /// </summary>
-        [Input("organizationalData")]
-        public Input<Inputs.SecurityConnectorPropertiesOrganizationalDataArgs>? OrganizationalData { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

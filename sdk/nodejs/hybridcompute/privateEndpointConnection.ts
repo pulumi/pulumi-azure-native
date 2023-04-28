@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * API Version: 2021-03-25-preview.
+ * API Version: 2022-11-10.
+ * Previous API Version: 2021-03-25-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -47,7 +48,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.hybridcompute.PrivateEndpointConnectionPropertiesResponse>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**

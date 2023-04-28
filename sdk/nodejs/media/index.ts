@@ -65,15 +65,25 @@ export const getLiveEvent: typeof import("./getLiveEvent").getLiveEvent = null a
 export const getLiveEventOutput: typeof import("./getLiveEvent").getLiveEventOutput = null as any;
 utilities.lazyLoad(exports, ["getLiveEvent","getLiveEventOutput"], () => require("./getLiveEvent"));
 
+export { GetLiveEventStatusArgs, GetLiveEventStatusResult, GetLiveEventStatusOutputArgs } from "./getLiveEventStatus";
+export const getLiveEventStatus: typeof import("./getLiveEventStatus").getLiveEventStatus = null as any;
+export const getLiveEventStatusOutput: typeof import("./getLiveEventStatus").getLiveEventStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getLiveEventStatus","getLiveEventStatusOutput"], () => require("./getLiveEventStatus"));
+
+export { GetLiveEventStreamEventsArgs, GetLiveEventStreamEventsResult, GetLiveEventStreamEventsOutputArgs } from "./getLiveEventStreamEvents";
+export const getLiveEventStreamEvents: typeof import("./getLiveEventStreamEvents").getLiveEventStreamEvents = null as any;
+export const getLiveEventStreamEventsOutput: typeof import("./getLiveEventStreamEvents").getLiveEventStreamEventsOutput = null as any;
+utilities.lazyLoad(exports, ["getLiveEventStreamEvents","getLiveEventStreamEventsOutput"], () => require("./getLiveEventStreamEvents"));
+
+export { GetLiveEventTrackIngestHeartbeatsArgs, GetLiveEventTrackIngestHeartbeatsResult, GetLiveEventTrackIngestHeartbeatsOutputArgs } from "./getLiveEventTrackIngestHeartbeats";
+export const getLiveEventTrackIngestHeartbeats: typeof import("./getLiveEventTrackIngestHeartbeats").getLiveEventTrackIngestHeartbeats = null as any;
+export const getLiveEventTrackIngestHeartbeatsOutput: typeof import("./getLiveEventTrackIngestHeartbeats").getLiveEventTrackIngestHeartbeatsOutput = null as any;
+utilities.lazyLoad(exports, ["getLiveEventTrackIngestHeartbeats","getLiveEventTrackIngestHeartbeatsOutput"], () => require("./getLiveEventTrackIngestHeartbeats"));
+
 export { GetLiveOutputArgs, GetLiveOutputResult, GetLiveOutputOutputArgs } from "./getLiveOutput";
 export const getLiveOutput: typeof import("./getLiveOutput").getLiveOutput = null as any;
 export const getLiveOutputOutput: typeof import("./getLiveOutput").getLiveOutputOutput = null as any;
 utilities.lazyLoad(exports, ["getLiveOutput","getLiveOutputOutput"], () => require("./getLiveOutput"));
-
-export { GetMediaGraphArgs, GetMediaGraphResult, GetMediaGraphOutputArgs } from "./getMediaGraph";
-export const getMediaGraph: typeof import("./getMediaGraph").getMediaGraph = null as any;
-export const getMediaGraphOutput: typeof import("./getMediaGraph").getMediaGraphOutput = null as any;
-utilities.lazyLoad(exports, ["getMediaGraph","getMediaGraphOutput"], () => require("./getMediaGraph"));
 
 export { GetMediaServiceArgs, GetMediaServiceResult, GetMediaServiceOutputArgs } from "./getMediaService";
 export const getMediaService: typeof import("./getMediaService").getMediaService = null as any;
@@ -155,11 +165,6 @@ export type LiveOutput = import("./liveOutput").LiveOutput;
 export const LiveOutput: typeof import("./liveOutput").LiveOutput = null as any;
 utilities.lazyLoad(exports, ["LiveOutput"], () => require("./liveOutput"));
 
-export { MediaGraphArgs } from "./mediaGraph";
-export type MediaGraph = import("./mediaGraph").MediaGraph;
-export const MediaGraph: typeof import("./mediaGraph").MediaGraph = null as any;
-utilities.lazyLoad(exports, ["MediaGraph"], () => require("./mediaGraph"));
-
 export { MediaServiceArgs } from "./mediaService";
 export type MediaService = import("./mediaService").MediaService;
 export const MediaService: typeof import("./mediaService").MediaService = null as any;
@@ -205,13 +210,11 @@ import * as v20180330preview from "./v20180330preview";
 import * as v20180601preview from "./v20180601preview";
 import * as v20180701 from "./v20180701";
 import * as v20190501preview from "./v20190501preview";
-import * as v20190901preview from "./v20190901preview";
 import * as v20200201preview from "./v20200201preview";
 import * as v20200501 from "./v20200501";
 import * as v20210501 from "./v20210501";
 import * as v20210601 from "./v20210601";
 import * as v20211101 from "./v20211101";
-import * as v20220501preview from "./v20220501preview";
 import * as v20220701 from "./v20220701";
 import * as v20220801 from "./v20220801";
 import * as v20221101 from "./v20221101";
@@ -223,13 +226,11 @@ export {
     v20180601preview,
     v20180701,
     v20190501preview,
-    v20190901preview,
     v20200201preview,
     v20200501,
     v20210501,
     v20210601,
     v20211101,
-    v20220501preview,
     v20220701,
     v20220801,
     v20221101,
@@ -254,8 +255,6 @@ const _module = {
                 return new LiveEvent(name, <any>undefined, { urn })
             case "azure-native:media:LiveOutput":
                 return new LiveOutput(name, <any>undefined, { urn })
-            case "azure-native:media:MediaGraph":
-                return new MediaGraph(name, <any>undefined, { urn })
             case "azure-native:media:MediaService":
                 return new MediaService(name, <any>undefined, { urn })
             case "azure-native:media:PrivateEndpointConnection":

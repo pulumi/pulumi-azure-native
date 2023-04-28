@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Describes a federated identity credential.
- * API Version: 2022-01-31-preview.
+ * API Version: 2023-01-31.
+ * Previous API Version: 2022-01-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class FederatedIdentityCredential extends pulumi.CustomResource {
     /**
@@ -52,6 +56,10 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
      */
     public readonly subject!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.managedidentity.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -89,12 +97,14 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["subject"] = args ? args.subject : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["audiences"] = undefined /*out*/;
             resourceInputs["issuer"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subject"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -121,7 +131,7 @@ export interface FederatedIdentityCredentialArgs {
      */
     issuer: pulumi.Input<string>;
     /**
-     * The name of the Resource Group to which the identity belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

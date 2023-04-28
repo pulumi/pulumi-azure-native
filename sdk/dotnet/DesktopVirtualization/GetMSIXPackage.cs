@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a msixpackage.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-09.
         /// </summary>
         public static Task<GetMSIXPackageResult> InvokeAsync(GetMSIXPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-native:desktopvirtualization:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a msixpackage.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-09.
         /// </summary>
         public static Output<GetMSIXPackageResult> Invoke(GetMSIXPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithDefaults());
@@ -132,6 +132,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string? PackageRelativePath;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -166,6 +170,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string? packageRelativePath,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? version)
@@ -182,6 +188,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             PackageFamilyName = packageFamilyName;
             PackageName = packageName;
             PackageRelativePath = packageRelativePath;
+            SystemData = systemData;
             Type = type;
             Version = version;
         }

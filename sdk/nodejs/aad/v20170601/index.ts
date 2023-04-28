@@ -15,16 +15,6 @@ export const getDomainService: typeof import("./getDomainService").getDomainServ
 export const getDomainServiceOutput: typeof import("./getDomainService").getDomainServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainService","getDomainServiceOutput"], () => require("./getDomainService"));
 
-export { GetOuContainerArgs, GetOuContainerResult, GetOuContainerOutputArgs } from "./getOuContainer";
-export const getOuContainer: typeof import("./getOuContainer").getOuContainer = null as any;
-export const getOuContainerOutput: typeof import("./getOuContainer").getOuContainerOutput = null as any;
-utilities.lazyLoad(exports, ["getOuContainer","getOuContainerOutput"], () => require("./getOuContainer"));
-
-export { OuContainerArgs } from "./ouContainer";
-export type OuContainer = import("./ouContainer").OuContainer;
-export const OuContainer: typeof import("./ouContainer").OuContainer = null as any;
-utilities.lazyLoad(exports, ["OuContainer"], () => require("./ouContainer"));
-
 
 // Export enums:
 export * from "../../types/enums/aad/v20170601";
@@ -35,8 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:aad/v20170601:DomainService":
                 return new DomainService(name, <any>undefined, { urn })
-            case "azure-native:aad/v20170601:OuContainer":
-                return new OuContainer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

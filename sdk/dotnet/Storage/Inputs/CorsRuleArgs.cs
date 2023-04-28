@@ -28,14 +28,14 @@ namespace Pulumi.AzureNative.Storage.Inputs
         }
 
         [Input("allowedMethods", required: true)]
-        private InputList<string>? _allowedMethods;
+        private InputList<Union<string, Pulumi.AzureNative.Storage.AllowedMethods>>? _allowedMethods;
 
         /// <summary>
         /// Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
         /// </summary>
-        public InputList<string> AllowedMethods
+        public InputList<Union<string, Pulumi.AzureNative.Storage.AllowedMethods>> AllowedMethods
         {
-            get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
+            get => _allowedMethods ?? (_allowedMethods = new InputList<Union<string, Pulumi.AzureNative.Storage.AllowedMethods>>());
             set => _allowedMethods = value;
         }
 

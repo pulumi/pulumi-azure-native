@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getSAPSizingRecommendations(args: GetSAPSizingRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSizingRecommendationsResult> {
 
@@ -82,7 +82,7 @@ export interface GetSAPSizingRecommendationsResult {
 }
 /**
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getSAPSizingRecommendationsOutput(args: GetSAPSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSizingRecommendationsResult> {
     return pulumi.output(args).apply((a: any) => getSAPSizingRecommendations(a, opts))

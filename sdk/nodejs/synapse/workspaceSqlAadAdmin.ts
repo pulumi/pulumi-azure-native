@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace active directory administrator
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  *
  * Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
  */
@@ -127,7 +128,7 @@ export interface WorkspaceSqlAadAdminArgs {
      */
     tenantId?: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

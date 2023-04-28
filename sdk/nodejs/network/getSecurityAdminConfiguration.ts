@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a network manager security admin configuration.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getSecurityAdminConfiguration(args: GetSecurityAdminConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityAdminConfigurationResult> {
 
@@ -23,7 +23,7 @@ export function getSecurityAdminConfiguration(args: GetSecurityAdminConfiguratio
 
 export interface GetSecurityAdminConfigurationArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: string;
     /**
@@ -37,21 +37,17 @@ export interface GetSecurityAdminConfigurationArgs {
 }
 
 /**
- * Defines the security configuration
+ * Defines the security admin configuration
  */
 export interface GetSecurityAdminConfigurationResult {
     /**
-     * Flag if need to delete existing network security groups.
+     * Enum list of network intent policy based services.
      */
-    readonly deleteExistingNSGs?: string;
+    readonly applyOnNetworkIntentPolicyBasedServices?: string[];
     /**
      * A description of the security configuration.
      */
     readonly description?: string;
-    /**
-     * A display name of the security configuration.
-     */
-    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -69,10 +65,6 @@ export interface GetSecurityAdminConfigurationResult {
      */
     readonly provisioningState: string;
     /**
-     * Security Type.
-     */
-    readonly securityType?: string;
-    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -83,7 +75,7 @@ export interface GetSecurityAdminConfigurationResult {
 }
 /**
  * Retrieves a network manager security admin configuration.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getSecurityAdminConfigurationOutput(args: GetSecurityAdminConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityAdminConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSecurityAdminConfiguration(a, opts))
@@ -91,7 +83,7 @@ export function getSecurityAdminConfigurationOutput(args: GetSecurityAdminConfig
 
 export interface GetSecurityAdminConfigurationOutputArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

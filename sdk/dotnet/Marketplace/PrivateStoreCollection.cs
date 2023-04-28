@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Marketplace
 {
     /// <summary>
     /// The Collection data structure.
-    /// API Version: 2021-12-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollection")]
     public partial class PrivateStoreCollection : global::Pulumi.CustomResource
@@ -21,6 +22,24 @@ namespace Pulumi.AzureNative.Marketplace
         /// </summary>
         [Output("allSubscriptions")]
         public Output<bool?> AllSubscriptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets list of collection rules
+        /// </summary>
+        [Output("appliedRules")]
+        public Output<ImmutableArray<Outputs.RuleResponse>> AppliedRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicating whether all items are approved for this collection (=true) or not (=false).
+        /// </summary>
+        [Output("approveAllItems")]
+        public Output<bool> ApproveAllItems { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the modified date of all items approved.
+        /// </summary>
+        [Output("approveAllItemsModifiedAt")]
+        public Output<string> ApproveAllItemsModifiedAt { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the association with Commercial's Billing Account.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists DNS resolver resource IDs linked to a virtual network.
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-07-01.
  */
 export function listDnsResolverByVirtualNetwork(args: ListDnsResolverByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsResolverByVirtualNetworkResult> {
 
@@ -51,7 +51,7 @@ export interface ListDnsResolverByVirtualNetworkResult {
 }
 /**
  * Lists DNS resolver resource IDs linked to a virtual network.
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-07-01.
  */
 export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => listDnsResolverByVirtualNetwork(a, opts))

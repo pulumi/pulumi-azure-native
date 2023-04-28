@@ -26,10 +26,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Instant RP retention policy range in days
         /// </summary>
         public readonly int? InstantRpRetentionRangeInDays;
+        public readonly string? PolicyType;
         /// <summary>
         /// Number of items associated with this policy.
         /// </summary>
         public readonly int? ProtectedItemsCount;
+        /// <summary>
+        /// ResourceGuard Operation Requests
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
         /// <summary>
         /// Retention policy with the details on backup copy retention ranges.
         /// </summary>
@@ -38,6 +43,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Backup schedule specified as part of backup policy.
         /// </summary>
         public readonly object? SchedulePolicy;
+        /// <summary>
+        /// Tiering policy to automatically move RPs to another tier
+        /// Key is Target Tier, defined in RecoveryPointTierType enum.
+        /// Tiering policy specifies the criteria to move RP to the target tier.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.TieringPolicyResponse>? TieringPolicy;
         /// <summary>
         /// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         /// </summary>
@@ -51,20 +62,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? instantRpRetentionRangeInDays,
 
+            string? policyType,
+
             int? protectedItemsCount,
+
+            ImmutableArray<string> resourceGuardOperationRequests,
 
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
             object? schedulePolicy,
+
+            ImmutableDictionary<string, Outputs.TieringPolicyResponse>? tieringPolicy,
 
             string? timeZone)
         {
             BackupManagementType = backupManagementType;
             InstantRPDetails = instantRPDetails;
             InstantRpRetentionRangeInDays = instantRpRetentionRangeInDays;
+            PolicyType = policyType;
             ProtectedItemsCount = protectedItemsCount;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
+            TieringPolicy = tieringPolicy;
             TimeZone = timeZone;
         }
     }

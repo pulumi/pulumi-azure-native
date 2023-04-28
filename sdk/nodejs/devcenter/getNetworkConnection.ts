@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a network connection resource
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
  */
 export function getNetworkConnection(args: GetNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkConnectionResult> {
 
@@ -26,7 +26,7 @@ export interface GetNetworkConnectionArgs {
      */
     networkConnectionName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -98,7 +98,7 @@ export interface GetNetworkConnectionResult {
 }
 /**
  * Gets a network connection resource
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
  */
 export function getNetworkConnectionOutput(args: GetNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkConnectionResult> {
     return pulumi.output(args).apply((a: any) => getNetworkConnection(a, opts))
@@ -110,7 +110,7 @@ export interface GetNetworkConnectionOutputArgs {
      */
     networkConnectionName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

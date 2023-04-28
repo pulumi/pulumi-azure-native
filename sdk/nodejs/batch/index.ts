@@ -20,11 +20,6 @@ export type BatchAccount = import("./batchAccount").BatchAccount;
 export const BatchAccount: typeof import("./batchAccount").BatchAccount = null as any;
 utilities.lazyLoad(exports, ["BatchAccount"], () => require("./batchAccount"));
 
-export { CertificateArgs } from "./certificate";
-export type Certificate = import("./certificate").Certificate;
-export const Certificate: typeof import("./certificate").Certificate = null as any;
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
@@ -39,11 +34,6 @@ export { GetBatchAccountArgs, GetBatchAccountResult, GetBatchAccountOutputArgs }
 export const getBatchAccount: typeof import("./getBatchAccount").getBatchAccount = null as any;
 export const getBatchAccountOutput: typeof import("./getBatchAccount").getBatchAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getBatchAccount","getBatchAccountOutput"], () => require("./getBatchAccount"));
-
-export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
-export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
-export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
-utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
 export const getPool: typeof import("./getPool").getPool = null as any;
@@ -109,8 +99,6 @@ const _module = {
                 return new ApplicationPackage(name, <any>undefined, { urn })
             case "azure-native:batch:BatchAccount":
                 return new BatchAccount(name, <any>undefined, { urn })
-            case "azure-native:batch:Certificate":
-                return new Certificate(name, <any>undefined, { urn })
             case "azure-native:batch:Pool":
                 return new Pool(name, <any>undefined, { urn })
             default:

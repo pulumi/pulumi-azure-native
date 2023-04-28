@@ -16,7 +16,13 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class SharingProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups**
+        /// Information of community gallery if current gallery is shared to community.
+        /// </summary>
+        [Input("communityGalleryInfo")]
+        public Input<Inputs.CommunityGalleryInfoArgs>? CommunityGalleryInfo { get; set; }
+
+        /// <summary>
+        /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups** &lt;br&gt;&lt;br&gt; **Community**
         /// </summary>
         [Input("permissions")]
         public InputUnion<string, Pulumi.AzureNative.Compute.GallerySharingPermissionTypes>? Permissions { get; set; }

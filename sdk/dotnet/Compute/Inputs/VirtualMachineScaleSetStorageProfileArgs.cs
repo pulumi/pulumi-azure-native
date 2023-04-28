@@ -27,6 +27,14 @@ namespace Pulumi.AzureNative.Compute.Inputs
             set => _dataDisks = value;
         }
 
+        [Input("diskControllerType")]
+        private InputList<Union<string, Pulumi.AzureNative.Compute.DiskControllerTypes>>? _diskControllerType;
+        public InputList<Union<string, Pulumi.AzureNative.Compute.DiskControllerTypes>> DiskControllerType
+        {
+            get => _diskControllerType ?? (_diskControllerType = new InputList<Union<string, Pulumi.AzureNative.Compute.DiskControllerTypes>>());
+            set => _diskControllerType = value;
+        }
+
         /// <summary>
         /// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         /// </summary>

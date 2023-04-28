@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:automanage:ConfigurationProfileHCIAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment"},
                 },
             };

@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("ruleType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Network.WebApplicationFirewallRuleType> RuleType { get; set; } = null!;
 
+        /// <summary>
+        /// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.Network.WebApplicationFirewallState>? State { get; set; }
+
         public WebApplicationFirewallCustomRuleArgs()
         {
         }

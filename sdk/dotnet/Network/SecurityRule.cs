@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Network security rule.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityRule")]
     public partial class SecurityRule : global::Pulumi.CustomResource
@@ -80,7 +81,7 @@ namespace Pulumi.AzureNative.Network
         /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
         [Output("priority")]
-        public Output<int?> Priority { get; private set; } = null!;
+        public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
         /// Network protocol this rule applies to.
@@ -309,8 +310,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
         /// Network protocol this rule applies to.

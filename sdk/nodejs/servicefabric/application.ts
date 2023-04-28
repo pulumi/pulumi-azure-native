@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The application resource.
- * API Version: 2020-03-01.
+ * API Version: 2023-02-01-preview.
+ * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -39,33 +40,17 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * Azure resource etag.
-     */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
      * Describes the managed identities for an Azure resource.
      */
     public readonly identity!: pulumi.Output<outputs.servicefabric.ManagedIdentityResponse | undefined>;
     /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
      * List of user assigned identities for the application, each mapped to a friendly name.
      */
     public readonly managedIdentities!: pulumi.Output<outputs.servicefabric.ApplicationUserAssignedIdentityResponse[] | undefined>;
-    /**
-     * The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-     */
-    public readonly maximumNodes!: pulumi.Output<number | undefined>;
-    /**
-     * List of application capacity metric description.
-     */
-    public readonly metrics!: pulumi.Output<outputs.servicefabric.ApplicationMetricDescriptionResponse[] | undefined>;
-    /**
-     * The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-     */
-    public readonly minimumNodes!: pulumi.Output<number | undefined>;
     /**
      * Azure resource name.
      */
@@ -79,9 +64,9 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Remove the current application capacity settings.
+     * Metadata pertaining to creation and last modification of the resource.
      */
-    public readonly removeApplicationCapacity!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
     /**
      * Azure resource tags.
      */
@@ -91,17 +76,14 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The application type name as defined in the application manifest.
-     */
-    public readonly typeName!: pulumi.Output<string | undefined>;
-    /**
-     * The version of the application type as defined in the application manifest.
-     */
-    public readonly typeVersion!: pulumi.Output<string | undefined>;
-    /**
      * Describes the policy for a monitored application upgrade.
      */
     public readonly upgradePolicy!: pulumi.Output<outputs.servicefabric.ApplicationUpgradePolicyResponse | undefined>;
+    /**
+     * The version of the application type as defined in the application manifest.
+     * This name must be the full Arm Resource ID for the referenced application type version.
+     */
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -125,40 +107,30 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedIdentities"] = args ? args.managedIdentities : undefined;
-            resourceInputs["maximumNodes"] = (args ? args.maximumNodes : undefined) ?? 0;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["minimumNodes"] = args ? args.minimumNodes : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["removeApplicationCapacity"] = args ? args.removeApplicationCapacity : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
-            resourceInputs["typeVersion"] = args ? args.typeVersion : undefined;
-            resourceInputs["upgradePolicy"] = args ? (args.upgradePolicy ? pulumi.output(args.upgradePolicy).apply(inputs.servicefabric.applicationUpgradePolicyArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedIdentities"] = undefined /*out*/;
-            resourceInputs["maximumNodes"] = undefined /*out*/;
-            resourceInputs["metrics"] = undefined /*out*/;
-            resourceInputs["minimumNodes"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["removeApplicationCapacity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["typeName"] = undefined /*out*/;
-            resourceInputs["typeVersion"] = undefined /*out*/;
             resourceInputs["upgradePolicy"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20170701preview:Application" }, { type: "azure-native:servicefabric/v20190301:Application" }, { type: "azure-native:servicefabric/v20190301preview:Application" }, { type: "azure-native:servicefabric/v20190601preview:Application" }, { type: "azure-native:servicefabric/v20191101preview:Application" }, { type: "azure-native:servicefabric/v20200301:Application" }, { type: "azure-native:servicefabric/v20201201preview:Application" }, { type: "azure-native:servicefabric/v20210601:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Application" }, { type: "azure-native:servicefabric/v20210501:Application" }, { type: "azure-native:servicefabric/v20210701preview:Application" }, { type: "azure-native:servicefabric/v20210901privatepreview:Application" }, { type: "azure-native:servicefabric/v20211101preview:Application" }, { type: "azure-native:servicefabric/v20220101:Application" }, { type: "azure-native:servicefabric/v20220201preview:Application" }, { type: "azure-native:servicefabric/v20220601preview:Application" }, { type: "azure-native:servicefabric/v20220801preview:Application" }, { type: "azure-native:servicefabric/v20221001preview:Application" }, { type: "azure-native:servicefabric/v20230201preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
@@ -181,7 +153,7 @@ export interface ApplicationArgs {
      */
     identity?: pulumi.Input<inputs.servicefabric.ManagedIdentityArgs>;
     /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     location?: pulumi.Input<string>;
     /**
@@ -189,25 +161,9 @@ export interface ApplicationArgs {
      */
     managedIdentities?: pulumi.Input<pulumi.Input<inputs.servicefabric.ApplicationUserAssignedIdentityArgs>[]>;
     /**
-     * The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-     */
-    maximumNodes?: pulumi.Input<number>;
-    /**
-     * List of application capacity metric description.
-     */
-    metrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.ApplicationMetricDescriptionArgs>[]>;
-    /**
-     * The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-     */
-    minimumNodes?: pulumi.Input<number>;
-    /**
      * List of application parameters with overridden values from their default values specified in the application manifest.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Remove the current application capacity settings.
-     */
-    removeApplicationCapacity?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */
@@ -217,15 +173,12 @@ export interface ApplicationArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The application type name as defined in the application manifest.
-     */
-    typeName?: pulumi.Input<string>;
-    /**
-     * The version of the application type as defined in the application manifest.
-     */
-    typeVersion?: pulumi.Input<string>;
-    /**
      * Describes the policy for a monitored application upgrade.
      */
     upgradePolicy?: pulumi.Input<inputs.servicefabric.ApplicationUpgradePolicyArgs>;
+    /**
+     * The version of the application type as defined in the application manifest.
+     * This name must be the full Arm Resource ID for the referenced application type version.
+     */
+    version?: pulumi.Input<string>;
 }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Cassandra table under an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * API Version: 2022-11-15.
  */
 export function getCassandraResourceCassandraTable(args: GetCassandraResourceCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraTableResult> {
 
@@ -70,7 +70,7 @@ export interface GetCassandraResourceCassandraTableResult {
 }
 /**
  * Gets the Cassandra table under an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * API Version: 2022-11-15.
  */
 export function getCassandraResourceCassandraTableOutput(args: GetCassandraResourceCassandraTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraTableResult> {
     return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraTable(a, opts))

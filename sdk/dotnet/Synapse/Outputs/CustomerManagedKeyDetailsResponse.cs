@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Synapse.Outputs
     public sealed class CustomerManagedKeyDetailsResponse
     {
         /// <summary>
+        /// Key encryption key
+        /// </summary>
+        public readonly Outputs.KekIdentityPropertiesResponse? KekIdentity;
+        /// <summary>
         /// The key object of the workspace
         /// </summary>
         public readonly Outputs.WorkspaceKeyDetailsResponse? Key;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.Synapse.Outputs
 
         [OutputConstructor]
         private CustomerManagedKeyDetailsResponse(
+            Outputs.KekIdentityPropertiesResponse? kekIdentity,
+
             Outputs.WorkspaceKeyDetailsResponse? key,
 
             string status)
         {
+            KekIdentity = kekIdentity;
             Key = key;
             Status = status;
         }

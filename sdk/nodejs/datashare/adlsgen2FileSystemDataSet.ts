@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An ADLS Gen 2 file system data set.
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
+ * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ADLSGen2FileSystemDataSet extends pulumi.CustomResource {
     /**

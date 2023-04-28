@@ -22,33 +22,31 @@ class AdminRuleArgs:
                  direction: pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']],
                  kind: pulumi.Input[str],
                  network_manager_name: pulumi.Input[str],
+                 priority: pulumi.Input[int],
                  protocol: pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']],
                  resource_group_name: pulumi.Input[str],
                  rule_collection_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None):
         """
         The set of arguments for constructing a AdminRule resource.
         :param pulumi.Input[Union[str, 'SecurityConfigurationRuleAccess']] access: Indicates the access allowed for this particular rule
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']] direction: Indicates if the traffic matched against the rule in inbound or outbound.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Custom'.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
+        :param pulumi.Input[int] priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']] protocol: Network protocol this rule applies to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_collection_name: The name of the network manager security Configuration rule collection.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
         :param pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]] destinations: The destination address prefixes. CIDR or destination IP ranges.
-        :param pulumi.Input[str] display_name: A friendly name for the rule.
-        :param pulumi.Input[int] priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
         :param pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]] sources: The CIDR or source IP ranges.
@@ -58,6 +56,7 @@ class AdminRuleArgs:
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "kind", 'Custom')
         pulumi.set(__self__, "network_manager_name", network_manager_name)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rule_collection_name", rule_collection_name)
@@ -67,10 +66,6 @@ class AdminRuleArgs:
             pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
         if source_port_ranges is not None:
@@ -94,7 +89,7 @@ class AdminRuleArgs:
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Input[str]:
         """
-        The name of the network manager security Configuration.
+        The name of the network manager Security Configuration.
         """
         return pulumi.get(self, "configuration_name")
 
@@ -138,6 +133,18 @@ class AdminRuleArgs:
     @network_manager_name.setter
     def network_manager_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "network_manager_name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter
@@ -212,30 +219,6 @@ class AdminRuleArgs:
         pulumi.set(self, "destinations", value)
 
     @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A friendly name for the rule.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
-        """
-        The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "priority", value)
-
-    @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -283,7 +266,6 @@ class AdminRule(pulumi.CustomResource):
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -296,17 +278,17 @@ class AdminRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network admin rule.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'SecurityConfigurationRuleAccess']] access: Indicates the access allowed for this particular rule
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]] destinations: The destination address prefixes. CIDR or destination IP ranges.
         :param pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']] direction: Indicates if the traffic matched against the rule in inbound or outbound.
-        :param pulumi.Input[str] display_name: A friendly name for the rule.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Custom'.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
@@ -326,7 +308,8 @@ class AdminRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network admin rule.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AdminRuleArgs args: The arguments to use to populate this resource's properties.
@@ -349,7 +332,6 @@ class AdminRule(pulumi.CustomResource):
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
                  direction: Optional[pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -380,13 +362,14 @@ class AdminRule(pulumi.CustomResource):
             if direction is None and not opts.urn:
                 raise TypeError("Missing required property 'direction'")
             __props__.__dict__["direction"] = direction
-            __props__.__dict__["display_name"] = display_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Custom'
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
             __props__.__dict__["network_manager_name"] = network_manager_name
+            if priority is None and not opts.urn:
+                raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
@@ -434,7 +417,6 @@ class AdminRule(pulumi.CustomResource):
         __props__.__dict__["destination_port_ranges"] = None
         __props__.__dict__["destinations"] = None
         __props__.__dict__["direction"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
@@ -488,14 +470,6 @@ class AdminRule(pulumi.CustomResource):
         return pulumi.get(self, "direction")
 
     @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        A friendly name for the rule.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
@@ -522,7 +496,7 @@ class AdminRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[int]]:
+    def priority(self) -> pulumi.Output[int]:
         """
         The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """

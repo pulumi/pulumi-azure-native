@@ -17,29 +17,13 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class ConfigurationGroupResponse
     {
         /// <summary>
-        /// Network group conditional filter.
-        /// </summary>
-        public readonly string? ConditionalMembership;
-        /// <summary>
         /// A description of the network group.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A friendly name for the network group.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
-        /// Group members of network group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GroupMembersItemResponse> GroupMembers;
-        /// <summary>
-        /// Resource ID.
+        /// Network group ID.
         /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Group member type.
-        /// </summary>
-        public readonly string? MemberType;
         /// <summary>
         /// The provisioning state of the scope assignment resource.
         /// </summary>
@@ -47,26 +31,14 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private ConfigurationGroupResponse(
-            string? conditionalMembership,
-
             string? description,
-
-            string? displayName,
-
-            ImmutableArray<Outputs.GroupMembersItemResponse> groupMembers,
 
             string? id,
 
-            string? memberType,
-
             string provisioningState)
         {
-            ConditionalMembership = conditionalMembership;
             Description = description;
-            DisplayName = displayName;
-            GroupMembers = groupMembers;
             Id = id;
-            MemberType = memberType;
             ProvisioningState = provisioningState;
         }
     }

@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieves Migration Config
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationConfigResult> {
 
@@ -38,15 +41,19 @@ export interface GetMigrationConfigArgs {
  */
 export interface GetMigrationConfigResult {
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
     /**
      * State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
      */
     readonly migrationState: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -62,17 +69,21 @@ export interface GetMigrationConfigResult {
      */
     readonly provisioningState: string;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.servicebus.SystemDataResponse;
+    /**
      * Existing premium Namespace ARM Id name which has no entities, will be used for migration
      */
     readonly targetNamespace: string;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
 }
 /**
  * Retrieves Migration Config
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationConfigResult> {
     return pulumi.output(args).apply((a: any) => getMigrationConfig(a, opts))

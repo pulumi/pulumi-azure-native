@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     public sealed class SqlServerInstancePropertiesResponse
     {
         /// <summary>
+        /// Status of Azure Defender.
+        /// </summary>
+        public readonly string? AzureDefenderStatus;
+        /// <summary>
+        /// Timestamp of last Azure Defender status update.
+        /// </summary>
+        public readonly string? AzureDefenderStatusLastUpdated;
+        /// <summary>
         /// SQL Server collation.
         /// </summary>
         public readonly string? Collation;
@@ -24,6 +32,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// ARM Resource id of the container resource (Azure Arc for Servers).
         /// </summary>
         public readonly string ContainerResourceId;
+        /// <summary>
+        /// The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
+        /// </summary>
+        public readonly string? Cores;
         /// <summary>
         /// The time when the resource was created.
         /// </summary>
@@ -36,6 +48,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// SQL Server edition.
         /// </summary>
         public readonly string? Edition;
+        /// <summary>
+        /// Type of host for Azure Arc SQL Server
+        /// </summary>
+        public readonly string? HostType;
         /// <summary>
         /// SQL Server instance name.
         /// </summary>
@@ -52,6 +68,9 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// SQL Server product ID.
         /// </summary>
         public readonly string? ProductId;
+        /// <summary>
+        /// The provisioning state of the Arc-enabled SQL Server resource.
+        /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// The cloud connectivity status.
@@ -76,15 +95,23 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
         [OutputConstructor]
         private SqlServerInstancePropertiesResponse(
+            string? azureDefenderStatus,
+
+            string? azureDefenderStatusLastUpdated,
+
             string? collation,
 
             string containerResourceId,
+
+            string? cores,
 
             string createTime,
 
             string? currentVersion,
 
             string? edition,
+
+            string? hostType,
 
             string? instanceName,
 
@@ -106,11 +133,15 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string? version)
         {
+            AzureDefenderStatus = azureDefenderStatus;
+            AzureDefenderStatusLastUpdated = azureDefenderStatusLastUpdated;
             Collation = collation;
             ContainerResourceId = containerResourceId;
+            Cores = cores;
             CreateTime = createTime;
             CurrentVersion = currentVersion;
             Edition = edition;
+            HostType = hostType;
             InstanceName = instanceName;
             LicenseType = licenseType;
             PatchLevel = patchLevel;

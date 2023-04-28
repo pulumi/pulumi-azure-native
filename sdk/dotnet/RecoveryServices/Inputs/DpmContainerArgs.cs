@@ -80,6 +80,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? HealthStatus { get; set; }
 
         /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        [Input("protectableObjectType")]
+        public Input<string>? ProtectableObjectType { get; set; }
+
+        /// <summary>
         /// Number of protected items in the BackupEngine
         /// </summary>
         [Input("protectedItemCount")]

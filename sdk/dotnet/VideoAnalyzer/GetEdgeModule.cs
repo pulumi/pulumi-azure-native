@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public static class GetEdgeModule
     {
         /// <summary>
-        /// Retrieves a specific existing edge module resource in the given Video Analyzer account.
-        /// API Version: 2021-05-01-preview.
+        /// Retrieves an existing edge module resource with the given name.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetEdgeModuleResult> InvokeAsync(GetEdgeModuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEdgeModuleResult>("azure-native:videoanalyzer:getEdgeModule", args ?? new GetEdgeModuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieves a specific existing edge module resource in the given Video Analyzer account.
-        /// API Version: 2021-05-01-preview.
+        /// Retrieves an existing edge module resource with the given name.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetEdgeModuleResult> Invoke(GetEdgeModuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeModuleResult>("azure-native:videoanalyzer:getEdgeModule", args ?? new GetEdgeModuleInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the edge module to retrieve.
+        /// The Edge Module name.
         /// </summary>
         [Input("edgeModuleName", required: true)]
         public string EdgeModuleName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the edge module to retrieve.
+        /// The Edge Module name.
         /// </summary>
         [Input("edgeModuleName", required: true)]
         public Input<string> EdgeModuleName { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

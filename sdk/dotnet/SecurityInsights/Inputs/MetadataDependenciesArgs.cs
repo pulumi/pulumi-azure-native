@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         /// Type of the content item we depend on
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Kind>? Kind { get; set; }
+        public Input<string>? Kind { get; set; }
 
         /// <summary>
         /// Name of the content item

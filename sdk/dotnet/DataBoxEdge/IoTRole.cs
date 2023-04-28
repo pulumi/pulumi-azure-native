@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Compute role.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:IoTRole")]
     public partial class IoTRole : global::Pulumi.CustomResource
@@ -78,7 +79,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<ImmutableArray<Outputs.MountPointMapResponse>> ShareMappings { get; private set; } = null!;
 
         /// <summary>
-        /// Role configured on ASE resource
+        /// Metadata pertaining to creation and last modification of Role
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

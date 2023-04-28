@@ -7,11 +7,7 @@ from enum import Enum
 __all__ = [
     'AgentPoolType',
     'ContainerServiceVMSizeTypes',
-    'LoadBalancerSku',
-    'NetworkPlugin',
-    'NetworkPolicy',
     'OSType',
-    'ResourceIdentityType',
 ]
 
 
@@ -203,41 +199,9 @@ class ContainerServiceVMSizeTypes(str, Enum):
     STANDARD_NV6 = "Standard_NV6"
 
 
-class LoadBalancerSku(str, Enum):
-    """
-    The load balancer sku for the managed cluster.
-    """
-    STANDARD = "standard"
-    BASIC = "basic"
-
-
-class NetworkPlugin(str, Enum):
-    """
-    Network plugin used for building Kubernetes network.
-    """
-    AZURE = "azure"
-    KUBENET = "kubenet"
-
-
-class NetworkPolicy(str, Enum):
-    """
-    Network policy used for building Kubernetes network.
-    """
-    CALICO = "calico"
-    AZURE = "azure"
-
-
 class OSType(str, Enum):
     """
     OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
     """
     LINUX = "Linux"
     WINDOWS = "Windows"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"

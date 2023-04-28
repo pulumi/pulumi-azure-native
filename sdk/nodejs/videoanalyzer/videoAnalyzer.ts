@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Video Analyzer account.
- * API Version: 2021-05-01-preview.
+ * The Video Analyzer account.
+ * API Version: 2021-11-01-preview.
+ * Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VideoAnalyzer extends pulumi.CustomResource {
     /**
@@ -41,15 +42,19 @@ export class VideoAnalyzer extends pulumi.CustomResource {
     /**
      * The account encryption properties.
      */
-    public readonly encryption!: pulumi.Output<outputs.videoanalyzer.AccountEncryptionResponse>;
+    public readonly encryption!: pulumi.Output<outputs.videoanalyzer.AccountEncryptionResponse | undefined>;
     /**
-     * The list of endpoints associated with this resource.
+     * The endpoints associated with this resource.
      */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.videoanalyzer.EndpointResponse[]>;
     /**
-     * The set of managed identities associated with the Video Analyzer resource.
+     * The identities associated to the Video Analyzer resource.
      */
     public readonly identity!: pulumi.Output<outputs.videoanalyzer.VideoAnalyzerIdentityResponse | undefined>;
+    /**
+     * The IoT Hubs for this resource.
+     */
+    public readonly iotHubs!: pulumi.Output<outputs.videoanalyzer.IotHubResponse[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -59,11 +64,27 @@ export class VideoAnalyzer extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Network access control for Video Analyzer.
+     */
+    public readonly networkAccessControl!: pulumi.Output<outputs.videoanalyzer.NetworkAccessControlResponse | undefined>;
+    /**
+     * Private Endpoint Connections created under Video Analyzer account.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.videoanalyzer.PrivateEndpointConnectionResponse[]>;
+    /**
+     * Provisioning state of the Video Analyzer account.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Whether or not public network access is allowed for resources under the Video Analyzer account.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The storage accounts for this resource.
      */
     public readonly storageAccounts!: pulumi.Output<outputs.videoanalyzer.StorageAccountResponse[]>;
     /**
-     * The system data of the Video Analyzer account.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
@@ -86,9 +107,6 @@ export class VideoAnalyzer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.encryption === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'encryption'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,20 +116,30 @@ export class VideoAnalyzer extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["iotHubs"] = args ? args.iotHubs : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkAccessControl"] = args ? args.networkAccessControl : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["iotHubs"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkAccessControl"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["storageAccounts"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -135,15 +163,27 @@ export interface VideoAnalyzerArgs {
     /**
      * The account encryption properties.
      */
-    encryption: pulumi.Input<inputs.videoanalyzer.AccountEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.videoanalyzer.AccountEncryptionArgs>;
     /**
-     * The set of managed identities associated with the Video Analyzer resource.
+     * The identities associated to the Video Analyzer resource.
      */
     identity?: pulumi.Input<inputs.videoanalyzer.VideoAnalyzerIdentityArgs>;
+    /**
+     * The IoT Hubs for this resource.
+     */
+    iotHubs?: pulumi.Input<pulumi.Input<inputs.videoanalyzer.IotHubArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Network access control for Video Analyzer.
+     */
+    networkAccessControl?: pulumi.Input<inputs.videoanalyzer.NetworkAccessControlArgs>;
+    /**
+     * Whether or not public network access is allowed for resources under the Video Analyzer account.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.videoanalyzer.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

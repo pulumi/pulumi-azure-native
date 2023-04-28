@@ -95,7 +95,8 @@ class DdosProtectionPlan(pulumi.CustomResource):
                  __props__=None):
         """
         A DDoS protection plan in a resource group.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +113,8 @@ class DdosProtectionPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A DDoS protection plan in a resource group.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DdosProtectionPlanArgs args: The arguments to use to populate this resource's properties.
@@ -151,6 +153,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_ip_addresses"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_networks"] = None
@@ -182,6 +185,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_ip_addresses"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -219,6 +223,14 @@ class DdosProtectionPlan(pulumi.CustomResource):
         The provisioning state of the DDoS protection plan resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+        """
+        The list of public IPs associated with the DDoS protection plan resource. This list is read-only.
+        """
+        return pulumi.get(self, "public_ip_addresses")
 
     @property
     @pulumi.getter(name="resourceGuid")

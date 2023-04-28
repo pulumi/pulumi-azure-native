@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        public readonly int? Priority;
+        public readonly int Priority;
         /// <summary>
         /// Network protocol this rule applies to.
         /// </summary>
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? name,
 
-            int? priority,
+            int priority,
 
             string protocol,
 

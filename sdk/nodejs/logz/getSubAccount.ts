@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function getSubAccount(args: GetSubAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountResult> {
 
@@ -61,7 +61,7 @@ export interface GetSubAccountResult {
     readonly type: string;
 }
 /**
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function getSubAccountOutput(args: GetSubAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountResult> {
     return pulumi.output(args).apply((a: any) => getSubAccount(a, opts))

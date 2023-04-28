@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The reference to gateway load balancer frontend IP.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? GatewayLoadBalancer;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -85,6 +89,8 @@ namespace Pulumi.AzureNative.Network.Outputs
         private FrontendIPConfigurationResponse(
             string etag,
 
+            Outputs.SubResourceResponse? gatewayLoadBalancer,
+
             string? id,
 
             ImmutableArray<Outputs.SubResourceResponse> inboundNatPools,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             ImmutableArray<string> zones)
         {
             Etag = etag;
+            GatewayLoadBalancer = gatewayLoadBalancer;
             Id = id;
             InboundNatPools = inboundNatPools;
             InboundNatRules = inboundNatRules;

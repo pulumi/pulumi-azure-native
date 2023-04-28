@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the description for the specified namespace.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -55,7 +55,18 @@ export interface GetNamespaceResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * List of private endpoint connections.
+     */
+    readonly privateEndpointConnections?: outputs.relay.PrivateEndpointConnectionResponse[];
+    /**
+     * Provisioning state of the Namespace.
+     */
     readonly provisioningState: string;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
@@ -64,6 +75,14 @@ export interface GetNamespaceResult {
      * SKU of the namespace.
      */
     readonly sku?: outputs.relay.SkuResponse;
+    /**
+     * Status of the Namespace.
+     */
+    readonly status: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.relay.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -79,7 +98,7 @@ export interface GetNamespaceResult {
 }
 /**
  * Returns the description for the specified namespace.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))

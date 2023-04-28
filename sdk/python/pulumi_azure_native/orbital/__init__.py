@@ -4,6 +4,17 @@
 
 from .. import _utilities
 import typing
+# Export this package's modules as members:
+from ._enums import *
+from .contact import *
+from .contact_profile import *
+from .get_contact import *
+from .get_contact_profile import *
+from .get_spacecraft import *
+from .list_spacecraft_available_contacts import *
+from .spacecraft import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:

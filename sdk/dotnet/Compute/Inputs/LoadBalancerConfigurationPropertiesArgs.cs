@@ -10,18 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Inputs
 {
 
+    /// <summary>
+    /// Describes the properties of the load balancer configuration.
+    /// </summary>
     public sealed class LoadBalancerConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("frontendIPConfigurations", required: true)]
-        private InputList<Inputs.LoadBalancerFrontendIPConfigurationArgs>? _frontendIPConfigurations;
+        [Input("frontendIpConfigurations", required: true)]
+        private InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
         /// <summary>
         /// Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
         /// </summary>
-        public InputList<Inputs.LoadBalancerFrontendIPConfigurationArgs> FrontendIPConfigurations
+        public InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs> FrontendIpConfigurations
         {
-            get => _frontendIPConfigurations ?? (_frontendIPConfigurations = new InputList<Inputs.LoadBalancerFrontendIPConfigurationArgs>());
-            set => _frontendIPConfigurations = value;
+            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs>());
+            set => _frontendIpConfigurations = value;
         }
 
         public LoadBalancerConfigurationPropertiesArgs()

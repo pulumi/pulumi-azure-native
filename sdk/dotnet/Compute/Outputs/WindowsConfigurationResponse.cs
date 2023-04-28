@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly bool? EnableAutomaticUpdates;
         /// <summary>
+        /// Indicates whether VMAgent Platform Updates is enabled for the Windows virtual machine. Default value is false.
+        /// </summary>
+        public readonly bool? EnableVMAgentPlatformUpdates;
+        /// <summary>
         /// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
         /// </summary>
         public readonly Outputs.PatchSettingsResponse? PatchSettings;
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             bool? enableAutomaticUpdates,
 
+            bool? enableVMAgentPlatformUpdates,
+
             Outputs.PatchSettingsResponse? patchSettings,
 
             bool? provisionVMAgent,
@@ -57,6 +63,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         {
             AdditionalUnattendContent = additionalUnattendContent;
             EnableAutomaticUpdates = enableAutomaticUpdates;
+            EnableVMAgentPlatformUpdates = enableVMAgentPlatformUpdates;
             PatchSettings = patchSettings;
             ProvisionVMAgent = provisionVMAgent;
             TimeZone = timeZone;

@@ -5,14 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'DiskPoolTier',
+    'IscsiTargetAclMode',
 ]
 
 
-class DiskPoolTier(str, Enum):
+class IscsiTargetAclMode(str, Enum):
     """
-    Determines the SKU of VM deployed for Disk pool
+    Mode for Target connectivity.
     """
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
+    DYNAMIC = "Dynamic"
+    STATIC = "Static"

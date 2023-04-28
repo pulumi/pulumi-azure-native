@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of Dicom Service
-    /// API Version: 2022-05-15.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:DicomService")]
     public partial class DicomService : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// DICOM Service event support status.
+        /// </summary>
+        [Output("eventState")]
+        public Output<string> EventState { get; private set; } = null!;
 
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
@@ -126,6 +133,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:DicomService"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:DicomService"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:DicomService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:DicomService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

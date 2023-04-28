@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class DataContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// [Required] Specifies the type of data.
+        /// </summary>
+        [Input("dataType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.DataType> DataType { get; set; } = null!;
+
+        /// <summary>
         /// The asset description text.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Is the asset archived?
+        /// </summary>
+        [Input("isArchived")]
+        public Input<bool>? IsArchived { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -47,6 +59,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public DataContainerArgs()
         {
+            IsArchived = false;
         }
         public static new DataContainerArgs Empty => new DataContainerArgs();
     }

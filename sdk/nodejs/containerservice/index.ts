@@ -25,11 +25,6 @@ export const getManagedCluster: typeof import("./getManagedCluster").getManagedC
 export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedCluster","getManagedClusterOutput"], () => require("./getManagedCluster"));
 
-export { GetManagedClusterSnapshotArgs, GetManagedClusterSnapshotResult, GetManagedClusterSnapshotOutputArgs } from "./getManagedClusterSnapshot";
-export const getManagedClusterSnapshot: typeof import("./getManagedClusterSnapshot").getManagedClusterSnapshot = null as any;
-export const getManagedClusterSnapshotOutput: typeof import("./getManagedClusterSnapshot").getManagedClusterSnapshotOutput = null as any;
-utilities.lazyLoad(exports, ["getManagedClusterSnapshot","getManagedClusterSnapshotOutput"], () => require("./getManagedClusterSnapshot"));
-
 export { GetOpenShiftManagedClusterArgs, GetOpenShiftManagedClusterResult, GetOpenShiftManagedClusterOutputArgs } from "./getOpenShiftManagedCluster";
 export const getOpenShiftManagedCluster: typeof import("./getOpenShiftManagedCluster").getOpenShiftManagedCluster = null as any;
 export const getOpenShiftManagedClusterOutput: typeof import("./getOpenShiftManagedCluster").getOpenShiftManagedClusterOutput = null as any;
@@ -44,11 +39,6 @@ export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./get
 export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
 export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
-
-export { GetTrustedAccessRoleBindingArgs, GetTrustedAccessRoleBindingResult, GetTrustedAccessRoleBindingOutputArgs } from "./getTrustedAccessRoleBinding";
-export const getTrustedAccessRoleBinding: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBinding = null as any;
-export const getTrustedAccessRoleBindingOutput: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBindingOutput = null as any;
-utilities.lazyLoad(exports, ["getTrustedAccessRoleBinding","getTrustedAccessRoleBindingOutput"], () => require("./getTrustedAccessRoleBinding"));
 
 export { ListManagedClusterAccessProfileArgs, ListManagedClusterAccessProfileResult, ListManagedClusterAccessProfileOutputArgs } from "./listManagedClusterAccessProfile";
 export const listManagedClusterAccessProfile: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfile = null as any;
@@ -80,11 +70,6 @@ export type ManagedCluster = import("./managedCluster").ManagedCluster;
 export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
 utilities.lazyLoad(exports, ["ManagedCluster"], () => require("./managedCluster"));
 
-export { ManagedClusterSnapshotArgs } from "./managedClusterSnapshot";
-export type ManagedClusterSnapshot = import("./managedClusterSnapshot").ManagedClusterSnapshot;
-export const ManagedClusterSnapshot: typeof import("./managedClusterSnapshot").ManagedClusterSnapshot = null as any;
-utilities.lazyLoad(exports, ["ManagedClusterSnapshot"], () => require("./managedClusterSnapshot"));
-
 export { OpenShiftManagedClusterArgs } from "./openShiftManagedCluster";
 export type OpenShiftManagedCluster = import("./openShiftManagedCluster").OpenShiftManagedCluster;
 export const OpenShiftManagedCluster: typeof import("./openShiftManagedCluster").OpenShiftManagedCluster = null as any;
@@ -100,19 +85,11 @@ export type Snapshot = import("./snapshot").Snapshot;
 export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
 utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 
-export { TrustedAccessRoleBindingArgs } from "./trustedAccessRoleBinding";
-export type TrustedAccessRoleBinding = import("./trustedAccessRoleBinding").TrustedAccessRoleBinding;
-export const TrustedAccessRoleBinding: typeof import("./trustedAccessRoleBinding").TrustedAccessRoleBinding = null as any;
-utilities.lazyLoad(exports, ["TrustedAccessRoleBinding"], () => require("./trustedAccessRoleBinding"));
-
 
 // Export enums:
 export * from "../types/enums/containerservice";
 
 // Export sub-modules:
-import * as v20151101preview from "./v20151101preview";
-import * as v20160330 from "./v20160330";
-import * as v20160930 from "./v20160930";
 import * as v20170131 from "./v20170131";
 import * as v20170831 from "./v20170831";
 import * as v20180331 from "./v20180331";
@@ -123,7 +100,6 @@ import * as v20190401 from "./v20190401";
 import * as v20190430 from "./v20190430";
 import * as v20190601 from "./v20190601";
 import * as v20190801 from "./v20190801";
-import * as v20190930preview from "./v20190930preview";
 import * as v20191001 from "./v20191001";
 import * as v20191027preview from "./v20191027preview";
 import * as v20191101 from "./v20191101";
@@ -166,11 +142,10 @@ import * as v20221101 from "./v20221101";
 import * as v20221102preview from "./v20221102preview";
 import * as v20230101 from "./v20230101";
 import * as v20230102preview from "./v20230102preview";
+import * as v20230201 from "./v20230201";
+import * as v20230202preview from "./v20230202preview";
 
 export {
-    v20151101preview,
-    v20160330,
-    v20160930,
     v20170131,
     v20170831,
     v20180331,
@@ -181,7 +156,6 @@ export {
     v20190430,
     v20190601,
     v20190801,
-    v20190930preview,
     v20191001,
     v20191027preview,
     v20191101,
@@ -224,6 +198,8 @@ export {
     v20221102preview,
     v20230101,
     v20230102preview,
+    v20230201,
+    v20230202preview,
 };
 
 const _module = {
@@ -236,16 +212,12 @@ const _module = {
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
-            case "azure-native:containerservice:ManagedClusterSnapshot":
-                return new ManagedClusterSnapshot(name, <any>undefined, { urn })
             case "azure-native:containerservice:OpenShiftManagedCluster":
                 return new OpenShiftManagedCluster(name, <any>undefined, { urn })
             case "azure-native:containerservice:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:containerservice:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
-            case "azure-native:containerservice:TrustedAccessRoleBinding":
-                return new TrustedAccessRoleBinding(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -114,6 +114,8 @@ export class StaticSiteDatabaseConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSiteDatabaseConnection" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteDatabaseConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Elastic.Inputs
     public sealed class MonitorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Flag to determine if User API Key has to be generated and shared.
+        /// </summary>
+        [Input("generateApiKey")]
+        public Input<bool>? GenerateApiKey { get; set; }
+
+        /// <summary>
         /// Flag specifying if the resource monitoring is enabled or disabled.
         /// </summary>
         [Input("monitoringStatus")]
@@ -32,6 +38,12 @@ namespace Pulumi.AzureNative.Elastic.Inputs
         /// </summary>
         [Input("userInfo")]
         public Input<Inputs.UserInfoArgs>? UserInfo { get; set; }
+
+        /// <summary>
+        /// Version of elastic of the monitor resource
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public MonitorPropertiesArgs()
         {

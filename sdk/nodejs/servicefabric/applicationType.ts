@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The application type name resource
- * API Version: 2020-03-01.
+ * API Version: 2023-02-01-preview.
+ * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ApplicationType extends pulumi.CustomResource {
     /**
@@ -36,11 +40,7 @@ export class ApplicationType extends pulumi.CustomResource {
     }
 
     /**
-     * Azure resource etag.
-     */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
@@ -51,6 +51,10 @@ export class ApplicationType extends pulumi.CustomResource {
      * The current deployment or provisioning state, which only appears in the response.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
     /**
      * Azure resource tags.
      */
@@ -82,20 +86,20 @@ export class ApplicationType extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20170701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20190301:ApplicationType" }, { type: "azure-native:servicefabric/v20190301preview:ApplicationType" }, { type: "azure-native:servicefabric/v20190601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20191101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20200301:ApplicationType" }, { type: "azure-native:servicefabric/v20201201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210601:ApplicationType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210501:ApplicationType" }, { type: "azure-native:servicefabric/v20210701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210901privatepreview:ApplicationType" }, { type: "azure-native:servicefabric/v20211101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220101:ApplicationType" }, { type: "azure-native:servicefabric/v20220201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20220801preview:ApplicationType" }, { type: "azure-native:servicefabric/v20221001preview:ApplicationType" }, { type: "azure-native:servicefabric/v20230201preview:ApplicationType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationType.__pulumiType, name, resourceInputs, opts);
     }
@@ -114,7 +118,7 @@ export interface ApplicationTypeArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     location?: pulumi.Input<string>;
     /**

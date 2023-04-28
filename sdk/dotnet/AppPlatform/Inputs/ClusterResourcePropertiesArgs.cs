@@ -21,8 +21,18 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         [Input("networkProfile")]
         public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
 
+        /// <summary>
+        /// Additional Service settings in vnet injection instance
+        /// </summary>
+        [Input("vnetAddons")]
+        public Input<Inputs.ServiceVNetAddonsArgs>? VnetAddons { get; set; }
+
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
+
         public ClusterResourcePropertiesArgs()
         {
+            ZoneRedundant = false;
         }
         public static new ClusterResourcePropertiesArgs Empty => new ClusterResourcePropertiesArgs();
     }

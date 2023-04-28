@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['VendorSkuPreviewArgs', 'VendorSkuPreview']
 
@@ -76,7 +77,8 @@ class VendorSkuPreview(pulumi.CustomResource):
                  __props__=None):
         """
         Customer subscription which can use a sku.
-        API Version: 2020-01-01-preview.
+        API Version: 2021-05-01.
+        Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,7 +94,8 @@ class VendorSkuPreview(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer subscription which can use a sku.
-        API Version: 2020-01-01-preview.
+        API Version: 2021-05-01.
+        Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param VendorSkuPreviewArgs args: The arguments to use to populate this resource's properties.
@@ -129,6 +132,8 @@ class VendorSkuPreview(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vendor_name'")
             __props__.__dict__["vendor_name"] = vendor_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:VendorSkuPreview"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:VendorSkuPreview"), pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:VendorSkuPreview")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -155,6 +160,8 @@ class VendorSkuPreview(pulumi.CustomResource):
         __props__ = VendorSkuPreviewArgs.__new__(VendorSkuPreviewArgs)
 
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return VendorSkuPreview(resource_name, opts=opts, __props__=__props__)
 
@@ -165,6 +172,22 @@ class VendorSkuPreview(pulumi.CustomResource):
         The preview subscription ID.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        The provisioning state of the PreviewSubscription resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

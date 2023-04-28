@@ -6,13 +6,11 @@ from enum import Enum
 
 __all__ = [
     'ApplicationGroupType',
-    'CommandLineSetting',
     'HostPoolType',
     'LoadBalancerType',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
     'RegistrationTokenOperation',
-    'RemoteApplicationType',
     'SSOSecretType',
     'SessionHostLoadBalancingAlgorithm',
     'StopHostsWhen',
@@ -25,15 +23,6 @@ class ApplicationGroupType(str, Enum):
     """
     REMOTE_APP = "RemoteApp"
     DESKTOP = "Desktop"
-
-
-class CommandLineSetting(str, Enum):
-    """
-    Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-    """
-    DO_NOT_ALLOW = "DoNotAllow"
-    ALLOW = "Allow"
-    REQUIRE = "Require"
 
 
 class HostPoolType(str, Enum):
@@ -77,14 +66,6 @@ class RegistrationTokenOperation(str, Enum):
     DELETE = "Delete"
     NONE = "None"
     UPDATE = "Update"
-
-
-class RemoteApplicationType(str, Enum):
-    """
-    Resource Type of Application.
-    """
-    IN_BUILT = "InBuilt"
-    MSIX_APPLICATION = "MsixApplication"
 
 
 class SSOSecretType(str, Enum):

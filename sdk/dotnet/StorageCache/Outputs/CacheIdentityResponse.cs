@@ -17,17 +17,21 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
     public sealed class CacheIdentityResponse
     {
         /// <summary>
-        /// The principal id of the cache.
+        /// The principal ID for the system-assigned identity of the cache.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The tenant id associated with the cache.
+        /// The tenant ID associated with the cache.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
         /// The type of identity used for the cache
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.CacheIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
 
         [OutputConstructor]
         private CacheIdentityResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
 
             string tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.CacheIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

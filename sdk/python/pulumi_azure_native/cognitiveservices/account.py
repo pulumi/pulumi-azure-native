@@ -22,19 +22,19 @@ class AccountArgs:
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['CognitiveServicesAccountPropertiesArgs']] = None,
+                 properties: Optional[pulumi.Input['AccountPropertiesArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input['IdentityArgs'] identity: The identity of Cognitive Services account.
+        :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[str] kind: The Kind of the resource.
-        :param pulumi.Input[str] location: The location of the resource
-        :param pulumi.Input['CognitiveServicesAccountPropertiesArgs'] properties: Properties of Cognitive Services account.
-        :param pulumi.Input['SkuArgs'] sku: The SKU of Cognitive Services account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['AccountPropertiesArgs'] properties: Properties of Cognitive Services account.
+        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
@@ -80,7 +80,7 @@ class AccountArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
         """
-        The identity of Cognitive Services account.
+        Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
@@ -104,7 +104,7 @@ class AccountArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the resource
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -114,21 +114,21 @@ class AccountArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CognitiveServicesAccountPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['AccountPropertiesArgs']]:
         """
         Properties of Cognitive Services account.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CognitiveServicesAccountPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['AccountPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        The SKU of Cognitive Services account.
+        The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
 
@@ -140,7 +140,7 @@ class AccountArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -158,25 +158,26 @@ class Account(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CognitiveServicesAccountPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AccountPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
-        API Version: 2017-04-18.
+        Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
+        API Version: 2022-12-01.
+        Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of Cognitive Services account.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] kind: The Kind of the resource.
-        :param pulumi.Input[str] location: The location of the resource
-        :param pulumi.Input[pulumi.InputType['CognitiveServicesAccountPropertiesArgs']] properties: Properties of Cognitive Services account.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['AccountPropertiesArgs']] properties: Properties of Cognitive Services account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of Cognitive Services account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The resource model definition representing SKU
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -185,8 +186,9 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
-        API Version: 2017-04-18.
+        Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
+        API Version: 2022-12-01.
+        Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -207,7 +209,7 @@ class Account(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CognitiveServicesAccountPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['AccountPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -232,6 +234,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20160201preview:Account"), pulumi.Alias(type_="azure-native:cognitiveservices/v20170418:Account"), pulumi.Alias(type_="azure-native:cognitiveservices/v20210430:Account"), pulumi.Alias(type_="azure-native:cognitiveservices/v20211001:Account"), pulumi.Alias(type_="azure-native:cognitiveservices/v20220301:Account"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221001:Account"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -264,6 +267,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
@@ -272,7 +276,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        Entity Tag
+        Resource Etag.
         """
         return pulumi.get(self, "etag")
 
@@ -280,7 +284,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
-        The identity of Cognitive Services account.
+        Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
@@ -296,7 +300,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
-        The location of the resource
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -304,13 +308,13 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the created account
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.CognitiveServicesAccountPropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.AccountPropertiesResponse']:
         """
         Properties of Cognitive Services account.
         """
@@ -320,15 +324,23 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        The SKU of Cognitive Services account.
+        The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -336,7 +348,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

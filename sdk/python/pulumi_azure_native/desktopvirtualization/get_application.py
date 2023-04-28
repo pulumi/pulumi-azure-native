@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetApplicationResult',
@@ -21,7 +22,7 @@ class GetApplicationResult:
     """
     Schema for Application properties.
     """
-    def __init__(__self__, application_type=None, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, id=None, msix_package_application_id=None, msix_package_family_name=None, name=None, object_id=None, show_in_portal=None, type=None):
+    def __init__(__self__, application_type=None, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, id=None, msix_package_application_id=None, msix_package_family_name=None, name=None, object_id=None, show_in_portal=None, system_data=None, type=None):
         if application_type and not isinstance(application_type, str):
             raise TypeError("Expected argument 'application_type' to be a str")
         pulumi.set(__self__, "application_type", application_type)
@@ -70,6 +71,9 @@ class GetApplicationResult:
         if show_in_portal and not isinstance(show_in_portal, bool):
             raise TypeError("Expected argument 'show_in_portal' to be a bool")
         pulumi.set(__self__, "show_in_portal", show_in_portal)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -203,6 +207,14 @@ class GetApplicationResult:
         return pulumi.get(self, "show_in_portal")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -233,6 +245,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             name=self.name,
             object_id=self.object_id,
             show_in_portal=self.show_in_portal,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -242,7 +255,7 @@ def get_application(application_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Get an application.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-09.
 
 
     :param str application_group_name: The name of the application group
@@ -273,6 +286,7 @@ def get_application(application_group_name: Optional[str] = None,
         name=__ret__.name,
         object_id=__ret__.object_id,
         show_in_portal=__ret__.show_in_portal,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -283,7 +297,7 @@ def get_application_output(application_group_name: Optional[pulumi.Input[str]] =
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Get an application.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-09.
 
 
     :param str application_group_name: The name of the application group

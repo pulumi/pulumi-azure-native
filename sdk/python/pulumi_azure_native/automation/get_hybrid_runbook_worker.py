@@ -160,7 +160,7 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridRunbookWorkerResult:
     """
     Retrieve a hybrid runbook worker.
-    API Version: 2021-06-22.
+    API Version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -197,7 +197,7 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridRunbookWorkerResult]:
     """
     Retrieve a hybrid runbook worker.
-    API Version: 2021-06-22.
+    API Version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

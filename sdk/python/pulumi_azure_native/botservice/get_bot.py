@@ -58,7 +58,7 @@ class GetBotResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        Entity Tag
+        Entity Tag.
         """
         return pulumi.get(self, "etag")
 
@@ -158,7 +158,7 @@ def get_bot(resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
     Returns a BotService specified by the parameters.
-    API Version: 2021-03-01.
+    API Version: 2022-09-15.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -189,7 +189,7 @@ def get_bot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
     Returns a BotService specified by the parameters.
-    API Version: 2021-03-01.
+    API Version: 2022-09-15.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.

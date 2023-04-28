@@ -159,7 +159,7 @@ def get_network_profile(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkProfileResult:
     """
     Gets the specified network profile in a specified resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.
@@ -193,7 +193,7 @@ def get_network_profile_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
     Gets the specified network profile in a specified resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified service Endpoint Policies in a specified resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetServiceEndpointPolicyResult> InvokeAsync(GetServiceEndpointPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyResult>("azure-native:network:getServiceEndpointPolicy", args ?? new GetServiceEndpointPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified service Endpoint Policies in a specified resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetServiceEndpointPolicyResult> Invoke(GetServiceEndpointPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointPolicyResult>("azure-native:network:getServiceEndpointPolicy", args ?? new GetServiceEndpointPolicyInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetServiceEndpointPolicyResult
     {
         /// <summary>
+        /// A collection of contextual service endpoint policy.
+        /// </summary>
+        public readonly ImmutableArray<string> ContextualServiceEndpointPolicies;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -112,6 +116,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ResourceGuid;
         /// <summary>
+        /// The alias indicating if the policy belongs to a service
+        /// </summary>
+        public readonly string? ServiceAlias;
+        /// <summary>
         /// A collection of service endpoint policy definitions of the service endpoint policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse> ServiceEndpointPolicyDefinitions;
@@ -130,6 +138,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetServiceEndpointPolicyResult(
+            ImmutableArray<string> contextualServiceEndpointPolicies,
+
             string etag,
 
             string? id,
@@ -144,6 +154,8 @@ namespace Pulumi.AzureNative.Network
 
             string resourceGuid,
 
+            string? serviceAlias,
+
             ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse> serviceEndpointPolicyDefinitions,
 
             ImmutableArray<Outputs.SubnetResponse> subnets,
@@ -152,6 +164,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            ContextualServiceEndpointPolicies = contextualServiceEndpointPolicies;
             Etag = etag;
             Id = id;
             Kind = kind;
@@ -159,6 +172,7 @@ namespace Pulumi.AzureNative.Network
             Name = name;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
+            ServiceAlias = serviceAlias;
             ServiceEndpointPolicyDefinitions = serviceEndpointPolicyDefinitions;
             Subnets = subnets;
             Tags = tags;

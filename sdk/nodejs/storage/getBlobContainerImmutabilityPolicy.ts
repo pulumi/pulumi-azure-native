@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
 
@@ -43,9 +43,13 @@ export interface GetBlobContainerImmutabilityPolicyArgs {
  */
 export interface GetBlobContainerImmutabilityPolicyResult {
     /**
-     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
      */
     readonly allowProtectedAppendWrites?: boolean;
+    /**
+     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+     */
+    readonly allowProtectedAppendWritesAll?: boolean;
     /**
      * Resource Etag.
      */
@@ -73,7 +77,7 @@ export interface GetBlobContainerImmutabilityPolicyResult {
 }
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainerImmutabilityPolicy(a, opts))

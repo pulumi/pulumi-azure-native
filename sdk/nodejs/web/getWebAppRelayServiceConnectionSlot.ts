@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets a hybrid connection configuration by its name.
- * API Version: 2020-12-01.
+ * Description for Gets a hybrid connection configuration by its name.
+ * API Version: 2022-09-01.
  */
 export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionSlotResult> {
 
@@ -67,8 +67,8 @@ export interface GetWebAppRelayServiceConnectionSlotResult {
     readonly type: string;
 }
 /**
- * Gets a hybrid connection configuration by its name.
- * API Version: 2020-12-01.
+ * Description for Gets a hybrid connection configuration by its name.
+ * API Version: 2022-09-01.
  */
 export function getWebAppRelayServiceConnectionSlotOutput(args: GetWebAppRelayServiceConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppRelayServiceConnectionSlot(a, opts))

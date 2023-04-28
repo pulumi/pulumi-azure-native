@@ -10,71 +10,93 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['LabArgs', 'Lab']
 
 @pulumi.input_type
 class LabArgs:
     def __init__(__self__, *,
-                 lab_account_name: pulumi.Input[str],
+                 auto_shutdown_profile: pulumi.Input['AutoShutdownProfileArgs'],
+                 connection_profile: pulumi.Input['ConnectionProfileArgs'],
                  resource_group_name: pulumi.Input[str],
+                 security_profile: pulumi.Input['SecurityProfileArgs'],
+                 virtual_machine_profile: pulumi.Input['VirtualMachineProfileArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
+                 lab_plan_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_users_in_lab: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input['LabNetworkProfileArgs']] = None,
+                 roster_profile: Optional[pulumi.Input['RosterProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
-                 usage_quota: Optional[pulumi.Input[str]] = None,
-                 user_access_mode: Optional[pulumi.Input[Union[str, 'LabUserAccessMode']]] = None):
+                 title: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Lab resource.
-        :param pulumi.Input[str] lab_account_name: The name of the lab Account.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] lab_name: The name of the lab.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[int] max_users_in_lab: Maximum number of users allowed in the lab.
-        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param pulumi.Input[str] usage_quota: Maximum duration a user can use an environment for in the lab.
-        :param pulumi.Input[Union[str, 'LabUserAccessMode']] user_access_mode: Lab user access mode (open to all vs. restricted to those listed on the lab).
+        :param pulumi.Input['AutoShutdownProfileArgs'] auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+        :param pulumi.Input['ConnectionProfileArgs'] connection_profile: The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['SecurityProfileArgs'] security_profile: The lab security profile.
+        :param pulumi.Input['VirtualMachineProfileArgs'] virtual_machine_profile: The profile used for creating lab virtual machines.
+        :param pulumi.Input[str] description: The description of the lab.
+        :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
+        :param pulumi.Input[str] lab_plan_id: The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['LabNetworkProfileArgs'] network_profile: The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        :param pulumi.Input['RosterProfileArgs'] roster_profile: The lab user list management profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] title: The title of the lab.
         """
-        pulumi.set(__self__, "lab_account_name", lab_account_name)
+        pulumi.set(__self__, "auto_shutdown_profile", auto_shutdown_profile)
+        pulumi.set(__self__, "connection_profile", connection_profile)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "security_profile", security_profile)
+        pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if lab_name is not None:
             pulumi.set(__self__, "lab_name", lab_name)
+        if lab_plan_id is not None:
+            pulumi.set(__self__, "lab_plan_id", lab_plan_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if max_users_in_lab is not None:
-            pulumi.set(__self__, "max_users_in_lab", max_users_in_lab)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if roster_profile is not None:
+            pulumi.set(__self__, "roster_profile", roster_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
-        if usage_quota is not None:
-            pulumi.set(__self__, "usage_quota", usage_quota)
-        if user_access_mode is not None:
-            pulumi.set(__self__, "user_access_mode", user_access_mode)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
 
     @property
-    @pulumi.getter(name="labAccountName")
-    def lab_account_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="autoShutdownProfile")
+    def auto_shutdown_profile(self) -> pulumi.Input['AutoShutdownProfileArgs']:
         """
-        The name of the lab Account.
+        The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
         """
-        return pulumi.get(self, "lab_account_name")
+        return pulumi.get(self, "auto_shutdown_profile")
 
-    @lab_account_name.setter
-    def lab_account_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "lab_account_name", value)
+    @auto_shutdown_profile.setter
+    def auto_shutdown_profile(self, value: pulumi.Input['AutoShutdownProfileArgs']):
+        pulumi.set(self, "auto_shutdown_profile", value)
+
+    @property
+    @pulumi.getter(name="connectionProfile")
+    def connection_profile(self) -> pulumi.Input['ConnectionProfileArgs']:
+        """
+        The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+        """
+        return pulumi.get(self, "connection_profile")
+
+    @connection_profile.setter
+    def connection_profile(self, value: pulumi.Input['ConnectionProfileArgs']):
+        pulumi.set(self, "connection_profile", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -83,10 +105,46 @@ class LabArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Input['SecurityProfileArgs']:
+        """
+        The lab security profile.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: pulumi.Input['SecurityProfileArgs']):
+        pulumi.set(self, "security_profile", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineProfile")
+    def virtual_machine_profile(self) -> pulumi.Input['VirtualMachineProfileArgs']:
+        """
+        The profile used for creating lab virtual machines.
+        """
+        return pulumi.get(self, "virtual_machine_profile")
+
+    @virtual_machine_profile.setter
+    def virtual_machine_profile(self, value: pulumi.Input['VirtualMachineProfileArgs']):
+        pulumi.set(self, "virtual_machine_profile", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the lab.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
     @pulumi.getter(name="labName")
     def lab_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the lab.
+        The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         """
         return pulumi.get(self, "lab_name")
 
@@ -95,10 +153,22 @@ class LabArgs:
         pulumi.set(self, "lab_name", value)
 
     @property
+    @pulumi.getter(name="labPlanId")
+    def lab_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+        """
+        return pulumi.get(self, "lab_plan_id")
+
+    @lab_plan_id.setter
+    def lab_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lab_plan_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -107,34 +177,34 @@ class LabArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="maxUsersInLab")
-    def max_users_in_lab(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['LabNetworkProfileArgs']]:
         """
-        Maximum number of users allowed in the lab.
+        The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
         """
-        return pulumi.get(self, "max_users_in_lab")
+        return pulumi.get(self, "network_profile")
 
-    @max_users_in_lab.setter
-    def max_users_in_lab(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_users_in_lab", value)
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['LabNetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="rosterProfile")
+    def roster_profile(self) -> Optional[pulumi.Input['RosterProfileArgs']]:
         """
-        The provisioning status of the resource.
+        The lab user list management profile.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "roster_profile")
 
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
+    @roster_profile.setter
+    def roster_profile(self, value: Optional[pulumi.Input['RosterProfileArgs']]):
+        pulumi.set(self, "roster_profile", value)
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -143,40 +213,16 @@ class LabArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique immutable identifier of a resource (Guid).
+        The title of the lab.
         """
-        return pulumi.get(self, "unique_identifier")
+        return pulumi.get(self, "title")
 
-    @unique_identifier.setter
-    def unique_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "unique_identifier", value)
-
-    @property
-    @pulumi.getter(name="usageQuota")
-    def usage_quota(self) -> Optional[pulumi.Input[str]]:
-        """
-        Maximum duration a user can use an environment for in the lab.
-        """
-        return pulumi.get(self, "usage_quota")
-
-    @usage_quota.setter
-    def usage_quota(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "usage_quota", value)
-
-    @property
-    @pulumi.getter(name="userAccessMode")
-    def user_access_mode(self) -> Optional[pulumi.Input[Union[str, 'LabUserAccessMode']]]:
-        """
-        Lab user access mode (open to all vs. restricted to those listed on the lab).
-        """
-        return pulumi.get(self, "user_access_mode")
-
-    @user_access_mode.setter
-    def user_access_mode(self, value: Optional[pulumi.Input[Union[str, 'LabUserAccessMode']]]):
-        pulumi.set(self, "user_access_mode", value)
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
 
 
 class Lab(pulumi.CustomResource):
@@ -184,33 +230,40 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lab_account_name: Optional[pulumi.Input[str]] = None,
+                 auto_shutdown_profile: Optional[pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']]] = None,
+                 connection_profile: Optional[pulumi.Input[pulumi.InputType['ConnectionProfileArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
+                 lab_plan_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_users_in_lab: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['LabNetworkProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 roster_profile: Optional[pulumi.Input[pulumi.InputType['RosterProfileArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
-                 usage_quota: Optional[pulumi.Input[str]] = None,
-                 user_access_mode: Optional[pulumi.Input[Union[str, 'LabUserAccessMode']]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineProfileArgs']]] = None,
                  __props__=None):
         """
-        Represents a lab.
-        API Version: 2018-10-15.
+        The lab resource.
+        API Version: 2022-08-01.
+        Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] lab_account_name: The name of the lab Account.
-        :param pulumi.Input[str] lab_name: The name of the lab.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[int] max_users_in_lab: Maximum number of users allowed in the lab.
-        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param pulumi.Input[str] usage_quota: Maximum duration a user can use an environment for in the lab.
-        :param pulumi.Input[Union[str, 'LabUserAccessMode']] user_access_mode: Lab user access mode (open to all vs. restricted to those listed on the lab).
+        :param pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']] auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+        :param pulumi.Input[pulumi.InputType['ConnectionProfileArgs']] connection_profile: The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+        :param pulumi.Input[str] description: The description of the lab.
+        :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
+        :param pulumi.Input[str] lab_plan_id: The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['LabNetworkProfileArgs']] network_profile: The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['RosterProfileArgs']] roster_profile: The lab user list management profile.
+        :param pulumi.Input[pulumi.InputType['SecurityProfileArgs']] security_profile: The lab security profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] title: The title of the lab.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineProfileArgs']] virtual_machine_profile: The profile used for creating lab virtual machines.
         """
         ...
     @overload
@@ -219,8 +272,9 @@ class Lab(pulumi.CustomResource):
                  args: LabArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a lab.
-        API Version: 2018-10-15.
+        The lab resource.
+        API Version: 2022-08-01.
+        Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.
@@ -237,16 +291,19 @@ class Lab(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lab_account_name: Optional[pulumi.Input[str]] = None,
+                 auto_shutdown_profile: Optional[pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']]] = None,
+                 connection_profile: Optional[pulumi.Input[pulumi.InputType['ConnectionProfileArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
+                 lab_plan_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_users_in_lab: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['LabNetworkProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 roster_profile: Optional[pulumi.Input[pulumi.InputType['RosterProfileArgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
-                 usage_quota: Optional[pulumi.Input[str]] = None,
-                 user_access_mode: Optional[pulumi.Input[Union[str, 'LabUserAccessMode']]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineProfileArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,29 +313,35 @@ class Lab(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LabArgs.__new__(LabArgs)
 
-            if lab_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'lab_account_name'")
-            __props__.__dict__["lab_account_name"] = lab_account_name
+            if auto_shutdown_profile is None and not opts.urn:
+                raise TypeError("Missing required property 'auto_shutdown_profile'")
+            __props__.__dict__["auto_shutdown_profile"] = auto_shutdown_profile
+            if connection_profile is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_profile'")
+            __props__.__dict__["connection_profile"] = connection_profile
+            __props__.__dict__["description"] = description
             __props__.__dict__["lab_name"] = lab_name
+            __props__.__dict__["lab_plan_id"] = lab_plan_id
             __props__.__dict__["location"] = location
-            __props__.__dict__["max_users_in_lab"] = max_users_in_lab
-            __props__.__dict__["provisioning_state"] = provisioning_state
+            __props__.__dict__["network_profile"] = network_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["roster_profile"] = roster_profile
+            if security_profile is None and not opts.urn:
+                raise TypeError("Missing required property 'security_profile'")
+            __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["unique_identifier"] = unique_identifier
-            __props__.__dict__["usage_quota"] = usage_quota
-            __props__.__dict__["user_access_mode"] = user_access_mode
-            __props__.__dict__["created_by_object_id"] = None
-            __props__.__dict__["created_by_user_principal_name"] = None
-            __props__.__dict__["created_date"] = None
-            __props__.__dict__["invitation_code"] = None
-            __props__.__dict__["latest_operation_result"] = None
+            __props__.__dict__["title"] = title
+            if virtual_machine_profile is None and not opts.urn:
+                raise TypeError("Missing required property 'virtual_machine_profile'")
+            __props__.__dict__["virtual_machine_profile"] = virtual_machine_profile
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["user_quota"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20181015:Lab")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20220801:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azure-native:labservices:Lab',
@@ -302,140 +365,149 @@ class Lab(pulumi.CustomResource):
 
         __props__ = LabArgs.__new__(LabArgs)
 
-        __props__.__dict__["created_by_object_id"] = None
-        __props__.__dict__["created_by_user_principal_name"] = None
-        __props__.__dict__["created_date"] = None
-        __props__.__dict__["invitation_code"] = None
-        __props__.__dict__["latest_operation_result"] = None
+        __props__.__dict__["auto_shutdown_profile"] = None
+        __props__.__dict__["connection_profile"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["lab_plan_id"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["max_users_in_lab"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_profile"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["roster_profile"] = None
+        __props__.__dict__["security_profile"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["title"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["unique_identifier"] = None
-        __props__.__dict__["usage_quota"] = None
-        __props__.__dict__["user_access_mode"] = None
-        __props__.__dict__["user_quota"] = None
+        __props__.__dict__["virtual_machine_profile"] = None
         return Lab(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="createdByObjectId")
-    def created_by_object_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="autoShutdownProfile")
+    def auto_shutdown_profile(self) -> pulumi.Output['outputs.AutoShutdownProfileResponse']:
         """
-        Object id of the user that created the lab.
+        The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
         """
-        return pulumi.get(self, "created_by_object_id")
+        return pulumi.get(self, "auto_shutdown_profile")
 
     @property
-    @pulumi.getter(name="createdByUserPrincipalName")
-    def created_by_user_principal_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="connectionProfile")
+    def connection_profile(self) -> pulumi.Output['outputs.ConnectionProfileResponse']:
         """
-        Lab creator name
+        The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
         """
-        return pulumi.get(self, "created_by_user_principal_name")
-
-    @property
-    @pulumi.getter(name="createdDate")
-    def created_date(self) -> pulumi.Output[str]:
-        """
-        Creation date for the lab
-        """
-        return pulumi.get(self, "created_date")
-
-    @property
-    @pulumi.getter(name="invitationCode")
-    def invitation_code(self) -> pulumi.Output[str]:
-        """
-        Invitation code that users can use to join a lab.
-        """
-        return pulumi.get(self, "invitation_code")
-
-    @property
-    @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> pulumi.Output['outputs.LatestOperationResultResponse']:
-        """
-        The details of the latest operation. ex: status, error
-        """
-        return pulumi.get(self, "latest_operation_result")
+        return pulumi.get(self, "connection_profile")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The location of the resource.
+        The description of the lab.
         """
-        return pulumi.get(self, "location")
+        return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="maxUsersInLab")
-    def max_users_in_lab(self) -> pulumi.Output[Optional[int]]:
+    @pulumi.getter(name="labPlanId")
+    def lab_plan_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Maximum number of users allowed in the lab.
+        The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
         """
-        return pulumi.get(self, "max_users_in_lab")
+        return pulumi.get(self, "lab_plan_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> pulumi.Output[Optional['outputs.LabNetworkProfileResponse']]:
         """
-        The provisioning status of the resource.
+        The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Current provisioning state of the lab.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="rosterProfile")
+    def roster_profile(self) -> pulumi.Output[Optional['outputs.RosterProfileResponse']]:
+        """
+        The lab user list management profile.
+        """
+        return pulumi.get(self, "roster_profile")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output['outputs.SecurityProfileResponse']:
+        """
+        The lab security profile.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        The lab state.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the lab.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
+    def title(self) -> pulumi.Output[Optional[str]]:
+        """
+        The title of the lab.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="virtualMachineProfile")
+    def virtual_machine_profile(self) -> pulumi.Output['outputs.VirtualMachineProfileResponse']:
         """
-        The unique immutable identifier of a resource (Guid).
+        The profile used for creating lab virtual machines.
         """
-        return pulumi.get(self, "unique_identifier")
-
-    @property
-    @pulumi.getter(name="usageQuota")
-    def usage_quota(self) -> pulumi.Output[Optional[str]]:
-        """
-        Maximum duration a user can use an environment for in the lab.
-        """
-        return pulumi.get(self, "usage_quota")
-
-    @property
-    @pulumi.getter(name="userAccessMode")
-    def user_access_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Lab user access mode (open to all vs. restricted to those listed on the lab).
-        """
-        return pulumi.get(self, "user_access_mode")
-
-    @property
-    @pulumi.getter(name="userQuota")
-    def user_quota(self) -> pulumi.Output[int]:
-        """
-        Maximum value MaxUsersInLab can be set to, as specified by the service
-        """
-        return pulumi.get(self, "user_quota")
+        return pulumi.get(self, "virtual_machine_profile")
 

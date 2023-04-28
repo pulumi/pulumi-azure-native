@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A global reach connection resource
-    /// API Version: 2020-07-17-preview.
+    /// API Version: 2022-05-01.
+    /// Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:GlobalReachConnection")]
     public partial class GlobalReachConnection : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Output("circuitConnectionStatus")]
         public Output<string> CircuitConnectionStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+        /// </summary>
+        [Output("expressRouteId")]
+        public Output<string?> ExpressRouteId { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -116,6 +123,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Input("authorizationKey")]
         public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+        /// </summary>
+        [Input("expressRouteId")]
+        public Input<string>? ExpressRouteId { get; set; }
 
         /// <summary>
         /// Name of the global reach connection in the private cloud

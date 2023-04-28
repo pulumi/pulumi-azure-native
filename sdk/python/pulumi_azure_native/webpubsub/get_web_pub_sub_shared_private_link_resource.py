@@ -87,7 +87,7 @@ class GetWebPubSubSharedPrivateLinkResourceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the shared private link resource
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -147,7 +147,7 @@ def get_web_pub_sub_shared_private_link_resource(resource_group_name: Optional[s
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubSharedPrivateLinkResourceResult:
     """
     Get the specified shared private link resource
-    API Version: 2021-04-01-preview.
+    API Version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -180,7 +180,7 @@ def get_web_pub_sub_shared_private_link_resource_output(resource_group_name: Opt
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubSharedPrivateLinkResourceResult]:
     """
     Get the specified shared private link resource
-    API Version: 2021-04-01-preview.
+    API Version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

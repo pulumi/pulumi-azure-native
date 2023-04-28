@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Service Token
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetOnlineEndpointTokenResult> InvokeAsync(GetOnlineEndpointTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service Token
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetOnlineEndpointTokenResult> Invoke(GetOnlineEndpointTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetOnlineEndpointTokenResult
     {
         /// <summary>
-        /// Access token.
+        /// Access token for endpoint authentication.
         /// </summary>
         public readonly string? AccessToken;
         /// <summary>

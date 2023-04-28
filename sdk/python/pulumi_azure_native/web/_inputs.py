@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AllowedAudiencesValidationArgs',
+    'AllowedPrincipalsArgs',
     'ApiConnectionDefinitionPropertiesArgs',
     'ApiConnectionTestLinkArgs',
     'ApiDefinitionInfoArgs',
@@ -27,6 +28,7 @@ __all__ = [
     'AppleArgs',
     'ApplicationLogsConfigArgs',
     'ArcConfigurationArgs',
+    'AseV3NetworkingConfigurationArgs',
     'AuthPlatformArgs',
     'AutoHealActionsArgs',
     'AutoHealCustomActionArgs',
@@ -48,6 +50,7 @@ __all__ = [
     'CapabilityArgs',
     'ClientRegistrationArgs',
     'CloningInfoArgs',
+    'ConfigurationArgs',
     'ConnStringInfoArgs',
     'ConnStringValueTypePairArgs',
     'ConnectionErrorArgs',
@@ -56,13 +59,23 @@ __all__ = [
     'ConnectionParameterArgs',
     'ConnectionStatusDefinitionArgs',
     'ConsentLinkParameterDefinition',
+    'ContainerAppsConfigurationArgs',
+    'ContainerResourcesArgs',
+    'ContainerArgs',
     'CookieExpirationArgs',
     'CorsSettingsArgs',
     'CustomApiPropertiesDefinitionArgs',
+    'CustomDnsSuffixConfigurationArgs',
     'CustomOpenIdConnectProviderArgs',
+    'CustomScaleRuleArgs',
+    'DaprComponentArgs',
+    'DaprMetadataArgs',
+    'DaprArgs',
     'DatabaseBackupSetting',
     'DatabaseBackupSettingArgs',
+    'DefaultAuthorizationPolicyArgs',
     'EnabledConfigArgs',
+    'EnvironmentVarArgs',
     'ExperimentsArgs',
     'ExtendedLocationArgs',
     'FacebookArgs',
@@ -81,9 +94,11 @@ __all__ = [
     'HostNameSslStateArgs',
     'HostingEnvironmentProfileArgs',
     'HttpLogsConfigArgs',
+    'HttpScaleRuleArgs',
     'HttpSettingsRoutesArgs',
     'HttpSettingsArgs',
     'IdentityProvidersArgs',
+    'IngressArgs',
     'IpSecurityRestrictionArgs',
     'JwtClaimChecksArgs',
     'KubeEnvironmentProfileArgs',
@@ -101,8 +116,14 @@ __all__ = [
     'OpenIdConnectRegistrationArgs',
     'PrivateLinkConnectionStateArgs',
     'PushSettingsArgs',
+    'QueueScaleRuleArgs',
     'RampUpRuleArgs',
+    'RegistryCredentialsArgs',
     'RequestsBasedTriggerArgs',
+    'ScaleRuleAuthArgs',
+    'ScaleRuleArgs',
+    'ScaleArgs',
+    'SecretArgs',
     'SiteConfigArgs',
     'SiteLimitsArgs',
     'SkuCapacityArgs',
@@ -112,7 +133,9 @@ __all__ = [
     'StaticSiteTemplateOptionsArgs',
     'StatusCodesBasedTriggerArgs',
     'StatusCodesRangeBasedTriggerArgs',
+    'TemplateArgs',
     'TokenStoreArgs',
+    'TrafficWeightArgs',
     'TwitterRegistrationArgs',
     'TwitterArgs',
     'VirtualApplicationArgs',
@@ -145,6 +168,46 @@ class AllowedAudiencesValidationArgs:
     @allowed_audiences.setter
     def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
+
+
+@pulumi.input_type
+class AllowedPrincipalsArgs:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The configuration settings of the Azure Active Directory allowed principals.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of the allowed groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identities: The list of the allowed identities.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if identities is not None:
+            pulumi.set(__self__, "identities", identities)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the allowed groups.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the allowed identities.
+        """
+        return pulumi.get(self, "identities")
+
+    @identities.setter
+    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identities", value)
 
 
 @pulumi.input_type
@@ -1068,6 +1131,94 @@ class ArcConfigurationArgs:
 
 
 @pulumi.input_type
+class AseV3NetworkingConfigurationArgs:
+    def __init__(__self__, *,
+                 allow_new_private_endpoint_connections: Optional[pulumi.Input[bool]] = None,
+                 ftp_enabled: Optional[pulumi.Input[bool]] = None,
+                 inbound_ip_address_override: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 remote_debug_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Full view of networking configuration for an ASE.
+        :param pulumi.Input[bool] allow_new_private_endpoint_connections: Property to enable and disable new private endpoint connection creation on ASE
+        :param pulumi.Input[bool] ftp_enabled: Property to enable and disable FTP on ASEV3
+        :param pulumi.Input[str] inbound_ip_address_override: Customer provided Inbound IP Address. Only able to be set on Ase create.
+        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[bool] remote_debug_enabled: Property to enable and disable Remote Debug on ASEV3
+        """
+        if allow_new_private_endpoint_connections is not None:
+            pulumi.set(__self__, "allow_new_private_endpoint_connections", allow_new_private_endpoint_connections)
+        if ftp_enabled is not None:
+            pulumi.set(__self__, "ftp_enabled", ftp_enabled)
+        if inbound_ip_address_override is not None:
+            pulumi.set(__self__, "inbound_ip_address_override", inbound_ip_address_override)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if remote_debug_enabled is not None:
+            pulumi.set(__self__, "remote_debug_enabled", remote_debug_enabled)
+
+    @property
+    @pulumi.getter(name="allowNewPrivateEndpointConnections")
+    def allow_new_private_endpoint_connections(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Property to enable and disable new private endpoint connection creation on ASE
+        """
+        return pulumi.get(self, "allow_new_private_endpoint_connections")
+
+    @allow_new_private_endpoint_connections.setter
+    def allow_new_private_endpoint_connections(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_new_private_endpoint_connections", value)
+
+    @property
+    @pulumi.getter(name="ftpEnabled")
+    def ftp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Property to enable and disable FTP on ASEV3
+        """
+        return pulumi.get(self, "ftp_enabled")
+
+    @ftp_enabled.setter
+    def ftp_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ftp_enabled", value)
+
+    @property
+    @pulumi.getter(name="inboundIpAddressOverride")
+    def inbound_ip_address_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer provided Inbound IP Address. Only able to be set on Ase create.
+        """
+        return pulumi.get(self, "inbound_ip_address_override")
+
+    @inbound_ip_address_override.setter
+    def inbound_ip_address_override(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inbound_ip_address_override", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="remoteDebugEnabled")
+    def remote_debug_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Property to enable and disable Remote Debug on ASEV3
+        """
+        return pulumi.get(self, "remote_debug_enabled")
+
+    @remote_debug_enabled.setter
+    def remote_debug_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debug_enabled", value)
+
+
+@pulumi.input_type
 class AuthPlatformArgs:
     def __init__(__self__, *,
                  config_file_path: Optional[pulumi.Input[str]] = None,
@@ -1538,14 +1689,18 @@ class AzureActiveDirectoryRegistrationArgs:
 class AzureActiveDirectoryValidationArgs:
     def __init__(__self__, *,
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_authorization_policy: Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']] = None,
                  jwt_claim_checks: Optional[pulumi.Input['JwtClaimChecksArgs']] = None):
         """
         The configuration settings of the Azure Active Directory token validation flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: The list of audiences that can make successful authentication/authorization requests.
+        :param pulumi.Input['DefaultAuthorizationPolicyArgs'] default_authorization_policy: The configuration settings of the default authorization policy.
         :param pulumi.Input['JwtClaimChecksArgs'] jwt_claim_checks: The configuration settings of the checks that should be made while validating the JWT Claims.
         """
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if default_authorization_policy is not None:
+            pulumi.set(__self__, "default_authorization_policy", default_authorization_policy)
         if jwt_claim_checks is not None:
             pulumi.set(__self__, "jwt_claim_checks", jwt_claim_checks)
 
@@ -1560,6 +1715,18 @@ class AzureActiveDirectoryValidationArgs:
     @allowed_audiences.setter
     def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="defaultAuthorizationPolicy")
+    def default_authorization_policy(self) -> Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']]:
+        """
+        The configuration settings of the default authorization policy.
+        """
+        return pulumi.get(self, "default_authorization_policy")
+
+    @default_authorization_policy.setter
+    def default_authorization_policy(self, value: Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']]):
+        pulumi.set(self, "default_authorization_policy", value)
 
     @property
     @pulumi.getter(name="jwtClaimChecks")
@@ -2475,6 +2642,80 @@ class CloningInfoArgs:
 
 
 @pulumi.input_type
+class ConfigurationArgs:
+    def __init__(__self__, *,
+                 active_revisions_mode: Optional[pulumi.Input[Union[str, 'ActiveRevisionsMode']]] = None,
+                 ingress: Optional[pulumi.Input['IngressArgs']] = None,
+                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None):
+        """
+        Non versioned Container App configuration properties that define the mutable settings of a Container app
+        :param pulumi.Input[Union[str, 'ActiveRevisionsMode']] active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
+               <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+        :param pulumi.Input['IngressArgs'] ingress: Ingress configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]] registries: Collection of private container registry credentials for containers used by the Container app
+        :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Container app
+        """
+        if active_revisions_mode is not None:
+            pulumi.set(__self__, "active_revisions_mode", active_revisions_mode)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if registries is not None:
+            pulumi.set(__self__, "registries", registries)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter(name="activeRevisionsMode")
+    def active_revisions_mode(self) -> Optional[pulumi.Input[Union[str, 'ActiveRevisionsMode']]]:
+        """
+        ActiveRevisionsMode controls how active revisions are handled for the Container app:
+        <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+        """
+        return pulumi.get(self, "active_revisions_mode")
+
+    @active_revisions_mode.setter
+    def active_revisions_mode(self, value: Optional[pulumi.Input[Union[str, 'ActiveRevisionsMode']]]):
+        pulumi.set(self, "active_revisions_mode", value)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[pulumi.Input['IngressArgs']]:
+        """
+        Ingress configurations.
+        """
+        return pulumi.get(self, "ingress")
+
+    @ingress.setter
+    def ingress(self, value: Optional[pulumi.Input['IngressArgs']]):
+        pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter
+    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]]:
+        """
+        Collection of private container registry credentials for containers used by the Container app
+        """
+        return pulumi.get(self, "registries")
+
+    @registries.setter
+    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]]):
+        pulumi.set(self, "registries", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]]:
+        """
+        Collection of secrets used by a Container app
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+
+@pulumi.input_type
 class ConnStringInfoArgs:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
@@ -3016,6 +3257,253 @@ class ConsentLinkParameterDefinition:
 
 
 @pulumi.input_type
+class ContainerAppsConfigurationArgs:
+    def __init__(__self__, *,
+                 app_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+                 control_plane_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+                 dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
+                 docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+                 platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
+                 platform_reserved_dns_ip: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] app_subnet_resource_id: Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        :param pulumi.Input[str] control_plane_subnet_resource_id: Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        :param pulumi.Input[str] docker_bridge_cidr: CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
+        :param pulumi.Input[str] platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
+        :param pulumi.Input[str] platform_reserved_dns_ip: An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
+        """
+        if app_subnet_resource_id is not None:
+            pulumi.set(__self__, "app_subnet_resource_id", app_subnet_resource_id)
+        if control_plane_subnet_resource_id is not None:
+            pulumi.set(__self__, "control_plane_subnet_resource_id", control_plane_subnet_resource_id)
+        if dapr_ai_instrumentation_key is not None:
+            pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
+        if docker_bridge_cidr is not None:
+            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if platform_reserved_cidr is not None:
+            pulumi.set(__self__, "platform_reserved_cidr", platform_reserved_cidr)
+        if platform_reserved_dns_ip is not None:
+            pulumi.set(__self__, "platform_reserved_dns_ip", platform_reserved_dns_ip)
+
+    @property
+    @pulumi.getter(name="appSubnetResourceId")
+    def app_subnet_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "app_subnet_resource_id")
+
+    @app_subnet_resource_id.setter
+    def app_subnet_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_subnet_resource_id", value)
+
+    @property
+    @pulumi.getter(name="controlPlaneSubnetResourceId")
+    def control_plane_subnet_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in appSubnetResourceId. Must not overlap with the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "control_plane_subnet_resource_id")
+
+    @control_plane_subnet_resource_id.setter
+    def control_plane_subnet_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "control_plane_subnet_resource_id", value)
+
+    @property
+    @pulumi.getter(name="daprAIInstrumentationKey")
+    def dapr_ai_instrumentation_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        """
+        return pulumi.get(self, "dapr_ai_instrumentation_key")
+
+    @dapr_ai_instrumentation_key.setter
+    def dapr_ai_instrumentation_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dapr_ai_instrumentation_key", value)
+
+    @property
+    @pulumi.getter(name="dockerBridgeCidr")
+    def docker_bridge_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the IP range defined in platformReservedCidr, if defined.
+        """
+        return pulumi.get(self, "docker_bridge_cidr")
+
+    @docker_bridge_cidr.setter
+    def docker_bridge_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_bridge_cidr", value)
+
+    @property
+    @pulumi.getter(name="platformReservedCidr")
+    def platform_reserved_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
+        """
+        return pulumi.get(self, "platform_reserved_cidr")
+
+    @platform_reserved_cidr.setter
+    def platform_reserved_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_reserved_cidr", value)
+
+    @property
+    @pulumi.getter(name="platformReservedDnsIP")
+    def platform_reserved_dns_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
+        """
+        return pulumi.get(self, "platform_reserved_dns_ip")
+
+    @platform_reserved_dns_ip.setter
+    def platform_reserved_dns_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_reserved_dns_ip", value)
+
+
+@pulumi.input_type
+class ContainerResourcesArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[float]] = None,
+                 memory: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container resource requirements.
+        :param pulumi.Input[float] cpu: Required CPU in cores, e.g. 0.5
+        :param pulumi.Input[str] memory: Required memory, e.g. "250Mb"
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[float]]:
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required memory, e.g. "250Mb"
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class ContainerArgs:
+    def __init__(__self__, *,
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 env: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input['ContainerResourcesArgs']] = None):
+        """
+        Container App container definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: Container start command arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: Container start command.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]] env: Container environment variables.
+        :param pulumi.Input[str] image: Container image tag.
+        :param pulumi.Input[str] name: Custom container name.
+        :param pulumi.Input['ContainerResourcesArgs'] resources: Container resource requirements.
+        """
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Container start command arguments.
+        """
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Container start command.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]]:
+        """
+        Container environment variables.
+        """
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container image tag.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom container name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input['ContainerResourcesArgs']]:
+        """
+        Container resource requirements.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input['ContainerResourcesArgs']]):
+        pulumi.set(self, "resources", value)
+
+
+@pulumi.input_type
 class CookieExpirationArgs:
     def __init__(__self__, *,
                  convention: Optional[pulumi.Input['CookieExpirationConvention']] = None,
@@ -3302,6 +3790,78 @@ class CustomApiPropertiesDefinitionArgs:
 
 
 @pulumi.input_type
+class CustomDnsSuffixConfigurationArgs:
+    def __init__(__self__, *,
+                 certificate_url: Optional[pulumi.Input[str]] = None,
+                 dns_suffix: Optional[pulumi.Input[str]] = None,
+                 key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        Full view of the custom domain suffix configuration for ASEv3.
+        :param pulumi.Input[str] certificate_url: The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
+        :param pulumi.Input[str] dns_suffix: The default custom domain suffix to use for all sites deployed on the ASE.
+        :param pulumi.Input[str] key_vault_reference_identity: The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if certificate_url is not None:
+            pulumi.set(__self__, "certificate_url", certificate_url)
+        if dns_suffix is not None:
+            pulumi.set(__self__, "dns_suffix", dns_suffix)
+        if key_vault_reference_identity is not None:
+            pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
+        """
+        return pulumi.get(self, "certificate_url")
+
+    @certificate_url.setter
+    def certificate_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_url", value)
+
+    @property
+    @pulumi.getter(name="dnsSuffix")
+    def dns_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default custom domain suffix to use for all sites deployed on the ASE.
+        """
+        return pulumi.get(self, "dns_suffix")
+
+    @dns_suffix.setter
+    def dns_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_suffix", value)
+
+    @property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
+
+    @key_vault_reference_identity.setter
+    def key_vault_reference_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_reference_identity", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
 class CustomOpenIdConnectProviderArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -3355,6 +3915,264 @@ class CustomOpenIdConnectProviderArgs:
     @registration.setter
     def registration(self, value: Optional[pulumi.Input['OpenIdConnectRegistrationArgs']]):
         pulumi.set(self, "registration", value)
+
+
+@pulumi.input_type
+class CustomScaleRuleArgs:
+    def __init__(__self__, *,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container Custom scaling rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the custom scale rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata properties to describe custom scale rule.
+        :param pulumi.Input[str] type: Type of the custom scale rule
+               eg: azure-servicebus, redis etc.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]:
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata properties to describe custom scale rule.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the custom scale rule
+        eg: azure-servicebus, redis etc.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DaprComponentArgs:
+    def __init__(__self__, *,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Dapr component configuration
+        :param pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]] metadata: Component metadata
+        :param pulumi.Input[str] name: Component name
+        :param pulumi.Input[str] type: Component type
+        :param pulumi.Input[str] version: Component version
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]]:
+        """
+        Component metadata
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Component name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Component type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Component version
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class DaprMetadataArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 secret_ref: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Container App Dapr component metadata.
+        :param pulumi.Input[str] name: Metadata property name.
+        :param pulumi.Input[str] secret_ref: Name of the Container App secret from which to pull the metadata property value.
+        :param pulumi.Input[str] value: Metadata property value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata property name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App secret from which to pull the metadata property value.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata property value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DaprArgs:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 app_port: Optional[pulumi.Input[int]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentArgs']]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Container App Dapr configuration.
+        :param pulumi.Input[str] app_id: Dapr application identifier
+        :param pulumi.Input[int] app_port: Port on which the Dapr side car
+        :param pulumi.Input[Sequence[pulumi.Input['DaprComponentArgs']]] components: Collection of Dapr components
+        :param pulumi.Input[bool] enabled: Boolean indicating if the Dapr side car is enabled
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if app_port is not None:
+            pulumi.set(__self__, "app_port", app_port)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dapr application identifier
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appPort")
+    def app_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port on which the Dapr side car
+        """
+        return pulumi.get(self, "app_port")
+
+    @app_port.setter
+    def app_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_port", value)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentArgs']]]]:
+        """
+        Collection of Dapr components
+        """
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentArgs']]]]):
+        pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean indicating if the Dapr side car is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
@@ -3496,6 +4314,46 @@ class DatabaseBackupSettingArgs:
 
 
 @pulumi.input_type
+class DefaultAuthorizationPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_principals: Optional[pulumi.Input['AllowedPrincipalsArgs']] = None):
+        """
+        The configuration settings of the Azure Active Directory default authorization policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_applications: The configuration settings of the Azure Active Directory allowed applications.
+        :param pulumi.Input['AllowedPrincipalsArgs'] allowed_principals: The configuration settings of the Azure Active Directory allowed principals.
+        """
+        if allowed_applications is not None:
+            pulumi.set(__self__, "allowed_applications", allowed_applications)
+        if allowed_principals is not None:
+            pulumi.set(__self__, "allowed_principals", allowed_principals)
+
+    @property
+    @pulumi.getter(name="allowedApplications")
+    def allowed_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The configuration settings of the Azure Active Directory allowed applications.
+        """
+        return pulumi.get(self, "allowed_applications")
+
+    @allowed_applications.setter
+    def allowed_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_applications", value)
+
+    @property
+    @pulumi.getter(name="allowedPrincipals")
+    def allowed_principals(self) -> Optional[pulumi.Input['AllowedPrincipalsArgs']]:
+        """
+        The configuration settings of the Azure Active Directory allowed principals.
+        """
+        return pulumi.get(self, "allowed_principals")
+
+    @allowed_principals.setter
+    def allowed_principals(self, value: Optional[pulumi.Input['AllowedPrincipalsArgs']]):
+        pulumi.set(self, "allowed_principals", value)
+
+
+@pulumi.input_type
 class EnabledConfigArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -3517,6 +4375,62 @@ class EnabledConfigArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class EnvironmentVarArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 secret_ref: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container environment variable.
+        :param pulumi.Input[str] name: Environment variable name.
+        :param pulumi.Input[str] secret_ref: Name of the Container App secret from which to pull the environment variable value.
+        :param pulumi.Input[str] value: Non-secret environment variable value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Environment variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App secret from which to pull the environment variable value.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Non-secret environment variable value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -4440,6 +5354,46 @@ class HttpLogsConfigArgs:
 
 
 @pulumi.input_type
+class HttpScaleRuleArgs:
+    def __init__(__self__, *,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Container App container Custom scaling rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the custom scale rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata properties to describe http scale rule.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]:
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata properties to describe http scale rule.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+
+@pulumi.input_type
 class HttpSettingsRoutesArgs:
     def __init__(__self__, *,
                  api_prefix: Optional[pulumi.Input[str]] = None):
@@ -4671,6 +5625,92 @@ class IdentityProvidersArgs:
     @twitter.setter
     def twitter(self, value: Optional[pulumi.Input['TwitterArgs']]):
         pulumi.set(self, "twitter", value)
+
+
+@pulumi.input_type
+class IngressArgs:
+    def __init__(__self__, *,
+                 allow_insecure: Optional[pulumi.Input[bool]] = None,
+                 external: Optional[pulumi.Input[bool]] = None,
+                 target_port: Optional[pulumi.Input[int]] = None,
+                 traffic: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]] = None,
+                 transport: Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]] = None):
+        """
+        Container App Ingress configuration.
+        :param pulumi.Input[bool] allow_insecure: Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
+        :param pulumi.Input[bool] external: Bool indicating if app exposes an external http endpoint
+        :param pulumi.Input[int] target_port: Target Port in containers for traffic from ingress
+        :param pulumi.Input[Union[str, 'IngressTransportMethod']] transport: Ingress transport protocol
+        """
+        if allow_insecure is not None:
+            pulumi.set(__self__, "allow_insecure", allow_insecure)
+        if external is None:
+            external = False
+        if external is not None:
+            pulumi.set(__self__, "external", external)
+        if target_port is not None:
+            pulumi.set(__self__, "target_port", target_port)
+        if traffic is not None:
+            pulumi.set(__self__, "traffic", traffic)
+        if transport is not None:
+            pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter(name="allowInsecure")
+    def allow_insecure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
+        """
+        return pulumi.get(self, "allow_insecure")
+
+    @allow_insecure.setter
+    def allow_insecure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_insecure", value)
+
+    @property
+    @pulumi.getter
+    def external(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bool indicating if app exposes an external http endpoint
+        """
+        return pulumi.get(self, "external")
+
+    @external.setter
+    def external(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "external", value)
+
+    @property
+    @pulumi.getter(name="targetPort")
+    def target_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Target Port in containers for traffic from ingress
+        """
+        return pulumi.get(self, "target_port")
+
+    @target_port.setter
+    def target_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_port", value)
+
+    @property
+    @pulumi.getter
+    def traffic(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]]:
+        return pulumi.get(self, "traffic")
+
+    @traffic.setter
+    def traffic(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]]):
+        pulumi.set(self, "traffic", value)
+
+    @property
+    @pulumi.getter
+    def transport(self) -> Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]]:
+        """
+        Ingress transport protocol
+        """
+        return pulumi.get(self, "transport")
+
+    @transport.setter
+    def transport(self, value: Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]]):
+        pulumi.set(self, "transport", value)
 
 
 @pulumi.input_type
@@ -5627,7 +6667,7 @@ class PushSettingsArgs:
         :param pulumi.Input[bool] is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
         :param pulumi.Input[str] dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         :param pulumi.Input[str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
                '_', '@', '#', '.', ':', '-'. 
@@ -5683,7 +6723,7 @@ class PushSettingsArgs:
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 
@@ -5705,6 +6745,62 @@ class PushSettingsArgs:
     @tags_requiring_auth.setter
     def tags_requiring_auth(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tags_requiring_auth", value)
+
+
+@pulumi.input_type
+class QueueScaleRuleArgs:
+    def __init__(__self__, *,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 queue_length: Optional[pulumi.Input[int]] = None,
+                 queue_name: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container Azure Queue based scaling rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the queue scale rule.
+        :param pulumi.Input[int] queue_length: Queue length.
+        :param pulumi.Input[str] queue_name: Queue name.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if queue_length is not None:
+            pulumi.set(__self__, "queue_length", queue_length)
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]:
+        """
+        Authentication secrets for the queue scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter(name="queueLength")
+    def queue_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Queue length.
+        """
+        return pulumi.get(self, "queue_length")
+
+    @queue_length.setter
+    def queue_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "queue_length", value)
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Queue name.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_name", value)
 
 
 @pulumi.input_type
@@ -5850,6 +6946,62 @@ class RampUpRuleArgs:
 
 
 @pulumi.input_type
+class RegistryCredentialsArgs:
+    def __init__(__self__, *,
+                 password_secret_ref: Optional[pulumi.Input[str]] = None,
+                 server: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Container App Private Registry
+        :param pulumi.Input[str] password_secret_ref: The name of the Secret that contains the registry login password
+        :param pulumi.Input[str] server: Container Registry Server
+        :param pulumi.Input[str] username: Container Registry Username
+        """
+        if password_secret_ref is not None:
+            pulumi.set(__self__, "password_secret_ref", password_secret_ref)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="passwordSecretRef")
+    def password_secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secret that contains the registry login password
+        """
+        return pulumi.get(self, "password_secret_ref")
+
+    @password_secret_ref.setter
+    def password_secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_secret_ref", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container Registry Server
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container Registry Username
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
 class RequestsBasedTriggerArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
@@ -5890,6 +7042,214 @@ class RequestsBasedTriggerArgs:
 
 
 @pulumi.input_type
+class ScaleRuleAuthArgs:
+    def __init__(__self__, *,
+                 secret_ref: Optional[pulumi.Input[str]] = None,
+                 trigger_parameter: Optional[pulumi.Input[str]] = None):
+        """
+        Auth Secrets for Container App Scale Rule
+        :param pulumi.Input[str] secret_ref: Name of the Container App secret from which to pull the auth params.
+        :param pulumi.Input[str] trigger_parameter: Trigger Parameter that uses the secret
+        """
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if trigger_parameter is not None:
+            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App secret from which to pull the auth params.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Trigger Parameter that uses the secret
+        """
+        return pulumi.get(self, "trigger_parameter")
+
+    @trigger_parameter.setter
+    def trigger_parameter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trigger_parameter", value)
+
+
+@pulumi.input_type
+class ScaleRuleArgs:
+    def __init__(__self__, *,
+                 azure_queue: Optional[pulumi.Input['QueueScaleRuleArgs']] = None,
+                 custom: Optional[pulumi.Input['CustomScaleRuleArgs']] = None,
+                 http: Optional[pulumi.Input['HttpScaleRuleArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container scaling rule.
+        :param pulumi.Input['QueueScaleRuleArgs'] azure_queue: Azure Queue based scaling.
+        :param pulumi.Input['CustomScaleRuleArgs'] custom: Custom scale rule.
+        :param pulumi.Input['HttpScaleRuleArgs'] http: HTTP requests based scaling.
+        :param pulumi.Input[str] name: Scale Rule Name
+        """
+        if azure_queue is not None:
+            pulumi.set(__self__, "azure_queue", azure_queue)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="azureQueue")
+    def azure_queue(self) -> Optional[pulumi.Input['QueueScaleRuleArgs']]:
+        """
+        Azure Queue based scaling.
+        """
+        return pulumi.get(self, "azure_queue")
+
+    @azure_queue.setter
+    def azure_queue(self, value: Optional[pulumi.Input['QueueScaleRuleArgs']]):
+        pulumi.set(self, "azure_queue", value)
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional[pulumi.Input['CustomScaleRuleArgs']]:
+        """
+        Custom scale rule.
+        """
+        return pulumi.get(self, "custom")
+
+    @custom.setter
+    def custom(self, value: Optional[pulumi.Input['CustomScaleRuleArgs']]):
+        pulumi.set(self, "custom", value)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['HttpScaleRuleArgs']]:
+        """
+        HTTP requests based scaling.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['HttpScaleRuleArgs']]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scale Rule Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ScaleArgs:
+    def __init__(__self__, *,
+                 max_replicas: Optional[pulumi.Input[int]] = None,
+                 min_replicas: Optional[pulumi.Input[int]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]] = None):
+        """
+        Container App scaling configurations.
+        :param pulumi.Input[int] max_replicas: Optional. Maximum number of container replicas. Defaults to 10 if not set.
+        :param pulumi.Input[int] min_replicas: Optional. Minimum number of container replicas.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: Scaling rules.
+        """
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        Optional. Maximum number of container replicas. Defaults to 10 if not set.
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @max_replicas.setter
+    def max_replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_replicas", value)
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        Optional. Minimum number of container replicas.
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @min_replicas.setter
+    def min_replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_replicas", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]]:
+        """
+        Scaling rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class SecretArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Container App Secret.
+        :param pulumi.Input[str] name: Secret Name.
+        :param pulumi.Input[str] value: Secret Value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret Name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret Value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class SiteConfigArgs:
     def __init__(__self__, *,
                  acr_use_managed_identity_creds: Optional[pulumi.Input[bool]] = None,
@@ -5908,6 +7268,7 @@ class SiteConfigArgs:
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  document_root: Optional[pulumi.Input[str]] = None,
+                 elastic_web_app_scale_limit: Optional[pulumi.Input[int]] = None,
                  experiments: Optional[pulumi.Input['ExperimentsArgs']] = None,
                  ftps_state: Optional[pulumi.Input[Union[str, 'FtpsState']]] = None,
                  function_app_scale_limit: Optional[pulumi.Input[int]] = None,
@@ -5917,6 +7278,7 @@ class SiteConfigArgs:
                  http20_enabled: Optional[pulumi.Input[bool]] = None,
                  http_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
+                 ip_security_restrictions_default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
                  java_container: Optional[pulumi.Input[str]] = None,
                  java_container_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
@@ -5928,6 +7290,7 @@ class SiteConfigArgs:
                  logs_directory_size_limit: Optional[pulumi.Input[int]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input['ManagedPipelineMode']] = None,
                  managed_service_identity_id: Optional[pulumi.Input[int]] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
                  min_tls_version: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]] = None,
                  minimum_elastic_instance_count: Optional[pulumi.Input[int]] = None,
                  net_framework_version: Optional[pulumi.Input[str]] = None,
@@ -5945,6 +7308,7 @@ class SiteConfigArgs:
                  request_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  request_tracing_expiration_time: Optional[pulumi.Input[str]] = None,
                  scm_ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
+                 scm_ip_security_restrictions_default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
                  scm_ip_security_restrictions_use_main: Optional[pulumi.Input[bool]] = None,
                  scm_min_tls_version: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]] = None,
                  scm_type: Optional[pulumi.Input[Union[str, 'ScmType']]] = None,
@@ -5976,6 +7340,8 @@ class SiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Default documents.
         :param pulumi.Input[bool] detailed_error_logging_enabled: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
         :param pulumi.Input[str] document_root: Document root.
+        :param pulumi.Input[int] elastic_web_app_scale_limit: Maximum number of workers that a site can scale out to.
+               This setting only applies to apps in plans where ElasticScaleEnabled is <code>true</code>
         :param pulumi.Input['ExperimentsArgs'] experiments: This is work around for polymorphic types.
         :param pulumi.Input[Union[str, 'FtpsState']] ftps_state: State of FTP / FTPS service
         :param pulumi.Input[int] function_app_scale_limit: Maximum number of workers that a site can scale out to.
@@ -5988,6 +7354,7 @@ class SiteConfigArgs:
         :param pulumi.Input[bool] http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
         :param pulumi.Input[bool] http_logging_enabled: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
         :param pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]] ip_security_restrictions: IP security restrictions for main.
+        :param pulumi.Input[Union[str, 'DefaultAction']] ip_security_restrictions_default_action: Default action for main access restriction if no rules are matched.
         :param pulumi.Input[str] java_container: Java container.
         :param pulumi.Input[str] java_container_version: Java container version.
         :param pulumi.Input[str] java_version: Java version.
@@ -5999,6 +7366,7 @@ class SiteConfigArgs:
         :param pulumi.Input[int] logs_directory_size_limit: HTTP logs directory size limit.
         :param pulumi.Input['ManagedPipelineMode'] managed_pipeline_mode: Managed pipeline mode.
         :param pulumi.Input[int] managed_service_identity_id: Managed Service Identity Id
+        :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] metadata: Application metadata. This property cannot be retrieved, since it may contain secrets.
         :param pulumi.Input[Union[str, 'SupportedTlsVersions']] min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
         :param pulumi.Input[int] minimum_elastic_instance_count: Number of minimum instance count for a site
                This setting only applies to the Elastic Plans
@@ -6018,6 +7386,7 @@ class SiteConfigArgs:
         :param pulumi.Input[bool] request_tracing_enabled: <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
         :param pulumi.Input[str] request_tracing_expiration_time: Request tracing expiration time.
         :param pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]] scm_ip_security_restrictions: IP security restrictions for scm.
+        :param pulumi.Input[Union[str, 'DefaultAction']] scm_ip_security_restrictions_default_action: Default action for scm access restriction if no rules are matched.
         :param pulumi.Input[bool] scm_ip_security_restrictions_use_main: IP security restrictions for scm to use main.
         :param pulumi.Input[Union[str, 'SupportedTlsVersions']] scm_min_tls_version: ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
         :param pulumi.Input[Union[str, 'ScmType']] scm_type: SCM type.
@@ -6064,6 +7433,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
         if document_root is not None:
             pulumi.set(__self__, "document_root", document_root)
+        if elastic_web_app_scale_limit is not None:
+            pulumi.set(__self__, "elastic_web_app_scale_limit", elastic_web_app_scale_limit)
         if experiments is not None:
             pulumi.set(__self__, "experiments", experiments)
         if ftps_state is not None:
@@ -6084,6 +7455,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "http_logging_enabled", http_logging_enabled)
         if ip_security_restrictions is not None:
             pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+        if ip_security_restrictions_default_action is not None:
+            pulumi.set(__self__, "ip_security_restrictions_default_action", ip_security_restrictions_default_action)
         if java_container is not None:
             pulumi.set(__self__, "java_container", java_container)
         if java_container_version is not None:
@@ -6108,6 +7481,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
         if managed_service_identity_id is not None:
             pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if minimum_elastic_instance_count is not None:
@@ -6144,6 +7519,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "request_tracing_expiration_time", request_tracing_expiration_time)
         if scm_ip_security_restrictions is not None:
             pulumi.set(__self__, "scm_ip_security_restrictions", scm_ip_security_restrictions)
+        if scm_ip_security_restrictions_default_action is not None:
+            pulumi.set(__self__, "scm_ip_security_restrictions_default_action", scm_ip_security_restrictions_default_action)
         if scm_ip_security_restrictions_use_main is not None:
             pulumi.set(__self__, "scm_ip_security_restrictions_use_main", scm_ip_security_restrictions_use_main)
         if scm_min_tls_version is not None:
@@ -6364,6 +7741,19 @@ class SiteConfigArgs:
         pulumi.set(self, "document_root", value)
 
     @property
+    @pulumi.getter(name="elasticWebAppScaleLimit")
+    def elastic_web_app_scale_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of workers that a site can scale out to.
+        This setting only applies to apps in plans where ElasticScaleEnabled is <code>true</code>
+        """
+        return pulumi.get(self, "elastic_web_app_scale_limit")
+
+    @elastic_web_app_scale_limit.setter
+    def elastic_web_app_scale_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_web_app_scale_limit", value)
+
+    @property
     @pulumi.getter
     def experiments(self) -> Optional[pulumi.Input['ExperimentsArgs']]:
         """
@@ -6473,6 +7863,18 @@ class SiteConfigArgs:
     @ip_security_restrictions.setter
     def ip_security_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]):
         pulumi.set(self, "ip_security_restrictions", value)
+
+    @property
+    @pulumi.getter(name="ipSecurityRestrictionsDefaultAction")
+    def ip_security_restrictions_default_action(self) -> Optional[pulumi.Input[Union[str, 'DefaultAction']]]:
+        """
+        Default action for main access restriction if no rules are matched.
+        """
+        return pulumi.get(self, "ip_security_restrictions_default_action")
+
+    @ip_security_restrictions_default_action.setter
+    def ip_security_restrictions_default_action(self, value: Optional[pulumi.Input[Union[str, 'DefaultAction']]]):
+        pulumi.set(self, "ip_security_restrictions_default_action", value)
 
     @property
     @pulumi.getter(name="javaContainer")
@@ -6605,6 +8007,18 @@ class SiteConfigArgs:
     @managed_service_identity_id.setter
     def managed_service_identity_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "managed_service_identity_id", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]:
+        """
+        Application metadata. This property cannot be retrieved, since it may contain secrets.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]):
+        pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter(name="minTlsVersion")
@@ -6811,6 +8225,18 @@ class SiteConfigArgs:
     @scm_ip_security_restrictions.setter
     def scm_ip_security_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]]):
         pulumi.set(self, "scm_ip_security_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmIpSecurityRestrictionsDefaultAction")
+    def scm_ip_security_restrictions_default_action(self) -> Optional[pulumi.Input[Union[str, 'DefaultAction']]]:
+        """
+        Default action for scm access restriction if no rules are matched.
+        """
+        return pulumi.get(self, "scm_ip_security_restrictions_default_action")
+
+    @scm_ip_security_restrictions_default_action.setter
+    def scm_ip_security_restrictions_default_action(self, value: Optional[pulumi.Input[Union[str, 'DefaultAction']]]):
+        pulumi.set(self, "scm_ip_security_restrictions_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpSecurityRestrictionsUseMain")
@@ -7718,6 +9144,80 @@ class StatusCodesRangeBasedTriggerArgs:
 
 
 @pulumi.input_type
+class TemplateArgs:
+    def __init__(__self__, *,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]] = None,
+                 dapr: Optional[pulumi.Input['DaprArgs']] = None,
+                 revision_suffix: Optional[pulumi.Input[str]] = None,
+                 scale: Optional[pulumi.Input['ScaleArgs']] = None):
+        """
+        Container App versioned application definition.
+        Defines the desired state of an immutable revision.
+        Any changes to this section Will result in a new revision being created
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: List of container definitions for the Container App.
+        :param pulumi.Input['DaprArgs'] dapr: Dapr configuration for the Container App.
+        :param pulumi.Input[str] revision_suffix: User friendly suffix that is appended to the revision name
+        :param pulumi.Input['ScaleArgs'] scale: Scaling properties for the Container App.
+        """
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if dapr is not None:
+            pulumi.set(__self__, "dapr", dapr)
+        if revision_suffix is not None:
+            pulumi.set(__self__, "revision_suffix", revision_suffix)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]]:
+        """
+        List of container definitions for the Container App.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter
+    def dapr(self) -> Optional[pulumi.Input['DaprArgs']]:
+        """
+        Dapr configuration for the Container App.
+        """
+        return pulumi.get(self, "dapr")
+
+    @dapr.setter
+    def dapr(self, value: Optional[pulumi.Input['DaprArgs']]):
+        pulumi.set(self, "dapr", value)
+
+    @property
+    @pulumi.getter(name="revisionSuffix")
+    def revision_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        User friendly suffix that is appended to the revision name
+        """
+        return pulumi.get(self, "revision_suffix")
+
+    @revision_suffix.setter
+    def revision_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision_suffix", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['ScaleArgs']]:
+        """
+        Scaling properties for the Container App.
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['ScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
 class TokenStoreArgs:
     def __init__(__self__, *,
                  azure_blob_storage: Optional[pulumi.Input['BlobStorageTokenStoreArgs']] = None,
@@ -7791,6 +9291,64 @@ class TokenStoreArgs:
     @token_refresh_extension_hours.setter
     def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "token_refresh_extension_hours", value)
+
+
+@pulumi.input_type
+class TrafficWeightArgs:
+    def __init__(__self__, *,
+                 latest_revision: Optional[pulumi.Input[bool]] = None,
+                 revision_name: Optional[pulumi.Input[str]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        Traffic weight assigned to a revision
+        :param pulumi.Input[bool] latest_revision: Indicates that the traffic weight belongs to a latest stable revision
+        :param pulumi.Input[str] revision_name: Name of a revision
+        :param pulumi.Input[int] weight: Traffic weight assigned to a revision
+        """
+        if latest_revision is None:
+            latest_revision = False
+        if latest_revision is not None:
+            pulumi.set(__self__, "latest_revision", latest_revision)
+        if revision_name is not None:
+            pulumi.set(__self__, "revision_name", revision_name)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the traffic weight belongs to a latest stable revision
+        """
+        return pulumi.get(self, "latest_revision")
+
+    @latest_revision.setter
+    def latest_revision(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "latest_revision", value)
+
+    @property
+    @pulumi.getter(name="revisionName")
+    def revision_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a revision
+        """
+        return pulumi.get(self, "revision_name")
+
+    @revision_name.setter
+    def revision_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision_name", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Traffic weight assigned to a revision
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type

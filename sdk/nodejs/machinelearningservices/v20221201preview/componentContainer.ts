@@ -87,7 +87,7 @@ export class ComponentContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220501:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:ComponentContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220501:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:ComponentContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ComponentContainer.__pulumiType, name, resourceInputs, opts);
     }

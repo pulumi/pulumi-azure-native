@@ -6,9 +6,6 @@ from enum import Enum
 
 __all__ = [
     'BindingType',
-    'ManagedIdentityType',
-    'StorageType',
-    'Type',
 ]
 
 
@@ -22,27 +19,3 @@ class BindingType(str, Enum):
     DYNATRACE = "Dynatrace"
     NEW_RELIC = "NewRelic"
     ELASTIC_APM = "ElasticAPM"
-
-
-class ManagedIdentityType(str, Enum):
-    """
-    Type of the managed identity
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-
-
-class StorageType(str, Enum):
-    """
-    The type of the storage.
-    """
-    STORAGE_ACCOUNT = "StorageAccount"
-
-
-class Type(str, Enum):
-    """
-    The type of the underlying resource to mount as a persistent disk.
-    """
-    AZURE_FILE_VOLUME = "AzureFileVolume"

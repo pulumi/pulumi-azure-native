@@ -11,26 +11,25 @@ from .get_assessment import *
 from .get_group import *
 from .get_hyper_v_collector import *
 from .get_import_collector import *
-from .get_migrate_project import *
+from .get_migrate_projects_controller_migrate_project import *
 from .get_move_collection import *
 from .get_move_resource import *
 from .get_private_endpoint_connection import *
+from .get_private_endpoint_connection_controller_private_endpoint_connection import *
 from .get_project import *
 from .get_project_keys import *
 from .get_server_collector import *
-from .get_solution import *
-from .get_solution_config import *
 from .get_v_mware_collector import *
 from .group import *
 from .hyper_v_collector import *
 from .import_collector import *
-from .migrate_project import *
+from .migrate_projects_controller_migrate_project import *
 from .move_collection import *
 from .move_resource import *
 from .private_endpoint_connection import *
+from .private_endpoint_connection_controller_private_endpoint_connection import *
 from .project import *
 from .server_collector import *
-from .solution import *
 from .v_mware_collector import *
 from ._inputs import *
 from . import outputs
@@ -45,14 +44,10 @@ if typing.TYPE_CHECKING:
     v20180901preview = __v20180901preview
     import pulumi_azure_native.migrate.v20191001 as __v20191001
     v20191001 = __v20191001
-    import pulumi_azure_native.migrate.v20191001preview as __v20191001preview
-    v20191001preview = __v20191001preview
     import pulumi_azure_native.migrate.v20200501 as __v20200501
     v20200501 = __v20200501
     import pulumi_azure_native.migrate.v20210101 as __v20210101
     v20210101 = __v20210101
-    import pulumi_azure_native.migrate.v20210801 as __v20210801
-    v20210801 = __v20210801
     import pulumi_azure_native.migrate.v20220501preview as __v20220501preview
     v20220501preview = __v20220501preview
     import pulumi_azure_native.migrate.v20220801 as __v20220801
@@ -62,10 +57,8 @@ else:
     v20180202 = _utilities.lazy_import('pulumi_azure_native.migrate.v20180202')
     v20180901preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20180901preview')
     v20191001 = _utilities.lazy_import('pulumi_azure_native.migrate.v20191001')
-    v20191001preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20191001preview')
     v20200501 = _utilities.lazy_import('pulumi_azure_native.migrate.v20200501')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.migrate.v20210101')
-    v20210801 = _utilities.lazy_import('pulumi_azure_native.migrate.v20210801')
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20220501preview')
     v20220801 = _utilities.lazy_import('pulumi_azure_native.migrate.v20220801')
 

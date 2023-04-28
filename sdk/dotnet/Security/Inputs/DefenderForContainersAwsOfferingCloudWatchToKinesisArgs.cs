@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderForContainersAwsOfferingCloudWatchToKinesisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cloud role ARN in AWS for this feature
+        /// The cloud role ARN in AWS used by CloudWatch to transfer data into Kinesis
         /// </summary>
         [Input("cloudRoleArn")]
         public Input<string>? CloudRoleArn { get; set; }

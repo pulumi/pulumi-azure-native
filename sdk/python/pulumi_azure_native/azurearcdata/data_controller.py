@@ -27,6 +27,7 @@ class DataControllerArgs:
         The set of arguments for constructing a DataController resource.
         :param pulumi.Input['DataControllerPropertiesArgs'] properties: The data controller's properties
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group
+        :param pulumi.Input[str] data_controller_name: The name of the data controller
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -69,6 +70,9 @@ class DataControllerArgs:
     @property
     @pulumi.getter(name="dataControllerName")
     def data_controller_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the data controller
+        """
         return pulumi.get(self, "data_controller_name")
 
     @data_controller_name.setter
@@ -126,10 +130,12 @@ class DataController(pulumi.CustomResource):
                  __props__=None):
         """
         Data controller resource
-        API Version: 2021-06-01-preview.
+        API Version: 2023-03-15-preview.
+        Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_controller_name: The name of the data controller
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['DataControllerPropertiesArgs']] properties: The data controller's properties
@@ -144,7 +150,8 @@ class DataController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data controller resource
-        API Version: 2021-06-01-preview.
+        API Version: 2023-03-15-preview.
+        Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DataControllerArgs args: The arguments to use to populate this resource's properties.
@@ -189,7 +196,7 @@ class DataController(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:DataController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:DataController"), pulumi.Alias(type_="azure-native:azurearcdata/v20230315preview:DataController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataController, __self__).__init__(
             'azure-native:azurearcdata:DataController',
@@ -258,7 +265,7 @@ class DataController(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -274,7 +281,7 @@ class DataController(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

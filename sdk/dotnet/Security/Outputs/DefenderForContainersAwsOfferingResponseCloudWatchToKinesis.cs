@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderForContainersAwsOfferingResponseCloudWatchToKinesis
     {
         /// <summary>
-        /// The cloud role ARN in AWS for this feature
+        /// The cloud role ARN in AWS used by CloudWatch to transfer data into Kinesis
         /// </summary>
         public readonly string? CloudRoleArn;
 

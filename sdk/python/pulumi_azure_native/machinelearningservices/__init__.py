@@ -6,39 +6,31 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .aci_service import *
-from .aks_service import *
 from .batch_deployment import *
 from .batch_endpoint import *
 from .code_container import *
 from .code_version import *
 from .component_container import *
 from .component_version import *
+from .compute import *
 from .data_container import *
 from .data_version import *
-from .endpoint_variant import *
+from .datastore import *
 from .environment_container import *
-from .environment_specification_version import *
-from .get_aci_service import *
-from .get_aks_service import *
+from .environment_version import *
 from .get_batch_deployment import *
 from .get_batch_endpoint import *
 from .get_code_container import *
 from .get_code_version import *
 from .get_component_container import *
 from .get_component_version import *
+from .get_compute import *
 from .get_data_container import *
 from .get_data_version import *
-from .get_endpoint_variant import *
+from .get_datastore import *
 from .get_environment_container import *
-from .get_environment_specification_version import *
+from .get_environment_version import *
 from .get_job import *
-from .get_labeling_job import *
-from .get_linked_service import *
-from .get_linked_workspace import *
-from .get_machine_learning_compute import *
-from .get_machine_learning_dataset import *
-from .get_machine_learning_datastore import *
 from .get_model_container import *
 from .get_model_version import *
 from .get_online_deployment import *
@@ -46,29 +38,25 @@ from .get_online_deployment_logs import *
 from .get_online_endpoint import *
 from .get_online_endpoint_token import *
 from .get_private_endpoint_connection import *
+from .get_schedule import *
 from .get_workspace import *
 from .get_workspace_connection import *
 from .job import *
-from .labeling_job import *
-from .linked_service import *
-from .linked_workspace import *
 from .list_batch_endpoint_keys import *
+from .list_compute_keys import *
+from .list_compute_nodes import *
 from .list_datastore_secrets import *
-from .list_machine_learning_compute_keys import *
-from .list_machine_learning_compute_nodes import *
-from .list_notebook_keys import *
 from .list_online_endpoint_keys import *
-from .list_storage_account_keys import *
 from .list_workspace_keys import *
 from .list_workspace_notebook_access_token import *
-from .machine_learning_compute import *
-from .machine_learning_dataset import *
-from .machine_learning_datastore import *
+from .list_workspace_notebook_keys import *
+from .list_workspace_storage_account_keys import *
 from .model_container import *
 from .model_version import *
 from .online_deployment import *
 from .online_endpoint import *
 from .private_endpoint_connection import *
+from .schedule import *
 from .workspace import *
 from .workspace_connection import *
 from ._inputs import *
@@ -126,6 +114,8 @@ if typing.TYPE_CHECKING:
     v20221001preview = __v20221001preview
     import pulumi_azure_native.machinelearningservices.v20221201preview as __v20221201preview
     v20221201preview = __v20221201preview
+    import pulumi_azure_native.machinelearningservices.v20230201preview as __v20230201preview
+    v20230201preview = __v20230201preview
     import pulumi_azure_native.machinelearningservices.v20230401preview as __v20230401preview
     v20230401preview = __v20230401preview
 else:
@@ -154,5 +144,6 @@ else:
     v20221001 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20221001')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20221001preview')
     v20221201preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20221201preview')
+    v20230201preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230201preview')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230401preview')
 

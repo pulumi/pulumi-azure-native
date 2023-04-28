@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
 
@@ -47,6 +50,10 @@ export interface GetEventHubAuthorizationRuleResult {
      */
     readonly id: string;
     /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -55,13 +62,17 @@ export interface GetEventHubAuthorizationRuleResult {
      */
     readonly rights: string[];
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
 }
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))

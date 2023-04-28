@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Job Definition resource.
- * API Version: 2022-07-01-preview.
+ * API Version: 2023-03-01.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
 
@@ -120,7 +120,7 @@ export interface GetJobDefinitionResult {
 }
 /**
  * Gets a Job Definition resource.
- * API Version: 2022-07-01-preview.
+ * API Version: 2023-03-01.
  */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))

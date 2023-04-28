@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ExportPipeline"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ExportPipeline"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ExportPipeline"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ExportPipeline"},

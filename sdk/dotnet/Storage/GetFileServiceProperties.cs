@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
-        /// API Version: 2021-02-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetFileServicePropertiesResult> InvokeAsync(GetFileServicePropertiesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-native:storage:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
-        /// API Version: 2021-02-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetFileServicePropertiesResult> Invoke(GetFileServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileServicePropertiesResult>("azure-native:storage:getFileServiceProperties", args ?? new GetFileServicePropertiesInvokeArgs(), options.WithDefaults());

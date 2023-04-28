@@ -21,7 +21,8 @@ class CloudServiceArgs:
                  cloud_service_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['CloudServicePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CloudService resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
@@ -29,6 +30,7 @@ class CloudServiceArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['CloudServicePropertiesArgs'] properties: Cloud service properties
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cloud_service_name is not None:
@@ -39,6 +41,8 @@ class CloudServiceArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -100,6 +104,18 @@ class CloudServiceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 class CloudService(pulumi.CustomResource):
     @overload
@@ -111,10 +127,12 @@ class CloudService(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['CloudServicePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Describes the cloud service.
-        API Version: 2021-03-01.
+        API Version: 2022-09-04.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,6 +141,7 @@ class CloudService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CloudServicePropertiesArgs']] properties: Cloud service properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
         """
         ...
     @overload
@@ -132,7 +151,8 @@ class CloudService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes the cloud service.
-        API Version: 2021-03-01.
+        API Version: 2022-09-04.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CloudServiceArgs args: The arguments to use to populate this resource's properties.
@@ -154,6 +174,7 @@ class CloudService(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['CloudServicePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -170,7 +191,9 @@ class CloudService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zones"] = zones
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20201001preview:CloudService"), pulumi.Alias(type_="azure-native:compute/v20210301:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220404:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220904:CloudService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -199,8 +222,10 @@ class CloudService(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["zones"] = None
         return CloudService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -228,6 +253,14 @@ class CloudService(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output[Optional['outputs.SystemDataResponse']]:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -242,4 +275,12 @@ class CloudService(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
+        """
+        return pulumi.get(self, "zones")
 

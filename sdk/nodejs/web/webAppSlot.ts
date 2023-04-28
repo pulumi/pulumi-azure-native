@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class WebAppSlot extends pulumi.CustomResource {
     /**
@@ -87,6 +88,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly enabledHostNames!: pulumi.Output<string[]>;
     /**
+     * Extended Location.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
+    /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
     public readonly hostNameSslStates!: pulumi.Output<outputs.web.HostNameSslStateResponse[] | undefined>;
@@ -145,6 +150,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+     */
+    public readonly managedEnvironmentId!: pulumi.Output<string | undefined>;
+    /**
      * Maximum number of workers.
      * This only applies to Functions container.
      */
@@ -161,6 +170,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Site redundancy mode
      */
@@ -230,6 +243,18 @@ export class WebAppSlot extends pulumi.CustomResource {
      * This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
      */
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    /**
+     * To enable accessing content over virtual network
+     */
+    public readonly vnetContentShareEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * To enable pulling image over Virtual Network
+     */
+    public readonly vnetImagePullEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+     */
+    public readonly vnetRouteAllEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a WebAppSlot resource with the given unique name, arguments, and options.
@@ -257,6 +282,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["customDomainVerificationId"] = args ? args.customDomainVerificationId : undefined;
             resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hostNameSslStates"] = args ? args.hostNameSslStates : undefined;
             resourceInputs["hostNamesDisabled"] = args ? args.hostNamesDisabled : undefined;
             resourceInputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
@@ -267,7 +293,9 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["keyVaultReferenceIdentity"] = args ? args.keyVaultReferenceIdentity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedEnvironmentId"] = args ? args.managedEnvironmentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["redundancyMode"] = args ? args.redundancyMode : undefined;
             resourceInputs["reserved"] = (args ? args.reserved : undefined) ?? false;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -278,6 +306,9 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["storageAccountRequired"] = args ? args.storageAccountRequired : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["vnetContentShareEnabled"] = args ? args.vnetContentShareEnabled : undefined;
+            resourceInputs["vnetImagePullEnabled"] = args ? args.vnetImagePullEnabled : undefined;
+            resourceInputs["vnetRouteAllEnabled"] = args ? args.vnetRouteAllEnabled : undefined;
             resourceInputs["availabilityState"] = undefined /*out*/;
             resourceInputs["defaultHostName"] = undefined /*out*/;
             resourceInputs["enabledHostNames"] = undefined /*out*/;
@@ -309,6 +340,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["defaultHostName"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["enabledHostNames"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hostNameSslStates"] = undefined /*out*/;
             resourceInputs["hostNames"] = undefined /*out*/;
             resourceInputs["hostNamesDisabled"] = undefined /*out*/;
@@ -323,10 +355,12 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedEnvironmentId"] = undefined /*out*/;
             resourceInputs["maxNumberOfWorkers"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
             resourceInputs["possibleOutboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["redundancyMode"] = undefined /*out*/;
             resourceInputs["repositorySiteName"] = undefined /*out*/;
             resourceInputs["reserved"] = undefined /*out*/;
@@ -344,6 +378,9 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["usageState"] = undefined /*out*/;
             resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
+            resourceInputs["vnetContentShareEnabled"] = undefined /*out*/;
+            resourceInputs["vnetImagePullEnabled"] = undefined /*out*/;
+            resourceInputs["vnetRouteAllEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppSlot" }, { type: "azure-native:web/v20160801:WebAppSlot" }, { type: "azure-native:web/v20180201:WebAppSlot" }, { type: "azure-native:web/v20181101:WebAppSlot" }, { type: "azure-native:web/v20190801:WebAppSlot" }, { type: "azure-native:web/v20200601:WebAppSlot" }, { type: "azure-native:web/v20200901:WebAppSlot" }, { type: "azure-native:web/v20201001:WebAppSlot" }, { type: "azure-native:web/v20201201:WebAppSlot" }, { type: "azure-native:web/v20210101:WebAppSlot" }, { type: "azure-native:web/v20210115:WebAppSlot" }, { type: "azure-native:web/v20210201:WebAppSlot" }, { type: "azure-native:web/v20210301:WebAppSlot" }, { type: "azure-native:web/v20220301:WebAppSlot" }, { type: "azure-native:web/v20220901:WebAppSlot" }] };
@@ -396,6 +433,10 @@ export interface WebAppSlotArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
+     * Extended Location.
+     */
+    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs>;
+    /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
     hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.HostNameSslStateArgs>[]>;
@@ -438,9 +479,17 @@ export interface WebAppSlotArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+     */
+    managedEnvironmentId?: pulumi.Input<string>;
+    /**
      * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
      */
     name: pulumi.Input<string>;
+    /**
+     * Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * Site redundancy mode
      */
@@ -466,7 +515,7 @@ export interface WebAppSlotArgs {
      */
     siteConfig?: pulumi.Input<inputs.web.SiteConfigArgs>;
     /**
-     * Name of the deployment slot to create or update. The name 'production' is reserved.
+     * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
      */
     slot?: pulumi.Input<string>;
     /**
@@ -482,4 +531,16 @@ export interface WebAppSlotArgs {
      * This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
      */
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * To enable accessing content over virtual network
+     */
+    vnetContentShareEnabled?: pulumi.Input<boolean>;
+    /**
+     * To enable pulling image over Virtual Network
+     */
+    vnetImagePullEnabled?: pulumi.Input<boolean>;
+    /**
+     * Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+     */
+    vnetRouteAllEnabled?: pulumi.Input<boolean>;
 }

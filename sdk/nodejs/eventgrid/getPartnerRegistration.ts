@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a partner registration with the specified parameters.
- * API Version: 2021-06-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
 
@@ -36,17 +36,6 @@ export interface GetPartnerRegistrationArgs {
  */
 export interface GetPartnerRegistrationResult {
     /**
-     * List of Azure subscription Ids that are authorized to create a partner namespace
-     * associated with this partner registration. This is an optional property. Creating
-     * partner namespaces is always permitted under the same Azure subscription as the one used
-     * for creating the partner registration.
-     */
-    readonly authorizedAzureSubscriptionIds?: string[];
-    /**
-     * The extension of the customer service URI of the publisher.
-     */
-    readonly customerServiceUri?: string;
-    /**
      * Fully qualified identifier of the resource.
      */
     readonly id: string;
@@ -55,54 +44,18 @@ export interface GetPartnerRegistrationResult {
      */
     readonly location: string;
     /**
-     * URI of the logo.
-     */
-    readonly logoUri?: string;
-    /**
-     * Long description for the custom scenarios and integration to be displayed in the portal if needed.
-     * Length of this description should not exceed 2048 characters.
-     */
-    readonly longDescription?: string;
-    /**
      * Name of the resource.
      */
     readonly name: string;
     /**
-     * The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
+     * The immutableId of the corresponding partner registration.
+     * Note: This property is marked for deprecation and is not supported in any future GA API version
      */
-    readonly partnerCustomerServiceExtension?: string;
-    /**
-     * The customer service number of the publisher. The expected phone format should start with a '+' sign 
-     * followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-     * length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-     * +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-     */
-    readonly partnerCustomerServiceNumber?: string;
-    /**
-     * Official name of the partner name. For example: "Contoso".
-     */
-    readonly partnerName?: string;
-    /**
-     * Short description of the partner resource type. The length of this description should not exceed 256 characters.
-     */
-    readonly partnerResourceTypeDescription?: string;
-    /**
-     * Display name of the partner resource type.
-     */
-    readonly partnerResourceTypeDisplayName?: string;
-    /**
-     * Name of the partner resource type.
-     */
-    readonly partnerResourceTypeName?: string;
+    readonly partnerRegistrationImmutableId?: string;
     /**
      * Provisioning state of the partner registration.
      */
     readonly provisioningState: string;
-    /**
-     * URI of the partner website that can be used by Azure customers to setup Event Grid
-     * integration on an event source.
-     */
-    readonly setupUri?: string;
     /**
      * The system metadata relating to Partner Registration resource.
      */
@@ -115,14 +68,10 @@ export interface GetPartnerRegistrationResult {
      * Type of the resource.
      */
     readonly type: string;
-    /**
-     * Visibility state of the partner registration.
-     */
-    readonly visibilityState?: string;
 }
 /**
  * Gets a partner registration with the specified parameters.
- * API Version: 2021-06-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getPartnerRegistration(a, opts))

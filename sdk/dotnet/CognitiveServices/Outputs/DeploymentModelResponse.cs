@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class DeploymentModelResponse
     {
         /// <summary>
+        /// The call rate limit Cognitive Services account.
+        /// </summary>
+        public readonly Outputs.CallRateLimitResponse CallRateLimit;
+        /// <summary>
         /// Deployment model format.
         /// </summary>
         public readonly string? Format;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
         [OutputConstructor]
         private DeploymentModelResponse(
+            Outputs.CallRateLimitResponse callRateLimit,
+
             string? format,
 
             string? name,
 
             string? version)
         {
+            CallRateLimit = callRateLimit;
             Format = format;
             Name = name;
             Version = version;

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// The private endpoint connection of a workspace
-    /// API Version: 2022-04-01-preview.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

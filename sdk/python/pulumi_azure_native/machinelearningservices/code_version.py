@@ -16,49 +16,49 @@ __all__ = ['CodeVersionInitArgs', 'CodeVersion']
 @pulumi.input_type
 class CodeVersionInitArgs:
     def __init__(__self__, *,
+                 code_version_properties: pulumi.Input['CodeVersionArgs'],
                  name: pulumi.Input[str],
-                 properties: pulumi.Input['CodeVersionArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CodeVersion resource.
-        :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input['CodeVersionArgs'] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['CodeVersionArgs'] code_version_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[str] name: Container name. This is case-sensitive.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[str] version: Version identifier.
+        :param pulumi.Input[str] version: Version identifier. This is case-sensitive.
         """
+        pulumi.set(__self__, "code_version_properties", code_version_properties)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
+    @pulumi.getter(name="codeVersionProperties")
+    def code_version_properties(self) -> pulumi.Input['CodeVersionArgs']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "code_version_properties")
+
+    @code_version_properties.setter
+    def code_version_properties(self, value: pulumi.Input['CodeVersionArgs']):
+        pulumi.set(self, "code_version_properties", value)
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Container name.
+        Container name. This is case-sensitive.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['CodeVersionArgs']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['CodeVersionArgs']):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -88,7 +88,7 @@ class CodeVersionInitArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version identifier.
+        Version identifier. This is case-sensitive.
         """
         return pulumi.get(self, "version")
 
@@ -102,22 +102,23 @@ class CodeVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 code_version_properties: Optional[pulumi.Input[pulumi.InputType['CodeVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CodeVersionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input[pulumi.InputType['CodeVersionArgs']] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['CodeVersionArgs']] code_version_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[str] name: Container name. This is case-sensitive.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] version: Version identifier.
+        :param pulumi.Input[str] version: Version identifier. This is case-sensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
         ...
@@ -128,7 +129,8 @@ class CodeVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CodeVersionInitArgs args: The arguments to use to populate this resource's properties.
@@ -145,8 +147,8 @@ class CodeVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 code_version_properties: Optional[pulumi.Input[pulumi.InputType['CodeVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CodeVersionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -159,12 +161,12 @@ class CodeVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CodeVersionInitArgs.__new__(CodeVersionInitArgs)
 
+            if code_version_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'code_version_properties'")
+            __props__.__dict__["code_version_properties"] = code_version_properties
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -174,7 +176,7 @@ class CodeVersion(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:CodeVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:CodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:CodeVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CodeVersion, __self__).__init__(
             'azure-native:machinelearningservices:CodeVersion',
@@ -198,11 +200,19 @@ class CodeVersion(pulumi.CustomResource):
 
         __props__ = CodeVersionInitArgs.__new__(CodeVersionInitArgs)
 
+        __props__.__dict__["code_version_properties"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CodeVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="codeVersionProperties")
+    def code_version_properties(self) -> pulumi.Output['outputs.CodeVersionResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "code_version_properties")
 
     @property
     @pulumi.getter
@@ -213,18 +223,10 @@ class CodeVersion(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.CodeVersionResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

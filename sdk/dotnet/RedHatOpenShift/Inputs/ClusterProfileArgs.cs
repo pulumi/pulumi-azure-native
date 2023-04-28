@@ -16,25 +16,31 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class ClusterProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain for the cluster (immutable).
+        /// The domain for the cluster.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The pull secret for the cluster (immutable).
+        /// If FIPS validated crypto modules are used
+        /// </summary>
+        [Input("fipsValidatedModules")]
+        public InputUnion<string, Pulumi.AzureNative.RedHatOpenShift.FipsValidatedModules>? FipsValidatedModules { get; set; }
+
+        /// <summary>
+        /// The pull secret for the cluster.
         /// </summary>
         [Input("pullSecret")]
         public Input<string>? PullSecret { get; set; }
 
         /// <summary>
-        /// The ID of the cluster resource group (immutable).
+        /// The ID of the cluster resource group.
         /// </summary>
         [Input("resourceGroupId")]
         public Input<string>? ResourceGroupId { get; set; }
 
         /// <summary>
-        /// The version of the cluster (immutable).
+        /// The version of the cluster.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

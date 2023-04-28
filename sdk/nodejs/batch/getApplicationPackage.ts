@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified application package.
- * API Version: 2021-01-01.
+ * API Version: 2022-10-01.
  */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
 
@@ -81,7 +81,7 @@ export interface GetApplicationPackageResult {
 }
 /**
  * Gets information about the specified application package.
- * API Version: 2021-01-01.
+ * API Version: 2022-10-01.
  */
 export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationPackageResult> {
     return pulumi.output(args).apply((a: any) => getApplicationPackage(a, opts))

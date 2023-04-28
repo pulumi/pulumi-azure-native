@@ -25,6 +25,14 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly Outputs.DeinterlaceResponse? Deinterlace;
         /// <summary>
+        /// Describes the properties of a Fade effect applied to the input media.
+        /// </summary>
+        public readonly Outputs.FadeResponse? FadeIn;
+        /// <summary>
+        /// Describes the properties of a Fade effect applied to the input media.
+        /// </summary>
+        public readonly Outputs.FadeResponse? FadeOut;
+        /// <summary>
         /// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.AudioOverlayResponse, Outputs.VideoOverlayResponse>> Overlays;
@@ -39,12 +47,18 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             Outputs.DeinterlaceResponse? deinterlace,
 
+            Outputs.FadeResponse? fadeIn,
+
+            Outputs.FadeResponse? fadeOut,
+
             ImmutableArray<Union<Outputs.AudioOverlayResponse, Outputs.VideoOverlayResponse>> overlays,
 
             string? rotation)
         {
             Crop = crop;
             Deinterlace = deinterlace;
+            FadeIn = fadeIn;
+            FadeOut = fadeOut;
             Overlays = overlays;
             Rotation = rotation;
         }

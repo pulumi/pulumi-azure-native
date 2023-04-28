@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A datastore resource
-    /// API Version: 2021-01-01-preview.
+    /// API Version: 2022-05-01.
+    /// Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource
@@ -39,6 +40,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The operational status of the datastore
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

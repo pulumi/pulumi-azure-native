@@ -8,44 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Cache.V20170201
 {
     /// <summary>
-    /// Day of the week when a cache can be patched.
-    /// </summary>
-    [EnumType]
-    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
-    {
-        private readonly string _value;
-
-        private DayOfWeek(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
-        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
-        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
-        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
-        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
-        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
-        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
-        public static DayOfWeek Everyday { get; } = new DayOfWeek("Everyday");
-        public static DayOfWeek Weekend { get; } = new DayOfWeek("Weekend");
-
-        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
-        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
-
-        public static explicit operator string(DayOfWeek value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
-        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Role of the linked server.
     /// </summary>
     [EnumType]

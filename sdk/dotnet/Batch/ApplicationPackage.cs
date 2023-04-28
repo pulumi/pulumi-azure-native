@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:ApplicationPackage")]
     public partial class ApplicationPackage : global::Pulumi.CustomResource

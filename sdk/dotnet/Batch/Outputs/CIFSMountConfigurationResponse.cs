@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly string RelativeMountPath;
         public readonly string Source;
-        public readonly string Username;
+        public readonly string UserName;
 
         [OutputConstructor]
         private CIFSMountConfigurationResponse(
@@ -35,13 +35,13 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             string source,
 
-            string username)
+            string userName)
         {
             MountOptions = mountOptions;
             Password = password;
             RelativeMountPath = relativeMountPath;
             Source = source;
-            Username = username;
+            UserName = userName;
         }
     }
 }

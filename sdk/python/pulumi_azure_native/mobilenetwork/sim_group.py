@@ -18,14 +18,8 @@ __all__ = ['SimGroupArgs', 'SimGroup']
 class SimGroupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  encryption_key: Optional[pulumi.Input['KeyVaultKeyArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network: Optional[pulumi.Input['MobileNetworkResourceIdArgs']] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,36 +27,18 @@ class SimGroupArgs:
         """
         The set of arguments for constructing a SimGroup resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
         :param pulumi.Input['KeyVaultKeyArgs'] encryption_key: A key to encrypt the SIM data that belongs to this SIM group.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity used to retrieve the encryption key from Azure key vault.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['MobileNetworkResourceIdArgs'] mobile_network: Mobile network that this SIM belongs to
+        :param pulumi.Input['MobileNetworkResourceIdArgs'] mobile_network: Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
         if encryption_key is not None:
             pulumi.set(__self__, "encryption_key", encryption_key)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mobile_network is not None:
@@ -83,42 +59,6 @@ class SimGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_at", value)
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_by", value)
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @created_by_type.setter
-    def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "created_by_type", value)
 
     @property
     @pulumi.getter(name="encryptionKey")
@@ -145,42 +85,6 @@ class SimGroupArgs:
         pulumi.set(self, "identity", value)
 
     @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @last_modified_at.setter
-    def last_modified_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_at", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_by", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @last_modified_by_type.setter
-    def last_modified_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "last_modified_by_type", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -196,7 +100,7 @@ class SimGroupArgs:
     @pulumi.getter(name="mobileNetwork")
     def mobile_network(self) -> Optional[pulumi.Input['MobileNetworkResourceIdArgs']]:
         """
-        Mobile network that this SIM belongs to
+        Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
         """
         return pulumi.get(self, "mobile_network")
 
@@ -234,14 +138,8 @@ class SimGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  encryption_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -250,20 +148,15 @@ class SimGroup(pulumi.CustomResource):
                  __props__=None):
         """
         SIM group resource.
-        API Version: 2022-04-01-preview.
+        API Version: 2022-11-01.
+        Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
         :param pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']] encryption_key: A key to encrypt the SIM data that belongs to this SIM group.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity used to retrieve the encryption key from Azure key vault.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']] mobile_network: Mobile network that this SIM belongs to
+        :param pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']] mobile_network: Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -276,7 +169,8 @@ class SimGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SIM group resource.
-        API Version: 2022-04-01-preview.
+        API Version: 2022-11-01.
+        Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SimGroupArgs args: The arguments to use to populate this resource's properties.
@@ -293,14 +187,8 @@ class SimGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  encryption_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultKeyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network: Optional[pulumi.Input[pulumi.InputType['MobileNetworkResourceIdArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -315,14 +203,8 @@ class SimGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SimGroupArgs.__new__(SimGroupArgs)
 
-            __props__.__dict__["created_at"] = created_at
-            __props__.__dict__["created_by"] = created_by
-            __props__.__dict__["created_by_type"] = created_by_type
             __props__.__dict__["encryption_key"] = encryption_key
             __props__.__dict__["identity"] = identity
-            __props__.__dict__["last_modified_at"] = last_modified_at
-            __props__.__dict__["last_modified_by"] = last_modified_by
-            __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             __props__.__dict__["location"] = location
             __props__.__dict__["mobile_network"] = mobile_network
             if resource_group_name is None and not opts.urn:
@@ -358,14 +240,8 @@ class SimGroup(pulumi.CustomResource):
 
         __props__ = SimGroupArgs.__new__(SimGroupArgs)
 
-        __props__.__dict__["created_at"] = None
-        __props__.__dict__["created_by"] = None
-        __props__.__dict__["created_by_type"] = None
         __props__.__dict__["encryption_key"] = None
         __props__.__dict__["identity"] = None
-        __props__.__dict__["last_modified_at"] = None
-        __props__.__dict__["last_modified_by"] = None
-        __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["mobile_network"] = None
         __props__.__dict__["name"] = None
@@ -374,30 +250,6 @@ class SimGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SimGroup(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
 
     @property
     @pulumi.getter(name="encryptionKey")
@@ -416,30 +268,6 @@ class SimGroup(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -451,7 +279,7 @@ class SimGroup(pulumi.CustomResource):
     @pulumi.getter(name="mobileNetwork")
     def mobile_network(self) -> pulumi.Output[Optional['outputs.MobileNetworkResourceIdResponse']]:
         """
-        Mobile network that this SIM belongs to
+        Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
         """
         return pulumi.get(self, "mobile_network")
 

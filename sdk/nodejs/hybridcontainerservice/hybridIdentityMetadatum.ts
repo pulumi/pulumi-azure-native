@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the hybridIdentityMetadata.
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
+ * Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**
@@ -78,17 +79,17 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provisionedClustersName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'provisionedClustersName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             resourceInputs["hybridIdentityMetadataResourceName"] = args ? args.hybridIdentityMetadataResourceName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["provisionedClustersName"] = args ? args.provisionedClustersName : undefined;
             resourceInputs["publicKey"] = args ? args.publicKey : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -104,7 +105,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20220901preview:HybridIdentityMetadatum" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridIdentityMetadatum.__pulumiType, name, resourceInputs, opts);
     }
@@ -123,10 +124,6 @@ export interface HybridIdentityMetadatumArgs {
      */
     identity?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClusterIdentityArgs>;
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName: pulumi.Input<string>;
-    /**
      * Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
      */
     publicKey?: pulumi.Input<string>;
@@ -134,6 +131,10 @@ export interface HybridIdentityMetadatumArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName: pulumi.Input<string>;
     /**
      * Unique id of the parent provisioned cluster resource.
      */

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List all the subscriptions in the private store context
- * API Version: 2021-12-01.
+ * API Version: 2022-09-01.
  */
 export function listPrivateStoreSubscriptionsContext(args: ListPrivateStoreSubscriptionsContextArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreSubscriptionsContextResult> {
 
@@ -31,7 +31,7 @@ export interface ListPrivateStoreSubscriptionsContextResult {
 }
 /**
  * List all the subscriptions in the private store context
- * API Version: 2021-12-01.
+ * API Version: 2022-09-01.
  */
 export function listPrivateStoreSubscriptionsContextOutput(args: ListPrivateStoreSubscriptionsContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreSubscriptionsContextResult> {
     return pulumi.output(args).apply((a: any) => listPrivateStoreSubscriptionsContext(a, opts))

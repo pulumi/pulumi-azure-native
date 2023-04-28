@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataFactory
     /// <summary>
     /// Credential resource type.
     /// API Version: 2018-06-01.
+    /// Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:CredentialOperation")]
     public partial class CredentialOperation : global::Pulumi.CustomResource

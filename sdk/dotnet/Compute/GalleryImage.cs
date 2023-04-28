@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the gallery image definition that you want to create or update.
-    /// API Version: 2020-09-30.
+    /// API Version: 2022-03-03.
+    /// Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The architecture of the image. Applicable to OS disks only.
+        /// </summary>
+        [Output("architecture")]
+        public Output<string?> Architecture { get; private set; } = null!;
+
         /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>
@@ -181,6 +188,12 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class GalleryImageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The architecture of the image. Applicable to OS disks only.
+        /// </summary>
+        [Input("architecture")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.Architecture>? Architecture { get; set; }
+
         /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>

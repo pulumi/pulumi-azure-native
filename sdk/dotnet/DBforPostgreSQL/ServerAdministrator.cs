@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// <summary>
     /// Represents a and external administrator to be created.
     /// API Version: 2017-12-01.
+    /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:ServerAdministrator")]
     public partial class ServerAdministrator : global::Pulumi.CustomResource

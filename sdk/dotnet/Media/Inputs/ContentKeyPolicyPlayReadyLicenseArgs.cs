@@ -75,6 +75,12 @@ namespace Pulumi.AzureNative.Media.Inputs
         [Input("relativeExpirationDate")]
         public Input<string>? RelativeExpirationDate { get; set; }
 
+        /// <summary>
+        /// The security level.
+        /// </summary>
+        [Input("securityLevel")]
+        public InputUnion<string, Pulumi.AzureNative.Media.SecurityLevel>? SecurityLevel { get; set; }
+
         public ContentKeyPolicyPlayReadyLicenseArgs()
         {
         }

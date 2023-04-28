@@ -54,10 +54,6 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// </summary>
         public readonly string? SapSid;
         /// <summary>
-        /// Gets or sets the blob URI to SSL certificate for the SAP system.
-        /// </summary>
-        public readonly string? SapSslCertificateUri;
-        /// <summary>
         /// Gets or sets the SAP user name.
         /// </summary>
         public readonly string? SapUsername;
@@ -90,8 +86,6 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             string? sapSid,
 
-            string? sapSslCertificateUri,
-
             string? sapUsername,
 
             string? sslCertificateUri,
@@ -107,7 +101,6 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             SapPasswordUri = sapPasswordUri;
             SapPortNumber = sapPortNumber;
             SapSid = sapSid;
-            SapSslCertificateUri = sapSslCertificateUri;
             SapUsername = sapUsername;
             SslCertificateUri = sslCertificateUri;
             SslPreference = sslPreference;

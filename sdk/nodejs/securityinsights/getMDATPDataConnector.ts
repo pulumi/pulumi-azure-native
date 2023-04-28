@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data connector.
- * API Version: 2020-01-01.
+ * API Version: 2023-02-01.
  */
 export function getMDATPDataConnector(args: GetMDATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMDATPDataConnectorResult> {
 
@@ -27,7 +27,7 @@ export interface GetMDATPDataConnectorArgs {
      */
     dataConnectorId: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -49,7 +49,7 @@ export interface GetMDATPDataConnectorResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -58,21 +58,25 @@ export interface GetMDATPDataConnectorResult {
      */
     readonly kind: "MicrosoftDefenderAdvancedThreatProtection";
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
      * The tenant id to connect to, and get the data from.
      */
     readonly tenantId?: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a data connector.
- * API Version: 2020-01-01.
+ * API Version: 2023-02-01.
  */
 export function getMDATPDataConnectorOutput(args: GetMDATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMDATPDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMDATPDataConnector(a, opts))
@@ -84,7 +88,7 @@ export interface GetMDATPDataConnectorOutputArgs {
      */
     dataConnectorId: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -35,10 +35,20 @@ export const getEmailService: typeof import("./getEmailService").getEmailService
 export const getEmailServiceOutput: typeof import("./getEmailService").getEmailServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getEmailService","getEmailServiceOutput"], () => require("./getEmailService"));
 
+export { GetSenderUsernameArgs, GetSenderUsernameResult, GetSenderUsernameOutputArgs } from "./getSenderUsername";
+export const getSenderUsername: typeof import("./getSenderUsername").getSenderUsername = null as any;
+export const getSenderUsernameOutput: typeof import("./getSenderUsername").getSenderUsernameOutput = null as any;
+utilities.lazyLoad(exports, ["getSenderUsername","getSenderUsernameOutput"], () => require("./getSenderUsername"));
+
 export { ListCommunicationServiceKeysArgs, ListCommunicationServiceKeysResult, ListCommunicationServiceKeysOutputArgs } from "./listCommunicationServiceKeys";
 export const listCommunicationServiceKeys: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeys = null as any;
 export const listCommunicationServiceKeysOutput: typeof import("./listCommunicationServiceKeys").listCommunicationServiceKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listCommunicationServiceKeys","listCommunicationServiceKeysOutput"], () => require("./listCommunicationServiceKeys"));
+
+export { SenderUsernameArgs } from "./senderUsername";
+export type SenderUsername = import("./senderUsername").SenderUsername;
+export const SenderUsername: typeof import("./senderUsername").SenderUsername = null as any;
+utilities.lazyLoad(exports, ["SenderUsername"], () => require("./senderUsername"));
 
 
 // Export enums:
@@ -49,6 +59,7 @@ import * as v20200820 from "./v20200820";
 import * as v20200820preview from "./v20200820preview";
 import * as v20211001preview from "./v20211001preview";
 import * as v20220701preview from "./v20220701preview";
+import * as v20230301preview from "./v20230301preview";
 import * as v20230331 from "./v20230331";
 
 export {
@@ -56,6 +67,7 @@ export {
     v20200820preview,
     v20211001preview,
     v20220701preview,
+    v20230301preview,
     v20230331,
 };
 
@@ -69,6 +81,8 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "azure-native:communication:EmailService":
                 return new EmailService(name, <any>undefined, { urn })
+            case "azure-native:communication:SenderUsername":
+                return new SenderUsername(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

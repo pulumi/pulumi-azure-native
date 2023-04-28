@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
     public sealed class ManagedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represent the identity type: systemAssigned, userAssigned, None
+        /// Represents the identity type: systemAssigned, userAssigned, None
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.WebPubSub.ManagedIdentityType>? Type { get; set; }

@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = ['WebAppSwiftVirtualNetworkConnectionArgs', 'WebAppSwiftVirtualNetworkConnection']
 
@@ -111,7 +110,8 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-        API Version: 2020-10-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,8 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-        API Version: 2020-10-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WebAppSwiftVirtualNetworkConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -169,7 +170,6 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnet_resource_id"] = subnet_resource_id
             __props__.__dict__["swift_supported"] = swift_supported
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -199,7 +199,6 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["subnet_resource_id"] = None
         __props__.__dict__["swift_supported"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WebAppSwiftVirtualNetworkConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -234,14 +233,6 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
         A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
         return pulumi.get(self, "swift_supported")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

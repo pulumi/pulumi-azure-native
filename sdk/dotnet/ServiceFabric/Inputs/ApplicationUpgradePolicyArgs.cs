@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         /// Defines a health policy used to evaluate the health of an application or one of its children entities.
         /// </summary>
         [Input("applicationHealthPolicy")]
-        public Input<Inputs.ArmApplicationHealthPolicyArgs>? ApplicationHealthPolicy { get; set; }
+        public Input<Inputs.ApplicationHealthPolicyArgs>? ApplicationHealthPolicy { get; set; }
 
         /// <summary>
         /// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
@@ -28,7 +28,13 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         public Input<bool>? ForceRestart { get; set; }
 
         /// <summary>
-        /// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+        /// Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
+        /// </summary>
+        [Input("instanceCloseDelayDuration")]
+        public Input<double>? InstanceCloseDelayDuration { get; set; }
+
+        /// <summary>
+        /// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed.
         /// </summary>
         [Input("recreateApplication")]
         public Input<bool>? RecreateApplication { get; set; }
@@ -37,10 +43,10 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         /// The policy used for monitoring the application upgrade
         /// </summary>
         [Input("rollingUpgradeMonitoringPolicy")]
-        public Input<Inputs.ArmRollingUpgradeMonitoringPolicyArgs>? RollingUpgradeMonitoringPolicy { get; set; }
+        public Input<Inputs.RollingUpgradeMonitoringPolicyArgs>? RollingUpgradeMonitoringPolicy { get; set; }
 
         /// <summary>
-        /// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+        /// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
         /// </summary>
         [Input("upgradeMode")]
         public InputUnion<string, Pulumi.AzureNative.ServiceFabric.RollingUpgradeMode>? UpgradeMode { get; set; }
@@ -49,7 +55,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         /// The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
         /// </summary>
         [Input("upgradeReplicaSetCheckTimeout")]
-        public Input<string>? UpgradeReplicaSetCheckTimeout { get; set; }
+        public Input<double>? UpgradeReplicaSetCheckTimeout { get; set; }
 
         public ApplicationUpgradePolicyArgs()
         {

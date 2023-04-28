@@ -19,26 +19,26 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The class type.
         /// Expected value is 'VMwareCbt'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// The target key vault ARM Id.
         /// </summary>
-        [Input("keyVaultId", required: true)]
-        public Input<string> KeyVaultId { get; set; } = null!;
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
         /// The target key vault URL.
         /// </summary>
-        [Input("keyVaultUri", required: true)]
-        public Input<string> KeyVaultUri { get; set; } = null!;
+        [Input("keyVaultUri")]
+        public Input<string>? KeyVaultUri { get; set; }
 
         /// <summary>
         /// The secret name of the service bus connection string.
         /// </summary>
-        [Input("serviceBusConnectionStringSecretName", required: true)]
-        public Input<string> ServiceBusConnectionStringSecretName { get; set; } = null!;
+        [Input("serviceBusConnectionStringSecretName")]
+        public Input<string>? ServiceBusConnectionStringSecretName { get; set; }
 
         /// <summary>
         /// The storage account ARM Id.
@@ -49,8 +49,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The secret name of the storage account.
         /// </summary>
-        [Input("storageAccountSasSecretName", required: true)]
-        public Input<string> StorageAccountSasSecretName { get; set; } = null!;
+        [Input("storageAccountSasSecretName")]
+        public Input<string>? StorageAccountSasSecretName { get; set; }
 
         /// <summary>
         /// The target location.

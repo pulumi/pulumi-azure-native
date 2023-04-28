@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a Azure Arc PrivateLinkScope.
- * API Version: 2021-03-25-preview.
+ * API Version: 2022-11-10.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
 
@@ -66,7 +66,7 @@ export interface GetPrivateLinkScopeResult {
 }
 /**
  * Returns a Azure Arc PrivateLinkScope.
- * API Version: 2021-03-25-preview.
+ * API Version: 2022-11-10.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRouteCircuit resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
@@ -42,6 +43,14 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      * Allow classic operations.
      */
     public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
+    /**
+     * The authorizationKey.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * The authorization status of the Circuit.
+     */
+    public /*out*/ readonly authorizationStatus!: pulumi.Output<string>;
     /**
      * The list of authorizations.
      */
@@ -134,6 +143,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             resourceInputs["authorizations"] = args ? args.authorizations : undefined;
             resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
             resourceInputs["circuitName"] = args ? args.circuitName : undefined;
@@ -151,6 +161,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizationStatus"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -158,6 +169,8 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowClassicOperations"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = undefined /*out*/;
+            resourceInputs["authorizationStatus"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
             resourceInputs["bandwidthInGbps"] = undefined /*out*/;
             resourceInputs["circuitProvisioningState"] = undefined /*out*/;
@@ -193,6 +206,10 @@ export interface ExpressRouteCircuitArgs {
      * Allow classic operations.
      */
     allowClassicOperations?: pulumi.Input<boolean>;
+    /**
+     * The authorizationKey.
+     */
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The list of authorizations.
      */

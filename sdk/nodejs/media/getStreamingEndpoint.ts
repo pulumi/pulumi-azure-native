@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a streaming endpoint.
- * API Version: 2020-05-01.
+ * API Version: 2022-11-01.
  */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
 
@@ -117,6 +117,10 @@ export interface GetStreamingEndpointResult {
      */
     readonly scaleUnits: number;
     /**
+     * The streaming endpoint sku.
+     */
+    readonly sku?: outputs.media.ArmStreamingEndpointCurrentSkuResponse;
+    /**
      * The system metadata relating to this resource.
      */
     readonly systemData: outputs.media.SystemDataResponse;
@@ -131,7 +135,7 @@ export interface GetStreamingEndpointResult {
 }
 /**
  * Gets a streaming endpoint.
- * API Version: 2020-05-01.
+ * API Version: 2022-11-01.
  */
 export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingEndpointResult> {
     return pulumi.output(args).apply((a: any) => getStreamingEndpoint(a, opts))

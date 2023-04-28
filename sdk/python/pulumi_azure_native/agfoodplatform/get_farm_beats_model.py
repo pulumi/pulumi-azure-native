@@ -22,10 +22,13 @@ class GetFarmBeatsModelResult:
     """
     FarmBeats ARM Resource.
     """
-    def __init__(__self__, id=None, instance_uri=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, instance_uri=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sensor_integration=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if instance_uri and not isinstance(instance_uri, str):
             raise TypeError("Expected argument 'instance_uri' to be a str")
         pulumi.set(__self__, "instance_uri", instance_uri)
@@ -35,12 +38,18 @@ class GetFarmBeatsModelResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, dict):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a dict")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
+        if sensor_integration and not isinstance(sensor_integration, dict):
+            raise TypeError("Expected argument 'sensor_integration' to be a dict")
+        pulumi.set(__self__, "sensor_integration", sensor_integration)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -55,9 +64,17 @@ class GetFarmBeatsModelResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="instanceUri")
@@ -84,6 +101,14 @@ class GetFarmBeatsModelResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> 'outputs.PrivateEndpointConnectionResponse':
+        """
+        The private endpoint connection resource.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -92,18 +117,26 @@ class GetFarmBeatsModelResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
         """
-        The resource model definition representing SKU
+        Property to allow or block public traffic for an Azure FarmBeats resource.
         """
-        return pulumi.get(self, "sku")
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="sensorIntegration")
+    def sensor_integration(self) -> Optional['outputs.SensorIntegrationResponse']:
+        """
+        Sensor integration request model.
+        """
+        return pulumi.get(self, "sensor_integration")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -131,11 +164,14 @@ class AwaitableGetFarmBeatsModelResult(GetFarmBeatsModelResult):
             yield self
         return GetFarmBeatsModelResult(
             id=self.id,
+            identity=self.identity,
             instance_uri=self.instance_uri,
             location=self.location,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
-            sku=self.sku,
+            public_network_access=self.public_network_access,
+            sensor_integration=self.sensor_integration,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -146,7 +182,7 @@ def get_farm_beats_model(farm_beats_resource_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFarmBeatsModelResult:
     """
     Get FarmBeats resource.
-    API Version: 2020-05-12-preview.
+    API Version: 2021-09-01-preview.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.
@@ -160,11 +196,14 @@ def get_farm_beats_model(farm_beats_resource_name: Optional[str] = None,
 
     return AwaitableGetFarmBeatsModelResult(
         id=__ret__.id,
+        identity=__ret__.identity,
         instance_uri=__ret__.instance_uri,
         location=__ret__.location,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
+        public_network_access=__ret__.public_network_access,
+        sensor_integration=__ret__.sensor_integration,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -176,7 +215,7 @@ def get_farm_beats_model_output(farm_beats_resource_name: Optional[pulumi.Input[
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFarmBeatsModelResult]:
     """
     Get FarmBeats resource.
-    API Version: 2020-05-12-preview.
+    API Version: 2021-09-01-preview.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.

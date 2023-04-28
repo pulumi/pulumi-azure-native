@@ -8,14 +8,14 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a virtual network link to the specified Private DNS zone.
- * API Version: 2020-06-01.
+ * Gets properties of a virtual network link to a DNS forwarding ruleset.
+ * API Version: 2022-07-01.
  */
 export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkLinkResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getVirtualNetworkLink", {
-        "privateZoneName": args.privateZoneName,
+        "dnsForwardingRulesetName": args.dnsForwardingRulesetName,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkLinkName": args.virtualNetworkLinkName,
     }, opts);
@@ -23,11 +23,11 @@ export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pu
 
 export interface GetVirtualNetworkLinkArgs {
     /**
-     * The name of the Private DNS zone (without a terminating dot).
+     * The name of the DNS forwarding ruleset.
      */
-    privateZoneName: string;
+    dnsForwardingRulesetName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -37,53 +37,45 @@ export interface GetVirtualNetworkLinkArgs {
 }
 
 /**
- * Describes a link to virtual network for a Private DNS zone.
+ * Describes a virtual network link.
  */
 export interface GetVirtualNetworkLinkResult {
     /**
-     * The ETag of the virtual network link.
+     * ETag of the virtual network link.
      */
-    readonly etag?: string;
+    readonly etag: string;
     /**
-     * Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The Azure Region where the resource lives
+     * Metadata attached to the virtual network link.
      */
-    readonly location?: string;
+    readonly metadata?: {[key: string]: string};
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+     * The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
      */
     readonly provisioningState: string;
     /**
-     * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+     * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly registrationEnabled?: boolean;
+    readonly systemData: outputs.network.SystemDataResponse;
     /**
-     * Resource tags.
-     */
-    readonly tags?: {[key: string]: string};
-    /**
-     * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
-     * The reference of the virtual network.
+     * The reference to the virtual network. This cannot be changed after creation.
      */
-    readonly virtualNetwork?: outputs.network.SubResourceResponse;
-    /**
-     * The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
-     */
-    readonly virtualNetworkLinkState: string;
+    readonly virtualNetwork: outputs.network.SubResourceResponse;
 }
 /**
- * Gets a virtual network link to the specified Private DNS zone.
- * API Version: 2020-06-01.
+ * Gets properties of a virtual network link to a DNS forwarding ruleset.
+ * API Version: 2022-07-01.
  */
 export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkLink(a, opts))
@@ -91,11 +83,11 @@ export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArg
 
 export interface GetVirtualNetworkLinkOutputArgs {
     /**
-     * The name of the Private DNS zone (without a terminating dot).
+     * The name of the DNS forwarding ruleset.
      */
-    privateZoneName: pulumi.Input<string>;
+    dnsForwardingRulesetName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

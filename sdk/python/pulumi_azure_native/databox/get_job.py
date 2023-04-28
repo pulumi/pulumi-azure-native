@@ -22,7 +22,7 @@ class GetJobResult:
     """
     Job Resource.
     """
-    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, system_data=None, tags=None, transfer_type=None, type=None):
+    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, reverse_shipping_details_update=None, reverse_transport_preference_update=None, sku=None, start_time=None, status=None, system_data=None, tags=None, transfer_type=None, type=None):
         if cancellation_reason and not isinstance(cancellation_reason, str):
             raise TypeError("Expected argument 'cancellation_reason' to be a str")
         pulumi.set(__self__, "cancellation_reason", cancellation_reason)
@@ -65,6 +65,12 @@ class GetJobResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if reverse_shipping_details_update and not isinstance(reverse_shipping_details_update, str):
+            raise TypeError("Expected argument 'reverse_shipping_details_update' to be a str")
+        pulumi.set(__self__, "reverse_shipping_details_update", reverse_shipping_details_update)
+        if reverse_transport_preference_update and not isinstance(reverse_transport_preference_update, str):
+            raise TypeError("Expected argument 'reverse_transport_preference_update' to be a str")
+        pulumi.set(__self__, "reverse_transport_preference_update", reverse_transport_preference_update)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -200,6 +206,22 @@ class GetJobResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="reverseShippingDetailsUpdate")
+    def reverse_shipping_details_update(self) -> str:
+        """
+        The Editable status for Reverse Shipping Address and Contact Info
+        """
+        return pulumi.get(self, "reverse_shipping_details_update")
+
+    @property
+    @pulumi.getter(name="reverseTransportPreferenceUpdate")
+    def reverse_transport_preference_update(self) -> str:
+        """
+        The Editable status for Reverse Transport preferences
+        """
+        return pulumi.get(self, "reverse_transport_preference_update")
+
+    @property
     @pulumi.getter
     def sku(self) -> 'outputs.SkuResponse':
         """
@@ -276,6 +298,8 @@ class AwaitableGetJobResult(GetJobResult):
             is_shipping_address_editable=self.is_shipping_address_editable,
             location=self.location,
             name=self.name,
+            reverse_shipping_details_update=self.reverse_shipping_details_update,
+            reverse_transport_preference_update=self.reverse_transport_preference_update,
             sku=self.sku,
             start_time=self.start_time,
             status=self.status,
@@ -291,7 +315,7 @@ def get_job(expand: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Gets information about the specified job.
-    API Version: 2020-11-01.
+    API Version: 2022-12-01.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -320,6 +344,8 @@ def get_job(expand: Optional[str] = None,
         is_shipping_address_editable=__ret__.is_shipping_address_editable,
         location=__ret__.location,
         name=__ret__.name,
+        reverse_shipping_details_update=__ret__.reverse_shipping_details_update,
+        reverse_transport_preference_update=__ret__.reverse_transport_preference_update,
         sku=__ret__.sku,
         start_time=__ret__.start_time,
         status=__ret__.status,
@@ -336,7 +362,7 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     Gets information about the specified job.
-    API Version: 2020-11-01.
+    API Version: 2022-12-01.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.

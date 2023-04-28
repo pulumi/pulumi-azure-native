@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Type of the Storage Target.
- * API Version: 2021-03-01.
+ * API Version: 2023-01-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class StorageTarget extends pulumi.CustomResource {
     }
 
     /**
+     * The percentage of cache space allocated for this storage target
+     */
+    public /*out*/ readonly allocationPercentage!: pulumi.Output<number>;
+    /**
      * Properties when targetType is blobNfs.
      */
     public readonly blobNfs!: pulumi.Output<outputs.storagecache.BlobNfsTargetResponse | undefined>;
@@ -65,7 +70,11 @@ export class StorageTarget extends pulumi.CustomResource {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Storage target operational state.
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
@@ -108,16 +117,19 @@ export class StorageTarget extends pulumi.CustomResource {
             resourceInputs["clfs"] = args ? args.clfs : undefined;
             resourceInputs["junctions"] = args ? args.junctions : undefined;
             resourceInputs["nfs3"] = args ? args.nfs3 : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["storageTargetName"] = args ? args.storageTargetName : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["unknown"] = args ? args.unknown : undefined;
+            resourceInputs["allocationPercentage"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["allocationPercentage"] = undefined /*out*/;
             resourceInputs["blobNfs"] = undefined /*out*/;
             resourceInputs["clfs"] = undefined /*out*/;
             resourceInputs["junctions"] = undefined /*out*/;
@@ -125,6 +137,7 @@ export class StorageTarget extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nfs3"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["targetType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -162,13 +175,13 @@ export interface StorageTargetArgs {
      */
     nfs3?: pulumi.Input<inputs.storagecache.Nfs3TargetArgs>;
     /**
-     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-     */
-    provisioningState?: pulumi.Input<string | enums.storagecache.ProvisioningStateType>;
-    /**
      * Target resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Storage target operational state.
+     */
+    state?: pulumi.Input<string | enums.storagecache.OperationalStateType>;
     /**
      * Name of Storage Target.
      */

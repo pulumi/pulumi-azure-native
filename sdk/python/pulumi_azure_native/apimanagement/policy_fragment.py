@@ -23,7 +23,7 @@ class PolicyFragmentArgs:
                  id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyFragment resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] value: Contents of the policy fragment.
         :param pulumi.Input[str] description: Policy fragment description.
@@ -46,7 +46,7 @@ class PolicyFragmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -129,14 +129,15 @@ class PolicyFragment(pulumi.CustomResource):
                  __props__=None):
         """
         Policy fragment contract details.
-        API Version: 2021-12-01-preview.
+        API Version: 2022-08-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Policy fragment description.
         :param pulumi.Input[Union[str, 'PolicyFragmentContentFormat']] format: Format of the policy fragment content.
         :param pulumi.Input[str] id: A resource identifier.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] value: Contents of the policy fragment.
         """
@@ -148,7 +149,8 @@ class PolicyFragment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy fragment contract details.
-        API Version: 2021-12-01-preview.
+        API Version: 2022-08-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PolicyFragmentArgs args: The arguments to use to populate this resource's properties.

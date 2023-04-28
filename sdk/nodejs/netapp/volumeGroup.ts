@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Volume group resource for create
- * API Version: 2021-10-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VolumeGroup extends pulumi.CustomResource {
     /**
@@ -55,10 +56,6 @@ export class VolumeGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource tags
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -88,7 +85,6 @@ export class VolumeGroup extends pulumi.CustomResource {
             resourceInputs["groupMetaData"] = args ? args.groupMetaData : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -99,7 +95,6 @@ export class VolumeGroup extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumes"] = undefined /*out*/;
         }
@@ -127,13 +122,9 @@ export interface VolumeGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource tags
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the volumeGroup
      */

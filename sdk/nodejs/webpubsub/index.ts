@@ -10,6 +10,16 @@ export const getWebPubSub: typeof import("./getWebPubSub").getWebPubSub = null a
 export const getWebPubSubOutput: typeof import("./getWebPubSub").getWebPubSubOutput = null as any;
 utilities.lazyLoad(exports, ["getWebPubSub","getWebPubSubOutput"], () => require("./getWebPubSub"));
 
+export { GetWebPubSubCustomCertificateArgs, GetWebPubSubCustomCertificateResult, GetWebPubSubCustomCertificateOutputArgs } from "./getWebPubSubCustomCertificate";
+export const getWebPubSubCustomCertificate: typeof import("./getWebPubSubCustomCertificate").getWebPubSubCustomCertificate = null as any;
+export const getWebPubSubCustomCertificateOutput: typeof import("./getWebPubSubCustomCertificate").getWebPubSubCustomCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSubCustomCertificate","getWebPubSubCustomCertificateOutput"], () => require("./getWebPubSubCustomCertificate"));
+
+export { GetWebPubSubCustomDomainArgs, GetWebPubSubCustomDomainResult, GetWebPubSubCustomDomainOutputArgs } from "./getWebPubSubCustomDomain";
+export const getWebPubSubCustomDomain: typeof import("./getWebPubSubCustomDomain").getWebPubSubCustomDomain = null as any;
+export const getWebPubSubCustomDomainOutput: typeof import("./getWebPubSubCustomDomain").getWebPubSubCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSubCustomDomain","getWebPubSubCustomDomainOutput"], () => require("./getWebPubSubCustomDomain"));
+
 export { GetWebPubSubHubArgs, GetWebPubSubHubResult, GetWebPubSubHubOutputArgs } from "./getWebPubSubHub";
 export const getWebPubSubHub: typeof import("./getWebPubSubHub").getWebPubSubHub = null as any;
 export const getWebPubSubHubOutput: typeof import("./getWebPubSubHub").getWebPubSubHubOutput = null as any;
@@ -34,6 +44,16 @@ export { WebPubSubArgs } from "./webPubSub";
 export type WebPubSub = import("./webPubSub").WebPubSub;
 export const WebPubSub: typeof import("./webPubSub").WebPubSub = null as any;
 utilities.lazyLoad(exports, ["WebPubSub"], () => require("./webPubSub"));
+
+export { WebPubSubCustomCertificateArgs } from "./webPubSubCustomCertificate";
+export type WebPubSubCustomCertificate = import("./webPubSubCustomCertificate").WebPubSubCustomCertificate;
+export const WebPubSubCustomCertificate: typeof import("./webPubSubCustomCertificate").WebPubSubCustomCertificate = null as any;
+utilities.lazyLoad(exports, ["WebPubSubCustomCertificate"], () => require("./webPubSubCustomCertificate"));
+
+export { WebPubSubCustomDomainArgs } from "./webPubSubCustomDomain";
+export type WebPubSubCustomDomain = import("./webPubSubCustomDomain").WebPubSubCustomDomain;
+export const WebPubSubCustomDomain: typeof import("./webPubSubCustomDomain").WebPubSubCustomDomain = null as any;
+utilities.lazyLoad(exports, ["WebPubSubCustomDomain"], () => require("./webPubSubCustomDomain"));
 
 export { WebPubSubHubArgs } from "./webPubSubHub";
 export type WebPubSubHub = import("./webPubSubHub").WebPubSubHub;
@@ -61,6 +81,7 @@ import * as v20210901preview from "./v20210901preview";
 import * as v20211001 from "./v20211001";
 import * as v20220801preview from "./v20220801preview";
 import * as v20230201 from "./v20230201";
+import * as v20230301preview from "./v20230301preview";
 
 export {
     v20210401preview,
@@ -69,6 +90,7 @@ export {
     v20211001,
     v20220801preview,
     v20230201,
+    v20230301preview,
 };
 
 const _module = {
@@ -77,6 +99,10 @@ const _module = {
         switch (type) {
             case "azure-native:webpubsub:WebPubSub":
                 return new WebPubSub(name, <any>undefined, { urn })
+            case "azure-native:webpubsub:WebPubSubCustomCertificate":
+                return new WebPubSubCustomCertificate(name, <any>undefined, { urn })
+            case "azure-native:webpubsub:WebPubSubCustomDomain":
+                return new WebPubSubCustomDomain(name, <any>undefined, { urn })
             case "azure-native:webpubsub:WebPubSubHub":
                 return new WebPubSubHub(name, <any>undefined, { urn })
             case "azure-native:webpubsub:WebPubSubPrivateEndpointConnection":

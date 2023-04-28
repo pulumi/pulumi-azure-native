@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'AssessmentModeTypes',
     'PatchModeTypes',
-    'PublicNetworkAccessType',
     'ResourceIdentityType',
     'StatusLevelTypes',
 ]
@@ -29,20 +28,6 @@ class PatchModeTypes(str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
     AUTOMATIC_BY_OS = "AutomaticByOS"
     MANUAL = "Manual"
-
-
-class PublicNetworkAccessType(str, Enum):
-    """
-    Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-    """
-    ENABLED = "Enabled"
-    """
-    Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
-    """
-    DISABLED = "Disabled"
-    """
-    Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
-    """
 
 
 class ResourceIdentityType(str, Enum):

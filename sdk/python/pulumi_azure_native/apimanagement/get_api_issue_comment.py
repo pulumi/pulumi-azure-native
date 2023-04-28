@@ -53,7 +53,7 @@ class GetApiIssueCommentResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -61,7 +61,7 @@ class GetApiIssueCommentResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -77,7 +77,7 @@ class GetApiIssueCommentResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -112,13 +112,13 @@ def get_api_issue_comment(api_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiIssueCommentResult:
     """
     Gets the details of the issue Comment for an API specified by its identifier.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
     :param str comment_id: Comment identifier within an Issue. Must be unique in the current Issue.
     :param str issue_id: Issue identifier. Must be unique in the current API Management service instance.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -148,13 +148,13 @@ def get_api_issue_comment_output(api_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiIssueCommentResult]:
     """
     Gets the details of the issue Comment for an API specified by its identifier.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
     :param str comment_id: Comment identifier within an Issue. Must be unique in the current Issue.
     :param str issue_id: Issue identifier. Must be unique in the current API Management service instance.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

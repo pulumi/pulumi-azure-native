@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.AVS.Inputs
     public sealed class VmHostPlacementPolicyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// vm-host placement policy affinity strength (should/must)
+        /// </summary>
+        [Input("affinityStrength")]
+        public InputUnion<string, Pulumi.AzureNative.AVS.AffinityStrength>? AffinityStrength { get; set; }
+
+        /// <summary>
         /// placement policy affinity type
         /// </summary>
         [Input("affinityType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.AVS.AffinityType> AffinityType { get; set; } = null!;
+
+        /// <summary>
+        /// placement policy azure hybrid benefit opt-in type
+        /// </summary>
+        [Input("azureHybridBenefitType")]
+        public InputUnion<string, Pulumi.AzureNative.AVS.AzureHybridBenefitType>? AzureHybridBenefitType { get; set; }
 
         /// <summary>
         /// Display name of the placement policy

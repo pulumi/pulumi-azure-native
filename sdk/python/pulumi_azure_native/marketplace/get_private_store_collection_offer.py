@@ -219,7 +219,7 @@ def get_private_store_collection_offer(collection_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreCollectionOfferResult:
     """
     Gets information about a specific offer.
-    API Version: 2021-12-01.
+    API Version: 2022-09-01.
 
 
     :param str collection_id: The collection ID
@@ -258,7 +258,7 @@ def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Inp
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionOfferResult]:
     """
     Gets information about a specific offer.
-    API Version: 2021-12-01.
+    API Version: 2022-09-01.
 
 
     :param str collection_id: The collection ID

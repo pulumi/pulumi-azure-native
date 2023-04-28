@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the primary and secondary connection strings for the Namespace.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDisasterRecoveryConfigKeysResult> {
 
@@ -73,7 +73,7 @@ export interface ListDisasterRecoveryConfigKeysResult {
 }
 /**
  * Gets the primary and secondary connection strings for the Namespace.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
     return pulumi.output(args).apply((a: any) => listDisasterRecoveryConfigKeys(a, opts))

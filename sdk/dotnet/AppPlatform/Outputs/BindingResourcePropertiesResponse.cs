@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// <summary>
         /// Binding parameters of the Binding resource
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? BindingParameters;
+        public readonly ImmutableDictionary<string, string>? BindingParameters;
         /// <summary>
         /// Creation time of the Binding resource
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
         [OutputConstructor]
         private BindingResourcePropertiesResponse(
-            ImmutableDictionary<string, object>? bindingParameters,
+            ImmutableDictionary<string, string>? bindingParameters,
 
             string createdAt,
 

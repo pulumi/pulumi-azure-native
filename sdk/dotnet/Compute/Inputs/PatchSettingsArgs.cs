@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public InputUnion<string, Pulumi.AzureNative.Compute.WindowsPatchAssessmentMode>? AssessmentMode { get; set; }
 
         /// <summary>
+        /// Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Windows.
+        /// </summary>
+        [Input("automaticByPlatformSettings")]
+        public Input<Inputs.WindowsVMGuestPatchAutomaticByPlatformSettingsArgs>? AutomaticByPlatformSettings { get; set; }
+
+        /// <summary>
         /// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
         /// </summary>
         [Input("enableHotpatching")]

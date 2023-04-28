@@ -10,20 +10,10 @@ export const getEntity: typeof import("./getEntity").getEntity = null as any;
 export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
 utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
 
-export { GetHierarchySettingArgs, GetHierarchySettingResult, GetHierarchySettingOutputArgs } from "./getHierarchySetting";
-export const getHierarchySetting: typeof import("./getHierarchySetting").getHierarchySetting = null as any;
-export const getHierarchySettingOutput: typeof import("./getHierarchySetting").getHierarchySettingOutput = null as any;
-utilities.lazyLoad(exports, ["getHierarchySetting","getHierarchySettingOutput"], () => require("./getHierarchySetting"));
-
 export { GetManagementGroupArgs, GetManagementGroupResult, GetManagementGroupOutputArgs } from "./getManagementGroup";
 export const getManagementGroup: typeof import("./getManagementGroup").getManagementGroup = null as any;
 export const getManagementGroupOutput: typeof import("./getManagementGroup").getManagementGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getManagementGroup","getManagementGroupOutput"], () => require("./getManagementGroup"));
-
-export { HierarchySettingArgs } from "./hierarchySetting";
-export type HierarchySetting = import("./hierarchySetting").HierarchySetting;
-export const HierarchySetting: typeof import("./hierarchySetting").HierarchySetting = null as any;
-utilities.lazyLoad(exports, ["HierarchySetting"], () => require("./hierarchySetting"));
 
 export { ManagementGroupArgs } from "./managementGroup";
 export type ManagementGroup = import("./managementGroup").ManagementGroup;
@@ -35,8 +25,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:management/v20200201:HierarchySetting":
-                return new HierarchySetting(name, <any>undefined, { urn })
             case "azure-native:management/v20200201:ManagementGroup":
                 return new ManagementGroup(name, <any>undefined, { urn })
             default:

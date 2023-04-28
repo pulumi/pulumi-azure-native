@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class CodeVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARM resource ID of the datastore where the asset is located.
+        /// Uri where code is located
         /// </summary>
-        [Input("datastoreId")]
-        public Input<string>? DatastoreId { get; set; }
+        [Input("codeUri")]
+        public Input<string>? CodeUri { get; set; }
 
         /// <summary>
         /// The asset description text.
@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<bool>? IsAnonymous { get; set; }
 
         /// <summary>
-        /// [Required] The path of the file/directory in the datastore.
+        /// Is the asset archived?
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("isArchived")]
+        public Input<bool>? IsArchived { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -65,6 +65,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public CodeVersionArgs()
         {
+            IsAnonymous = false;
+            IsArchived = false;
         }
         public static new CodeVersionArgs Empty => new CodeVersionArgs();
     }

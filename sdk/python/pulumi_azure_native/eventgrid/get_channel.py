@@ -22,7 +22,7 @@ class GetChannelResult:
     """
     Channel info.
     """
-    def __init__(__self__, channel_type=None, expiration_time_if_not_activated_utc=None, id=None, message_for_activation=None, name=None, partner_destination_info=None, partner_topic_info=None, provisioning_state=None, readiness_state=None, system_data=None, type=None):
+    def __init__(__self__, channel_type=None, expiration_time_if_not_activated_utc=None, id=None, message_for_activation=None, name=None, partner_topic_info=None, provisioning_state=None, readiness_state=None, system_data=None, type=None):
         if channel_type and not isinstance(channel_type, str):
             raise TypeError("Expected argument 'channel_type' to be a str")
         pulumi.set(__self__, "channel_type", channel_type)
@@ -38,9 +38,6 @@ class GetChannelResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if partner_destination_info and not isinstance(partner_destination_info, dict):
-            raise TypeError("Expected argument 'partner_destination_info' to be a dict")
-        pulumi.set(__self__, "partner_destination_info", partner_destination_info)
         if partner_topic_info and not isinstance(partner_topic_info, dict):
             raise TypeError("Expected argument 'partner_topic_info' to be a dict")
         pulumi.set(__self__, "partner_topic_info", partner_topic_info)
@@ -61,7 +58,7 @@ class GetChannelResult:
     @pulumi.getter(name="channelType")
     def channel_type(self) -> Optional[str]:
         """
-        The type of the event channel which represents the  direction flow of events.
+        The type of the event channel which represents the direction flow of events.
         """
         return pulumi.get(self, "channel_type")
 
@@ -97,14 +94,6 @@ class GetChannelResult:
         Name of the resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="partnerDestinationInfo")
-    def partner_destination_info(self) -> Optional['outputs.WebhookPartnerDestinationInfoResponse']:
-        """
-        This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-        """
-        return pulumi.get(self, "partner_destination_info")
 
     @property
     @pulumi.getter(name="partnerTopicInfo")
@@ -158,7 +147,6 @@ class AwaitableGetChannelResult(GetChannelResult):
             id=self.id,
             message_for_activation=self.message_for_activation,
             name=self.name,
-            partner_destination_info=self.partner_destination_info,
             partner_topic_info=self.partner_topic_info,
             provisioning_state=self.provisioning_state,
             readiness_state=self.readiness_state,
@@ -172,7 +160,7 @@ def get_channel(channel_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Get properties of a channel.
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str channel_name: Name of the channel.
@@ -192,7 +180,6 @@ def get_channel(channel_name: Optional[str] = None,
         id=__ret__.id,
         message_for_activation=__ret__.message_for_activation,
         name=__ret__.name,
-        partner_destination_info=__ret__.partner_destination_info,
         partner_topic_info=__ret__.partner_topic_info,
         provisioning_state=__ret__.provisioning_state,
         readiness_state=__ret__.readiness_state,
@@ -207,7 +194,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
     Get properties of a channel.
-    API Version: 2021-10-15-preview.
+    API Version: 2022-06-15.
 
 
     :param str channel_name: Name of the channel.

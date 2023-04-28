@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class VirtualMachineScaleSetVMProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the gallery applications that should be made available to the VM/VMSS
+        /// </summary>
+        [Input("applicationProfile")]
+        public Input<Inputs.ApplicationProfileArgs>? ApplicationProfile { get; set; }
+
+        /// <summary>
         /// Specifies the billing related details of a Azure Spot VMSS. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01.
         /// </summary>
         [Input("billingProfile")]
         public Input<Inputs.BillingProfileArgs>? BillingProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the capacity reservation related details of a scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-04-01.
+        /// </summary>
+        [Input("capacityReservation")]
+        public Input<Inputs.CapacityReservationProfileArgs>? CapacityReservation { get; set; }
 
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
@@ -38,6 +50,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("extensionProfile")]
         public Input<Inputs.VirtualMachineScaleSetExtensionProfileArgs>? ExtensionProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the hardware profile related details of a scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// </summary>
+        [Input("hardwareProfile")]
+        public Input<Inputs.VirtualMachineScaleSetHardwareProfileArgs>? HardwareProfile { get; set; }
 
         /// <summary>
         /// Specifies that the image or disk that is being used was licensed on-premises. &lt;br&gt;&lt;br&gt; Possible values for Windows Server operating system are: &lt;br&gt;&lt;br&gt; Windows_Client &lt;br&gt;&lt;br&gt; Windows_Server &lt;br&gt;&lt;br&gt; Possible values for Linux Server operating system are: &lt;br&gt;&lt;br&gt; RHEL_BYOS (for RHEL) &lt;br&gt;&lt;br&gt; SLES_BYOS (for SUSE) &lt;br&gt;&lt;br&gt; For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) &lt;br&gt;&lt;br&gt; [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) &lt;br&gt;&lt;br&gt; Minimum api-version: 2015-06-15
@@ -74,6 +92,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("securityProfile")]
         public Input<Inputs.SecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01
+        /// </summary>
+        [Input("serviceArtifactReference")]
+        public Input<Inputs.ServiceArtifactReferenceArgs>? ServiceArtifactReference { get; set; }
 
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.

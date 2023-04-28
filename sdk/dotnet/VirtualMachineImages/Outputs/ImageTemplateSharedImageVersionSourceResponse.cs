@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
     /// <summary>
-    /// Describes an image source that is an image version in a shared image gallery.
+    /// Describes an image source that is an image version in an Azure Compute Gallery or a Direct Shared Gallery.
     /// </summary>
     [OutputType]
     public sealed class ImageTemplateSharedImageVersionSourceResponse
     {
         /// <summary>
-        /// ARM resource id of the image version in the shared image gallery
+        /// Exact ARM resource id of the image version. This readonly field differs from the image version Id in 'imageVersionId' only if the version name specified in 'imageVersionId' field is 'latest'.
+        /// </summary>
+        public readonly string ExactVersion;
+        /// <summary>
+        /// ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
         /// </summary>
         public readonly string ImageVersionId;
         /// <summary>
@@ -28,10 +32,13 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 
         [OutputConstructor]
         private ImageTemplateSharedImageVersionSourceResponse(
+            string exactVersion,
+
             string imageVersionId,
 
             string type)
         {
+            ExactVersion = exactVersion;
             ImageVersionId = imageVersionId;
             Type = type;
         }

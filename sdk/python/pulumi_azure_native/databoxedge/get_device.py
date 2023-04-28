@@ -22,7 +22,7 @@ class GetDeviceResult:
     """
     The Data Box Edge/Gateway device.
     """
-    def __init__(__self__, configured_role_types=None, culture=None, data_box_edge_device_status=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, edge_profile=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, location=None, model_description=None, name=None, node_count=None, resource_move_details=None, serial_number=None, sku=None, system_data=None, tags=None, time_zone=None, type=None):
+    def __init__(__self__, configured_role_types=None, culture=None, data_box_edge_device_status=None, data_residency=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, edge_profile=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, location=None, model_description=None, name=None, node_count=None, resource_move_details=None, serial_number=None, sku=None, system_data=None, tags=None, time_zone=None, type=None):
         if configured_role_types and not isinstance(configured_role_types, list):
             raise TypeError("Expected argument 'configured_role_types' to be a list")
         pulumi.set(__self__, "configured_role_types", configured_role_types)
@@ -32,6 +32,9 @@ class GetDeviceResult:
         if data_box_edge_device_status and not isinstance(data_box_edge_device_status, str):
             raise TypeError("Expected argument 'data_box_edge_device_status' to be a str")
         pulumi.set(__self__, "data_box_edge_device_status", data_box_edge_device_status)
+        if data_residency and not isinstance(data_residency, dict):
+            raise TypeError("Expected argument 'data_residency' to be a dict")
+        pulumi.set(__self__, "data_residency", data_residency)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -120,11 +123,19 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="dataBoxEdgeDeviceStatus")
-    def data_box_edge_device_status(self) -> Optional[str]:
+    def data_box_edge_device_status(self) -> str:
         """
         The status of the Data Box Edge/Gateway device.
         """
         return pulumi.get(self, "data_box_edge_device_status")
+
+    @property
+    @pulumi.getter(name="dataResidency")
+    def data_residency(self) -> Optional['outputs.DataResidencyResponse']:
+        """
+        The details of data-residency related properties for this resource
+        """
+        return pulumi.get(self, "data_residency")
 
     @property
     @pulumi.getter
@@ -218,7 +229,7 @@ class GetDeviceResult:
     @pulumi.getter
     def kind(self) -> str:
         """
-        The etag for the devices.
+        The kind of the device.
         """
         return pulumi.get(self, "kind")
 
@@ -320,6 +331,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             configured_role_types=self.configured_role_types,
             culture=self.culture,
             data_box_edge_device_status=self.data_box_edge_device_status,
+            data_residency=self.data_residency,
             description=self.description,
             device_hcs_version=self.device_hcs_version,
             device_local_capacity=self.device_local_capacity,
@@ -350,7 +362,7 @@ def get_device(device_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
     Gets the properties of the Data Box Edge/Data Box Gateway device.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -366,6 +378,7 @@ def get_device(device_name: Optional[str] = None,
         configured_role_types=__ret__.configured_role_types,
         culture=__ret__.culture,
         data_box_edge_device_status=__ret__.data_box_edge_device_status,
+        data_residency=__ret__.data_residency,
         description=__ret__.description,
         device_hcs_version=__ret__.device_hcs_version,
         device_local_capacity=__ret__.device_local_capacity,
@@ -397,7 +410,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Gets the properties of the Data Box Edge/Data Box Gateway device.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

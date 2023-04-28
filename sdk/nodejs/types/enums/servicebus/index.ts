@@ -6,9 +6,6 @@ import * as v20140901 from "./v20140901";
 import * as v20150801 from "./v20150801";
 import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
-import * as v20210101preview from "./v20210101preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20211101 from "./v20211101";
 import * as v20220101preview from "./v20220101preview";
 import * as v20221001preview from "./v20221001preview";
 
@@ -17,9 +14,6 @@ export {
     v20150801,
     v20170401,
     v20180101preview,
-    v20210101preview,
-    v20210601preview,
-    v20211101,
     v20220101preview,
     v20221001preview,
 };
@@ -83,15 +77,26 @@ export const FilterType = {
  */
 export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
-export const IPAction = {
-    Accept: "Accept",
-    Reject: "Reject",
+export const KeySource = {
+    Microsoft_KeyVault: "Microsoft.KeyVault",
 } as const;
 
 /**
- * The IP Filter Action
+ * Enumerates the possible value of keySource for Encryption
  */
-export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const ManagedServiceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of managed service identity.
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const NetworkRuleIPAction = {
     Allow: "Allow",
@@ -113,6 +118,16 @@ export const PrivateLinkConnectionStatus = {
  * Status of the connection.
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
+
+export const PublicNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccessFlag = (typeof PublicNetworkAccessFlag)[keyof typeof PublicNetworkAccessFlag];
 
 export const SkuName = {
     Basic: "Basic",

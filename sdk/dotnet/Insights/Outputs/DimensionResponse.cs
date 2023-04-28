@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
 {
 
     /// <summary>
-    /// Specifies the criteria for converting log to metric.
+    /// Dimension splitting and filtering definition
     /// </summary>
     [OutputType]
     public sealed class DimensionResponse

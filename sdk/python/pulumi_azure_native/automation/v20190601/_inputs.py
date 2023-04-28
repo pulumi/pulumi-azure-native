@@ -29,7 +29,6 @@ __all__ = [
     'RunbookParameterArgs',
     'SUCSchedulePropertiesArgs',
     'ScheduleAssociationPropertyArgs',
-    'SkuArgs',
     'SoftwareUpdateConfigurationTasksArgs',
     'SourceControlSecurityTokenPropertiesArgs',
     'TagSettingsPropertiesArgs',
@@ -1123,61 +1122,6 @@ class ScheduleAssociationPropertyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class SkuArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'SkuNameEnum']],
-                 capacity: Optional[pulumi.Input[int]] = None,
-                 family: Optional[pulumi.Input[str]] = None):
-        """
-        The account SKU.
-        :param pulumi.Input[Union[str, 'SkuNameEnum']] name: Gets or sets the SKU name of the account.
-        :param pulumi.Input[int] capacity: Gets or sets the SKU capacity.
-        :param pulumi.Input[str] family: Gets or sets the SKU family.
-        """
-        pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'SkuNameEnum']]:
-        """
-        Gets or sets the SKU name of the account.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'SkuNameEnum']]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Gets or sets the SKU capacity.
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the SKU family.
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "family", value)
 
 
 @pulumi.input_type

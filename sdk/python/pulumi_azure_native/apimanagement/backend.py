@@ -32,15 +32,15 @@ class BackendArgs:
         """
         The set of arguments for constructing a Backend resource.
         :param pulumi.Input[Union[str, 'BackendProtocol']] protocol: Backend communication protocol.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] url: Runtime Url of the Backend.
         :param pulumi.Input[str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
         :param pulumi.Input['BackendCredentialsContractArgs'] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[str] description: Backend Description.
         :param pulumi.Input['BackendPropertiesArgs'] properties: Backend Properties contract
-        :param pulumi.Input['BackendProxyContractArgs'] proxy: Backend Proxy Contract Properties
-        :param pulumi.Input[str] resource_id: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        :param pulumi.Input['BackendProxyContractArgs'] proxy: Backend gateway Contract Properties
+        :param pulumi.Input[str] resource_id: Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         :param pulumi.Input[str] title: Backend Title.
         :param pulumi.Input['BackendTlsPropertiesArgs'] tls: Backend TLS Properties
         """
@@ -81,7 +81,7 @@ class BackendArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -165,7 +165,7 @@ class BackendArgs:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input['BackendProxyContractArgs']]:
         """
-        Backend Proxy Contract Properties
+        Backend gateway Contract Properties
         """
         return pulumi.get(self, "proxy")
 
@@ -177,7 +177,7 @@ class BackendArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         """
         return pulumi.get(self, "resource_id")
 
@@ -230,7 +230,8 @@ class Backend(pulumi.CustomResource):
                  __props__=None):
         """
         Backend details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,9 +240,9 @@ class Backend(pulumi.CustomResource):
         :param pulumi.Input[str] description: Backend Description.
         :param pulumi.Input[pulumi.InputType['BackendPropertiesArgs']] properties: Backend Properties contract
         :param pulumi.Input[Union[str, 'BackendProtocol']] protocol: Backend communication protocol.
-        :param pulumi.Input[pulumi.InputType['BackendProxyContractArgs']] proxy: Backend Proxy Contract Properties
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] resource_id: Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        :param pulumi.Input[pulumi.InputType['BackendProxyContractArgs']] proxy: Backend gateway Contract Properties
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_id: Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Backend Title.
         :param pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']] tls: Backend TLS Properties
@@ -255,7 +256,8 @@ class Backend(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backend details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param BackendArgs args: The arguments to use to populate this resource's properties.
@@ -372,7 +374,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -396,7 +398,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter
     def proxy(self) -> pulumi.Output[Optional['outputs.BackendProxyContractResponse']]:
         """
-        Backend Proxy Contract Properties
+        Backend gateway Contract Properties
         """
         return pulumi.get(self, "proxy")
 
@@ -404,7 +406,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         """
         return pulumi.get(self, "resource_id")
 
@@ -428,7 +430,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

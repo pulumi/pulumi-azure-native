@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// <summary>
     /// The top level storage insight resource container.
     /// API Version: 2020-08-01.
+    /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:StorageInsightConfig")]
     public partial class StorageInsightConfig : global::Pulumi.CustomResource

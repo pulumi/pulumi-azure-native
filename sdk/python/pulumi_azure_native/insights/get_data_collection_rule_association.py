@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetDataCollectionRuleAssociationResult',
@@ -21,7 +22,10 @@ class GetDataCollectionRuleAssociationResult:
     """
     Definition of generic ARM proxy resource.
     """
-    def __init__(__self__, data_collection_rule_id=None, description=None, etag=None, id=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, data_collection_endpoint_id=None, data_collection_rule_id=None, description=None, etag=None, id=None, metadata=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if data_collection_endpoint_id and not isinstance(data_collection_endpoint_id, str):
+            raise TypeError("Expected argument 'data_collection_endpoint_id' to be a str")
+        pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
         if data_collection_rule_id and not isinstance(data_collection_rule_id, str):
             raise TypeError("Expected argument 'data_collection_rule_id' to be a str")
         pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
@@ -34,15 +38,29 @@ class GetDataCollectionRuleAssociationResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointId")
+    def data_collection_endpoint_id(self) -> Optional[str]:
+        """
+        The resource ID of the data collection endpoint that is to be associated.
+        """
+        return pulumi.get(self, "data_collection_endpoint_id")
 
     @property
     @pulumi.getter(name="dataCollectionRuleId")
@@ -78,6 +96,14 @@ class GetDataCollectionRuleAssociationResult:
 
     @property
     @pulumi.getter
+    def metadata(self) -> 'outputs.DataCollectionRuleAssociationResponseMetadata':
+        """
+        Metadata about the resource
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource.
@@ -91,6 +117,14 @@ class GetDataCollectionRuleAssociationResult:
         The resource provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -107,12 +141,15 @@ class AwaitableGetDataCollectionRuleAssociationResult(GetDataCollectionRuleAssoc
         if False:
             yield self
         return GetDataCollectionRuleAssociationResult(
+            data_collection_endpoint_id=self.data_collection_endpoint_id,
             data_collection_rule_id=self.data_collection_rule_id,
             description=self.description,
             etag=self.etag,
             id=self.id,
+            metadata=self.metadata,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -121,7 +158,7 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionRuleAssociationResult:
     """
     Definition of generic ARM proxy resource.
-    API Version: 2019-11-01-preview.
+    API Version: 2022-06-01.
 
 
     :param str association_name: The name of the association. The name is case insensitive.
@@ -134,12 +171,15 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getDataCollectionRuleAssociation', __args__, opts=opts, typ=GetDataCollectionRuleAssociationResult).value
 
     return AwaitableGetDataCollectionRuleAssociationResult(
+        data_collection_endpoint_id=__ret__.data_collection_endpoint_id,
         data_collection_rule_id=__ret__.data_collection_rule_id,
         description=__ret__.description,
         etag=__ret__.etag,
         id=__ret__.id,
+        metadata=__ret__.metadata,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -149,7 +189,7 @@ def get_data_collection_rule_association_output(association_name: Optional[pulum
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleAssociationResult]:
     """
     Definition of generic ARM proxy resource.
-    API Version: 2019-11-01-preview.
+    API Version: 2022-06-01.
 
 
     :param str association_name: The name of the association. The name is case insensitive.

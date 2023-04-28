@@ -235,19 +235,21 @@ class DatadogOrganizationPropertiesResponse(dict):
     Datadog organization properties
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str):
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         Datadog organization properties
         :param str id: Id of the Datadog organization.
         :param str name: Name of the Datadog organization.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         Id of the Datadog organization.
         """
@@ -255,7 +257,7 @@ class DatadogOrganizationPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the Datadog organization.
         """

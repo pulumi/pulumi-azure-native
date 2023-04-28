@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderForContainersAwsOfferingKubernetesServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cloud role ARN in AWS for this feature
+        /// The cloud role ARN in AWS for this feature used for provisioning resources
         /// </summary>
         [Input("cloudRoleArn")]
         public Input<string>? CloudRoleArn { get; set; }

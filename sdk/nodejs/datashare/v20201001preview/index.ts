@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AccountArgs } from "./account";
-export type Account = import("./account").Account;
-export const Account: typeof import("./account").Account = null as any;
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-
 export { ADLSGen1FileDataSetArgs } from "./adlsgen1FileDataSet";
 export type ADLSGen1FileDataSet = import("./adlsgen1FileDataSet").ADLSGen1FileDataSet;
 export const ADLSGen1FileDataSet: typeof import("./adlsgen1FileDataSet").ADLSGen1FileDataSet = null as any;
@@ -150,11 +145,6 @@ export const getADLSGen2StorageAccountDataSetMapping: typeof import("./getADLSGe
 export const getADLSGen2StorageAccountDataSetMappingOutput: typeof import("./getADLSGen2StorageAccountDataSetMapping").getADLSGen2StorageAccountDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getADLSGen2StorageAccountDataSetMapping","getADLSGen2StorageAccountDataSetMappingOutput"], () => require("./getADLSGen2StorageAccountDataSetMapping"));
 
-export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
-export const getAccount: typeof import("./getAccount").getAccount = null as any;
-export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
-
 export { GetBlobContainerDataSetArgs, GetBlobContainerDataSetResult, GetBlobContainerDataSetOutputArgs } from "./getBlobContainerDataSet";
 export const getBlobContainerDataSet: typeof import("./getBlobContainerDataSet").getBlobContainerDataSet = null as any;
 export const getBlobContainerDataSetOutput: typeof import("./getBlobContainerDataSet").getBlobContainerDataSetOutput = null as any;
@@ -195,11 +185,6 @@ export const getBlobStorageAccountDataSetMapping: typeof import("./getBlobStorag
 export const getBlobStorageAccountDataSetMappingOutput: typeof import("./getBlobStorageAccountDataSetMapping").getBlobStorageAccountDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getBlobStorageAccountDataSetMapping","getBlobStorageAccountDataSetMappingOutput"], () => require("./getBlobStorageAccountDataSetMapping"));
 
-export { GetInvitationArgs, GetInvitationResult, GetInvitationOutputArgs } from "./getInvitation";
-export const getInvitation: typeof import("./getInvitation").getInvitation = null as any;
-export const getInvitationOutput: typeof import("./getInvitation").getInvitationOutput = null as any;
-utilities.lazyLoad(exports, ["getInvitation","getInvitationOutput"], () => require("./getInvitation"));
-
 export { GetKustoClusterDataSetArgs, GetKustoClusterDataSetResult, GetKustoClusterDataSetOutputArgs } from "./getKustoClusterDataSet";
 export const getKustoClusterDataSet: typeof import("./getKustoClusterDataSet").getKustoClusterDataSet = null as any;
 export const getKustoClusterDataSetOutput: typeof import("./getKustoClusterDataSet").getKustoClusterDataSetOutput = null as any;
@@ -230,16 +215,6 @@ export const getScheduledTrigger: typeof import("./getScheduledTrigger").getSche
 export const getScheduledTriggerOutput: typeof import("./getScheduledTrigger").getScheduledTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledTrigger","getScheduledTriggerOutput"], () => require("./getScheduledTrigger"));
 
-export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
-export const getShare: typeof import("./getShare").getShare = null as any;
-export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
-utilities.lazyLoad(exports, ["getShare","getShareOutput"], () => require("./getShare"));
-
-export { GetShareSubscriptionArgs, GetShareSubscriptionResult, GetShareSubscriptionOutputArgs } from "./getShareSubscription";
-export const getShareSubscription: typeof import("./getShareSubscription").getShareSubscription = null as any;
-export const getShareSubscriptionOutput: typeof import("./getShareSubscription").getShareSubscriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getShareSubscription","getShareSubscriptionOutput"], () => require("./getShareSubscription"));
-
 export { GetSqlDBTableDataSetArgs, GetSqlDBTableDataSetResult, GetSqlDBTableDataSetOutputArgs } from "./getSqlDBTableDataSet";
 export const getSqlDBTableDataSet: typeof import("./getSqlDBTableDataSet").getSqlDBTableDataSet = null as any;
 export const getSqlDBTableDataSetOutput: typeof import("./getSqlDBTableDataSet").getSqlDBTableDataSetOutput = null as any;
@@ -269,11 +244,6 @@ export { GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs, GetSynapseWorkspaceS
 export const getSynapseWorkspaceSqlPoolTableDataSetMapping: typeof import("./getSynapseWorkspaceSqlPoolTableDataSetMapping").getSynapseWorkspaceSqlPoolTableDataSetMapping = null as any;
 export const getSynapseWorkspaceSqlPoolTableDataSetMappingOutput: typeof import("./getSynapseWorkspaceSqlPoolTableDataSetMapping").getSynapseWorkspaceSqlPoolTableDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getSynapseWorkspaceSqlPoolTableDataSetMapping","getSynapseWorkspaceSqlPoolTableDataSetMappingOutput"], () => require("./getSynapseWorkspaceSqlPoolTableDataSetMapping"));
-
-export { InvitationArgs } from "./invitation";
-export type Invitation = import("./invitation").Invitation;
-export const Invitation: typeof import("./invitation").Invitation = null as any;
-utilities.lazyLoad(exports, ["Invitation"], () => require("./invitation"));
 
 export { KustoClusterDataSetArgs } from "./kustoClusterDataSet";
 export type KustoClusterDataSet = import("./kustoClusterDataSet").KustoClusterDataSet;
@@ -329,16 +299,6 @@ export { ScheduledTriggerArgs } from "./scheduledTrigger";
 export type ScheduledTrigger = import("./scheduledTrigger").ScheduledTrigger;
 export const ScheduledTrigger: typeof import("./scheduledTrigger").ScheduledTrigger = null as any;
 utilities.lazyLoad(exports, ["ScheduledTrigger"], () => require("./scheduledTrigger"));
-
-export { ShareArgs } from "./share";
-export type Share = import("./share").Share;
-export const Share: typeof import("./share").Share = null as any;
-utilities.lazyLoad(exports, ["Share"], () => require("./share"));
-
-export { ShareSubscriptionArgs } from "./shareSubscription";
-export type ShareSubscription = import("./shareSubscription").ShareSubscription;
-export const ShareSubscription: typeof import("./shareSubscription").ShareSubscription = null as any;
-utilities.lazyLoad(exports, ["ShareSubscription"], () => require("./shareSubscription"));
 
 export { SqlDBTableDataSetArgs } from "./sqlDBTableDataSet";
 export type SqlDBTableDataSet = import("./sqlDBTableDataSet").SqlDBTableDataSet;
@@ -398,8 +358,6 @@ const _module = {
                 return new ADLSGen2StorageAccountDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping":
                 return new ADLSGen2StorageAccountDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:Account":
-                return new Account(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:BlobContainerDataSet":
                 return new BlobContainerDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:BlobContainerDataSetMapping":
@@ -416,8 +374,6 @@ const _module = {
                 return new BlobStorageAccountDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping":
                 return new BlobStorageAccountDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:Invitation":
-                return new Invitation(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:KustoClusterDataSet":
                 return new KustoClusterDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:KustoClusterDataSetMapping":
@@ -430,10 +386,6 @@ const _module = {
                 return new ScheduledSynchronizationSetting(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:ScheduledTrigger":
                 return new ScheduledTrigger(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:Share":
-                return new Share(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:ShareSubscription":
-                return new ShareSubscription(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:SqlDBTableDataSet":
                 return new SqlDBTableDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:SqlDBTableDataSetMapping":

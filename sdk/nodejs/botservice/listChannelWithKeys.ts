@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists a Channel registration for a Bot Service including secrets
- * API Version: 2021-03-01.
+ * API Version: 2022-09-15.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
 
@@ -49,7 +49,7 @@ export interface ListChannelWithKeysResult {
      */
     readonly entityTag?: string;
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**
@@ -103,7 +103,7 @@ export interface ListChannelWithKeysResult {
 }
 /**
  * Lists a Channel registration for a Bot Service including secrets
- * API Version: 2021-03-01.
+ * API Version: 2022-09-15.
  */
 export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
     return pulumi.output(args).apply((a: any) => listChannelWithKeys(a, opts))

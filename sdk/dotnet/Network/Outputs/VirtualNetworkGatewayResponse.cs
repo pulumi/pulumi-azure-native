@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly bool? ActiveActive;
         /// <summary>
+        /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        /// </summary>
+        public readonly bool? AllowRemoteVnetTraffic;
+        /// <summary>
+        /// Configures this gateway to accept traffic from remote Virtual WAN networks.
+        /// </summary>
+        public readonly bool? AllowVirtualWanTraffic;
+        /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         public readonly Outputs.BgpSettingsResponse? BgpSettings;
@@ -29,9 +37,17 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? CustomRoutes;
         /// <summary>
+        /// disableIPSecReplayProtection flag.
+        /// </summary>
+        public readonly bool? DisableIPSecReplayProtection;
+        /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         public readonly bool? EnableBgp;
+        /// <summary>
+        /// EnableBgpRouteTranslationForNat flag.
+        /// </summary>
+        public readonly bool? EnableBgpRouteTranslationForNat;
         /// <summary>
         /// Whether dns forwarding is enabled or not.
         /// </summary>
@@ -77,6 +93,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// NatRules for virtual network gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> NatRules;
+        /// <summary>
         /// The provisioning state of the virtual network gateway resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -101,6 +121,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? VNetExtendedLocationResourceId;
         /// <summary>
+        /// The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayPolicyGroupResponse> VirtualNetworkGatewayPolicyGroups;
+        /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
         public readonly Outputs.VpnClientConfigurationResponse? VpnClientConfiguration;
@@ -117,11 +141,19 @@ namespace Pulumi.AzureNative.Network.Outputs
         private VirtualNetworkGatewayResponse(
             bool? activeActive,
 
+            bool? allowRemoteVnetTraffic,
+
+            bool? allowVirtualWanTraffic,
+
             Outputs.BgpSettingsResponse? bgpSettings,
 
             Outputs.AddressSpaceResponse? customRoutes,
 
+            bool? disableIPSecReplayProtection,
+
             bool? enableBgp,
+
+            bool? enableBgpRouteTranslationForNat,
 
             bool? enableDnsForwarding,
 
@@ -145,6 +177,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string name,
 
+            ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> natRules,
+
             string provisioningState,
 
             string resourceGuid,
@@ -157,6 +191,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? vNetExtendedLocationResourceId,
 
+            ImmutableArray<Outputs.VirtualNetworkGatewayPolicyGroupResponse> virtualNetworkGatewayPolicyGroups,
+
             Outputs.VpnClientConfigurationResponse? vpnClientConfiguration,
 
             string? vpnGatewayGeneration,
@@ -164,9 +200,13 @@ namespace Pulumi.AzureNative.Network.Outputs
             string? vpnType)
         {
             ActiveActive = activeActive;
+            AllowRemoteVnetTraffic = allowRemoteVnetTraffic;
+            AllowVirtualWanTraffic = allowVirtualWanTraffic;
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
+            DisableIPSecReplayProtection = disableIPSecReplayProtection;
             EnableBgp = enableBgp;
+            EnableBgpRouteTranslationForNat = enableBgpRouteTranslationForNat;
             EnableDnsForwarding = enableDnsForwarding;
             EnablePrivateIpAddress = enablePrivateIpAddress;
             Etag = etag;
@@ -178,12 +218,14 @@ namespace Pulumi.AzureNative.Network.Outputs
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
+            NatRules = natRules;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
             Sku = sku;
             Tags = tags;
             Type = type;
             VNetExtendedLocationResourceId = vNetExtendedLocationResourceId;
+            VirtualNetworkGatewayPolicyGroups = virtualNetworkGatewayPolicyGroups;
             VpnClientConfiguration = vpnClientConfiguration;
             VpnGatewayGeneration = vpnGatewayGeneration;
             VpnType = vpnType;

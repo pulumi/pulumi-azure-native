@@ -17,13 +17,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class A2AReplicationDetailsResponse
     {
         /// <summary>
+        /// Agent certificate expiry date.
+        /// </summary>
+        public readonly string AgentCertificateExpiryDate;
+        /// <summary>
+        /// Agent expiry date.
+        /// </summary>
+        public readonly string? AgentExpiryDate;
+        /// <summary>
         /// The agent version.
         /// </summary>
         public readonly string? AgentVersion;
         /// <summary>
+        /// A value indicating whether the auto protection is enabled.
+        /// </summary>
+        public readonly string? AutoProtectionOfDataDisk;
+        /// <summary>
         /// The fabric specific object Id of the virtual machine.
         /// </summary>
         public readonly string? FabricObjectId;
+        /// <summary>
+        /// The initial primary extended location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? InitialPrimaryExtendedLocation;
         /// <summary>
         /// The initial primary fabric location.
         /// </summary>
@@ -32,6 +48,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The initial primary availability zone.
         /// </summary>
         public readonly string InitialPrimaryZone;
+        /// <summary>
+        /// The initial recovery extended location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? InitialRecoveryExtendedLocation;
         /// <summary>
         /// The initial recovery fabric location.
         /// </summary>
@@ -45,6 +65,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Expected value is 'A2A'.
         /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// A value indicating whether agent certificate update is required.
+        /// </summary>
+        public readonly bool? IsReplicationAgentCertificateUpdateRequired;
         /// <summary>
         /// A value indicating whether replication agent update is required.
         /// </summary>
@@ -90,6 +114,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? OsType;
         /// <summary>
+        /// The primary availability zone.
+        /// </summary>
+        public readonly string? PrimaryAvailabilityZone;
+        /// <summary>
+        /// The primary Extended Location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? PrimaryExtendedLocation;
+        /// <summary>
         /// Primary fabric location.
         /// </summary>
         public readonly string? PrimaryFabricLocation;
@@ -110,6 +142,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? RecoveryAvailabilityZone;
         /// <summary>
+        /// The recovery azure generation.
+        /// </summary>
+        public readonly string RecoveryAzureGeneration;
+        /// <summary>
         /// The recovery resource group.
         /// </summary>
         public readonly string? RecoveryAzureResourceGroupId;
@@ -126,9 +162,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? RecoveryBootDiagStorageAccountId;
         /// <summary>
+        /// The recovery capacity reservation group Id.
+        /// </summary>
+        public readonly string? RecoveryCapacityReservationGroupId;
+        /// <summary>
         /// The recovery cloud service.
         /// </summary>
         public readonly string? RecoveryCloudService;
+        /// <summary>
+        /// The recovery Extended Location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? RecoveryExtendedLocation;
         /// <summary>
         /// The recovery fabric location.
         /// </summary>
@@ -141,6 +185,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The recovery proximity placement group Id.
         /// </summary>
         public readonly string? RecoveryProximityPlacementGroupId;
+        /// <summary>
+        /// The recovery virtual machine scale set id.
+        /// </summary>
+        public readonly string? RecoveryVirtualMachineScaleSetId;
         /// <summary>
         /// The last RPO value in seconds.
         /// </summary>
@@ -158,7 +206,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TestFailoverRecoveryFabricObjectId;
         /// <summary>
-        /// The test failover VM name.
+        /// The test failover vm name.
         /// </summary>
         public readonly string? TfoAzureVMName;
         /// <summary>
@@ -188,19 +236,31 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private A2AReplicationDetailsResponse(
+            string agentCertificateExpiryDate,
+
+            string? agentExpiryDate,
+
             string? agentVersion,
 
+            string? autoProtectionOfDataDisk,
+
             string? fabricObjectId,
+
+            Outputs.ExtendedLocationResponse? initialPrimaryExtendedLocation,
 
             string initialPrimaryFabricLocation,
 
             string initialPrimaryZone,
+
+            Outputs.ExtendedLocationResponse? initialRecoveryExtendedLocation,
 
             string initialRecoveryFabricLocation,
 
             string initialRecoveryZone,
 
             string instanceType,
+
+            bool? isReplicationAgentCertificateUpdateRequired,
 
             bool? isReplicationAgentUpdateRequired,
 
@@ -224,6 +284,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? osType,
 
+            string? primaryAvailabilityZone,
+
+            Outputs.ExtendedLocationResponse? primaryExtendedLocation,
+
             string? primaryFabricLocation,
 
             ImmutableArray<Outputs.A2AProtectedDiskDetailsResponse> protectedDisks,
@@ -234,6 +298,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? recoveryAvailabilityZone,
 
+            string recoveryAzureGeneration,
+
             string? recoveryAzureResourceGroupId,
 
             string? recoveryAzureVMName,
@@ -242,13 +308,19 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? recoveryBootDiagStorageAccountId,
 
+            string? recoveryCapacityReservationGroupId,
+
             string? recoveryCloudService,
+
+            Outputs.ExtendedLocationResponse? recoveryExtendedLocation,
 
             string? recoveryFabricLocation,
 
             string? recoveryFabricObjectId,
 
             string? recoveryProximityPlacementGroupId,
+
+            string? recoveryVirtualMachineScaleSetId,
 
             double? rpoInSeconds,
 
@@ -272,13 +344,19 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.AzureToAzureVmSyncedConfigDetailsResponse? vmSyncedConfigDetails)
         {
+            AgentCertificateExpiryDate = agentCertificateExpiryDate;
+            AgentExpiryDate = agentExpiryDate;
             AgentVersion = agentVersion;
+            AutoProtectionOfDataDisk = autoProtectionOfDataDisk;
             FabricObjectId = fabricObjectId;
+            InitialPrimaryExtendedLocation = initialPrimaryExtendedLocation;
             InitialPrimaryFabricLocation = initialPrimaryFabricLocation;
             InitialPrimaryZone = initialPrimaryZone;
+            InitialRecoveryExtendedLocation = initialRecoveryExtendedLocation;
             InitialRecoveryFabricLocation = initialRecoveryFabricLocation;
             InitialRecoveryZone = initialRecoveryZone;
             InstanceType = instanceType;
+            IsReplicationAgentCertificateUpdateRequired = isReplicationAgentCertificateUpdateRequired;
             IsReplicationAgentUpdateRequired = isReplicationAgentUpdateRequired;
             LastHeartbeat = lastHeartbeat;
             LastRpoCalculatedTime = lastRpoCalculatedTime;
@@ -290,19 +368,25 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             MultiVmGroupId = multiVmGroupId;
             MultiVmGroupName = multiVmGroupName;
             OsType = osType;
+            PrimaryAvailabilityZone = primaryAvailabilityZone;
+            PrimaryExtendedLocation = primaryExtendedLocation;
             PrimaryFabricLocation = primaryFabricLocation;
             ProtectedDisks = protectedDisks;
             ProtectedManagedDisks = protectedManagedDisks;
             RecoveryAvailabilitySet = recoveryAvailabilitySet;
             RecoveryAvailabilityZone = recoveryAvailabilityZone;
+            RecoveryAzureGeneration = recoveryAzureGeneration;
             RecoveryAzureResourceGroupId = recoveryAzureResourceGroupId;
             RecoveryAzureVMName = recoveryAzureVMName;
             RecoveryAzureVMSize = recoveryAzureVMSize;
             RecoveryBootDiagStorageAccountId = recoveryBootDiagStorageAccountId;
+            RecoveryCapacityReservationGroupId = recoveryCapacityReservationGroupId;
             RecoveryCloudService = recoveryCloudService;
+            RecoveryExtendedLocation = recoveryExtendedLocation;
             RecoveryFabricLocation = recoveryFabricLocation;
             RecoveryFabricObjectId = recoveryFabricObjectId;
             RecoveryProximityPlacementGroupId = recoveryProximityPlacementGroupId;
+            RecoveryVirtualMachineScaleSetId = recoveryVirtualMachineScaleSetId;
             RpoInSeconds = rpoInSeconds;
             SelectedRecoveryAzureNetworkId = selectedRecoveryAzureNetworkId;
             SelectedTfoAzureNetworkId = selectedTfoAzureNetworkId;

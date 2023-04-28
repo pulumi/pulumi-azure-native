@@ -135,20 +135,20 @@ class AwaitableGetProvisionedClusterResult(GetProvisionedClusterResult):
             type=self.type)
 
 
-def get_provisioned_cluster(provisioned_clusters_name: Optional[str] = None,
-                            resource_group_name: Optional[str] = None,
+def get_provisioned_cluster(resource_group_name: Optional[str] = None,
+                            resource_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProvisionedClusterResult:
     """
     Gets the Hybrid AKS provisioned cluster
-    API Version: 2022-05-01-preview.
+    API Version: 2022-09-01-preview.
 
 
-    :param str provisioned_clusters_name: Parameter for the name of the provisioned cluster
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: Parameter for the name of the provisioned cluster
     """
     __args__ = dict()
-    __args__['provisionedClustersName'] = provisioned_clusters_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcontainerservice:getProvisionedCluster', __args__, opts=opts, typ=GetProvisionedClusterResult).value
 
@@ -165,15 +165,15 @@ def get_provisioned_cluster(provisioned_clusters_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_provisioned_cluster)
-def get_provisioned_cluster_output(provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+def get_provisioned_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   resource_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisionedClusterResult]:
     """
     Gets the Hybrid AKS provisioned cluster
-    API Version: 2022-05-01-preview.
+    API Version: 2022-09-01-preview.
 
 
-    :param str provisioned_clusters_name: Parameter for the name of the provisioned cluster
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: Parameter for the name of the provisioned cluster
     """
     ...

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Description of queue Resource.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -87,6 +88,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly forwardTo!: pulumi.Output<string | undefined>;
     /**
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
      * ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
      */
     public readonly lockDuration!: pulumi.Output<string | undefined>;
@@ -94,6 +99,10 @@ export class Queue extends pulumi.CustomResource {
      * The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
      */
     public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
+    /**
+     * Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+     */
+    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number | undefined>;
     /**
      * The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
      */
@@ -103,7 +112,7 @@ export class Queue extends pulumi.CustomResource {
      */
     public /*out*/ readonly messageCount!: pulumi.Output<number>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -123,7 +132,11 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Resource type
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -159,6 +172,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
             resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
             resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
+            resourceInputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
             resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["queueName"] = args ? args.queueName : undefined;
@@ -169,9 +183,11 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["messageCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
@@ -187,8 +203,10 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["enablePartitioning"] = undefined /*out*/;
             resourceInputs["forwardDeadLetteredMessagesTo"] = undefined /*out*/;
             resourceInputs["forwardTo"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["lockDuration"] = undefined /*out*/;
             resourceInputs["maxDeliveryCount"] = undefined /*out*/;
+            resourceInputs["maxMessageSizeInKilobytes"] = undefined /*out*/;
             resourceInputs["maxSizeInMegabytes"] = undefined /*out*/;
             resourceInputs["messageCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -196,6 +214,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["requiresSession"] = undefined /*out*/;
             resourceInputs["sizeInBytes"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -254,6 +273,10 @@ export interface QueueArgs {
      * The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
      */
     maxDeliveryCount?: pulumi.Input<number>;
+    /**
+     * Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+     */
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
      */

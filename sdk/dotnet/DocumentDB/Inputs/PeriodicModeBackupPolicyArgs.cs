@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     public sealed class PeriodicModeBackupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The object representing the state of the migration between the backup policies.
+        /// </summary>
+        [Input("migrationState")]
+        public Input<Inputs.BackupPolicyMigrationStateArgs>? MigrationState { get; set; }
+
+        /// <summary>
         /// Configuration values for periodic mode backup
         /// </summary>
         [Input("periodicModeProperties")]

@@ -17,47 +17,98 @@ __all__ = ['ServerArgs', 'Server']
 @pulumi.input_type
 class ServerArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']],
                  resource_group_name: pulumi.Input[str],
-                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 auth_config: Optional[pulumi.Input['AuthConfigArgs']] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 backup: Optional[pulumi.Input['BackupArgs']] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
+                 high_availability: Optional[pulumi.Input['HighAvailabilityArgs']] = None,
+                 identity: Optional[pulumi.Input['UserAssignedIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
+                 network: Optional[pulumi.Input['NetworkArgs']] = None,
+                 point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 replica_capacity: Optional[pulumi.Input[int]] = None,
+                 replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 source_server_resource_id: Optional[pulumi.Input[str]] = None,
+                 storage: Optional[pulumi.Input['StorageArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
         """
         The set of arguments for constructing a Server resource.
-        :param pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']] properties: Properties of the server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the server.
-        :param pulumi.Input[str] location: The location the resource resides in.
+        :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
+        :param pulumi.Input['AuthConfigArgs'] auth_config: AuthConfig properties of a server.
+        :param pulumi.Input[str] availability_zone: availability zone information of the server.
+        :param pulumi.Input['BackupArgs'] backup: Backup properties of a server.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
+        :param pulumi.Input['DataEncryptionArgs'] data_encryption: Data encryption properties of a server.
+        :param pulumi.Input['HighAvailabilityArgs'] high_availability: High availability properties of a server.
+        :param pulumi.Input['UserAssignedIdentityArgs'] identity: Describes the identity of the application.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window properties of a server.
+        :param pulumi.Input['NetworkArgs'] network: Network properties of a server.
+        :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
+        :param pulumi.Input[int] replica_capacity: Replicas allowed for a server.
+        :param pulumi.Input[Union[str, 'ReplicationRole']] replication_role: Replication role of the server
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input['SkuArgs'] sku: The SKU (pricing tier) of the server.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata in the form of key-value pairs.
+        :param pulumi.Input[str] source_server_resource_id: The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'.
+        :param pulumi.Input['StorageArgs'] storage: Storage properties of a server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
         """
-        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_login_password is not None:
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if auth_config is not None:
+            pulumi.set(__self__, "auth_config", auth_config)
+        if availability_zone is None:
+            availability_zone = ''
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if backup is not None:
+            pulumi.set(__self__, "backup", backup)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if data_encryption is not None:
+            pulumi.set(__self__, "data_encryption", data_encryption)
+        if high_availability is not None:
+            pulumi.set(__self__, "high_availability", high_availability)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+        if point_in_time_utc is not None:
+            pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
+        if replica_capacity is not None:
+            pulumi.set(__self__, "replica_capacity", replica_capacity)
+        if replication_role is not None:
+            pulumi.set(__self__, "replication_role", replication_role)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if source_server_resource_id is not None:
+            pulumi.set(__self__, "source_server_resource_id", source_server_resource_id)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']]:
-        """
-        Properties of the server.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']]):
-        pulumi.set(self, "properties", value)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -72,28 +123,184 @@ class ServerArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Active Directory identity of the server.
+        The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @administrator_login.setter
+    def administrator_login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login", value)
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The administrator login password (required for server creation).
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @administrator_login_password.setter
+    def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="authConfig")
+    def auth_config(self) -> Optional[pulumi.Input['AuthConfigArgs']]:
+        """
+        AuthConfig properties of a server.
+        """
+        return pulumi.get(self, "auth_config")
+
+    @auth_config.setter
+    def auth_config(self, value: Optional[pulumi.Input['AuthConfigArgs']]):
+        pulumi.set(self, "auth_config", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        availability zone information of the server.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter
+    def backup(self) -> Optional[pulumi.Input['BackupArgs']]:
+        """
+        Backup properties of a server.
+        """
+        return pulumi.get(self, "backup")
+
+    @backup.setter
+    def backup(self, value: Optional[pulumi.Input['BackupArgs']]):
+        pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        The mode to create a new PostgreSQL server.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="dataEncryption")
+    def data_encryption(self) -> Optional[pulumi.Input['DataEncryptionArgs']]:
+        """
+        Data encryption properties of a server.
+        """
+        return pulumi.get(self, "data_encryption")
+
+    @data_encryption.setter
+    def data_encryption(self, value: Optional[pulumi.Input['DataEncryptionArgs']]):
+        pulumi.set(self, "data_encryption", value)
+
+    @property
+    @pulumi.getter(name="highAvailability")
+    def high_availability(self) -> Optional[pulumi.Input['HighAvailabilityArgs']]:
+        """
+        High availability properties of a server.
+        """
+        return pulumi.get(self, "high_availability")
+
+    @high_availability.setter
+    def high_availability(self, value: Optional[pulumi.Input['HighAvailabilityArgs']]):
+        pulumi.set(self, "high_availability", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['UserAssignedIdentityArgs']]:
+        """
+        Describes the identity of the application.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['UserAssignedIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location the resource resides in.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[pulumi.Input['MaintenanceWindowArgs']]:
+        """
+        Maintenance window properties of a server.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: Optional[pulumi.Input['MaintenanceWindowArgs']]):
+        pulumi.set(self, "maintenance_window", value)
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['NetworkArgs']]:
+        """
+        Network properties of a server.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['NetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @property
+    @pulumi.getter(name="pointInTimeUTC")
+    def point_in_time_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
+        """
+        return pulumi.get(self, "point_in_time_utc")
+
+    @point_in_time_utc.setter
+    def point_in_time_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "point_in_time_utc", value)
+
+    @property
+    @pulumi.getter(name="replicaCapacity")
+    def replica_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Replicas allowed for a server.
+        """
+        return pulumi.get(self, "replica_capacity")
+
+    @replica_capacity.setter
+    def replica_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replica_capacity", value)
+
+    @property
+    @pulumi.getter(name="replicationRole")
+    def replication_role(self) -> Optional[pulumi.Input[Union[str, 'ReplicationRole']]]:
+        """
+        Replication role of the server
+        """
+        return pulumi.get(self, "replication_role")
+
+    @replication_role.setter
+    def replication_role(self, value: Optional[pulumi.Input[Union[str, 'ReplicationRole']]]):
+        pulumi.set(self, "replication_role", value)
 
     @property
     @pulumi.getter(name="serverName")
@@ -120,10 +327,34 @@ class ServerArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="sourceServerResourceId")
+    def source_server_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'.
+        """
+        return pulumi.get(self, "source_server_resource_id")
+
+    @source_server_resource_id.setter
+    def source_server_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_server_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional[pulumi.Input['StorageArgs']]:
+        """
+        Storage properties of a server.
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: Optional[pulumi.Input['StorageArgs']]):
+        pulumi.set(self, "storage", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Application-specific metadata in the form of key-value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -131,33 +362,76 @@ class ServerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[Union[str, 'ServerVersion']]]:
+        """
+        PostgreSQL Server version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[Union[str, 'ServerVersion']]]):
+        pulumi.set(self, "version", value)
+
 
 class Server(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 auth_config: Optional[pulumi.Input[pulumi.InputType['AuthConfigArgs']]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['BackupArgs']]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 data_encryption: Optional[pulumi.Input[pulumi.InputType['DataEncryptionArgs']]] = None,
+                 high_availability: Optional[pulumi.Input[pulumi.InputType['HighAvailabilityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['UserAssignedIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ServerPropertiesForDefaultCreateArgs'], pulumi.InputType['ServerPropertiesForGeoRestoreArgs'], pulumi.InputType['ServerPropertiesForReplicaArgs'], pulumi.InputType['ServerPropertiesForRestoreArgs']]]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['NetworkArgs']]] = None,
+                 point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 replica_capacity: Optional[pulumi.Input[int]] = None,
+                 replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 source_server_resource_id: Optional[pulumi.Input[str]] = None,
+                 storage: Optional[pulumi.Input[pulumi.InputType['StorageArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None):
         """
         Represents a server.
-        API Version: 2017-12-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
-        :param pulumi.Input[str] location: The location the resource resides in.
-        :param pulumi.Input[Union[pulumi.InputType['ServerPropertiesForDefaultCreateArgs'], pulumi.InputType['ServerPropertiesForGeoRestoreArgs'], pulumi.InputType['ServerPropertiesForReplicaArgs'], pulumi.InputType['ServerPropertiesForRestoreArgs']]] properties: Properties of the server.
+        :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
+        :param pulumi.Input[pulumi.InputType['AuthConfigArgs']] auth_config: AuthConfig properties of a server.
+        :param pulumi.Input[str] availability_zone: availability zone information of the server.
+        :param pulumi.Input[pulumi.InputType['BackupArgs']] backup: Backup properties of a server.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
+        :param pulumi.Input[pulumi.InputType['DataEncryptionArgs']] data_encryption: Data encryption properties of a server.
+        :param pulumi.Input[pulumi.InputType['HighAvailabilityArgs']] high_availability: High availability properties of a server.
+        :param pulumi.Input[pulumi.InputType['UserAssignedIdentityArgs']] identity: Describes the identity of the application.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window properties of a server.
+        :param pulumi.Input[pulumi.InputType['NetworkArgs']] network: Network properties of a server.
+        :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
+        :param pulumi.Input[int] replica_capacity: Replicas allowed for a server.
+        :param pulumi.Input[Union[str, 'ReplicationRole']] replication_role: Replication role of the server
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata in the form of key-value pairs.
+        :param pulumi.Input[str] source_server_resource_id: The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'.
+        :param pulumi.Input[pulumi.InputType['StorageArgs']] storage: Storage properties of a server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
         """
         ...
     @overload
@@ -167,7 +441,8 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
-        API Version: 2017-12-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
@@ -184,13 +459,28 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 auth_config: Optional[pulumi.Input[pulumi.InputType['AuthConfigArgs']]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['BackupArgs']]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 data_encryption: Optional[pulumi.Input[pulumi.InputType['DataEncryptionArgs']]] = None,
+                 high_availability: Optional[pulumi.Input[pulumi.InputType['HighAvailabilityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['UserAssignedIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ServerPropertiesForDefaultCreateArgs'], pulumi.InputType['ServerPropertiesForGeoRestoreArgs'], pulumi.InputType['ServerPropertiesForReplicaArgs'], pulumi.InputType['ServerPropertiesForRestoreArgs']]]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['NetworkArgs']]] = None,
+                 point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 replica_capacity: Optional[pulumi.Input[int]] = None,
+                 replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 source_server_resource_id: Optional[pulumi.Input[str]] = None,
+                 storage: Optional[pulumi.Input[pulumi.InputType['StorageArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -200,35 +490,39 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerArgs.__new__(ServerArgs)
 
+            __props__.__dict__["administrator_login"] = administrator_login
+            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["auth_config"] = auth_config
+            if availability_zone is None:
+                availability_zone = ''
+            __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["backup"] = backup
+            __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["data_encryption"] = data_encryption
+            __props__.__dict__["high_availability"] = high_availability
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
+            __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["network"] = network
+            __props__.__dict__["point_in_time_utc"] = point_in_time_utc
+            __props__.__dict__["replica_capacity"] = replica_capacity
+            __props__.__dict__["replication_role"] = replication_role
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["source_server_resource_id"] = source_server_resource_id
+            __props__.__dict__["storage"] = storage
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["administrator_login"] = None
-            __props__.__dict__["byok_enforcement"] = None
-            __props__.__dict__["earliest_restore_date"] = None
+            __props__.__dict__["version"] = version
             __props__.__dict__["fully_qualified_domain_name"] = None
-            __props__.__dict__["infrastructure_encryption"] = None
-            __props__.__dict__["master_server_id"] = None
-            __props__.__dict__["minimal_tls_version"] = None
+            __props__.__dict__["minor_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["private_endpoint_connections"] = None
-            __props__.__dict__["public_network_access"] = None
-            __props__.__dict__["replica_capacity"] = None
-            __props__.__dict__["replication_role"] = None
-            __props__.__dict__["ssl_enforcement"] = None
-            __props__.__dict__["storage_profile"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["user_visible_state"] = None
-            __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-native:dbforpostgresql:Server',
@@ -253,25 +547,26 @@ class Server(pulumi.CustomResource):
         __props__ = ServerArgs.__new__(ServerArgs)
 
         __props__.__dict__["administrator_login"] = None
-        __props__.__dict__["byok_enforcement"] = None
-        __props__.__dict__["earliest_restore_date"] = None
+        __props__.__dict__["auth_config"] = None
+        __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["backup"] = None
+        __props__.__dict__["data_encryption"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
+        __props__.__dict__["high_availability"] = None
         __props__.__dict__["identity"] = None
-        __props__.__dict__["infrastructure_encryption"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["master_server_id"] = None
-        __props__.__dict__["minimal_tls_version"] = None
+        __props__.__dict__["maintenance_window"] = None
+        __props__.__dict__["minor_version"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["private_endpoint_connections"] = None
-        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["network"] = None
         __props__.__dict__["replica_capacity"] = None
         __props__.__dict__["replication_role"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["ssl_enforcement"] = None
-        __props__.__dict__["storage_profile"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["storage"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_visible_state"] = None
         __props__.__dict__["version"] = None
         return Server(resource_name, opts=opts, __props__=__props__)
 
@@ -284,44 +579,60 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "administrator_login")
 
     @property
-    @pulumi.getter(name="byokEnforcement")
-    def byok_enforcement(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="authConfig")
+    def auth_config(self) -> pulumi.Output[Optional['outputs.AuthConfigResponse']]:
         """
-        Status showing whether the server data encryption is enabled with customer-managed keys.
+        AuthConfig properties of a server.
         """
-        return pulumi.get(self, "byok_enforcement")
+        return pulumi.get(self, "auth_config")
 
     @property
-    @pulumi.getter(name="earliestRestoreDate")
-    def earliest_restore_date(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
-        Earliest restore point creation time (ISO8601 format)
+        availability zone information of the server.
         """
-        return pulumi.get(self, "earliest_restore_date")
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter
+    def backup(self) -> pulumi.Output[Optional['outputs.BackupResponse']]:
+        """
+        Backup properties of a server.
+        """
+        return pulumi.get(self, "backup")
+
+    @property
+    @pulumi.getter(name="dataEncryption")
+    def data_encryption(self) -> pulumi.Output[Optional['outputs.DataEncryptionResponse']]:
+        """
+        Data encryption properties of a server.
+        """
+        return pulumi.get(self, "data_encryption")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> pulumi.Output[Optional[str]]:
+    def fully_qualified_domain_name(self) -> pulumi.Output[str]:
         """
         The fully qualified domain name of a server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
     @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+    @pulumi.getter(name="highAvailability")
+    def high_availability(self) -> pulumi.Output[Optional['outputs.HighAvailabilityResponse']]:
         """
-        The Azure Active Directory identity of the server.
+        High availability properties of a server.
         """
-        return pulumi.get(self, "identity")
+        return pulumi.get(self, "high_availability")
 
     @property
-    @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.UserAssignedIdentityResponse']]:
         """
-        Status showing whether the server enabled infrastructure encryption.
+        Describes the identity of the application.
         """
-        return pulumi.get(self, "infrastructure_encryption")
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -332,20 +643,20 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="masterServerId")
-    def master_server_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> pulumi.Output[Optional['outputs.MaintenanceWindowResponse']]:
         """
-        The master server id of a replica server.
+        Maintenance window properties of a server.
         """
-        return pulumi.get(self, "master_server_id")
+        return pulumi.get(self, "maintenance_window")
 
     @property
-    @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="minorVersion")
+    def minor_version(self) -> pulumi.Output[str]:
         """
-        Enforce a minimal Tls version for the server.
+        The minor version of the server.
         """
-        return pulumi.get(self, "minimal_tls_version")
+        return pulumi.get(self, "minor_version")
 
     @property
     @pulumi.getter
@@ -356,26 +667,18 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.ServerPrivateEndpointConnectionResponse']]:
+    @pulumi.getter
+    def network(self) -> pulumi.Output[Optional['outputs.NetworkResponse']]:
         """
-        List of private endpoint connections on a server
+        Network properties of a server.
         """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[Optional[str]]:
-        """
-        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        return pulumi.get(self, "public_network_access")
+        return pulumi.get(self, "network")
 
     @property
     @pulumi.getter(name="replicaCapacity")
     def replica_capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum number of replicas that a master server can have.
+        Replicas allowed for a server.
         """
         return pulumi.get(self, "replica_capacity")
 
@@ -383,7 +686,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="replicationRole")
     def replication_role(self) -> pulumi.Output[Optional[str]]:
         """
-        The replication role of the server.
+        Replication role of the server
         """
         return pulumi.get(self, "replication_role")
 
@@ -396,20 +699,28 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
         """
-        Enable ssl enforcement or not when connect to server.
+        A state of a server that is visible to user.
         """
-        return pulumi.get(self, "ssl_enforcement")
+        return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> pulumi.Output[Optional['outputs.StorageProfileResponse']]:
+    @pulumi.getter
+    def storage(self) -> pulumi.Output[Optional['outputs.StorageResponse']]:
         """
-        Storage profile of a server.
+        Storage properties of a server.
         """
-        return pulumi.get(self, "storage_profile")
+        return pulumi.get(self, "storage")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -428,18 +739,10 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="userVisibleState")
-    def user_visible_state(self) -> pulumi.Output[Optional[str]]:
-        """
-        A state of a server that is visible to user.
-        """
-        return pulumi.get(self, "user_visible_state")
-
-    @property
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
         """
-        Server version.
+        PostgreSQL Server version.
         """
         return pulumi.get(self, "version")
 

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Defines an Network Experiment Profile and lists of Experiments
     /// API Version: 2019-11-01.
+    /// Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkExperimentProfile")]
     public partial class NetworkExperimentProfile : global::Pulumi.CustomResource

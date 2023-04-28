@@ -19,17 +19,17 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// List of queries executed and it's execution results in source and target
         /// </summary>
-        public readonly Outputs.QueryExecutionResultResponse QueryResults;
+        public readonly Outputs.QueryExecutionResultResponse? QueryResults;
         /// <summary>
         /// Errors that are part of the execution
         /// </summary>
-        public readonly Outputs.ValidationErrorResponse ValidationErrors;
+        public readonly Outputs.ValidationErrorResponse? ValidationErrors;
 
         [OutputConstructor]
         private QueryAnalysisValidationResultResponse(
-            Outputs.QueryExecutionResultResponse queryResults,
+            Outputs.QueryExecutionResultResponse? queryResults,
 
-            Outputs.ValidationErrorResponse validationErrors)
+            Outputs.ValidationErrorResponse? validationErrors)
         {
             QueryResults = queryResults;
             ValidationErrors = validationErrors;

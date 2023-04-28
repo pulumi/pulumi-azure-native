@@ -25,7 +25,7 @@ class ReplicationPolicyArgs:
         The set of arguments for constructing a ReplicationPolicy resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name: The name of the recovery services vault.
-        :param pulumi.Input[str] policy_name: Replication policy name
+        :param pulumi.Input[str] policy_name: Replication policy name.
         :param pulumi.Input['CreatePolicyInputPropertiesArgs'] properties: Policy creation properties.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -63,7 +63,7 @@ class ReplicationPolicyArgs:
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Replication policy name
+        Replication policy name.
         """
         return pulumi.get(self, "policy_name")
 
@@ -96,11 +96,12 @@ class ReplicationPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Protection profile details.
-        API Version: 2018-07-10.
+        API Version: 2023-02-01.
+        Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy_name: Replication policy name
+        :param pulumi.Input[str] policy_name: Replication policy name.
         :param pulumi.Input[pulumi.InputType['CreatePolicyInputPropertiesArgs']] properties: Policy creation properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
@@ -113,7 +114,8 @@ class ReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Protection profile details.
-        API Version: 2018-07-10.
+        API Version: 2023-02-01.
+        Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ReplicationPolicyArgs args: The arguments to use to populate this resource's properties.

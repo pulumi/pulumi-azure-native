@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ApplicationGroupArgs } from "./applicationGroup";
-export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
-export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
-utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
-
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -34,11 +29,6 @@ export { EventHubAuthorizationRuleArgs } from "./eventHubAuthorizationRule";
 export type EventHubAuthorizationRule = import("./eventHubAuthorizationRule").EventHubAuthorizationRule;
 export const EventHubAuthorizationRule: typeof import("./eventHubAuthorizationRule").EventHubAuthorizationRule = null as any;
 utilities.lazyLoad(exports, ["EventHubAuthorizationRule"], () => require("./eventHubAuthorizationRule"));
-
-export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
-export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
-export const getApplicationGroupOutput: typeof import("./getApplicationGroup").getApplicationGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
@@ -75,20 +65,10 @@ export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthori
 export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
 
-export { GetNamespaceIpFilterRuleArgs, GetNamespaceIpFilterRuleResult, GetNamespaceIpFilterRuleOutputArgs } from "./getNamespaceIpFilterRule";
-export const getNamespaceIpFilterRule: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRule = null as any;
-export const getNamespaceIpFilterRuleOutput: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getNamespaceIpFilterRule","getNamespaceIpFilterRuleOutput"], () => require("./getNamespaceIpFilterRule"));
-
 export { GetNamespaceNetworkRuleSetArgs, GetNamespaceNetworkRuleSetResult, GetNamespaceNetworkRuleSetOutputArgs } from "./getNamespaceNetworkRuleSet";
 export const getNamespaceNetworkRuleSet: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSet = null as any;
 export const getNamespaceNetworkRuleSetOutput: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSetOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceNetworkRuleSet","getNamespaceNetworkRuleSetOutput"], () => require("./getNamespaceNetworkRuleSet"));
-
-export { GetNamespaceVirtualNetworkRuleArgs, GetNamespaceVirtualNetworkRuleResult, GetNamespaceVirtualNetworkRuleOutputArgs } from "./getNamespaceVirtualNetworkRule";
-export const getNamespaceVirtualNetworkRule: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRule = null as any;
-export const getNamespaceVirtualNetworkRuleOutput: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getNamespaceVirtualNetworkRule","getNamespaceVirtualNetworkRuleOutput"], () => require("./getNamespaceVirtualNetworkRule"));
 
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
@@ -125,20 +105,10 @@ export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").
 export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
 utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
 
-export { NamespaceIpFilterRuleArgs } from "./namespaceIpFilterRule";
-export type NamespaceIpFilterRule = import("./namespaceIpFilterRule").NamespaceIpFilterRule;
-export const NamespaceIpFilterRule: typeof import("./namespaceIpFilterRule").NamespaceIpFilterRule = null as any;
-utilities.lazyLoad(exports, ["NamespaceIpFilterRule"], () => require("./namespaceIpFilterRule"));
-
 export { NamespaceNetworkRuleSetArgs } from "./namespaceNetworkRuleSet";
 export type NamespaceNetworkRuleSet = import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet;
 export const NamespaceNetworkRuleSet: typeof import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet = null as any;
 utilities.lazyLoad(exports, ["NamespaceNetworkRuleSet"], () => require("./namespaceNetworkRuleSet"));
-
-export { NamespaceVirtualNetworkRuleArgs } from "./namespaceVirtualNetworkRule";
-export type NamespaceVirtualNetworkRule = import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule;
-export const NamespaceVirtualNetworkRule: typeof import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule = null as any;
-utilities.lazyLoad(exports, ["NamespaceVirtualNetworkRule"], () => require("./namespaceVirtualNetworkRule"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -155,7 +125,6 @@ utilities.lazyLoad(exports, ["SchemaRegistry"], () => require("./schemaRegistry"
 export * from "../types/enums/eventhub";
 
 // Export sub-modules:
-import * as v20140901 from "./v20140901";
 import * as v20150801 from "./v20150801";
 import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
@@ -166,7 +135,6 @@ import * as v20220101preview from "./v20220101preview";
 import * as v20221001preview from "./v20221001preview";
 
 export {
-    v20140901,
     v20150801,
     v20170401,
     v20180101preview,
@@ -181,8 +149,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:eventhub:ApplicationGroup":
-                return new ApplicationGroup(name, <any>undefined, { urn })
             case "azure-native:eventhub:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:eventhub:ConsumerGroup":
@@ -197,12 +163,8 @@ const _module = {
                 return new Namespace(name, <any>undefined, { urn })
             case "azure-native:eventhub:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-native:eventhub:NamespaceIpFilterRule":
-                return new NamespaceIpFilterRule(name, <any>undefined, { urn })
             case "azure-native:eventhub:NamespaceNetworkRuleSet":
                 return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
-            case "azure-native:eventhub:NamespaceVirtualNetworkRule":
-                return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
             case "azure-native:eventhub:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:eventhub:SchemaRegistry":

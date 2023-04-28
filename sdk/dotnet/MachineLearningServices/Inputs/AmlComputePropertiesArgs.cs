@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.OsType>? OsType { get; set; }
 
         /// <summary>
+        /// A property bag containing additional properties.
+        /// </summary>
+        [Input("propertyBag")]
+        public Input<object>? PropertyBag { get; set; }
+
+        /// <summary>
         /// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         /// </summary>
         [Input("remoteLoginPortPublicAccess")]

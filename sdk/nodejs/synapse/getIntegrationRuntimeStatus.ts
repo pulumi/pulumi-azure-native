@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the integration runtime status
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeStatusResult> {
 
@@ -51,7 +51,7 @@ export interface GetIntegrationRuntimeStatusResult {
 }
 /**
  * Get the integration runtime status
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationRuntimeStatus(a, opts))

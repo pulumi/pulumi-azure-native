@@ -17,11 +17,9 @@ utilities.lazyLoad(exports, ["SupportPlanType"], () => require("./supportPlanTyp
 
 
 // Export sub-modules:
-import * as v20170515 from "./v20170515";
 import * as v20180301 from "./v20180301";
 
 export {
-    v20170515,
     v20180301,
 };
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a machine pool
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
 
@@ -31,7 +31,7 @@ export interface GetPoolArgs {
      */
     projectName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -87,7 +87,7 @@ export interface GetPoolResult {
 }
 /**
  * Gets a machine pool
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))
@@ -103,7 +103,7 @@ export interface GetPoolOutputArgs {
      */
     projectName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

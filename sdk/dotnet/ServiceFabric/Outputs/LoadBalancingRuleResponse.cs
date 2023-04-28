@@ -25,6 +25,14 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
         /// </summary>
         public readonly int FrontendPort;
         /// <summary>
+        /// The load distribution policy for this rule.
+        /// </summary>
+        public readonly string? LoadDistribution;
+        /// <summary>
+        /// The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.
+        /// </summary>
+        public readonly int? ProbePort;
+        /// <summary>
         /// the reference to the load balancer probe used by the load balancing rule.
         /// </summary>
         public readonly string ProbeProtocol;
@@ -43,6 +51,10 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 
             int frontendPort,
 
+            string? loadDistribution,
+
+            int? probePort,
+
             string probeProtocol,
 
             string? probeRequestPath,
@@ -51,6 +63,8 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
         {
             BackendPort = backendPort;
             FrontendPort = frontendPort;
+            LoadDistribution = loadDistribution;
+            ProbePort = probePort;
             ProbeProtocol = probeProtocol;
             ProbeRequestPath = probeRequestPath;
             Protocol = protocol;

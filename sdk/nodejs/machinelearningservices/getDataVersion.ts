@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getDataVersion(args: GetDataVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataVersionResult> {
 
@@ -46,6 +46,10 @@ export interface GetDataVersionArgs {
  */
 export interface GetDataVersionResult {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly dataVersionBaseProperties: outputs.machinelearningservices.MLTableDataResponse | outputs.machinelearningservices.UriFileDataVersionResponse | outputs.machinelearningservices.UriFolderDataVersionResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -54,11 +58,7 @@ export interface GetDataVersionResult {
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.DataVersionResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -68,7 +68,7 @@ export interface GetDataVersionResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getDataVersionOutput(args: GetDataVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataVersionResult> {
     return pulumi.output(args).apply((a: any) => getDataVersion(a, opts))

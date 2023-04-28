@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a single private workbook by its resourceName.
-        /// API Version: 2020-10-20.
+        /// API Version: 2021-03-08.
         /// </summary>
         public static Task<GetMyWorkbookResult> InvokeAsync(GetMyWorkbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single private workbook by its resourceName.
-        /// API Version: 2020-10-20.
+        /// API Version: 2021-03-08.
         /// </summary>
         public static Output<GetMyWorkbookResult> Invoke(GetMyWorkbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? StorageUri;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Insights
 
             string? storageUri,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string timeModified,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.Insights
             SerializedData = serializedData;
             SourceId = sourceId;
             StorageUri = storageUri;
+            SystemData = systemData;
             Tags = tags;
             TimeModified = timeModified;
             Type = type;

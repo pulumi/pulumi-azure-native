@@ -5,15 +5,31 @@
 from enum import Enum
 
 __all__ = [
-    'SkuTier',
+    'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
+    'ResourceIdentityType',
 ]
 
 
-class SkuTier(str, Enum):
+class PrivateEndpointServiceConnectionStatus(str, Enum):
     """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Property to allow or block public traffic for an Azure FarmBeats resource.
+    """
+    ENABLED = "Enabled"
+    HYBRID = "Hybrid"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"

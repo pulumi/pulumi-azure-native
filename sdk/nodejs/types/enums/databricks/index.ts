@@ -3,28 +3,25 @@
 
 // Export sub-modules:
 import * as v20180401 from "./v20180401";
-import * as v20210401preview from "./v20210401preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230201 from "./v20230201";
 
 export {
     v20180401,
-    v20210401preview,
     v20220401preview,
     v20221001preview,
     v20230201,
 };
 
-export const IdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
+export const EncryptionKeySource = {
+    Microsoft_Keyvault: "Microsoft.Keyvault",
 } as const;
 
 /**
- * The identity type.
+ * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
  */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+export type EncryptionKeySource = (typeof EncryptionKeySource)[keyof typeof EncryptionKeySource];
 
 export const KeySource = {
     Default: "Default",
@@ -47,3 +44,24 @@ export const PrivateLinkServiceConnectionStatus = {
  * The status of a private endpoint connection
  */
 export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const RequiredNsgRules = {
+    AllRules: "AllRules",
+    NoAzureDatabricksRules: "NoAzureDatabricksRules",
+    NoAzureServiceRules: "NoAzureServiceRules",
+} as const;
+
+/**
+ * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+ */
+export type RequiredNsgRules = (typeof RequiredNsgRules)[keyof typeof RequiredNsgRules];

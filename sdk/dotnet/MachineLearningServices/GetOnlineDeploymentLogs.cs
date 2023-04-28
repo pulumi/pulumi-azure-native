@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetOnlineDeploymentLogsResult> InvokeAsync(GetOnlineDeploymentLogsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetOnlineDeploymentLogsResult> Invoke(GetOnlineDeploymentLogsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsInvokeArgs(), options.WithDefaults());
@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         public GetOnlineDeploymentLogsArgs()
         {
+            ContainerType = "InferenceServer";
         }
         public static new GetOnlineDeploymentLogsArgs Empty => new GetOnlineDeploymentLogsArgs();
     }
@@ -111,6 +112,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         public GetOnlineDeploymentLogsInvokeArgs()
         {
+            ContainerType = "InferenceServer";
         }
         public static new GetOnlineDeploymentLogsInvokeArgs Empty => new GetOnlineDeploymentLogsInvokeArgs();
     }

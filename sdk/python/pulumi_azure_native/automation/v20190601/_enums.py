@@ -11,7 +11,6 @@ __all__ = [
     'RunbookTypeEnum',
     'ScheduleDay',
     'ScheduleFrequency',
-    'SkuNameEnum',
     'SourceType',
     'TagOperators',
     'TokenType',
@@ -85,14 +84,6 @@ class ScheduleFrequency(str, Enum):
     """
     The minimum allowed interval for Minute schedules is 15 minutes.
     """
-
-
-class SkuNameEnum(str, Enum):
-    """
-    Gets or sets the SKU name of the account.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
 
 
 class SourceType(str, Enum):

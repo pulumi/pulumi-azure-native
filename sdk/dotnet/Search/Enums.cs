@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.Search
 {
     /// <summary>
+    /// Describes what response the data plane API of a Search service would send for requests that failed authentication.
+    /// </summary>
+    [EnumType]
+    public readonly struct AadAuthFailureMode : IEquatable<AadAuthFailureMode>
+    {
+        private readonly string _value;
+
+        private AadAuthFailureMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that requests that failed authentication should be presented with an HTTP status code of 403 (Forbidden).
+        /// </summary>
+        public static AadAuthFailureMode Http403 { get; } = new AadAuthFailureMode("http403");
+        /// <summary>
+        /// Indicates that requests that failed authentication should be presented with an HTTP status code of 401 (Unauthorized) and present a Bearer Challenge.
+        /// </summary>
+        public static AadAuthFailureMode Http401WithBearerChallenge { get; } = new AadAuthFailureMode("http401WithBearerChallenge");
+
+        public static bool operator ==(AadAuthFailureMode left, AadAuthFailureMode right) => left.Equals(right);
+        public static bool operator !=(AadAuthFailureMode left, AadAuthFailureMode right) => !left.Equals(right);
+
+        public static explicit operator string(AadAuthFailureMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AadAuthFailureMode other && Equals(other);
+        public bool Equals(AadAuthFailureMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
     /// </summary>
     [EnumType]
@@ -20,7 +57,13 @@ namespace Pulumi.AzureNative.Search
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static HostingMode @Default { get; } = new HostingMode("default");
+        /// <summary>
+        /// The limit on number of indexes is determined by the default limits for the SKU.
+        /// </summary>
+        public static HostingMode Default { get; } = new HostingMode("default");
+        /// <summary>
+        /// Only application for standard3 SKU, where the search service can have up to 1000 indexes.
+        /// </summary>
         public static HostingMode HighDensity { get; } = new HostingMode("highDensity");
 
         public static bool operator ==(HostingMode left, HostingMode right) => left.Equals(right);
@@ -70,6 +113,59 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
+    /// The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateLinkServiceConnectionProvisioningState : IEquatable<PrivateLinkServiceConnectionProvisioningState>
+    {
+        private readonly string _value;
+
+        private PrivateLinkServiceConnectionProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The private link service connection is in the process of being created along with other resources for it to be fully functional.
+        /// </summary>
+        public static PrivateLinkServiceConnectionProvisioningState Updating { get; } = new PrivateLinkServiceConnectionProvisioningState("Updating");
+        /// <summary>
+        /// The private link service connection is in the process of being deleted.
+        /// </summary>
+        public static PrivateLinkServiceConnectionProvisioningState Deleting { get; } = new PrivateLinkServiceConnectionProvisioningState("Deleting");
+        /// <summary>
+        /// The private link service connection has failed to be provisioned or deleted.
+        /// </summary>
+        public static PrivateLinkServiceConnectionProvisioningState Failed { get; } = new PrivateLinkServiceConnectionProvisioningState("Failed");
+        /// <summary>
+        /// The private link service connection has finished provisioning and is ready for approval.
+        /// </summary>
+        public static PrivateLinkServiceConnectionProvisioningState Succeeded { get; } = new PrivateLinkServiceConnectionProvisioningState("Succeeded");
+        /// <summary>
+        /// Provisioning request for the private link service connection resource has been accepted but the process of creation has not commenced yet.
+        /// </summary>
+        public static PrivateLinkServiceConnectionProvisioningState Incomplete { get; } = new PrivateLinkServiceConnectionProvisioningState("Incomplete");
+        /// <summary>
+        /// Provisioning request for the private link service connection resource has been canceled
+        /// </summary>
+        public static PrivateLinkServiceConnectionProvisioningState Canceled { get; } = new PrivateLinkServiceConnectionProvisioningState("Canceled");
+
+        public static bool operator ==(PrivateLinkServiceConnectionProvisioningState left, PrivateLinkServiceConnectionProvisioningState right) => left.Equals(right);
+        public static bool operator !=(PrivateLinkServiceConnectionProvisioningState left, PrivateLinkServiceConnectionProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateLinkServiceConnectionProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateLinkServiceConnectionProvisioningState other && Equals(other);
+        public bool Equals(PrivateLinkServiceConnectionProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
     /// </summary>
     [EnumType]
@@ -82,9 +178,21 @@ namespace Pulumi.AzureNative.Search
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The private endpoint connection has been created and is pending approval.
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Pending { get; } = new PrivateLinkServiceConnectionStatus("Pending");
+        /// <summary>
+        /// The private endpoint connection is approved and is ready for use.
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Approved { get; } = new PrivateLinkServiceConnectionStatus("Approved");
+        /// <summary>
+        /// The private endpoint connection has been rejected and cannot be used.
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Rejected { get; } = new PrivateLinkServiceConnectionStatus("Rejected");
+        /// <summary>
+        /// The private endpoint connection has been removed from the service.
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Disconnected { get; } = new PrivateLinkServiceConnectionStatus("Disconnected");
 
         public static bool operator ==(PrivateLinkServiceConnectionStatus left, PrivateLinkServiceConnectionStatus right) => left.Equals(right);
@@ -126,6 +234,47 @@ namespace Pulumi.AzureNative.Search
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes how a search service should enforce having one or more non customer encrypted resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct SearchEncryptionWithCmk : IEquatable<SearchEncryptionWithCmk>
+    {
+        private readonly string _value;
+
+        private SearchEncryptionWithCmk(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No enforcement will be made and the search service can have non customer encrypted resources.
+        /// </summary>
+        public static SearchEncryptionWithCmk Disabled { get; } = new SearchEncryptionWithCmk("Disabled");
+        /// <summary>
+        /// Search service will be marked as non-compliant if there are one or more non customer encrypted resources.
+        /// </summary>
+        public static SearchEncryptionWithCmk Enabled { get; } = new SearchEncryptionWithCmk("Enabled");
+        /// <summary>
+        /// Enforcement policy is not explicitly specified, with the behavior being the same as if it were set to 'Disabled'.
+        /// </summary>
+        public static SearchEncryptionWithCmk Unspecified { get; } = new SearchEncryptionWithCmk("Unspecified");
+
+        public static bool operator ==(SearchEncryptionWithCmk left, SearchEncryptionWithCmk right) => left.Equals(right);
+        public static bool operator !=(SearchEncryptionWithCmk left, SearchEncryptionWithCmk right) => !left.Equals(right);
+
+        public static explicit operator string(SearchEncryptionWithCmk value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SearchEncryptionWithCmk other && Equals(other);
+        public bool Equals(SearchEncryptionWithCmk other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -213,13 +362,34 @@ namespace Pulumi.AzureNative.Search
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Free tier, with no SLA guarantees and a subset of features offered to paid tiers.
+        /// </summary>
         public static SkuName Free { get; } = new SkuName("free");
+        /// <summary>
+        /// Paid tier dedicated service with up to 3 replicas.
+        /// </summary>
         public static SkuName Basic { get; } = new SkuName("basic");
+        /// <summary>
+        /// Paid tier dedicated service with up to 12 partitions and 12 replicas.
+        /// </summary>
         public static SkuName Standard { get; } = new SkuName("standard");
+        /// <summary>
+        /// Similar to 'standard', but with more capacity per search unit.
+        /// </summary>
         public static SkuName Standard2 { get; } = new SkuName("standard2");
+        /// <summary>
+        ///  The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
+        /// </summary>
         public static SkuName Standard3 { get; } = new SkuName("standard3");
-        public static SkuName Storage_optimized_l1 { get; } = new SkuName("storage_optimized_l1");
-        public static SkuName Storage_optimized_l2 { get; } = new SkuName("storage_optimized_l2");
+        /// <summary>
+        /// Paid tier dedicated service that supports 1TB per partition, up to 12 partitions.
+        /// </summary>
+        public static SkuName StorageOptimizedL1 { get; } = new SkuName("storage_optimized_l1");
+        /// <summary>
+        /// Paid tier dedicated service that supports 2TB per partition, up to 12 partitions.
+        /// </summary>
+        public static SkuName StorageOptimizedL2 { get; } = new SkuName("storage_optimized_l2");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);

@@ -70,6 +70,37 @@ namespace Pulumi.AzureNative.DevCenter
     }
 
     /// <summary>
+    /// Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+    /// </summary>
+    [EnumType]
+    public readonly struct HibernateSupport : IEquatable<HibernateSupport>
+    {
+        private readonly string _value;
+
+        private HibernateSupport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HibernateSupport Disabled { get; } = new HibernateSupport("Disabled");
+        public static HibernateSupport Enabled { get; } = new HibernateSupport("Enabled");
+
+        public static bool operator ==(HibernateSupport left, HibernateSupport right) => left.Equals(right);
+        public static bool operator !=(HibernateSupport left, HibernateSupport right) => !left.Equals(right);
+
+        public static explicit operator string(HibernateSupport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HibernateSupport other && Equals(other);
+        public bool Equals(HibernateSupport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
     /// </summary>
     [EnumType]

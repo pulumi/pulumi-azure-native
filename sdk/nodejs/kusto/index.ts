@@ -20,6 +20,11 @@ export type ClusterPrincipalAssignment = import("./clusterPrincipalAssignment").
 export const ClusterPrincipalAssignment: typeof import("./clusterPrincipalAssignment").ClusterPrincipalAssignment = null as any;
 utilities.lazyLoad(exports, ["ClusterPrincipalAssignment"], () => require("./clusterPrincipalAssignment"));
 
+export { CosmosDbDataConnectionArgs } from "./cosmosDbDataConnection";
+export type CosmosDbDataConnection = import("./cosmosDbDataConnection").CosmosDbDataConnection;
+export const CosmosDbDataConnection: typeof import("./cosmosDbDataConnection").CosmosDbDataConnection = null as any;
+utilities.lazyLoad(exports, ["CosmosDbDataConnection"], () => require("./cosmosDbDataConnection"));
+
 export { DatabasePrincipalAssignmentArgs } from "./databasePrincipalAssignment";
 export type DatabasePrincipalAssignment = import("./databasePrincipalAssignment").DatabasePrincipalAssignment;
 export const DatabasePrincipalAssignment: typeof import("./databasePrincipalAssignment").DatabasePrincipalAssignment = null as any;
@@ -29,11 +34,6 @@ export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
 export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
 export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
 utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
-
-export { EventHubConnectionArgs } from "./eventHubConnection";
-export type EventHubConnection = import("./eventHubConnection").EventHubConnection;
-export const EventHubConnection: typeof import("./eventHubConnection").EventHubConnection = null as any;
-utilities.lazyLoad(exports, ["EventHubConnection"], () => require("./eventHubConnection"));
 
 export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
 export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
@@ -55,6 +55,11 @@ export const getClusterPrincipalAssignment: typeof import("./getClusterPrincipal
 export const getClusterPrincipalAssignmentOutput: typeof import("./getClusterPrincipalAssignment").getClusterPrincipalAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterPrincipalAssignment","getClusterPrincipalAssignmentOutput"], () => require("./getClusterPrincipalAssignment"));
 
+export { GetCosmosDbDataConnectionArgs, GetCosmosDbDataConnectionResult, GetCosmosDbDataConnectionOutputArgs } from "./getCosmosDbDataConnection";
+export const getCosmosDbDataConnection: typeof import("./getCosmosDbDataConnection").getCosmosDbDataConnection = null as any;
+export const getCosmosDbDataConnectionOutput: typeof import("./getCosmosDbDataConnection").getCosmosDbDataConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getCosmosDbDataConnection","getCosmosDbDataConnectionOutput"], () => require("./getCosmosDbDataConnection"));
+
 export { GetDatabasePrincipalAssignmentArgs, GetDatabasePrincipalAssignmentResult, GetDatabasePrincipalAssignmentOutputArgs } from "./getDatabasePrincipalAssignment";
 export const getDatabasePrincipalAssignment: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignment = null as any;
 export const getDatabasePrincipalAssignmentOutput: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignmentOutput = null as any;
@@ -64,11 +69,6 @@ export { GetEventGridDataConnectionArgs, GetEventGridDataConnectionResult, GetEv
 export const getEventGridDataConnection: typeof import("./getEventGridDataConnection").getEventGridDataConnection = null as any;
 export const getEventGridDataConnectionOutput: typeof import("./getEventGridDataConnection").getEventGridDataConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getEventGridDataConnection","getEventGridDataConnectionOutput"], () => require("./getEventGridDataConnection"));
-
-export { GetEventHubConnectionArgs, GetEventHubConnectionResult, GetEventHubConnectionOutputArgs } from "./getEventHubConnection";
-export const getEventHubConnection: typeof import("./getEventHubConnection").getEventHubConnection = null as any;
-export const getEventHubConnectionOutput: typeof import("./getEventHubConnection").getEventHubConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getEventHubConnection","getEventHubConnectionOutput"], () => require("./getEventHubConnection"));
 
 export { GetEventHubDataConnectionArgs, GetEventHubDataConnectionResult, GetEventHubDataConnectionOutputArgs } from "./getEventHubDataConnection";
 export const getEventHubDataConnection: typeof import("./getEventHubDataConnection").getEventHubDataConnection = null as any;
@@ -199,12 +199,12 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:kusto:ClusterPrincipalAssignment":
                 return new ClusterPrincipalAssignment(name, <any>undefined, { urn })
+            case "azure-native:kusto:CosmosDbDataConnection":
+                return new CosmosDbDataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:kusto:EventGridDataConnection":
                 return new EventGridDataConnection(name, <any>undefined, { urn })
-            case "azure-native:kusto:EventHubConnection":
-                return new EventHubConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:EventHubDataConnection":
                 return new EventHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:IotHubDataConnection":

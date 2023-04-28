@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
     /// <summary>
-    /// Shipping details.
+    /// package shipping details
     /// </summary>
     [OutputType]
     public sealed class PackageShippingDetailsResponse

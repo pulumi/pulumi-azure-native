@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
     /// <summary>
-    /// Result of listing the execution history of an export.
+    /// Result of listing the run history of an export.
     /// </summary>
     [OutputType]
     public sealed class ExportExecutionListResultResponse
     {
         /// <summary>
-        /// A list of export executions.
+        /// A list of export runs.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExportExecutionResponse> Value;
+        public readonly ImmutableArray<Outputs.ExportRunResponse> Value;
 
         [OutputConstructor]
-        private ExportExecutionListResultResponse(ImmutableArray<Outputs.ExportExecutionResponse> value)
+        private ExportExecutionListResultResponse(ImmutableArray<Outputs.ExportRunResponse> value)
         {
             Value = value;
         }

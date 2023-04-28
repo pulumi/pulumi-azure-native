@@ -303,7 +303,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
     Retrieves the details of a vpn connection.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str connection_name: The name of the vpn connection.
@@ -349,7 +349,7 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
     Retrieves the details of a vpn connection.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str connection_name: The name of the vpn connection.

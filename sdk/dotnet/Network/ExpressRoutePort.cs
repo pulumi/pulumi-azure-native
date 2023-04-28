@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// ExpressRoutePort resource definition.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRoutePort")]
     public partial class ExpressRoutePort : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("bandwidthInGbps")]
         public Output<int?> BandwidthInGbps { get; private set; } = null!;
+
+        /// <summary>
+        /// The billing type of the ExpressRoutePort resource.
+        /// </summary>
+        [Output("billingType")]
+        public Output<string?> BillingType { get; private set; } = null!;
 
         /// <summary>
         /// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
@@ -198,6 +205,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("bandwidthInGbps")]
         public Input<int>? BandwidthInGbps { get; set; }
+
+        /// <summary>
+        /// The billing type of the ExpressRoutePort resource.
+        /// </summary>
+        [Input("billingType")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ExpressRoutePortsBillingType>? BillingType { get; set; }
 
         /// <summary>
         /// Encapsulation method on physical ports.

@@ -22,7 +22,7 @@ class GetAttachedDatabaseConfigurationResult:
     """
     Class representing an attached database configuration.
     """
-    def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, id=None, location=None, name=None, provisioning_state=None, table_level_sharing_properties=None, type=None):
+    def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, database_name_override=None, database_name_prefix=None, default_principals_modification_kind=None, id=None, location=None, name=None, provisioning_state=None, table_level_sharing_properties=None, type=None):
         if attached_database_names and not isinstance(attached_database_names, list):
             raise TypeError("Expected argument 'attached_database_names' to be a list")
         pulumi.set(__self__, "attached_database_names", attached_database_names)
@@ -32,6 +32,12 @@ class GetAttachedDatabaseConfigurationResult:
         if database_name and not isinstance(database_name, str):
             raise TypeError("Expected argument 'database_name' to be a str")
         pulumi.set(__self__, "database_name", database_name)
+        if database_name_override and not isinstance(database_name_override, str):
+            raise TypeError("Expected argument 'database_name_override' to be a str")
+        pulumi.set(__self__, "database_name_override", database_name_override)
+        if database_name_prefix and not isinstance(database_name_prefix, str):
+            raise TypeError("Expected argument 'database_name_prefix' to be a str")
+        pulumi.set(__self__, "database_name_prefix", database_name_prefix)
         if default_principals_modification_kind and not isinstance(default_principals_modification_kind, str):
             raise TypeError("Expected argument 'default_principals_modification_kind' to be a str")
         pulumi.set(__self__, "default_principals_modification_kind", default_principals_modification_kind)
@@ -77,6 +83,22 @@ class GetAttachedDatabaseConfigurationResult:
         The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="databaseNameOverride")
+    def database_name_override(self) -> Optional[str]:
+        """
+        Overrides the original database name. Relevant only when attaching to a specific database.
+        """
+        return pulumi.get(self, "database_name_override")
+
+    @property
+    @pulumi.getter(name="databaseNamePrefix")
+    def database_name_prefix(self) -> Optional[str]:
+        """
+        Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        """
+        return pulumi.get(self, "database_name_prefix")
 
     @property
     @pulumi.getter(name="defaultPrincipalsModificationKind")
@@ -144,6 +166,8 @@ class AwaitableGetAttachedDatabaseConfigurationResult(GetAttachedDatabaseConfigu
             attached_database_names=self.attached_database_names,
             cluster_resource_id=self.cluster_resource_id,
             database_name=self.database_name,
+            database_name_override=self.database_name_override,
+            database_name_prefix=self.database_name_prefix,
             default_principals_modification_kind=self.default_principals_modification_kind,
             id=self.id,
             location=self.location,
@@ -159,7 +183,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDatabaseConfigurationResult:
     """
     Returns an attached database configuration.
-    API Version: 2021-01-01.
+    API Version: 2022-12-29.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
@@ -177,6 +201,8 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
         attached_database_names=__ret__.attached_database_names,
         cluster_resource_id=__ret__.cluster_resource_id,
         database_name=__ret__.database_name,
+        database_name_override=__ret__.database_name_override,
+        database_name_prefix=__ret__.database_name_prefix,
         default_principals_modification_kind=__ret__.default_principals_modification_kind,
         id=__ret__.id,
         location=__ret__.location,
@@ -193,7 +219,7 @@ def get_attached_database_configuration_output(attached_database_configuration_n
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDatabaseConfigurationResult]:
     """
     Returns an attached database configuration.
-    API Version: 2021-01-01.
+    API Version: 2022-12-29.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.

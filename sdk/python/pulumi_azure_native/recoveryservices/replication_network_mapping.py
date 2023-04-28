@@ -18,27 +18,26 @@ class ReplicationNetworkMappingArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[str],
                  network_name: pulumi.Input[str],
+                 properties: pulumi.Input['CreateNetworkMappingInputPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
-                 network_mapping_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']] = None):
+                 network_mapping_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReplicationNetworkMapping resource.
         :param pulumi.Input[str] fabric_name: Primary fabric name.
         :param pulumi.Input[str] network_name: Primary network name.
+        :param pulumi.Input['CreateNetworkMappingInputPropertiesArgs'] properties: Input properties for creating network mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name: The name of the recovery services vault.
         :param pulumi.Input[str] network_mapping_name: Network mapping name.
-        :param pulumi.Input['CreateNetworkMappingInputPropertiesArgs'] properties: Input properties for creating network mapping.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if network_mapping_name is not None:
             pulumi.set(__self__, "network_mapping_name", network_mapping_name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -63,6 +62,18 @@ class ReplicationNetworkMappingArgs:
     @network_name.setter
     def network_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "network_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CreateNetworkMappingInputPropertiesArgs']:
+        """
+        Input properties for creating network mapping.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['CreateNetworkMappingInputPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -100,18 +111,6 @@ class ReplicationNetworkMappingArgs:
     def network_mapping_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_mapping_name", value)
 
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']]:
-        """
-        Input properties for creating network mapping.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
 
 class ReplicationNetworkMapping(pulumi.CustomResource):
     @overload
@@ -127,7 +126,8 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  __props__=None):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-        API Version: 2018-07-10.
+        API Version: 2023-02-01.
+        Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,8 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-        API Version: 2018-07-10.
+        API Version: 2023-02-01.
+        Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ReplicationNetworkMappingArgs args: The arguments to use to populate this resource's properties.
@@ -185,6 +186,8 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
             if network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_name'")
             __props__.__dict__["network_name"] = network_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

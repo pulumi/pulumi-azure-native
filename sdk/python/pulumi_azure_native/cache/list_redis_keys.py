@@ -61,7 +61,7 @@ def list_redis_keys(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRedisKeysResult:
     """
     Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
-    API Version: 2020-06-01.
+    API Version: 2022-06-01.
 
 
     :param str name: The name of the Redis cache.
@@ -84,7 +84,7 @@ def list_redis_keys_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRedisKeysResult]:
     """
     Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
-    API Version: 2020-06-01.
+    API Version: 2022-06-01.
 
 
     :param str name: The name of the Redis cache.

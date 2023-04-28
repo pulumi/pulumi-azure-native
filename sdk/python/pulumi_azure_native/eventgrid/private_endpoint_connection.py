@@ -27,8 +27,8 @@ class PrivateEndpointConnectionArgs:
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
-        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name or domain name).
-        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\' or \\'domains\\'.
+        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
+        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
@@ -54,7 +54,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="parentName")
     def parent_name(self) -> pulumi.Input[str]:
         """
-        The name of the parent resource (namely, either, the topic name or domain name).
+        The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
         """
         return pulumi.get(self, "parent_name")
 
@@ -66,7 +66,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="parentType")
     def parent_type(self) -> pulumi.Input[str]:
         """
-        The type of the parent resource. This can be either \\'topics\\' or \\'domains\\'.
+        The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
         """
         return pulumi.get(self, "parent_type")
 
@@ -162,13 +162,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        API Version: 2020-06-01.
+        API Version: 2022-06-15.
+        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
-        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name or domain name).
-        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\' or \\'domains\\'.
+        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
+        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection connection.
         :param pulumi.Input[pulumi.InputType['ConnectionStateArgs']] private_link_service_connection_state: Details about the state of the connection.
@@ -182,7 +183,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  args: PrivateEndpointConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2020-06-01.
+        API Version: 2022-06-15.
+        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

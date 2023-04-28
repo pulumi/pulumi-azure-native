@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS.Inputs
 {
 
     /// <summary>
-    /// The properties of a default cluster
+    /// The properties of a management cluster
     /// </summary>
     public sealed class ManagementClusterArgs : global::Pulumi.ResourceArgs
     {
@@ -20,6 +20,18 @@ namespace Pulumi.AzureNative.AVS.Inputs
         /// </summary>
         [Input("clusterSize", required: true)]
         public Input<int> ClusterSize { get; set; } = null!;
+
+        [Input("hosts")]
+        private InputList<string>? _hosts;
+
+        /// <summary>
+        /// The hosts
+        /// </summary>
+        public InputList<string> Hosts
+        {
+            get => _hosts ?? (_hosts = new InputList<string>());
+            set => _hosts = value;
+        }
 
         public ManagementClusterArgs()
         {

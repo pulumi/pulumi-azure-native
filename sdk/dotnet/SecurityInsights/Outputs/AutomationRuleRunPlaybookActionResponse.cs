@@ -16,23 +16,17 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
     [OutputType]
     public sealed class AutomationRuleRunPlaybookActionResponse
     {
+        public readonly Outputs.PlaybookActionPropertiesResponse? ActionConfiguration;
         /// <summary>
-        /// The configuration of the run playbook automation rule action
-        /// </summary>
-        public readonly Outputs.AutomationRuleRunPlaybookActionResponseActionConfiguration ActionConfiguration;
-        /// <summary>
-        /// The type of the automation rule action
+        /// The type of the automation rule action.
         /// Expected value is 'RunPlaybook'.
         /// </summary>
         public readonly string ActionType;
-        /// <summary>
-        /// The order of execution of the automation rule action
-        /// </summary>
         public readonly int Order;
 
         [OutputConstructor]
         private AutomationRuleRunPlaybookActionResponse(
-            Outputs.AutomationRuleRunPlaybookActionResponseActionConfiguration actionConfiguration,
+            Outputs.PlaybookActionPropertiesResponse? actionConfiguration,
 
             string actionType,
 

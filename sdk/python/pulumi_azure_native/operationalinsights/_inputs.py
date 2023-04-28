@@ -16,7 +16,6 @@ __all__ = [
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
     'LogAnalyticsQueryPackQueryPropertiesRelatedArgs',
-    'MachineReferenceWithHintsArgs',
     'RestoredLogsArgs',
     'SchemaArgs',
     'SearchResultsArgs',
@@ -320,46 +319,6 @@ class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
     @solutions.setter
     def solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "solutions", value)
-
-
-@pulumi.input_type
-class MachineReferenceWithHintsArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str],
-                 kind: pulumi.Input[str]):
-        """
-        A machine reference with a hint of the machine's name and operating system.
-        :param pulumi.Input[str] id: Resource URI.
-        :param pulumi.Input[str] kind: Specifies the sub-class of the reference.
-               Expected value is 'ref:machinewithhints'.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "kind", 'ref:machinewithhints')
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Resource URI.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
-        """
-        Specifies the sub-class of the reference.
-        Expected value is 'ref:machinewithhints'.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
 
 
 @pulumi.input_type
@@ -774,7 +733,7 @@ class WorkspaceSkuArgs:
         """
         The SKU (tier) of a workspace.
         :param pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']] name: The name of the SKU.
-        :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "name", name)
         if capacity_reservation_level is not None:
@@ -796,7 +755,7 @@ class WorkspaceSkuArgs:
     @pulumi.getter(name="capacityReservationLevel")
     def capacity_reservation_level(self) -> Optional[pulumi.Input[int]]:
         """
-        The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         return pulumi.get(self, "capacity_reservation_level")
 

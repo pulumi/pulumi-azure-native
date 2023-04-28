@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of a managed Cassandra data center.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-11-15.
  */
 export function getCassandraDataCenter(args: GetCassandraDataCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraDataCenterResult> {
 
@@ -59,7 +59,7 @@ export interface GetCassandraDataCenterResult {
 }
 /**
  * Get the properties of a managed Cassandra data center.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-11-15.
  */
 export function getCassandraDataCenterOutput(args: GetCassandraDataCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraDataCenterResult> {
     return pulumi.output(args).apply((a: any) => getCassandraDataCenter(a, opts))

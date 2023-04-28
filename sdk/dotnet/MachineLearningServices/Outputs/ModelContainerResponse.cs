@@ -18,6 +18,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Is the asset archived?
+        /// </summary>
+        public readonly bool? IsArchived;
+        /// <summary>
+        /// The latest version inside this container.
+        /// </summary>
+        public readonly string LatestVersion;
+        /// <summary>
+        /// The next auto incremental version
+        /// </summary>
+        public readonly string NextVersion;
+        /// <summary>
         /// The asset property dictionary.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
@@ -30,11 +42,20 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private ModelContainerResponse(
             string? description,
 
+            bool? isArchived,
+
+            string latestVersion,
+
+            string nextVersion,
+
             ImmutableDictionary<string, string>? properties,
 
             ImmutableDictionary<string, string>? tags)
         {
             Description = description;
+            IsArchived = isArchived;
+            LatestVersion = latestVersion;
+            NextVersion = nextVersion;
             Properties = properties;
             Tags = tags;
         }

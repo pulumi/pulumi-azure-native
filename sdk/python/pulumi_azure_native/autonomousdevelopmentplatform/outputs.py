@@ -9,10 +9,12 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DataPoolEncryptionResponse',
     'DataPoolLocationResponse',
+    'StorageSkuResponse',
     'SystemDataResponse',
 ]
 
@@ -100,17 +102,44 @@ class DataPoolLocationResponse(dict):
     """
     Location of a Data Pool
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountCount":
+            suggest = "storage_account_count"
+        elif key == "storageSku":
+            suggest = "storage_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataPoolLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataPoolLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataPoolLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 encryption: Optional['outputs.DataPoolEncryptionResponse'] = None):
+                 encryption: Optional['outputs.DataPoolEncryptionResponse'] = None,
+                 storage_account_count: Optional[int] = None,
+                 storage_sku: Optional['outputs.StorageSkuResponse'] = None):
         """
         Location of a Data Pool
         :param str name: The location name
         :param 'DataPoolEncryptionResponse' encryption: Encryption properties of a Data Pool location
+        :param int storage_account_count: The amount of storage accounts provisioned per Data Pool. Default: 5
+        :param 'StorageSkuResponse' storage_sku: The Storage SKU. Default: Standard_ZRS.
         """
         pulumi.set(__self__, "name", name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if storage_account_count is not None:
+            pulumi.set(__self__, "storage_account_count", storage_account_count)
+        if storage_sku is not None:
+            pulumi.set(__self__, "storage_sku", storage_sku)
 
     @property
     @pulumi.getter
@@ -127,6 +156,44 @@ class DataPoolLocationResponse(dict):
         Encryption properties of a Data Pool location
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="storageAccountCount")
+    def storage_account_count(self) -> Optional[int]:
+        """
+        The amount of storage accounts provisioned per Data Pool. Default: 5
+        """
+        return pulumi.get(self, "storage_account_count")
+
+    @property
+    @pulumi.getter(name="storageSku")
+    def storage_sku(self) -> Optional['outputs.StorageSkuResponse']:
+        """
+        The Storage SKU. Default: Standard_ZRS.
+        """
+        return pulumi.get(self, "storage_sku")
+
+
+@pulumi.output_type
+class StorageSkuResponse(dict):
+    """
+    The Storage SKU.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        The Storage SKU.
+        :param str name: The SKU name
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The SKU name
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

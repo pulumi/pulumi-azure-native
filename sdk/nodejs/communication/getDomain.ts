@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Domains resource and its properties.
- * API Version: 2021-10-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
 
@@ -53,7 +53,7 @@ export interface GetDomainResult {
      */
     readonly fromSenderDomain: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -89,10 +89,6 @@ export interface GetDomainResult {
      */
     readonly userEngagementTracking?: string;
     /**
-     * Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-     */
-    readonly validSenderUsernames?: {[key: string]: string};
-    /**
      * List of DnsRecord
      */
     readonly verificationRecords: outputs.communication.DomainPropertiesResponseVerificationRecords;
@@ -103,7 +99,7 @@ export interface GetDomainResult {
 }
 /**
  * Get the Domains resource and its properties.
- * API Version: 2021-10-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

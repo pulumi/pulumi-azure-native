@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a ApplicationGroup definition.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-09.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**
@@ -76,10 +77,6 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
-     * The registration info of HostPool.
-     */
-    public readonly migrationRequest!: pulumi.Output<outputs.desktopvirtualization.MigrationRequestPropertiesResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -89,6 +86,10 @@ export class ApplicationGroup extends pulumi.CustomResource {
     public /*out*/ readonly objectId!: pulumi.Output<string>;
     public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -131,7 +132,6 @@ export class ApplicationGroup extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["migrationRequest"] = args ? args.migrationRequest : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -140,6 +140,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workspaceArmPath"] = undefined /*out*/;
         } else {
@@ -153,11 +154,11 @@ export class ApplicationGroup extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
-            resourceInputs["migrationRequest"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workspaceArmPath"] = undefined /*out*/;
@@ -206,10 +207,6 @@ export interface ApplicationGroupArgs {
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
     managedBy?: pulumi.Input<string>;
-    /**
-     * The registration info of HostPool.
-     */
-    migrationRequest?: pulumi.Input<inputs.desktopvirtualization.MigrationRequestPropertiesArgs>;
     plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.

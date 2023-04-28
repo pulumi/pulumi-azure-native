@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The policy set definition.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
+ * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
     /**
@@ -71,6 +72,10 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    /**
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -98,6 +103,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             resourceInputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
@@ -108,6 +114,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             resourceInputs["policyDefinitionGroups"] = undefined /*out*/;
             resourceInputs["policyDefinitions"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

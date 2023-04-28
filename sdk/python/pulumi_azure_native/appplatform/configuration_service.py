@@ -95,7 +95,8 @@ class ConfigurationService(pulumi.CustomResource):
                  __props__=None):
         """
         Application Configuration Service resource
-        API Version: 2022-01-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +113,8 @@ class ConfigurationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Application Configuration Service resource
-        API Version: 2022-01-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationServiceArgs args: The arguments to use to populate this resource's properties.
@@ -153,7 +155,7 @@ class ConfigurationService(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20220101preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220401:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20221201:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:ConfigurationService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20220101preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220401:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20221201:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:ConfigurationService"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:ConfigurationService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationService, __self__).__init__(
             'azure-native:appplatform:ConfigurationService',

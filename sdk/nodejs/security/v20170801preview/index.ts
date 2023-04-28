@@ -5,26 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AdvancedThreatProtectionArgs } from "./advancedThreatProtection";
-export type AdvancedThreatProtection = import("./advancedThreatProtection").AdvancedThreatProtection;
-export const AdvancedThreatProtection: typeof import("./advancedThreatProtection").AdvancedThreatProtection = null as any;
-utilities.lazyLoad(exports, ["AdvancedThreatProtection"], () => require("./advancedThreatProtection"));
-
-export { DeviceSecurityGroupArgs } from "./deviceSecurityGroup";
-export type DeviceSecurityGroup = import("./deviceSecurityGroup").DeviceSecurityGroup;
-export const DeviceSecurityGroup: typeof import("./deviceSecurityGroup").DeviceSecurityGroup = null as any;
-utilities.lazyLoad(exports, ["DeviceSecurityGroup"], () => require("./deviceSecurityGroup"));
-
-export { GetAdvancedThreatProtectionArgs, GetAdvancedThreatProtectionResult, GetAdvancedThreatProtectionOutputArgs } from "./getAdvancedThreatProtection";
-export const getAdvancedThreatProtection: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtection = null as any;
-export const getAdvancedThreatProtectionOutput: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtectionOutput = null as any;
-utilities.lazyLoad(exports, ["getAdvancedThreatProtection","getAdvancedThreatProtectionOutput"], () => require("./getAdvancedThreatProtection"));
-
-export { GetDeviceSecurityGroupArgs, GetDeviceSecurityGroupResult, GetDeviceSecurityGroupOutputArgs } from "./getDeviceSecurityGroup";
-export const getDeviceSecurityGroup: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroup = null as any;
-export const getDeviceSecurityGroupOutput: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getDeviceSecurityGroup","getDeviceSecurityGroupOutput"], () => require("./getDeviceSecurityGroup"));
-
 export { GetIotSecuritySolutionArgs, GetIotSecuritySolutionResult, GetIotSecuritySolutionOutputArgs } from "./getIotSecuritySolution";
 export const getIotSecuritySolution: typeof import("./getIotSecuritySolution").getIotSecuritySolution = null as any;
 export const getIotSecuritySolutionOutput: typeof import("./getIotSecuritySolution").getIotSecuritySolutionOutput = null as any;
@@ -63,10 +43,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:security/v20170801preview:AdvancedThreatProtection":
-                return new AdvancedThreatProtection(name, <any>undefined, { urn })
-            case "azure-native:security/v20170801preview:DeviceSecurityGroup":
-                return new DeviceSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:security/v20170801preview:IotSecuritySolution":
                 return new IotSecuritySolution(name, <any>undefined, { urn })
             case "azure-native:security/v20170801preview:SecurityContact":

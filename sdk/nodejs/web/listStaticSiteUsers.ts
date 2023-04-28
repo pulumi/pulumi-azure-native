@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the list of users of a static site.
- * API Version: 2020-12-01.
+ * Description for Gets the list of users of a static site.
+ * API Version: 2022-09-01.
  */
 export function listStaticSiteUsers(args: ListStaticSiteUsersArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteUsersResult> {
 
@@ -50,8 +50,8 @@ export interface ListStaticSiteUsersResult {
     readonly value: outputs.web.StaticSiteUserARMResourceResponse[];
 }
 /**
- * Gets the list of users of a static site.
- * API Version: 2020-12-01.
+ * Description for Gets the list of users of a static site.
+ * API Version: 2022-09-01.
  */
 export function listStaticSiteUsersOutput(args: ListStaticSiteUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteUsersResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteUsers(a, opts))

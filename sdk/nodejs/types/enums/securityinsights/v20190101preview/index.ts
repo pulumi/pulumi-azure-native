@@ -497,7 +497,7 @@ export const IncidentClassificationReason = {
 } as const;
 
 /**
- * The classification reason the incident was closed with
+ * The classification reason to close the incident with
  */
 export type IncidentClassificationReason = (typeof IncidentClassificationReason)[keyof typeof IncidentClassificationReason];
 

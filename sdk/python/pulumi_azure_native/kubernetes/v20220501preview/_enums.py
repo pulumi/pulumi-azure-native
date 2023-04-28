@@ -6,9 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMethod',
-    'PrivateLinkState',
-    'ProvisioningState',
-    'ResourceIdentityType',
 ]
 
 
@@ -18,32 +15,3 @@ class AuthenticationMethod(str, Enum):
     """
     TOKEN = "Token"
     AAD = "AAD"
-
-
-class PrivateLinkState(str, Enum):
-    """
-    Property which describes the state of private link on a connected cluster resource.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class ProvisioningState(str, Enum):
-    """
-    Provisioning state of the connected cluster resource.
-    """
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-    PROVISIONING = "Provisioning"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    ACCEPTED = "Accepted"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"

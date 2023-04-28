@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.HealthBot.Inputs
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the HealthBot SKU
+        /// The name of the Azure Health Bot SKU
         /// </summary>
         [Input("name", required: true)]
         public Input<Pulumi.AzureNative.HealthBot.SkuName> Name { get; set; } = null!;

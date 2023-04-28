@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -39,7 +40,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Required. Destination account name.
+     * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     public readonly destinationAccount!: pulumi.Output<string>;
     /**
@@ -59,7 +60,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.storage.ObjectReplicationPolicyRuleResponse[] | undefined>;
     /**
-     * Required. Source account name.
+     * Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     public readonly sourceAccount!: pulumi.Output<string>;
     /**
@@ -125,11 +126,11 @@ export interface ObjectReplicationPolicyArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Required. Destination account name.
+     * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     destinationAccount: pulumi.Input<string>;
     /**
-     * The ID of object replication policy or 'default' if the policy ID is unknown.
+     * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */
     objectReplicationPolicyId?: pulumi.Input<string>;
     /**
@@ -141,7 +142,7 @@ export interface ObjectReplicationPolicyArgs {
      */
     rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationPolicyRuleArgs>[]>;
     /**
-     * Required. Source account name.
+     * Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     sourceAccount: pulumi.Input<string>;
 }

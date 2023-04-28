@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataFactory
     /// <summary>
     /// Factory resource type.
     /// API Version: 2018-06-01.
+    /// Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:Factory")]
     public partial class Factory : global::Pulumi.CustomResource

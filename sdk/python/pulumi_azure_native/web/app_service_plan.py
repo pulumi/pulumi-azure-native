@@ -17,6 +17,8 @@ __all__ = ['AppServicePlanArgs', 'AppServicePlan']
 class AppServicePlanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 elastic_scale_enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
@@ -34,10 +36,13 @@ class AppServicePlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_worker_count: Optional[pulumi.Input[int]] = None,
                  target_worker_size_id: Optional[pulumi.Input[int]] = None,
-                 worker_tier_name: Optional[pulumi.Input[str]] = None):
+                 worker_tier_name: Optional[pulumi.Input[str]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a AppServicePlan resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[bool] elastic_scale_enabled: ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input[str] free_offer_expiration_time: The time when the server farm free offer expires.
         :param pulumi.Input['HostingEnvironmentProfileArgs'] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
         :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
@@ -57,8 +62,14 @@ class AppServicePlanArgs:
         :param pulumi.Input[int] target_worker_count: Scaling worker count.
         :param pulumi.Input[int] target_worker_size_id: Scaling worker size ID.
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
+        :param pulumi.Input[bool] zone_redundant: If <code>true</code>, this App Service Plan will perform availability zone balancing.
+               If <code>false</code>, this App Service Plan will not perform availability zone balancing.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if elastic_scale_enabled is not None:
+            pulumi.set(__self__, "elastic_scale_enabled", elastic_scale_enabled)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
         if free_offer_expiration_time is not None:
             pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
         if hosting_environment_profile is not None:
@@ -103,6 +114,10 @@ class AppServicePlanArgs:
             pulumi.set(__self__, "target_worker_size_id", target_worker_size_id)
         if worker_tier_name is not None:
             pulumi.set(__self__, "worker_tier_name", worker_tier_name)
+        if zone_redundant is None:
+            zone_redundant = False
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -115,6 +130,30 @@ class AppServicePlanArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="elasticScaleEnabled")
+    def elastic_scale_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+        """
+        return pulumi.get(self, "elastic_scale_enabled")
+
+    @elastic_scale_enabled.setter
+    def elastic_scale_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "elastic_scale_enabled", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        Extended Location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
 
     @property
     @pulumi.getter(name="freeOfferExpirationTime")
@@ -333,12 +372,27 @@ class AppServicePlanArgs:
     def worker_tier_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "worker_tier_name", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If <code>true</code>, this App Service Plan will perform availability zone balancing.
+        If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
+
 
 class AppServicePlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 elastic_scale_enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
@@ -358,13 +412,17 @@ class AppServicePlan(pulumi.CustomResource):
                  target_worker_count: Optional[pulumi.Input[int]] = None,
                  target_worker_size_id: Optional[pulumi.Input[int]] = None,
                  worker_tier_name: Optional[pulumi.Input[str]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         App Service plan.
-        API Version: 2020-12-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] elastic_scale_enabled: ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location.
         :param pulumi.Input[str] free_offer_expiration_time: The time when the server farm free offer expires.
         :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
         :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
@@ -385,6 +443,8 @@ class AppServicePlan(pulumi.CustomResource):
         :param pulumi.Input[int] target_worker_count: Scaling worker count.
         :param pulumi.Input[int] target_worker_size_id: Scaling worker size ID.
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
+        :param pulumi.Input[bool] zone_redundant: If <code>true</code>, this App Service Plan will perform availability zone balancing.
+               If <code>false</code>, this App Service Plan will not perform availability zone balancing.
         """
         ...
     @overload
@@ -394,7 +454,8 @@ class AppServicePlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         App Service plan.
-        API Version: 2020-12-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AppServicePlanArgs args: The arguments to use to populate this resource's properties.
@@ -411,6 +472,8 @@ class AppServicePlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 elastic_scale_enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
@@ -430,6 +493,7 @@ class AppServicePlan(pulumi.CustomResource):
                  target_worker_count: Optional[pulumi.Input[int]] = None,
                  target_worker_size_id: Optional[pulumi.Input[int]] = None,
                  worker_tier_name: Optional[pulumi.Input[str]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -439,6 +503,8 @@ class AppServicePlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
+            __props__.__dict__["elastic_scale_enabled"] = elastic_scale_enabled
+            __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["free_offer_expiration_time"] = free_offer_expiration_time
             __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
             if hyper_v is None:
@@ -468,9 +534,13 @@ class AppServicePlan(pulumi.CustomResource):
             __props__.__dict__["target_worker_count"] = target_worker_count
             __props__.__dict__["target_worker_size_id"] = target_worker_size_id
             __props__.__dict__["worker_tier_name"] = worker_tier_name
+            if zone_redundant is None:
+                zone_redundant = False
+            __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["geo_region"] = None
             __props__.__dict__["maximum_number_of_workers"] = None
             __props__.__dict__["number_of_sites"] = None
+            __props__.__dict__["number_of_workers"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_group"] = None
             __props__.__dict__["status"] = None
@@ -500,6 +570,8 @@ class AppServicePlan(pulumi.CustomResource):
 
         __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
+        __props__.__dict__["elastic_scale_enabled"] = None
+        __props__.__dict__["extended_location"] = None
         __props__.__dict__["free_offer_expiration_time"] = None
         __props__.__dict__["geo_region"] = None
         __props__.__dict__["hosting_environment_profile"] = None
@@ -513,6 +585,7 @@ class AppServicePlan(pulumi.CustomResource):
         __props__.__dict__["maximum_number_of_workers"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["number_of_sites"] = None
+        __props__.__dict__["number_of_workers"] = None
         __props__.__dict__["per_site_scaling"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["reserved"] = None
@@ -526,7 +599,24 @@ class AppServicePlan(pulumi.CustomResource):
         __props__.__dict__["target_worker_size_id"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["worker_tier_name"] = None
+        __props__.__dict__["zone_redundant"] = None
         return AppServicePlan(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="elasticScaleEnabled")
+    def elastic_scale_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+        """
+        return pulumi.get(self, "elastic_scale_enabled")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        Extended Location.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="freeOfferExpirationTime")
@@ -633,6 +723,14 @@ class AppServicePlan(pulumi.CustomResource):
         return pulumi.get(self, "number_of_sites")
 
     @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> pulumi.Output[int]:
+        """
+        The number of instances that are assigned to this App Service plan.
+        """
+        return pulumi.get(self, "number_of_workers")
+
+    @property
     @pulumi.getter(name="perSiteScaling")
     def per_site_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -736,4 +834,13 @@ class AppServicePlan(pulumi.CustomResource):
         Target worker tier assigned to the App Service plan.
         """
         return pulumi.get(self, "worker_tier_name")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If <code>true</code>, this App Service Plan will perform availability zone balancing.
+        If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+        """
+        return pulumi.get(self, "zone_redundant")
 

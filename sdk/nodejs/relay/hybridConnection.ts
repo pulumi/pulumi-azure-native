@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Description of hybrid connection resource.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class HybridConnection extends pulumi.CustomResource {
     /**
@@ -44,7 +48,11 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly listenerCount!: pulumi.Output<number>;
     /**
-     * Resource name.
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -52,7 +60,11 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     public readonly requiresClientAuthorization!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource type.
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.relay.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -88,14 +100,18 @@ export class HybridConnection extends pulumi.CustomResource {
             resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["requiresClientAuthorization"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["userMetadata"] = undefined /*out*/;

@@ -22,22 +22,33 @@ class GetPrivateEndpointResult:
     """
     Complete information about the private endpoint.
     """
-    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, created_date=None, etag=None, id=None, manual_private_link_service_connections=None, name=None, type=None):
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if manual_private_link_service_connections and not isinstance(manual_private_link_service_connections, list):
+            raise TypeError("Expected argument 'manual_private_link_service_connections' to be a list")
+        pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The date when this private endpoint was created.
+        """
+        return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
@@ -56,20 +67,20 @@ class GetPrivateEndpointResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="manualPrivateLinkServiceConnections")
+    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+        """
+        A list of connections to the remote resource. Immutable after it is set.
+        """
+        return pulumi.get(self, "manual_private_link_service_connections")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.PrivateEndpointPropertiesResponse':
-        """
-        The properties associated with a private endpoint.
-        """
-        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -86,10 +97,11 @@ class AwaitableGetPrivateEndpointResult(GetPrivateEndpointResult):
         if False:
             yield self
         return GetPrivateEndpointResult(
+            created_date=self.created_date,
             etag=self.etag,
             id=self.id,
+            manual_private_link_service_connections=self.manual_private_link_service_connections,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -99,7 +111,7 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
     Gets information about the specified Private Endpoint.
-    API Version: 2020-03-01-preview.
+    API Version: 2020-03-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -114,10 +126,11 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:streamanalytics:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult).value
 
     return AwaitableGetPrivateEndpointResult(
+        created_date=__ret__.created_date,
         etag=__ret__.etag,
         id=__ret__.id,
+        manual_private_link_service_connections=__ret__.manual_private_link_service_connections,
         name=__ret__.name,
-        properties=__ret__.properties,
         type=__ret__.type)
 
 
@@ -128,7 +141,7 @@ def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
     Gets information about the specified Private Endpoint.
-    API Version: 2020-03-01-preview.
+    API Version: 2020-03-01.
 
 
     :param str cluster_name: The name of the cluster.

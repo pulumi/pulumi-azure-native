@@ -45,6 +45,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? LastRpoCalculatedTime;
         /// <summary>
+        /// The Progress Health.
+        /// </summary>
+        public readonly string? ProgressHealth;
+        /// <summary>
+        /// The Progress Status.
+        /// </summary>
+        public readonly string? ProgressStatus;
+        /// <summary>
         /// The protection stage.
         /// </summary>
         public readonly string? ProtectionStage;
@@ -57,6 +65,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double? ResyncDurationInSeconds;
         /// <summary>
+        /// The resync last 15 minutes transferred bytes.
+        /// </summary>
+        public readonly double? ResyncLast15MinutesTransferredBytes;
+        /// <summary>
+        /// The last data transfer time in UTC.
+        /// </summary>
+        public readonly string? ResyncLastDataTransferTimeUTC;
+        /// <summary>
+        /// The resync processed bytes.
+        /// </summary>
+        public readonly double? ResyncProcessedBytes;
+        /// <summary>
         /// The resync progress percentage.
         /// </summary>
         public readonly int? ResyncProgressPercentage;
@@ -64,6 +84,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// A value indicating whether resync is required for this disk.
         /// </summary>
         public readonly string? ResyncRequired;
+        /// <summary>
+        /// The resync start time.
+        /// </summary>
+        public readonly string? ResyncStartTime;
+        /// <summary>
+        /// The resync total transferred bytes.
+        /// </summary>
+        public readonly double? ResyncTotalTransferredBytes;
         /// <summary>
         /// The RPO in seconds.
         /// </summary>
@@ -93,15 +121,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? lastRpoCalculatedTime,
 
+            string? progressHealth,
+
+            string? progressStatus,
+
             string? protectionStage,
 
             double? psDataInMB,
 
             double? resyncDurationInSeconds,
 
+            double? resyncLast15MinutesTransferredBytes,
+
+            string? resyncLastDataTransferTimeUTC,
+
+            double? resyncProcessedBytes,
+
             int? resyncProgressPercentage,
 
             string? resyncRequired,
+
+            string? resyncStartTime,
+
+            double? resyncTotalTransferredBytes,
 
             double? rpoInSeconds,
 
@@ -116,11 +158,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             FileSystemCapacityInBytes = fileSystemCapacityInBytes;
             HealthErrorCode = healthErrorCode;
             LastRpoCalculatedTime = lastRpoCalculatedTime;
+            ProgressHealth = progressHealth;
+            ProgressStatus = progressStatus;
             ProtectionStage = protectionStage;
             PsDataInMB = psDataInMB;
             ResyncDurationInSeconds = resyncDurationInSeconds;
+            ResyncLast15MinutesTransferredBytes = resyncLast15MinutesTransferredBytes;
+            ResyncLastDataTransferTimeUTC = resyncLastDataTransferTimeUTC;
+            ResyncProcessedBytes = resyncProcessedBytes;
             ResyncProgressPercentage = resyncProgressPercentage;
             ResyncRequired = resyncRequired;
+            ResyncStartTime = resyncStartTime;
+            ResyncTotalTransferredBytes = resyncTotalTransferredBytes;
             RpoInSeconds = rpoInSeconds;
             SourceDataInMB = sourceDataInMB;
             TargetDataInMB = targetDataInMB;

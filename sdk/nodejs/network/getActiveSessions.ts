@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the list of currently active sessions on the Bastion.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getActiveSessions(args: GetActiveSessionsArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveSessionsResult> {
 
@@ -46,7 +46,7 @@ export interface GetActiveSessionsResult {
 }
 /**
  * Returns the list of currently active sessions on the Bastion.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getActiveSessionsOutput(args: GetActiveSessionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveSessionsResult> {
     return pulumi.output(args).apply((a: any) => getActiveSessions(a, opts))

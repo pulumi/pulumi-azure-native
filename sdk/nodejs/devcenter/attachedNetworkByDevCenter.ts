@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an attached NetworkConnection.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
+ * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
     /**
@@ -113,7 +114,7 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter" }, { type: "azure-native:devcenter/v20230101preview:AttachedNetworkByDevCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedNetworkByDevCenter.__pulumiType, name, resourceInputs, opts);
     }
@@ -136,7 +137,7 @@ export interface AttachedNetworkByDevCenterArgs {
      */
     networkConnectionId: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

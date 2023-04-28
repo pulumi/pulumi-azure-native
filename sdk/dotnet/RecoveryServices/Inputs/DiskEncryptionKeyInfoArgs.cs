@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class DiskEncryptionKeyInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The KeyVault resource ARM Id for secret.
+        /// The KeyVault resource ARM id for secret.
         /// </summary>
         [Input("keyVaultResourceArmId")]
         public Input<string>? KeyVaultResourceArmId { get; set; }
 
         /// <summary>
-        /// The secret URL / identifier.
+        /// The secret url / identifier.
         /// </summary>
         [Input("secretIdentifier")]
         public Input<string>? SecretIdentifier { get; set; }

@@ -57,6 +57,18 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.KeyVault.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
+        [Input("regions")]
+        private InputList<Inputs.MHSMGeoReplicatedRegionArgs>? _regions;
+
+        /// <summary>
+        /// List of all regions associated with the managed hsm pool.
+        /// </summary>
+        public InputList<Inputs.MHSMGeoReplicatedRegionArgs> Regions
+        {
+            get => _regions ?? (_regions = new InputList<Inputs.MHSMGeoReplicatedRegionArgs>());
+            set => _regions = value;
+        }
+
         /// <summary>
         /// Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         /// </summary>

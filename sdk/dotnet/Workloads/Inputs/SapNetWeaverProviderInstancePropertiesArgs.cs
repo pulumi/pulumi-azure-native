@@ -77,12 +77,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public Input<string>? SapSid { get; set; }
 
         /// <summary>
-        /// Gets or sets the blob URI to SSL certificate for the SAP system.
-        /// </summary>
-        [Input("sapSslCertificateUri")]
-        public Input<string>? SapSslCertificateUri { get; set; }
-
-        /// <summary>
         /// Gets or sets the SAP user name.
         /// </summary>
         [Input("sapUsername")]

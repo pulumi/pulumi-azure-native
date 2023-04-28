@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Orbital.V20221101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:orbital:Contact"},
                     new global::Pulumi.Alias { Type = "azure-native:orbital/v20220301:Contact"},
                 },
             };

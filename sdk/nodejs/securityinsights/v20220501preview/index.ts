@@ -15,11 +15,6 @@ export type AATPDataConnector = import("./aatpdataConnector").AATPDataConnector;
 export const AATPDataConnector: typeof import("./aatpdataConnector").AATPDataConnector = null as any;
 utilities.lazyLoad(exports, ["AATPDataConnector"], () => require("./aatpdataConnector"));
 
-export { ActionArgs } from "./action";
-export type Action = import("./action").Action;
-export const Action: typeof import("./action").Action = null as any;
-utilities.lazyLoad(exports, ["Action"], () => require("./action"));
-
 export { ActivityCustomEntityQueryArgs } from "./activityCustomEntityQuery";
 export type ActivityCustomEntityQuery = import("./activityCustomEntityQuery").ActivityCustomEntityQuery;
 export const ActivityCustomEntityQuery: typeof import("./activityCustomEntityQuery").ActivityCustomEntityQuery = null as any;
@@ -40,11 +35,6 @@ export type ASCDataConnector = import("./ascdataConnector").ASCDataConnector;
 export const ASCDataConnector: typeof import("./ascdataConnector").ASCDataConnector = null as any;
 utilities.lazyLoad(exports, ["ASCDataConnector"], () => require("./ascdataConnector"));
 
-export { AutomationRuleArgs } from "./automationRule";
-export type AutomationRule = import("./automationRule").AutomationRule;
-export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
-utilities.lazyLoad(exports, ["AutomationRule"], () => require("./automationRule"));
-
 export { AwsCloudTrailDataConnectorArgs } from "./awsCloudTrailDataConnector";
 export type AwsCloudTrailDataConnector = import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector;
 export const AwsCloudTrailDataConnector: typeof import("./awsCloudTrailDataConnector").AwsCloudTrailDataConnector = null as any;
@@ -54,16 +44,6 @@ export { AwsS3DataConnectorArgs } from "./awsS3DataConnector";
 export type AwsS3DataConnector = import("./awsS3DataConnector").AwsS3DataConnector;
 export const AwsS3DataConnector: typeof import("./awsS3DataConnector").AwsS3DataConnector = null as any;
 utilities.lazyLoad(exports, ["AwsS3DataConnector"], () => require("./awsS3DataConnector"));
-
-export { BookmarkArgs } from "./bookmark";
-export type Bookmark = import("./bookmark").Bookmark;
-export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
-utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
-
-export { BookmarkRelationArgs } from "./bookmarkRelation";
-export type BookmarkRelation = import("./bookmarkRelation").BookmarkRelation;
-export const BookmarkRelation: typeof import("./bookmarkRelation").BookmarkRelation = null as any;
-utilities.lazyLoad(exports, ["BookmarkRelation"], () => require("./bookmarkRelation"));
 
 export { CodelessApiPollingDataConnectorArgs } from "./codelessApiPollingDataConnector";
 export type CodelessApiPollingDataConnector = import("./codelessApiPollingDataConnector").CodelessApiPollingDataConnector;
@@ -110,11 +90,6 @@ export const getASCDataConnector: typeof import("./getASCDataConnector").getASCD
 export const getASCDataConnectorOutput: typeof import("./getASCDataConnector").getASCDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getASCDataConnector","getASCDataConnectorOutput"], () => require("./getASCDataConnector"));
 
-export { GetActionArgs, GetActionResult, GetActionOutputArgs } from "./getAction";
-export const getAction: typeof import("./getAction").getAction = null as any;
-export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
-utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
-
 export { GetActivityCustomEntityQueryArgs, GetActivityCustomEntityQueryResult, GetActivityCustomEntityQueryOutputArgs } from "./getActivityCustomEntityQuery";
 export const getActivityCustomEntityQuery: typeof import("./getActivityCustomEntityQuery").getActivityCustomEntityQuery = null as any;
 export const getActivityCustomEntityQueryOutput: typeof import("./getActivityCustomEntityQuery").getActivityCustomEntityQueryOutput = null as any;
@@ -130,11 +105,6 @@ export const getAnomalySecurityMLAnalyticsSettings: typeof import("./getAnomalyS
 export const getAnomalySecurityMLAnalyticsSettingsOutput: typeof import("./getAnomalySecurityMLAnalyticsSettings").getAnomalySecurityMLAnalyticsSettingsOutput = null as any;
 utilities.lazyLoad(exports, ["getAnomalySecurityMLAnalyticsSettings","getAnomalySecurityMLAnalyticsSettingsOutput"], () => require("./getAnomalySecurityMLAnalyticsSettings"));
 
-export { GetAutomationRuleArgs, GetAutomationRuleResult, GetAutomationRuleOutputArgs } from "./getAutomationRule";
-export const getAutomationRule: typeof import("./getAutomationRule").getAutomationRule = null as any;
-export const getAutomationRuleOutput: typeof import("./getAutomationRule").getAutomationRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getAutomationRule","getAutomationRuleOutput"], () => require("./getAutomationRule"));
-
 export { GetAwsCloudTrailDataConnectorArgs, GetAwsCloudTrailDataConnectorResult, GetAwsCloudTrailDataConnectorOutputArgs } from "./getAwsCloudTrailDataConnector";
 export const getAwsCloudTrailDataConnector: typeof import("./getAwsCloudTrailDataConnector").getAwsCloudTrailDataConnector = null as any;
 export const getAwsCloudTrailDataConnectorOutput: typeof import("./getAwsCloudTrailDataConnector").getAwsCloudTrailDataConnectorOutput = null as any;
@@ -144,16 +114,6 @@ export { GetAwsS3DataConnectorArgs, GetAwsS3DataConnectorResult, GetAwsS3DataCon
 export const getAwsS3DataConnector: typeof import("./getAwsS3DataConnector").getAwsS3DataConnector = null as any;
 export const getAwsS3DataConnectorOutput: typeof import("./getAwsS3DataConnector").getAwsS3DataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getAwsS3DataConnector","getAwsS3DataConnectorOutput"], () => require("./getAwsS3DataConnector"));
-
-export { GetBookmarkArgs, GetBookmarkResult, GetBookmarkOutputArgs } from "./getBookmark";
-export const getBookmark: typeof import("./getBookmark").getBookmark = null as any;
-export const getBookmarkOutput: typeof import("./getBookmark").getBookmarkOutput = null as any;
-utilities.lazyLoad(exports, ["getBookmark","getBookmarkOutput"], () => require("./getBookmark"));
-
-export { GetBookmarkRelationArgs, GetBookmarkRelationResult, GetBookmarkRelationOutputArgs } from "./getBookmarkRelation";
-export const getBookmarkRelation: typeof import("./getBookmarkRelation").getBookmarkRelation = null as any;
-export const getBookmarkRelationOutput: typeof import("./getBookmarkRelation").getBookmarkRelationOutput = null as any;
-utilities.lazyLoad(exports, ["getBookmarkRelation","getBookmarkRelationOutput"], () => require("./getBookmarkRelation"));
 
 export { GetCodelessApiPollingDataConnectorArgs, GetCodelessApiPollingDataConnectorResult, GetCodelessApiPollingDataConnectorOutputArgs } from "./getCodelessApiPollingDataConnector";
 export const getCodelessApiPollingDataConnector: typeof import("./getCodelessApiPollingDataConnector").getCodelessApiPollingDataConnector = null as any;
@@ -195,21 +155,6 @@ export const getFusionAlertRule: typeof import("./getFusionAlertRule").getFusion
 export const getFusionAlertRuleOutput: typeof import("./getFusionAlertRule").getFusionAlertRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getFusionAlertRule","getFusionAlertRuleOutput"], () => require("./getFusionAlertRule"));
 
-export { GetIncidentArgs, GetIncidentResult, GetIncidentOutputArgs } from "./getIncident";
-export const getIncident: typeof import("./getIncident").getIncident = null as any;
-export const getIncidentOutput: typeof import("./getIncident").getIncidentOutput = null as any;
-utilities.lazyLoad(exports, ["getIncident","getIncidentOutput"], () => require("./getIncident"));
-
-export { GetIncidentCommentArgs, GetIncidentCommentResult, GetIncidentCommentOutputArgs } from "./getIncidentComment";
-export const getIncidentComment: typeof import("./getIncidentComment").getIncidentComment = null as any;
-export const getIncidentCommentOutput: typeof import("./getIncidentComment").getIncidentCommentOutput = null as any;
-utilities.lazyLoad(exports, ["getIncidentComment","getIncidentCommentOutput"], () => require("./getIncidentComment"));
-
-export { GetIncidentRelationArgs, GetIncidentRelationResult, GetIncidentRelationOutputArgs } from "./getIncidentRelation";
-export const getIncidentRelation: typeof import("./getIncidentRelation").getIncidentRelation = null as any;
-export const getIncidentRelationOutput: typeof import("./getIncidentRelation").getIncidentRelationOutput = null as any;
-utilities.lazyLoad(exports, ["getIncidentRelation","getIncidentRelationOutput"], () => require("./getIncidentRelation"));
-
 export { GetIoTDataConnectorArgs, GetIoTDataConnectorResult, GetIoTDataConnectorOutputArgs } from "./getIoTDataConnector";
 export const getIoTDataConnector: typeof import("./getIoTDataConnector").getIoTDataConnector = null as any;
 export const getIoTDataConnectorOutput: typeof import("./getIoTDataConnector").getIoTDataConnectorOutput = null as any;
@@ -239,11 +184,6 @@ export { GetMTPDataConnectorArgs, GetMTPDataConnectorResult, GetMTPDataConnector
 export const getMTPDataConnector: typeof import("./getMTPDataConnector").getMTPDataConnector = null as any;
 export const getMTPDataConnectorOutput: typeof import("./getMTPDataConnector").getMTPDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getMTPDataConnector","getMTPDataConnectorOutput"], () => require("./getMTPDataConnector"));
-
-export { GetMetadataArgs, GetMetadataResult, GetMetadataOutputArgs } from "./getMetadata";
-export const getMetadata: typeof import("./getMetadata").getMetadata = null as any;
-export const getMetadataOutput: typeof import("./getMetadata").getMetadataOutput = null as any;
-utilities.lazyLoad(exports, ["getMetadata","getMetadataOutput"], () => require("./getMetadata"));
 
 export { GetMicrosoftSecurityIncidentCreationAlertRuleArgs, GetMicrosoftSecurityIncidentCreationAlertRuleResult, GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs } from "./getMicrosoftSecurityIncidentCreationAlertRule";
 export const getMicrosoftSecurityIncidentCreationAlertRule: typeof import("./getMicrosoftSecurityIncidentCreationAlertRule").getMicrosoftSecurityIncidentCreationAlertRule = null as any;
@@ -285,16 +225,6 @@ export const getScheduledAlertRule: typeof import("./getScheduledAlertRule").get
 export const getScheduledAlertRuleOutput: typeof import("./getScheduledAlertRule").getScheduledAlertRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledAlertRule","getScheduledAlertRuleOutput"], () => require("./getScheduledAlertRule"));
 
-export { GetSentinelOnboardingStateArgs, GetSentinelOnboardingStateResult, GetSentinelOnboardingStateOutputArgs } from "./getSentinelOnboardingState";
-export const getSentinelOnboardingState: typeof import("./getSentinelOnboardingState").getSentinelOnboardingState = null as any;
-export const getSentinelOnboardingStateOutput: typeof import("./getSentinelOnboardingState").getSentinelOnboardingStateOutput = null as any;
-utilities.lazyLoad(exports, ["getSentinelOnboardingState","getSentinelOnboardingStateOutput"], () => require("./getSentinelOnboardingState"));
-
-export { GetSourceControlArgs, GetSourceControlResult, GetSourceControlOutputArgs } from "./getSourceControl";
-export const getSourceControl: typeof import("./getSourceControl").getSourceControl = null as any;
-export const getSourceControlOutput: typeof import("./getSourceControl").getSourceControlOutput = null as any;
-utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
-
 export { GetTIDataConnectorArgs, GetTIDataConnectorResult, GetTIDataConnectorOutputArgs } from "./getTIDataConnector";
 export const getTIDataConnector: typeof import("./getTIDataConnector").getTIDataConnector = null as any;
 export const getTIDataConnectorOutput: typeof import("./getTIDataConnector").getTIDataConnectorOutput = null as any;
@@ -305,11 +235,6 @@ export const getThreatIntelligenceAlertRule: typeof import("./getThreatIntellige
 export const getThreatIntelligenceAlertRuleOutput: typeof import("./getThreatIntelligenceAlertRule").getThreatIntelligenceAlertRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getThreatIntelligenceAlertRule","getThreatIntelligenceAlertRuleOutput"], () => require("./getThreatIntelligenceAlertRule"));
 
-export { GetThreatIntelligenceIndicatorArgs, GetThreatIntelligenceIndicatorResult, GetThreatIntelligenceIndicatorOutputArgs } from "./getThreatIntelligenceIndicator";
-export const getThreatIntelligenceIndicator: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicator = null as any;
-export const getThreatIntelligenceIndicatorOutput: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicatorOutput = null as any;
-utilities.lazyLoad(exports, ["getThreatIntelligenceIndicator","getThreatIntelligenceIndicatorOutput"], () => require("./getThreatIntelligenceIndicator"));
-
 export { GetTiTaxiiDataConnectorArgs, GetTiTaxiiDataConnectorResult, GetTiTaxiiDataConnectorOutputArgs } from "./getTiTaxiiDataConnector";
 export const getTiTaxiiDataConnector: typeof import("./getTiTaxiiDataConnector").getTiTaxiiDataConnector = null as any;
 export const getTiTaxiiDataConnectorOutput: typeof import("./getTiTaxiiDataConnector").getTiTaxiiDataConnectorOutput = null as any;
@@ -319,31 +244,6 @@ export { GetUebaArgs, GetUebaResult, GetUebaOutputArgs } from "./getUeba";
 export const getUeba: typeof import("./getUeba").getUeba = null as any;
 export const getUebaOutput: typeof import("./getUeba").getUebaOutput = null as any;
 utilities.lazyLoad(exports, ["getUeba","getUebaOutput"], () => require("./getUeba"));
-
-export { GetWatchlistArgs, GetWatchlistResult, GetWatchlistOutputArgs } from "./getWatchlist";
-export const getWatchlist: typeof import("./getWatchlist").getWatchlist = null as any;
-export const getWatchlistOutput: typeof import("./getWatchlist").getWatchlistOutput = null as any;
-utilities.lazyLoad(exports, ["getWatchlist","getWatchlistOutput"], () => require("./getWatchlist"));
-
-export { GetWatchlistItemArgs, GetWatchlistItemResult, GetWatchlistItemOutputArgs } from "./getWatchlistItem";
-export const getWatchlistItem: typeof import("./getWatchlistItem").getWatchlistItem = null as any;
-export const getWatchlistItemOutput: typeof import("./getWatchlistItem").getWatchlistItemOutput = null as any;
-utilities.lazyLoad(exports, ["getWatchlistItem","getWatchlistItemOutput"], () => require("./getWatchlistItem"));
-
-export { IncidentArgs } from "./incident";
-export type Incident = import("./incident").Incident;
-export const Incident: typeof import("./incident").Incident = null as any;
-utilities.lazyLoad(exports, ["Incident"], () => require("./incident"));
-
-export { IncidentCommentArgs } from "./incidentComment";
-export type IncidentComment = import("./incidentComment").IncidentComment;
-export const IncidentComment: typeof import("./incidentComment").IncidentComment = null as any;
-utilities.lazyLoad(exports, ["IncidentComment"], () => require("./incidentComment"));
-
-export { IncidentRelationArgs } from "./incidentRelation";
-export type IncidentRelation = import("./incidentRelation").IncidentRelation;
-export const IncidentRelation: typeof import("./incidentRelation").IncidentRelation = null as any;
-utilities.lazyLoad(exports, ["IncidentRelation"], () => require("./incidentRelation"));
 
 export { IoTDataConnectorArgs } from "./ioTDataConnector";
 export type IoTDataConnector = import("./ioTDataConnector").IoTDataConnector;
@@ -364,11 +264,6 @@ export { MDATPDataConnectorArgs } from "./mdatpdataConnector";
 export type MDATPDataConnector = import("./mdatpdataConnector").MDATPDataConnector;
 export const MDATPDataConnector: typeof import("./mdatpdataConnector").MDATPDataConnector = null as any;
 utilities.lazyLoad(exports, ["MDATPDataConnector"], () => require("./mdatpdataConnector"));
-
-export { MetadataArgs } from "./metadata";
-export type Metadata = import("./metadata").Metadata;
-export const Metadata: typeof import("./metadata").Metadata = null as any;
-utilities.lazyLoad(exports, ["Metadata"], () => require("./metadata"));
 
 export { MicrosoftSecurityIncidentCreationAlertRuleArgs } from "./microsoftSecurityIncidentCreationAlertRule";
 export type MicrosoftSecurityIncidentCreationAlertRule = import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule;
@@ -425,25 +320,10 @@ export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRu
 export const ScheduledAlertRule: typeof import("./scheduledAlertRule").ScheduledAlertRule = null as any;
 utilities.lazyLoad(exports, ["ScheduledAlertRule"], () => require("./scheduledAlertRule"));
 
-export { SentinelOnboardingStateArgs } from "./sentinelOnboardingState";
-export type SentinelOnboardingState = import("./sentinelOnboardingState").SentinelOnboardingState;
-export const SentinelOnboardingState: typeof import("./sentinelOnboardingState").SentinelOnboardingState = null as any;
-utilities.lazyLoad(exports, ["SentinelOnboardingState"], () => require("./sentinelOnboardingState"));
-
-export { SourceControlArgs } from "./sourceControl";
-export type SourceControl = import("./sourceControl").SourceControl;
-export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
-utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
-
 export { ThreatIntelligenceAlertRuleArgs } from "./threatIntelligenceAlertRule";
 export type ThreatIntelligenceAlertRule = import("./threatIntelligenceAlertRule").ThreatIntelligenceAlertRule;
 export const ThreatIntelligenceAlertRule: typeof import("./threatIntelligenceAlertRule").ThreatIntelligenceAlertRule = null as any;
 utilities.lazyLoad(exports, ["ThreatIntelligenceAlertRule"], () => require("./threatIntelligenceAlertRule"));
-
-export { ThreatIntelligenceIndicatorArgs } from "./threatIntelligenceIndicator";
-export type ThreatIntelligenceIndicator = import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator;
-export const ThreatIntelligenceIndicator: typeof import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator = null as any;
-utilities.lazyLoad(exports, ["ThreatIntelligenceIndicator"], () => require("./threatIntelligenceIndicator"));
 
 export { TiTaxiiDataConnectorArgs } from "./tiTaxiiDataConnector";
 export type TiTaxiiDataConnector = import("./tiTaxiiDataConnector").TiTaxiiDataConnector;
@@ -460,16 +340,6 @@ export type Ueba = import("./ueba").Ueba;
 export const Ueba: typeof import("./ueba").Ueba = null as any;
 utilities.lazyLoad(exports, ["Ueba"], () => require("./ueba"));
 
-export { WatchlistArgs } from "./watchlist";
-export type Watchlist = import("./watchlist").Watchlist;
-export const Watchlist: typeof import("./watchlist").Watchlist = null as any;
-utilities.lazyLoad(exports, ["Watchlist"], () => require("./watchlist"));
-
-export { WatchlistItemArgs } from "./watchlistItem";
-export type WatchlistItem = import("./watchlistItem").WatchlistItem;
-export const WatchlistItem: typeof import("./watchlistItem").WatchlistItem = null as any;
-utilities.lazyLoad(exports, ["WatchlistItem"], () => require("./watchlistItem"));
-
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20220501preview";
@@ -484,24 +354,16 @@ const _module = {
                 return new AATPDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:ASCDataConnector":
                 return new ASCDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:Action":
-                return new Action(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:ActivityCustomEntityQuery":
                 return new ActivityCustomEntityQuery(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:Anomalies":
                 return new Anomalies(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings":
                 return new AnomalySecurityMLAnalyticsSettings(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:AutomationRule":
-                return new AutomationRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector":
                 return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:AwsS3DataConnector":
                 return new AwsS3DataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:Bookmark":
-                return new Bookmark(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:BookmarkRelation":
-                return new BookmarkRelation(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:CodelessApiPollingDataConnector":
                 return new CodelessApiPollingDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:CodelessUiDataConnector":
@@ -514,12 +376,6 @@ const _module = {
                 return new EyesOn(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:FusionAlertRule":
                 return new FusionAlertRule(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:Incident":
-                return new Incident(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:IncidentComment":
-                return new IncidentComment(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:IncidentRelation":
-                return new IncidentRelation(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:IoTDataConnector":
                 return new IoTDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:MCASDataConnector":
@@ -532,8 +388,6 @@ const _module = {
                 return new MSTIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:MTPDataConnector":
                 return new MTPDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:Metadata":
-                return new Metadata(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:MicrosoftSecurityIncidentCreationAlertRule":
                 return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:NrtAlertRule":
@@ -550,24 +404,14 @@ const _module = {
                 return new OfficePowerBIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:ScheduledAlertRule":
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:SentinelOnboardingState":
-                return new SentinelOnboardingState(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:SourceControl":
-                return new SourceControl(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:TIDataConnector":
                 return new TIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:ThreatIntelligenceAlertRule":
                 return new ThreatIntelligenceAlertRule(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:ThreatIntelligenceIndicator":
-                return new ThreatIntelligenceIndicator(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:TiTaxiiDataConnector":
                 return new TiTaxiiDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20220501preview:Ueba":
                 return new Ueba(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:Watchlist":
-                return new Watchlist(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20220501preview:WatchlistItem":
-                return new WatchlistItem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

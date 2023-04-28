@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = ['AppServiceCertificateOrderCertificateArgs', 'AppServiceCertificateOrderCertificate']
 
@@ -162,7 +161,8 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Key Vault container ARM resource for a certificate that is purchased through Azure.
-        API Version: 2020-10-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,8 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Key Vault container ARM resource for a certificate that is purchased through Azure.
-        API Version: 2020-10-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -230,7 +231,6 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20201201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20210101:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20210115:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20210201:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20210301:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20220301:AppServiceCertificateOrderCertificate"), pulumi.Alias(type_="azure-native:certificateregistration/v20220901:AppServiceCertificateOrderCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -262,7 +262,6 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return AppServiceCertificateOrderCertificate(resource_name, opts=opts, __props__=__props__)
@@ -314,14 +313,6 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         Status of the Key Vault secret.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

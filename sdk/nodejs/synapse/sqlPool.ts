@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Analytics pool
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SqlPool extends pulumi.CustomResource {
     /**
@@ -43,21 +44,9 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the mode of sql pool creation.
-     *
-     * Default: regular sql pool creation.
-     *
-     * PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-     *
-     * Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-     *
-     * Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-     */
-    public readonly createMode!: pulumi.Output<string | undefined>;
-    /**
      * Date the SQL pool was created
      */
-    public readonly creationDate!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -87,13 +76,13 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.synapse.SkuResponse | undefined>;
     /**
-     * Source database to create from
+     * Specifies the time that the sql pool was deleted
      */
-    public readonly sourceDatabaseId!: pulumi.Output<string | undefined>;
+    public readonly sourceDatabaseDeletionDate!: pulumi.Output<string | undefined>;
     /**
      * Resource status
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The storage account type used to store backups for this sql pool.
      */
@@ -124,9 +113,8 @@ export class SqlPool extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["collation"] = (args ? args.collation : undefined) ?? "";
             resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["creationDate"] = args ? args.creationDate : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -134,17 +122,18 @@ export class SqlPool extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
             resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
             resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
+            resourceInputs["storageAccountType"] = (args ? args.storageAccountType : undefined) ?? "GRS";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["collation"] = undefined /*out*/;
-            resourceInputs["createMode"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maxSizeBytes"] = undefined /*out*/;
@@ -153,7 +142,7 @@ export class SqlPool extends pulumi.CustomResource {
             resourceInputs["recoverableDatabaseId"] = undefined /*out*/;
             resourceInputs["restorePointInTime"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["sourceDatabaseId"] = undefined /*out*/;
+            resourceInputs["sourceDatabaseDeletionDate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["storageAccountType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -187,10 +176,6 @@ export interface SqlPoolArgs {
      */
     createMode?: pulumi.Input<string | enums.synapse.CreateMode>;
     /**
-     * Date the SQL pool was created
-     */
-    creationDate?: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -219,6 +204,10 @@ export interface SqlPoolArgs {
      */
     sku?: pulumi.Input<inputs.synapse.SkuArgs>;
     /**
+     * Specifies the time that the sql pool was deleted
+     */
+    sourceDatabaseDeletionDate?: pulumi.Input<string>;
+    /**
      * Source database to create from
      */
     sourceDatabaseId?: pulumi.Input<string>;
@@ -226,10 +215,6 @@ export interface SqlPoolArgs {
      * SQL pool name
      */
     sqlPoolName?: pulumi.Input<string>;
-    /**
-     * Resource status
-     */
-    status?: pulumi.Input<string>;
     /**
      * The storage account type used to store backups for this sql pool.
      */
@@ -239,7 +224,7 @@ export interface SqlPoolArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

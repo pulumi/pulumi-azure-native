@@ -110,6 +110,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         A virtual network rule.
         API Version: 2017-12-01.
+        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,6 +129,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         A virtual network rule.
         API Version: 2017-12-01.
+        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.
@@ -172,7 +174,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:VirtualNetworkRule"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:VirtualNetworkRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:VirtualNetworkRule"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:VirtualNetworkRule"), pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkRule, __self__).__init__(
             'azure-native:dbformysql:VirtualNetworkRule',

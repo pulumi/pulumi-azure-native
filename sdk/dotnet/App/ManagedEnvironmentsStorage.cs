@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Storage resource for managedEnvironment.
-    /// API Version: 2022-03-01.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironmentsStorage")]
     public partial class ManagedEnvironmentsStorage : global::Pulumi.CustomResource
@@ -69,6 +70,7 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ManagedEnvironmentsStorage"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ManagedEnvironmentsStorage"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ManagedEnvironmentsStorage"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ManagedEnvironmentsStorage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Network.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NetworkSecurityPerimeter"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeter"},
                 },
             };

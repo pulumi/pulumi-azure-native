@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ACIServiceArgs } from "./aciservice";
-export type ACIService = import("./aciservice").ACIService;
-export const ACIService: typeof import("./aciservice").ACIService = null as any;
-utilities.lazyLoad(exports, ["ACIService"], () => require("./aciservice"));
-
-export { AKSServiceArgs } from "./aksservice";
-export type AKSService = import("./aksservice").AKSService;
-export const AKSService: typeof import("./aksservice").AKSService = null as any;
-utilities.lazyLoad(exports, ["AKSService"], () => require("./aksservice"));
-
 export { BatchDeploymentArgs } from "./batchDeployment";
 export type BatchDeployment = import("./batchDeployment").BatchDeployment;
 export const BatchDeployment: typeof import("./batchDeployment").BatchDeployment = null as any;
@@ -45,6 +35,11 @@ export type ComponentVersion = import("./componentVersion").ComponentVersion;
 export const ComponentVersion: typeof import("./componentVersion").ComponentVersion = null as any;
 utilities.lazyLoad(exports, ["ComponentVersion"], () => require("./componentVersion"));
 
+export { ComputeArgs } from "./compute";
+export type Compute = import("./compute").Compute;
+export const Compute: typeof import("./compute").Compute = null as any;
+utilities.lazyLoad(exports, ["Compute"], () => require("./compute"));
+
 export { DataContainerArgs } from "./dataContainer";
 export type DataContainer = import("./dataContainer").DataContainer;
 export const DataContainer: typeof import("./dataContainer").DataContainer = null as any;
@@ -55,30 +50,20 @@ export type DataVersion = import("./dataVersion").DataVersion;
 export const DataVersion: typeof import("./dataVersion").DataVersion = null as any;
 utilities.lazyLoad(exports, ["DataVersion"], () => require("./dataVersion"));
 
-export { EndpointVariantArgs } from "./endpointVariant";
-export type EndpointVariant = import("./endpointVariant").EndpointVariant;
-export const EndpointVariant: typeof import("./endpointVariant").EndpointVariant = null as any;
-utilities.lazyLoad(exports, ["EndpointVariant"], () => require("./endpointVariant"));
+export { DatastoreArgs } from "./datastore";
+export type Datastore = import("./datastore").Datastore;
+export const Datastore: typeof import("./datastore").Datastore = null as any;
+utilities.lazyLoad(exports, ["Datastore"], () => require("./datastore"));
 
 export { EnvironmentContainerArgs } from "./environmentContainer";
 export type EnvironmentContainer = import("./environmentContainer").EnvironmentContainer;
 export const EnvironmentContainer: typeof import("./environmentContainer").EnvironmentContainer = null as any;
 utilities.lazyLoad(exports, ["EnvironmentContainer"], () => require("./environmentContainer"));
 
-export { EnvironmentSpecificationVersionArgs } from "./environmentSpecificationVersion";
-export type EnvironmentSpecificationVersion = import("./environmentSpecificationVersion").EnvironmentSpecificationVersion;
-export const EnvironmentSpecificationVersion: typeof import("./environmentSpecificationVersion").EnvironmentSpecificationVersion = null as any;
-utilities.lazyLoad(exports, ["EnvironmentSpecificationVersion"], () => require("./environmentSpecificationVersion"));
-
-export { GetACIServiceArgs, GetACIServiceResult, GetACIServiceOutputArgs } from "./getACIService";
-export const getACIService: typeof import("./getACIService").getACIService = null as any;
-export const getACIServiceOutput: typeof import("./getACIService").getACIServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getACIService","getACIServiceOutput"], () => require("./getACIService"));
-
-export { GetAKSServiceArgs, GetAKSServiceResult, GetAKSServiceOutputArgs } from "./getAKSService";
-export const getAKSService: typeof import("./getAKSService").getAKSService = null as any;
-export const getAKSServiceOutput: typeof import("./getAKSService").getAKSServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getAKSService","getAKSServiceOutput"], () => require("./getAKSService"));
+export { EnvironmentVersionArgs } from "./environmentVersion";
+export type EnvironmentVersion = import("./environmentVersion").EnvironmentVersion;
+export const EnvironmentVersion: typeof import("./environmentVersion").EnvironmentVersion = null as any;
+utilities.lazyLoad(exports, ["EnvironmentVersion"], () => require("./environmentVersion"));
 
 export { GetBatchDeploymentArgs, GetBatchDeploymentResult, GetBatchDeploymentOutputArgs } from "./getBatchDeployment";
 export const getBatchDeployment: typeof import("./getBatchDeployment").getBatchDeployment = null as any;
@@ -110,6 +95,11 @@ export const getComponentVersion: typeof import("./getComponentVersion").getComp
 export const getComponentVersionOutput: typeof import("./getComponentVersion").getComponentVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getComponentVersion","getComponentVersionOutput"], () => require("./getComponentVersion"));
 
+export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCompute";
+export const getCompute: typeof import("./getCompute").getCompute = null as any;
+export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
+utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
+
 export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
 export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
 export const getDataContainerOutput: typeof import("./getDataContainer").getDataContainerOutput = null as any;
@@ -120,55 +110,25 @@ export const getDataVersion: typeof import("./getDataVersion").getDataVersion = 
 export const getDataVersionOutput: typeof import("./getDataVersion").getDataVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getDataVersion","getDataVersionOutput"], () => require("./getDataVersion"));
 
-export { GetEndpointVariantArgs, GetEndpointVariantResult, GetEndpointVariantOutputArgs } from "./getEndpointVariant";
-export const getEndpointVariant: typeof import("./getEndpointVariant").getEndpointVariant = null as any;
-export const getEndpointVariantOutput: typeof import("./getEndpointVariant").getEndpointVariantOutput = null as any;
-utilities.lazyLoad(exports, ["getEndpointVariant","getEndpointVariantOutput"], () => require("./getEndpointVariant"));
+export { GetDatastoreArgs, GetDatastoreResult, GetDatastoreOutputArgs } from "./getDatastore";
+export const getDatastore: typeof import("./getDatastore").getDatastore = null as any;
+export const getDatastoreOutput: typeof import("./getDatastore").getDatastoreOutput = null as any;
+utilities.lazyLoad(exports, ["getDatastore","getDatastoreOutput"], () => require("./getDatastore"));
 
 export { GetEnvironmentContainerArgs, GetEnvironmentContainerResult, GetEnvironmentContainerOutputArgs } from "./getEnvironmentContainer";
 export const getEnvironmentContainer: typeof import("./getEnvironmentContainer").getEnvironmentContainer = null as any;
 export const getEnvironmentContainerOutput: typeof import("./getEnvironmentContainer").getEnvironmentContainerOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironmentContainer","getEnvironmentContainerOutput"], () => require("./getEnvironmentContainer"));
 
-export { GetEnvironmentSpecificationVersionArgs, GetEnvironmentSpecificationVersionResult, GetEnvironmentSpecificationVersionOutputArgs } from "./getEnvironmentSpecificationVersion";
-export const getEnvironmentSpecificationVersion: typeof import("./getEnvironmentSpecificationVersion").getEnvironmentSpecificationVersion = null as any;
-export const getEnvironmentSpecificationVersionOutput: typeof import("./getEnvironmentSpecificationVersion").getEnvironmentSpecificationVersionOutput = null as any;
-utilities.lazyLoad(exports, ["getEnvironmentSpecificationVersion","getEnvironmentSpecificationVersionOutput"], () => require("./getEnvironmentSpecificationVersion"));
+export { GetEnvironmentVersionArgs, GetEnvironmentVersionResult, GetEnvironmentVersionOutputArgs } from "./getEnvironmentVersion";
+export const getEnvironmentVersion: typeof import("./getEnvironmentVersion").getEnvironmentVersion = null as any;
+export const getEnvironmentVersionOutput: typeof import("./getEnvironmentVersion").getEnvironmentVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentVersion","getEnvironmentVersionOutput"], () => require("./getEnvironmentVersion"));
 
 export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
 export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
 utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
-
-export { GetLabelingJobArgs, GetLabelingJobResult, GetLabelingJobOutputArgs } from "./getLabelingJob";
-export const getLabelingJob: typeof import("./getLabelingJob").getLabelingJob = null as any;
-export const getLabelingJobOutput: typeof import("./getLabelingJob").getLabelingJobOutput = null as any;
-utilities.lazyLoad(exports, ["getLabelingJob","getLabelingJobOutput"], () => require("./getLabelingJob"));
-
-export { GetLinkedServiceArgs, GetLinkedServiceResult, GetLinkedServiceOutputArgs } from "./getLinkedService";
-export const getLinkedService: typeof import("./getLinkedService").getLinkedService = null as any;
-export const getLinkedServiceOutput: typeof import("./getLinkedService").getLinkedServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getLinkedService","getLinkedServiceOutput"], () => require("./getLinkedService"));
-
-export { GetLinkedWorkspaceArgs, GetLinkedWorkspaceResult, GetLinkedWorkspaceOutputArgs } from "./getLinkedWorkspace";
-export const getLinkedWorkspace: typeof import("./getLinkedWorkspace").getLinkedWorkspace = null as any;
-export const getLinkedWorkspaceOutput: typeof import("./getLinkedWorkspace").getLinkedWorkspaceOutput = null as any;
-utilities.lazyLoad(exports, ["getLinkedWorkspace","getLinkedWorkspaceOutput"], () => require("./getLinkedWorkspace"));
-
-export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
-export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
-export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
-
-export { GetMachineLearningDatasetArgs, GetMachineLearningDatasetResult, GetMachineLearningDatasetOutputArgs } from "./getMachineLearningDataset";
-export const getMachineLearningDataset: typeof import("./getMachineLearningDataset").getMachineLearningDataset = null as any;
-export const getMachineLearningDatasetOutput: typeof import("./getMachineLearningDataset").getMachineLearningDatasetOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningDataset","getMachineLearningDatasetOutput"], () => require("./getMachineLearningDataset"));
-
-export { GetMachineLearningDatastoreArgs, GetMachineLearningDatastoreResult, GetMachineLearningDatastoreOutputArgs } from "./getMachineLearningDatastore";
-export const getMachineLearningDatastore: typeof import("./getMachineLearningDatastore").getMachineLearningDatastore = null as any;
-export const getMachineLearningDatastoreOutput: typeof import("./getMachineLearningDatastore").getMachineLearningDatastoreOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningDatastore","getMachineLearningDatastoreOutput"], () => require("./getMachineLearningDatastore"));
 
 export { GetModelContainerArgs, GetModelContainerResult, GetModelContainerOutputArgs } from "./getModelContainer";
 export const getModelContainer: typeof import("./getModelContainer").getModelContainer = null as any;
@@ -205,6 +165,11 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./getSchedule";
+export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
+export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -220,55 +185,30 @@ export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
 utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
-export { LabelingJobArgs } from "./labelingJob";
-export type LabelingJob = import("./labelingJob").LabelingJob;
-export const LabelingJob: typeof import("./labelingJob").LabelingJob = null as any;
-utilities.lazyLoad(exports, ["LabelingJob"], () => require("./labelingJob"));
-
-export { LinkedServiceArgs } from "./linkedService";
-export type LinkedService = import("./linkedService").LinkedService;
-export const LinkedService: typeof import("./linkedService").LinkedService = null as any;
-utilities.lazyLoad(exports, ["LinkedService"], () => require("./linkedService"));
-
-export { LinkedWorkspaceArgs } from "./linkedWorkspace";
-export type LinkedWorkspace = import("./linkedWorkspace").LinkedWorkspace;
-export const LinkedWorkspace: typeof import("./linkedWorkspace").LinkedWorkspace = null as any;
-utilities.lazyLoad(exports, ["LinkedWorkspace"], () => require("./linkedWorkspace"));
-
 export { ListBatchEndpointKeysArgs, ListBatchEndpointKeysResult, ListBatchEndpointKeysOutputArgs } from "./listBatchEndpointKeys";
 export const listBatchEndpointKeys: typeof import("./listBatchEndpointKeys").listBatchEndpointKeys = null as any;
 export const listBatchEndpointKeysOutput: typeof import("./listBatchEndpointKeys").listBatchEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listBatchEndpointKeys","listBatchEndpointKeysOutput"], () => require("./listBatchEndpointKeys"));
+
+export { ListComputeKeysArgs, ListComputeKeysResult, ListComputeKeysOutputArgs } from "./listComputeKeys";
+export const listComputeKeys: typeof import("./listComputeKeys").listComputeKeys = null as any;
+export const listComputeKeysOutput: typeof import("./listComputeKeys").listComputeKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listComputeKeys","listComputeKeysOutput"], () => require("./listComputeKeys"));
+
+export { ListComputeNodesArgs, ListComputeNodesResult, ListComputeNodesOutputArgs } from "./listComputeNodes";
+export const listComputeNodes: typeof import("./listComputeNodes").listComputeNodes = null as any;
+export const listComputeNodesOutput: typeof import("./listComputeNodes").listComputeNodesOutput = null as any;
+utilities.lazyLoad(exports, ["listComputeNodes","listComputeNodesOutput"], () => require("./listComputeNodes"));
 
 export { ListDatastoreSecretsArgs, ListDatastoreSecretsResult, ListDatastoreSecretsOutputArgs } from "./listDatastoreSecrets";
 export const listDatastoreSecrets: typeof import("./listDatastoreSecrets").listDatastoreSecrets = null as any;
 export const listDatastoreSecretsOutput: typeof import("./listDatastoreSecrets").listDatastoreSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listDatastoreSecrets","listDatastoreSecretsOutput"], () => require("./listDatastoreSecrets"));
 
-export { ListMachineLearningComputeKeysArgs, ListMachineLearningComputeKeysResult, ListMachineLearningComputeKeysOutputArgs } from "./listMachineLearningComputeKeys";
-export const listMachineLearningComputeKeys: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeys = null as any;
-export const listMachineLearningComputeKeysOutput: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listMachineLearningComputeKeys","listMachineLearningComputeKeysOutput"], () => require("./listMachineLearningComputeKeys"));
-
-export { ListMachineLearningComputeNodesArgs, ListMachineLearningComputeNodesResult, ListMachineLearningComputeNodesOutputArgs } from "./listMachineLearningComputeNodes";
-export const listMachineLearningComputeNodes: typeof import("./listMachineLearningComputeNodes").listMachineLearningComputeNodes = null as any;
-export const listMachineLearningComputeNodesOutput: typeof import("./listMachineLearningComputeNodes").listMachineLearningComputeNodesOutput = null as any;
-utilities.lazyLoad(exports, ["listMachineLearningComputeNodes","listMachineLearningComputeNodesOutput"], () => require("./listMachineLearningComputeNodes"));
-
-export { ListNotebookKeysArgs, ListNotebookKeysResult, ListNotebookKeysOutputArgs } from "./listNotebookKeys";
-export const listNotebookKeys: typeof import("./listNotebookKeys").listNotebookKeys = null as any;
-export const listNotebookKeysOutput: typeof import("./listNotebookKeys").listNotebookKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listNotebookKeys","listNotebookKeysOutput"], () => require("./listNotebookKeys"));
-
 export { ListOnlineEndpointKeysArgs, ListOnlineEndpointKeysResult, ListOnlineEndpointKeysOutputArgs } from "./listOnlineEndpointKeys";
 export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeys = null as any;
 export const listOnlineEndpointKeysOutput: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listOnlineEndpointKeys","listOnlineEndpointKeysOutput"], () => require("./listOnlineEndpointKeys"));
-
-export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
-export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
-export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
 
 export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
 export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
@@ -280,20 +220,15 @@ export const listWorkspaceNotebookAccessToken: typeof import("./listWorkspaceNot
 export const listWorkspaceNotebookAccessTokenOutput: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessTokenOutput = null as any;
 utilities.lazyLoad(exports, ["listWorkspaceNotebookAccessToken","listWorkspaceNotebookAccessTokenOutput"], () => require("./listWorkspaceNotebookAccessToken"));
 
-export { MachineLearningComputeArgs } from "./machineLearningCompute";
-export type MachineLearningCompute = import("./machineLearningCompute").MachineLearningCompute;
-export const MachineLearningCompute: typeof import("./machineLearningCompute").MachineLearningCompute = null as any;
-utilities.lazyLoad(exports, ["MachineLearningCompute"], () => require("./machineLearningCompute"));
+export { ListWorkspaceNotebookKeysArgs, ListWorkspaceNotebookKeysResult, ListWorkspaceNotebookKeysOutputArgs } from "./listWorkspaceNotebookKeys";
+export const listWorkspaceNotebookKeys: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeys = null as any;
+export const listWorkspaceNotebookKeysOutput: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceNotebookKeys","listWorkspaceNotebookKeysOutput"], () => require("./listWorkspaceNotebookKeys"));
 
-export { MachineLearningDatasetArgs } from "./machineLearningDataset";
-export type MachineLearningDataset = import("./machineLearningDataset").MachineLearningDataset;
-export const MachineLearningDataset: typeof import("./machineLearningDataset").MachineLearningDataset = null as any;
-utilities.lazyLoad(exports, ["MachineLearningDataset"], () => require("./machineLearningDataset"));
-
-export { MachineLearningDatastoreArgs } from "./machineLearningDatastore";
-export type MachineLearningDatastore = import("./machineLearningDatastore").MachineLearningDatastore;
-export const MachineLearningDatastore: typeof import("./machineLearningDatastore").MachineLearningDatastore = null as any;
-utilities.lazyLoad(exports, ["MachineLearningDatastore"], () => require("./machineLearningDatastore"));
+export { ListWorkspaceStorageAccountKeysArgs, ListWorkspaceStorageAccountKeysResult, ListWorkspaceStorageAccountKeysOutputArgs } from "./listWorkspaceStorageAccountKeys";
+export const listWorkspaceStorageAccountKeys: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeys = null as any;
+export const listWorkspaceStorageAccountKeysOutput: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceStorageAccountKeys","listWorkspaceStorageAccountKeysOutput"], () => require("./listWorkspaceStorageAccountKeys"));
 
 export { ModelContainerArgs } from "./modelContainer";
 export type ModelContainer = import("./modelContainer").ModelContainer;
@@ -319,6 +254,11 @@ export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { ScheduleArgs } from "./schedule";
+export type Schedule = import("./schedule").Schedule;
+export const Schedule: typeof import("./schedule").Schedule = null as any;
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
@@ -360,6 +300,7 @@ import * as v20220601preview from "./v20220601preview";
 import * as v20221001 from "./v20221001";
 import * as v20221001preview from "./v20221001preview";
 import * as v20221201preview from "./v20221201preview";
+import * as v20230201preview from "./v20230201preview";
 import * as v20230401preview from "./v20230401preview";
 
 export {
@@ -388,6 +329,7 @@ export {
     v20221001,
     v20221001preview,
     v20221201preview,
+    v20230201preview,
     v20230401preview,
 };
 
@@ -395,10 +337,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:machinelearningservices:ACIService":
-                return new ACIService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:AKSService":
-                return new AKSService(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:BatchDeployment":
                 return new BatchDeployment(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:BatchEndpoint":
@@ -411,30 +349,20 @@ const _module = {
                 return new ComponentContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:ComponentVersion":
                 return new ComponentVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:Compute":
+                return new Compute(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:DataContainer":
                 return new DataContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:DataVersion":
                 return new DataVersion(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:EndpointVariant":
-                return new EndpointVariant(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:Datastore":
+                return new Datastore(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:EnvironmentContainer":
                 return new EnvironmentContainer(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:EnvironmentSpecificationVersion":
-                return new EnvironmentSpecificationVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:EnvironmentVersion":
+                return new EnvironmentVersion(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:LabelingJob":
-                return new LabelingJob(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:LinkedService":
-                return new LinkedService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:LinkedWorkspace":
-                return new LinkedWorkspace(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:MachineLearningCompute":
-                return new MachineLearningCompute(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:MachineLearningDataset":
-                return new MachineLearningDataset(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:MachineLearningDatastore":
-                return new MachineLearningDatastore(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:ModelContainer":
                 return new ModelContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:ModelVersion":
@@ -445,6 +373,8 @@ const _module = {
                 return new OnlineEndpoint(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:Schedule":
+                return new Schedule(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:WorkspaceConnection":

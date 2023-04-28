@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * ADP Data Pool
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-11-01-preview.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DataPool extends pulumi.CustomResource {
     /**
@@ -59,6 +60,10 @@ export class DataPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.autonomousdevelopmentplatform.SystemDataResponse>;
     /**
+     * Resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -87,6 +92,7 @@ export class DataPool extends pulumi.CustomResource {
             resourceInputs["dataPoolName"] = args ? args.dataPoolName : undefined;
             resourceInputs["locations"] = args ? args.locations : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["dataPoolId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -98,6 +104,7 @@ export class DataPool extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -127,4 +134,8 @@ export interface DataPoolArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource tags
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

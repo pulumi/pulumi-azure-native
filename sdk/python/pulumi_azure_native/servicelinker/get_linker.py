@@ -22,7 +22,7 @@ class GetLinkerResult:
     """
     Linker of source and target resource
     """
-    def __init__(__self__, auth_info=None, client_type=None, id=None, name=None, provisioning_state=None, secret_store=None, system_data=None, target_id=None, type=None, v_net_solution=None):
+    def __init__(__self__, auth_info=None, client_type=None, id=None, name=None, provisioning_state=None, scope=None, secret_store=None, system_data=None, target_service=None, type=None, v_net_solution=None):
         if auth_info and not isinstance(auth_info, dict):
             raise TypeError("Expected argument 'auth_info' to be a dict")
         pulumi.set(__self__, "auth_info", auth_info)
@@ -38,15 +38,18 @@ class GetLinkerResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        pulumi.set(__self__, "scope", scope)
         if secret_store and not isinstance(secret_store, dict):
             raise TypeError("Expected argument 'secret_store' to be a dict")
         pulumi.set(__self__, "secret_store", secret_store)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if target_id and not isinstance(target_id, str):
-            raise TypeError("Expected argument 'target_id' to be a str")
-        pulumi.set(__self__, "target_id", target_id)
+        if target_service and not isinstance(target_service, dict):
+            raise TypeError("Expected argument 'target_service' to be a dict")
+        pulumi.set(__self__, "target_service", target_service)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -95,6 +98,14 @@ class GetLinkerResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        connection scope in source service.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
     @pulumi.getter(name="secretStore")
     def secret_store(self) -> Optional['outputs.SecretStoreResponse']:
         """
@@ -111,12 +122,12 @@ class GetLinkerResult:
         return pulumi.get(self, "system_data")
 
     @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[str]:
+    @pulumi.getter(name="targetService")
+    def target_service(self) -> Optional[Any]:
         """
-        The resource Id of target service.
+        The target service properties
         """
-        return pulumi.get(self, "target_id")
+        return pulumi.get(self, "target_service")
 
     @property
     @pulumi.getter
@@ -146,9 +157,10 @@ class AwaitableGetLinkerResult(GetLinkerResult):
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            scope=self.scope,
             secret_store=self.secret_store,
             system_data=self.system_data,
-            target_id=self.target_id,
+            target_service=self.target_service,
             type=self.type,
             v_net_solution=self.v_net_solution)
 
@@ -158,7 +170,7 @@ def get_linker(linker_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkerResult:
     """
     Returns Linker resource for a given name.
-    API Version: 2021-11-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str linker_name: The name Linker resource.
@@ -176,9 +188,10 @@ def get_linker(linker_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        scope=__ret__.scope,
         secret_store=__ret__.secret_store,
         system_data=__ret__.system_data,
-        target_id=__ret__.target_id,
+        target_service=__ret__.target_service,
         type=__ret__.type,
         v_net_solution=__ret__.v_net_solution)
 
@@ -189,7 +202,7 @@ def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerResult]:
     """
     Returns Linker resource for a given name.
-    API Version: 2021-11-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str linker_name: The name Linker resource.

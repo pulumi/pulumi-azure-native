@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a DSCP Configuration.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
 
@@ -32,7 +32,7 @@ export interface GetDscpConfigurationArgs {
 }
 
 /**
- * DSCP Configuration in a resource group.
+ * Differentiated Services Code Point configuration for any given network interface
  */
 export interface GetDscpConfigurationResult {
     /**
@@ -80,6 +80,10 @@ export interface GetDscpConfigurationResult {
      */
     readonly qosCollectionId: string;
     /**
+     * QoS object definitions
+     */
+    readonly qosDefinitionCollection?: outputs.network.QosDefinitionResponse[];
+    /**
      * The resource GUID property of the DSCP Configuration resource.
      */
     readonly resourceGuid: string;
@@ -102,7 +106,7 @@ export interface GetDscpConfigurationResult {
 }
 /**
  * Gets a DSCP Configuration.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDscpConfiguration(a, opts))

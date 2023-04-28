@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a DNS forwarding ruleset.
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-07-01.
+ * Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DnsForwardingRuleset extends pulumi.CustomResource {
     /**
@@ -41,7 +42,7 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
     /**
      * The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
      */
-    public readonly dnsResolverOutboundEndpoints!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
+    public readonly dnsResolverOutboundEndpoints!: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * ETag of the DNS forwarding ruleset.
      */
@@ -86,6 +87,9 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.dnsResolverOutboundEndpoints === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dnsResolverOutboundEndpoints'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +133,7 @@ export interface DnsForwardingRulesetArgs {
     /**
      * The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
      */
-    dnsResolverOutboundEndpoints?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+    dnsResolverOutboundEndpoints: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
     /**
      * The geo-location where the resource lives
      */

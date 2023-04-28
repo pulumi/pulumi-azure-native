@@ -237,7 +237,8 @@ class PartnerTopic(pulumi.CustomResource):
                  __props__=None):
         """
         Event Grid Partner Topic.
-        API Version: 2021-10-15-preview.
+        API Version: 2022-06-15.
+        Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,7 +265,8 @@ class PartnerTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Grid Partner Topic.
-        API Version: 2021-10-15-preview.
+        API Version: 2022-06-15.
+        Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PartnerTopicArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
         /// Expected value is 'VHD'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
+        /// </summary>
+        public readonly string? Uri;
 
         [OutputConstructor]
         private ImageTemplateVhdDistributorResponse(
@@ -36,11 +40,14 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 
             string runOutputName,
 
-            string type)
+            string type,
+
+            string? uri)
         {
             ArtifactTags = artifactTags;
             RunOutputName = runOutputName;
             Type = type;
+            Uri = uri;
         }
     }
 }

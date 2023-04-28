@@ -10,8 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
-    /// Kubernetes role.
-    /// API Version: 2020-12-01.
+    /// The limited preview of Kubernetes Cluster Management from the Azure supports:
+    /// 1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+    /// 2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+    ///     Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+    /// 3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+    ///     For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+    ///     Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+    ///     By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+    ///    API Version: 2022-03-01.
+    ///    Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:KubernetesRole")]
     public partial class KubernetesRole : global::Pulumi.CustomResource
@@ -66,7 +74,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string> RoleStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Role configured on ASE resource
+        /// Metadata pertaining to creation and last modification of Role
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

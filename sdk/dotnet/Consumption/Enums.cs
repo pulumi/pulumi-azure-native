@@ -130,8 +130,17 @@ namespace Pulumi.AzureNative.Consumption
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Alert will be triggered if the evaluated cost is the same as threshold value. Note: It’s not recommended to use this OperatorType as there’s low chance of cost being exactly the same as threshold value, leading to missing of your alert. This OperatorType will be deprecated in future. 
+        /// </summary>
         public static OperatorType EqualTo { get; } = new OperatorType("EqualTo");
+        /// <summary>
+        /// Alert will be triggered if the evaluated cost is greater than the threshold value. Note: This is the recommended OperatorType while configuring Budget Alert.
+        /// </summary>
         public static OperatorType GreaterThan { get; } = new OperatorType("GreaterThan");
+        /// <summary>
+        /// Alert will be triggered if the evaluated cost is greater than or equal to the threshold value.
+        /// </summary>
         public static OperatorType GreaterThanOrEqualTo { get; } = new OperatorType("GreaterThanOrEqualTo");
 
         public static bool operator ==(OperatorType left, OperatorType right) => left.Equals(right);
@@ -162,7 +171,14 @@ namespace Pulumi.AzureNative.Consumption
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Actual costs budget alerts notify when the actual accrued cost exceeds the allocated budget .
+        /// </summary>
         public static ThresholdType Actual { get; } = new ThresholdType("Actual");
+        /// <summary>
+        /// Forecasted costs budget alerts provide advanced notification that your spending trends are likely to exceed your allocated budget, as it relies on forecasted cost predictions.
+        /// </summary>
+        public static ThresholdType Forecasted { get; } = new ThresholdType("Forecasted");
 
         public static bool operator ==(ThresholdType left, ThresholdType right) => left.Equals(right);
         public static bool operator !=(ThresholdType left, ThresholdType right) => !left.Equals(right);

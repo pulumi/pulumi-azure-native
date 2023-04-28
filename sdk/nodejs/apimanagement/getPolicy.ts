@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Global policy definition of the Api Management service.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -29,7 +29,7 @@ export interface GetPolicyArgs {
      */
     policyId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -47,15 +47,15 @@ export interface GetPolicyResult {
      */
     readonly format?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -65,7 +65,7 @@ export interface GetPolicyResult {
 }
 /**
  * Get the Global policy definition of the Api Management service.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
@@ -81,7 +81,7 @@ export interface GetPolicyOutputArgs {
      */
     policyId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

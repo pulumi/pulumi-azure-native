@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets information about a configuration of server.
- * API Version: 2017-12-01.
+ * API Version: 2022-12-01.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -54,9 +57,25 @@ export interface GetConfigurationResult {
      */
     readonly description: string;
     /**
+     * Configuration documentation link.
+     */
+    readonly documentationLink: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Configuration is pending restart or not.
+     */
+    readonly isConfigPendingRestart: boolean;
+    /**
+     * Configuration dynamic or static.
+     */
+    readonly isDynamicConfig: boolean;
+    /**
+     * Configuration read-only or not.
+     */
+    readonly isReadOnly: boolean;
     /**
      * The name of the resource
      */
@@ -66,9 +85,17 @@ export interface GetConfigurationResult {
      */
     readonly source?: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Configuration unit.
+     */
+    readonly unit: string;
     /**
      * Value of the configuration.
      */
@@ -76,7 +103,7 @@ export interface GetConfigurationResult {
 }
 /**
  * Gets information about a configuration of server.
- * API Version: 2017-12-01.
+ * API Version: 2022-12-01.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

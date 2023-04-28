@@ -25,6 +25,26 @@ export const getFarmBeatsModel: typeof import("./getFarmBeatsModel").getFarmBeat
 export const getFarmBeatsModelOutput: typeof import("./getFarmBeatsModel").getFarmBeatsModelOutput = null as any;
 utilities.lazyLoad(exports, ["getFarmBeatsModel","getFarmBeatsModelOutput"], () => require("./getFarmBeatsModel"));
 
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetSolutionArgs, GetSolutionResult, GetSolutionOutputArgs } from "./getSolution";
+export const getSolution: typeof import("./getSolution").getSolution = null as any;
+export const getSolutionOutput: typeof import("./getSolution").getSolutionOutput = null as any;
+utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { SolutionArgs } from "./solution";
+export type Solution = import("./solution").Solution;
+export const Solution: typeof import("./solution").Solution = null as any;
+utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
+
 
 // Export enums:
 export * from "../types/enums/agfoodplatform";
@@ -46,6 +66,10 @@ const _module = {
                 return new Extension(name, <any>undefined, { urn })
             case "azure-native:agfoodplatform:FarmBeatsModel":
                 return new FarmBeatsModel(name, <any>undefined, { urn })
+            case "azure-native:agfoodplatform:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:agfoodplatform:Solution":
+                return new Solution(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

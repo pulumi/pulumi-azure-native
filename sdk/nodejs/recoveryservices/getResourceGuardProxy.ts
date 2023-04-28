@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
- * API Version: 2021-02-01-preview.
+ * API Version: 2023-02-01.
  */
 export function getResourceGuardProxy(args: GetResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardProxyResult> {
 
@@ -65,7 +65,7 @@ export interface GetResourceGuardProxyResult {
 }
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
- * API Version: 2021-02-01-preview.
+ * API Version: 2023-02-01.
  */
 export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {
     return pulumi.output(args).apply((a: any) => getResourceGuardProxy(a, opts))

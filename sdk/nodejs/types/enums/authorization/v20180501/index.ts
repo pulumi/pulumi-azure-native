@@ -23,13 +23,3 @@ export const PolicyType = {
  * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
-
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    None: "None",
-} as const;
-
-/**
- * The identity type.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

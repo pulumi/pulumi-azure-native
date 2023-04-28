@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? DeleteOption;
         /// <summary>
+        /// Specifies whether the network interface is disabled for tcp state tracking.
+        /// </summary>
+        public readonly bool? DisableTcpStateTracking;
+        /// <summary>
         /// The dns settings to be applied on the network interfaces.
         /// </summary>
         public readonly Outputs.VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponse? DnsSettings;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private VirtualMachineNetworkInterfaceConfigurationResponse(
             string? deleteOption,
 
+            bool? disableTcpStateTracking,
+
             Outputs.VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponse? dnsSettings,
 
             Outputs.SubResourceResponse? dscpConfiguration,
@@ -77,6 +83,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             bool? primary)
         {
             DeleteOption = deleteOption;
+            DisableTcpStateTracking = disableTcpStateTracking;
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;

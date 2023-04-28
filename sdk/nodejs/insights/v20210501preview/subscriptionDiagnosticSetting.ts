@@ -112,7 +112,7 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:SubscriptionDiagnosticSetting" }, { type: "azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionDiagnosticSetting.__pulumiType, name, resourceInputs, opts);
     }

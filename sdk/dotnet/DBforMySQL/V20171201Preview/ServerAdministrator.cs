@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql:ServerAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:ServerAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

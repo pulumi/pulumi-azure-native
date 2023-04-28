@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.RestorePointSourceVMStorageProfileResponse? StorageProfile;
         /// <summary>
+        /// UserData associated with the source VM for which restore point is captured, which is a base-64 encoded value.
+        /// </summary>
+        public readonly string? UserData;
+        /// <summary>
         /// Gets the virtual machine unique id.
         /// </summary>
         public readonly string? VmId;
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             Outputs.RestorePointSourceVMStorageProfileResponse? storageProfile,
 
+            string? userData,
+
             string? vmId)
         {
             DiagnosticsProfile = diagnosticsProfile;
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             OsProfile = osProfile;
             SecurityProfile = securityProfile;
             StorageProfile = storageProfile;
+            UserData = userData;
             VmId = vmId;
         }
     }

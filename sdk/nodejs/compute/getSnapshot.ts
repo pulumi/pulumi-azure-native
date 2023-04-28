@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a snapshot.
- * API Version: 2020-12-01.
+ * API Version: 2022-07-02.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
 
@@ -26,7 +26,7 @@ export interface GetSnapshotArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+     * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
      */
     snapshotName: string;
 }
@@ -36,9 +36,21 @@ export interface GetSnapshotArgs {
  */
 export interface GetSnapshotResult {
     /**
+     * Percentage complete for the background copy when a resource is created via the CopyStart operation.
+     */
+    readonly completionPercent?: number;
+    /**
+     * Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
+     */
+    readonly copyCompletionError?: outputs.compute.CopyCompletionErrorResponse;
+    /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
     readonly creationData: outputs.compute.CreationDataResponse;
+    /**
+     * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+     */
+    readonly dataAccessAuthMode?: string;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -80,6 +92,10 @@ export interface GetSnapshotResult {
      */
     readonly incremental?: boolean;
     /**
+     * Incremental snapshots for a disk share an incremental snapshot family id. The Get Page Range Diff API can only be called on incremental snapshots with the same family id.
+     */
+    readonly incrementalSnapshotFamilyId: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -104,13 +120,25 @@ export interface GetSnapshotResult {
      */
     readonly provisioningState: string;
     /**
+     * Policy for controlling export on the disk.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
     readonly purchasePlan?: outputs.compute.PurchasePlanResponse;
     /**
+     * Contains the security related information for the resource.
+     */
+    readonly securityProfile?: outputs.compute.DiskSecurityProfileResponse;
+    /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
     readonly sku?: outputs.compute.SnapshotSkuResponse;
+    /**
+     * List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+     */
+    readonly supportedCapabilities?: outputs.compute.SupportedCapabilitiesResponse;
     /**
      * Indicates the OS on a snapshot supports hibernation.
      */
@@ -134,7 +162,7 @@ export interface GetSnapshotResult {
 }
 /**
  * Gets information about a snapshot.
- * API Version: 2020-12-01.
+ * API Version: 2022-07-02.
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
@@ -146,7 +174,7 @@ export interface GetSnapshotOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+     * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
      */
     snapshotName: pulumi.Input<string>;
 }

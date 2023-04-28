@@ -22,22 +22,30 @@ class GetCodeVersionResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, code_version_properties=None, id=None, name=None, system_data=None, type=None):
+        if code_version_properties and not isinstance(code_version_properties, dict):
+            raise TypeError("Expected argument 'code_version_properties' to be a dict")
+        pulumi.set(__self__, "code_version_properties", code_version_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="codeVersionProperties")
+    def code_version_properties(self) -> 'outputs.CodeVersionResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "code_version_properties")
 
     @property
     @pulumi.getter
@@ -56,18 +64,10 @@ class GetCodeVersionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.CodeVersionResponse':
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -86,9 +86,9 @@ class AwaitableGetCodeVersionResult(GetCodeVersionResult):
         if False:
             yield self
         return GetCodeVersionResult(
+            code_version_properties=self.code_version_properties,
             id=self.id,
             name=self.name,
-            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -100,12 +100,12 @@ def get_code_version(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodeVersionResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2021-03-01-preview.
+    API Version: 2022-10-01.
 
 
-    :param str name: Container name.
+    :param str name: Container name. This is case-sensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str version: Version identifier.
+    :param str version: Version identifier. This is case-sensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
@@ -117,9 +117,9 @@ def get_code_version(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getCodeVersion', __args__, opts=opts, typ=GetCodeVersionResult).value
 
     return AwaitableGetCodeVersionResult(
+        code_version_properties=__ret__.code_version_properties,
         id=__ret__.id,
         name=__ret__.name,
-        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -132,12 +132,12 @@ def get_code_version_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeVersionResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2021-03-01-preview.
+    API Version: 2022-10-01.
 
 
-    :param str name: Container name.
+    :param str name: Container name. This is case-sensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str version: Version identifier.
+    :param str version: Version identifier. This is case-sensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     ...

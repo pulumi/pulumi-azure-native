@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? AssessmentMode;
         /// <summary>
+        /// Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Linux.
+        /// </summary>
+        public readonly Outputs.LinuxVMGuestPatchAutomaticByPlatformSettingsResponse? AutomaticByPlatformSettings;
+        /// <summary>
         /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
         /// </summary>
         public readonly string? PatchMode;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private LinuxPatchSettingsResponse(
             string? assessmentMode,
 
+            Outputs.LinuxVMGuestPatchAutomaticByPlatformSettingsResponse? automaticByPlatformSettings,
+
             string? patchMode)
         {
             AssessmentMode = assessmentMode;
+            AutomaticByPlatformSettings = automaticByPlatformSettings;
             PatchMode = patchMode;
         }
     }

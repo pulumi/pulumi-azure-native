@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class AzureVmDiskDetailsResponse
     {
         /// <summary>
+        /// The custom target Azure disk name.
+        /// </summary>
+        public readonly string? CustomTargetDiskName;
+        /// <summary>
         /// The DiskEncryptionSet ARM ID.
         /// </summary>
         public readonly string? DiskEncryptionSetId;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private AzureVmDiskDetailsResponse(
+            string? customTargetDiskName,
+
             string? diskEncryptionSetId,
 
             string? diskId,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? vhdType)
         {
+            CustomTargetDiskName = customTargetDiskName;
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskId = diskId;
             LunId = lunId;

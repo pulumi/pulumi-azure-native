@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents AATP (Azure Advanced Threat Protection) data connector.
- * API Version: 2020-01-01.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AATPDataConnector extends pulumi.CustomResource {
     /**
@@ -52,15 +53,19 @@ export class AATPDataConnector extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"AzureAdvancedThreatProtection">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenant id to connect to, and get the data from.
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -92,17 +97,19 @@ export class AATPDataConnector extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dataTypes"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20211001:AATPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220801:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20221101:AATPDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20230201:AATPDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:AATPDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20211001:AATPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220801:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20221101:AATPDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20230201:AATPDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20230301preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:AATPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AATPDataConnector.__pulumiType, name, resourceInputs, opts);
     }
@@ -126,7 +133,7 @@ export interface AATPDataConnectorArgs {
      */
     kind: pulumi.Input<"AzureAdvancedThreatProtection">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

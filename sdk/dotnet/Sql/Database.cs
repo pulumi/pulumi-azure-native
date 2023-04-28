@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A database resource.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Database")]
     public partial class Database : global::Pulumi.CustomResource
@@ -89,10 +90,34 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> FailoverGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability.
+        /// The Client id used for cross tenant per database CMK scenario
+        /// </summary>
+        [Output("federatedClientId")]
+        public Output<string?> FederatedClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Output("highAvailabilityReplicaCount")]
         public Output<int?> HighAvailabilityReplicaCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure Active Directory identity of the database.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.DatabaseIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Infra encryption is enabled for this database.
+        /// </summary>
+        [Output("isInfraEncryptionEnabled")]
+        public Output<bool> IsInfraEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        /// </summary>
+        [Output("isLedgerOn")]
+        public Output<bool?> IsLedgerOn { get; private set; } = null!;
 
         /// <summary>
         /// Kind of database. This is metadata used for the Azure portal experience.
@@ -155,7 +180,7 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> PausedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Output("readScale")]
         public Output<string?> ReadScale { get; private set; } = null!;
@@ -340,10 +365,28 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? ElasticPoolId { get; set; }
 
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability.
+        /// The Client id used for cross tenant per database CMK scenario
+        /// </summary>
+        [Input("federatedClientId")]
+        public Input<string>? FederatedClientId { get; set; }
+
+        /// <summary>
+        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Input("highAvailabilityReplicaCount")]
         public Input<int>? HighAvailabilityReplicaCount { get; set; }
+
+        /// <summary>
+        /// The Azure Active Directory identity of the database.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DatabaseIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        /// </summary>
+        [Input("isLedgerOn")]
+        public Input<bool>? IsLedgerOn { get; set; }
 
         /// <summary>
         /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -382,7 +425,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<double>? MinCapacity { get; set; }
 
         /// <summary>
-        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Input("readScale")]
         public InputUnion<string, Pulumi.AzureNative.Sql.DatabaseReadScale>? ReadScale { get; set; }
@@ -403,7 +446,7 @@ namespace Pulumi.AzureNative.Sql
         /// The storage account type to be used to store backups for this database.
         /// </summary>
         [Input("requestedBackupStorageRedundancy")]
-        public InputUnion<string, Pulumi.AzureNative.Sql.RequestedBackupStorageRedundancy>? RequestedBackupStorageRedundancy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.BackupStorageRedundancy>? RequestedBackupStorageRedundancy { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -468,6 +511,24 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("sourceDatabaseId")]
         public Input<string>? SourceDatabaseId { get; set; }
+
+        /// <summary>
+        /// The resource identifier of the source associated with the create operation of this database.
+        /// 
+        /// This property is only supported for DataWarehouse edition and allows to restore across subscriptions.
+        /// 
+        /// When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+        /// 
+        /// When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of the existing database or existing sql pool, and restorePointInTime must be specified.
+        /// 
+        /// When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+        /// 
+        /// When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+        /// 
+        /// When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+        /// </summary>
+        [Input("sourceResourceId")]
+        public Input<string>? SourceResourceId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

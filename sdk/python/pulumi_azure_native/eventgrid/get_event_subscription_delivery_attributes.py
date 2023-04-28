@@ -50,7 +50,7 @@ def get_event_subscription_delivery_attributes(event_subscription_name: Optional
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSubscriptionDeliveryAttributesResult:
     """
     Get all delivery attributes for an event subscription.
-    API Version: 2021-06-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription.
@@ -72,7 +72,7 @@ def get_event_subscription_delivery_attributes_output(event_subscription_name: O
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription.
-    API Version: 2021-06-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription.

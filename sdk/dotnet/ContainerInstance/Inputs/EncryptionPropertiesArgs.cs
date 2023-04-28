@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
     public sealed class EncryptionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The keyvault managed identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<string>? Identity { get; set; }
+
+        /// <summary>
         /// The encryption key name.
         /// </summary>
         [Input("keyName", required: true)]

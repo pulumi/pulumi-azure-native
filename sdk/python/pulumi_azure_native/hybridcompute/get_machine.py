@@ -22,16 +22,25 @@ class GetMachineResult:
     """
     Describes a hybrid machine.
     """
-    def __init__(__self__, ad_fqdn=None, agent_version=None, client_public_key=None, display_name=None, dns_fqdn=None, domain_name=None, error_details=None, extensions=None, id=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_sku=None, os_version=None, provisioning_state=None, status=None, tags=None, type=None, vm_id=None, vm_uuid=None):
+    def __init__(__self__, ad_fqdn=None, agent_configuration=None, agent_version=None, client_public_key=None, cloud_metadata=None, detected_properties=None, display_name=None, dns_fqdn=None, domain_name=None, error_details=None, extensions=None, id=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, mssql_discovered=None, name=None, os_name=None, os_profile=None, os_sku=None, os_type=None, os_version=None, parent_cluster_resource_id=None, private_link_scope_resource_id=None, provisioning_state=None, resources=None, service_statuses=None, status=None, system_data=None, tags=None, type=None, vm_id=None, vm_uuid=None):
         if ad_fqdn and not isinstance(ad_fqdn, str):
             raise TypeError("Expected argument 'ad_fqdn' to be a str")
         pulumi.set(__self__, "ad_fqdn", ad_fqdn)
+        if agent_configuration and not isinstance(agent_configuration, dict):
+            raise TypeError("Expected argument 'agent_configuration' to be a dict")
+        pulumi.set(__self__, "agent_configuration", agent_configuration)
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
         if client_public_key and not isinstance(client_public_key, str):
             raise TypeError("Expected argument 'client_public_key' to be a str")
         pulumi.set(__self__, "client_public_key", client_public_key)
+        if cloud_metadata and not isinstance(cloud_metadata, dict):
+            raise TypeError("Expected argument 'cloud_metadata' to be a dict")
+        pulumi.set(__self__, "cloud_metadata", cloud_metadata)
+        if detected_properties and not isinstance(detected_properties, dict):
+            raise TypeError("Expected argument 'detected_properties' to be a dict")
+        pulumi.set(__self__, "detected_properties", detected_properties)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -65,6 +74,9 @@ class GetMachineResult:
         if machine_fqdn and not isinstance(machine_fqdn, str):
             raise TypeError("Expected argument 'machine_fqdn' to be a str")
         pulumi.set(__self__, "machine_fqdn", machine_fqdn)
+        if mssql_discovered and not isinstance(mssql_discovered, str):
+            raise TypeError("Expected argument 'mssql_discovered' to be a str")
+        pulumi.set(__self__, "mssql_discovered", mssql_discovered)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -77,15 +89,33 @@ class GetMachineResult:
         if os_sku and not isinstance(os_sku, str):
             raise TypeError("Expected argument 'os_sku' to be a str")
         pulumi.set(__self__, "os_sku", os_sku)
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        pulumi.set(__self__, "os_type", os_type)
         if os_version and not isinstance(os_version, str):
             raise TypeError("Expected argument 'os_version' to be a str")
         pulumi.set(__self__, "os_version", os_version)
+        if parent_cluster_resource_id and not isinstance(parent_cluster_resource_id, str):
+            raise TypeError("Expected argument 'parent_cluster_resource_id' to be a str")
+        pulumi.set(__self__, "parent_cluster_resource_id", parent_cluster_resource_id)
+        if private_link_scope_resource_id and not isinstance(private_link_scope_resource_id, str):
+            raise TypeError("Expected argument 'private_link_scope_resource_id' to be a str")
+        pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resources and not isinstance(resources, list):
+            raise TypeError("Expected argument 'resources' to be a list")
+        pulumi.set(__self__, "resources", resources)
+        if service_statuses and not isinstance(service_statuses, dict):
+            raise TypeError("Expected argument 'service_statuses' to be a dict")
+        pulumi.set(__self__, "service_statuses", service_statuses)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -108,6 +138,14 @@ class GetMachineResult:
         return pulumi.get(self, "ad_fqdn")
 
     @property
+    @pulumi.getter(name="agentConfiguration")
+    def agent_configuration(self) -> 'outputs.AgentConfigurationResponse':
+        """
+        Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+        """
+        return pulumi.get(self, "agent_configuration")
+
+    @property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> str:
         """
@@ -122,6 +160,22 @@ class GetMachineResult:
         Public Key that the client provides to be used during initial resource onboarding
         """
         return pulumi.get(self, "client_public_key")
+
+    @property
+    @pulumi.getter(name="cloudMetadata")
+    def cloud_metadata(self) -> Optional['outputs.CloudMetadataResponse']:
+        """
+        The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+        """
+        return pulumi.get(self, "cloud_metadata")
+
+    @property
+    @pulumi.getter(name="detectedProperties")
+    def detected_properties(self) -> Mapping[str, str]:
+        """
+        Detected properties from the machine.
+        """
+        return pulumi.get(self, "detected_properties")
 
     @property
     @pulumi.getter(name="displayName")
@@ -157,9 +211,9 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
-    def extensions(self) -> Sequence['outputs.MachineExtensionInstanceViewResponse']:
+    def extensions(self) -> Optional[Sequence['outputs.MachineExtensionInstanceViewResponse']]:
         """
-        Machine Extensions information
+        Machine Extensions information (deprecated field)
         """
         return pulumi.get(self, "extensions")
 
@@ -173,7 +227,10 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.MachineResponseIdentity']:
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        Identity for the resource.
+        """
         return pulumi.get(self, "identity")
 
     @property
@@ -209,6 +266,14 @@ class GetMachineResult:
         return pulumi.get(self, "machine_fqdn")
 
     @property
+    @pulumi.getter(name="mssqlDiscovered")
+    def mssql_discovered(self) -> Optional[str]:
+        """
+        Specifies whether any MS SQL instance is discovered on the machine.
+        """
+        return pulumi.get(self, "mssql_discovered")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -226,7 +291,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.MachinePropertiesResponseOsProfile']:
+    def os_profile(self) -> Optional['outputs.OSProfileResponse']:
         """
         Specifies the operating system settings for the hybrid machine.
         """
@@ -241,12 +306,36 @@ class GetMachineResult:
         return pulumi.get(self, "os_sku")
 
     @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The type of Operating System (windows/linux).
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
     @pulumi.getter(name="osVersion")
     def os_version(self) -> str:
         """
         The version of Operating System running on the hybrid machine.
         """
         return pulumi.get(self, "os_version")
+
+    @property
+    @pulumi.getter(name="parentClusterResourceId")
+    def parent_cluster_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+        """
+        return pulumi.get(self, "parent_cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the private link scope this machine is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -258,11 +347,35 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
+    def resources(self) -> Sequence['outputs.MachineExtensionResponse']:
+        """
+        The list of extensions affiliated to the machine
+        """
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="serviceStatuses")
+    def service_statuses(self) -> Optional['outputs.ServiceStatusesResponse']:
+        """
+        Statuses of dependent services that are reported back to ARM.
+        """
+        return pulumi.get(self, "service_statuses")
+
+    @property
+    @pulumi.getter
     def status(self) -> str:
         """
         The status of the hybrid machine agent.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -304,8 +417,11 @@ class AwaitableGetMachineResult(GetMachineResult):
             yield self
         return GetMachineResult(
             ad_fqdn=self.ad_fqdn,
+            agent_configuration=self.agent_configuration,
             agent_version=self.agent_version,
             client_public_key=self.client_public_key,
+            cloud_metadata=self.cloud_metadata,
+            detected_properties=self.detected_properties,
             display_name=self.display_name,
             dns_fqdn=self.dns_fqdn,
             domain_name=self.domain_name,
@@ -317,13 +433,20 @@ class AwaitableGetMachineResult(GetMachineResult):
             location=self.location,
             location_data=self.location_data,
             machine_fqdn=self.machine_fqdn,
+            mssql_discovered=self.mssql_discovered,
             name=self.name,
             os_name=self.os_name,
             os_profile=self.os_profile,
             os_sku=self.os_sku,
+            os_type=self.os_type,
             os_version=self.os_version,
+            parent_cluster_resource_id=self.parent_cluster_resource_id,
+            private_link_scope_resource_id=self.private_link_scope_resource_id,
             provisioning_state=self.provisioning_state,
+            resources=self.resources,
+            service_statuses=self.service_statuses,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             vm_id=self.vm_id,
@@ -331,29 +454,32 @@ class AwaitableGetMachineResult(GetMachineResult):
 
 
 def get_machine(expand: Optional[str] = None,
-                name: Optional[str] = None,
+                machine_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineResult:
     """
     Retrieves information about the model view or the instance view of a hybrid machine.
-    API Version: 2020-08-02.
+    API Version: 2022-11-10.
 
 
     :param str expand: The expand expression to apply on the operation.
-    :param str name: The name of the hybrid machine.
-    :param str resource_group_name: The name of the resource group.
+    :param str machine_name: The name of the hybrid machine.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
+    __args__['machineName'] = machine_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcompute:getMachine', __args__, opts=opts, typ=GetMachineResult).value
 
     return AwaitableGetMachineResult(
         ad_fqdn=__ret__.ad_fqdn,
+        agent_configuration=__ret__.agent_configuration,
         agent_version=__ret__.agent_version,
         client_public_key=__ret__.client_public_key,
+        cloud_metadata=__ret__.cloud_metadata,
+        detected_properties=__ret__.detected_properties,
         display_name=__ret__.display_name,
         dns_fqdn=__ret__.dns_fqdn,
         domain_name=__ret__.domain_name,
@@ -365,13 +491,20 @@ def get_machine(expand: Optional[str] = None,
         location=__ret__.location,
         location_data=__ret__.location_data,
         machine_fqdn=__ret__.machine_fqdn,
+        mssql_discovered=__ret__.mssql_discovered,
         name=__ret__.name,
         os_name=__ret__.os_name,
         os_profile=__ret__.os_profile,
         os_sku=__ret__.os_sku,
+        os_type=__ret__.os_type,
         os_version=__ret__.os_version,
+        parent_cluster_resource_id=__ret__.parent_cluster_resource_id,
+        private_link_scope_resource_id=__ret__.private_link_scope_resource_id,
         provisioning_state=__ret__.provisioning_state,
+        resources=__ret__.resources,
+        service_statuses=__ret__.service_statuses,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         vm_id=__ret__.vm_id,
@@ -380,16 +513,16 @@ def get_machine(expand: Optional[str] = None,
 
 @_utilities.lift_output_func(get_machine)
 def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
-                       name: Optional[pulumi.Input[str]] = None,
+                       machine_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineResult]:
     """
     Retrieves information about the model view or the instance view of a hybrid machine.
-    API Version: 2020-08-02.
+    API Version: 2022-11-10.
 
 
     :param str expand: The expand expression to apply on the operation.
-    :param str name: The name of the hybrid machine.
-    :param str resource_group_name: The name of the resource group.
+    :param str machine_name: The name of the hybrid machine.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

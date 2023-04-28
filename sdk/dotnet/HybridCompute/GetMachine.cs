@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// API Version: 2020-08-02.
+        /// API Version: 2022-11-10.
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// API Version: 2020-08-02.
+        /// API Version: 2022-11-10.
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
@@ -38,11 +38,11 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("machineName", required: true)]
+        public string MachineName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -64,11 +64,11 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("machineName", required: true)]
+        public Input<string> MachineName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly string AdFqdn;
         /// <summary>
+        /// Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+        /// </summary>
+        public readonly Outputs.AgentConfigurationResponse AgentConfiguration;
+        /// <summary>
         /// The hybrid machine agent full version.
         /// </summary>
         public readonly string AgentVersion;
@@ -95,6 +99,14 @@ namespace Pulumi.AzureNative.HybridCompute
         /// Public Key that the client provides to be used during initial resource onboarding
         /// </summary>
         public readonly string? ClientPublicKey;
+        /// <summary>
+        /// The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+        /// </summary>
+        public readonly Outputs.CloudMetadataResponse? CloudMetadata;
+        /// <summary>
+        /// Detected properties from the machine.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> DetectedProperties;
         /// <summary>
         /// Specifies the hybrid machine display name.
         /// </summary>
@@ -112,14 +124,17 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorDetailResponse> ErrorDetails;
         /// <summary>
-        /// Machine Extensions information
+        /// Machine Extensions information (deprecated field)
         /// </summary>
         public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> Extensions;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.MachineResponseIdentity? Identity;
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The time of the last status change.
         /// </summary>
@@ -137,6 +152,10 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly string MachineFqdn;
         /// <summary>
+        /// Specifies whether any MS SQL instance is discovered on the machine.
+        /// </summary>
+        public readonly string? MssqlDiscovered;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -147,23 +166,47 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
-        public readonly Outputs.MachinePropertiesResponseOsProfile? OsProfile;
+        public readonly Outputs.OSProfileResponse? OsProfile;
         /// <summary>
         /// Specifies the Operating System product SKU.
         /// </summary>
         public readonly string OsSku;
         /// <summary>
+        /// The type of Operating System (windows/linux).
+        /// </summary>
+        public readonly string? OsType;
+        /// <summary>
         /// The version of Operating System running on the hybrid machine.
         /// </summary>
         public readonly string OsVersion;
+        /// <summary>
+        /// The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+        /// </summary>
+        public readonly string? ParentClusterResourceId;
+        /// <summary>
+        /// The resource id of the private link scope this machine is assigned to, if any.
+        /// </summary>
+        public readonly string? PrivateLinkScopeResourceId;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The list of extensions affiliated to the machine
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MachineExtensionResponse> Resources;
+        /// <summary>
+        /// Statuses of dependent services that are reported back to ARM.
+        /// </summary>
+        public readonly Outputs.ServiceStatusesResponse? ServiceStatuses;
+        /// <summary>
         /// The status of the hybrid machine agent.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -185,9 +228,15 @@ namespace Pulumi.AzureNative.HybridCompute
         private GetMachineResult(
             string adFqdn,
 
+            Outputs.AgentConfigurationResponse agentConfiguration,
+
             string agentVersion,
 
             string? clientPublicKey,
+
+            Outputs.CloudMetadataResponse? cloudMetadata,
+
+            ImmutableDictionary<string, string> detectedProperties,
 
             string displayName,
 
@@ -201,7 +250,7 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string id,
 
-            Outputs.MachineResponseIdentity? identity,
+            Outputs.IdentityResponse? identity,
 
             string lastStatusChange,
 
@@ -211,19 +260,33 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string machineFqdn,
 
+            string? mssqlDiscovered,
+
             string name,
 
             string osName,
 
-            Outputs.MachinePropertiesResponseOsProfile? osProfile,
+            Outputs.OSProfileResponse? osProfile,
 
             string osSku,
 
+            string? osType,
+
             string osVersion,
+
+            string? parentClusterResourceId,
+
+            string? privateLinkScopeResourceId,
 
             string provisioningState,
 
+            ImmutableArray<Outputs.MachineExtensionResponse> resources,
+
+            Outputs.ServiceStatusesResponse? serviceStatuses,
+
             string status,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -234,8 +297,11 @@ namespace Pulumi.AzureNative.HybridCompute
             string vmUuid)
         {
             AdFqdn = adFqdn;
+            AgentConfiguration = agentConfiguration;
             AgentVersion = agentVersion;
             ClientPublicKey = clientPublicKey;
+            CloudMetadata = cloudMetadata;
+            DetectedProperties = detectedProperties;
             DisplayName = displayName;
             DnsFqdn = dnsFqdn;
             DomainName = domainName;
@@ -247,13 +313,20 @@ namespace Pulumi.AzureNative.HybridCompute
             Location = location;
             LocationData = locationData;
             MachineFqdn = machineFqdn;
+            MssqlDiscovered = mssqlDiscovered;
             Name = name;
             OsName = osName;
             OsProfile = osProfile;
             OsSku = osSku;
+            OsType = osType;
             OsVersion = osVersion;
+            ParentClusterResourceId = parentClusterResourceId;
+            PrivateLinkScopeResourceId = privateLinkScopeResourceId;
             ProvisioningState = provisioningState;
+            Resources = resources;
+            ServiceStatuses = serviceStatuses;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VmId = vmId;

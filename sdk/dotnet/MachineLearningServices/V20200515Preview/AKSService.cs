@@ -89,7 +89,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:AKSService"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:AKSService"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:AKSService"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:AKSService"},

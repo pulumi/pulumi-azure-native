@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an invitation in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
 
@@ -106,7 +106,7 @@ export interface GetInvitationResult {
 }
 /**
  * Get an invitation in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
     return pulumi.output(args).apply((a: any) => getInvitation(a, opts))

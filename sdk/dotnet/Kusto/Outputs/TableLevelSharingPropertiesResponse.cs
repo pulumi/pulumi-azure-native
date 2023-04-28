@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Kusto.Outputs
     public sealed class TableLevelSharingPropertiesResponse
     {
         /// <summary>
-        /// List of external tables exclude from the follower database
+        /// List of external tables to exclude from the follower database
         /// </summary>
         public readonly ImmutableArray<string> ExternalTablesToExclude;
         /// <summary>
@@ -25,7 +25,15 @@ namespace Pulumi.AzureNative.Kusto.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExternalTablesToInclude;
         /// <summary>
-        /// List of materialized views exclude from the follower database
+        /// List of functions to exclude from the follower database
+        /// </summary>
+        public readonly ImmutableArray<string> FunctionsToExclude;
+        /// <summary>
+        /// List of functions to include in the follower database
+        /// </summary>
+        public readonly ImmutableArray<string> FunctionsToInclude;
+        /// <summary>
+        /// List of materialized views to exclude from the follower database
         /// </summary>
         public readonly ImmutableArray<string> MaterializedViewsToExclude;
         /// <summary>
@@ -47,6 +55,10 @@ namespace Pulumi.AzureNative.Kusto.Outputs
 
             ImmutableArray<string> externalTablesToInclude,
 
+            ImmutableArray<string> functionsToExclude,
+
+            ImmutableArray<string> functionsToInclude,
+
             ImmutableArray<string> materializedViewsToExclude,
 
             ImmutableArray<string> materializedViewsToInclude,
@@ -57,6 +69,8 @@ namespace Pulumi.AzureNative.Kusto.Outputs
         {
             ExternalTablesToExclude = externalTablesToExclude;
             ExternalTablesToInclude = externalTablesToInclude;
+            FunctionsToExclude = functionsToExclude;
+            FunctionsToInclude = functionsToInclude;
             MaterializedViewsToExclude = materializedViewsToExclude;
             MaterializedViewsToInclude = materializedViewsToInclude;
             TablesToExclude = tablesToExclude;

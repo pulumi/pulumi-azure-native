@@ -40,15 +40,18 @@ export const listApplicationAllowedUpgradePlans: typeof import("./listApplicatio
 export const listApplicationAllowedUpgradePlansOutput: typeof import("./listApplicationAllowedUpgradePlans").listApplicationAllowedUpgradePlansOutput = null as any;
 utilities.lazyLoad(exports, ["listApplicationAllowedUpgradePlans","listApplicationAllowedUpgradePlansOutput"], () => require("./listApplicationAllowedUpgradePlans"));
 
+export { ListApplicationTokensArgs, ListApplicationTokensResult, ListApplicationTokensOutputArgs } from "./listApplicationTokens";
+export const listApplicationTokens: typeof import("./listApplicationTokens").listApplicationTokens = null as any;
+export const listApplicationTokensOutput: typeof import("./listApplicationTokens").listApplicationTokensOutput = null as any;
+utilities.lazyLoad(exports, ["listApplicationTokens","listApplicationTokensOutput"], () => require("./listApplicationTokens"));
+
 
 // Export enums:
 export * from "../types/enums/solutions";
 
 // Export sub-modules:
 import * as v20160901preview from "./v20160901preview";
-import * as v20170901 from "./v20170901";
 import * as v20171201 from "./v20171201";
-import * as v20180201 from "./v20180201";
 import * as v20180301 from "./v20180301";
 import * as v20180601 from "./v20180601";
 import * as v20180901preview from "./v20180901preview";
@@ -59,9 +62,7 @@ import * as v20210701 from "./v20210701";
 
 export {
     v20160901preview,
-    v20170901,
     v20171201,
-    v20180201,
     v20180301,
     v20180601,
     v20180901preview,

@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Customer Key vault properties.
         /// </summary>
-        public readonly Outputs.KeyVaultPropertiesResponse KeyVaultProperties;
+        public readonly Outputs.EncryptionKeyVaultPropertiesResponse KeyVaultProperties;
         /// <summary>
         /// Indicates whether or not the encryption is enabled for the workspace.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private EncryptionPropertyResponse(
             Outputs.IdentityForCmkResponse? identity,
 
-            Outputs.KeyVaultPropertiesResponse keyVaultProperties,
+            Outputs.EncryptionKeyVaultPropertiesResponse keyVaultProperties,
 
             string status)
         {

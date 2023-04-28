@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     public sealed class PlatformConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Stack Edge device where where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
+        /// The Azure Stack Edge device where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
         /// </summary>
         [Input("azureStackEdgeDevice")]
         public Input<Inputs.AzureStackEdgeDeviceResourceIdArgs>? AzureStackEdgeDevice { get; set; }
+
+        /// <summary>
+        /// The Azure Stack HCI cluster where the packet core is deployed.
+        /// </summary>
+        [Input("azureStackHciCluster")]
+        public Input<Inputs.AzureStackHCIClusterResourceIdArgs>? AzureStackHciCluster { get; set; }
 
         /// <summary>
         /// Azure Arc connected cluster where the packet core is deployed.

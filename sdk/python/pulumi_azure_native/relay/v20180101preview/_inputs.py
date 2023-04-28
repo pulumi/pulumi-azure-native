@@ -13,7 +13,6 @@ from ._enums import *
 __all__ = [
     'PrivateEndpointArgs',
     'PrivateLinkServiceConnectionStateArgs',
-    'SkuArgs',
 ]
 
 @pulumi.input_type
@@ -94,44 +93,5 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class SkuArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'SkuName']],
-                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
-        """
-        SKU of the namespace.
-        :param pulumi.Input[Union[str, 'SkuName']] name: Name of this SKU.
-        :param pulumi.Input[Union[str, 'SkuTier']] tier: The tier of this SKU.
-        """
-        pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
-        """
-        Name of this SKU.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
-        """
-        The tier of this SKU.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
-        pulumi.set(self, "tier", value)
 
 

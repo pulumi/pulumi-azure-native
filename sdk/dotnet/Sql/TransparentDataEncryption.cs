@@ -10,18 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
-    /// Represents a database transparent data encryption configuration.
-    /// API Version: 2014-04-01.
+    /// A logical database transparent data encryption state.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:TransparentDataEncryption")]
     public partial class TransparentDataEncryption : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -29,10 +24,10 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the database transparent data encryption.
+        /// Specifies the state of the transparent data encryption.
         /// </summary>
-        [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -101,7 +96,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class TransparentDataEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the database for which setting the transparent data encryption applies.
+        /// The name of the logical database for which the security alert policy is defined.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -119,16 +114,16 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The status of the database transparent data encryption.
+        /// Specifies the state of the transparent data encryption.
         /// </summary>
-        [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.Sql.TransparentDataEncryptionStatus>? Status { get; set; }
+        [Input("state", required: true)]
+        public Input<Pulumi.AzureNative.Sql.TransparentDataEncryptionState> State { get; set; } = null!;
 
         /// <summary>
         /// The name of the transparent data encryption configuration.
         /// </summary>
-        [Input("transparentDataEncryptionName")]
-        public Input<string>? TransparentDataEncryptionName { get; set; }
+        [Input("tdeName")]
+        public Input<string>? TdeName { get; set; }
 
         public TransparentDataEncryptionArgs()
         {

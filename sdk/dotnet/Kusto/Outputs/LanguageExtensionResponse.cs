@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.Kusto.Outputs
     public sealed class LanguageExtensionResponse
     {
         /// <summary>
+        /// The language extension image name.
+        /// </summary>
+        public readonly string? LanguageExtensionImageName;
+        /// <summary>
         /// The language extension name.
         /// </summary>
         public readonly string? LanguageExtensionName;
 
         [OutputConstructor]
-        private LanguageExtensionResponse(string? languageExtensionName)
+        private LanguageExtensionResponse(
+            string? languageExtensionImageName,
+
+            string? languageExtensionName)
         {
+            LanguageExtensionImageName = languageExtensionImageName;
             LanguageExtensionName = languageExtensionName;
         }
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StoragePool.Outputs
 {
 
     /// <summary>
-    /// Azure Managed Disk to attach to the Disk pool.
+    /// Azure Managed Disk to attach to the Disk Pool.
     /// </summary>
     [OutputType]
     public sealed class DiskResponse

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Service resource
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -55,6 +56,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.appplatform.SkuResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -78,23 +83,25 @@ export class Service extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.clusterResourcePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Service" }, { type: "azure-native:appplatform/v20201101preview:Service" }, { type: "azure-native:appplatform/v20210601preview:Service" }, { type: "azure-native:appplatform/v20210901preview:Service" }, { type: "azure-native:appplatform/v20220101preview:Service" }, { type: "azure-native:appplatform/v20220301preview:Service" }, { type: "azure-native:appplatform/v20220401:Service" }, { type: "azure-native:appplatform/v20220501preview:Service" }, { type: "azure-native:appplatform/v20220901preview:Service" }, { type: "azure-native:appplatform/v20221101preview:Service" }, { type: "azure-native:appplatform/v20221201:Service" }, { type: "azure-native:appplatform/v20230101preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Service" }, { type: "azure-native:appplatform/v20201101preview:Service" }, { type: "azure-native:appplatform/v20210601preview:Service" }, { type: "azure-native:appplatform/v20210901preview:Service" }, { type: "azure-native:appplatform/v20220101preview:Service" }, { type: "azure-native:appplatform/v20220301preview:Service" }, { type: "azure-native:appplatform/v20220401:Service" }, { type: "azure-native:appplatform/v20220501preview:Service" }, { type: "azure-native:appplatform/v20220901preview:Service" }, { type: "azure-native:appplatform/v20221101preview:Service" }, { type: "azure-native:appplatform/v20221201:Service" }, { type: "azure-native:appplatform/v20230101preview:Service" }, { type: "azure-native:appplatform/v20230301preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

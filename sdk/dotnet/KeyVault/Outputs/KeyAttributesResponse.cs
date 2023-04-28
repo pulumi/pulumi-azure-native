@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
 {
 
     /// <summary>
-    /// The attributes of the key.
+    /// The object attributes managed by the Azure Key Vault service.
     /// </summary>
     [OutputType]
     public sealed class KeyAttributesResponse
@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
         /// Expiry date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
         public readonly double? Expires;
+        /// <summary>
+        /// Indicates if the private key can be exported.
+        /// </summary>
+        public readonly bool? Exportable;
         /// <summary>
         /// Not before date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
 
             double? expires,
 
+            bool? exportable,
+
             double? notBefore,
 
             string recoveryLevel,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
             Created = created;
             Enabled = enabled;
             Expires = expires;
+            Exportable = exportable;
             NotBefore = notBefore;
             RecoveryLevel = recoveryLevel;
             Updated = updated;

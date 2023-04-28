@@ -82,6 +82,8 @@ export class ApiWiki extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiWiki" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiWiki.__pulumiType, name, resourceInputs, opts);
     }
 }

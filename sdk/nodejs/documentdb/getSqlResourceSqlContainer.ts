@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SQL container under an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * API Version: 2022-11-15.
  */
 export function getSqlResourceSqlContainer(args: GetSqlResourceSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlContainerResult> {
 
@@ -70,7 +70,7 @@ export interface GetSqlResourceSqlContainerResult {
 }
 /**
  * Gets the SQL container under an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * API Version: 2022-11-15.
  */
 export function getSqlResourceSqlContainerOutput(args: GetSqlResourceSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlContainerResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlContainer(a, opts))

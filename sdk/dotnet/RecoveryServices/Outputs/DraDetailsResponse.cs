@@ -17,7 +17,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class DraDetailsResponse
     {
         /// <summary>
-        /// The health of the DRA.
+        /// The DRA Bios Id.
+        /// </summary>
+        public readonly string BiosId;
+        /// <summary>
+        /// The count of protected items which are protected in forward direction.
+        /// </summary>
+        public readonly int ForwardProtectedItemCount;
+        /// <summary>
+        /// The health.
         /// </summary>
         public readonly string Health;
         /// <summary>
@@ -37,12 +45,20 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The DRA version.
+        /// The count of protected items which are protected in reverse direction.
+        /// </summary>
+        public readonly int ReverseProtectedItemCount;
+        /// <summary>
+        /// The version.
         /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
         private DraDetailsResponse(
+            string biosId,
+
+            int forwardProtectedItemCount,
+
             string health,
 
             ImmutableArray<Outputs.HealthErrorResponse> healthErrors,
@@ -53,13 +69,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string name,
 
+            int reverseProtectedItemCount,
+
             string version)
         {
+            BiosId = biosId;
+            ForwardProtectedItemCount = forwardProtectedItemCount;
             Health = health;
             HealthErrors = healthErrors;
             Id = id;
             LastHeartbeatUtc = lastHeartbeatUtc;
             Name = name;
+            ReverseProtectedItemCount = reverseProtectedItemCount;
             Version = version;
         }
     }

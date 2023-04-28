@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
+        /// </summary>
+        [Input("uri")]
+        public Input<string>? Uri { get; set; }
+
         public ImageTemplateVhdDistributorArgs()
         {
         }

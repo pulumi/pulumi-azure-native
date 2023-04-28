@@ -170,7 +170,7 @@ def get_system_topic(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicResult:
     """
     Get properties of a system topic.
-    API Version: 2021-06-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -202,7 +202,7 @@ def get_system_topic_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicResult]:
     """
     Get properties of a system topic.
-    API Version: 2021-06-01-preview.
+    API Version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

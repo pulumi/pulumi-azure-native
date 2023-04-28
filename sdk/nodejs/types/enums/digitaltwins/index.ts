@@ -3,20 +3,14 @@
 
 // Export sub-modules:
 import * as v20200301preview from "./v20200301preview";
-import * as v20201031 from "./v20201031";
 import * as v20201201 from "./v20201201";
 import * as v20210630preview from "./v20210630preview";
-import * as v20220531 from "./v20220531";
-import * as v20221031 from "./v20221031";
 import * as v20230131 from "./v20230131";
 
 export {
     v20200301preview,
-    v20201031,
     v20201201,
     v20210630preview,
-    v20220531,
-    v20221031,
     v20230131,
 };
 
@@ -26,7 +20,7 @@ export const AuthenticationType = {
 } as const;
 
 /**
- * Specifies the authentication type being used for connecting to the endpoint.
+ * Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
  */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
@@ -42,10 +36,12 @@ export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType
 export const DigitalTwinsIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
- * The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+ * The type of Managed Identity used by the DigitalTwinsInstance.
  */
 export type DigitalTwinsIdentityType = (typeof DigitalTwinsIdentityType)[keyof typeof DigitalTwinsIdentityType];
 
@@ -59,6 +55,16 @@ export const EndpointType = {
  * The type of Digital Twins endpoint
  */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+export const IdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The type of managed identity used.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const PrivateLinkServiceConnectionStatus = {
     Pending: "Pending",
@@ -81,3 +87,13 @@ export const PublicNetworkAccess = {
  * Public network access for the DigitalTwinsInstance.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const RecordPropertyAndItemRemovals = {
+    True: "true",
+    False: "false",
+} as const;
+
+/**
+ * Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
+ */
+export type RecordPropertyAndItemRemovals = (typeof RecordPropertyAndItemRemovals)[keyof typeof RecordPropertyAndItemRemovals];

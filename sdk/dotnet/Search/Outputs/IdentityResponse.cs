@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Search.Outputs
     public sealed class IdentityResponse
     {
         /// <summary>
-        /// The principal ID of resource identity.
+        /// The principal ID of the system-assigned identity of the search service.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The tenant ID of resource.
+        /// The tenant ID of the system-assigned identity of the search service.
         /// </summary>
         public readonly string TenantId;
         /// <summary>

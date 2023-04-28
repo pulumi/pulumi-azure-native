@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * FarmBeats ARM Resource.
- * API Version: 2020-05-12-preview.
+ * API Version: 2021-09-01-preview.
+ * Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class FarmBeatsModel extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class FarmBeatsModel extends pulumi.CustomResource {
     }
 
     /**
+     * Identity for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.agfoodplatform.IdentityResponse | undefined>;
+    /**
      * Uri of the FarmBeats instance.
      */
     public /*out*/ readonly instanceUri!: pulumi.Output<string>;
@@ -51,15 +56,23 @@ export class FarmBeatsModel extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The private endpoint connection resource.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.agfoodplatform.PrivateEndpointConnectionResponse>;
+    /**
      * FarmBeats instance provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The resource model definition representing SKU
+     * Property to allow or block public traffic for an Azure FarmBeats resource.
      */
-    public readonly sku!: pulumi.Output<outputs.agfoodplatform.SkuResponse | undefined>;
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Sensor integration request model.
+     */
+    public readonly sensorIntegration!: pulumi.Output<outputs.agfoodplatform.SensorIntegrationResponse | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.agfoodplatform.SystemDataResponse>;
     /**
@@ -86,21 +99,27 @@ export class FarmBeatsModel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["farmBeatsResourceName"] = args ? args.farmBeatsResourceName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sensorIntegration"] = args ? args.sensorIntegration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["instanceUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instanceUri"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["sensorIntegration"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -121,17 +140,25 @@ export interface FarmBeatsModelArgs {
      */
     farmBeatsResourceName?: pulumi.Input<string>;
     /**
+     * Identity for the resource.
+     */
+    identity?: pulumi.Input<inputs.agfoodplatform.IdentityArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Property to allow or block public traffic for an Azure FarmBeats resource.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.agfoodplatform.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The resource model definition representing SKU
+     * Sensor integration request model.
      */
-    sku?: pulumi.Input<inputs.agfoodplatform.SkuArgs>;
+    sensorIntegration?: pulumi.Input<inputs.agfoodplatform.SensorIntegrationArgs>;
     /**
      * Resource tags.
      */

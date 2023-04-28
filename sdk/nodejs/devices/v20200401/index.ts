@@ -15,31 +15,6 @@ export const getCertificate: typeof import("./getCertificate").getCertificate = 
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
-export { GetIotHubResourceArgs, GetIotHubResourceResult, GetIotHubResourceOutputArgs } from "./getIotHubResource";
-export const getIotHubResource: typeof import("./getIotHubResource").getIotHubResource = null as any;
-export const getIotHubResourceOutput: typeof import("./getIotHubResource").getIotHubResourceOutput = null as any;
-utilities.lazyLoad(exports, ["getIotHubResource","getIotHubResourceOutput"], () => require("./getIotHubResource"));
-
-export { GetIotHubResourceEventHubConsumerGroupArgs, GetIotHubResourceEventHubConsumerGroupResult, GetIotHubResourceEventHubConsumerGroupOutputArgs } from "./getIotHubResourceEventHubConsumerGroup";
-export const getIotHubResourceEventHubConsumerGroup: typeof import("./getIotHubResourceEventHubConsumerGroup").getIotHubResourceEventHubConsumerGroup = null as any;
-export const getIotHubResourceEventHubConsumerGroupOutput: typeof import("./getIotHubResourceEventHubConsumerGroup").getIotHubResourceEventHubConsumerGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getIotHubResourceEventHubConsumerGroup","getIotHubResourceEventHubConsumerGroupOutput"], () => require("./getIotHubResourceEventHubConsumerGroup"));
-
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { IotHubResourceArgs } from "./iotHubResource";
-export type IotHubResource = import("./iotHubResource").IotHubResource;
-export const IotHubResource: typeof import("./iotHubResource").IotHubResource = null as any;
-utilities.lazyLoad(exports, ["IotHubResource"], () => require("./iotHubResource"));
-
-export { IotHubResourceEventHubConsumerGroupArgs } from "./iotHubResourceEventHubConsumerGroup";
-export type IotHubResourceEventHubConsumerGroup = import("./iotHubResourceEventHubConsumerGroup").IotHubResourceEventHubConsumerGroup;
-export const IotHubResourceEventHubConsumerGroup: typeof import("./iotHubResourceEventHubConsumerGroup").IotHubResourceEventHubConsumerGroup = null as any;
-utilities.lazyLoad(exports, ["IotHubResourceEventHubConsumerGroup"], () => require("./iotHubResourceEventHubConsumerGroup"));
-
 export { ListIotHubResourceKeysArgs, ListIotHubResourceKeysResult, ListIotHubResourceKeysOutputArgs } from "./listIotHubResourceKeys";
 export const listIotHubResourceKeys: typeof import("./listIotHubResourceKeys").listIotHubResourceKeys = null as any;
 export const listIotHubResourceKeysOutput: typeof import("./listIotHubResourceKeys").listIotHubResourceKeysOutput = null as any;
@@ -50,14 +25,6 @@ export const listIotHubResourceKeysForKeyName: typeof import("./listIotHubResour
 export const listIotHubResourceKeysForKeyNameOutput: typeof import("./listIotHubResourceKeysForKeyName").listIotHubResourceKeysForKeyNameOutput = null as any;
 utilities.lazyLoad(exports, ["listIotHubResourceKeysForKeyName","listIotHubResourceKeysForKeyNameOutput"], () => require("./listIotHubResourceKeysForKeyName"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-
-// Export enums:
-export * from "../../types/enums/devices/v20200401";
 
 const _module = {
     version: utilities.getVersion(),
@@ -65,12 +32,6 @@ const _module = {
         switch (type) {
             case "azure-native:devices/v20200401:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-native:devices/v20200401:IotHubResource":
-                return new IotHubResource(name, <any>undefined, { urn })
-            case "azure-native:devices/v20200401:IotHubResourceEventHubConsumerGroup":
-                return new IotHubResourceEventHubConsumerGroup(name, <any>undefined, { urn })
-            case "azure-native:devices/v20200401:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

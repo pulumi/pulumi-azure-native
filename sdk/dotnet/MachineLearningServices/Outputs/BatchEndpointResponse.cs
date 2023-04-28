@@ -17,9 +17,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class BatchEndpointResponse
     {
         /// <summary>
-        /// [Required] Inference endpoint authentication mode type
+        /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
         /// </summary>
-        public readonly string? AuthMode;
+        public readonly string AuthMode;
+        /// <summary>
+        /// Default values for Batch Endpoint
+        /// </summary>
+        public readonly Outputs.BatchEndpointDefaultsResponse? Defaults;
         /// <summary>
         /// Description of the inference endpoint.
         /// </summary>
@@ -29,6 +33,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
+        /// Provisioning state for the endpoint.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// Endpoint URI.
         /// </summary>
         public readonly string ScoringUri;
@@ -36,31 +44,30 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Endpoint Swagger URI.
         /// </summary>
         public readonly string SwaggerUri;
-        /// <summary>
-        /// Traffic rules on how the traffic will be routed across deployments.
-        /// </summary>
-        public readonly ImmutableDictionary<string, int>? Traffic;
 
         [OutputConstructor]
         private BatchEndpointResponse(
-            string? authMode,
+            string authMode,
+
+            Outputs.BatchEndpointDefaultsResponse? defaults,
 
             string? description,
 
             ImmutableDictionary<string, string>? properties,
 
+            string provisioningState,
+
             string scoringUri,
 
-            string swaggerUri,
-
-            ImmutableDictionary<string, int>? traffic)
+            string swaggerUri)
         {
             AuthMode = authMode;
+            Defaults = defaults;
             Description = description;
             Properties = properties;
+            ProvisioningState = provisioningState;
             ScoringUri = scoringUri;
             SwaggerUri = swaggerUri;
-            Traffic = traffic;
         }
     }
 }

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes an outbound endpoint for a DNS resolver.
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-07-01.
+ * Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class OutboundEndpoint extends pulumi.CustomResource {
     /**
@@ -61,7 +62,7 @@ export class OutboundEndpoint extends pulumi.CustomResource {
     /**
      * The reference to the subnet used for the outbound endpoint.
      */
-    public readonly subnet!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    public readonly subnet!: pulumi.Output<outputs.network.SubResourceResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -91,6 +92,9 @@ export class OutboundEndpoint extends pulumi.CustomResource {
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.subnet === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subnet'");
             }
             resourceInputs["dnsResolverName"] = args ? args.dnsResolverName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -145,7 +149,7 @@ export interface OutboundEndpointArgs {
     /**
      * The reference to the subnet used for the outbound endpoint.
      */
-    subnet?: pulumi.Input<inputs.network.SubResourceArgs>;
+    subnet: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * Resource tags.
      */

@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Network.Outputs
 {
 
     /// <summary>
-    /// Customer error of an application gateway.
+    /// Custom error of an application gateway.
     /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayCustomErrorResponse
     {
         /// <summary>
-        /// Error page URL of the application gateway customer error.
+        /// Error page URL of the application gateway custom error.
         /// </summary>
         public readonly string? CustomErrorPageUrl;
         /// <summary>
-        /// Status code of the application gateway customer error.
+        /// Status code of the application gateway custom error.
         /// </summary>
         public readonly string? StatusCode;
 

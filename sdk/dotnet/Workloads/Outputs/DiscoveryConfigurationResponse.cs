@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// Expected value is 'Discovery'.
         /// </summary>
         public readonly string ConfigurationType;
+        /// <summary>
+        /// The custom storage account name for the storage account created by the service in the managed resource group created as part of VIS deployment.&lt;br&gt;&lt;br&gt;Refer to the storage account naming rules [here](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).&lt;br&gt;&lt;br&gt;If not provided, the service will create the storage account with a random name.
+        /// </summary>
+        public readonly string? ManagedRgStorageAccountName;
 
         [OutputConstructor]
         private DiscoveryConfigurationResponse(
@@ -36,11 +40,14 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             string? centralServerVmId,
 
-            string configurationType)
+            string configurationType,
+
+            string? managedRgStorageAccountName)
         {
             AppLocation = appLocation;
             CentralServerVmId = centralServerVmId;
             ConfigurationType = configurationType;
+            ManagedRgStorageAccountName = managedRgStorageAccountName;
         }
     }
 }

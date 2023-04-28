@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements resourcePool GET method.
- * API Version: 2020-10-01-preview.
+ * API Version: 2022-07-15-preview.
  */
 export function getResourcePool(args: GetResourcePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePoolResult> {
 
@@ -54,6 +54,10 @@ export interface GetResourcePoolResult {
      * Gets the name of the corresponding resource in Kubernetes.
      */
     readonly customResourceName: string;
+    /**
+     * Gets or sets the datastore ARM ids.
+     */
+    readonly datastoreIds: string[];
     /**
      * Gets or sets the extended location.
      */
@@ -102,6 +106,10 @@ export interface GetResourcePoolResult {
      */
     readonly name: string;
     /**
+     * Gets or sets the network ARM ids.
+     */
+    readonly networkIds: string[];
+    /**
      * Gets or sets the provisioning state.
      */
     readonly provisioningState: string;
@@ -132,7 +140,7 @@ export interface GetResourcePoolResult {
 }
 /**
  * Implements resourcePool GET method.
- * API Version: 2020-10-01-preview.
+ * API Version: 2022-07-15-preview.
  */
 export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePoolResult> {
     return pulumi.output(args).apply((a: any) => getResourcePool(a, opts))

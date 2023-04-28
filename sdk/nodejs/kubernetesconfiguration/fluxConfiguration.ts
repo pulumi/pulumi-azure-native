@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Flux Configuration object returned in Get & Put response.
- * API Version: 2021-11-01-preview.
+ * API Version: 2022-11-01.
+ * Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class FluxConfiguration extends pulumi.CustomResource {
     /**
@@ -39,6 +40,14 @@ export class FluxConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * Parameters to reconcile to the AzureBlob source kind type.
+     */
+    public readonly azureBlob!: pulumi.Output<outputs.kubernetesconfiguration.AzureBlobDefinitionResponse | undefined>;
+    /**
+     * Parameters to reconcile to the Bucket source kind type.
+     */
+    public readonly bucket!: pulumi.Output<outputs.kubernetesconfiguration.BucketDefinitionResponse | undefined>;
+    /**
      * Combined status of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects.
      */
     public /*out*/ readonly complianceState!: pulumi.Output<string>;
@@ -58,14 +67,6 @@ export class FluxConfiguration extends pulumi.CustomResource {
      * Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
      */
     public readonly kustomizations!: pulumi.Output<{[key: string]: outputs.kubernetesconfiguration.KustomizationDefinitionResponse} | undefined>;
-    /**
-     * Datetime the fluxConfiguration last synced its source on the cluster.
-     */
-    public /*out*/ readonly lastSourceSyncedAt!: pulumi.Output<string>;
-    /**
-     * Branch and SHA of the last source commit synced with the cluster.
-     */
-    public /*out*/ readonly lastSourceSyncedCommitId!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -90,6 +91,18 @@ export class FluxConfiguration extends pulumi.CustomResource {
      * Source Kind to pull the configuration data from.
      */
     public readonly sourceKind!: pulumi.Output<string | undefined>;
+    /**
+     * Branch and/or SHA of the source commit synced with the cluster.
+     */
+    public /*out*/ readonly sourceSyncedCommitId!: pulumi.Output<string>;
+    /**
+     * Datetime the fluxConfiguration synced its source on the cluster.
+     */
+    public /*out*/ readonly sourceUpdatedAt!: pulumi.Output<string>;
+    /**
+     * Datetime the fluxConfiguration synced its status on the cluster with Azure.
+     */
+    public /*out*/ readonly statusUpdatedAt!: pulumi.Output<string>;
     /**
      * Statuses of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects provisioned by the fluxConfiguration.
      */
@@ -130,6 +143,8 @@ export class FluxConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["azureBlob"] = args ? (args.azureBlob ? pulumi.output(args.azureBlob).apply(inputs.kubernetesconfiguration.azureBlobDefinitionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["bucket"] = args ? (args.bucket ? pulumi.output(args.bucket).apply(inputs.kubernetesconfiguration.bucketDefinitionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
             resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
@@ -140,32 +155,36 @@ export class FluxConfiguration extends pulumi.CustomResource {
             resourceInputs["namespace"] = (args ? args.namespace : undefined) ?? "default";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["sourceKind"] = args ? args.sourceKind : undefined;
+            resourceInputs["sourceKind"] = (args ? args.sourceKind : undefined) ?? "GitRepository";
             resourceInputs["suspend"] = (args ? args.suspend : undefined) ?? false;
             resourceInputs["complianceState"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
-            resourceInputs["lastSourceSyncedAt"] = undefined /*out*/;
-            resourceInputs["lastSourceSyncedCommitId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["repositoryPublicKey"] = undefined /*out*/;
+            resourceInputs["sourceSyncedCommitId"] = undefined /*out*/;
+            resourceInputs["sourceUpdatedAt"] = undefined /*out*/;
+            resourceInputs["statusUpdatedAt"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureBlob"] = undefined /*out*/;
+            resourceInputs["bucket"] = undefined /*out*/;
             resourceInputs["complianceState"] = undefined /*out*/;
             resourceInputs["configurationProtectedSettings"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["gitRepository"] = undefined /*out*/;
             resourceInputs["kustomizations"] = undefined /*out*/;
-            resourceInputs["lastSourceSyncedAt"] = undefined /*out*/;
-            resourceInputs["lastSourceSyncedCommitId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["repositoryPublicKey"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["sourceKind"] = undefined /*out*/;
+            resourceInputs["sourceSyncedCommitId"] = undefined /*out*/;
+            resourceInputs["sourceUpdatedAt"] = undefined /*out*/;
+            resourceInputs["statusUpdatedAt"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["suspend"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -183,15 +202,23 @@ export class FluxConfiguration extends pulumi.CustomResource {
  */
 export interface FluxConfigurationArgs {
     /**
+     * Parameters to reconcile to the AzureBlob source kind type.
+     */
+    azureBlob?: pulumi.Input<inputs.kubernetesconfiguration.AzureBlobDefinitionArgs>;
+    /**
+     * Parameters to reconcile to the Bucket source kind type.
+     */
+    bucket?: pulumi.Input<inputs.kubernetesconfiguration.BucketDefinitionArgs>;
+    /**
      * The name of the kubernetes cluster.
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: pulumi.Input<string>;
     /**

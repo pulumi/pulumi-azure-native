@@ -303,38 +303,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
     }
 
     /// <summary>
-    /// Visibility state of the partner registration.
-    /// </summary>
-    [EnumType]
-    public readonly struct PartnerRegistrationVisibilityState : IEquatable<PartnerRegistrationVisibilityState>
-    {
-        private readonly string _value;
-
-        private PartnerRegistrationVisibilityState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PartnerRegistrationVisibilityState Hidden { get; } = new PartnerRegistrationVisibilityState("Hidden");
-        public static PartnerRegistrationVisibilityState PublicPreview { get; } = new PartnerRegistrationVisibilityState("PublicPreview");
-        public static PartnerRegistrationVisibilityState GenerallyAvailable { get; } = new PartnerRegistrationVisibilityState("GenerallyAvailable");
-
-        public static bool operator ==(PartnerRegistrationVisibilityState left, PartnerRegistrationVisibilityState right) => left.Equals(right);
-        public static bool operator !=(PartnerRegistrationVisibilityState left, PartnerRegistrationVisibilityState right) => !left.Equals(right);
-
-        public static explicit operator string(PartnerRegistrationVisibilityState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PartnerRegistrationVisibilityState other && Equals(other);
-        public bool Equals(PartnerRegistrationVisibilityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Status of the connection.
     /// </summary>
     [EnumType]

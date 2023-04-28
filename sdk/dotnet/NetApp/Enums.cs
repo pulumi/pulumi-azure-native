@@ -143,6 +143,80 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
+    /// Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionKeySource : IEquatable<EncryptionKeySource>
+    {
+        private readonly string _value;
+
+        private EncryptionKeySource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Microsoft-managed key encryption
+        /// </summary>
+        public static EncryptionKeySource Microsoft_NetApp { get; } = new EncryptionKeySource("Microsoft.NetApp");
+        /// <summary>
+        /// Customer-managed key encryption
+        /// </summary>
+        public static EncryptionKeySource Microsoft_KeyVault { get; } = new EncryptionKeySource("Microsoft.KeyVault");
+
+        public static bool operator ==(EncryptionKeySource left, EncryptionKeySource right) => left.Equals(right);
+        public static bool operator !=(EncryptionKeySource left, EncryptionKeySource right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionKeySource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionKeySource other && Equals(other);
+        public bool Equals(EncryptionKeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionType : IEquatable<EncryptionType>
+    {
+        private readonly string _value;
+
+        private EncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// EncryptionType Single, volumes will use single encryption at rest
+        /// </summary>
+        public static EncryptionType Single { get; } = new EncryptionType("Single");
+        /// <summary>
+        /// EncryptionType Double, volumes will use double encryption at rest
+        /// </summary>
+        public static EncryptionType Double { get; } = new EncryptionType("Double");
+
+        public static bool operator ==(EncryptionType left, EncryptionType right) => left.Equals(right);
+        public static bool operator !=(EncryptionType left, EncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionType other && Equals(other);
+        public bool Equals(EncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the local volume is the source or destination for the Volume Replication
     /// </summary>
     [EnumType]
@@ -166,6 +240,76 @@ namespace Pulumi.AzureNative.NetApp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EndpointType other && Equals(other);
         public bool Equals(EndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+    /// </summary>
+    [EnumType]
+    public readonly struct KeySource : IEquatable<KeySource>
+    {
+        private readonly string _value;
+
+        private KeySource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Microsoft-managed key encryption
+        /// </summary>
+        public static KeySource Microsoft_NetApp { get; } = new KeySource("Microsoft.NetApp");
+        /// <summary>
+        /// Customer-managed key encryption
+        /// </summary>
+        public static KeySource Microsoft_KeyVault { get; } = new KeySource("Microsoft.KeyVault");
+
+        public static bool operator ==(KeySource left, KeySource right) => left.Equals(right);
+        public static bool operator !=(KeySource left, KeySource right) => !left.Equals(right);
+
+        public static explicit operator string(KeySource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
+        public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -348,6 +492,80 @@ namespace Pulumi.AzureNative.NetApp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceLevel other && Equals(other);
         public bool Equals(ServiceLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    /// </summary>
+    [EnumType]
+    public readonly struct SmbAccessBasedEnumeration : IEquatable<SmbAccessBasedEnumeration>
+    {
+        private readonly string _value;
+
+        private SmbAccessBasedEnumeration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// smbAccessBasedEnumeration share setting is disabled
+        /// </summary>
+        public static SmbAccessBasedEnumeration Disabled { get; } = new SmbAccessBasedEnumeration("Disabled");
+        /// <summary>
+        /// smbAccessBasedEnumeration share setting is enabled
+        /// </summary>
+        public static SmbAccessBasedEnumeration Enabled { get; } = new SmbAccessBasedEnumeration("Enabled");
+
+        public static bool operator ==(SmbAccessBasedEnumeration left, SmbAccessBasedEnumeration right) => left.Equals(right);
+        public static bool operator !=(SmbAccessBasedEnumeration left, SmbAccessBasedEnumeration right) => !left.Equals(right);
+
+        public static explicit operator string(SmbAccessBasedEnumeration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SmbAccessBasedEnumeration other && Equals(other);
+        public bool Equals(SmbAccessBasedEnumeration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    /// </summary>
+    [EnumType]
+    public readonly struct SmbNonBrowsable : IEquatable<SmbNonBrowsable>
+    {
+        private readonly string _value;
+
+        private SmbNonBrowsable(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// smbNonBrowsable share setting is disabled
+        /// </summary>
+        public static SmbNonBrowsable Disabled { get; } = new SmbNonBrowsable("Disabled");
+        /// <summary>
+        /// smbNonBrowsable share setting is enabled
+        /// </summary>
+        public static SmbNonBrowsable Enabled { get; } = new SmbNonBrowsable("Enabled");
+
+        public static bool operator ==(SmbNonBrowsable left, SmbNonBrowsable right) => left.Equals(right);
+        public static bool operator !=(SmbNonBrowsable left, SmbNonBrowsable right) => !left.Equals(right);
+
+        public static explicit operator string(SmbNonBrowsable value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SmbNonBrowsable other && Equals(other);
+        public bool Equals(SmbNonBrowsable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Network security rule.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SecurityRule extends pulumi.CustomResource {
     /**
@@ -81,7 +82,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * Network protocol this rule applies to.
      */
@@ -134,6 +135,9 @@ export class SecurityRule extends pulumi.CustomResource {
             }
             if ((!args || args.networkSecurityGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
+            }
+            if ((!args || args.priority === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'priority'");
             }
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
@@ -243,7 +247,7 @@ export interface SecurityRuleArgs {
     /**
      * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    priority?: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
     /**
      * Network protocol this rule applies to.
      */

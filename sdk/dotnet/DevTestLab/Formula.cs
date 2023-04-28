@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// <summary>
     /// A formula for creating a VM, specifying an image base and other parameters
     /// API Version: 2018-09-15.
+    /// Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Formula")]
     public partial class Formula : global::Pulumi.CustomResource

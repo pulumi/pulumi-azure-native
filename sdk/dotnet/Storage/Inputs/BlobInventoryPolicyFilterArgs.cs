@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.Storage.Inputs
 {
 
     /// <summary>
-    /// An object that defines the blob inventory rule filter conditions.
+    /// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
     /// </summary>
     public sealed class BlobInventoryPolicyFilterArgs : global::Pulumi.ResourceArgs
     {
-        [Input("blobTypes", required: true)]
+        [Input("blobTypes")]
         private InputList<string>? _blobTypes;
 
         /// <summary>
-        /// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        /// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
         /// </summary>
         public InputList<string> BlobTypes
         {
@@ -27,14 +27,32 @@ namespace Pulumi.AzureNative.Storage.Inputs
             set => _blobTypes = value;
         }
 
+        [Input("excludePrefix")]
+        private InputList<string>? _excludePrefix;
+
         /// <summary>
-        /// Includes blob versions in blob inventory when value set to true.
+        /// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+        /// </summary>
+        public InputList<string> ExcludePrefix
+        {
+            get => _excludePrefix ?? (_excludePrefix = new InputList<string>());
+            set => _excludePrefix = value;
+        }
+
+        /// <summary>
+        /// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
         /// </summary>
         [Input("includeBlobVersions")]
         public Input<bool>? IncludeBlobVersions { get; set; }
 
         /// <summary>
-        /// Includes blob snapshots in blob inventory when value set to true.
+        /// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+        /// </summary>
+        [Input("includeDeleted")]
+        public Input<bool>? IncludeDeleted { get; set; }
+
+        /// <summary>
+        /// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
         /// </summary>
         [Input("includeSnapshots")]
         public Input<bool>? IncludeSnapshots { get; set; }
@@ -43,7 +61,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
         private InputList<string>? _prefixMatch;
 
         /// <summary>
-        /// An array of strings for blob prefixes to be matched.
+        /// An array of strings with maximum 10 blob prefixes to be included in the inventory.
         /// </summary>
         public InputList<string> PrefixMatch
         {

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// The rule type.
         /// </summary>
         public readonly string RuleType;
+        /// <summary>
+        /// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        /// </summary>
+        public readonly string? State;
 
         [OutputConstructor]
         private WebApplicationFirewallCustomRuleResponse(
@@ -53,7 +57,9 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             int priority,
 
-            string ruleType)
+            string ruleType,
+
+            string? state)
         {
             Action = action;
             Etag = etag;
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Name = name;
             Priority = priority;
             RuleType = ruleType;
+            State = state;
         }
     }
 }

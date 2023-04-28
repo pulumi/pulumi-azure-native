@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     public sealed class ReferenceInputPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Describes how input data is compressed
+        /// </summary>
+        [Input("compression")]
+        public Input<Inputs.CompressionArgs>? Compression { get; set; }
+
+        /// <summary>
         /// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("datasource")]
-        public Input<Inputs.BlobReferenceInputDataSourceArgs>? Datasource { get; set; }
+        public object? Datasource { get; set; }
+
+        /// <summary>
+        /// partitionKey Describes a key in the input data which is used for partitioning the input data
+        /// </summary>
+        [Input("partitionKey")]
+        public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.

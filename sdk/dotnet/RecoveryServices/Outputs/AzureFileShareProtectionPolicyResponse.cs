@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? ProtectedItemsCount;
         /// <summary>
+        /// ResourceGuard Operation Requests
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
         /// Retention policy with the details on backup copy retention ranges.
         /// </summary>
         public readonly Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? RetentionPolicy;
@@ -48,6 +52,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? protectedItemsCount,
 
+            ImmutableArray<string> resourceGuardOperationRequests,
+
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
             object? schedulePolicy,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         {
             BackupManagementType = backupManagementType;
             ProtectedItemsCount = protectedItemsCount;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
             TimeZone = timeZone;

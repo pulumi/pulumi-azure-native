@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * A secret.
  * API Version: 2018-09-15.
+ * Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Secret extends pulumi.CustomResource {
     /**

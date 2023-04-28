@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly int? MaxBatchInstancePercent;
         /// <summary>
+        /// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch.
+        /// </summary>
+        public readonly bool? MaxSurge;
+        /// <summary>
         /// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
         /// </summary>
         public readonly int? MaxUnhealthyInstancePercent;
@@ -40,6 +44,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Upgrade all unhealthy instances in a scale set before any healthy instances.
         /// </summary>
         public readonly bool? PrioritizeUnhealthyInstances;
+        /// <summary>
+        /// Rollback failed instances to previous model if the Rolling Upgrade policy is violated.
+        /// </summary>
+        public readonly bool? RollbackFailedInstancesOnPolicyBreach;
 
         [OutputConstructor]
         private RollingUpgradePolicyResponse(
@@ -47,20 +55,26 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             int? maxBatchInstancePercent,
 
+            bool? maxSurge,
+
             int? maxUnhealthyInstancePercent,
 
             int? maxUnhealthyUpgradedInstancePercent,
 
             string? pauseTimeBetweenBatches,
 
-            bool? prioritizeUnhealthyInstances)
+            bool? prioritizeUnhealthyInstances,
+
+            bool? rollbackFailedInstancesOnPolicyBreach)
         {
             EnableCrossZoneUpgrade = enableCrossZoneUpgrade;
             MaxBatchInstancePercent = maxBatchInstancePercent;
+            MaxSurge = maxSurge;
             MaxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
             MaxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
             PauseTimeBetweenBatches = pauseTimeBetweenBatches;
             PrioritizeUnhealthyInstances = prioritizeUnhealthyInstances;
+            RollbackFailedInstancesOnPolicyBreach = rollbackFailedInstancesOnPolicyBreach;
         }
     }
 }

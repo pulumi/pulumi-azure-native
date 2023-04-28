@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
     /// <summary>
     /// The Managed Network Group resource
     /// API Version: 2019-06-01-preview.
+    /// Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork:ManagedNetworkGroup")]
     public partial class ManagedNetworkGroup : global::Pulumi.CustomResource

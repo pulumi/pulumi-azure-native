@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetmonitorResult> InvokeAsync(GetmonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetmonitorResult>("azure-native:workloads:getmonitor", args ?? new GetmonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetmonitorResult> Invoke(GetmonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetmonitorResult>("azure-native:workloads:getmonitor", args ?? new GetmonitorInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// [currently not in use] Managed service identity(user assigned identities)
         /// </summary>
         public readonly Outputs.UserAssignedServiceIdentityResponse? Identity;
         /// <summary>

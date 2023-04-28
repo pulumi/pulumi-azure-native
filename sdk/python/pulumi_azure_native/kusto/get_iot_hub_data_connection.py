@@ -21,13 +21,16 @@ class GetIotHubDataConnectionResult:
     """
     Class representing an iot hub data connection.
     """
-    def __init__(__self__, consumer_group=None, data_format=None, event_system_properties=None, id=None, iot_hub_resource_id=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, shared_access_policy_name=None, table_name=None, type=None):
+    def __init__(__self__, consumer_group=None, data_format=None, database_routing=None, event_system_properties=None, id=None, iot_hub_resource_id=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, retrieval_start_date=None, shared_access_policy_name=None, table_name=None, type=None):
         if consumer_group and not isinstance(consumer_group, str):
             raise TypeError("Expected argument 'consumer_group' to be a str")
         pulumi.set(__self__, "consumer_group", consumer_group)
         if data_format and not isinstance(data_format, str):
             raise TypeError("Expected argument 'data_format' to be a str")
         pulumi.set(__self__, "data_format", data_format)
+        if database_routing and not isinstance(database_routing, str):
+            raise TypeError("Expected argument 'database_routing' to be a str")
+        pulumi.set(__self__, "database_routing", database_routing)
         if event_system_properties and not isinstance(event_system_properties, list):
             raise TypeError("Expected argument 'event_system_properties' to be a list")
         pulumi.set(__self__, "event_system_properties", event_system_properties)
@@ -52,6 +55,9 @@ class GetIotHubDataConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if retrieval_start_date and not isinstance(retrieval_start_date, str):
+            raise TypeError("Expected argument 'retrieval_start_date' to be a str")
+        pulumi.set(__self__, "retrieval_start_date", retrieval_start_date)
         if shared_access_policy_name and not isinstance(shared_access_policy_name, str):
             raise TypeError("Expected argument 'shared_access_policy_name' to be a str")
         pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
@@ -77,6 +83,14 @@ class GetIotHubDataConnectionResult:
         The data format of the message. Optionally the data format can be added to each message.
         """
         return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> Optional[str]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
 
     @property
     @pulumi.getter(name="eventSystemProperties")
@@ -144,6 +158,14 @@ class GetIotHubDataConnectionResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="retrievalStartDate")
+    def retrieval_start_date(self) -> Optional[str]:
+        """
+        When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        """
+        return pulumi.get(self, "retrieval_start_date")
+
+    @property
     @pulumi.getter(name="sharedAccessPolicyName")
     def shared_access_policy_name(self) -> str:
         """
@@ -176,6 +198,7 @@ class AwaitableGetIotHubDataConnectionResult(GetIotHubDataConnectionResult):
         return GetIotHubDataConnectionResult(
             consumer_group=self.consumer_group,
             data_format=self.data_format,
+            database_routing=self.database_routing,
             event_system_properties=self.event_system_properties,
             id=self.id,
             iot_hub_resource_id=self.iot_hub_resource_id,
@@ -184,6 +207,7 @@ class AwaitableGetIotHubDataConnectionResult(GetIotHubDataConnectionResult):
             mapping_rule_name=self.mapping_rule_name,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            retrieval_start_date=self.retrieval_start_date,
             shared_access_policy_name=self.shared_access_policy_name,
             table_name=self.table_name,
             type=self.type)
@@ -196,7 +220,7 @@ def get_iot_hub_data_connection(cluster_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubDataConnectionResult:
     """
     Returns a data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -215,6 +239,7 @@ def get_iot_hub_data_connection(cluster_name: Optional[str] = None,
     return AwaitableGetIotHubDataConnectionResult(
         consumer_group=__ret__.consumer_group,
         data_format=__ret__.data_format,
+        database_routing=__ret__.database_routing,
         event_system_properties=__ret__.event_system_properties,
         id=__ret__.id,
         iot_hub_resource_id=__ret__.iot_hub_resource_id,
@@ -223,6 +248,7 @@ def get_iot_hub_data_connection(cluster_name: Optional[str] = None,
         mapping_rule_name=__ret__.mapping_rule_name,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        retrieval_start_date=__ret__.retrieval_start_date,
         shared_access_policy_name=__ret__.shared_access_policy_name,
         table_name=__ret__.table_name,
         type=__ret__.type)
@@ -236,7 +262,7 @@ def get_iot_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str]]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubDataConnectionResult]:
     """
     Returns a data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A class representing a Domains resource.
-    /// API Version: 2021-10-01-preview.
+    /// API Version: 2023-03-01-preview.
+    /// Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
@@ -83,12 +84,6 @@ namespace Pulumi.AzureNative.Communication
         public Output<string?> UserEngagementTracking { get; private set; } = null!;
 
         /// <summary>
-        /// Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-        /// </summary>
-        [Output("validSenderUsernames")]
-        public Output<ImmutableDictionary<string, string>?> ValidSenderUsernames { get; private set; } = null!;
-
-        /// <summary>
         /// List of DnsRecord
         /// </summary>
         [Output("verificationRecords")]
@@ -127,6 +122,7 @@ namespace Pulumi.AzureNative.Communication
                 {
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:Domain"},
                 },
             };
@@ -198,18 +194,6 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         [Input("userEngagementTracking")]
         public InputUnion<string, Pulumi.AzureNative.Communication.UserEngagementTracking>? UserEngagementTracking { get; set; }
-
-        [Input("validSenderUsernames")]
-        private InputMap<string>? _validSenderUsernames;
-
-        /// <summary>
-        /// Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-        /// </summary>
-        public InputMap<string> ValidSenderUsernames
-        {
-            get => _validSenderUsernames ?? (_validSenderUsernames = new InputMap<string>());
-            set => _validSenderUsernames = value;
-        }
 
         public DomainArgs()
         {

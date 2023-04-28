@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Inbound NAT rule of the load balancer.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:InboundNatRule")]
     public partial class InboundNatRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A reference to backendAddressPool resource.
+        /// </summary>
+        [Output("backendAddressPool")]
+        public Output<Outputs.SubResourceResponse?> BackendAddressPool { get; private set; } = null!;
+
         /// <summary>
         /// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
         /// </summary>
@@ -57,6 +64,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("frontendPort")]
         public Output<int?> FrontendPort { get; private set; } = null!;
+
+        /// <summary>
+        /// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        /// </summary>
+        [Output("frontendPortRangeEnd")]
+        public Output<int?> FrontendPortRangeEnd { get; private set; } = null!;
+
+        /// <summary>
+        /// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        /// </summary>
+        [Output("frontendPortRangeStart")]
+        public Output<int?> FrontendPortRangeStart { get; private set; } = null!;
 
         /// <summary>
         /// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
@@ -174,6 +193,12 @@ namespace Pulumi.AzureNative.Network
     public sealed class InboundNatRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A reference to backendAddressPool resource.
+        /// </summary>
+        [Input("backendAddressPool")]
+        public Input<Inputs.SubResourceArgs>? BackendAddressPool { get; set; }
+
+        /// <summary>
         /// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         /// </summary>
         [Input("backendPort")]
@@ -204,6 +229,18 @@ namespace Pulumi.AzureNative.Network
         public Input<int>? FrontendPort { get; set; }
 
         /// <summary>
+        /// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        /// </summary>
+        [Input("frontendPortRangeEnd")]
+        public Input<int>? FrontendPortRangeEnd { get; set; }
+
+        /// <summary>
+        /// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        /// </summary>
+        [Input("frontendPortRangeStart")]
+        public Input<int>? FrontendPortRangeStart { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -216,7 +253,7 @@ namespace Pulumi.AzureNative.Network
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
-        /// The name of the inbound nat rule.
+        /// The name of the inbound NAT rule.
         /// </summary>
         [Input("inboundNatRuleName")]
         public Input<string>? InboundNatRuleName { get; set; }

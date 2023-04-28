@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Virtual Instance for SAP solutions resource
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getSAPVirtualInstance(args: GetSAPVirtualInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPVirtualInstanceResult> {
 
@@ -56,7 +56,7 @@ export interface GetSAPVirtualInstanceResult {
      */
     readonly id: string;
     /**
-     * Managed service identity (user assigned identities)
+     * A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
      */
     readonly identity?: outputs.workloads.UserAssignedServiceIdentityResponse;
     /**
@@ -102,7 +102,7 @@ export interface GetSAPVirtualInstanceResult {
 }
 /**
  * Gets a Virtual Instance for SAP solutions resource
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getSAPVirtualInstanceOutput(args: GetSAPVirtualInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPVirtualInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPVirtualInstance(a, opts))

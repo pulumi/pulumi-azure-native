@@ -10,12 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer
 {
     /// <summary>
-    /// The representation of a single video in a Video Analyzer account.
-    /// API Version: 2021-05-01-preview.
+    /// Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+    /// API Version: 2021-11-01-preview.
+    /// Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:Video")]
     public partial class Video : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Video archival properties.
+        /// </summary>
+        [Output("archival")]
+        public Output<Outputs.VideoArchivalResponse?> Archival { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of URLs to the video content.
+        /// </summary>
+        [Output("contentUrls")]
+        public Output<Outputs.VideoContentUrlsResponse> ContentUrls { get; private set; } = null!;
+
         /// <summary>
         /// Optional video description provided by the user. Value can be up to 2048 characters long.
         /// </summary>
@@ -32,7 +45,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// Contains information about the video and audio content.
         /// </summary>
         [Output("mediaInfo")]
-        public Output<Outputs.VideoMediaInfoResponse> MediaInfo { get; private set; } = null!;
+        public Output<Outputs.VideoMediaInfoResponse?> MediaInfo { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -41,13 +54,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Video streaming holds information about video streaming URLs.
-        /// </summary>
-        [Output("streaming")]
-        public Output<Outputs.VideoStreamingResponse> Streaming { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -121,10 +128,22 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Video archival properties.
+        /// </summary>
+        [Input("archival")]
+        public Input<Inputs.VideoArchivalArgs>? Archival { get; set; }
+
+        /// <summary>
         /// Optional video description provided by the user. Value can be up to 2048 characters long.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Contains information about the video and audio content.
+        /// </summary>
+        [Input("mediaInfo")]
+        public Input<Inputs.VideoMediaInfoArgs>? MediaInfo { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -139,7 +158,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The name of the video to create or update.
+        /// The Video name.
         /// </summary>
         [Input("videoName")]
         public Input<string>? VideoName { get; set; }

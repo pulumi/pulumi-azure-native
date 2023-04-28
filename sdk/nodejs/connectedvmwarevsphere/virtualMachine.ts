@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Define the virtualMachine.
- * API Version: 2020-10-01-preview.
+ * API Version: 2022-07-15-preview.
+ * Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -57,7 +58,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Guest agent status properties.
      */
-    public /*out*/ readonly guestAgentProfile!: pulumi.Output<outputs.connectedvmwarevsphere.GuestAgentProfileResponse | undefined>;
+    public readonly guestAgentProfile!: pulumi.Output<outputs.connectedvmwarevsphere.GuestAgentProfileResponse | undefined>;
     /**
      * Hardware properties.
      */
@@ -120,6 +121,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly resourcePoolId!: pulumi.Output<string | undefined>;
     /**
+     * Gets the security profile.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.connectedvmwarevsphere.SecurityProfileResponse | undefined>;
+    /**
      * Gets or sets the SMBIOS UUID of the vm.
      */
     public readonly smbiosUuid!: pulumi.Output<string | undefined>;
@@ -176,6 +181,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["firmwareType"] = args ? args.firmwareType : undefined;
+            resourceInputs["guestAgentProfile"] = args ? args.guestAgentProfile : undefined;
             resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
@@ -187,6 +193,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["placementProfile"] = args ? args.placementProfile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourcePoolId"] = args ? args.resourcePoolId : undefined;
+            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["smbiosUuid"] = args ? args.smbiosUuid : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -195,7 +202,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["folderPath"] = undefined /*out*/;
-            resourceInputs["guestAgentProfile"] = undefined /*out*/;
             resourceInputs["instanceUuid"] = undefined /*out*/;
             resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -227,6 +233,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["powerState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourcePoolId"] = undefined /*out*/;
+            resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["smbiosUuid"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
@@ -257,6 +264,10 @@ export interface VirtualMachineArgs {
      * Firmware type
      */
     firmwareType?: pulumi.Input<string | enums.connectedvmwarevsphere.FirmwareType>;
+    /**
+     * Guest agent status properties.
+     */
+    guestAgentProfile?: pulumi.Input<inputs.connectedvmwarevsphere.GuestAgentProfileArgs>;
     /**
      * Hardware properties.
      */
@@ -302,6 +313,10 @@ export interface VirtualMachineArgs {
      * deploy.
      */
     resourcePoolId?: pulumi.Input<string>;
+    /**
+     * Gets the security profile.
+     */
+    securityProfile?: pulumi.Input<inputs.connectedvmwarevsphere.SecurityProfileArgs>;
     /**
      * Gets or sets the SMBIOS UUID of the vm.
      */

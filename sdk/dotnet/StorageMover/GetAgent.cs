@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageMover
     {
         /// <summary>
         /// Gets an Agent resource.
-        /// API Version: 2022-07-01-preview.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Task<GetAgentResult> InvokeAsync(GetAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentResult>("azure-native:storagemover:getAgent", args ?? new GetAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Agent resource.
-        /// API Version: 2022-07-01-preview.
+        /// API Version: 2023-03-01.
         /// </summary>
         public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("azure-native:storagemover:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());

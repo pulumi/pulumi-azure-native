@@ -3,22 +3,19 @@
 
 // Export sub-modules:
 import * as v20200315preview from "./v20200315preview";
-import * as v20210401preview from "./v20210401preview";
 import * as v20210801 from "./v20210801";
 
 export {
     v20200315preview,
-    v20210401preview,
     v20210801,
 };
 
-export const DiskPoolTier = {
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
+export const IscsiTargetAclMode = {
+    Dynamic: "Dynamic",
+    Static: "Static",
 } as const;
 
 /**
- * Determines the SKU of VM deployed for Disk pool
+ * Mode for Target connectivity.
  */
-export type DiskPoolTier = (typeof DiskPoolTier)[keyof typeof DiskPoolTier];
+export type IscsiTargetAclMode = (typeof IscsiTargetAclMode)[keyof typeof IscsiTargetAclMode];

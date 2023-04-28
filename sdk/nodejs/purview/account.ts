@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Account resource
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-07-01.
+ * Previous API Version: 2020-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -102,7 +103,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.purview.AccountPropertiesResponseSystemData>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.purview.TrackedResourceResponseSystemData>;
     /**
      * Tags on the azure resource.
      */

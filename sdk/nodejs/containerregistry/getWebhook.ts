@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified webhook.
- * API Version: 2019-05-01.
+ * API Version: 2022-12-01.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
 
@@ -24,7 +27,7 @@ export interface GetWebhookArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -66,6 +69,10 @@ export interface GetWebhookResult {
      */
     readonly status?: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.SystemDataResponse;
+    /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
@@ -76,7 +83,7 @@ export interface GetWebhookResult {
 }
 /**
  * Gets the properties of the specified webhook.
- * API Version: 2019-05-01.
+ * API Version: 2022-12-01.
  */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
     return pulumi.output(args).apply((a: any) => getWebhook(a, opts))
@@ -88,7 +95,7 @@ export interface GetWebhookOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -28,7 +28,7 @@ class TIDataConnectorArgs:
         The set of arguments for constructing a TIDataConnector resource.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'ThreatIntelligence'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['TIDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
@@ -64,7 +64,7 @@ class TIDataConnectorArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -148,7 +148,8 @@ class TIDataConnector(pulumi.CustomResource):
                  __props__=None):
         """
         Represents threat intelligence data connector.
-        API Version: 2020-01-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +157,7 @@ class TIDataConnector(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TIDataConnectorDataTypesArgs']] data_types: The available data types for the connector.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'ThreatIntelligence'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[str] tip_lookback_period: The lookback period for the feed to be imported.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -169,7 +170,8 @@ class TIDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents threat intelligence data connector.
-        API Version: 2020-01-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param TIDataConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -217,8 +219,9 @@ class TIDataConnector(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:TIDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:TIDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:TIDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TIDataConnector, __self__).__init__(
             'azure-native:securityinsights:TIDataConnector',
@@ -246,6 +249,7 @@ class TIDataConnector(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["tip_lookback_period"] = None
         __props__.__dict__["type"] = None
@@ -280,9 +284,17 @@ class TIDataConnector(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tenantId")
@@ -304,7 +316,7 @@ class TIDataConnector(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

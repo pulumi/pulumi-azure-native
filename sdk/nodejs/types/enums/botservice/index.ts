@@ -2,65 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20171201 from "./v20171201";
 import * as v20180712 from "./v20180712";
-import * as v20200602 from "./v20200602";
 import * as v20210301 from "./v20210301";
 import * as v20210501preview from "./v20210501preview";
-import * as v20220615preview from "./v20220615preview";
 import * as v20220915 from "./v20220915";
 
 export {
-    v20171201,
     v20180712,
-    v20200602,
     v20210301,
     v20210501preview,
-    v20220615preview,
     v20220915,
 };
-
-export const EnterpriseChannelNodeState = {
-    Creating: "Creating",
-    CreateFailed: "CreateFailed",
-    Started: "Started",
-    Starting: "Starting",
-    StartFailed: "StartFailed",
-    Stopped: "Stopped",
-    Stopping: "Stopping",
-    StopFailed: "StopFailed",
-    Deleting: "Deleting",
-    DeleteFailed: "DeleteFailed",
-} as const;
-
-/**
- * The current state of the Enterprise Channel Node.
- */
-export type EnterpriseChannelNodeState = (typeof EnterpriseChannelNodeState)[keyof typeof EnterpriseChannelNodeState];
-
-export const EnterpriseChannelState = {
-    Creating: "Creating",
-    CreateFailed: "CreateFailed",
-    Started: "Started",
-    Starting: "Starting",
-    StartFailed: "StartFailed",
-    Stopped: "Stopped",
-    Stopping: "Stopping",
-    StopFailed: "StopFailed",
-    Deleting: "Deleting",
-    DeleteFailed: "DeleteFailed",
-} as const;
-
-/**
- * The current state of the Enterprise Channel.
- */
-export type EnterpriseChannelState = (typeof EnterpriseChannelState)[keyof typeof EnterpriseChannelState];
 
 export const Kind = {
     Sdk: "sdk",
     Designer: "designer",
     Bot: "bot",
     Function: "function",
+    Azurebot: "azurebot",
 } as const;
 
 /**

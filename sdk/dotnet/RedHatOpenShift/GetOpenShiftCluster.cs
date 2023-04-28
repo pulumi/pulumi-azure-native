@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns properties of a OpenShift cluster.
-        /// API Version: 2020-04-30.
+        /// API Version: 2022-09-04.
         /// </summary>
         public static Task<GetOpenShiftClusterResult> InvokeAsync(GetOpenShiftClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-native:redhatopenshift:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a OpenShift cluster.
-        /// API Version: 2020-04-30.
+        /// API Version: 2022-09-04.
         /// </summary>
         public static Output<GetOpenShiftClusterResult> Invoke(GetOpenShiftClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenShiftClusterResult>("azure-native:redhatopenshift:getOpenShiftCluster", args ?? new GetOpenShiftClusterInvokeArgs(), options.WithDefaults());
@@ -108,13 +108,17 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// </summary>
         public readonly Outputs.NetworkProfileResponse? NetworkProfile;
         /// <summary>
-        /// The cluster provisioning state (immutable).
+        /// The cluster provisioning state.
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
         /// The cluster service principal profile.
         /// </summary>
         public readonly Outputs.ServicePrincipalProfileResponse? ServicePrincipalProfile;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 
             Outputs.ServicePrincipalProfileResponse? servicePrincipalProfile,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
             NetworkProfile = networkProfile;
             ProvisioningState = provisioningState;
             ServicePrincipalProfile = servicePrincipalProfile;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             WorkerProfiles = workerProfiles;

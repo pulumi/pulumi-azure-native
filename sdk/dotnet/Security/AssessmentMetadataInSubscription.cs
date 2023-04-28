@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security
 {
     /// <summary>
-    /// Security assessment metadata
-    /// API Version: 2020-01-01.
+    /// Security assessment metadata response
+    /// API Version: 2021-06-01.
+    /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AssessmentMetadataInSubscription")]
     public partial class AssessmentMetadataInSubscription : global::Pulumi.CustomResource
@@ -55,6 +56,9 @@ namespace Pulumi.AzureNative.Security
         [Output("partnerData")]
         public Output<Outputs.SecurityAssessmentMetadataPartnerDataResponse?> PartnerData { get; private set; } = null!;
 
+        [Output("plannedDeprecationDate")]
+        public Output<string?> PlannedDeprecationDate { get; private set; } = null!;
+
         /// <summary>
         /// Azure resource ID of the policy definition that turns this assessment calculation on
         /// </summary>
@@ -67,6 +71,9 @@ namespace Pulumi.AzureNative.Security
         [Output("preview")]
         public Output<bool?> Preview { get; private set; } = null!;
 
+        [Output("publishDates")]
+        public Output<Outputs.SecurityAssessmentMetadataPropertiesResponseResponsePublishDates?> PublishDates { get; private set; } = null!;
+
         /// <summary>
         /// Human readable description of what you should do to mitigate this security issue
         /// </summary>
@@ -78,6 +85,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("severity")]
         public Output<string> Severity { get; private set; } = null!;
+
+        [Output("tactics")]
+        public Output<ImmutableArray<string>> Tactics { get; private set; } = null!;
+
+        [Output("techniques")]
+        public Output<ImmutableArray<string>> Techniques { get; private set; } = null!;
 
         [Output("threats")]
         public Output<ImmutableArray<string>> Threats { get; private set; } = null!;
@@ -189,11 +202,17 @@ namespace Pulumi.AzureNative.Security
         [Input("partnerData")]
         public Input<Inputs.SecurityAssessmentMetadataPartnerDataArgs>? PartnerData { get; set; }
 
+        [Input("plannedDeprecationDate")]
+        public Input<string>? PlannedDeprecationDate { get; set; }
+
         /// <summary>
         /// True if this assessment is in preview release status
         /// </summary>
         [Input("preview")]
         public Input<bool>? Preview { get; set; }
+
+        [Input("publishDates")]
+        public Input<Inputs.SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs>? PublishDates { get; set; }
 
         /// <summary>
         /// Human readable description of what you should do to mitigate this security issue
@@ -206,6 +225,22 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Input("severity", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Security.Severity> Severity { get; set; } = null!;
+
+        [Input("tactics")]
+        private InputList<Union<string, Pulumi.AzureNative.Security.Tactics>>? _tactics;
+        public InputList<Union<string, Pulumi.AzureNative.Security.Tactics>> Tactics
+        {
+            get => _tactics ?? (_tactics = new InputList<Union<string, Pulumi.AzureNative.Security.Tactics>>());
+            set => _tactics = value;
+        }
+
+        [Input("techniques")]
+        private InputList<Union<string, Pulumi.AzureNative.Security.Techniques>>? _techniques;
+        public InputList<Union<string, Pulumi.AzureNative.Security.Techniques>> Techniques
+        {
+            get => _techniques ?? (_techniques = new InputList<Union<string, Pulumi.AzureNative.Security.Techniques>>());
+            set => _techniques = value;
+        }
 
         [Input("threats")]
         private InputList<Union<string, Pulumi.AzureNative.Security.Threats>>? _threats;

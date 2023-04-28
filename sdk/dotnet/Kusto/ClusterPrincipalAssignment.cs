@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-12-29.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ClusterPrincipalAssignment")]
     public partial class ClusterPrincipalAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        [Output("aadObjectId")]
+        public Output<string> AadObjectId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>

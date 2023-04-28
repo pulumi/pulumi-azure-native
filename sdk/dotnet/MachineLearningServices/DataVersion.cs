@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:DataVersion")]
     public partial class DataVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("dataVersionBaseProperties")]
+        public Output<object> DataVersionBaseProperties { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -23,13 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DataVersionResponse> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -72,6 +73,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:DataVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:DataVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:DataVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:DataVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:DataVersion"},
                 },
             };
@@ -97,16 +99,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class DataVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Input("dataVersionBaseProperties", required: true)]
+        public object DataVersionBaseProperties { get; set; } = null!;
+
+        /// <summary>
         /// Container name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DataVersionArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

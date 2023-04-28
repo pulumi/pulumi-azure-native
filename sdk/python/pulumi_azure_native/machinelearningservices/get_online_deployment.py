@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetOnlineDeploymentResult:
-    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, online_deployment_properties=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,9 +35,12 @@ class GetOnlineDeploymentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
+        if online_deployment_properties and not isinstance(online_deployment_properties, dict):
+            raise TypeError("Expected argument 'online_deployment_properties' to be a dict")
+        pulumi.set(__self__, "online_deployment_properties", online_deployment_properties)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -58,9 +61,9 @@ class GetOnlineDeploymentResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Service identity associated with a resource.
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -89,18 +92,26 @@ class GetOnlineDeploymentResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> Any:
+    @pulumi.getter(name="onlineDeploymentProperties")
+    def online_deployment_properties(self) -> Any:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "online_deployment_properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        Sku details required for ARM contract for Autoscaling.
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -132,7 +143,8 @@ class AwaitableGetOnlineDeploymentResult(GetOnlineDeploymentResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            online_deployment_properties=self.online_deployment_properties,
+            sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -144,7 +156,7 @@ def get_online_deployment(deployment_name: Optional[str] = None,
                           workspace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineDeploymentResult:
     """
-    API Version: 2021-03-01-preview.
+    API Version: 2022-10-01.
 
 
     :param str deployment_name: Inference Endpoint Deployment name.
@@ -166,7 +178,8 @@ def get_online_deployment(deployment_name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        properties=__ret__.properties,
+        online_deployment_properties=__ret__.online_deployment_properties,
+        sku=__ret__.sku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -179,7 +192,7 @@ def get_online_deployment_output(deployment_name: Optional[pulumi.Input[str]] = 
                                  workspace_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnlineDeploymentResult]:
     """
-    API Version: 2021-03-01-preview.
+    API Version: 2022-10-01.
 
 
     :param str deployment_name: Inference Endpoint Deployment name.

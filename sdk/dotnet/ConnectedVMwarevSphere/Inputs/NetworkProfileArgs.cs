@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the network interfaces of the virtual machine.
     /// </summary>
     public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {

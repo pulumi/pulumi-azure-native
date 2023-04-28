@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Config Server resource
-    /// API Version: 2020-07-01.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ConfigServer")]
     public partial class ConfigServer : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         [Output("properties")]
         public Output<Outputs.ConfigServerPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -71,6 +78,7 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ConfigServer"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:ConfigServer"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ConfigServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ConfigServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

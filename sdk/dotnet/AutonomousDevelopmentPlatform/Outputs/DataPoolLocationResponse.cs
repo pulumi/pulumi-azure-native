@@ -24,15 +24,29 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.Outputs
         /// The location name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The amount of storage accounts provisioned per Data Pool. Default: 5
+        /// </summary>
+        public readonly int? StorageAccountCount;
+        /// <summary>
+        /// The Storage SKU. Default: Standard_ZRS.
+        /// </summary>
+        public readonly Outputs.StorageSkuResponse? StorageSku;
 
         [OutputConstructor]
         private DataPoolLocationResponse(
             Outputs.DataPoolEncryptionResponse? encryption,
 
-            string name)
+            string name,
+
+            int? storageAccountCount,
+
+            Outputs.StorageSkuResponse? storageSku)
         {
             Encryption = encryption;
             Name = name;
+            StorageAccountCount = storageAccountCount;
+            StorageSku = storageSku;
         }
     }
 }

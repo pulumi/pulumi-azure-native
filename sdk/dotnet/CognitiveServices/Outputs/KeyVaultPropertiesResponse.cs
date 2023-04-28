@@ -16,6 +16,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     [OutputType]
     public sealed class KeyVaultPropertiesResponse
     {
+        public readonly string? IdentityClientId;
         /// <summary>
         /// Name of the Key from KeyVault
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
         [OutputConstructor]
         private KeyVaultPropertiesResponse(
+            string? identityClientId,
+
             string? keyName,
 
             string? keyVaultUri,
 
             string? keyVersion)
         {
+            IdentityClientId = identityClientId;
             KeyName = keyName;
             KeyVaultUri = keyVaultUri;
             KeyVersion = keyVersion;

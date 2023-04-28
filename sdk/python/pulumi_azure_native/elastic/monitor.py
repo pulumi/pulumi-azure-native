@@ -148,7 +148,8 @@ class Monitor(pulumi.CustomResource):
                  __props__=None):
         """
         Monitor resource.
-        API Version: 2020-07-01.
+        API Version: 2023-02-01-preview.
+        Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +169,8 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Monitor resource.
-        API Version: 2020-07-01.
+        API Version: 2023-02-01-preview.
+        Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
@@ -213,7 +215,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20200701:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20200701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20210901preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20211001preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220505preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220901preview:Monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20200701:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20200701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20210901preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20211001preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220505preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20220901preview:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20230201preview:Monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
             'azure-native:elastic:Monitor',

@@ -135,7 +135,7 @@ def get_scope_connection(network_manager_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeConnectionResult:
     """
     Get specified scope connection created by this Network Manager.
-    API Version: 2022-02-01-preview.
+    API Version: 2022-09-01.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -167,7 +167,7 @@ def get_scope_connection_output(network_manager_name: Optional[pulumi.Input[str]
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeConnectionResult]:
     """
     Get specified scope connection created by this Network Manager.
-    API Version: 2022-02-01-preview.
+    API Version: 2022-09-01.
 
 
     :param str network_manager_name: The name of the network manager.

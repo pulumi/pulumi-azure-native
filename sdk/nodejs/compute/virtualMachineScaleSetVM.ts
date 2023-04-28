@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a virtual machine scale set virtual machine.
- * API Version: 2021-03-01.
+ * API Version: 2022-11-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
@@ -54,6 +55,10 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      * Specifies the hardware settings for the virtual machine.
      */
     public readonly hardwareProfile!: pulumi.Output<outputs.compute.HardwareProfileResponse | undefined>;
+    /**
+     * The identity of the virtual machine, if configured.
+     */
+    public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineIdentityResponse | undefined>;
     /**
      * The virtual machine instance ID.
      */
@@ -164,6 +169,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["availabilitySet"] = args ? args.availabilitySet : undefined;
             resourceInputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
             resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -193,6 +199,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["availabilitySet"] = undefined /*out*/;
             resourceInputs["diagnosticsProfile"] = undefined /*out*/;
             resourceInputs["hardwareProfile"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["latestModelApplied"] = undefined /*out*/;
@@ -243,6 +250,10 @@ export interface VirtualMachineScaleSetVMArgs {
      * Specifies the hardware settings for the virtual machine.
      */
     hardwareProfile?: pulumi.Input<inputs.compute.HardwareProfileArgs>;
+    /**
+     * The identity of the virtual machine, if configured.
+     */
+    identity?: pulumi.Input<inputs.compute.VirtualMachineIdentityArgs>;
     /**
      * The instance ID of the virtual machine.
      */

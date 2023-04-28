@@ -135,7 +135,7 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridIdentityMetadatumResult:
     """
     Implements HybridIdentityMetadata GET method.
-    API Version: 2020-10-01-preview.
+    API Version: 2022-07-15-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.
@@ -167,7 +167,7 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[st
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
     Implements HybridIdentityMetadata GET method.
-    API Version: 2020-10-01-preview.
+    API Version: 2022-07-15-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.

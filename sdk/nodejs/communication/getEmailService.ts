@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the EmailService and its properties.
- * API Version: 2021-10-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getEmailService(args: GetEmailServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailServiceResult> {
 
@@ -40,7 +40,7 @@ export interface GetEmailServiceResult {
      */
     readonly dataLocation: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -70,7 +70,7 @@ export interface GetEmailServiceResult {
 }
 /**
  * Get the EmailService and its properties.
- * API Version: 2021-10-01-preview.
+ * API Version: 2023-03-01-preview.
  */
 export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {
     return pulumi.output(args).apply((a: any) => getEmailService(a, opts))

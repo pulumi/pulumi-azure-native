@@ -58,7 +58,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> int:
+    def cluster_size(self) -> Optional[int]:
         """
         The cluster size
         """
@@ -66,7 +66,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def hosts(self) -> Sequence[str]:
+    def hosts(self) -> Optional[Sequence[str]]:
         """
         The hosts
         """
@@ -135,7 +135,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     A cluster resource
-    API Version: 2020-03-20.
+    API Version: 2022-05-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud
@@ -167,7 +167,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     A cluster resource
-    API Version: 2020-03-20.
+    API Version: 2022-05-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud

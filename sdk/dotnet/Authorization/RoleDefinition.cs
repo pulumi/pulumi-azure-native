@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Role definition.
-    /// API Version: 2018-01-01-preview.
+    /// API Version: 2022-04-01.
+    /// Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleDefinition")]
     public partial class RoleDefinition : global::Pulumi.CustomResource
@@ -21,6 +22,18 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("assignableScopes")]
         public Output<ImmutableArray<string>> AssignableScopes { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of the user who created the assignment
+        /// </summary>
+        [Output("createdBy")]
+        public Output<string> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Time it was created
+        /// </summary>
+        [Output("createdOn")]
+        public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
         /// The role definition description.
@@ -57,6 +70,18 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of the user who updated the assignment
+        /// </summary>
+        [Output("updatedBy")]
+        public Output<string> UpdatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Time it was updated
+        /// </summary>
+        [Output("updatedOn")]
+        public Output<string> UpdatedOn { get; private set; } = null!;
 
 
         /// <summary>

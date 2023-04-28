@@ -10,30 +10,10 @@ export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
 utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
 
-export { DatabaseArgs } from "./database";
-export type Database = import("./database").Database;
-export const Database: typeof import("./database").Database = null as any;
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-
-export { FirewallRuleArgs } from "./firewallRule";
-export type FirewallRule = import("./firewallRule").FirewallRule;
-export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
-
 export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
 export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
 export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
-
-export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
-export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
-export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-
-export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
-export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
-export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
 
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
@@ -65,10 +45,6 @@ const _module = {
         switch (type) {
             case "azure-native:dbformysql/v20200701privatepreview:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-native:dbformysql/v20200701privatepreview:Database":
-                return new Database(name, <any>undefined, { urn })
-            case "azure-native:dbformysql/v20200701privatepreview:FirewallRule":
-                return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20200701privatepreview:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20200701privatepreview:ServerKey":

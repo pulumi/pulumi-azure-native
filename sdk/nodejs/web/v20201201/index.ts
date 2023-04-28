@@ -205,11 +205,6 @@ export const getWebAppSourceControlSlot: typeof import("./getWebAppSourceControl
 export const getWebAppSourceControlSlotOutput: typeof import("./getWebAppSourceControlSlot").getWebAppSourceControlSlotOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppSourceControlSlot","getWebAppSourceControlSlotOutput"], () => require("./getWebAppSourceControlSlot"));
 
-export { GetWebAppSwiftVirtualNetworkConnectionArgs, GetWebAppSwiftVirtualNetworkConnectionResult, GetWebAppSwiftVirtualNetworkConnectionOutputArgs } from "./getWebAppSwiftVirtualNetworkConnection";
-export const getWebAppSwiftVirtualNetworkConnection: typeof import("./getWebAppSwiftVirtualNetworkConnection").getWebAppSwiftVirtualNetworkConnection = null as any;
-export const getWebAppSwiftVirtualNetworkConnectionOutput: typeof import("./getWebAppSwiftVirtualNetworkConnection").getWebAppSwiftVirtualNetworkConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getWebAppSwiftVirtualNetworkConnection","getWebAppSwiftVirtualNetworkConnectionOutput"], () => require("./getWebAppSwiftVirtualNetworkConnection"));
-
 export { GetWebAppVnetConnectionArgs, GetWebAppVnetConnectionResult, GetWebAppVnetConnectionOutputArgs } from "./getWebAppVnetConnection";
 export const getWebAppVnetConnection: typeof import("./getWebAppVnetConnection").getWebAppVnetConnection = null as any;
 export const getWebAppVnetConnectionOutput: typeof import("./getWebAppVnetConnection").getWebAppVnetConnectionOutput = null as any;
@@ -640,11 +635,6 @@ export type WebAppSourceControlSlot = import("./webAppSourceControlSlot").WebApp
 export const WebAppSourceControlSlot: typeof import("./webAppSourceControlSlot").WebAppSourceControlSlot = null as any;
 utilities.lazyLoad(exports, ["WebAppSourceControlSlot"], () => require("./webAppSourceControlSlot"));
 
-export { WebAppSwiftVirtualNetworkConnectionArgs } from "./webAppSwiftVirtualNetworkConnection";
-export type WebAppSwiftVirtualNetworkConnection = import("./webAppSwiftVirtualNetworkConnection").WebAppSwiftVirtualNetworkConnection;
-export const WebAppSwiftVirtualNetworkConnection: typeof import("./webAppSwiftVirtualNetworkConnection").WebAppSwiftVirtualNetworkConnection = null as any;
-utilities.lazyLoad(exports, ["WebAppSwiftVirtualNetworkConnection"], () => require("./webAppSwiftVirtualNetworkConnection"));
-
 export { WebAppVnetConnectionArgs } from "./webAppVnetConnection";
 export type WebAppVnetConnection = import("./webAppVnetConnection").WebAppVnetConnection;
 export const WebAppVnetConnection: typeof import("./webAppVnetConnection").WebAppVnetConnection = null as any;
@@ -767,8 +757,6 @@ const _module = {
                 return new WebAppSourceControl(name, <any>undefined, { urn })
             case "azure-native:web/v20201201:WebAppSourceControlSlot":
                 return new WebAppSourceControlSlot(name, <any>undefined, { urn })
-            case "azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection":
-                return new WebAppSwiftVirtualNetworkConnection(name, <any>undefined, { urn })
             case "azure-native:web/v20201201:WebAppVnetConnection":
                 return new WebAppVnetConnection(name, <any>undefined, { urn })
             case "azure-native:web/v20201201:WebAppVnetConnectionSlot":

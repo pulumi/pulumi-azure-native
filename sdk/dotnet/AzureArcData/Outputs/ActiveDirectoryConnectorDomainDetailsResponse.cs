@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// <summary>
         /// null
         /// </summary>
-        public readonly Outputs.ActiveDirectoryDomainControllersResponse DomainControllers;
+        public readonly Outputs.ActiveDirectoryDomainControllersResponse? DomainControllers;
         /// <summary>
         /// NETBIOS name of the Active Directory domain.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
         [OutputConstructor]
         private ActiveDirectoryConnectorDomainDetailsResponse(
-            Outputs.ActiveDirectoryDomainControllersResponse domainControllers,
+            Outputs.ActiveDirectoryDomainControllersResponse? domainControllers,
 
             string? netbiosDomainName,
 

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AlertsManagement
 {
     /// <summary>
     /// The alert rule information
-    /// API Version: 2019-06-01.
+    /// API Version: 2021-04-01.
+    /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:SmartDetectorAlertRule")]
     public partial class SmartDetectorAlertRule : global::Pulumi.CustomResource
@@ -35,7 +36,7 @@ namespace Pulumi.AzureNative.AlertsManagement
         public Output<Outputs.DetectorResponse> Detector { get; private set; } = null!;
 
         /// <summary>
-        /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
@@ -164,7 +165,7 @@ namespace Pulumi.AzureNative.AlertsManagement
         public Input<Inputs.DetectorArgs> Detector { get; set; } = null!;
 
         /// <summary>
-        /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;

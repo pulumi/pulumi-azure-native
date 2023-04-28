@@ -22,7 +22,7 @@ class GetPoolResult:
     """
     Contains information about a pool.
     """
-    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, deployment_configuration=None, display_name=None, etag=None, id=None, identity=None, inter_node_communication=None, last_modified=None, metadata=None, mount_configuration=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, scale_settings=None, start_task=None, task_scheduling_policy=None, task_slots_per_node=None, type=None, user_accounts=None, vm_size=None):
+    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, current_node_communication_mode=None, deployment_configuration=None, display_name=None, etag=None, id=None, identity=None, inter_node_communication=None, last_modified=None, metadata=None, mount_configuration=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, scale_settings=None, start_task=None, target_node_communication_mode=None, task_scheduling_policy=None, task_slots_per_node=None, type=None, user_accounts=None, vm_size=None):
         if allocation_state and not isinstance(allocation_state, str):
             raise TypeError("Expected argument 'allocation_state' to be a str")
         pulumi.set(__self__, "allocation_state", allocation_state)
@@ -50,6 +50,9 @@ class GetPoolResult:
         if current_low_priority_nodes and not isinstance(current_low_priority_nodes, int):
             raise TypeError("Expected argument 'current_low_priority_nodes' to be a int")
         pulumi.set(__self__, "current_low_priority_nodes", current_low_priority_nodes)
+        if current_node_communication_mode and not isinstance(current_node_communication_mode, str):
+            raise TypeError("Expected argument 'current_node_communication_mode' to be a str")
+        pulumi.set(__self__, "current_node_communication_mode", current_node_communication_mode)
         if deployment_configuration and not isinstance(deployment_configuration, dict):
             raise TypeError("Expected argument 'deployment_configuration' to be a dict")
         pulumi.set(__self__, "deployment_configuration", deployment_configuration)
@@ -98,6 +101,9 @@ class GetPoolResult:
         if start_task and not isinstance(start_task, dict):
             raise TypeError("Expected argument 'start_task' to be a dict")
         pulumi.set(__self__, "start_task", start_task)
+        if target_node_communication_mode and not isinstance(target_node_communication_mode, str):
+            raise TypeError("Expected argument 'target_node_communication_mode' to be a str")
+        pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
         if task_scheduling_policy and not isinstance(task_scheduling_policy, dict):
             raise TypeError("Expected argument 'task_scheduling_policy' to be a dict")
         pulumi.set(__self__, "task_scheduling_policy", task_scheduling_policy)
@@ -153,6 +159,8 @@ class GetPoolResult:
     def certificates(self) -> Optional[Sequence['outputs.CertificateReferenceResponse']]:
         """
         For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+
+        Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         """
         return pulumi.get(self, "certificates")
 
@@ -170,6 +178,11 @@ class GetPoolResult:
     @pulumi.getter(name="currentLowPriorityNodes")
     def current_low_priority_nodes(self) -> int:
         return pulumi.get(self, "current_low_priority_nodes")
+
+    @property
+    @pulumi.getter(name="currentNodeCommunicationMode")
+    def current_node_communication_mode(self) -> str:
+        return pulumi.get(self, "current_node_communication_mode")
 
     @property
     @pulumi.getter(name="deploymentConfiguration")
@@ -294,6 +307,14 @@ class GetPoolResult:
         return pulumi.get(self, "start_task")
 
     @property
+    @pulumi.getter(name="targetNodeCommunicationMode")
+    def target_node_communication_mode(self) -> Optional[str]:
+        """
+        If omitted, the default value is Default.
+        """
+        return pulumi.get(self, "target_node_communication_mode")
+
+    @property
     @pulumi.getter(name="taskSchedulingPolicy")
     def task_scheduling_policy(self) -> Optional['outputs.TaskSchedulingPolicyResponse']:
         """
@@ -346,6 +367,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             creation_time=self.creation_time,
             current_dedicated_nodes=self.current_dedicated_nodes,
             current_low_priority_nodes=self.current_low_priority_nodes,
+            current_node_communication_mode=self.current_node_communication_mode,
             deployment_configuration=self.deployment_configuration,
             display_name=self.display_name,
             etag=self.etag,
@@ -362,6 +384,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             resize_operation_status=self.resize_operation_status,
             scale_settings=self.scale_settings,
             start_task=self.start_task,
+            target_node_communication_mode=self.target_node_communication_mode,
             task_scheduling_policy=self.task_scheduling_policy,
             task_slots_per_node=self.task_slots_per_node,
             type=self.type,
@@ -375,7 +398,7 @@ def get_pool(account_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Gets information about the specified pool.
-    API Version: 2021-01-01.
+    API Version: 2022-10-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -399,6 +422,7 @@ def get_pool(account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         current_dedicated_nodes=__ret__.current_dedicated_nodes,
         current_low_priority_nodes=__ret__.current_low_priority_nodes,
+        current_node_communication_mode=__ret__.current_node_communication_mode,
         deployment_configuration=__ret__.deployment_configuration,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
@@ -415,6 +439,7 @@ def get_pool(account_name: Optional[str] = None,
         resize_operation_status=__ret__.resize_operation_status,
         scale_settings=__ret__.scale_settings,
         start_task=__ret__.start_task,
+        target_node_communication_mode=__ret__.target_node_communication_mode,
         task_scheduling_policy=__ret__.task_scheduling_policy,
         task_slots_per_node=__ret__.task_slots_per_node,
         type=__ret__.type,
@@ -429,7 +454,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Gets information about the specified pool.
-    API Version: 2021-01-01.
+    API Version: 2022-10-01.
 
 
     :param str account_name: The name of the Batch account.

@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse? ManagedDisk;
         /// <summary>
-        /// The OS State.
+        /// The OS State. For managed images, use Generalized.
         /// </summary>
         public readonly string OsState;
         /// <summary>

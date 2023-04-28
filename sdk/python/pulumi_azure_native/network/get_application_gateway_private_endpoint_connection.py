@@ -135,7 +135,7 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection on application gateway.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -167,7 +167,7 @@ def get_application_gateway_private_endpoint_connection_output(application_gatew
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection on application gateway.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str application_gateway_name: The name of the application gateway.

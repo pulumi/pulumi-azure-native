@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents an incident in Azure Security Insights.
-    /// API Version: 2020-01-01.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Incident")]
     public partial class Incident : global::Pulumi.CustomResource
@@ -95,7 +96,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> LastModifiedTimeUtc { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -105,6 +106,18 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("owner")]
         public Output<Outputs.IncidentOwnerInfoResponse?> Owner { get; private set; } = null!;
+
+        /// <summary>
+        /// The incident ID assigned by the incident provider
+        /// </summary>
+        [Output("providerIncidentId")]
+        public Output<string> ProviderIncidentId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the source provider that generated the incident
+        /// </summary>
+        [Output("providerName")]
+        public Output<string> ProviderName { get; private set; } = null!;
 
         /// <summary>
         /// List of resource ids of Analytic rules related to the incident
@@ -125,13 +138,19 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The title of the incident
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -182,6 +201,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:Incident"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:Incident"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:Incident"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:Incident"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Incident"},
                 },
             };
@@ -267,7 +287,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<Inputs.IncidentOwnerInfoArgs>? Owner { get; set; }
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

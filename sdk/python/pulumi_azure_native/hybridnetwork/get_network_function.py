@@ -22,7 +22,7 @@ class GetNetworkFunctionResult:
     """
     Network function resource response.
     """
-    def __init__(__self__, device=None, etag=None, id=None, location=None, managed_application=None, managed_application_parameters=None, name=None, network_function_user_configurations=None, provisioning_state=None, service_key=None, sku_name=None, sku_type=None, tags=None, type=None, vendor_name=None, vendor_provisioning_state=None):
+    def __init__(__self__, device=None, etag=None, id=None, location=None, managed_application=None, managed_application_parameters=None, name=None, network_function_container_configurations=None, network_function_user_configurations=None, provisioning_state=None, service_key=None, sku_name=None, sku_type=None, system_data=None, tags=None, type=None, vendor_name=None, vendor_provisioning_state=None):
         if device and not isinstance(device, dict):
             raise TypeError("Expected argument 'device' to be a dict")
         pulumi.set(__self__, "device", device)
@@ -44,6 +44,9 @@ class GetNetworkFunctionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_function_container_configurations and not isinstance(network_function_container_configurations, dict):
+            raise TypeError("Expected argument 'network_function_container_configurations' to be a dict")
+        pulumi.set(__self__, "network_function_container_configurations", network_function_container_configurations)
         if network_function_user_configurations and not isinstance(network_function_user_configurations, list):
             raise TypeError("Expected argument 'network_function_user_configurations' to be a list")
         pulumi.set(__self__, "network_function_user_configurations", network_function_user_configurations)
@@ -59,6 +62,9 @@ class GetNetworkFunctionResult:
         if sku_type and not isinstance(sku_type, str):
             raise TypeError("Expected argument 'sku_type' to be a str")
         pulumi.set(__self__, "sku_type", sku_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -76,7 +82,7 @@ class GetNetworkFunctionResult:
     @pulumi.getter
     def device(self) -> Optional['outputs.SubResourceResponse']:
         """
-        The reference to the device resource.
+        The reference to the device resource. Once set, it cannot be updated.
         """
         return pulumi.get(self, "device")
 
@@ -129,6 +135,14 @@ class GetNetworkFunctionResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkFunctionContainerConfigurations")
+    def network_function_container_configurations(self) -> Optional[Any]:
+        """
+        The network function container configurations from the user.
+        """
+        return pulumi.get(self, "network_function_container_configurations")
+
+    @property
     @pulumi.getter(name="networkFunctionUserConfigurations")
     def network_function_user_configurations(self) -> Optional[Sequence['outputs.NetworkFunctionUserConfigurationResponse']]:
         """
@@ -156,7 +170,7 @@ class GetNetworkFunctionResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[str]:
         """
-        The sku name for the network function.
+        The sku name for the network function. Once set, it cannot be updated.
         """
         return pulumi.get(self, "sku_name")
 
@@ -167,6 +181,14 @@ class GetNetworkFunctionResult:
         The sku type for the network function.
         """
         return pulumi.get(self, "sku_type")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -188,7 +210,7 @@ class GetNetworkFunctionResult:
     @pulumi.getter(name="vendorName")
     def vendor_name(self) -> Optional[str]:
         """
-        The vendor name for the network function.
+        The vendor name for the network function. Once set, it cannot be updated.
         """
         return pulumi.get(self, "vendor_name")
 
@@ -214,11 +236,13 @@ class AwaitableGetNetworkFunctionResult(GetNetworkFunctionResult):
             managed_application=self.managed_application,
             managed_application_parameters=self.managed_application_parameters,
             name=self.name,
+            network_function_container_configurations=self.network_function_container_configurations,
             network_function_user_configurations=self.network_function_user_configurations,
             provisioning_state=self.provisioning_state,
             service_key=self.service_key,
             sku_name=self.sku_name,
             sku_type=self.sku_type,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             vendor_name=self.vendor_name,
@@ -230,7 +254,7 @@ def get_network_function(network_function_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFunctionResult:
     """
     Gets information about the specified network function resource.
-    API Version: 2020-01-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str network_function_name: The name of the network function resource.
@@ -250,11 +274,13 @@ def get_network_function(network_function_name: Optional[str] = None,
         managed_application=__ret__.managed_application,
         managed_application_parameters=__ret__.managed_application_parameters,
         name=__ret__.name,
+        network_function_container_configurations=__ret__.network_function_container_configurations,
         network_function_user_configurations=__ret__.network_function_user_configurations,
         provisioning_state=__ret__.provisioning_state,
         service_key=__ret__.service_key,
         sku_name=__ret__.sku_name,
         sku_type=__ret__.sku_type,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         vendor_name=__ret__.vendor_name,
@@ -267,7 +293,7 @@ def get_network_function_output(network_function_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFunctionResult]:
     """
     Gets information about the specified network function resource.
-    API Version: 2020-01-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str network_function_name: The name of the network function resource.

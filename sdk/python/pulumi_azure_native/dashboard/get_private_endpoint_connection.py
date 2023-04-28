@@ -135,7 +135,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
-    API Version: 2022-05-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str private_endpoint_connection_name: The private endpoint connection name of Azure Managed Grafana.
@@ -167,7 +167,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     The Private Endpoint Connection resource.
-    API Version: 2022-05-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str private_endpoint_connection_name: The private endpoint connection name of Azure Managed Grafana.

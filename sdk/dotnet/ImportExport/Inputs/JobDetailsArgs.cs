@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
         /// Overall percentage completed for the job.
         /// </summary>
         [Input("percentComplete")]
-        public Input<int>? PercentComplete { get; set; }
+        public Input<double>? PercentComplete { get; set; }
 
         /// <summary>
         /// Specifies the provisioning state of the job.

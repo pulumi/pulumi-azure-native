@@ -16,13 +16,26 @@ namespace Pulumi.AzureNative.NetApp.Inputs
     public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+        /// Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.EncryptionIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
         /// </summary>
         [Input("keySource")]
-        public Input<string>? KeySource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.NetApp.KeySource>? KeySource { get; set; }
+
+        /// <summary>
+        /// Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        /// </summary>
+        [Input("keyVaultProperties")]
+        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
 
         public AccountEncryptionArgs()
         {
+            KeySource = "Microsoft.NetApp";
         }
         public static new AccountEncryptionArgs Empty => new AccountEncryptionArgs();
     }

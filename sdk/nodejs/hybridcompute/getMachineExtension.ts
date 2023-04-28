@@ -9,14 +9,14 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the extension.
- * API Version: 2020-08-02.
+ * API Version: 2022-11-10.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute:getMachineExtension", {
         "extensionName": args.extensionName,
-        "name": args.name,
+        "machineName": args.machineName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,9 +29,9 @@ export interface GetMachineExtensionArgs {
     /**
      * The name of the machine containing the extension.
      */
-    name: string;
+    machineName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,6 +45,10 @@ export interface GetMachineExtensionResult {
      */
     readonly autoUpgradeMinorVersion?: boolean;
     /**
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+     */
+    readonly enableAutomaticUpgrade?: boolean;
+    /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     readonly forceUpdateTag?: string;
@@ -55,7 +59,7 @@ export interface GetMachineExtensionResult {
     /**
      * The machine extension instance view.
      */
-    readonly instanceView?: outputs.hybridcompute.MachineExtensionPropertiesResponseInstanceView;
+    readonly instanceView?: outputs.hybridcompute.MachineExtensionInstanceViewResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -81,6 +85,10 @@ export interface GetMachineExtensionResult {
      */
     readonly settings?: any;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.hybridcompute.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -95,7 +103,7 @@ export interface GetMachineExtensionResult {
 }
 /**
  * The operation to get the extension.
- * API Version: 2020-08-02.
+ * API Version: 2022-11-10.
  */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
     return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
@@ -109,9 +117,9 @@ export interface GetMachineExtensionOutputArgs {
     /**
      * The name of the machine containing the extension.
      */
-    name: pulumi.Input<string>;
+    machineName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

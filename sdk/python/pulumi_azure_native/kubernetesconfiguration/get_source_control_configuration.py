@@ -245,13 +245,13 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlConfigurationResult:
     """
     Gets details of the Source Control Configuration.
-    API Version: 2021-03-01.
+    API Version: 2022-11-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
-    :param str cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
-    :param str cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
-    :param str resource_group_name: The name of the resource group.
+    :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
+    :param str cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_configuration_name: Name of the Source Control Configuration.
     """
     __args__ = dict()
@@ -292,13 +292,13 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlConfigurationResult]:
     """
     Gets details of the Source Control Configuration.
-    API Version: 2021-03-01.
+    API Version: 2022-11-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
-    :param str cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
-    :param str cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
-    :param str resource_group_name: The name of the resource group.
+    :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
+    :param str cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_configuration_name: Name of the Source Control Configuration.
     """
     ...

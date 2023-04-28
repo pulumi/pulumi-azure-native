@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the connection type identified by connection type name.
- * API Version: 2019-06-01.
+ * API Version: 2022-08-08.
  */
 export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionTypeResult> {
 
@@ -75,7 +75,7 @@ export interface GetConnectionTypeResult {
 }
 /**
  * Retrieve the connection type identified by connection type name.
- * API Version: 2019-06-01.
+ * API Version: 2022-08-08.
  */
 export function getConnectionTypeOutput(args: GetConnectionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionTypeResult> {
     return pulumi.output(args).apply((a: any) => getConnectionType(a, opts))

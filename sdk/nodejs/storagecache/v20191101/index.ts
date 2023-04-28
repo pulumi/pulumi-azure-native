@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { CacheArgs } from "./cache";
-export type Cache = import("./cache").Cache;
-export const Cache: typeof import("./cache").Cache = null as any;
-utilities.lazyLoad(exports, ["Cache"], () => require("./cache"));
-
-export { GetCacheArgs, GetCacheResult, GetCacheOutputArgs } from "./getCache";
-export const getCache: typeof import("./getCache").getCache = null as any;
-export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
-utilities.lazyLoad(exports, ["getCache","getCacheOutput"], () => require("./getCache"));
-
 export { GetStorageTargetArgs, GetStorageTargetResult, GetStorageTargetOutputArgs } from "./getStorageTarget";
 export const getStorageTarget: typeof import("./getStorageTarget").getStorageTarget = null as any;
 export const getStorageTargetOutput: typeof import("./getStorageTarget").getStorageTargetOutput = null as any;
@@ -33,8 +23,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:storagecache/v20191101:Cache":
-                return new Cache(name, <any>undefined, { urn })
             case "azure-native:storagecache/v20191101:StorageTarget":
                 return new StorageTarget(name, <any>undefined, { urn })
             default:

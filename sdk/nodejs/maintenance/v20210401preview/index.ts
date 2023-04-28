@@ -25,19 +25,6 @@ export const getConfigurationAssignmentParent: typeof import("./getConfiguration
 export const getConfigurationAssignmentParentOutput: typeof import("./getConfigurationAssignmentParent").getConfigurationAssignmentParentOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationAssignmentParent","getConfigurationAssignmentParentOutput"], () => require("./getConfigurationAssignmentParent"));
 
-export { GetMaintenanceConfigurationArgs, GetMaintenanceConfigurationResult, GetMaintenanceConfigurationOutputArgs } from "./getMaintenanceConfiguration";
-export const getMaintenanceConfiguration: typeof import("./getMaintenanceConfiguration").getMaintenanceConfiguration = null as any;
-export const getMaintenanceConfigurationOutput: typeof import("./getMaintenanceConfiguration").getMaintenanceConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getMaintenanceConfiguration","getMaintenanceConfigurationOutput"], () => require("./getMaintenanceConfiguration"));
-
-export { MaintenanceConfigurationArgs } from "./maintenanceConfiguration";
-export type MaintenanceConfiguration = import("./maintenanceConfiguration").MaintenanceConfiguration;
-export const MaintenanceConfiguration: typeof import("./maintenanceConfiguration").MaintenanceConfiguration = null as any;
-utilities.lazyLoad(exports, ["MaintenanceConfiguration"], () => require("./maintenanceConfiguration"));
-
-
-// Export enums:
-export * from "../../types/enums/maintenance/v20210401preview";
 
 const _module = {
     version: utilities.getVersion(),
@@ -47,8 +34,6 @@ const _module = {
                 return new ConfigurationAssignment(name, <any>undefined, { urn })
             case "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent":
                 return new ConfigurationAssignmentParent(name, <any>undefined, { urn })
-            case "azure-native:maintenance/v20210401preview:MaintenanceConfiguration":
-                return new MaintenanceConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

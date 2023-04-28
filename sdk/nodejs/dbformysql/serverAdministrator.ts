@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a and external administrator to be created.
  * API Version: 2017-12-01.
+ * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ServerAdministrator extends pulumi.CustomResource {
     /**
@@ -109,7 +110,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-native:dbformysql/v20171201preview:ServerAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-native:dbformysql/v20171201preview:ServerAdministrator" }, { type: "azure-native:dbformysql/v20180601privatepreview:ServerAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerAdministrator.__pulumiType, name, resourceInputs, opts);
     }

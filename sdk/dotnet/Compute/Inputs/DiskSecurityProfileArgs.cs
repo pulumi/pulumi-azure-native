@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class DiskSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ResourceId of the disk encryption set associated to Confidential VM supported disk encrypted with customer managed key
+        /// </summary>
+        [Input("secureVMDiskEncryptionSetId")]
+        public Input<string>? SecureVMDiskEncryptionSetId { get; set; }
+
+        /// <summary>
         /// Specifies the SecurityType of the VM. Applicable for OS disks only.
         /// </summary>
         [Input("securityType")]

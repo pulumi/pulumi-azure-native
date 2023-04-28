@@ -61,8 +61,8 @@ def list_web_app_site_backups(name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSiteBackupsResult:
     """
-    Gets existing backups of an app.
-    API Version: 2020-12-01.
+    Description for Gets existing backups of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -84,8 +84,8 @@ def list_web_app_site_backups_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSiteBackupsResult]:
     """
-    Gets existing backups of an app.
-    API Version: 2020-12-01.
+    Description for Gets existing backups of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.

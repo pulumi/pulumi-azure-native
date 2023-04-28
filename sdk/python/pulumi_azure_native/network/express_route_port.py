@@ -19,6 +19,7 @@ class ExpressRoutePortArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]] = None,
                  encapsulation: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']]] = None,
                  express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,7 @@ class ExpressRoutePortArgs:
         The set of arguments for constructing a ExpressRoutePort resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
+        :param pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']] billing_type: The billing type of the ExpressRoutePort resource.
         :param pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']] encapsulation: Encapsulation method on physical ports.
         :param pulumi.Input[str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -43,6 +45,8 @@ class ExpressRoutePortArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bandwidth_in_gbps is not None:
             pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if billing_type is not None:
+            pulumi.set(__self__, "billing_type", billing_type)
         if encapsulation is not None:
             pulumi.set(__self__, "encapsulation", encapsulation)
         if express_route_port_name is not None:
@@ -83,6 +87,18 @@ class ExpressRoutePortArgs:
     @bandwidth_in_gbps.setter
     def bandwidth_in_gbps(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bandwidth_in_gbps", value)
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]]:
+        """
+        The billing type of the ExpressRoutePort resource.
+        """
+        return pulumi.get(self, "billing_type")
+
+    @billing_type.setter
+    def billing_type(self, value: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]]):
+        pulumi.set(self, "billing_type", value)
 
     @property
     @pulumi.getter
@@ -187,6 +203,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]] = None,
                  encapsulation: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']]] = None,
                  express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -199,11 +216,13 @@ class ExpressRoutePort(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRoutePort resource definition.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
+        :param pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']] billing_type: The billing type of the ExpressRoutePort resource.
         :param pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']] encapsulation: Encapsulation method on physical ports.
         :param pulumi.Input[str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -222,7 +241,8 @@ class ExpressRoutePort(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoutePort resource definition.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ExpressRoutePortArgs args: The arguments to use to populate this resource's properties.
@@ -240,6 +260,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]] = None,
                  encapsulation: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']]] = None,
                  express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -259,6 +280,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             __props__ = ExpressRoutePortArgs.__new__(ExpressRoutePortArgs)
 
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
+            __props__.__dict__["billing_type"] = billing_type
             __props__.__dict__["encapsulation"] = encapsulation
             __props__.__dict__["express_route_port_name"] = express_route_port_name
             __props__.__dict__["id"] = id
@@ -306,6 +328,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
         __props__.__dict__["allocation_date"] = None
         __props__.__dict__["bandwidth_in_gbps"] = None
+        __props__.__dict__["billing_type"] = None
         __props__.__dict__["circuits"] = None
         __props__.__dict__["encapsulation"] = None
         __props__.__dict__["etag"] = None
@@ -338,6 +361,14 @@ class ExpressRoutePort(pulumi.CustomResource):
         Bandwidth of procured ports in Gbps.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The billing type of the ExpressRoutePort resource.
+        """
+        return pulumi.get(self, "billing_type")
 
     @property
     @pulumi.getter

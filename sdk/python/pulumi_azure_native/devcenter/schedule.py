@@ -31,7 +31,7 @@ class ScheduleArgs:
         :param pulumi.Input[Union[str, 'ScheduledFrequency']] frequency: The frequency of this scheduled task.
         :param pulumi.Input[str] pool_name: Name of the pool.
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] time: The target time to trigger the action. The format is HH:MM.
         :param pulumi.Input[str] time_zone: The IANA timezone id at which the schedule should execute.
         :param pulumi.Input[Union[str, 'ScheduledType']] type: Supported type this scheduled task represents.
@@ -93,7 +93,7 @@ class ScheduleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -192,14 +192,15 @@ class Schedule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Schedule to execute a task.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ScheduledFrequency']] frequency: The frequency of this scheduled task.
         :param pulumi.Input[str] pool_name: Name of the pool.
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] schedule_name: The name of the schedule that uniquely identifies it.
         :param pulumi.Input[Union[str, 'EnableStatus']] state: Indicates whether or not this scheduled task is enabled.
         :param pulumi.Input[str] time: The target time to trigger the action. The format is HH:MM.
@@ -215,7 +216,8 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Schedule to execute a task.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -278,7 +280,7 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Schedule"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-native:devcenter:Schedule',

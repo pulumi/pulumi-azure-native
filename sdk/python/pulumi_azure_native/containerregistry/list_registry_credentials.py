@@ -62,11 +62,11 @@ def list_registry_credentials(registry_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryCredentialsResult:
     """
     Lists the login credentials for the specified container registry.
-    API Version: 2019-05-01.
+    API Version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['registryName'] = registry_name
@@ -85,10 +85,10 @@ def list_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryCredentialsResult]:
     """
     Lists the login credentials for the specified container registry.
-    API Version: 2019-05-01.
+    API Version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

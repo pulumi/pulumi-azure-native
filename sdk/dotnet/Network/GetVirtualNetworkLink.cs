@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Network
     public static class GetVirtualNetworkLink
     {
         /// <summary>
-        /// Gets a virtual network link to the specified Private DNS zone.
-        /// API Version: 2020-06-01.
+        /// Gets properties of a virtual network link to a DNS forwarding ruleset.
+        /// API Version: 2022-07-01.
         /// </summary>
         public static Task<GetVirtualNetworkLinkResult> InvokeAsync(GetVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a virtual network link to the specified Private DNS zone.
-        /// API Version: 2020-06-01.
+        /// Gets properties of a virtual network link to a DNS forwarding ruleset.
+        /// API Version: 2022-07-01.
         /// </summary>
         public static Output<GetVirtualNetworkLinkResult> Invoke(GetVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
@@ -30,13 +30,13 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetVirtualNetworkLinkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot).
+        /// The name of the DNS forwarding ruleset.
         /// </summary>
-        [Input("privateZoneName", required: true)]
-        public string PrivateZoneName { get; set; } = null!;
+        [Input("dnsForwardingRulesetName", required: true)]
+        public string DnsForwardingRulesetName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,13 +56,13 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetVirtualNetworkLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot).
+        /// The name of the DNS forwarding ruleset.
         /// </summary>
-        [Input("privateZoneName", required: true)]
-        public Input<string> PrivateZoneName { get; set; } = null!;
+        [Input("dnsForwardingRulesetName", required: true)]
+        public Input<string> DnsForwardingRulesetName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -84,78 +84,64 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetVirtualNetworkLinkResult
     {
         /// <summary>
-        /// The ETag of the virtual network link.
+        /// ETag of the virtual network link.
         /// </summary>
-        public readonly string? Etag;
+        public readonly string Etag;
         /// <summary>
-        /// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// Metadata attached to the virtual network link.
         /// </summary>
-        public readonly string? Location;
+        public readonly ImmutableDictionary<string, string>? Metadata;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+        /// The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly bool? RegistrationEnabled;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The reference of the virtual network.
+        /// The reference to the virtual network. This cannot be changed after creation.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualNetwork;
-        /// <summary>
-        /// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
-        /// </summary>
-        public readonly string VirtualNetworkLinkState;
+        public readonly Outputs.SubResourceResponse VirtualNetwork;
 
         [OutputConstructor]
         private GetVirtualNetworkLinkResult(
-            string? etag,
+            string etag,
 
             string id,
 
-            string? location,
+            ImmutableDictionary<string, string>? metadata,
 
             string name,
 
             string provisioningState,
 
-            bool? registrationEnabled,
-
-            ImmutableDictionary<string, string>? tags,
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
-            Outputs.SubResourceResponse? virtualNetwork,
-
-            string virtualNetworkLinkState)
+            Outputs.SubResourceResponse virtualNetwork)
         {
             Etag = etag;
             Id = id;
-            Location = location;
+            Metadata = metadata;
             Name = name;
             ProvisioningState = provisioningState;
-            RegistrationEnabled = registrationEnabled;
-            Tags = tags;
+            SystemData = systemData;
             Type = type;
             VirtualNetwork = virtualNetwork;
-            VirtualNetworkLinkState = virtualNetworkLinkState;
         }
     }
 }

@@ -143,7 +143,8 @@ class ComputePolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Data Lake Analytics compute policy information.
-        API Version: 2016-11-01.
+        API Version: 2019-11-01-preview.
+        Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +164,8 @@ class ComputePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data Lake Analytics compute policy information.
-        API Version: 2016-11-01.
+        API Version: 2019-11-01-preview.
+        Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ComputePolicyArgs args: The arguments to use to populate this resource's properties.

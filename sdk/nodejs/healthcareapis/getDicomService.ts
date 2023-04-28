@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified DICOM Service.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
 
@@ -52,6 +52,10 @@ export interface GetDicomServiceResult {
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
     readonly etag?: string;
+    /**
+     * DICOM Service event support status.
+     */
+    readonly eventState: string;
     /**
      * The resource identifier.
      */
@@ -99,7 +103,7 @@ export interface GetDicomServiceResult {
 }
 /**
  * Gets the properties of the specified DICOM Service.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
  */
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
     return pulumi.output(args).apply((a: any) => getDicomService(a, opts))

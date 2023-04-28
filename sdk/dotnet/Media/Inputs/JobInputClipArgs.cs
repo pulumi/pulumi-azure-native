@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.Inputs
         private InputList<string>? _files;
 
         /// <summary>
-        /// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        /// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         /// </summary>
         public InputList<string> Files
         {

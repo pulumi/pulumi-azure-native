@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public InputUnion<string, Pulumi.AzureNative.Compute.DeleteOptions>? DeleteOption { get; set; }
 
         /// <summary>
+        /// Specifies whether the network interface is disabled for tcp state tracking.
+        /// </summary>
+        [Input("disableTcpStateTracking")]
+        public Input<bool>? DisableTcpStateTracking { get; set; }
+
+        /// <summary>
         /// The dns settings to be applied on the network interfaces.
         /// </summary>
         [Input("dnsSettings")]

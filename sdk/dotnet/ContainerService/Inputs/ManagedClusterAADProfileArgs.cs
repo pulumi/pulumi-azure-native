@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
     /// <summary>
-    /// AADProfile specifies attributes for Azure Active Directory integration.
+    /// For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
     /// </summary>
     public sealed class ManagedClusterAADProfileArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<string>? _adminGroupObjectIDs;
 
         /// <summary>
-        /// AAD group object IDs that will have admin role of the cluster.
+        /// The list of AAD group object IDs that will have admin role of the cluster.
         /// </summary>
         public InputList<string> AdminGroupObjectIDs
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         }
 
         /// <summary>
-        /// The client AAD application ID.
+        /// (DEPRECATED) The client AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
         /// </summary>
         [Input("clientAppID")]
         public Input<string>? ClientAppID { get; set; }
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<bool>? Managed { get; set; }
 
         /// <summary>
-        /// The server AAD application ID.
+        /// (DEPRECATED) The server AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
         /// </summary>
         [Input("serverAppID")]
         public Input<string>? ServerAppID { get; set; }
 
         /// <summary>
-        /// The server AAD application secret.
+        /// (DEPRECATED) The server AAD application secret. Learn more at https://aka.ms/aks/aad-legacy.
         /// </summary>
         [Input("serverAppSecret")]
         public Input<string>? ServerAppSecret { get; set; }

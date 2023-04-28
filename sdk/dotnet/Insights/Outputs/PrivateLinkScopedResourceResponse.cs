@@ -10,18 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// The private link scope resource reference.
-    /// </summary>
     [OutputType]
     public sealed class PrivateLinkScopedResourceResponse
     {
         /// <summary>
-        /// The full resource Id of the private link scope resource.
+        /// The resourceId of the Azure Monitor Private Link Scope Scoped Resource through which this DCE is associated with a Azure Monitor Private Link Scope.
         /// </summary>
         public readonly string? ResourceId;
         /// <summary>
-        /// The private link scope unique Identifier.
+        /// The immutableId of the Azure Monitor Private Link Scope Resource to which the association is.
         /// </summary>
         public readonly string? ScopeId;
 

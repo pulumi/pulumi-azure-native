@@ -6,11 +6,17 @@ from enum import Enum
 
 __all__ = [
     'AbsoluteMarker',
+    'AlertsState',
+    'CrossSubscriptionRestoreState',
     'DataStoreTypes',
     'DayOfWeek',
+    'ImmutabilityState',
     'Month',
+    'SecretStoreType',
+    'SoftDeleteState',
     'StorageSettingStoreTypes',
     'StorageSettingTypes',
+    'ValidationType',
     'WeekNumber',
 ]
 
@@ -21,6 +27,20 @@ class AbsoluteMarker(str, Enum):
     FIRST_OF_MONTH = "FirstOfMonth"
     FIRST_OF_WEEK = "FirstOfWeek"
     FIRST_OF_YEAR = "FirstOfYear"
+
+
+class AlertsState(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class CrossSubscriptionRestoreState(str, Enum):
+    """
+    CrossSubscriptionRestore state
+    """
+    DISABLED = "Disabled"
+    PERMANENTLY_DISABLED = "PermanentlyDisabled"
+    ENABLED = "Enabled"
 
 
 class DataStoreTypes(str, Enum):
@@ -42,6 +62,15 @@ class DayOfWeek(str, Enum):
     WEDNESDAY = "Wednesday"
 
 
+class ImmutabilityState(str, Enum):
+    """
+    Immutability state
+    """
+    DISABLED = "Disabled"
+    UNLOCKED = "Unlocked"
+    LOCKED = "Locked"
+
+
 class Month(str, Enum):
     APRIL = "April"
     AUGUST = "August"
@@ -57,12 +86,38 @@ class Month(str, Enum):
     SEPTEMBER = "September"
 
 
+class SecretStoreType(str, Enum):
+    """
+    Gets or sets the type of secret store
+    """
+    INVALID = "Invalid"
+    AZURE_KEY_VAULT = "AzureKeyVault"
+
+
+class SoftDeleteState(str, Enum):
+    """
+    State of soft delete
+    """
+    OFF = "Off"
+    """
+    Soft Delete is turned off for the BackupVault
+    """
+    ON = "On"
+    """
+    Soft Delete is enabled for the BackupVault but can be turned off
+    """
+    ALWAYS_ON = "AlwaysOn"
+    """
+    Soft Delete is permanently enabled for the BackupVault and the setting cannot be changed
+    """
+
+
 class StorageSettingStoreTypes(str, Enum):
     """
     Gets or sets the type of the datastore.
     """
     ARCHIVE_STORE = "ArchiveStore"
-    SNAPSHOT_STORE = "SnapshotStore"
+    OPERATIONAL_STORE = "OperationalStore"
     VAULT_STORE = "VaultStore"
 
 
@@ -72,6 +127,15 @@ class StorageSettingTypes(str, Enum):
     """
     GEO_REDUNDANT = "GeoRedundant"
     LOCALLY_REDUNDANT = "LocallyRedundant"
+    ZONE_REDUNDANT = "ZoneRedundant"
+
+
+class ValidationType(str, Enum):
+    """
+    Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+    """
+    SHALLOW_VALIDATION = "ShallowValidation"
+    DEEP_VALIDATION = "DeepValidation"
 
 
 class WeekNumber(str, Enum):

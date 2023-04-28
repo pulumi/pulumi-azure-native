@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// Snapshot properties.
         /// </summary>
         public readonly Outputs.VolumeSnapshotPropertiesResponse? Snapshot;
+        /// <summary>
+        /// VolumeRelocation properties
+        /// </summary>
+        public readonly Outputs.VolumeRelocationPropertiesResponse? VolumeRelocation;
 
         [OutputConstructor]
         private VolumePropertiesResponseDataProtection(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             Outputs.ReplicationObjectResponse? replication,
 
-            Outputs.VolumeSnapshotPropertiesResponse? snapshot)
+            Outputs.VolumeSnapshotPropertiesResponse? snapshot,
+
+            Outputs.VolumeRelocationPropertiesResponse? volumeRelocation)
         {
             Backup = backup;
             Replication = replication;
             Snapshot = snapshot;
+            VolumeRelocation = volumeRelocation;
         }
     }
 }

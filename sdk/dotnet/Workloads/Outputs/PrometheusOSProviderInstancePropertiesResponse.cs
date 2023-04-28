@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// </summary>
         public readonly string ProviderType;
         /// <summary>
+        /// Gets or sets the SAP System Identifier
+        /// </summary>
+        public readonly string? SapSid;
+        /// <summary>
         /// Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
         /// </summary>
         public readonly string? SslCertificateUri;
@@ -40,12 +44,15 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             string providerType,
 
+            string? sapSid,
+
             string? sslCertificateUri,
 
             string? sslPreference)
         {
             PrometheusUrl = prometheusUrl;
             ProviderType = providerType;
+            SapSid = sapSid;
             SslCertificateUri = sslCertificateUri;
             SslPreference = sslPreference;
         }

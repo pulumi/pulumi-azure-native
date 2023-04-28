@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the application settings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the application settings of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppApplicationSettingsSlot(args: ListWebAppApplicationSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsSlotResult> {
 
@@ -59,8 +59,8 @@ export interface ListWebAppApplicationSettingsSlotResult {
     readonly type: string;
 }
 /**
- * Gets the application settings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the application settings of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppApplicationSettingsSlotOutput(args: ListWebAppApplicationSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppApplicationSettingsSlot(a, opts))

@@ -27,7 +27,7 @@ class ScheduleArgs:
                  start_at: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
-        :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+        :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] stop_at: When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
         :param pulumi.Input[str] time_zone_id: The IANA timezone id for the schedule.
@@ -53,7 +53,7 @@ class ScheduleArgs:
     @pulumi.getter(name="labName")
     def lab_name(self) -> pulumi.Input[str]:
         """
-        The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+        The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         """
         return pulumi.get(self, "lab_name")
 
@@ -162,11 +162,12 @@ class Schedule(pulumi.CustomResource):
                  __props__=None):
         """
         Schedule for automatically turning virtual machines in a lab on and off at specified times.
-        API Version: 2021-10-01-preview.
+        API Version: 2022-08-01.
+        Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+        :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[str] notes: Notes for this schedule.
         :param pulumi.Input[pulumi.InputType['RecurrencePatternArgs']] recurrence_pattern: The recurrence pattern of the scheduled actions.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -183,7 +184,8 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schedule for automatically turning virtual machines in a lab on and off at specified times.
-        API Version: 2021-10-01-preview.
+        API Version: 2022-08-01.
+        Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

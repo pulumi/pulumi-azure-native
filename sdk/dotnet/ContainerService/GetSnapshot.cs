@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// A node pool snapshot resource.
-        /// API Version: 2021-08-01.
+        /// API Version: 2023-01-01.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:containerservice:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// A node pool snapshot resource.
-        /// API Version: 2021-08-01.
+        /// API Version: 2023-01-01.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:containerservice:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetSnapshotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetSnapshotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -76,43 +76,77 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly Outputs.CreationDataResponse? CreationData;
         /// <summary>
-        /// Resource Id
+        /// Whether to use a FIPS-enabled OS.
+        /// </summary>
+        public readonly bool EnableFIPS;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The version of Kubernetes.
+        /// </summary>
+        public readonly string KubernetesVersion;
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The version of node image.
+        /// </summary>
+        public readonly string NodeImageVersion;
+        /// <summary>
+        /// Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes &lt;= 1.24 or Windows2022 when Kubernetes &gt;= 1.25 if OSType is Windows.
+        /// </summary>
+        public readonly string OsSku;
+        /// <summary>
+        /// The operating system type. The default is Linux.
+        /// </summary>
+        public readonly string OsType;
         /// <summary>
         /// The type of a snapshot. The default is NodePool.
         /// </summary>
         public readonly string? SnapshotType;
         /// <summary>
-        /// The system metadata relating to this snapshot.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The size of the VM.
+        /// </summary>
+        public readonly string VmSize;
 
         [OutputConstructor]
         private GetSnapshotResult(
             Outputs.CreationDataResponse? creationData,
 
+            bool enableFIPS,
+
             string id,
+
+            string kubernetesVersion,
 
             string location,
 
             string name,
+
+            string nodeImageVersion,
+
+            string osSku,
+
+            string osType,
 
             string? snapshotType,
 
@@ -120,16 +154,24 @@ namespace Pulumi.AzureNative.ContainerService
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string vmSize)
         {
             CreationData = creationData;
+            EnableFIPS = enableFIPS;
             Id = id;
+            KubernetesVersion = kubernetesVersion;
             Location = location;
             Name = name;
+            NodeImageVersion = nodeImageVersion;
+            OsSku = osSku;
+            OsType = osType;
             SnapshotType = snapshotType;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            VmSize = vmSize;
         }
     }
 }

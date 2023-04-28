@@ -63,11 +63,11 @@ def list_webhook_events(registry_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebhookEventsResult:
     """
     Lists recent events for the specified webhook.
-    API Version: 2019-05-01.
+    API Version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str webhook_name: The name of the webhook.
     """
     __args__ = dict()
@@ -89,11 +89,11 @@ def list_webhook_events_output(registry_name: Optional[pulumi.Input[str]] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebhookEventsResult]:
     """
     Lists recent events for the specified webhook.
-    API Version: 2019-05-01.
+    API Version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str webhook_name: The name of the webhook.
     """
     ...

@@ -22,16 +22,19 @@ class GetWorkspaceResult:
     """
     The top level Workspace resource container.
     """
-    def __init__(__self__, created_date=None, customer_id=None, e_tag=None, features=None, force_cmk_for_query=None, id=None, location=None, modified_date=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
+    def __init__(__self__, created_date=None, customer_id=None, default_data_collection_rule_resource_id=None, etag=None, features=None, force_cmk_for_query=None, id=None, identity=None, location=None, modified_date=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, system_data=None, tags=None, type=None, workspace_capping=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
         if customer_id and not isinstance(customer_id, str):
             raise TypeError("Expected argument 'customer_id' to be a str")
         pulumi.set(__self__, "customer_id", customer_id)
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        pulumi.set(__self__, "e_tag", e_tag)
+        if default_data_collection_rule_resource_id and not isinstance(default_data_collection_rule_resource_id, str):
+            raise TypeError("Expected argument 'default_data_collection_rule_resource_id' to be a str")
+        pulumi.set(__self__, "default_data_collection_rule_resource_id", default_data_collection_rule_resource_id)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if features and not isinstance(features, dict):
             raise TypeError("Expected argument 'features' to be a dict")
         pulumi.set(__self__, "features", features)
@@ -41,6 +44,9 @@ class GetWorkspaceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -68,6 +74,9 @@ class GetWorkspaceResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -95,12 +104,20 @@ class GetWorkspaceResult:
         return pulumi.get(self, "customer_id")
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    @pulumi.getter(name="defaultDataCollectionRuleResourceId")
+    def default_data_collection_rule_resource_id(self) -> Optional[str]:
         """
-        The ETag of the workspace.
+        The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
         """
-        return pulumi.get(self, "e_tag")
+        return pulumi.get(self, "default_data_collection_rule_resource_id")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        The etag of the workspace.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -125,6 +142,14 @@ class GetWorkspaceResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -160,7 +185,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         The provisioning state of the workspace.
         """
@@ -199,6 +224,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -231,10 +264,12 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         return GetWorkspaceResult(
             created_date=self.created_date,
             customer_id=self.customer_id,
-            e_tag=self.e_tag,
+            default_data_collection_rule_resource_id=self.default_data_collection_rule_resource_id,
+            etag=self.etag,
             features=self.features,
             force_cmk_for_query=self.force_cmk_for_query,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             modified_date=self.modified_date,
             name=self.name,
@@ -244,6 +279,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             public_network_access_for_query=self.public_network_access_for_query,
             retention_in_days=self.retention_in_days,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             workspace_capping=self.workspace_capping)
@@ -254,7 +290,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Gets a workspace instance.
-    API Version: 2020-10-01.
+    API Version: 2022-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -269,10 +305,12 @@ def get_workspace(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkspaceResult(
         created_date=__ret__.created_date,
         customer_id=__ret__.customer_id,
-        e_tag=__ret__.e_tag,
+        default_data_collection_rule_resource_id=__ret__.default_data_collection_rule_resource_id,
+        etag=__ret__.etag,
         features=__ret__.features,
         force_cmk_for_query=__ret__.force_cmk_for_query,
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         modified_date=__ret__.modified_date,
         name=__ret__.name,
@@ -282,6 +320,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         public_network_access_for_query=__ret__.public_network_access_for_query,
         retention_in_days=__ret__.retention_in_days,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         workspace_capping=__ret__.workspace_capping)
@@ -293,7 +332,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets a workspace instance.
-    API Version: 2020-10-01.
+    API Version: 2022-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

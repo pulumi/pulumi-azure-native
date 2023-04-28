@@ -21,11 +21,13 @@ class NetworkVirtualApplianceArgs:
                  boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
                  cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 delegation: Optional[pulumi.Input['DelegationPropertiesArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input['VirtualApplianceSkuPropertiesArgs']] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
                  virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None):
@@ -35,13 +37,15 @@ class NetworkVirtualApplianceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] boot_strap_configuration_blobs: BootStrapConfigurationBlobs storage URLs.
         :param pulumi.Input[str] cloud_init_configuration: CloudInitConfiguration string in plain text.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_init_configuration_blobs: CloudInitConfigurationBlob storage URLs.
+        :param pulumi.Input['DelegationPropertiesArgs'] delegation: The delegation for the Virtual Appliance
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The service principal that has read access to cloud-init and config blob.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input['VirtualApplianceSkuPropertiesArgs'] nva_sku: Network Virtual Appliance SKU.
+        :param pulumi.Input[str] ssh_public_key: Public key for SSH login.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
+        :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,6 +55,8 @@ class NetworkVirtualApplianceArgs:
             pulumi.set(__self__, "cloud_init_configuration", cloud_init_configuration)
         if cloud_init_configuration_blobs is not None:
             pulumi.set(__self__, "cloud_init_configuration_blobs", cloud_init_configuration_blobs)
+        if delegation is not None:
+            pulumi.set(__self__, "delegation", delegation)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if identity is not None:
@@ -61,6 +67,8 @@ class NetworkVirtualApplianceArgs:
             pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
         if nva_sku is not None:
             pulumi.set(__self__, "nva_sku", nva_sku)
+        if ssh_public_key is not None:
+            pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_appliance_asn is not None:
@@ -115,6 +123,18 @@ class NetworkVirtualApplianceArgs:
     @cloud_init_configuration_blobs.setter
     def cloud_init_configuration_blobs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "cloud_init_configuration_blobs", value)
+
+    @property
+    @pulumi.getter
+    def delegation(self) -> Optional[pulumi.Input['DelegationPropertiesArgs']]:
+        """
+        The delegation for the Virtual Appliance
+        """
+        return pulumi.get(self, "delegation")
+
+    @delegation.setter
+    def delegation(self, value: Optional[pulumi.Input['DelegationPropertiesArgs']]):
+        pulumi.set(self, "delegation", value)
 
     @property
     @pulumi.getter
@@ -177,6 +197,18 @@ class NetworkVirtualApplianceArgs:
         pulumi.set(self, "nva_sku", value)
 
     @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public key for SSH login.
+        """
+        return pulumi.get(self, "ssh_public_key")
+
+    @ssh_public_key.setter
+    def ssh_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_public_key", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -192,7 +224,7 @@ class NetworkVirtualApplianceArgs:
     @pulumi.getter(name="virtualApplianceAsn")
     def virtual_appliance_asn(self) -> Optional[pulumi.Input[float]]:
         """
-        VirtualAppliance ASN.
+        VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         """
         return pulumi.get(self, "virtual_appliance_asn")
 
@@ -221,33 +253,38 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
                  cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 delegation: Optional[pulumi.Input[pulumi.InputType['DelegationPropertiesArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
         """
         NetworkVirtualAppliance Resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] boot_strap_configuration_blobs: BootStrapConfigurationBlobs storage URLs.
         :param pulumi.Input[str] cloud_init_configuration: CloudInitConfiguration string in plain text.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_init_configuration_blobs: CloudInitConfigurationBlob storage URLs.
+        :param pulumi.Input[pulumi.InputType['DelegationPropertiesArgs']] delegation: The delegation for the Virtual Appliance
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The service principal that has read access to cloud-init and config blob.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']] nva_sku: Network Virtual Appliance SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] ssh_public_key: Public key for SSH login.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
+        :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
         ...
@@ -258,7 +295,8 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkVirtualAppliance Resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param NetworkVirtualApplianceArgs args: The arguments to use to populate this resource's properties.
@@ -278,12 +316,14 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  boot_strap_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
                  cloud_init_configuration_blobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 delegation: Optional[pulumi.Input[pulumi.InputType['DelegationPropertiesArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ssh_public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_appliance_asn: Optional[pulumi.Input[float]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -299,6 +339,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["boot_strap_configuration_blobs"] = boot_strap_configuration_blobs
             __props__.__dict__["cloud_init_configuration"] = cloud_init_configuration
             __props__.__dict__["cloud_init_configuration_blobs"] = cloud_init_configuration_blobs
+            __props__.__dict__["delegation"] = delegation
             __props__.__dict__["id"] = id
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -307,13 +348,16 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["ssh_public_key"] = ssh_public_key
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_appliance_asn"] = virtual_appliance_asn
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["address_prefix"] = None
+            __props__.__dict__["deployment_type"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["inbound_security_rules"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["partner_managed_resource"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_appliance_nics"] = None
@@ -346,13 +390,17 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         __props__.__dict__["boot_strap_configuration_blobs"] = None
         __props__.__dict__["cloud_init_configuration"] = None
         __props__.__dict__["cloud_init_configuration_blobs"] = None
+        __props__.__dict__["delegation"] = None
+        __props__.__dict__["deployment_type"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["inbound_security_rules"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["nva_sku"] = None
+        __props__.__dict__["partner_managed_resource"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["ssh_public_key"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_appliance_asn"] = None
@@ -392,6 +440,22 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         CloudInitConfigurationBlob storage URLs.
         """
         return pulumi.get(self, "cloud_init_configuration_blobs")
+
+    @property
+    @pulumi.getter
+    def delegation(self) -> pulumi.Output[Optional['outputs.DelegationPropertiesResponse']]:
+        """
+        The delegation for the Virtual Appliance
+        """
+        return pulumi.get(self, "delegation")
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> pulumi.Output[str]:
+        """
+        The deployment type. PartnerManaged for the SaaS NVA
+        """
+        return pulumi.get(self, "deployment_type")
 
     @property
     @pulumi.getter
@@ -442,12 +506,28 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         return pulumi.get(self, "nva_sku")
 
     @property
+    @pulumi.getter(name="partnerManagedResource")
+    def partner_managed_resource(self) -> pulumi.Output[Optional['outputs.PartnerManagedResourcePropertiesResponse']]:
+        """
+        The delegation for the Virtual Appliance
+        """
+        return pulumi.get(self, "partner_managed_resource")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Public key for SSH login.
+        """
+        return pulumi.get(self, "ssh_public_key")
 
     @property
     @pulumi.getter
@@ -469,7 +549,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
     @pulumi.getter(name="virtualApplianceAsn")
     def virtual_appliance_asn(self) -> pulumi.Output[Optional[float]]:
         """
-        VirtualAppliance ASN.
+        VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         """
         return pulumi.get(self, "virtual_appliance_asn")
 

@@ -21,9 +21,21 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly bool? AllowInsecure;
         /// <summary>
+        /// Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
+        /// </summary>
+        public readonly string? ClientCertificateMode;
+        /// <summary>
+        /// CORS policy for container app
+        /// </summary>
+        public readonly Outputs.CorsPolicyResponse? CorsPolicy;
+        /// <summary>
         /// custom domain bindings for Container Apps' hostnames.
         /// </summary>
         public readonly ImmutableArray<Outputs.CustomDomainResponse> CustomDomains;
+        /// <summary>
+        /// Exposed Port in containers for TCP traffic from ingress
+        /// </summary>
+        public readonly int? ExposedPort;
         /// <summary>
         /// Bool indicating if app exposes an external http endpoint
         /// </summary>
@@ -32,6 +44,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Hostname.
         /// </summary>
         public readonly string Fqdn;
+        /// <summary>
+        /// Rules to restrict incoming IP address.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpSecurityRestrictionRuleResponse> IpSecurityRestrictions;
         /// <summary>
         /// Target Port in containers for traffic from ingress
         /// </summary>
@@ -49,11 +65,19 @@ namespace Pulumi.AzureNative.App.Outputs
         private IngressResponse(
             bool? allowInsecure,
 
+            string? clientCertificateMode,
+
+            Outputs.CorsPolicyResponse? corsPolicy,
+
             ImmutableArray<Outputs.CustomDomainResponse> customDomains,
+
+            int? exposedPort,
 
             bool? external,
 
             string fqdn,
+
+            ImmutableArray<Outputs.IpSecurityRestrictionRuleResponse> ipSecurityRestrictions,
 
             int? targetPort,
 
@@ -62,9 +86,13 @@ namespace Pulumi.AzureNative.App.Outputs
             string? transport)
         {
             AllowInsecure = allowInsecure;
+            ClientCertificateMode = clientCertificateMode;
+            CorsPolicy = corsPolicy;
             CustomDomains = customDomains;
+            ExposedPort = exposedPort;
             External = external;
             Fqdn = fqdn;
+            IpSecurityRestrictions = ipSecurityRestrictions;
             TargetPort = targetPort;
             Traffic = traffic;
             Transport = transport;

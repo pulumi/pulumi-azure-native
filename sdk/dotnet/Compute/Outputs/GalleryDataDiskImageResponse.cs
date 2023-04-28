@@ -29,9 +29,9 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly int SizeInGB;
         /// <summary>
-        /// The gallery artifact version source.
+        /// The source for the disk image.
         /// </summary>
-        public readonly Outputs.GalleryArtifactVersionSourceResponse? Source;
+        public readonly Outputs.GalleryDiskImageSourceResponse? Source;
 
         [OutputConstructor]
         private GalleryDataDiskImageResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             int sizeInGB,
 
-            Outputs.GalleryArtifactVersionSourceResponse? source)
+            Outputs.GalleryDiskImageSourceResponse? source)
         {
             HostCaching = hostCaching;
             Lun = lun;

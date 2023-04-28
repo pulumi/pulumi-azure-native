@@ -22,7 +22,7 @@ class GetConnectivityConfigurationResult:
     """
     The network manager connectivity configuration resource
     """
-    def __init__(__self__, applies_to_groups=None, connectivity_topology=None, delete_existing_peering=None, description=None, display_name=None, etag=None, hubs=None, id=None, is_global=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, applies_to_groups=None, connectivity_topology=None, delete_existing_peering=None, description=None, etag=None, hubs=None, id=None, is_global=None, name=None, provisioning_state=None, system_data=None, type=None):
         if applies_to_groups and not isinstance(applies_to_groups, list):
             raise TypeError("Expected argument 'applies_to_groups' to be a list")
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
@@ -35,9 +35,6 @@ class GetConnectivityConfigurationResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -65,7 +62,7 @@ class GetConnectivityConfigurationResult:
 
     @property
     @pulumi.getter(name="appliesToGroups")
-    def applies_to_groups(self) -> Optional[Sequence['outputs.ConnectivityGroupItemResponse']]:
+    def applies_to_groups(self) -> Sequence['outputs.ConnectivityGroupItemResponse']:
         """
         Groups for configuration
         """
@@ -94,14 +91,6 @@ class GetConnectivityConfigurationResult:
         A description of the connectivity configuration.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        A friendly name for the resource.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -178,7 +167,6 @@ class AwaitableGetConnectivityConfigurationResult(GetConnectivityConfigurationRe
             connectivity_topology=self.connectivity_topology,
             delete_existing_peering=self.delete_existing_peering,
             description=self.description,
-            display_name=self.display_name,
             etag=self.etag,
             hubs=self.hubs,
             id=self.id,
@@ -195,7 +183,7 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectivityConfigurationResult:
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.
@@ -214,7 +202,6 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
         connectivity_topology=__ret__.connectivity_topology,
         delete_existing_peering=__ret__.delete_existing_peering,
         description=__ret__.description,
-        display_name=__ret__.display_name,
         etag=__ret__.etag,
         hubs=__ret__.hubs,
         id=__ret__.id,
@@ -232,7 +219,7 @@ def get_connectivity_configuration_output(configuration_name: Optional[pulumi.In
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectivityConfigurationResult]:
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The reference to the subnet bound to the IP configuration.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? Subnet;
+        public readonly Outputs.SubResourceResponse Subnet;
 
         [OutputConstructor]
         private InboundEndpointIPConfigurationResponse(
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? privateIpAllocationMethod,
 
-            Outputs.SubResourceResponse? subnet)
+            Outputs.SubResourceResponse subnet)
         {
             PrivateIpAddress = privateIpAddress;
             PrivateIpAllocationMethod = privateIpAllocationMethod;

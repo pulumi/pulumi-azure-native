@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
 
@@ -52,9 +52,25 @@ export interface GetDeviceExtendedInformationResult {
      */
     readonly clientSecretStoreUrl?: string;
     /**
+     * The Container for cloud witness in the storage account.
+     */
+    readonly cloudWitnessContainerName: string;
+    /**
+     * The Cloud Witness Storage account name.
+     */
+    readonly cloudWitnessStorageAccountName: string;
+    /**
+     * The Azure service endpoint of the cloud witness storage account.
+     */
+    readonly cloudWitnessStorageEndpoint: string;
+    /**
+     * Cluster Witness Type
+     */
+    readonly clusterWitnessType: string;
+    /**
      * Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
      */
-    readonly deviceSecrets: outputs.databoxedge.DeviceSecretsResponse;
+    readonly deviceSecrets: {[key: string]: outputs.databoxedge.SecretResponse};
     /**
      * The public part of the encryption certificate. Client uses this to encrypt any secret.
      */
@@ -63,6 +79,14 @@ export interface GetDeviceExtendedInformationResult {
      * The digital signature of encrypted certificate.
      */
     readonly encryptionKeyThumbprint?: string;
+    /**
+     * The witness location of file share.
+     */
+    readonly fileShareWitnessLocation: string;
+    /**
+     * The username of file share.
+     */
+    readonly fileShareWitnessUsername: string;
     /**
      * The path ID that uniquely identifies the object.
      */
@@ -80,13 +104,17 @@ export interface GetDeviceExtendedInformationResult {
      */
     readonly resourceKey: string;
     /**
+     * Metadata pertaining to creation and last modification of DataBoxEdgeDevice
+     */
+    readonly systemData: outputs.databoxedge.SystemDataResponse;
+    /**
      * The hierarchical type of the object.
      */
     readonly type: string;
 }
 /**
  * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
     return pulumi.output(args).apply((a: any) => getDeviceExtendedInformation(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     {
         /// <summary>
         /// Get the Azure AD B2C tenant resource.
-        /// API Version: 2019-01-01-preview.
+        /// API Version: 2021-04-01.
         /// </summary>
         public static Task<GetB2CTenantResult> InvokeAsync(GetB2CTenantArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Azure AD B2C tenant resource.
-        /// API Version: 2019-01-01-preview.
+        /// API Version: 2021-04-01.
         /// </summary>
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The initial domain name of the B2C tenant.
+        /// The initial domain name of the Azure AD B2C tenant.
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The initial domain name of the B2C tenant.
+        /// The initial domain name of the Azure AD B2C tenant.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
@@ -76,15 +76,15 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         public readonly Outputs.B2CTenantResourcePropertiesResponseBillingConfig? BillingConfig;
         /// <summary>
-        /// An identifier that represents the B2C tenant resource.
+        /// An identifier that represents the Azure AD B2C tenant resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the B2C tenant resource.
+        /// The name of the Azure AD B2C tenant resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -92,11 +92,15 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         public readonly Outputs.B2CResourceSKUResponse Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource Tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// An identifier of the B2C tenant.
+        /// An identifier of the Azure AD B2C tenant.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
             Outputs.B2CResourceSKUResponse sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string? tenantId,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
             Location = location;
             Name = name;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             TenantId = tenantId;
             Type = type;

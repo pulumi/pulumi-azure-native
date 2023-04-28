@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Software update configuration properties.
  * API Version: 2019-06-01.
+ * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     /**

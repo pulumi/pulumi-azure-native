@@ -7,11 +7,15 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_web_pub_sub import *
+from .get_web_pub_sub_custom_certificate import *
+from .get_web_pub_sub_custom_domain import *
 from .get_web_pub_sub_hub import *
 from .get_web_pub_sub_private_endpoint_connection import *
 from .get_web_pub_sub_shared_private_link_resource import *
 from .list_web_pub_sub_keys import *
 from .web_pub_sub import *
+from .web_pub_sub_custom_certificate import *
+from .web_pub_sub_custom_domain import *
 from .web_pub_sub_hub import *
 from .web_pub_sub_private_endpoint_connection import *
 from .web_pub_sub_shared_private_link_resource import *
@@ -32,6 +36,8 @@ if typing.TYPE_CHECKING:
     v20220801preview = __v20220801preview
     import pulumi_azure_native.webpubsub.v20230201 as __v20230201
     v20230201 = __v20230201
+    import pulumi_azure_native.webpubsub.v20230301preview as __v20230301preview
+    v20230301preview = __v20230301preview
 else:
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20210401preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20210601preview')
@@ -39,4 +45,5 @@ else:
     v20211001 = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20211001')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20220801preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20230201')
+    v20230301preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20230301preview')
 

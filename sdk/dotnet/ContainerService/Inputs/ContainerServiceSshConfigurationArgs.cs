@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<Inputs.ContainerServiceSshPublicKeyArgs>? _publicKeys;
 
         /// <summary>
-        /// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        /// The list of SSH public keys used to authenticate with Linux-based VMs. A maximum of 1 key may be specified.
         /// </summary>
         public InputList<Inputs.ContainerServiceSshPublicKeyArgs> PublicKeys
         {

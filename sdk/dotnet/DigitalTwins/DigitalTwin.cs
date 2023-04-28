@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
     /// The description of the DigitalTwins service.
-    /// API Version: 2020-12-01.
+    /// API Version: 2023-01-31.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:DigitalTwin")]
     public partial class DigitalTwin : global::Pulumi.CustomResource
@@ -52,6 +53,9 @@ namespace Pulumi.AzureNative.DigitalTwins
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The private endpoint connections.
+        /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
@@ -66,6 +70,12 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the DigitalTwinsInstance.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -148,6 +158,10 @@ namespace Pulumi.AzureNative.DigitalTwins
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// The private endpoint connections.
+        /// </summary>
         public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
         {
             get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());

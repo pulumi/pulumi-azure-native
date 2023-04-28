@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetOnlineDeploymentResult> InvokeAsync(GetOnlineDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentResult>("azure-native:machinelearningservices:getOnlineDeployment", args ?? new GetOnlineDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetOnlineDeploymentResult> Invoke(GetOnlineDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentResult>("azure-native:machinelearningservices:getOnlineDeployment", args ?? new GetOnlineDeploymentInvokeArgs(), options.WithDefaults());
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Service identity associated with a resource.
+        /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         /// </summary>
@@ -118,9 +118,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        public readonly Union<Outputs.K8sOnlineDeploymentResponse, Outputs.ManagedOnlineDeploymentResponse> Properties;
+        public readonly Union<Outputs.KubernetesOnlineDeploymentResponse, Outputs.ManagedOnlineDeploymentResponse> OnlineDeploymentProperties;
         /// <summary>
-        /// System data associated with resource provider
+        /// Sku details required for ARM contract for Autoscaling.
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -136,7 +140,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetOnlineDeploymentResult(
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? kind,
 
@@ -144,7 +148,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
-            Union<Outputs.K8sOnlineDeploymentResponse, Outputs.ManagedOnlineDeploymentResponse> properties,
+            Union<Outputs.KubernetesOnlineDeploymentResponse, Outputs.ManagedOnlineDeploymentResponse> onlineDeploymentProperties,
+
+            Outputs.SkuResponse? sku,
 
             Outputs.SystemDataResponse systemData,
 
@@ -157,7 +163,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            OnlineDeploymentProperties = onlineDeploymentProperties;
+            Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

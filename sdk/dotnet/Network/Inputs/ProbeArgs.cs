@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
+        /// The number of consecutive successful or failed probes in order to allow or deny traffic from being delivered to this endpoint. After failing the number of consecutive probes equal to this value, the endpoint will be taken out of rotation and require the same number of successful consecutive probes to be placed back in rotation.
+        /// </summary>
+        [Input("probeThreshold")]
+        public Input<int>? ProbeThreshold { get; set; }
+
+        /// <summary>
         /// The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
         /// </summary>
         [Input("protocol", required: true)]

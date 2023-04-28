@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedIdentity
     {
         /// <summary>
         /// Gets the identity.
-        /// API Version: 2018-11-30.
+        /// API Version: 2023-01-31.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the identity.
-        /// API Version: 2018-11-30.
+        /// API Version: 2023-01-31.
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// The id of the service principal object associated with the created identity.
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
 
             string principalId,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string tenantId,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
             Location = location;
             Name = name;
             PrincipalId = principalId;
+            SystemData = systemData;
             Tags = tags;
             TenantId = tenantId;
             Type = type;

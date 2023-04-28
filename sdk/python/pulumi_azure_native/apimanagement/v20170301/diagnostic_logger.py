@@ -155,7 +155,7 @@ class DiagnosticLogger(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["sampling"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:DiagnosticLogger"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:DiagnosticLogger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20180101:DiagnosticLogger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiagnosticLogger, __self__).__init__(
             'azure-native:apimanagement/v20170301:DiagnosticLogger',

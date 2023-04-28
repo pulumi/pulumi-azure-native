@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL managed instance.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ManagedInstance extends pulumi.CustomResource {
     /**
@@ -50,6 +51,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      * Collation of the managed instance.
      */
     public readonly collation!: pulumi.Output<string | undefined>;
+    /**
+     * The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+     */
+    public /*out*/ readonly currentBackupStorageRedundancy!: pulumi.Output<string>;
     /**
      * The Dns Zone that the managed instance is in.
      */
@@ -108,7 +113,15 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly publicDataEndpointEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+     * The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+     */
+    public readonly requestedBackupStorageRedundancy!: pulumi.Output<string | undefined>;
+    /**
+     * The managed instance's service principal.
+     */
+    public readonly servicePrincipal!: pulumi.Output<outputs.sql.ServicePrincipalResponse | undefined>;
+    /**
+     * Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
      */
     public readonly sku!: pulumi.Output<outputs.sql.SkuResponse | undefined>;
     /**
@@ -116,11 +129,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-     */
-    public readonly storageAccountType!: pulumi.Output<string | undefined>;
-    /**
-     * Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+     * Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
     public readonly storageSizeInGB!: pulumi.Output<number | undefined>;
     /**
@@ -184,17 +193,19 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
             resourceInputs["proxyOverride"] = args ? args.proxyOverride : undefined;
             resourceInputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
+            resourceInputs["requestedBackupStorageRedundancy"] = args ? args.requestedBackupStorageRedundancy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
+            resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sourceManagedInstanceId"] = args ? args.sourceManagedInstanceId : undefined;
-            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             resourceInputs["storageSizeInGB"] = args ? args.storageSizeInGB : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
             resourceInputs["vCores"] = args ? args.vCores : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["currentBackupStorageRedundancy"] = undefined /*out*/;
             resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -206,6 +217,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["administrators"] = undefined /*out*/;
             resourceInputs["collation"] = undefined /*out*/;
+            resourceInputs["currentBackupStorageRedundancy"] = undefined /*out*/;
             resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -221,9 +233,10 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["proxyOverride"] = undefined /*out*/;
             resourceInputs["publicDataEndpointEnabled"] = undefined /*out*/;
+            resourceInputs["requestedBackupStorageRedundancy"] = undefined /*out*/;
+            resourceInputs["servicePrincipal"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["storageAccountType"] = undefined /*out*/;
             resourceInputs["storageSizeInGB"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -316,6 +329,10 @@ export interface ManagedInstanceArgs {
      */
     publicDataEndpointEnabled?: pulumi.Input<boolean>;
     /**
+     * The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+     */
+    requestedBackupStorageRedundancy?: pulumi.Input<string | enums.sql.BackupStorageRedundancy>;
+    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -324,7 +341,11 @@ export interface ManagedInstanceArgs {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+     * The managed instance's service principal.
+     */
+    servicePrincipal?: pulumi.Input<inputs.sql.ServicePrincipalArgs>;
+    /**
+     * Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
      */
     sku?: pulumi.Input<inputs.sql.SkuArgs>;
     /**
@@ -332,11 +353,7 @@ export interface ManagedInstanceArgs {
      */
     sourceManagedInstanceId?: pulumi.Input<string>;
     /**
-     * The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-     */
-    storageAccountType?: pulumi.Input<string | enums.sql.StorageAccountType>;
-    /**
-     * Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+     * Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
     storageSizeInGB?: pulumi.Input<number>;
     /**

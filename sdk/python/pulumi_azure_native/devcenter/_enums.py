@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'DomainJoinType',
     'EnableStatus',
+    'HibernateSupport',
     'LicenseType',
     'LocalAdminStatus',
     'ManagedServiceIdentityType',
@@ -30,6 +31,14 @@ class EnableStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class HibernateSupport(str, Enum):
+    """
+    Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class LicenseType(str, Enum):

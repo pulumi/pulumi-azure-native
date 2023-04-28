@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
-        /// API Version: 2020-06-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
-        /// API Version: 2020-06-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
+        /// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
+        /// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
         /// </summary>
         [Input("expand")]
         public Input<string>? Expand { get; set; }
@@ -108,11 +108,15 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// If the export has an active schedule, provides an estimate of the next execution time.
+        /// If the export has an active schedule, provides an estimate of the next run time.
         /// </summary>
         public readonly string NextRunTimeEstimate;
         /// <summary>
-        /// If requested, has the most recent execution history for the export.
+        /// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+        /// </summary>
+        public readonly bool? PartitionData;
+        /// <summary>
+        /// If requested, has the most recent run history for the export.
         /// </summary>
         public readonly Outputs.ExportExecutionListResultResponse? RunHistory;
         /// <summary>
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.CostManagement
 
             string nextRunTimeEstimate,
 
+            bool? partitionData,
+
             Outputs.ExportExecutionListResultResponse? runHistory,
 
             Outputs.ExportScheduleResponse? schedule,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.CostManagement
             Id = id;
             Name = name;
             NextRunTimeEstimate = nextRunTimeEstimate;
+            PartitionData = partitionData;
             RunHistory = runHistory;
             Schedule = schedule;
             Type = type;

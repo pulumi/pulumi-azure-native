@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// </summary>
     public sealed class ScaleInPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This property allows you to specify if virtual machines chosen for removal have to be force deleted when a virtual machine scale set is being scaled-in.(Feature in Preview)
+        /// </summary>
+        [Input("forceDeletion")]
+        public Input<bool>? ForceDeletion { get; set; }
+
         [Input("rules")]
         private InputList<Union<string, Pulumi.AzureNative.Compute.VirtualMachineScaleSetScaleInRules>>? _rules;
 

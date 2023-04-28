@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get function secrets for a function in a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get function secrets for a function in a web site, or a deployment slot.
+ * API Version: 2022-09-01.
  */
 export function listWebAppFunctionSecrets(args: ListWebAppFunctionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsResult> {
 
@@ -47,8 +47,8 @@ export interface ListWebAppFunctionSecretsResult {
     readonly triggerUrl?: string;
 }
 /**
- * Get function secrets for a function in a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get function secrets for a function in a web site, or a deployment slot.
+ * API Version: 2022-09-01.
  */
 export function listWebAppFunctionSecretsOutput(args: ListWebAppFunctionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppFunctionSecrets(a, opts))

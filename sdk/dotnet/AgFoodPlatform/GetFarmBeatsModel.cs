@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     {
         /// <summary>
         /// Get FarmBeats resource.
-        /// API Version: 2020-05-12-preview.
+        /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetFarmBeatsModelResult> InvokeAsync(GetFarmBeatsModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFarmBeatsModelResult>("azure-native:agfoodplatform:getFarmBeatsModel", args ?? new GetFarmBeatsModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get FarmBeats resource.
-        /// API Version: 2020-05-12-preview.
+        /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetFarmBeatsModelResult> Invoke(GetFarmBeatsModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFarmBeatsModelResult>("azure-native:agfoodplatform:getFarmBeatsModel", args ?? new GetFarmBeatsModelInvokeArgs(), options.WithDefaults());
@@ -72,9 +72,13 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetFarmBeatsModelResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Uri of the FarmBeats instance.
         /// </summary>
@@ -88,15 +92,23 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The private endpoint connection resource.
+        /// </summary>
+        public readonly Outputs.PrivateEndpointConnectionResponse PrivateEndpointConnections;
+        /// <summary>
         /// FarmBeats instance provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The resource model definition representing SKU
+        /// Property to allow or block public traffic for an Azure FarmBeats resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly string? PublicNetworkAccess;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Sensor integration request model.
+        /// </summary>
+        public readonly Outputs.SensorIntegrationResponse? SensorIntegration;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -112,15 +124,21 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         private GetFarmBeatsModelResult(
             string id,
 
+            Outputs.IdentityResponse? identity,
+
             string instanceUri,
 
             string location,
 
             string name,
 
+            Outputs.PrivateEndpointConnectionResponse privateEndpointConnections,
+
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            string? publicNetworkAccess,
+
+            Outputs.SensorIntegrationResponse? sensorIntegration,
 
             Outputs.SystemDataResponse systemData,
 
@@ -129,11 +147,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
             string type)
         {
             Id = id;
+            Identity = identity;
             InstanceUri = instanceUri;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
-            Sku = sku;
+            PublicNetworkAccess = publicNetworkAccess;
+            SensorIntegration = sensorIntegration;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -65,7 +65,6 @@ from .get_server_vulnerability_assessment import *
 from .get_sync_agent import *
 from .get_sync_group import *
 from .get_sync_member import *
-from .get_transparent_data_encryption import *
 from .get_virtual_network_rule import *
 from .get_workload_classifier import *
 from .get_workload_group import *
@@ -102,7 +101,6 @@ from .server_vulnerability_assessment import *
 from .sync_agent import *
 from .sync_group import *
 from .sync_member import *
-from .transparent_data_encryption import *
 from .virtual_network_rule import *
 from .workload_classifier import *
 from .workload_group import *

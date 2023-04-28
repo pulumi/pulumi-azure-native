@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents threat intelligence data connector.
- * API Version: 2020-01-01.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class TIDataConnector extends pulumi.CustomResource {
     /**
@@ -52,9 +53,13 @@ export class TIDataConnector extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"ThreatIntelligence">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenant id to connect to, and get the data from.
      */
@@ -64,7 +69,7 @@ export class TIDataConnector extends pulumi.CustomResource {
      */
     public readonly tipLookbackPeriod!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -97,18 +102,20 @@ export class TIDataConnector extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dataTypes"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["tipLookbackPeriod"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20200101:TIDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220801:TIDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221101:TIDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230201:TIDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:TIDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20200101:TIDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220801:TIDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221101:TIDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230201:TIDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230301preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:TIDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TIDataConnector.__pulumiType, name, resourceInputs, opts);
     }
@@ -132,7 +139,7 @@ export interface TIDataConnectorArgs {
      */
     kind: pulumi.Input<"ThreatIntelligence">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

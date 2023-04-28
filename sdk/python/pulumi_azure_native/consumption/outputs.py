@@ -110,8 +110,6 @@ class BudgetFilterResponse(dict):
         suggest = None
         if key == "and":
             suggest = "and_"
-        elif key == "not":
-            suggest = "not_"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BudgetFilterResponse. Access the value via the '{suggest}' property getter instead.")
@@ -127,21 +125,17 @@ class BudgetFilterResponse(dict):
     def __init__(__self__, *,
                  and_: Optional[Sequence['outputs.BudgetFilterPropertiesResponse']] = None,
                  dimensions: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
-                 not_: Optional['outputs.BudgetFilterPropertiesResponse'] = None,
                  tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
         :param Sequence['BudgetFilterPropertiesResponse'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
-        :param 'BudgetFilterPropertiesResponse' not_: The logical "NOT" expression.
         :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -160,14 +154,6 @@ class BudgetFilterResponse(dict):
         Has comparison expression for a dimension
         """
         return pulumi.get(self, "dimensions")
-
-    @property
-    @pulumi.getter(name="not")
-    def not_(self) -> Optional['outputs.BudgetFilterPropertiesResponse']:
-        """
-        The logical "NOT" expression.
-        """
-        return pulumi.get(self, "not_")
 
     @property
     @pulumi.getter

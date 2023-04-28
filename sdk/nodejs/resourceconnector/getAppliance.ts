@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of an Appliance with a specified resource group and name.
- * API Version: 2021-10-31-preview.
+ * API Version: 2022-10-27.
  */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
 
@@ -64,7 +64,7 @@ export interface GetApplianceResult {
      */
     readonly provisioningState: string;
     /**
-     * Certificates pair used to download MSI certificate from HIS
+     * Certificates pair used to download MSI certificate from HIS. Can only be set once.
      */
     readonly publicKey?: string;
     /**
@@ -72,7 +72,7 @@ export interface GetApplianceResult {
      */
     readonly status: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.resourceconnector.SystemDataResponse;
     /**
@@ -86,11 +86,11 @@ export interface GetApplianceResult {
     /**
      * Version of the Appliance
      */
-    readonly version: string;
+    readonly version?: string;
 }
 /**
  * Gets the details of an Appliance with a specified resource group and name.
- * API Version: 2021-10-31-preview.
+ * API Version: 2022-10-27.
  */
 export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
     return pulumi.output(args).apply((a: any) => getAppliance(a, opts))

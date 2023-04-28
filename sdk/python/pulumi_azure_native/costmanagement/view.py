@@ -24,6 +24,7 @@ class ViewArgs:
                  data_set: Optional[pulumi.Input['ReportConfigDatasetArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input['PivotPropertiesArgs']]]] = None,
@@ -39,6 +40,7 @@ class ViewArgs:
         :param pulumi.Input['ReportConfigDatasetArgs'] data_set: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[bool] include_monetary_commitment: If true, report includes monetary commitment.
         :param pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[Union[str, 'MetricType']] metric: Metric to use when displaying costs.
         :param pulumi.Input[Sequence[pulumi.Input['PivotPropertiesArgs']]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
@@ -58,6 +60,8 @@ class ViewArgs:
             pulumi.set(__self__, "display_name", display_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if include_monetary_commitment is not None:
+            pulumi.set(__self__, "include_monetary_commitment", include_monetary_commitment)
         if kpis is not None:
             pulumi.set(__self__, "kpis", kpis)
         if metric is not None:
@@ -156,6 +160,18 @@ class ViewArgs:
         pulumi.set(self, "e_tag", value)
 
     @property
+    @pulumi.getter(name="includeMonetaryCommitment")
+    def include_monetary_commitment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, report includes monetary commitment.
+        """
+        return pulumi.get(self, "include_monetary_commitment")
+
+    @include_monetary_commitment.setter
+    def include_monetary_commitment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_monetary_commitment", value)
+
+    @property
     @pulumi.getter
     def kpis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]]]:
         """
@@ -238,6 +254,7 @@ class View(pulumi.CustomResource):
                  data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
@@ -249,7 +266,8 @@ class View(pulumi.CustomResource):
                  __props__=None):
         """
         States and configurations of Cost Analysis.
-        API Version: 2019-11-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,6 +276,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] data_set: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[bool] include_monetary_commitment: If true, report includes monetary commitment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[Union[str, 'MetricType']] metric: Metric to use when displaying costs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
@@ -275,7 +294,8 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         States and configurations of Cost Analysis.
-        API Version: 2019-11-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.
@@ -297,6 +317,7 @@ class View(pulumi.CustomResource):
                  data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
@@ -319,6 +340,7 @@ class View(pulumi.CustomResource):
             __props__.__dict__["data_set"] = data_set
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["e_tag"] = e_tag
+            __props__.__dict__["include_monetary_commitment"] = include_monetary_commitment
             __props__.__dict__["kpis"] = kpis
             __props__.__dict__["metric"] = metric
             __props__.__dict__["pivots"] = pivots
@@ -334,7 +356,6 @@ class View(pulumi.CustomResource):
             __props__.__dict__["created_on"] = None
             __props__.__dict__["currency"] = None
             __props__.__dict__["date_range"] = None
-            __props__.__dict__["include_monetary_commitment"] = None
             __props__.__dict__["modified_on"] = None
             __props__.__dict__["name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:View")])
@@ -409,7 +430,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def currency(self) -> pulumi.Output[str]:
         """
-        Selected currency.
+        Currency of the current view.
         """
         return pulumi.get(self, "currency")
 
@@ -425,7 +446,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter(name="dateRange")
     def date_range(self) -> pulumi.Output[str]:
         """
-        Selected date range for viewing cost in.
+        Date range of the current view.
         """
         return pulumi.get(self, "date_range")
 
@@ -447,9 +468,9 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includeMonetaryCommitment")
-    def include_monetary_commitment(self) -> pulumi.Output[bool]:
+    def include_monetary_commitment(self) -> pulumi.Output[Optional[bool]]:
         """
-        Include monetary commitment
+        If true, report includes monetary commitment.
         """
         return pulumi.get(self, "include_monetary_commitment")
 

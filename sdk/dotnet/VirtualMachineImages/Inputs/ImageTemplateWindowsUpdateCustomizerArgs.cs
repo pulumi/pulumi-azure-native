@@ -54,6 +54,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
 
         public ImageTemplateWindowsUpdateCustomizerArgs()
         {
+            UpdateLimit = 0;
         }
         public static new ImageTemplateWindowsUpdateCustomizerArgs Empty => new ImageTemplateWindowsUpdateCustomizerArgs();
     }

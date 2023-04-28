@@ -86,7 +86,9 @@ namespace Pulumi.AzureNative.Purview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static Type None { get; } = new Type("None");
         public static Type SystemAssigned { get; } = new Type("SystemAssigned");
+        public static Type UserAssigned { get; } = new Type("UserAssigned");
 
         public static bool operator ==(Type left, Type right) => left.Equals(right);
         public static bool operator !=(Type left, Type right) => !left.Equals(right);

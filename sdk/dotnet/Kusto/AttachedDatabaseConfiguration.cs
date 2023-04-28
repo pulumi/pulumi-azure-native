@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an attached database configuration.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-12-29.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource
@@ -33,6 +34,18 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
+
+        /// <summary>
+        /// Overrides the original database name. Relevant only when attaching to a specific database.
+        /// </summary>
+        [Output("databaseNameOverride")]
+        public Output<string?> DatabaseNameOverride { get; private set; } = null!;
+
+        /// <summary>
+        /// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        /// </summary>
+        [Output("databaseNamePrefix")]
+        public Output<string?> DatabaseNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The default principals modification kind
@@ -152,6 +165,18 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Overrides the original database name. Relevant only when attaching to a specific database.
+        /// </summary>
+        [Input("databaseNameOverride")]
+        public Input<string>? DatabaseNameOverride { get; set; }
+
+        /// <summary>
+        /// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        /// </summary>
+        [Input("databaseNamePrefix")]
+        public Input<string>? DatabaseNamePrefix { get; set; }
 
         /// <summary>
         /// The default principals modification kind

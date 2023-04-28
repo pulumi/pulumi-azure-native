@@ -5,19 +5,31 @@
 from enum import Enum
 
 __all__ = [
+    'ChannelBinding',
     'ExternalAccess',
     'FilteredSync',
     'KerberosArmoring',
     'KerberosRc4Encryption',
+    'LdapSigning',
     'Ldaps',
     'NotifyDcAdmins',
     'NotifyGlobalAdmins',
     'NtlmV1',
+    'Status',
     'SyncKerberosPasswords',
     'SyncNtlmPasswords',
     'SyncOnPremPasswords',
+    'SyncScope',
     'TlsV1',
 ]
+
+
+class ChannelBinding(str, Enum):
+    """
+    A flag to determine whether or not ChannelBinding is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ExternalAccess(str, Enum):
@@ -47,6 +59,14 @@ class KerberosArmoring(str, Enum):
 class KerberosRc4Encryption(str, Enum):
     """
     A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class LdapSigning(str, Enum):
+    """
+    A flag to determine whether or not LdapSigning is enabled or disabled.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -84,6 +104,18 @@ class NtlmV1(str, Enum):
     DISABLED = "Disabled"
 
 
+class Status(str, Enum):
+    """
+    Status for individual validator after running diagnostics.
+    """
+    NONE = "None"
+    RUNNING = "Running"
+    OK = "OK"
+    FAILURE = "Failure"
+    WARNING = "Warning"
+    SKIPPED = "Skipped"
+
+
 class SyncKerberosPasswords(str, Enum):
     """
     A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
@@ -106,6 +138,14 @@ class SyncOnPremPasswords(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class SyncScope(str, Enum):
+    """
+    All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+    """
+    ALL = "All"
+    CLOUD_ONLY = "CloudOnly"
 
 
 class TlsV1(str, Enum):

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
         /// The type of the endpoint service.
         /// </summary>
         [Input("service")]

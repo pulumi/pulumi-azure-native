@@ -11,31 +11,32 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Managed cluster.
-    /// API Version: 2021-03-01.
+    /// API Version: 2023-01-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Profile of Azure Active Directory configuration.
+        /// The Azure Active Directory configuration.
         /// </summary>
         [Output("aadProfile")]
         public Output<Outputs.ManagedClusterAADProfileResponse?> AadProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Profile of managed cluster add-on.
+        /// The profile of managed cluster add-on.
         /// </summary>
         [Output("addonProfiles")]
         public Output<ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>?> AddonProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the agent pool.
+        /// The agent pool properties.
         /// </summary>
         [Output("agentPoolProfiles")]
         public Output<ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse>> AgentPoolProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// Access profile for managed cluster API server.
+        /// The access profile for managed cluster API server.
         /// </summary>
         [Output("apiServerAccessProfile")]
         public Output<Outputs.ManagedClusterAPIServerAccessProfileResponse?> ApiServerAccessProfile { get; private set; } = null!;
@@ -47,37 +48,49 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.ManagedClusterPropertiesResponseAutoScalerProfile?> AutoScalerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Profile of auto upgrade configuration.
+        /// The auto upgrade configuration.
         /// </summary>
         [Output("autoUpgradeProfile")]
         public Output<Outputs.ManagedClusterAutoUpgradeProfileResponse?> AutoUpgradeProfile { get; private set; } = null!;
 
         /// <summary>
-        /// FQDN for the master pool which used by proxy config.
+        /// Azure Monitor addon profiles for monitoring the managed cluster.
+        /// </summary>
+        [Output("azureMonitorProfile")]
+        public Output<Outputs.ManagedClusterAzureMonitorProfileResponse?> AzureMonitorProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
         /// </summary>
         [Output("azurePortalFQDN")]
         public Output<string> AzurePortalFQDN { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        /// If kubernetesVersion was a fully specified version &lt;major.minor.patch&gt;, this field will be exactly equal to it. If kubernetesVersion was &lt;major.minor&gt;, this field will contain the full &lt;major.minor.patch&gt; version being used.
+        /// </summary>
+        [Output("currentKubernetesVersion")]
+        public Output<string> CurrentKubernetesVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
         /// </summary>
         [Output("disableLocalAccounts")]
         public Output<bool?> DisableLocalAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// ResourceId of the disk encryption set to use for enabling encryption at rest.
+        /// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
         /// </summary>
         [Output("diskEncryptionSetID")]
         public Output<string?> DiskEncryptionSetID { get; private set; } = null!;
 
         /// <summary>
-        /// DNS prefix specified when creating the managed cluster.
+        /// This cannot be updated once the Managed Cluster has been created.
         /// </summary>
         [Output("dnsPrefix")]
         public Output<string?> DnsPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
+        /// (DEPRECATED) Whether to enable Kubernetes pod security policy (preview). PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25. Learn more at https://aka.ms/k8s/psp and https://aka.ms/aks/psp.
         /// </summary>
         [Output("enablePodSecurityPolicy")]
         public Output<bool?> EnablePodSecurityPolicy { get; private set; } = null!;
@@ -95,13 +108,13 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// FQDN for the master pool.
+        /// The FQDN of the master pool.
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// FQDN subdomain specified when creating private cluster with custom private dns zone.
+        /// This cannot be updated once the Managed Cluster has been created.
         /// </summary>
         [Output("fqdnSubdomain")]
         public Output<string?> FqdnSubdomain { get; private set; } = null!;
@@ -122,22 +135,22 @@ namespace Pulumi.AzureNative.ContainerService
         /// Identities associated with the cluster.
         /// </summary>
         [Output("identityProfile")]
-        public Output<ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfile>?> IdentityProfile { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>?> IdentityProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Version of Kubernetes specified when creating the managed cluster.
+        /// Both patch version &lt;major.minor.patch&gt; (e.g. 1.20.13) and &lt;major.minor&gt; (e.g. 1.20) are supported. When &lt;major.minor&gt; is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same &lt;major.minor&gt; once it has been created (e.g. 1.14.x -&gt; 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -&gt; 1.15.x or 1.15.x -&gt; 1.16.x are allowed, however 1.14.x -&gt; 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
         /// </summary>
         [Output("kubernetesVersion")]
         public Output<string?> KubernetesVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Profile for Linux VMs in the container service cluster.
+        /// The profile for Linux VMs in the Managed Cluster.
         /// </summary>
         [Output("linuxProfile")]
         public Output<Outputs.ContainerServiceLinuxProfileResponse?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -149,37 +162,43 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<int> MaxAgentPools { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Profile of network configuration.
+        /// The network configuration profile.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.ContainerServiceNetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource group containing agent pool nodes.
+        /// The name of the resource group containing agent pool nodes.
         /// </summary>
         [Output("nodeResourceGroup")]
         public Output<string?> NodeResourceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Profile of managed cluster pod identity.
+        /// The OIDC issuer profile of the Managed Cluster.
+        /// </summary>
+        [Output("oidcIssuerProfile")]
+        public Output<Outputs.ManagedClusterOIDCIssuerProfileResponse?> OidcIssuerProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         /// </summary>
         [Output("podIdentityProfile")]
         public Output<Outputs.ManagedClusterPodIdentityProfileResponse?> PodIdentityProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the Power State of the cluster
+        /// The Power State of the cluster.
         /// </summary>
         [Output("powerState")]
         public Output<Outputs.PowerStateResponse> PowerState { get; private set; } = null!;
 
         /// <summary>
-        /// FQDN of private cluster.
+        /// The FQDN of private cluster.
         /// </summary>
         [Output("privateFQDN")]
         public Output<string> PrivateFQDN { get; private set; } = null!;
@@ -191,10 +210,22 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<ImmutableArray<Outputs.PrivateLinkResourceResponse>> PrivateLinkResources { get; private set; } = null!;
 
         /// <summary>
-        /// The current deployment or provisioning state, which only appears in the response.
+        /// The current provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Allow or deny public network access for AKS
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Security profile for the managed cluster.
+        /// </summary>
+        [Output("securityProfile")]
+        public Output<Outputs.ManagedClusterSecurityProfileResponse?> SecurityProfile { get; private set; } = null!;
 
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
@@ -209,22 +240,40 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.ManagedClusterSKUResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Storage profile for the managed cluster.
+        /// </summary>
+        [Output("storageProfile")]
+        public Output<Outputs.ManagedClusterStorageProfileResponse?> StorageProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Profile for Windows VMs in the container service cluster.
+        /// The profile for Windows VMs in the Managed Cluster.
         /// </summary>
         [Output("windowsProfile")]
         public Output<Outputs.ManagedClusterWindowsProfileResponse?> WindowsProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Workload Auto-scaler profile for the managed cluster.
+        /// </summary>
+        [Output("workloadAutoScalerProfile")]
+        public Output<Outputs.ManagedClusterWorkloadAutoScalerProfileResponse?> WorkloadAutoScalerProfile { get; private set; } = null!;
 
 
         /// <summary>
@@ -299,6 +348,8 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221102preview:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230101:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230102preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230201:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230202preview:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -323,7 +374,7 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class ManagedClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Profile of Azure Active Directory configuration.
+        /// The Azure Active Directory configuration.
         /// </summary>
         [Input("aadProfile")]
         public Input<Inputs.ManagedClusterAADProfileArgs>? AadProfile { get; set; }
@@ -332,7 +383,7 @@ namespace Pulumi.AzureNative.ContainerService
         private InputMap<Inputs.ManagedClusterAddonProfileArgs>? _addonProfiles;
 
         /// <summary>
-        /// Profile of managed cluster add-on.
+        /// The profile of managed cluster add-on.
         /// </summary>
         public InputMap<Inputs.ManagedClusterAddonProfileArgs> AddonProfiles
         {
@@ -344,7 +395,7 @@ namespace Pulumi.AzureNative.ContainerService
         private InputList<Inputs.ManagedClusterAgentPoolProfileArgs>? _agentPoolProfiles;
 
         /// <summary>
-        /// Properties of the agent pool.
+        /// The agent pool properties.
         /// </summary>
         public InputList<Inputs.ManagedClusterAgentPoolProfileArgs> AgentPoolProfiles
         {
@@ -353,7 +404,7 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
-        /// Access profile for managed cluster API server.
+        /// The access profile for managed cluster API server.
         /// </summary>
         [Input("apiServerAccessProfile")]
         public Input<Inputs.ManagedClusterAPIServerAccessProfileArgs>? ApiServerAccessProfile { get; set; }
@@ -365,31 +416,37 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<Inputs.ManagedClusterPropertiesAutoScalerProfileArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// Profile of auto upgrade configuration.
+        /// The auto upgrade configuration.
         /// </summary>
         [Input("autoUpgradeProfile")]
         public Input<Inputs.ManagedClusterAutoUpgradeProfileArgs>? AutoUpgradeProfile { get; set; }
 
         /// <summary>
-        /// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        /// Azure Monitor addon profiles for monitoring the managed cluster.
+        /// </summary>
+        [Input("azureMonitorProfile")]
+        public Input<Inputs.ManagedClusterAzureMonitorProfileArgs>? AzureMonitorProfile { get; set; }
+
+        /// <summary>
+        /// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
         /// </summary>
         [Input("disableLocalAccounts")]
         public Input<bool>? DisableLocalAccounts { get; set; }
 
         /// <summary>
-        /// ResourceId of the disk encryption set to use for enabling encryption at rest.
+        /// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
         /// </summary>
         [Input("diskEncryptionSetID")]
         public Input<string>? DiskEncryptionSetID { get; set; }
 
         /// <summary>
-        /// DNS prefix specified when creating the managed cluster.
+        /// This cannot be updated once the Managed Cluster has been created.
         /// </summary>
         [Input("dnsPrefix")]
         public Input<string>? DnsPrefix { get; set; }
 
         /// <summary>
-        /// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
+        /// (DEPRECATED) Whether to enable Kubernetes pod security policy (preview). PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25. Learn more at https://aka.ms/k8s/psp and https://aka.ms/aks/psp.
         /// </summary>
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
@@ -407,7 +464,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
-        /// FQDN subdomain specified when creating private cluster with custom private dns zone.
+        /// This cannot be updated once the Managed Cluster has been created.
         /// </summary>
         [Input("fqdnSubdomain")]
         public Input<string>? FqdnSubdomain { get; set; }
@@ -425,49 +482,55 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<Inputs.ManagedClusterIdentityArgs>? Identity { get; set; }
 
         [Input("identityProfile")]
-        private InputMap<Inputs.ManagedClusterPropertiesIdentityProfileArgs>? _identityProfile;
+        private InputMap<Inputs.UserAssignedIdentityArgs>? _identityProfile;
 
         /// <summary>
         /// Identities associated with the cluster.
         /// </summary>
-        public InputMap<Inputs.ManagedClusterPropertiesIdentityProfileArgs> IdentityProfile
+        public InputMap<Inputs.UserAssignedIdentityArgs> IdentityProfile
         {
-            get => _identityProfile ?? (_identityProfile = new InputMap<Inputs.ManagedClusterPropertiesIdentityProfileArgs>());
+            get => _identityProfile ?? (_identityProfile = new InputMap<Inputs.UserAssignedIdentityArgs>());
             set => _identityProfile = value;
         }
 
         /// <summary>
-        /// Version of Kubernetes specified when creating the managed cluster.
+        /// Both patch version &lt;major.minor.patch&gt; (e.g. 1.20.13) and &lt;major.minor&gt; (e.g. 1.20) are supported. When &lt;major.minor&gt; is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same &lt;major.minor&gt; once it has been created (e.g. 1.14.x -&gt; 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -&gt; 1.15.x or 1.15.x -&gt; 1.16.x are allowed, however 1.14.x -&gt; 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
         /// </summary>
         [Input("kubernetesVersion")]
         public Input<string>? KubernetesVersion { get; set; }
 
         /// <summary>
-        /// Profile for Linux VMs in the container service cluster.
+        /// The profile for Linux VMs in the Managed Cluster.
         /// </summary>
         [Input("linuxProfile")]
         public Input<Inputs.ContainerServiceLinuxProfileArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Profile of network configuration.
+        /// The network configuration profile.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.ContainerServiceNetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// Name of the resource group containing agent pool nodes.
+        /// The name of the resource group containing agent pool nodes.
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
-        /// Profile of managed cluster pod identity.
+        /// The OIDC issuer profile of the Managed Cluster.
+        /// </summary>
+        [Input("oidcIssuerProfile")]
+        public Input<Inputs.ManagedClusterOIDCIssuerProfileArgs>? OidcIssuerProfile { get; set; }
+
+        /// <summary>
+        /// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         /// </summary>
         [Input("podIdentityProfile")]
         public Input<Inputs.ManagedClusterPodIdentityProfileArgs>? PodIdentityProfile { get; set; }
@@ -485,7 +548,13 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
-        /// The name of the resource group.
+        /// Allow or deny public network access for AKS
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -495,6 +564,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
+
+        /// <summary>
+        /// Security profile for the managed cluster.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.ManagedClusterSecurityProfileArgs>? SecurityProfile { get; set; }
 
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
@@ -508,11 +583,17 @@ namespace Pulumi.AzureNative.ContainerService
         [Input("sku")]
         public Input<Inputs.ManagedClusterSKUArgs>? Sku { get; set; }
 
+        /// <summary>
+        /// Storage profile for the managed cluster.
+        /// </summary>
+        [Input("storageProfile")]
+        public Input<Inputs.ManagedClusterStorageProfileArgs>? StorageProfile { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -521,10 +602,16 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
-        /// Profile for Windows VMs in the container service cluster.
+        /// The profile for Windows VMs in the Managed Cluster.
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.ManagedClusterWindowsProfileArgs>? WindowsProfile { get; set; }
+
+        /// <summary>
+        /// Workload Auto-scaler profile for the managed cluster.
+        /// </summary>
+        [Input("workloadAutoScalerProfile")]
+        public Input<Inputs.ManagedClusterWorkloadAutoScalerProfileArgs>? WorkloadAutoScalerProfile { get; set; }
 
         public ManagedClusterArgs()
         {

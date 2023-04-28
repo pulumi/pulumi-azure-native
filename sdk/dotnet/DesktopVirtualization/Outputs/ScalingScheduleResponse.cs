@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 {
 
     /// <summary>
-    /// Scaling plan schedule.
+    /// A ScalingPlanPooledSchedule.
     /// </summary>
     [OutputType]
     public sealed class ScalingScheduleResponse
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeek;
         /// <summary>
-        /// Name of the scaling schedule.
+        /// Name of the ScalingPlanPooledSchedule.
         /// </summary>
         public readonly string? Name;
         /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
         /// <summary>
         /// Starting time for off-peak period.
         /// </summary>
-        public readonly string? OffPeakStartTime;
+        public readonly Outputs.TimeResponse? OffPeakStartTime;
         /// <summary>
         /// Load balancing algorithm for peak period.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
         /// <summary>
         /// Starting time for peak period.
         /// </summary>
-        public readonly string? PeakStartTime;
+        public readonly Outputs.TimeResponse? PeakStartTime;
         /// <summary>
         /// Capacity threshold for ramp down period.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
         /// <summary>
         /// Starting time for ramp down period.
         /// </summary>
-        public readonly string? RampDownStartTime;
+        public readonly Outputs.TimeResponse? RampDownStartTime;
         /// <summary>
         /// Specifies when to stop hosts during ramp down period.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
         /// <summary>
         /// Starting time for ramp up period.
         /// </summary>
-        public readonly string? RampUpStartTime;
+        public readonly Outputs.TimeResponse? RampUpStartTime;
 
         [OutputConstructor]
         private ScalingScheduleResponse(
@@ -97,11 +97,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 
             string? offPeakLoadBalancingAlgorithm,
 
-            string? offPeakStartTime,
+            Outputs.TimeResponse? offPeakStartTime,
 
             string? peakLoadBalancingAlgorithm,
 
-            string? peakStartTime,
+            Outputs.TimeResponse? peakStartTime,
 
             int? rampDownCapacityThresholdPct,
 
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 
             string? rampDownNotificationMessage,
 
-            string? rampDownStartTime,
+            Outputs.TimeResponse? rampDownStartTime,
 
             string? rampDownStopHostsWhen,
 
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 
             int? rampUpMinimumHostsPct,
 
-            string? rampUpStartTime)
+            Outputs.TimeResponse? rampUpStartTime)
         {
             DaysOfWeek = daysOfWeek;
             Name = name;

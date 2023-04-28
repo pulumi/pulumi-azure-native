@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// Type of backup management for the backed up item.
         /// </summary>
-        public readonly string? BackupManagementType;
+        public readonly string BackupManagementType;
         /// <summary>
         /// Name of the backup set the backup item belongs to
         /// </summary>
@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// Flag to identify whether datasource is protected in archive
+        /// </summary>
+        public readonly bool? IsArchiveEnabled;
+        /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
         /// </summary>
         public readonly bool? IsDeferredDeleteScheduleUpcoming;
@@ -69,6 +73,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? PolicyId;
         /// <summary>
+        /// Name of the policy used for protection
+        /// </summary>
+        public readonly string? PolicyName;
+        /// <summary>
         /// Indicates consistency of policy object and policy applied to this backup item.
         /// </summary>
         public readonly string? PolicyState;
@@ -86,6 +94,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? ProtectionState;
         /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
+        /// Soft delete retention period in days
+        /// </summary>
+        public readonly int? SoftDeleteRetentionPeriod;
+        /// <summary>
         /// Loosely coupled (type, value) associations (example - parent of a protected item)
         /// </summary>
         public readonly ImmutableDictionary<string, string>? SourceAssociations;
@@ -96,11 +112,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// Type of workload this item represents.
         /// </summary>
-        public readonly string? WorkloadType;
+        public readonly string WorkloadType;
 
         [OutputConstructor]
         private GenericProtectedItemResponse(
-            string? backupManagementType,
+            string backupManagementType,
 
             string? backupSetName,
 
@@ -116,6 +132,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? friendlyName,
 
+            bool? isArchiveEnabled,
+
             bool? isDeferredDeleteScheduleUpcoming,
 
             bool? isRehydrate,
@@ -126,6 +144,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? policyId,
 
+            string? policyName,
+
             string? policyState,
 
             double? protectedItemId,
@@ -134,11 +154,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? protectionState,
 
+            ImmutableArray<string> resourceGuardOperationRequests,
+
+            int? softDeleteRetentionPeriod,
+
             ImmutableDictionary<string, string>? sourceAssociations,
 
             string? sourceResourceId,
 
-            string? workloadType)
+            string workloadType)
         {
             BackupManagementType = backupManagementType;
             BackupSetName = backupSetName;
@@ -148,15 +172,19 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             DeferredDeleteTimeRemaining = deferredDeleteTimeRemaining;
             FabricName = fabricName;
             FriendlyName = friendlyName;
+            IsArchiveEnabled = isArchiveEnabled;
             IsDeferredDeleteScheduleUpcoming = isDeferredDeleteScheduleUpcoming;
             IsRehydrate = isRehydrate;
             IsScheduledForDeferredDelete = isScheduledForDeferredDelete;
             LastRecoveryPoint = lastRecoveryPoint;
             PolicyId = policyId;
+            PolicyName = policyName;
             PolicyState = policyState;
             ProtectedItemId = protectedItemId;
             ProtectedItemType = protectedItemType;
             ProtectionState = protectionState;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
+            SoftDeleteRetentionPeriod = softDeleteRetentionPeriod;
             SourceAssociations = sourceAssociations;
             SourceResourceId = sourceResourceId;
             WorkloadType = workloadType;

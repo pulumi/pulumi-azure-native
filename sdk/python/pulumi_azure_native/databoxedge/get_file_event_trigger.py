@@ -101,7 +101,7 @@ class GetFileEventTriggerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Trigger in DataBoxEdge Resource
+        Metadata pertaining to creation and last modification of Trigger
         """
         return pulumi.get(self, "system_data")
 
@@ -136,7 +136,7 @@ def get_file_event_trigger(device_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileEventTriggerResult:
     """
     Get a specific trigger by name.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -168,7 +168,7 @@ def get_file_event_trigger_output(device_name: Optional[pulumi.Input[str]] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileEventTriggerResult]:
     """
     Get a specific trigger by name.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

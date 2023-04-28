@@ -2,14 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get the certificate associated with a certificate order.
- * API Version: 2020-10-01.
+ * Description for Get the certificate associated with a certificate order.
+ * API Version: 2022-09-01.
  */
 export function getAppServiceCertificateOrderCertificate(args: GetAppServiceCertificateOrderCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderCertificateResult> {
 
@@ -69,10 +66,6 @@ export interface GetAppServiceCertificateOrderCertificateResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.certificateregistration.SystemDataResponse;
-    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -82,8 +75,8 @@ export interface GetAppServiceCertificateOrderCertificateResult {
     readonly type: string;
 }
 /**
- * Get the certificate associated with a certificate order.
- * API Version: 2020-10-01.
+ * Description for Get the certificate associated with a certificate order.
+ * API Version: 2022-09-01.
  */
 export function getAppServiceCertificateOrderCertificateOutput(args: GetAppServiceCertificateOrderCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderCertificateResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrderCertificate(a, opts))

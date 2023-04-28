@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// ExpressRouteCircuit resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteCircuit")]
     public partial class ExpressRouteCircuit : global::Pulumi.CustomResource
@@ -21,6 +22,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("allowClassicOperations")]
         public Output<bool?> AllowClassicOperations { get; private set; } = null!;
+
+        /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        [Output("authorizationKey")]
+        public Output<string?> AuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The authorization status of the Circuit.
+        /// </summary>
+        [Output("authorizationStatus")]
+        public Output<string> AuthorizationStatus { get; private set; } = null!;
 
         /// <summary>
         /// The list of authorizations.
@@ -233,6 +246,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("allowClassicOperations")]
         public Input<bool>? AllowClassicOperations { get; set; }
+
+        /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        [Input("authorizationKey")]
+        public Input<string>? AuthorizationKey { get; set; }
 
         [Input("authorizations")]
         private InputList<Inputs.ExpressRouteCircuitAuthorizationArgs>? _authorizations;

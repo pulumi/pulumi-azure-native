@@ -2,67 +2,47 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20150401 from "./v20150401";
-import * as v20150408 from "./v20150408";
-import * as v20151106 from "./v20151106";
-import * as v20160319 from "./v20160319";
 import * as v20160331 from "./v20160331";
 import * as v20190801 from "./v20190801";
-import * as v20191212 from "./v20191212";
 import * as v20200301 from "./v20200301";
-import * as v20200401 from "./v20200401";
 import * as v20200601preview from "./v20200601preview";
 import * as v20200901 from "./v20200901";
-import * as v20210115 from "./v20210115";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210315 from "./v20210315";
 import * as v20210401preview from "./v20210401preview";
-import * as v20210415 from "./v20210415";
-import * as v20210515 from "./v20210515";
-import * as v20210615 from "./v20210615";
 import * as v20210701preview from "./v20210701preview";
-import * as v20211015 from "./v20211015";
 import * as v20211015preview from "./v20211015preview";
-import * as v20211115preview from "./v20211115preview";
-import * as v20220215preview from "./v20220215preview";
-import * as v20220515 from "./v20220515";
-import * as v20220515preview from "./v20220515preview";
-import * as v20220815 from "./v20220815";
 import * as v20220815preview from "./v20220815preview";
-import * as v20221115 from "./v20221115";
+import * as v20221115preview from "./v20221115preview";
+import * as v20230301preview from "./v20230301preview";
 import * as v20230315 from "./v20230315";
 
 export {
-    v20150401,
-    v20150408,
-    v20151106,
-    v20160319,
     v20160331,
     v20190801,
-    v20191212,
     v20200301,
-    v20200401,
     v20200601preview,
     v20200901,
-    v20210115,
     v20210301preview,
     v20210315,
     v20210401preview,
-    v20210415,
-    v20210515,
-    v20210615,
     v20210701preview,
-    v20211015,
     v20211015preview,
-    v20211115preview,
-    v20220215preview,
-    v20220515,
-    v20220515preview,
-    v20220815,
     v20220815preview,
-    v20221115,
+    v20221115preview,
+    v20230301preview,
     v20230315,
 };
+
+export const AnalyticalStorageSchemaType = {
+    WellDefined: "WellDefined",
+    FullFidelity: "FullFidelity",
+} as const;
+
+/**
+ * Describes the types of schema for analytical storage.
+ */
+export type AnalyticalStorageSchemaType = (typeof AnalyticalStorageSchemaType)[keyof typeof AnalyticalStorageSchemaType];
 
 export const AuthenticationMethod = {
     None: "None",
@@ -74,6 +54,18 @@ export const AuthenticationMethod = {
  */
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
 
+export const BackupPolicyMigrationStatus = {
+    Invalid: "Invalid",
+    InProgress: "InProgress",
+    Completed: "Completed",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Describes the status of migration between backup policy types.
+ */
+export type BackupPolicyMigrationStatus = (typeof BackupPolicyMigrationStatus)[keyof typeof BackupPolicyMigrationStatus];
+
 export const BackupPolicyType = {
     Periodic: "Periodic",
     Continuous: "Continuous",
@@ -83,6 +75,17 @@ export const BackupPolicyType = {
  * Describes the mode of backups.
  */
 export type BackupPolicyType = (typeof BackupPolicyType)[keyof typeof BackupPolicyType];
+
+export const BackupStorageRedundancy = {
+    Geo: "Geo",
+    Local: "Local",
+    Zone: "Zone",
+} as const;
+
+/**
+ * Enum to indicate type of backup residency
+ */
+export type BackupStorageRedundancy = (typeof BackupStorageRedundancy)[keyof typeof BackupStorageRedundancy];
 
 export const CompositePathSortOrder = {
     Ascending: "ascending",
@@ -112,6 +115,16 @@ export const ConnectorOffer = {
  * The cassandra connector offer type for the Cosmos DB database C* account.
  */
 export type ConnectorOffer = (typeof ConnectorOffer)[keyof typeof ConnectorOffer];
+
+export const CreateMode = {
+    Default: "Default",
+    Restore: "Restore",
+} as const;
+
+/**
+ * Enum to indicate the mode of account creation.
+ */
+export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const DataType = {
     String: "String",
@@ -196,6 +209,27 @@ export const ManagedCassandraProvisioningState = {
  */
 export type ManagedCassandraProvisioningState = (typeof ManagedCassandraProvisioningState)[keyof typeof ManagedCassandraProvisioningState];
 
+export const ManagedCassandraResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of the resource.
+ */
+export type ManagedCassandraResourceIdentityType = (typeof ManagedCassandraResourceIdentityType)[keyof typeof ManagedCassandraResourceIdentityType];
+
+export const MinimalTlsVersion = {
+    Tls: "Tls",
+    Tls11: "Tls11",
+    Tls12: "Tls12",
+} as const;
+
+/**
+ * Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
+ */
+export type MinimalTlsVersion = (typeof MinimalTlsVersion)[keyof typeof MinimalTlsVersion];
+
 export const MongoRoleDefinitionType = {
     BuiltInRole: "BuiltInRole",
     CustomRole: "CustomRole",
@@ -249,6 +283,15 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
+export const RestoreMode = {
+    PointInTime: "PointInTime",
+} as const;
+
+/**
+ * Describes the mode of the restore.
+ */
+export type RestoreMode = (typeof RestoreMode)[keyof typeof RestoreMode];
+
 export const RoleDefinitionType = {
     BuiltInRole: "BuiltInRole",
     CustomRole: "CustomRole",
@@ -263,6 +306,7 @@ export const ServerVersion = {
     ServerVersion_3_2: "3.2",
     ServerVersion_3_6: "3.6",
     ServerVersion_4_0: "4.0",
+    ServerVersion_4_2: "4.2",
 } as const;
 
 /**
@@ -284,6 +328,8 @@ export type ServiceSize = (typeof ServiceSize)[keyof typeof ServiceSize];
 export const ServiceType = {
     SqlDedicatedGateway: "SqlDedicatedGateway",
     DataTransfer: "DataTransfer",
+    GraphAPICompute: "GraphAPICompute",
+    MaterializedViewsBuilder: "MaterializedViewsBuilder",
 } as const;
 
 /**

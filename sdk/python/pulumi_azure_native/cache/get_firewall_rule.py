@@ -50,7 +50,7 @@ class GetFirewallRuleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -58,7 +58,7 @@ class GetFirewallRuleResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -74,7 +74,7 @@ class GetFirewallRuleResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -98,7 +98,7 @@ def get_firewall_rule(cache_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Gets a single firewall rule in a specified redis cache.
-    API Version: 2020-06-01.
+    API Version: 2022-06-01.
 
 
     :param str cache_name: The name of the Redis cache.
@@ -127,7 +127,7 @@ def get_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets a single firewall rule in a specified redis cache.
-    API Version: 2020-06-01.
+    API Version: 2022-06-01.
 
 
     :param str cache_name: The name of the Redis cache.

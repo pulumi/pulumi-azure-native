@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     public sealed class LocalDiagnosticsAccessConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// How to authenticate users who access local diagnostics APIs.
+        /// </summary>
+        [Input("authenticationType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.AuthenticationType> AuthenticationType { get; set; } = null!;
+
+        /// <summary>
         /// The HTTPS server TLS certificate used to secure local access to diagnostics.
         /// </summary>
         [Input("httpsServerCertificate")]
-        public Input<Inputs.KeyVaultCertificateArgs>? HttpsServerCertificate { get; set; }
+        public Input<Inputs.HttpsServerCertificateArgs>? HttpsServerCertificate { get; set; }
 
         public LocalDiagnosticsAccessConfigurationArgs()
         {

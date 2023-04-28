@@ -91,8 +91,6 @@ export class PrivateAtlase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maps:PrivateAtlase" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateAtlase.__pulumiType, name, resourceInputs, opts);
     }
 }

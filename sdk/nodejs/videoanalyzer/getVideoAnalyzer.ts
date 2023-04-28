@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of the specified Video Analyzer account
- * API Version: 2021-05-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getVideoAnalyzer(args: GetVideoAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoAnalyzerResult> {
 
@@ -32,15 +32,15 @@ export interface GetVideoAnalyzerArgs {
 }
 
 /**
- * A Video Analyzer account.
+ * The Video Analyzer account.
  */
 export interface GetVideoAnalyzerResult {
     /**
      * The account encryption properties.
      */
-    readonly encryption: outputs.videoanalyzer.AccountEncryptionResponse;
+    readonly encryption?: outputs.videoanalyzer.AccountEncryptionResponse;
     /**
-     * The list of endpoints associated with this resource.
+     * The endpoints associated with this resource.
      */
     readonly endpoints: outputs.videoanalyzer.EndpointResponse[];
     /**
@@ -48,9 +48,13 @@ export interface GetVideoAnalyzerResult {
      */
     readonly id: string;
     /**
-     * The set of managed identities associated with the Video Analyzer resource.
+     * The identities associated to the Video Analyzer resource.
      */
     readonly identity?: outputs.videoanalyzer.VideoAnalyzerIdentityResponse;
+    /**
+     * The IoT Hubs for this resource.
+     */
+    readonly iotHubs?: outputs.videoanalyzer.IotHubResponse[];
     /**
      * The geo-location where the resource lives
      */
@@ -60,11 +64,27 @@ export interface GetVideoAnalyzerResult {
      */
     readonly name: string;
     /**
+     * Network access control for Video Analyzer.
+     */
+    readonly networkAccessControl?: outputs.videoanalyzer.NetworkAccessControlResponse;
+    /**
+     * Private Endpoint Connections created under Video Analyzer account.
+     */
+    readonly privateEndpointConnections: outputs.videoanalyzer.PrivateEndpointConnectionResponse[];
+    /**
+     * Provisioning state of the Video Analyzer account.
+     */
+    readonly provisioningState: string;
+    /**
+     * Whether or not public network access is allowed for resources under the Video Analyzer account.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * The storage accounts for this resource.
      */
     readonly storageAccounts: outputs.videoanalyzer.StorageAccountResponse[];
     /**
-     * The system data of the Video Analyzer account.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.videoanalyzer.SystemDataResponse;
     /**
@@ -78,7 +98,7 @@ export interface GetVideoAnalyzerResult {
 }
 /**
  * Get the details of the specified Video Analyzer account
- * API Version: 2021-05-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoAnalyzerResult> {
     return pulumi.output(args).apply((a: any) => getVideoAnalyzer(a, opts))

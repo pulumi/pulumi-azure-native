@@ -8,24 +8,19 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the specified commitmentPlans associated with the Cognitive Services account.
- * API Version: 2021-10-01.
+ * Returns a Cognitive Services commitment plan specified by the parameters.
+ * API Version: 2022-12-01.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices:getCommitmentPlan", {
-        "accountName": args.accountName,
         "commitmentPlanName": args.commitmentPlanName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetCommitmentPlanArgs {
-    /**
-     * The name of Cognitive Services account.
-     */
-    accountName: string;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
@@ -49,6 +44,14 @@ export interface GetCommitmentPlanResult {
      */
     readonly id: string;
     /**
+     * The Kind of the resource.
+     */
+    readonly kind?: string;
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -57,27 +60,31 @@ export interface GetCommitmentPlanResult {
      */
     readonly properties: outputs.cognitiveservices.CommitmentPlanPropertiesResponse;
     /**
+     * The resource model definition representing SKU
+     */
+    readonly sku?: outputs.cognitiveservices.SkuResponse;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     readonly systemData: outputs.cognitiveservices.SystemDataResponse;
+    /**
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * Gets the specified commitmentPlans associated with the Cognitive Services account.
- * API Version: 2021-10-01.
+ * Returns a Cognitive Services commitment plan specified by the parameters.
+ * API Version: 2022-12-01.
  */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
     return pulumi.output(args).apply((a: any) => getCommitmentPlan(a, opts))
 }
 
 export interface GetCommitmentPlanOutputArgs {
-    /**
-     * The name of Cognitive Services account.
-     */
-    accountName: pulumi.Input<string>;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */

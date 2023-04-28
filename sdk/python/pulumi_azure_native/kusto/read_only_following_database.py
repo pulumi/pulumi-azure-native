@@ -18,6 +18,7 @@ class ReadOnlyFollowingDatabaseArgs:
                  cluster_name: pulumi.Input[str],
                  kind: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 caller_role: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None):
@@ -27,6 +28,7 @@ class ReadOnlyFollowingDatabaseArgs:
         :param pulumi.Input[str] kind: Kind of the database
                Expected value is 'ReadOnlyFollowing'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] caller_role: By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
         :param pulumi.Input[str] location: Resource location.
@@ -34,6 +36,8 @@ class ReadOnlyFollowingDatabaseArgs:
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "kind", 'ReadOnlyFollowing')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if caller_role is not None:
+            pulumi.set(__self__, "caller_role", caller_role)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if hot_cache_period is not None:
@@ -79,6 +83,18 @@ class ReadOnlyFollowingDatabaseArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="callerRole")
+    def caller_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
+        """
+        return pulumi.get(self, "caller_role")
+
+    @caller_role.setter
+    def caller_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "caller_role", value)
+
+    @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -120,6 +136,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 caller_role: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
@@ -129,10 +146,12 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a read only following database.
-        API Version: 2021-01-01.
+        API Version: 2022-12-29.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] caller_role: By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
@@ -149,7 +168,8 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a read only following database.
-        API Version: 2021-01-01.
+        API Version: 2022-12-29.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ReadOnlyFollowingDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -166,6 +186,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 caller_role: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
@@ -181,6 +202,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReadOnlyFollowingDatabaseArgs.__new__(ReadOnlyFollowingDatabaseArgs)
 
+            __props__.__dict__["caller_role"] = caller_role
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
@@ -194,12 +216,15 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["attached_database_configuration_name"] = None
+            __props__.__dict__["database_share_origin"] = None
             __props__.__dict__["leader_cluster_resource_id"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["original_database_name"] = None
             __props__.__dict__["principals_modification_kind"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["soft_delete_period"] = None
             __props__.__dict__["statistics"] = None
+            __props__.__dict__["table_level_sharing_properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190121:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190515:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20190907:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20191109:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200215:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200614:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20200918:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210101:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20210827:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220201:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20220707:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221111:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:kusto/v20221229:ReadOnlyFollowingDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -226,15 +251,18 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         __props__ = ReadOnlyFollowingDatabaseArgs.__new__(ReadOnlyFollowingDatabaseArgs)
 
         __props__.__dict__["attached_database_configuration_name"] = None
+        __props__.__dict__["database_share_origin"] = None
         __props__.__dict__["hot_cache_period"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["leader_cluster_resource_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["original_database_name"] = None
         __props__.__dict__["principals_modification_kind"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["soft_delete_period"] = None
         __props__.__dict__["statistics"] = None
+        __props__.__dict__["table_level_sharing_properties"] = None
         __props__.__dict__["type"] = None
         return ReadOnlyFollowingDatabase(resource_name, opts=opts, __props__=__props__)
 
@@ -245,6 +273,14 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         The name of the attached database configuration cluster
         """
         return pulumi.get(self, "attached_database_configuration_name")
+
+    @property
+    @pulumi.getter(name="databaseShareOrigin")
+    def database_share_origin(self) -> pulumi.Output[str]:
+        """
+        The origin of the following setup.
+        """
+        return pulumi.get(self, "database_share_origin")
 
     @property
     @pulumi.getter(name="hotCachePeriod")
@@ -288,6 +324,14 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="originalDatabaseName")
+    def original_database_name(self) -> pulumi.Output[str]:
+        """
+        The original database name, before databaseNameOverride or databaseNamePrefix where applied.
+        """
+        return pulumi.get(self, "original_database_name")
+
+    @property
     @pulumi.getter(name="principalsModificationKind")
     def principals_modification_kind(self) -> pulumi.Output[str]:
         """
@@ -318,6 +362,14 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         The statistics of the database.
         """
         return pulumi.get(self, "statistics")
+
+    @property
+    @pulumi.getter(name="tableLevelSharingProperties")
+    def table_level_sharing_properties(self) -> pulumi.Output['outputs.TableLevelSharingPropertiesResponse']:
+        """
+        Table level sharing specifications
+        """
+        return pulumi.get(self, "table_level_sharing_properties")
 
     @property
     @pulumi.getter

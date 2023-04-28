@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Load Distribution Policy resource of URL path map path rule.
+        /// </summary>
+        [Input("loadDistributionPolicy")]
+        public Input<Inputs.SubResourceArgs>? LoadDistributionPolicy { get; set; }
+
+        /// <summary>
         /// Name of the path rule that is unique within an Application Gateway.
         /// </summary>
         [Input("name")]

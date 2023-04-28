@@ -88,7 +88,7 @@ def get_placement_policy(cluster_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlacementPolicyResult:
     """
     A vSphere Distributed Resource Scheduler (DRS) placement policy
-    API Version: 2021-12-01.
+    API Version: 2022-05-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud
@@ -119,7 +119,7 @@ def get_placement_policy_output(cluster_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementPolicyResult]:
     """
     A vSphere Distributed Resource Scheduler (DRS) placement policy
-    API Version: 2021-12-01.
+    API Version: 2022-05-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud

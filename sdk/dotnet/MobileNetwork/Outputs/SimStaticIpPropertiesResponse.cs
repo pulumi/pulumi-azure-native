@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
     public sealed class SimStaticIpPropertiesResponse
     {
         /// <summary>
-        /// The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        /// The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
         /// </summary>
         public readonly Outputs.AttachedDataNetworkResourceIdResponse? AttachedDataNetwork;
         /// <summary>
-        /// The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        /// The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
         /// </summary>
         public readonly Outputs.SliceResourceIdResponse? Slice;
         /// <summary>

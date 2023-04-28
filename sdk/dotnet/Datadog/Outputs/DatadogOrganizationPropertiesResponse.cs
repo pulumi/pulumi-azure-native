@@ -19,17 +19,17 @@ namespace Pulumi.AzureNative.Datadog.Outputs
         /// <summary>
         /// Id of the Datadog organization.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Name of the Datadog organization.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private DatadogOrganizationPropertiesResponse(
-            string id,
+            string? id,
 
-            string name)
+            string? name)
         {
             Id = id;
             Name = name;

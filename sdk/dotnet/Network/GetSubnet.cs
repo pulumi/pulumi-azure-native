@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified subnet by virtual network and resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-native:network:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified subnet by virtual network and resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Application gateway IP configurations of virtual network resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIpConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIPConfigurations;
         /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<string> addressPrefixes,
 
-            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIpConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIPConfigurations,
 
             ImmutableArray<Outputs.DelegationResponse> delegations,
 
@@ -238,7 +238,7 @@ namespace Pulumi.AzureNative.Network
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
-            ApplicationGatewayIpConfigurations = applicationGatewayIpConfigurations;
+            ApplicationGatewayIPConfigurations = applicationGatewayIPConfigurations;
             Delegations = delegations;
             Etag = etag;
             Id = id;

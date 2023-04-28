@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthBot.Outputs
 {
 
     /// <summary>
-    /// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+    /// The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
     /// </summary>
     [OutputType]
     public sealed class HealthBotPropertiesResponse
@@ -21,7 +21,11 @@ namespace Pulumi.AzureNative.HealthBot.Outputs
         /// </summary>
         public readonly string BotManagementPortalLink;
         /// <summary>
-        /// The provisioning state of the Healthbot resource.
+        /// KeyVault properties for the resource encryption.
+        /// </summary>
+        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
+        /// <summary>
+        /// The provisioning state of the Azure Health Bot resource.
         /// </summary>
         public readonly string ProvisioningState;
 
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.HealthBot.Outputs
         private HealthBotPropertiesResponse(
             string botManagementPortalLink,
 
+            Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
+
             string provisioningState)
         {
             BotManagementPortalLink = botManagementPortalLink;
+            KeyVaultProperties = keyVaultProperties;
             ProvisioningState = provisioningState;
         }
     }

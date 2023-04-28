@@ -21,7 +21,10 @@ class GetLinkedServerResult:
     """
     Response to put/get linked server (with properties) for Redis cache.
     """
-    def __init__(__self__, id=None, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, provisioning_state=None, server_role=None, type=None):
+    def __init__(__self__, geo_replicated_primary_host_name=None, id=None, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, primary_host_name=None, provisioning_state=None, server_role=None, type=None):
+        if geo_replicated_primary_host_name and not isinstance(geo_replicated_primary_host_name, str):
+            raise TypeError("Expected argument 'geo_replicated_primary_host_name' to be a str")
+        pulumi.set(__self__, "geo_replicated_primary_host_name", geo_replicated_primary_host_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,6 +37,9 @@ class GetLinkedServerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if primary_host_name and not isinstance(primary_host_name, str):
+            raise TypeError("Expected argument 'primary_host_name' to be a str")
+        pulumi.set(__self__, "primary_host_name", primary_host_name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -45,10 +51,18 @@ class GetLinkedServerResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="geoReplicatedPrimaryHostName")
+    def geo_replicated_primary_host_name(self) -> str:
+        """
+        The unchanging DNS name which will always point to current geo-primary cache among the linked redis caches for seamless Geo Failover experience.
+        """
+        return pulumi.get(self, "geo_replicated_primary_host_name")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -72,9 +86,17 @@ class GetLinkedServerResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryHostName")
+    def primary_host_name(self) -> str:
+        """
+        The changing DNS name that resolves to the current geo-primary cache among the linked redis caches before or after the Geo Failover.
+        """
+        return pulumi.get(self, "primary_host_name")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -96,7 +118,7 @@ class GetLinkedServerResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -107,10 +129,12 @@ class AwaitableGetLinkedServerResult(GetLinkedServerResult):
         if False:
             yield self
         return GetLinkedServerResult(
+            geo_replicated_primary_host_name=self.geo_replicated_primary_host_name,
             id=self.id,
             linked_redis_cache_id=self.linked_redis_cache_id,
             linked_redis_cache_location=self.linked_redis_cache_location,
             name=self.name,
+            primary_host_name=self.primary_host_name,
             provisioning_state=self.provisioning_state,
             server_role=self.server_role,
             type=self.type)
@@ -122,7 +146,7 @@ def get_linked_server(linked_server_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServerResult:
     """
     Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
-    API Version: 2020-06-01.
+    API Version: 2022-06-01.
 
 
     :param str linked_server_name: The name of the linked server.
@@ -137,10 +161,12 @@ def get_linked_server(linked_server_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache:getLinkedServer', __args__, opts=opts, typ=GetLinkedServerResult).value
 
     return AwaitableGetLinkedServerResult(
+        geo_replicated_primary_host_name=__ret__.geo_replicated_primary_host_name,
         id=__ret__.id,
         linked_redis_cache_id=__ret__.linked_redis_cache_id,
         linked_redis_cache_location=__ret__.linked_redis_cache_location,
         name=__ret__.name,
+        primary_host_name=__ret__.primary_host_name,
         provisioning_state=__ret__.provisioning_state,
         server_role=__ret__.server_role,
         type=__ret__.type)
@@ -153,7 +179,7 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServerResult]:
     """
     Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
-    API Version: 2020-06-01.
+    API Version: 2022-06-01.
 
 
     :param str linked_server_name: The name of the linked server.

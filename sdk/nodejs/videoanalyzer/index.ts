@@ -65,11 +65,6 @@ export const listVideoContentToken: typeof import("./listVideoContentToken").lis
 export const listVideoContentTokenOutput: typeof import("./listVideoContentToken").listVideoContentTokenOutput = null as any;
 utilities.lazyLoad(exports, ["listVideoContentToken","listVideoContentTokenOutput"], () => require("./listVideoContentToken"));
 
-export { ListVideoStreamingTokenArgs, ListVideoStreamingTokenResult, ListVideoStreamingTokenOutputArgs } from "./listVideoStreamingToken";
-export const listVideoStreamingToken: typeof import("./listVideoStreamingToken").listVideoStreamingToken = null as any;
-export const listVideoStreamingTokenOutput: typeof import("./listVideoStreamingToken").listVideoStreamingTokenOutput = null as any;
-utilities.lazyLoad(exports, ["listVideoStreamingToken","listVideoStreamingTokenOutput"], () => require("./listVideoStreamingToken"));
-
 export { LivePipelineArgs } from "./livePipeline";
 export type LivePipeline = import("./livePipeline").LivePipeline;
 export const LivePipeline: typeof import("./livePipeline").LivePipeline = null as any;

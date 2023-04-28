@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a Service Fabric service resource created or in the process of being created in the Service Fabric application resource.
- * API Version: 2020-03-01.
+ * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
+ * API Version: 2023-02-01-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -46,23 +46,11 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
-     * A list that describes the correlation of the service with other services.
-     */
-    readonly correlationScheme?: outputs.servicefabric.ServiceCorrelationDescriptionResponse[];
-    /**
-     * Specifies the move cost for the service.
-     */
-    readonly defaultMoveCost?: string;
-    /**
-     * Azure resource etag.
-     */
-    readonly etag: string;
-    /**
      * Azure resource identifier.
      */
     readonly id: string;
     /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     readonly location?: string;
     /**
@@ -70,41 +58,13 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * Describes how the service is partitioned.
+     * The service resource properties.
      */
-    readonly partitionDescription?: outputs.servicefabric.NamedPartitionSchemeDescriptionResponse | outputs.servicefabric.SingletonPartitionSchemeDescriptionResponse | outputs.servicefabric.UniformInt64RangePartitionSchemeDescriptionResponse;
+    readonly properties: outputs.servicefabric.StatefulServicePropertiesResponse | outputs.servicefabric.StatelessServicePropertiesResponse;
     /**
-     * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+     * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly placementConstraints?: string;
-    /**
-     * The current deployment or provisioning state, which only appears in the response
-     */
-    readonly provisioningState: string;
-    /**
-     * Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
-     */
-    readonly serviceDnsName?: string;
-    /**
-     * The kind of service (Stateless or Stateful).
-     */
-    readonly serviceKind: string;
-    /**
-     * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-     */
-    readonly serviceLoadMetrics?: outputs.servicefabric.ServiceLoadMetricDescriptionResponse[];
-    /**
-     * The activation Mode of the service package
-     */
-    readonly servicePackageActivationMode?: string;
-    /**
-     * A list that describes the correlation of the service with other services.
-     */
-    readonly servicePlacementPolicies?: outputs.servicefabric.ServicePlacementPolicyDescriptionResponse[];
-    /**
-     * The name of the service type
-     */
-    readonly serviceTypeName?: string;
+    readonly systemData: outputs.servicefabric.SystemDataResponse;
     /**
      * Azure resource tags.
      */
@@ -115,8 +75,8 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * Get a Service Fabric service resource created or in the process of being created in the Service Fabric application resource.
- * API Version: 2020-03-01.
+ * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
+ * API Version: 2023-02-01-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

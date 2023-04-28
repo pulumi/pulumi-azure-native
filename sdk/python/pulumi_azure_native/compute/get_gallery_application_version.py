@@ -22,7 +22,7 @@ class GetGalleryApplicationVersionResult:
     """
     Specifies information about the gallery Application Version that you want to create or update.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, publishing_profile=None, replication_status=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, publishing_profile=None, replication_status=None, safety_profile=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +41,9 @@ class GetGalleryApplicationVersionResult:
         if replication_status and not isinstance(replication_status, dict):
             raise TypeError("Expected argument 'replication_status' to be a dict")
         pulumi.set(__self__, "replication_status", replication_status)
+        if safety_profile and not isinstance(safety_profile, dict):
+            raise TypeError("Expected argument 'safety_profile' to be a dict")
+        pulumi.set(__self__, "safety_profile", safety_profile)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -97,6 +100,14 @@ class GetGalleryApplicationVersionResult:
         return pulumi.get(self, "replication_status")
 
     @property
+    @pulumi.getter(name="safetyProfile")
+    def safety_profile(self) -> Optional['outputs.GalleryApplicationVersionSafetyProfileResponse']:
+        """
+        The safety profile of the Gallery Application Version.
+        """
+        return pulumi.get(self, "safety_profile")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -125,6 +136,7 @@ class AwaitableGetGalleryApplicationVersionResult(GetGalleryApplicationVersionRe
             provisioning_state=self.provisioning_state,
             publishing_profile=self.publishing_profile,
             replication_status=self.replication_status,
+            safety_profile=self.safety_profile,
             tags=self.tags,
             type=self.type)
 
@@ -137,7 +149,7 @@ def get_gallery_application_version(expand: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationVersionResult:
     """
     Retrieves information about a gallery Application Version.
-    API Version: 2020-09-30.
+    API Version: 2022-03-03.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -162,6 +174,7 @@ def get_gallery_application_version(expand: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         publishing_profile=__ret__.publishing_profile,
         replication_status=__ret__.replication_status,
+        safety_profile=__ret__.safety_profile,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -175,7 +188,7 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationVersionResult]:
     """
     Retrieves information about a gallery Application Version.
-    API Version: 2020-09-30.
+    API Version: 2022-03-03.
 
 
     :param str expand: The expand expression to apply on the operation.

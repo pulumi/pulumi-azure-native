@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified FHIR Service.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
  */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
 
@@ -77,6 +77,14 @@ export interface GetFhirServiceResult {
      */
     readonly identity?: outputs.healthcareapis.ServiceManagedIdentityResponseIdentity;
     /**
+     * Implementation Guides configuration.
+     */
+    readonly implementationGuidesConfiguration?: outputs.healthcareapis.ImplementationGuidesConfigurationResponse;
+    /**
+     * Fhir Service import configuration.
+     */
+    readonly importConfiguration?: outputs.healthcareapis.FhirServiceImportConfigurationResponse;
+    /**
      * The kind of the service.
      */
     readonly kind?: string;
@@ -119,7 +127,7 @@ export interface GetFhirServiceResult {
 }
 /**
  * Gets the properties of the specified FHIR Service.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
  */
 export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirServiceResult> {
     return pulumi.output(args).apply((a: any) => getFhirService(a, opts))

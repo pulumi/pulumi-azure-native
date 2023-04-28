@@ -5,20 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AutoscaleSettingArgs } from "./autoscaleSetting";
-export type AutoscaleSetting = import("./autoscaleSetting").AutoscaleSetting;
-export const AutoscaleSetting: typeof import("./autoscaleSetting").AutoscaleSetting = null as any;
-utilities.lazyLoad(exports, ["AutoscaleSetting"], () => require("./autoscaleSetting"));
-
 export { DiagnosticSettingArgs } from "./diagnosticSetting";
 export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
 export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
 utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
-
-export { GetAutoscaleSettingArgs, GetAutoscaleSettingResult, GetAutoscaleSettingOutputArgs } from "./getAutoscaleSetting";
-export const getAutoscaleSetting: typeof import("./getAutoscaleSetting").getAutoscaleSetting = null as any;
-export const getAutoscaleSettingOutput: typeof import("./getAutoscaleSetting").getAutoscaleSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getAutoscaleSetting","getAutoscaleSettingOutput"], () => require("./getAutoscaleSetting"));
 
 export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
 export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
@@ -46,15 +36,10 @@ export const SubscriptionDiagnosticSetting: typeof import("./subscriptionDiagnos
 utilities.lazyLoad(exports, ["SubscriptionDiagnosticSetting"], () => require("./subscriptionDiagnosticSetting"));
 
 
-// Export enums:
-export * from "../../types/enums/insights/v20210501preview";
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:insights/v20210501preview:AutoscaleSetting":
-                return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure-native:insights/v20210501preview:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting":

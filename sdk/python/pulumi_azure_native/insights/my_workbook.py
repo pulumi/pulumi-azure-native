@@ -281,7 +281,8 @@ class MyWorkbook(pulumi.CustomResource):
                  __props__=None):
         """
         An Application Insights private workbook definition.
-        API Version: 2020-10-20.
+        API Version: 2021-03-08.
+        Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,7 +310,8 @@ class MyWorkbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Application Insights private workbook definition.
-        API Version: 2020-10-20.
+        API Version: 2021-03-08.
+        Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param MyWorkbookArgs args: The arguments to use to populate this resource's properties.
@@ -374,6 +376,7 @@ class MyWorkbook(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["version"] = version
             __props__.__dict__["etag"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["user_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20150501:MyWorkbook"), pulumi.Alias(type_="azure-native:insights/v20201020:MyWorkbook"), pulumi.Alias(type_="azure-native:insights/v20210308:MyWorkbook")])
@@ -410,6 +413,7 @@ class MyWorkbook(pulumi.CustomResource):
         __props__.__dict__["serialized_data"] = None
         __props__.__dict__["source_id"] = None
         __props__.__dict__["storage_uri"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_modified"] = None
         __props__.__dict__["type"] = None
@@ -496,6 +500,14 @@ class MyWorkbook(pulumi.CustomResource):
         BYOS Storage Account URI
         """
         return pulumi.get(self, "storage_uri")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

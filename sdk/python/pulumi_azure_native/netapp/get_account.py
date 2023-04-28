@@ -22,16 +22,25 @@ class GetAccountResult:
     """
     NetApp account resource
     """
-    def __init__(__self__, active_directories=None, encryption=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, active_directories=None, disable_showmount=None, encryption=None, etag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if active_directories and not isinstance(active_directories, list):
             raise TypeError("Expected argument 'active_directories' to be a list")
         pulumi.set(__self__, "active_directories", active_directories)
+        if disable_showmount and not isinstance(disable_showmount, bool):
+            raise TypeError("Expected argument 'disable_showmount' to be a bool")
+        pulumi.set(__self__, "disable_showmount", disable_showmount)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -60,6 +69,14 @@ class GetAccountResult:
         return pulumi.get(self, "active_directories")
 
     @property
+    @pulumi.getter(name="disableShowmount")
+    def disable_showmount(self) -> bool:
+        """
+        Shows the status of disableShowmount for all volumes under the subscription, null equals false
+        """
+        return pulumi.get(self, "disable_showmount")
+
+    @property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.AccountEncryptionResponse']:
         """
@@ -69,17 +86,33 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity used for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -87,7 +120,7 @@ class GetAccountResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -103,7 +136,7 @@ class GetAccountResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -111,7 +144,7 @@ class GetAccountResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -119,7 +152,7 @@ class GetAccountResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -131,8 +164,11 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             active_directories=self.active_directories,
+            disable_showmount=self.disable_showmount,
             encryption=self.encryption,
+            etag=self.etag,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -146,11 +182,11 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get the NetApp account
-    API Version: 2020-12-01.
+    API Version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -160,8 +196,11 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         active_directories=__ret__.active_directories,
+        disable_showmount=__ret__.disable_showmount,
         encryption=__ret__.encryption,
+        etag=__ret__.etag,
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
@@ -176,10 +215,10 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get the NetApp account
-    API Version: 2020-12-01.
+    API Version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

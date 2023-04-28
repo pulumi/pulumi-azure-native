@@ -35,7 +35,6 @@ namespace Pulumi.AzureNative.ServiceBus.Inputs
 
         public SqlFilterArgs()
         {
-            CompatibilityLevel = 20;
             RequiresPreprocessing = true;
         }
         public static new SqlFilterArgs Empty => new SqlFilterArgs();

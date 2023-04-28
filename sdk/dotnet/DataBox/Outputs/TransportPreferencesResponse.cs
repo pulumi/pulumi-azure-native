@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.DataBox.Outputs
     public sealed class TransportPreferencesResponse
     {
         /// <summary>
+        /// Read only property which indicates whether transport preferences has been updated or not after device is prepared.
+        /// </summary>
+        public readonly bool IsUpdated;
+        /// <summary>
         /// Indicates Shipment Logistics type that the customer preferred.
         /// </summary>
         public readonly string PreferredShipmentType;
 
         [OutputConstructor]
-        private TransportPreferencesResponse(string preferredShipmentType)
+        private TransportPreferencesResponse(
+            bool isUpdated,
+
+            string preferredShipmentType)
         {
+            IsUpdated = isUpdated;
             PreferredShipmentType = preferredShipmentType;
         }
     }

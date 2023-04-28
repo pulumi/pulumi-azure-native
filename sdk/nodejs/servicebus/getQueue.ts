@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a description for the specified queue.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
 
@@ -89,9 +89,13 @@ export interface GetQueueResult {
      */
     readonly forwardTo?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
     /**
      * ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
      */
@@ -101,6 +105,10 @@ export interface GetQueueResult {
      */
     readonly maxDeliveryCount?: number;
     /**
+     * Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+     */
+    readonly maxMessageSizeInKilobytes?: number;
+    /**
      * The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
      */
     readonly maxSizeInMegabytes?: number;
@@ -109,7 +117,7 @@ export interface GetQueueResult {
      */
     readonly messageCount: number;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -129,7 +137,11 @@ export interface GetQueueResult {
      */
     readonly status?: string;
     /**
-     * Resource type
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.servicebus.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
     /**
@@ -139,7 +151,7 @@ export interface GetQueueResult {
 }
 /**
  * Returns a description for the specified queue.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))

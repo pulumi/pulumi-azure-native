@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AccessPolicyArgs } from "./accessPolicy";
-export type AccessPolicy = import("./accessPolicy").AccessPolicy;
-export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
-utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
-
 export { EventHubEventSourceArgs } from "./eventHubEventSource";
 export type EventHubEventSource = import("./eventHubEventSource").EventHubEventSource;
 export const EventHubEventSource: typeof import("./eventHubEventSource").EventHubEventSource = null as any;
@@ -24,11 +19,6 @@ export { Gen2EnvironmentArgs } from "./gen2Environment";
 export type Gen2Environment = import("./gen2Environment").Gen2Environment;
 export const Gen2Environment: typeof import("./gen2Environment").Gen2Environment = null as any;
 utilities.lazyLoad(exports, ["Gen2Environment"], () => require("./gen2Environment"));
-
-export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
-export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
-export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
 
 export { GetEventHubEventSourceArgs, GetEventHubEventSourceResult, GetEventHubEventSourceOutputArgs } from "./getEventHubEventSource";
 export const getEventHubEventSource: typeof import("./getEventHubEventSource").getEventHubEventSource = null as any;
@@ -55,11 +45,6 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { GetReferenceDataSetArgs, GetReferenceDataSetResult, GetReferenceDataSetOutputArgs } from "./getReferenceDataSet";
-export const getReferenceDataSet: typeof import("./getReferenceDataSet").getReferenceDataSet = null as any;
-export const getReferenceDataSetOutput: typeof import("./getReferenceDataSet").getReferenceDataSetOutput = null as any;
-utilities.lazyLoad(exports, ["getReferenceDataSet","getReferenceDataSetOutput"], () => require("./getReferenceDataSet"));
-
 export { IoTHubEventSourceArgs } from "./ioTHubEventSource";
 export type IoTHubEventSource = import("./ioTHubEventSource").IoTHubEventSource;
 export const IoTHubEventSource: typeof import("./ioTHubEventSource").IoTHubEventSource = null as any;
@@ -70,11 +55,6 @@ export type PrivateEndpointConnection = import("./privateEndpointConnection").Pr
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
-export { ReferenceDataSetArgs } from "./referenceDataSet";
-export type ReferenceDataSet = import("./referenceDataSet").ReferenceDataSet;
-export const ReferenceDataSet: typeof import("./referenceDataSet").ReferenceDataSet = null as any;
-utilities.lazyLoad(exports, ["ReferenceDataSet"], () => require("./referenceDataSet"));
-
 
 // Export enums:
 export * from "../../types/enums/timeseriesinsights/v20210331preview";
@@ -83,8 +63,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:timeseriesinsights/v20210331preview:AccessPolicy":
-                return new AccessPolicy(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource":
                 return new EventHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20210331preview:Gen1Environment":
@@ -95,8 +73,6 @@ const _module = {
                 return new IoTHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet":
-                return new ReferenceDataSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Connectivity group item.
+    /// </summary>
     [OutputType]
     public sealed class ConnectivityGroupItemResponse
     {
         /// <summary>
         /// Group connectivity type.
         /// </summary>
-        public readonly string? GroupConnectivity;
+        public readonly string GroupConnectivity;
         /// <summary>
         /// Flag if global is supported.
         /// </summary>
@@ -24,7 +27,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Network group Id.
         /// </summary>
-        public readonly string? NetworkGroupId;
+        public readonly string NetworkGroupId;
         /// <summary>
         /// Flag if need to use hub gateway.
         /// </summary>
@@ -32,11 +35,11 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private ConnectivityGroupItemResponse(
-            string? groupConnectivity,
+            string groupConnectivity,
 
             string? isGlobal,
 
-            string? networkGroupId,
+            string networkGroupId,
 
             string? useHubGateway)
         {

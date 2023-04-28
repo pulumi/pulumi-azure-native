@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Defines the security configuration
- * API Version: 2021-02-01-preview.
+ * Defines the security admin configuration
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SecurityAdminConfiguration extends pulumi.CustomResource {
     /**
@@ -39,17 +40,13 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Flag if need to delete existing network security groups.
+     * Enum list of network intent policy based services.
      */
-    public readonly deleteExistingNSGs!: pulumi.Output<string | undefined>;
+    public readonly applyOnNetworkIntentPolicyBasedServices!: pulumi.Output<string[] | undefined>;
     /**
      * A description of the security configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A display name of the security configuration.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -62,10 +59,6 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
      * The provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Security Type.
-     */
-    public readonly securityType!: pulumi.Output<string | undefined>;
     /**
      * The system metadata related to this resource.
      */
@@ -92,26 +85,22 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["applyOnNetworkIntentPolicyBasedServices"] = args ? args.applyOnNetworkIntentPolicyBasedServices : undefined;
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["deleteExistingNSGs"] = args ? args.deleteExistingNSGs : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityType"] = args ? args.securityType : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["deleteExistingNSGs"] = undefined /*out*/;
+            resourceInputs["applyOnNetworkIntentPolicyBasedServices"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["securityType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -127,21 +116,17 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
  */
 export interface SecurityAdminConfigurationArgs {
     /**
-     * The name of the network manager security Configuration.
+     * Enum list of network intent policy based services.
+     */
+    applyOnNetworkIntentPolicyBasedServices?: pulumi.Input<pulumi.Input<string | enums.network.NetworkIntentPolicyBasedService>[]>;
+    /**
+     * The name of the network manager Security Configuration.
      */
     configurationName?: pulumi.Input<string>;
-    /**
-     * Flag if need to delete existing network security groups.
-     */
-    deleteExistingNSGs?: pulumi.Input<string | enums.network.DeleteExistingNSGs>;
     /**
      * A description of the security configuration.
      */
     description?: pulumi.Input<string>;
-    /**
-     * A display name of the security configuration.
-     */
-    displayName?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */
@@ -150,8 +135,4 @@ export interface SecurityAdminConfigurationArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Security Type.
-     */
-    securityType?: pulumi.Input<string | enums.network.SecurityType>;
 }

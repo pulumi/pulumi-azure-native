@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.NetworkFunction
 {
     /// <summary>
     /// Collector policy resource.
-    /// API Version: 2022-05-01.
+    /// API Version: 2022-11-01.
+    /// Previous API Version: 2022-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkfunction:CollectorPolicy")]
     public partial class CollectorPolicy : global::Pulumi.CustomResource
@@ -35,7 +36,13 @@ namespace Pulumi.AzureNative.NetworkFunction
         public Output<Outputs.IngestionPolicyPropertiesFormatResponse?> IngestionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// Resource location.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -50,10 +57,16 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.CollectorPolicyResponseSystemData> SystemData { get; private set; } = null!;
+        public Output<Outputs.TrackedResourceResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -141,10 +154,28 @@ namespace Pulumi.AzureNative.NetworkFunction
         public Input<Inputs.IngestionPolicyPropertiesFormatArgs>? IngestionPolicy { get; set; }
 
         /// <summary>
+        /// Resource location.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CollectorPolicyArgs()
         {

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a Dev Box definition
-        /// API Version: 2022-09-01-preview.
+        /// API Version: 2022-11-11-preview.
         /// </summary>
         public static Task<GetDevBoxDefinitionResult> InvokeAsync(GetDevBoxDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Dev Box definition
-        /// API Version: 2022-09-01-preview.
+        /// API Version: 2022-11-11-preview.
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.DevCenter
         public string DevCenterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> DevCenterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// Image reference information for the currently active image (only populated during updates).
         /// </summary>
         public readonly Outputs.ImageReferenceResponse ActiveImageReference;
+        /// <summary>
+        /// Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+        /// </summary>
+        public readonly string? HibernateSupport;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.DevCenter
         private GetDevBoxDefinitionResult(
             Outputs.ImageReferenceResponse activeImageReference,
 
+            string? hibernateSupport,
+
             string id,
 
             Outputs.ImageReferenceResponse imageReference,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.DevCenter
             string type)
         {
             ActiveImageReference = activeImageReference;
+            HibernateSupport = hibernateSupport;
             Id = id;
             ImageReference = imageReference;
             ImageValidationErrorDetails = imageValidationErrorDetails;

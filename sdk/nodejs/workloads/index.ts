@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetPhpWorkloadArgs, GetPhpWorkloadResult, GetPhpWorkloadOutputArgs } from "./getPhpWorkload";
-export const getPhpWorkload: typeof import("./getPhpWorkload").getPhpWorkload = null as any;
-export const getPhpWorkloadOutput: typeof import("./getPhpWorkload").getPhpWorkloadOutput = null as any;
-utilities.lazyLoad(exports, ["getPhpWorkload","getPhpWorkloadOutput"], () => require("./getPhpWorkload"));
-
 export { GetProviderInstanceArgs, GetProviderInstanceResult, GetProviderInstanceOutputArgs } from "./getProviderInstance";
 export const getProviderInstance: typeof import("./getProviderInstance").getProviderInstance = null as any;
 export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
@@ -55,10 +50,10 @@ export const getSAPVirtualInstance: typeof import("./getSAPVirtualInstance").get
 export const getSAPVirtualInstanceOutput: typeof import("./getSAPVirtualInstance").getSAPVirtualInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSAPVirtualInstance","getSAPVirtualInstanceOutput"], () => require("./getSAPVirtualInstance"));
 
-export { GetWordpressInstanceArgs, GetWordpressInstanceResult, GetWordpressInstanceOutputArgs } from "./getWordpressInstance";
-export const getWordpressInstance: typeof import("./getWordpressInstance").getWordpressInstance = null as any;
-export const getWordpressInstanceOutput: typeof import("./getWordpressInstance").getWordpressInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getWordpressInstance","getWordpressInstanceOutput"], () => require("./getWordpressInstance"));
+export { GetSapLandscapeMonitorArgs, GetSapLandscapeMonitorResult, GetSapLandscapeMonitorOutputArgs } from "./getSapLandscapeMonitor";
+export const getSapLandscapeMonitor: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitor = null as any;
+export const getSapLandscapeMonitorOutput: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getSapLandscapeMonitor","getSapLandscapeMonitorOutput"], () => require("./getSapLandscapeMonitor"));
 
 export { GetmonitorArgs, GetmonitorResult, GetmonitorOutputArgs } from "./getmonitor";
 export const getmonitor: typeof import("./getmonitor").getmonitor = null as any;
@@ -70,15 +65,15 @@ export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
 
-export { PhpWorkloadArgs } from "./phpWorkload";
-export type PhpWorkload = import("./phpWorkload").PhpWorkload;
-export const PhpWorkload: typeof import("./phpWorkload").PhpWorkload = null as any;
-utilities.lazyLoad(exports, ["PhpWorkload"], () => require("./phpWorkload"));
-
 export { ProviderInstanceArgs } from "./providerInstance";
 export type ProviderInstance = import("./providerInstance").ProviderInstance;
 export const ProviderInstance: typeof import("./providerInstance").ProviderInstance = null as any;
 utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
+
+export { SapLandscapeMonitorArgs } from "./sapLandscapeMonitor";
+export type SapLandscapeMonitor = import("./sapLandscapeMonitor").SapLandscapeMonitor;
+export const SapLandscapeMonitor: typeof import("./sapLandscapeMonitor").SapLandscapeMonitor = null as any;
+utilities.lazyLoad(exports, ["SapLandscapeMonitor"], () => require("./sapLandscapeMonitor"));
 
 export { SAPApplicationServerInstanceArgs } from "./sapapplicationServerInstance";
 export type SAPApplicationServerInstance = import("./sapapplicationServerInstance").SAPApplicationServerInstance;
@@ -100,11 +95,6 @@ export type SAPVirtualInstance = import("./sapvirtualInstance").SAPVirtualInstan
 export const SAPVirtualInstance: typeof import("./sapvirtualInstance").SAPVirtualInstance = null as any;
 utilities.lazyLoad(exports, ["SAPVirtualInstance"], () => require("./sapvirtualInstance"));
 
-export { WordpressInstanceArgs } from "./wordpressInstance";
-export type WordpressInstance = import("./wordpressInstance").WordpressInstance;
-export const WordpressInstance: typeof import("./wordpressInstance").WordpressInstance = null as any;
-utilities.lazyLoad(exports, ["WordpressInstance"], () => require("./wordpressInstance"));
-
 
 // Export enums:
 export * from "../types/enums/workloads";
@@ -124,8 +114,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:workloads:PhpWorkload":
-                return new PhpWorkload(name, <any>undefined, { urn })
             case "azure-native:workloads:ProviderInstance":
                 return new ProviderInstance(name, <any>undefined, { urn })
             case "azure-native:workloads:SAPApplicationServerInstance":
@@ -136,8 +124,8 @@ const _module = {
                 return new SAPDatabaseInstance(name, <any>undefined, { urn })
             case "azure-native:workloads:SAPVirtualInstance":
                 return new SAPVirtualInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads:WordpressInstance":
-                return new WordpressInstance(name, <any>undefined, { urn })
+            case "azure-native:workloads:SapLandscapeMonitor":
+                return new SapLandscapeMonitor(name, <any>undefined, { urn })
             case "azure-native:workloads:monitor":
                 return new Monitor(name, <any>undefined, { urn })
             default:

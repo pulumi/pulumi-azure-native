@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoutePort resource definition.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ExpressRoutePort extends pulumi.CustomResource {
     /**
@@ -46,6 +47,10 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      * Bandwidth of procured ports in Gbps.
      */
     public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
+    /**
+     * The billing type of the ExpressRoutePort resource.
+     */
+    public readonly billingType!: pulumi.Output<string | undefined>;
     /**
      * Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
      */
@@ -122,6 +127,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
+            resourceInputs["billingType"] = args ? args.billingType : undefined;
             resourceInputs["encapsulation"] = args ? args.encapsulation : undefined;
             resourceInputs["expressRoutePortName"] = args ? args.expressRoutePortName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
@@ -144,6 +150,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         } else {
             resourceInputs["allocationDate"] = undefined /*out*/;
             resourceInputs["bandwidthInGbps"] = undefined /*out*/;
+            resourceInputs["billingType"] = undefined /*out*/;
             resourceInputs["circuits"] = undefined /*out*/;
             resourceInputs["encapsulation"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -175,6 +182,10 @@ export interface ExpressRoutePortArgs {
      * Bandwidth of procured ports in Gbps.
      */
     bandwidthInGbps?: pulumi.Input<number>;
+    /**
+     * The billing type of the ExpressRoutePort resource.
+     */
+    billingType?: pulumi.Input<string | enums.network.ExpressRoutePortsBillingType>;
     /**
      * Encapsulation method on physical ports.
      */

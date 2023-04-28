@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppSwiftVirtualNetworkConnection
     {
         /// <summary>
-        /// Gets a Swift Virtual Network connection.
-        /// API Version: 2020-10-01.
+        /// Description for Gets a Swift Virtual Network connection.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a Swift Virtual Network connection.
-        /// API Version: 2020-10-01.
+        /// Description for Gets a Swift Virtual Network connection.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetWebAppSwiftVirtualNetworkConnectionResult> Invoke(GetWebAppSwiftVirtualNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionInvokeArgs(), options.WithDefaults());
@@ -92,10 +92,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? SwiftSupported;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -112,8 +108,6 @@ namespace Pulumi.AzureNative.Web
 
             bool? swiftSupported,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
@@ -121,7 +115,6 @@ namespace Pulumi.AzureNative.Web
             Name = name;
             SubnetResourceId = subnetResourceId;
             SwiftSupported = swiftSupported;
-            SystemData = systemData;
             Type = type;
         }
     }

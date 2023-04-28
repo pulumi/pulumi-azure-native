@@ -243,7 +243,7 @@ def get_schedule(automation_account_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Retrieve the schedule identified by schedule name.
-    API Version: 2019-06-01.
+    API Version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -284,7 +284,7 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = N
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Retrieve the schedule identified by schedule name.
-    API Version: 2019-06-01.
+    API Version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

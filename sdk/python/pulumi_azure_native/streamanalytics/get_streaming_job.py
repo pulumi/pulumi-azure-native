@@ -22,10 +22,16 @@ class GetStreamingJobResult:
     """
     A streaming job object, containing all information associated with the named streaming job.
     """
-    def __init__(__self__, compatibility_level=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, functions=None, id=None, inputs=None, job_id=None, job_state=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
+    def __init__(__self__, cluster=None, compatibility_level=None, content_storage_policy=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, functions=None, id=None, identity=None, inputs=None, job_id=None, job_state=None, job_storage_account=None, job_type=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
+        if cluster and not isinstance(cluster, dict):
+            raise TypeError("Expected argument 'cluster' to be a dict")
+        pulumi.set(__self__, "cluster", cluster)
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if content_storage_policy and not isinstance(content_storage_policy, str):
+            raise TypeError("Expected argument 'content_storage_policy' to be a str")
+        pulumi.set(__self__, "content_storage_policy", content_storage_policy)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -50,6 +56,9 @@ class GetStreamingJobResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if inputs and not isinstance(inputs, list):
             raise TypeError("Expected argument 'inputs' to be a list")
         pulumi.set(__self__, "inputs", inputs)
@@ -59,6 +68,12 @@ class GetStreamingJobResult:
         if job_state and not isinstance(job_state, str):
             raise TypeError("Expected argument 'job_state' to be a str")
         pulumi.set(__self__, "job_state", job_state)
+        if job_storage_account and not isinstance(job_storage_account, dict):
+            raise TypeError("Expected argument 'job_storage_account' to be a dict")
+        pulumi.set(__self__, "job_storage_account", job_storage_account)
+        if job_type and not isinstance(job_type, str):
+            raise TypeError("Expected argument 'job_type' to be a str")
+        pulumi.set(__self__, "job_type", job_type)
         if last_output_event_time and not isinstance(last_output_event_time, str):
             raise TypeError("Expected argument 'last_output_event_time' to be a str")
         pulumi.set(__self__, "last_output_event_time", last_output_event_time)
@@ -97,12 +112,28 @@ class GetStreamingJobResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter
+    def cluster(self) -> Optional['outputs.ClusterInfoResponse']:
+        """
+        The cluster which streaming jobs will run on.
+        """
+        return pulumi.get(self, "cluster")
+
+    @property
     @pulumi.getter(name="compatibilityLevel")
     def compatibility_level(self) -> Optional[str]:
         """
         Controls certain runtime behaviors of the streaming job.
         """
         return pulumi.get(self, "compatibility_level")
+
+    @property
+    @pulumi.getter(name="contentStoragePolicy")
+    def content_storage_policy(self) -> Optional[str]:
+        """
+        Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+        """
+        return pulumi.get(self, "content_storage_policy")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -170,6 +201,14 @@ class GetStreamingJobResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def inputs(self) -> Optional[Sequence['outputs.InputResponse']]:
         """
         A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
@@ -191,6 +230,22 @@ class GetStreamingJobResult:
         Describes the state of the streaming job.
         """
         return pulumi.get(self, "job_state")
+
+    @property
+    @pulumi.getter(name="jobStorageAccount")
+    def job_storage_account(self) -> Optional['outputs.JobStorageAccountResponse']:
+        """
+        The properties that are associated with an Azure Storage account with MSI
+        """
+        return pulumi.get(self, "job_storage_account")
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> Optional[str]:
+        """
+        Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+        """
+        return pulumi.get(self, "job_type")
 
     @property
     @pulumi.getter(name="lastOutputEventTime")
@@ -295,7 +350,9 @@ class AwaitableGetStreamingJobResult(GetStreamingJobResult):
         if False:
             yield self
         return GetStreamingJobResult(
+            cluster=self.cluster,
             compatibility_level=self.compatibility_level,
+            content_storage_policy=self.content_storage_policy,
             created_date=self.created_date,
             data_locale=self.data_locale,
             etag=self.etag,
@@ -304,9 +361,12 @@ class AwaitableGetStreamingJobResult(GetStreamingJobResult):
             events_out_of_order_policy=self.events_out_of_order_policy,
             functions=self.functions,
             id=self.id,
+            identity=self.identity,
             inputs=self.inputs,
             job_id=self.job_id,
             job_state=self.job_state,
+            job_storage_account=self.job_storage_account,
+            job_type=self.job_type,
             last_output_event_time=self.last_output_event_time,
             location=self.location,
             name=self.name,
@@ -327,12 +387,12 @@ def get_streaming_job(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingJobResult:
     """
     Gets details about the specified streaming job.
-    API Version: 2016-03-01.
+    API Version: 2020-03-01.
 
 
     :param str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
     :param str job_name: The name of the streaming job.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['expand'] = expand
@@ -342,7 +402,9 @@ def get_streaming_job(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:streamanalytics:getStreamingJob', __args__, opts=opts, typ=GetStreamingJobResult).value
 
     return AwaitableGetStreamingJobResult(
+        cluster=__ret__.cluster,
         compatibility_level=__ret__.compatibility_level,
+        content_storage_policy=__ret__.content_storage_policy,
         created_date=__ret__.created_date,
         data_locale=__ret__.data_locale,
         etag=__ret__.etag,
@@ -351,9 +413,12 @@ def get_streaming_job(expand: Optional[str] = None,
         events_out_of_order_policy=__ret__.events_out_of_order_policy,
         functions=__ret__.functions,
         id=__ret__.id,
+        identity=__ret__.identity,
         inputs=__ret__.inputs,
         job_id=__ret__.job_id,
         job_state=__ret__.job_state,
+        job_storage_account=__ret__.job_storage_account,
+        job_type=__ret__.job_type,
         last_output_event_time=__ret__.last_output_event_time,
         location=__ret__.location,
         name=__ret__.name,
@@ -375,11 +440,11 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingJobResult]:
     """
     Gets details about the specified streaming job.
-    API Version: 2016-03-01.
+    API Version: 2020-03-01.
 
 
     :param str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
     :param str job_name: The name of the streaming job.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

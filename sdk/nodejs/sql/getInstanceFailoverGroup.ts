@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a failover group.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFailoverGroupResult> {
 
@@ -79,7 +79,7 @@ export interface GetInstanceFailoverGroupResult {
 }
 /**
  * Gets a failover group.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getInstanceFailoverGroupOutput(args: GetInstanceFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceFailoverGroupResult> {
     return pulumi.output(args).apply((a: any) => getInstanceFailoverGroup(a, opts))

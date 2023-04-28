@@ -6,16 +6,16 @@ from enum import Enum
 
 __all__ = [
     'AccessRights',
-    'ApplicationGroupPolicyType',
     'ClusterSkuName',
     'DefaultAction',
     'EncodingCaptureDescription',
     'EndPointProvisioningState',
     'EntityStatus',
-    'IPAction',
-    'MetricId',
+    'KeySource',
+    'ManagedServiceIdentityType',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
+    'PublicNetworkAccessFlag',
     'SchemaCompatibility',
     'SchemaType',
     'SkuName',
@@ -27,13 +27,6 @@ class AccessRights(str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
-
-
-class ApplicationGroupPolicyType(str, Enum):
-    """
-    Application Group Policy types
-    """
-    THROTTLING_POLICY = "ThrottlingPolicy"
 
 
 class ClusterSkuName(str, Enum):
@@ -86,22 +79,21 @@ class EntityStatus(str, Enum):
     UNKNOWN = "Unknown"
 
 
-class IPAction(str, Enum):
+class KeySource(str, Enum):
     """
-    The IP Filter Action
+    Enumerates the possible value of keySource for Encryption
     """
-    ACCEPT = "Accept"
-    REJECT = "Reject"
+    MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
 
 
-class MetricId(str, Enum):
+class ManagedServiceIdentityType(str, Enum):
     """
-    Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+    Type of managed service identity.
     """
-    INCOMING_BYTES = "IncomingBytes"
-    OUTGOING_BYTES = "OutgoingBytes"
-    INCOMING_MESSAGES = "IncomingMessages"
-    OUTGOING_MESSAGES = "OutgoingMessages"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
 
 
 class NetworkRuleIPAction(str, Enum):
@@ -121,6 +113,14 @@ class PrivateLinkConnectionStatus(str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+class PublicNetworkAccessFlag(str, Enum):
+    """
+    This determines if traffic is allowed over public network. By default it is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class SchemaCompatibility(str, Enum):
     NONE = "None"
     BACKWARD = "Backward"
@@ -138,6 +138,7 @@ class SkuName(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
+    PREMIUM = "Premium"
 
 
 class SkuTier(str, Enum):
@@ -146,3 +147,4 @@ class SkuTier(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
+    PREMIUM = "Premium"

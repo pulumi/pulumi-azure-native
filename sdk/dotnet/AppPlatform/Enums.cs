@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
+    /// How ingress should communicate with this app backend service.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackendProtocol : IEquatable<BackendProtocol>
+    {
+        private readonly string _value;
+
+        private BackendProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackendProtocol GRPC { get; } = new BackendProtocol("GRPC");
+        public static BackendProtocol Default { get; } = new BackendProtocol("Default");
+
+        public static bool operator ==(BackendProtocol left, BackendProtocol right) => left.Equals(right);
+        public static bool operator !=(BackendProtocol left, BackendProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(BackendProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackendProtocol other && Equals(other);
+        public bool Equals(BackendProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Buildpack Binding Type
     /// </summary>
     [EnumType]
@@ -35,6 +66,72 @@ namespace Pulumi.AzureNative.AppPlatform
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BindingType other && Equals(other);
         public bool Equals(BindingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Protocol of routed Azure Spring Apps applications.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayRouteConfigProtocol : IEquatable<GatewayRouteConfigProtocol>
+    {
+        private readonly string _value;
+
+        private GatewayRouteConfigProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayRouteConfigProtocol HTTP { get; } = new GatewayRouteConfigProtocol("HTTP");
+        public static GatewayRouteConfigProtocol HTTPS { get; } = new GatewayRouteConfigProtocol("HTTPS");
+
+        public static bool operator ==(GatewayRouteConfigProtocol left, GatewayRouteConfigProtocol right) => left.Equals(right);
+        public static bool operator !=(GatewayRouteConfigProtocol left, GatewayRouteConfigProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayRouteConfigProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayRouteConfigProtocol other && Equals(other);
+        public bool Equals(GatewayRouteConfigProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Scheme to use for connecting to the host. Defaults to HTTP.
+    /// 
+    /// Possible enum values:
+    ///  - `"HTTP"` means that the scheme used will be http://
+    ///  - `"HTTPS"` means that the scheme used will be https://
+    /// </summary>
+    [EnumType]
+    public readonly struct HTTPSchemeType : IEquatable<HTTPSchemeType>
+    {
+        private readonly string _value;
+
+        private HTTPSchemeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HTTPSchemeType HTTP { get; } = new HTTPSchemeType("HTTP");
+        public static HTTPSchemeType HTTPS { get; } = new HTTPSchemeType("HTTPS");
+
+        public static bool operator ==(HTTPSchemeType left, HTTPSchemeType right) => left.Equals(right);
+        public static bool operator !=(HTTPSchemeType left, HTTPSchemeType right) => !left.Equals(right);
+
+        public static explicit operator string(HTTPSchemeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HTTPSchemeType other && Equals(other);
+        public bool Equals(HTTPSchemeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -76,30 +173,61 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
-    /// Runtime version
+    /// The type of the action to take to perform the health check.
     /// </summary>
     [EnumType]
-    public readonly struct RuntimeVersion : IEquatable<RuntimeVersion>
+    public readonly struct ProbeActionType : IEquatable<ProbeActionType>
     {
         private readonly string _value;
 
-        private RuntimeVersion(string value)
+        private ProbeActionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static RuntimeVersion Java_8 { get; } = new RuntimeVersion("Java_8");
-        public static RuntimeVersion Java_11 { get; } = new RuntimeVersion("Java_11");
-        public static RuntimeVersion NetCore_31 { get; } = new RuntimeVersion("NetCore_31");
+        public static ProbeActionType HTTPGetAction { get; } = new ProbeActionType("HTTPGetAction");
+        public static ProbeActionType TCPSocketAction { get; } = new ProbeActionType("TCPSocketAction");
+        public static ProbeActionType ExecAction { get; } = new ProbeActionType("ExecAction");
 
-        public static bool operator ==(RuntimeVersion left, RuntimeVersion right) => left.Equals(right);
-        public static bool operator !=(RuntimeVersion left, RuntimeVersion right) => !left.Equals(right);
+        public static bool operator ==(ProbeActionType left, ProbeActionType right) => left.Equals(right);
+        public static bool operator !=(ProbeActionType left, ProbeActionType right) => !left.Equals(right);
 
-        public static explicit operator string(RuntimeVersion value) => value._value;
+        public static explicit operator string(ProbeActionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RuntimeVersion other && Equals(other);
-        public bool Equals(RuntimeVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ProbeActionType other && Equals(other);
+        public bool Equals(ProbeActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the affinity, set this to Cookie to enable session affinity.
+    /// </summary>
+    [EnumType]
+    public readonly struct SessionAffinity : IEquatable<SessionAffinity>
+    {
+        private readonly string _value;
+
+        private SessionAffinity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionAffinity Cookie { get; } = new SessionAffinity("Cookie");
+        public static SessionAffinity None { get; } = new SessionAffinity("None");
+
+        public static bool operator ==(SessionAffinity left, SessionAffinity right) => left.Equals(right);
+        public static bool operator !=(SessionAffinity left, SessionAffinity right) => !left.Equals(right);
+
+        public static explicit operator string(SessionAffinity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionAffinity other && Equals(other);
+        public bool Equals(SessionAffinity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -138,30 +266,28 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
-    /// Type of the source uploaded
+    /// The type of the underlying resource to mount as a persistent disk.
     /// </summary>
     [EnumType]
-    public readonly struct UserSourceType : IEquatable<UserSourceType>
+    public readonly struct Type : IEquatable<Type>
     {
         private readonly string _value;
 
-        private UserSourceType(string value)
+        private Type(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static UserSourceType Jar { get; } = new UserSourceType("Jar");
-        public static UserSourceType NetCoreZip { get; } = new UserSourceType("NetCoreZip");
-        public static UserSourceType Source { get; } = new UserSourceType("Source");
+        public static Type AzureFileVolume { get; } = new Type("AzureFileVolume");
 
-        public static bool operator ==(UserSourceType left, UserSourceType right) => left.Equals(right);
-        public static bool operator !=(UserSourceType left, UserSourceType right) => !left.Equals(right);
+        public static bool operator ==(Type left, Type right) => left.Equals(right);
+        public static bool operator !=(Type left, Type right) => !left.Equals(right);
 
-        public static explicit operator string(UserSourceType value) => value._value;
+        public static explicit operator string(Type value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UserSourceType other && Equals(other);
-        public bool Equals(UserSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Type other && Equals(other);
+        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

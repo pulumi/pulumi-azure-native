@@ -148,7 +148,8 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         The resource proxy definition object for quantum workspace.
-        API Version: 2019-11-04-preview.
+        API Version: 2022-01-10-preview.
+        Previous API Version: 2019-11-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +169,8 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource proxy definition object for quantum workspace.
-        API Version: 2019-11-04-preview.
+        API Version: 2022-01-10-preview.
+        Previous API Version: 2019-11-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

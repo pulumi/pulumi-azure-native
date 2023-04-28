@@ -28,10 +28,10 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<int> Lun { get; set; } = null!;
 
         /// <summary>
-        /// The gallery artifact version source.
+        /// The source for the disk image.
         /// </summary>
         [Input("source")]
-        public Input<Inputs.GalleryArtifactVersionSourceArgs>? Source { get; set; }
+        public Input<Inputs.GalleryDiskImageSourceArgs>? Source { get; set; }
 
         public GalleryDataDiskImageArgs()
         {

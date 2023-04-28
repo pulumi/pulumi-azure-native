@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private link service by resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServiceResult> {
 
@@ -111,7 +111,7 @@ export interface GetPrivateLinkServiceResult {
 }
 /**
  * Gets the specified private link service by resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getPrivateLinkServiceOutput(args: GetPrivateLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServiceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkService(a, opts))

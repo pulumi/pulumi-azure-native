@@ -26,9 +26,11 @@ class PolicyAssignmentArgs:
                  metadata: Optional[Any] = None,
                  non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['NonComplianceMessageArgs']]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['OverrideArgs']]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
                  policy_assignment_name: Optional[pulumi.Input[str]] = None,
-                 policy_definition_id: Optional[pulumi.Input[str]] = None):
+                 policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a PolicyAssignment resource.
         :param pulumi.Input[str] scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -40,9 +42,11 @@ class PolicyAssignmentArgs:
         :param Any metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Sequence[pulumi.Input['NonComplianceMessageArgs']]] non_compliance_messages: The messages that describe why a resource is non-compliant with the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: The policy's excluded scopes.
+        :param pulumi.Input[Sequence[pulumi.Input['OverrideArgs']]] overrides: The policy property value override.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]] parameters: The parameter values for the assigned policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]] resource_selectors: The resource selector list to filter policies by resource properties.
         """
         pulumi.set(__self__, "scope", scope)
         if description is not None:
@@ -63,12 +67,16 @@ class PolicyAssignmentArgs:
             pulumi.set(__self__, "non_compliance_messages", non_compliance_messages)
         if not_scopes is not None:
             pulumi.set(__self__, "not_scopes", not_scopes)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if policy_assignment_name is not None:
             pulumi.set(__self__, "policy_assignment_name", policy_assignment_name)
         if policy_definition_id is not None:
             pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if resource_selectors is not None:
+            pulumi.set(__self__, "resource_selectors", resource_selectors)
 
     @property
     @pulumi.getter
@@ -180,6 +188,18 @@ class PolicyAssignmentArgs:
 
     @property
     @pulumi.getter
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OverrideArgs']]]]:
+        """
+        The policy property value override.
+        """
+        return pulumi.get(self, "overrides")
+
+    @overrides.setter
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OverrideArgs']]]]):
+        pulumi.set(self, "overrides", value)
+
+    @property
+    @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]]:
         """
         The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -214,6 +234,18 @@ class PolicyAssignmentArgs:
     def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_id", value)
 
+    @property
+    @pulumi.getter(name="resourceSelectors")
+    def resource_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]]:
+        """
+        The resource selector list to filter policies by resource properties.
+        """
+        return pulumi.get(self, "resource_selectors")
+
+    @resource_selectors.setter
+    def resource_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]]):
+        pulumi.set(self, "resource_selectors", value)
+
 
 class PolicyAssignment(pulumi.CustomResource):
     @overload
@@ -228,14 +260,17 @@ class PolicyAssignment(pulumi.CustomResource):
                  metadata: Optional[Any] = None,
                  non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NonComplianceMessageArgs']]]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OverrideArgs']]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValuesValueArgs']]]]] = None,
                  policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The policy assignment.
-        API Version: 2020-09-01.
+        API Version: 2022-06-01.
+        Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,9 +282,11 @@ class PolicyAssignment(pulumi.CustomResource):
         :param Any metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NonComplianceMessageArgs']]]] non_compliance_messages: The messages that describe why a resource is non-compliant with the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: The policy's excluded scopes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OverrideArgs']]]] overrides: The policy property value override.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValuesValueArgs']]]] parameters: The parameter values for the assigned policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]] resource_selectors: The resource selector list to filter policies by resource properties.
         :param pulumi.Input[str] scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
         ...
@@ -260,7 +297,8 @@ class PolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy assignment.
-        API Version: 2020-09-01.
+        API Version: 2022-06-01.
+        Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -285,9 +323,11 @@ class PolicyAssignment(pulumi.CustomResource):
                  metadata: Optional[Any] = None,
                  non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NonComplianceMessageArgs']]]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OverrideArgs']]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterValuesValueArgs']]]]] = None,
                  policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -308,13 +348,16 @@ class PolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["non_compliance_messages"] = non_compliance_messages
             __props__.__dict__["not_scopes"] = not_scopes
+            __props__.__dict__["overrides"] = overrides
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["policy_assignment_name"] = policy_assignment_name
             __props__.__dict__["policy_definition_id"] = policy_definition_id
+            __props__.__dict__["resource_selectors"] = resource_selectors
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20151001preview:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20160401:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20161201:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20170601preview:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180301:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180501:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20190101:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20190601:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20190901:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200301:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200901:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20210601:PolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20220601:PolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -349,9 +392,12 @@ class PolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["non_compliance_messages"] = None
         __props__.__dict__["not_scopes"] = None
+        __props__.__dict__["overrides"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["policy_definition_id"] = None
+        __props__.__dict__["resource_selectors"] = None
         __props__.__dict__["scope"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PolicyAssignment(resource_name, opts=opts, __props__=__props__)
 
@@ -429,6 +475,14 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def overrides(self) -> pulumi.Output[Optional[Sequence['outputs.OverrideResponse']]]:
+        """
+        The policy property value override.
+        """
+        return pulumi.get(self, "overrides")
+
+    @property
+    @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ParameterValuesValueResponse']]]:
         """
         The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -444,12 +498,28 @@ class PolicyAssignment(pulumi.CustomResource):
         return pulumi.get(self, "policy_definition_id")
 
     @property
+    @pulumi.getter(name="resourceSelectors")
+    def resource_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceSelectorResponse']]]:
+        """
+        The resource selector list to filter policies by resource properties.
+        """
+        return pulumi.get(self, "resource_selectors")
+
+    @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
         """
         The scope for the policy assignment.
         """
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

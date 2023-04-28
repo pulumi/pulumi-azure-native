@@ -25,30 +25,10 @@ export const getFluxConfiguration: typeof import("./getFluxConfiguration").getFl
 export const getFluxConfigurationOutput: typeof import("./getFluxConfiguration").getFluxConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getFluxConfiguration","getFluxConfigurationOutput"], () => require("./getFluxConfiguration"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { GetPrivateLinkScopeArgs, GetPrivateLinkScopeResult, GetPrivateLinkScopeOutputArgs } from "./getPrivateLinkScope";
-export const getPrivateLinkScope: typeof import("./getPrivateLinkScope").getPrivateLinkScope = null as any;
-export const getPrivateLinkScopeOutput: typeof import("./getPrivateLinkScope").getPrivateLinkScopeOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateLinkScope","getPrivateLinkScopeOutput"], () => require("./getPrivateLinkScope"));
-
 export { GetSourceControlConfigurationArgs, GetSourceControlConfigurationResult, GetSourceControlConfigurationOutputArgs } from "./getSourceControlConfiguration";
 export const getSourceControlConfiguration: typeof import("./getSourceControlConfiguration").getSourceControlConfiguration = null as any;
 export const getSourceControlConfigurationOutput: typeof import("./getSourceControlConfiguration").getSourceControlConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getSourceControlConfiguration","getSourceControlConfigurationOutput"], () => require("./getSourceControlConfiguration"));
-
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-export { PrivateLinkScopeArgs } from "./privateLinkScope";
-export type PrivateLinkScope = import("./privateLinkScope").PrivateLinkScope;
-export const PrivateLinkScope: typeof import("./privateLinkScope").PrivateLinkScope = null as any;
-utilities.lazyLoad(exports, ["PrivateLinkScope"], () => require("./privateLinkScope"));
 
 export { SourceControlConfigurationArgs } from "./sourceControlConfiguration";
 export type SourceControlConfiguration = import("./sourceControlConfiguration").SourceControlConfiguration;
@@ -62,13 +42,9 @@ export * from "../types/enums/kubernetesconfiguration";
 // Export sub-modules:
 import * as v20191101preview from "./v20191101preview";
 import * as v20200701preview from "./v20200701preview";
-import * as v20201001preview from "./v20201001preview";
 import * as v20210301 from "./v20210301";
-import * as v20210501preview from "./v20210501preview";
-import * as v20210901 from "./v20210901";
 import * as v20211101preview from "./v20211101preview";
 import * as v20220101preview from "./v20220101preview";
-import * as v20220301 from "./v20220301";
 import * as v20220402preview from "./v20220402preview";
 import * as v20220701 from "./v20220701";
 import * as v20221101 from "./v20221101";
@@ -76,13 +52,9 @@ import * as v20221101 from "./v20221101";
 export {
     v20191101preview,
     v20200701preview,
-    v20201001preview,
     v20210301,
-    v20210501preview,
-    v20210901,
     v20211101preview,
     v20220101preview,
-    v20220301,
     v20220402preview,
     v20220701,
     v20221101,
@@ -96,10 +68,6 @@ const _module = {
                 return new Extension(name, <any>undefined, { urn })
             case "azure-native:kubernetesconfiguration:FluxConfiguration":
                 return new FluxConfiguration(name, <any>undefined, { urn })
-            case "azure-native:kubernetesconfiguration:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:kubernetesconfiguration:PrivateLinkScope":
-                return new PrivateLinkScope(name, <any>undefined, { urn })
             case "azure-native:kubernetesconfiguration:SourceControlConfiguration":
                 return new SourceControlConfiguration(name, <any>undefined, { urn })
             default:

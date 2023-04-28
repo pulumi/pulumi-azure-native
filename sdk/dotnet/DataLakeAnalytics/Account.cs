@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     /// <summary>
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-    /// API Version: 2016-11-01.
+    /// API Version: 2019-11-01-preview.
+    /// Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -57,6 +58,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// </summary>
         [Output("defaultDataLakeStoreAccount")]
         public Output<string> DefaultDataLakeStoreAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the default Data Lake Store account associated with this account.
+        /// </summary>
+        [Output("defaultDataLakeStoreAccountType")]
+        public Output<string> DefaultDataLakeStoreAccountType { get; private set; } = null!;
 
         /// <summary>
         /// The full CName endpoint for this account.

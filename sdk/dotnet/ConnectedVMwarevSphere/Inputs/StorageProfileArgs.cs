@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the storage settings for the virtual machine disks.
     /// </summary>
     public sealed class StorageProfileArgs : global::Pulumi.ResourceArgs
     {

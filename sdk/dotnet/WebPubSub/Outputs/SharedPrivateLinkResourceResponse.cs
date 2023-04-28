@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// </summary>
         public readonly string PrivateLinkResourceId;
         /// <summary>
-        /// Provisioning state of the shared private link resource
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.DiskEncryptionSetParametersResponse? DiskEncryptionSet;
         /// <summary>
+        /// Specifies the security profile for the managed disk.
+        /// </summary>
+        public readonly Outputs.VMDiskSecurityProfileResponse? SecurityProfile;
+        /// <summary>
         /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         /// </summary>
         public readonly string? StorageAccountType;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private VirtualMachineScaleSetManagedDiskParametersResponse(
             Outputs.DiskEncryptionSetParametersResponse? diskEncryptionSet,
 
+            Outputs.VMDiskSecurityProfileResponse? securityProfile,
+
             string? storageAccountType)
         {
             DiskEncryptionSet = diskEncryptionSet;
+            SecurityProfile = securityProfile;
             StorageAccountType = storageAccountType;
         }
     }

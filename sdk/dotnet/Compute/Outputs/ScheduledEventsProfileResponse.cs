@@ -14,13 +14,21 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class ScheduledEventsProfileResponse
     {
         /// <summary>
+        /// Specifies OS Image Scheduled Event related configurations.
+        /// </summary>
+        public readonly Outputs.OSImageNotificationProfileResponse? OsImageNotificationProfile;
+        /// <summary>
         /// Specifies Terminate Scheduled Event related configurations.
         /// </summary>
         public readonly Outputs.TerminateNotificationProfileResponse? TerminateNotificationProfile;
 
         [OutputConstructor]
-        private ScheduledEventsProfileResponse(Outputs.TerminateNotificationProfileResponse? terminateNotificationProfile)
+        private ScheduledEventsProfileResponse(
+            Outputs.OSImageNotificationProfileResponse? osImageNotificationProfile,
+
+            Outputs.TerminateNotificationProfileResponse? terminateNotificationProfile)
         {
+            OsImageNotificationProfile = osImageNotificationProfile;
             TerminateNotificationProfile = terminateNotificationProfile;
         }
     }

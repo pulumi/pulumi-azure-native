@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly bool? Internal;
         /// <summary>
+        /// Configuration used to control the Environment Egress outbound traffic
+        /// </summary>
+        public readonly Outputs.ManagedEnvironmentOutboundSettingsResponse? OutboundSettings;
+        /// <summary>
         /// IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
         /// </summary>
         public readonly string? PlatformReservedCidr;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
             bool? @internal,
 
+            Outputs.ManagedEnvironmentOutboundSettingsResponse? outboundSettings,
+
             string? platformReservedCidr,
 
             string? platformReservedDnsIP,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.App.Outputs
             DockerBridgeCidr = dockerBridgeCidr;
             InfrastructureSubnetId = infrastructureSubnetId;
             Internal = @internal;
+            OutboundSettings = outboundSettings;
             PlatformReservedCidr = platformReservedCidr;
             PlatformReservedDnsIP = platformReservedDnsIP;
             RuntimeSubnetId = runtimeSubnetId;

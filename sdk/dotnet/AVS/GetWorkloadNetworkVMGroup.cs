@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// NSX VM Group
-        /// API Version: 2020-07-17-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetWorkloadNetworkVMGroupResult> InvokeAsync(GetWorkloadNetworkVMGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkVMGroupResult>("azure-native:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX VM Group
-        /// API Version: 2020-07-17-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetWorkloadNetworkVMGroupResult> Invoke(GetWorkloadNetworkVMGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkVMGroupResult>("azure-native:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupInvokeArgs(), options.WithDefaults());

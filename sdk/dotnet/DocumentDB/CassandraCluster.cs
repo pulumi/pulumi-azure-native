@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// Representation of a managed Cassandra cluster.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2022-11-15.
+    /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraCluster")]
     public partial class CassandraCluster : global::Pulumi.CustomResource
@@ -20,7 +21,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedCassandraManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -89,6 +90,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:CassandraCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:CassandraCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:CassandraCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:CassandraCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:CassandraCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:CassandraCluster"},
                 },
             };
@@ -123,7 +126,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedCassandraManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

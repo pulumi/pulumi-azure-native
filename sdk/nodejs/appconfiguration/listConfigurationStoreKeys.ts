@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the access key for the specified configuration store.
- * API Version: 2020-06-01.
+ * API Version: 2022-05-01.
  */
 export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeysResult> {
 
@@ -51,7 +51,7 @@ export interface ListConfigurationStoreKeysResult {
 }
 /**
  * Lists the access key for the specified configuration store.
- * API Version: 2020-06-01.
+ * API Version: 2022-05-01.
  */
 export function listConfigurationStoreKeysOutput(args: ListConfigurationStoreKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeysResult> {
     return pulumi.output(args).apply((a: any) => listConfigurationStoreKeys(a, opts))

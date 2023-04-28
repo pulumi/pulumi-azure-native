@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// The Defender for Servers AWS offering configurations
+    /// The Defender for Servers AWS offering
     /// </summary>
     public sealed class DefenderForServersAwsOfferingArgs : global::Pulumi.ResourceArgs
     {
@@ -28,11 +28,35 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<Inputs.DefenderForServersAwsOfferingDefenderForServersArgs>? DefenderForServers { get; set; }
 
         /// <summary>
+        /// The Microsoft Defender for Endpoint autoprovisioning configuration
+        /// </summary>
+        [Input("mdeAutoProvisioning")]
+        public Input<Inputs.DefenderForServersAwsOfferingMdeAutoProvisioningArgs>? MdeAutoProvisioning { get; set; }
+
+        /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderForServersAws'.
         /// </summary>
         [Input("offeringType", required: true)]
         public Input<string> OfferingType { get; set; } = null!;
+
+        /// <summary>
+        /// configuration for the servers offering subPlan
+        /// </summary>
+        [Input("subPlan")]
+        public Input<Inputs.DefenderForServersAwsOfferingSubPlanArgs>? SubPlan { get; set; }
+
+        /// <summary>
+        /// The Vulnerability Assessment autoprovisioning configuration
+        /// </summary>
+        [Input("vaAutoProvisioning")]
+        public Input<Inputs.DefenderForServersAwsOfferingVaAutoProvisioningArgs>? VaAutoProvisioning { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender for Server VM scanning configuration
+        /// </summary>
+        [Input("vmScanners")]
+        public Input<Inputs.DefenderForServersAwsOfferingVmScannersArgs>? VmScanners { get; set; }
 
         public DefenderForServersAwsOfferingArgs()
         {

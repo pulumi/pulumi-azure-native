@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents an instance of an auto scale v-core resource.
  * API Version: 2021-01-01.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AutoScaleVCore extends pulumi.CustomResource {
     /**

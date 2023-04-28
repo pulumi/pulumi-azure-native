@@ -57,6 +57,18 @@ namespace Pulumi.AzureNative.Network.Inputs
             set => _radiusServers = value;
         }
 
+        [Input("vngClientConnectionConfigurations")]
+        private InputList<Inputs.VngClientConnectionConfigurationArgs>? _vngClientConnectionConfigurations;
+
+        /// <summary>
+        /// per ip address pool connection policy for virtual network gateway P2S client.
+        /// </summary>
+        public InputList<Inputs.VngClientConnectionConfigurationArgs> VngClientConnectionConfigurations
+        {
+            get => _vngClientConnectionConfigurations ?? (_vngClientConnectionConfigurations = new InputList<Inputs.VngClientConnectionConfigurationArgs>());
+            set => _vngClientConnectionConfigurations = value;
+        }
+
         [Input("vpnAuthenticationTypes")]
         private InputList<Union<string, Pulumi.AzureNative.Network.VpnAuthenticationType>>? _vpnAuthenticationTypes;
 

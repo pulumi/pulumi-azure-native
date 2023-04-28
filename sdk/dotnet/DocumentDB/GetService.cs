@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Gets the status of service.
-        /// API Version: 2021-04-01-preview.
+        /// API Version: 2022-11-15.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:documentdb:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the status of service.
-        /// API Version: 2021-04-01-preview.
+        /// API Version: 2022-11-15.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:documentdb:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// Services response resource.
         /// </summary>
-        public readonly Union<Outputs.DataTransferServiceResourcePropertiesResponse, Outputs.SqlDedicatedGatewayServiceResourcePropertiesResponse> Properties;
+        public readonly object Properties;
         /// <summary>
         /// The type of Azure resource.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DocumentDB
 
             string name,
 
-            Union<Outputs.DataTransferServiceResourcePropertiesResponse, Outputs.SqlDedicatedGatewayServiceResourcePropertiesResponse> properties,
+            object properties,
 
             string type)
         {

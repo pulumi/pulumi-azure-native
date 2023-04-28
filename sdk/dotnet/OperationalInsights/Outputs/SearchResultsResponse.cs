@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
     public sealed class SearchResultsResponse
     {
         /// <summary>
+        /// Search results table async operation id.
+        /// </summary>
+        public readonly string AzureAsyncOperationId;
+        /// <summary>
         /// Search job Description.
         /// </summary>
         public readonly string? Description;
@@ -43,6 +47,8 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
 
         [OutputConstructor]
         private SearchResultsResponse(
+            string azureAsyncOperationId,
+
             string? description,
 
             string? endSearchTime,
@@ -55,6 +61,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
 
             string? startSearchTime)
         {
+            AzureAsyncOperationId = azureAsyncOperationId;
             Description = description;
             EndSearchTime = endSearchTime;
             Limit = limit;

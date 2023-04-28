@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         /// <summary>
-        /// Defines the action to take when a managed rule set score threshold is met.
+        /// Defines the rule set action.
         /// </summary>
         [Input("ruleSetAction")]
         public InputUnion<string, Pulumi.AzureNative.Network.ManagedRuleSetActionType>? RuleSetAction { get; set; }

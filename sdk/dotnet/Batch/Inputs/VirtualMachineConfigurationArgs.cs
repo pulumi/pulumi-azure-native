@@ -73,6 +73,12 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public Input<Inputs.NodePlacementConfigurationArgs>? NodePlacementConfiguration { get; set; }
 
         /// <summary>
+        /// Contains configuration for ephemeral OSDisk settings.
+        /// </summary>
+        [Input("osDisk")]
+        public Input<Inputs.OSDiskArgs>? OsDisk { get; set; }
+
+        /// <summary>
         /// This property must not be specified if the imageReference specifies a Linux OS image.
         /// </summary>
         [Input("windowsConfiguration")]

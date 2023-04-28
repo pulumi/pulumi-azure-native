@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class ClusterResourcePropertiesResponse
     {
         /// <summary>
+        /// Fully qualified dns name of the service instance
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
         /// Network profile of the Service
         /// </summary>
         public readonly Outputs.NetworkProfileResponse? NetworkProfile;
+        /// <summary>
+        /// Power state of the Service
+        /// </summary>
+        public readonly string PowerState;
         /// <summary>
         /// Provisioning state of the Service
         /// </summary>
@@ -32,21 +40,38 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// Version of the Service
         /// </summary>
         public readonly int Version;
+        /// <summary>
+        /// Additional Service settings in vnet injection instance
+        /// </summary>
+        public readonly Outputs.ServiceVNetAddonsResponse? VnetAddons;
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private ClusterResourcePropertiesResponse(
+            string fqdn,
+
             Outputs.NetworkProfileResponse? networkProfile,
+
+            string powerState,
 
             string provisioningState,
 
             string serviceId,
 
-            int version)
+            int version,
+
+            Outputs.ServiceVNetAddonsResponse? vnetAddons,
+
+            bool? zoneRedundant)
         {
+            Fqdn = fqdn;
             NetworkProfile = networkProfile;
+            PowerState = powerState;
             ProvisioningState = provisioningState;
             ServiceId = serviceId;
             Version = version;
+            VnetAddons = vnetAddons;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

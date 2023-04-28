@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Relay
 {
     /// <summary>
     /// Description of a namespace resource.
-    /// API Version: 2017-04-01.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
@@ -40,8 +41,23 @@ namespace Pulumi.AzureNative.Relay
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the Namespace.
+        /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Endpoint you can use to perform Service Bus operations.
@@ -54,6 +70,18 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of the Namespace.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -137,6 +165,24 @@ namespace Pulumi.AzureNative.Relay
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Relay.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
@@ -163,6 +209,7 @@ namespace Pulumi.AzureNative.Relay
 
         public NamespaceArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
         public static new NamespaceArgs Empty => new NamespaceArgs();
     }

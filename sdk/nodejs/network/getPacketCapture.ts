@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a packet capture session by name.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
 
@@ -65,13 +65,21 @@ export interface GetPacketCaptureResult {
      */
     readonly provisioningState: string;
     /**
+     * A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+     */
+    readonly scope?: outputs.network.PacketCaptureMachineScopeResponse;
+    /**
      * The storage location for a packet capture session.
      */
     readonly storageLocation: outputs.network.PacketCaptureStorageLocationResponse;
     /**
-     * The ID of the targeted resource, only VM is currently supported.
+     * The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
      */
     readonly target: string;
+    /**
+     * Target type of the resource provided.
+     */
+    readonly targetType?: string;
     /**
      * Maximum duration of the capture session in seconds.
      */
@@ -83,7 +91,7 @@ export interface GetPacketCaptureResult {
 }
 /**
  * Gets a packet capture session by name.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
     return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))

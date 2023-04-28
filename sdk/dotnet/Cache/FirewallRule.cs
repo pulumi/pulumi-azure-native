@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-    /// API Version: 2020-06-01.
+    /// API Version: 2022-06-01.
+    /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
@@ -23,7 +24,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> EndIP { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -35,7 +36,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> StartIP { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

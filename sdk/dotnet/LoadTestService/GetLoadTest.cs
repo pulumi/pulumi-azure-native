@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.LoadTestService
     {
         /// <summary>
         /// Get a LoadTest resource.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2022-12-01.
         /// </summary>
         public static Task<GetLoadTestResult> InvokeAsync(GetLoadTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LoadTest resource.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2022-12-01.
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.LoadTestService
     public sealed class GetLoadTestArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Load Test resource name.
+        /// Load Test name.
         /// </summary>
         [Input("loadTestName", required: true)]
         public string LoadTestName { get; set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.LoadTestService
     public sealed class GetLoadTestInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Load Test resource name.
+        /// Load Test name.
         /// </summary>
         [Input("loadTestName", required: true)]
         public Input<string> LoadTestName { get; set; } = null!;
@@ -80,13 +80,17 @@ namespace Pulumi.AzureNative.LoadTestService
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// CMK Encryption property.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesResponse? Encryption;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The type of identity used for the resource.
         /// </summary>
-        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -118,9 +122,11 @@ namespace Pulumi.AzureNative.LoadTestService
 
             string? description,
 
+            Outputs.EncryptionPropertiesResponse? encryption,
+
             string id,
 
-            Outputs.SystemAssignedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNative.LoadTestService
         {
             DataPlaneURI = dataPlaneURI;
             Description = description;
+            Encryption = encryption;
             Id = id;
             Identity = identity;
             Location = location;

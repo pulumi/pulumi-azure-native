@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A Database Migration Service resource
-    /// API Version: 2018-04-19.
+    /// API Version: 2021-06-30.
+    /// Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -59,6 +60,12 @@ namespace Pulumi.AzureNative.DataMigration
         public Output<Outputs.ServiceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -69,6 +76,12 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        /// </summary>
+        [Output("virtualNicId")]
+        public Output<string?> VirtualNicId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
@@ -180,6 +193,12 @@ namespace Pulumi.AzureNative.DataMigration
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        /// </summary>
+        [Input("virtualNicId")]
+        public Input<string>? VirtualNicId { get; set; }
 
         /// <summary>
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined

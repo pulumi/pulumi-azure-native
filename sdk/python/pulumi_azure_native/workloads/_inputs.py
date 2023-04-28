@@ -12,58 +12,55 @@ from ._enums import *
 
 __all__ = [
     'ApplicationServerConfigurationArgs',
-    'BackupProfileArgs',
-    'CacheProfileArgs',
+    'ApplicationServerFullResourceNamesArgs',
     'CentralServerConfigurationArgs',
+    'CentralServerFullResourceNamesArgs',
     'CreateAndMountFileShareConfigurationArgs',
     'DB2ProviderInstancePropertiesArgs',
     'DatabaseConfigurationArgs',
-    'DatabaseProfileArgs',
+    'DatabaseServerFullResourceNamesArgs',
     'DeployerVmPackagesArgs',
     'DeploymentConfigurationArgs',
     'DeploymentWithOSConfigurationArgs',
     'DiscoveryConfigurationArgs',
     'DiskConfigurationArgs',
-    'DiskInfoArgs',
     'DiskSkuArgs',
     'DiskVolumeConfigurationArgs',
     'ExternalInstallationSoftwareConfigurationArgs',
-    'FileshareProfileArgs',
     'HanaDbProviderInstancePropertiesArgs',
     'HighAvailabilityConfigurationArgs',
     'HighAvailabilitySoftwareConfigurationArgs',
     'ImageReferenceArgs',
     'LinuxConfigurationArgs',
+    'LoadBalancerResourceNamesArgs',
     'ManagedRGConfigurationArgs',
     'MountFileShareConfigurationArgs',
     'MsSqlServerProviderInstancePropertiesArgs',
     'NetworkConfigurationArgs',
-    'NetworkProfileArgs',
-    'NodeProfileArgs',
+    'NetworkInterfaceResourceNamesArgs',
     'OSProfileArgs',
-    'OsImageProfileArgs',
     'OsSapConfigurationArgs',
-    'PhpProfileArgs',
-    'PhpWorkloadResourceIdentityArgs',
     'PrometheusHaClusterProviderInstancePropertiesArgs',
     'PrometheusOSProviderInstancePropertiesArgs',
     'SAPInstallWithoutOSConfigSoftwareConfigurationArgs',
+    'SapLandscapeMonitorMetricThresholdsArgs',
+    'SapLandscapeMonitorPropertiesGroupingArgs',
+    'SapLandscapeMonitorSidMappingArgs',
     'SapNetWeaverProviderInstancePropertiesArgs',
-    'SearchProfileArgs',
     'ServiceInitiatedSoftwareConfigurationArgs',
+    'SharedStorageResourceNamesArgs',
     'SingleServerConfigurationArgs',
-    'SiteProfileArgs',
+    'SingleServerFullResourceNamesArgs',
     'SkipFileShareConfigurationArgs',
-    'SkuArgs',
     'SshConfigurationArgs',
     'SshKeyPairArgs',
     'SshPublicKeyArgs',
     'StorageConfigurationArgs',
     'ThreeTierConfigurationArgs',
+    'ThreeTierFullResourceNamesArgs',
     'UserAssignedServiceIdentityArgs',
-    'UserProfileArgs',
     'VirtualMachineConfigurationArgs',
-    'VmssNodesProfileArgs',
+    'VirtualMachineResourceNamesArgs',
     'WindowsConfigurationArgs',
 ]
 
@@ -121,95 +118,43 @@ class ApplicationServerConfigurationArgs:
 
 
 @pulumi.input_type
-class BackupProfileArgs:
+class ApplicationServerFullResourceNamesArgs:
     def __init__(__self__, *,
-                 backup_enabled: pulumi.Input[Union[str, 'EnableBackup']]):
+                 availability_set_name: Optional[pulumi.Input[str]] = None,
+                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]] = None):
         """
-        Backup profile
-        :param pulumi.Input[Union[str, 'EnableBackup']] backup_enabled: Whether to enable Azure backup for the workload
+        The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+        :param pulumi.Input[str] availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]] virtual_machines: The list of virtual machine naming details.
         """
-        pulumi.set(__self__, "backup_enabled", backup_enabled)
+        if availability_set_name is not None:
+            pulumi.set(__self__, "availability_set_name", availability_set_name)
+        if virtual_machines is not None:
+            pulumi.set(__self__, "virtual_machines", virtual_machines)
 
     @property
-    @pulumi.getter(name="backupEnabled")
-    def backup_enabled(self) -> pulumi.Input[Union[str, 'EnableBackup']]:
+    @pulumi.getter(name="availabilitySetName")
+    def availability_set_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether to enable Azure backup for the workload
+        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.
         """
-        return pulumi.get(self, "backup_enabled")
+        return pulumi.get(self, "availability_set_name")
 
-    @backup_enabled.setter
-    def backup_enabled(self, value: pulumi.Input[Union[str, 'EnableBackup']]):
-        pulumi.set(self, "backup_enabled", value)
-
-
-@pulumi.input_type
-class CacheProfileArgs:
-    def __init__(__self__, *,
-                 capacity: pulumi.Input[float],
-                 family: pulumi.Input[Union[str, 'RedisCacheFamily']],
-                 sku_name: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Cache profile
-        :param pulumi.Input[float] capacity: Cache capacity
-        :param pulumi.Input[Union[str, 'RedisCacheFamily']] family: Cache family
-        :param pulumi.Input[str] sku_name: Cache SKU name
-        :param pulumi.Input[str] name: Cache name
-        """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "sku_name", sku_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+    @availability_set_name.setter
+    def availability_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_set_name", value)
 
     @property
-    @pulumi.getter
-    def capacity(self) -> pulumi.Input[float]:
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]]:
         """
-        Cache capacity
+        The list of virtual machine naming details.
         """
-        return pulumi.get(self, "capacity")
+        return pulumi.get(self, "virtual_machines")
 
-    @capacity.setter
-    def capacity(self, value: pulumi.Input[float]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    def family(self) -> pulumi.Input[Union[str, 'RedisCacheFamily']]:
-        """
-        Cache family
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: pulumi.Input[Union[str, 'RedisCacheFamily']]):
-        pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter(name="skuName")
-    def sku_name(self) -> pulumi.Input[str]:
-        """
-        Cache SKU name
-        """
-        return pulumi.get(self, "sku_name")
-
-    @sku_name.setter
-    def sku_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sku_name", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Cache name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @virtual_machines.setter
+    def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]]):
+        pulumi.set(self, "virtual_machines", value)
 
 
 @pulumi.input_type
@@ -266,16 +211,72 @@ class CentralServerConfigurationArgs:
 
 
 @pulumi.input_type
+class CentralServerFullResourceNamesArgs:
+    def __init__(__self__, *,
+                 availability_set_name: Optional[pulumi.Input[str]] = None,
+                 load_balancer: Optional[pulumi.Input['LoadBalancerResourceNamesArgs']] = None,
+                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]] = None):
+        """
+        The full resource names object for central server layer resources.
+        :param pulumi.Input[str] availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-ASCS-AvSet.
+        :param pulumi.Input['LoadBalancerResourceNamesArgs'] load_balancer: The resource names object for load balancer and related resources.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]] virtual_machines: The list of names for all ASCS virtual machines to be deployed. The number of entries in this list should be equal to the number VMs to be created for ASCS layer. At maximum, there can be two virtual machines at this layer: ASCS and ERS.
+        """
+        if availability_set_name is not None:
+            pulumi.set(__self__, "availability_set_name", availability_set_name)
+        if load_balancer is not None:
+            pulumi.set(__self__, "load_balancer", load_balancer)
+        if virtual_machines is not None:
+            pulumi.set(__self__, "virtual_machines", virtual_machines)
+
+    @property
+    @pulumi.getter(name="availabilitySetName")
+    def availability_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-ASCS-AvSet.
+        """
+        return pulumi.get(self, "availability_set_name")
+
+    @availability_set_name.setter
+    def availability_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_set_name", value)
+
+    @property
+    @pulumi.getter(name="loadBalancer")
+    def load_balancer(self) -> Optional[pulumi.Input['LoadBalancerResourceNamesArgs']]:
+        """
+        The resource names object for load balancer and related resources.
+        """
+        return pulumi.get(self, "load_balancer")
+
+    @load_balancer.setter
+    def load_balancer(self, value: Optional[pulumi.Input['LoadBalancerResourceNamesArgs']]):
+        pulumi.set(self, "load_balancer", value)
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]]:
+        """
+        The list of names for all ASCS virtual machines to be deployed. The number of entries in this list should be equal to the number VMs to be created for ASCS layer. At maximum, there can be two virtual machines at this layer: ASCS and ERS.
+        """
+        return pulumi.get(self, "virtual_machines")
+
+    @virtual_machines.setter
+    def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]]):
+        pulumi.set(self, "virtual_machines", value)
+
+
+@pulumi.input_type
 class CreateAndMountFileShareConfigurationArgs:
     def __init__(__self__, *,
                  configuration_type: pulumi.Input[str],
                  resource_group: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None):
         """
-        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow.
+        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn’t need to pre-created.
         :param pulumi.Input[str] configuration_type: The type of file share config.
                Expected value is 'CreateAndMount'.
-        :param pulumi.Input[str] resource_group: The name of file share resource group. The app rg is used in case of missing input.
+        :param pulumi.Input[str] resource_group: The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
         :param pulumi.Input[str] storage_account_name: The name of file share storage account name . A custom name is used in case of missing input.
         """
         pulumi.set(__self__, "configuration_type", 'CreateAndMount')
@@ -301,7 +302,7 @@ class CreateAndMountFileShareConfigurationArgs:
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of file share resource group. The app rg is used in case of missing input.
+        The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
         """
         return pulumi.get(self, "resource_group")
 
@@ -577,184 +578,59 @@ class DatabaseConfigurationArgs:
 
 
 @pulumi.input_type
-class DatabaseProfileArgs:
+class DatabaseServerFullResourceNamesArgs:
     def __init__(__self__, *,
-                 sku: pulumi.Input[str],
-                 tier: pulumi.Input['DatabaseTier'],
-                 type: pulumi.Input[Union[str, 'DatabaseType']],
-                 backup_retention_days: Optional[pulumi.Input[int]] = None,
-                 ha_enabled: Optional[pulumi.Input[Union[str, 'HAEnabled']]] = None,
-                 server_name: Optional[pulumi.Input[str]] = None,
-                 ssl_enforcement_enabled: Optional[pulumi.Input[Union[str, 'EnableSslEnforcement']]] = None,
-                 storage_in_gb: Optional[pulumi.Input[float]] = None,
-                 storage_iops: Optional[pulumi.Input[float]] = None,
-                 storage_sku: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 availability_set_name: Optional[pulumi.Input[str]] = None,
+                 load_balancer: Optional[pulumi.Input['LoadBalancerResourceNamesArgs']] = None,
+                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]] = None):
         """
-        Workload database profile
-        :param pulumi.Input[str] sku: The name of the server SKU, e.g. Standard_D32s_v4
-        :param pulumi.Input['DatabaseTier'] tier: Tier of the server SKU
-        :param pulumi.Input[Union[str, 'DatabaseType']] type: Database type
-        :param pulumi.Input[int] backup_retention_days: Backup retention days for the server
-        :param pulumi.Input[Union[str, 'HAEnabled']] ha_enabled: Whether to enable HA for the server
-        :param pulumi.Input[str] server_name: Database server name
-        :param pulumi.Input[Union[str, 'EnableSslEnforcement']] ssl_enforcement_enabled: Whether to enable SSL enforcement on the database
-        :param pulumi.Input[float] storage_in_gb: Database storage size in GB
-        :param pulumi.Input[float] storage_iops: Storage IOPS for the server
-        :param pulumi.Input[str] storage_sku: SKU name for database storage
-        :param pulumi.Input[str] version: Database version
+        The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+        :param pulumi.Input[str] availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-DB-AvSet.
+        :param pulumi.Input['LoadBalancerResourceNamesArgs'] load_balancer: The resource names object for load balancer and related resources.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]] virtual_machines: The list of virtual machine naming details.
         """
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "tier", tier)
-        pulumi.set(__self__, "type", type)
-        if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
-        if ha_enabled is not None:
-            pulumi.set(__self__, "ha_enabled", ha_enabled)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_enforcement_enabled is not None:
-            pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
-        if storage_in_gb is not None:
-            pulumi.set(__self__, "storage_in_gb", storage_in_gb)
-        if storage_iops is not None:
-            pulumi.set(__self__, "storage_iops", storage_iops)
-        if storage_sku is not None:
-            pulumi.set(__self__, "storage_sku", storage_sku)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
+        if availability_set_name is not None:
+            pulumi.set(__self__, "availability_set_name", availability_set_name)
+        if load_balancer is not None:
+            pulumi.set(__self__, "load_balancer", load_balancer)
+        if virtual_machines is not None:
+            pulumi.set(__self__, "virtual_machines", virtual_machines)
 
     @property
-    @pulumi.getter
-    def sku(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="availabilitySetName")
+    def availability_set_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the server SKU, e.g. Standard_D32s_v4
+        The full name for availability set. In case name is not provided, it will be defaulted to {SID}-DB-AvSet.
         """
-        return pulumi.get(self, "sku")
+        return pulumi.get(self, "availability_set_name")
 
-    @sku.setter
-    def sku(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> pulumi.Input['DatabaseTier']:
-        """
-        Tier of the server SKU
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: pulumi.Input['DatabaseTier']):
-        pulumi.set(self, "tier", value)
+    @availability_set_name.setter
+    def availability_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_set_name", value)
 
     @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'DatabaseType']]:
+    @pulumi.getter(name="loadBalancer")
+    def load_balancer(self) -> Optional[pulumi.Input['LoadBalancerResourceNamesArgs']]:
         """
-        Database type
+        The resource names object for load balancer and related resources.
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "load_balancer")
 
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'DatabaseType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Backup retention days for the server
-        """
-        return pulumi.get(self, "backup_retention_days")
-
-    @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "backup_retention_days", value)
+    @load_balancer.setter
+    def load_balancer(self, value: Optional[pulumi.Input['LoadBalancerResourceNamesArgs']]):
+        pulumi.set(self, "load_balancer", value)
 
     @property
-    @pulumi.getter(name="haEnabled")
-    def ha_enabled(self) -> Optional[pulumi.Input[Union[str, 'HAEnabled']]]:
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]]:
         """
-        Whether to enable HA for the server
+        The list of virtual machine naming details.
         """
-        return pulumi.get(self, "ha_enabled")
+        return pulumi.get(self, "virtual_machines")
 
-    @ha_enabled.setter
-    def ha_enabled(self, value: Optional[pulumi.Input[Union[str, 'HAEnabled']]]):
-        pulumi.set(self, "ha_enabled", value)
-
-    @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Database server name
-        """
-        return pulumi.get(self, "server_name")
-
-    @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_name", value)
-
-    @property
-    @pulumi.getter(name="sslEnforcementEnabled")
-    def ssl_enforcement_enabled(self) -> Optional[pulumi.Input[Union[str, 'EnableSslEnforcement']]]:
-        """
-        Whether to enable SSL enforcement on the database
-        """
-        return pulumi.get(self, "ssl_enforcement_enabled")
-
-    @ssl_enforcement_enabled.setter
-    def ssl_enforcement_enabled(self, value: Optional[pulumi.Input[Union[str, 'EnableSslEnforcement']]]):
-        pulumi.set(self, "ssl_enforcement_enabled", value)
-
-    @property
-    @pulumi.getter(name="storageInGB")
-    def storage_in_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        Database storage size in GB
-        """
-        return pulumi.get(self, "storage_in_gb")
-
-    @storage_in_gb.setter
-    def storage_in_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "storage_in_gb", value)
-
-    @property
-    @pulumi.getter(name="storageIops")
-    def storage_iops(self) -> Optional[pulumi.Input[float]]:
-        """
-        Storage IOPS for the server
-        """
-        return pulumi.get(self, "storage_iops")
-
-    @storage_iops.setter
-    def storage_iops(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "storage_iops", value)
-
-    @property
-    @pulumi.getter(name="storageSku")
-    def storage_sku(self) -> Optional[pulumi.Input[str]]:
-        """
-        SKU name for database storage
-        """
-        return pulumi.get(self, "storage_sku")
-
-    @storage_sku.setter
-    def storage_sku(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_sku", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Database version
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
+    @virtual_machines.setter
+    def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineResourceNamesArgs']]]]):
+        pulumi.set(self, "virtual_machines", value)
 
 
 @pulumi.input_type
@@ -963,16 +839,20 @@ class DeploymentWithOSConfigurationArgs:
 class DiscoveryConfigurationArgs:
     def __init__(__self__, *,
                  configuration_type: pulumi.Input[str],
-                 central_server_vm_id: Optional[pulumi.Input[str]] = None):
+                 central_server_vm_id: Optional[pulumi.Input[str]] = None,
+                 managed_rg_storage_account_name: Optional[pulumi.Input[str]] = None):
         """
         Discovery Details.
         :param pulumi.Input[str] configuration_type: The configuration Type.
                Expected value is 'Discovery'.
         :param pulumi.Input[str] central_server_vm_id: The virtual machine ID of the Central Server.
+        :param pulumi.Input[str] managed_rg_storage_account_name: The custom storage account name for the storage account created by the service in the managed resource group created as part of VIS deployment.<br><br>Refer to the storage account naming rules [here](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).<br><br>If not provided, the service will create the storage account with a random name.
         """
         pulumi.set(__self__, "configuration_type", 'Discovery')
         if central_server_vm_id is not None:
             pulumi.set(__self__, "central_server_vm_id", central_server_vm_id)
+        if managed_rg_storage_account_name is not None:
+            pulumi.set(__self__, "managed_rg_storage_account_name", managed_rg_storage_account_name)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -998,6 +878,18 @@ class DiscoveryConfigurationArgs:
     @central_server_vm_id.setter
     def central_server_vm_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "central_server_vm_id", value)
+
+    @property
+    @pulumi.getter(name="managedRgStorageAccountName")
+    def managed_rg_storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom storage account name for the storage account created by the service in the managed resource group created as part of VIS deployment.<br><br>Refer to the storage account naming rules [here](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).<br><br>If not provided, the service will create the storage account with a random name.
+        """
+        return pulumi.get(self, "managed_rg_storage_account_name")
+
+    @managed_rg_storage_account_name.setter
+    def managed_rg_storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_rg_storage_account_name", value)
 
 
 @pulumi.input_type
@@ -1025,50 +917,11 @@ class DiskConfigurationArgs:
 
 
 @pulumi.input_type
-class DiskInfoArgs:
-    def __init__(__self__, *,
-                 storage_type: pulumi.Input['DiskStorageType'],
-                 size_in_gb: Optional[pulumi.Input[float]] = None):
-        """
-        Disk resource creation details
-        :param pulumi.Input['DiskStorageType'] storage_type: Storage type
-        :param pulumi.Input[float] size_in_gb: Disk size in GB
-        """
-        pulumi.set(__self__, "storage_type", storage_type)
-        if size_in_gb is not None:
-            pulumi.set(__self__, "size_in_gb", size_in_gb)
-
-    @property
-    @pulumi.getter(name="storageType")
-    def storage_type(self) -> pulumi.Input['DiskStorageType']:
-        """
-        Storage type
-        """
-        return pulumi.get(self, "storage_type")
-
-    @storage_type.setter
-    def storage_type(self, value: pulumi.Input['DiskStorageType']):
-        pulumi.set(self, "storage_type", value)
-
-    @property
-    @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        Disk size in GB
-        """
-        return pulumi.get(self, "size_in_gb")
-
-    @size_in_gb.setter
-    def size_in_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "size_in_gb", value)
-
-
-@pulumi.input_type
 class DiskSkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[Union[str, 'DiskSkuName']]] = None):
         """
-        The disk sku.
+        The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
         :param pulumi.Input[Union[str, 'DiskSkuName']] name: Defines the disk sku name.
         """
         if name is not None:
@@ -1185,70 +1038,16 @@ class ExternalInstallationSoftwareConfigurationArgs:
 
 
 @pulumi.input_type
-class FileshareProfileArgs:
-    def __init__(__self__, *,
-                 share_type: pulumi.Input[Union[str, 'FileShareType']],
-                 storage_type: pulumi.Input[Union[str, 'FileShareStorageType']],
-                 share_size_in_gb: Optional[pulumi.Input[float]] = None):
-        """
-        File share profile
-        :param pulumi.Input[Union[str, 'FileShareType']] share_type: Share type
-        :param pulumi.Input[Union[str, 'FileShareStorageType']] storage_type: File share backing storage type
-        :param pulumi.Input[float] share_size_in_gb: File share size in GB
-        """
-        pulumi.set(__self__, "share_type", share_type)
-        pulumi.set(__self__, "storage_type", storage_type)
-        if share_size_in_gb is not None:
-            pulumi.set(__self__, "share_size_in_gb", share_size_in_gb)
-
-    @property
-    @pulumi.getter(name="shareType")
-    def share_type(self) -> pulumi.Input[Union[str, 'FileShareType']]:
-        """
-        Share type
-        """
-        return pulumi.get(self, "share_type")
-
-    @share_type.setter
-    def share_type(self, value: pulumi.Input[Union[str, 'FileShareType']]):
-        pulumi.set(self, "share_type", value)
-
-    @property
-    @pulumi.getter(name="storageType")
-    def storage_type(self) -> pulumi.Input[Union[str, 'FileShareStorageType']]:
-        """
-        File share backing storage type
-        """
-        return pulumi.get(self, "storage_type")
-
-    @storage_type.setter
-    def storage_type(self, value: pulumi.Input[Union[str, 'FileShareStorageType']]):
-        pulumi.set(self, "storage_type", value)
-
-    @property
-    @pulumi.getter(name="shareSizeInGB")
-    def share_size_in_gb(self) -> Optional[pulumi.Input[float]]:
-        """
-        File share size in GB
-        """
-        return pulumi.get(self, "share_size_in_gb")
-
-    @share_size_in_gb.setter
-    def share_size_in_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "share_size_in_gb", value)
-
-
-@pulumi.input_type
 class HanaDbProviderInstancePropertiesArgs:
     def __init__(__self__, *,
                  provider_type: pulumi.Input[str],
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_password: Optional[pulumi.Input[str]] = None,
                  db_password_uri: Optional[pulumi.Input[str]] = None,
-                 db_ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
                  db_username: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  instance_number: Optional[pulumi.Input[str]] = None,
+                 sap_sid: Optional[pulumi.Input[str]] = None,
                  sql_port: Optional[pulumi.Input[str]] = None,
                  ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
                  ssl_host_name_in_certificate: Optional[pulumi.Input[str]] = None,
@@ -1260,10 +1059,10 @@ class HanaDbProviderInstancePropertiesArgs:
         :param pulumi.Input[str] db_name: Gets or sets the hana database name.
         :param pulumi.Input[str] db_password: Gets or sets the database password.
         :param pulumi.Input[str] db_password_uri: Gets or sets the key vault URI to secret with the database password.
-        :param pulumi.Input[str] db_ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB.
         :param pulumi.Input[str] db_username: Gets or sets the database user name.
         :param pulumi.Input[str] hostname: Gets or sets the target virtual machine size.
         :param pulumi.Input[str] instance_number: Gets or sets the database instance number.
+        :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier.
         :param pulumi.Input[str] sql_port: Gets or sets the database sql port.
         :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB.
         :param pulumi.Input[str] ssl_host_name_in_certificate: Gets or sets the hostname(s) in the SSL certificate.
@@ -1276,14 +1075,14 @@ class HanaDbProviderInstancePropertiesArgs:
             pulumi.set(__self__, "db_password", db_password)
         if db_password_uri is not None:
             pulumi.set(__self__, "db_password_uri", db_password_uri)
-        if db_ssl_certificate_uri is not None:
-            pulumi.set(__self__, "db_ssl_certificate_uri", db_ssl_certificate_uri)
         if db_username is not None:
             pulumi.set(__self__, "db_username", db_username)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
         if instance_number is not None:
             pulumi.set(__self__, "instance_number", instance_number)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
         if sql_port is not None:
             pulumi.set(__self__, "sql_port", sql_port)
         if ssl_certificate_uri is not None:
@@ -1343,18 +1142,6 @@ class HanaDbProviderInstancePropertiesArgs:
         pulumi.set(self, "db_password_uri", value)
 
     @property
-    @pulumi.getter(name="dbSslCertificateUri")
-    def db_ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the blob URI to SSL certificate for the DB.
-        """
-        return pulumi.get(self, "db_ssl_certificate_uri")
-
-    @db_ssl_certificate_uri.setter
-    def db_ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "db_ssl_certificate_uri", value)
-
-    @property
     @pulumi.getter(name="dbUsername")
     def db_username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1389,6 +1176,18 @@ class HanaDbProviderInstancePropertiesArgs:
     @instance_number.setter
     def instance_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_number", value)
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the SAP System Identifier.
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @sap_sid.setter
+    def sap_sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sap_sid", value)
 
     @property
     @pulumi.getter(name="sqlPort")
@@ -1505,14 +1304,12 @@ class ImageReferenceArgs:
     def __init__(__self__, *,
                  offer: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
-                 shared_gallery_image_id: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
         :param pulumi.Input[str] offer: Specifies the offer of the platform image or marketplace image used to create the virtual machine.
         :param pulumi.Input[str] publisher: The image publisher.
-        :param pulumi.Input[str] shared_gallery_image_id: Specified the shared gallery image unique id for vm deployment. This can be fetched from shared gallery image GET call.
         :param pulumi.Input[str] sku: The image SKU.
         :param pulumi.Input[str] version: Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
         """
@@ -1520,8 +1317,6 @@ class ImageReferenceArgs:
             pulumi.set(__self__, "offer", offer)
         if publisher is not None:
             pulumi.set(__self__, "publisher", publisher)
-        if shared_gallery_image_id is not None:
-            pulumi.set(__self__, "shared_gallery_image_id", shared_gallery_image_id)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if version is not None:
@@ -1550,18 +1345,6 @@ class ImageReferenceArgs:
     @publisher.setter
     def publisher(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "publisher", value)
-
-    @property
-    @pulumi.getter(name="sharedGalleryImageId")
-    def shared_gallery_image_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specified the shared gallery image unique id for vm deployment. This can be fetched from shared gallery image GET call.
-        """
-        return pulumi.get(self, "shared_gallery_image_id")
-
-    @shared_gallery_image_id.setter
-    def shared_gallery_image_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "shared_gallery_image_id", value)
 
     @property
     @pulumi.getter
@@ -1659,6 +1442,78 @@ class LinuxConfigurationArgs:
     @ssh_key_pair.setter
     def ssh_key_pair(self, value: Optional[pulumi.Input['SshKeyPairArgs']]):
         pulumi.set(self, "ssh_key_pair", value)
+
+
+@pulumi.input_type
+class LoadBalancerResourceNamesArgs:
+    def __init__(__self__, *,
+                 backend_pool_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 frontend_ip_configuration_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 health_probe_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 load_balancer_name: Optional[pulumi.Input[str]] = None):
+        """
+        The resource names object for load balancer and related resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_pool_names: The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_ip_configuration_names: The list of frontend IP configuration names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] health_probe_names: The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
+        :param pulumi.Input[str] load_balancer_name: The full resource name for load balancer. If this value is not provided, load balancer will be name as {ASCS/DB}-loadBalancer.
+        """
+        if backend_pool_names is not None:
+            pulumi.set(__self__, "backend_pool_names", backend_pool_names)
+        if frontend_ip_configuration_names is not None:
+            pulumi.set(__self__, "frontend_ip_configuration_names", frontend_ip_configuration_names)
+        if health_probe_names is not None:
+            pulumi.set(__self__, "health_probe_names", health_probe_names)
+        if load_balancer_name is not None:
+            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+
+    @property
+    @pulumi.getter(name="backendPoolNames")
+    def backend_pool_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1
+        """
+        return pulumi.get(self, "backend_pool_names")
+
+    @backend_pool_names.setter
+    def backend_pool_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_pool_names", value)
+
+    @property
+    @pulumi.getter(name="frontendIpConfigurationNames")
+    def frontend_ip_configuration_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of frontend IP configuration names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
+        """
+        return pulumi.get(self, "frontend_ip_configuration_names")
+
+    @frontend_ip_configuration_names.setter
+    def frontend_ip_configuration_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "frontend_ip_configuration_names", value)
+
+    @property
+    @pulumi.getter(name="healthProbeNames")
+    def health_probe_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
+        """
+        return pulumi.get(self, "health_probe_names")
+
+    @health_probe_names.setter
+    def health_probe_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "health_probe_names", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerName")
+    def load_balancer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full resource name for load balancer. If this value is not provided, load balancer will be name as {ASCS/DB}-loadBalancer.
+        """
+        return pulumi.get(self, "load_balancer_name")
+
+    @load_balancer_name.setter
+    def load_balancer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_name", value)
 
 
 @pulumi.input_type
@@ -1920,175 +1775,27 @@ class NetworkConfigurationArgs:
 
 
 @pulumi.input_type
-class NetworkProfileArgs:
+class NetworkInterfaceResourceNamesArgs:
     def __init__(__self__, *,
-                 load_balancer_type: pulumi.Input[Union[str, 'LoadBalancerType']],
-                 azure_front_door_enabled: Optional[pulumi.Input[Union[str, 'AzureFrontDoorEnabled']]] = None,
-                 capacity: Optional[pulumi.Input[int]] = None,
-                 load_balancer_sku: Optional[pulumi.Input[str]] = None,
-                 load_balancer_tier: Optional[pulumi.Input[str]] = None):
+                 network_interface_name: Optional[pulumi.Input[str]] = None):
         """
-        Network profile
-        :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: Load balancer type
-        :param pulumi.Input[Union[str, 'AzureFrontDoorEnabled']] azure_front_door_enabled: Whether to enable Azure front door
-        :param pulumi.Input[int] capacity: Capacity, applicable only for Application Gateway
-        :param pulumi.Input[str] load_balancer_sku: Load balancer SKU
-        :param pulumi.Input[str] load_balancer_tier: Load balancer tier
+        The resource names object for network interface and related resources.
+        :param pulumi.Input[str] network_interface_name: The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.
         """
-        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
-        if azure_front_door_enabled is not None:
-            pulumi.set(__self__, "azure_front_door_enabled", azure_front_door_enabled)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if load_balancer_sku is not None:
-            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
-        if load_balancer_tier is not None:
-            pulumi.set(__self__, "load_balancer_tier", load_balancer_tier)
+        if network_interface_name is not None:
+            pulumi.set(__self__, "network_interface_name", network_interface_name)
 
     @property
-    @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> pulumi.Input[Union[str, 'LoadBalancerType']]:
+    @pulumi.getter(name="networkInterfaceName")
+    def network_interface_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Load balancer type
+        The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.
         """
-        return pulumi.get(self, "load_balancer_type")
+        return pulumi.get(self, "network_interface_name")
 
-    @load_balancer_type.setter
-    def load_balancer_type(self, value: pulumi.Input[Union[str, 'LoadBalancerType']]):
-        pulumi.set(self, "load_balancer_type", value)
-
-    @property
-    @pulumi.getter(name="azureFrontDoorEnabled")
-    def azure_front_door_enabled(self) -> Optional[pulumi.Input[Union[str, 'AzureFrontDoorEnabled']]]:
-        """
-        Whether to enable Azure front door
-        """
-        return pulumi.get(self, "azure_front_door_enabled")
-
-    @azure_front_door_enabled.setter
-    def azure_front_door_enabled(self, value: Optional[pulumi.Input[Union[str, 'AzureFrontDoorEnabled']]]):
-        pulumi.set(self, "azure_front_door_enabled", value)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Capacity, applicable only for Application Gateway
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter(name="loadBalancerSku")
-    def load_balancer_sku(self) -> Optional[pulumi.Input[str]]:
-        """
-        Load balancer SKU
-        """
-        return pulumi.get(self, "load_balancer_sku")
-
-    @load_balancer_sku.setter
-    def load_balancer_sku(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "load_balancer_sku", value)
-
-    @property
-    @pulumi.getter(name="loadBalancerTier")
-    def load_balancer_tier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Load balancer tier
-        """
-        return pulumi.get(self, "load_balancer_tier")
-
-    @load_balancer_tier.setter
-    def load_balancer_tier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "load_balancer_tier", value)
-
-
-@pulumi.input_type
-class NodeProfileArgs:
-    def __init__(__self__, *,
-                 node_sku: pulumi.Input[str],
-                 os_disk: pulumi.Input['DiskInfoArgs'],
-                 os_image: pulumi.Input['OsImageProfileArgs'],
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        VM or VMSS node profile
-        :param pulumi.Input[str] node_sku: VM SKU for node(s)
-        :param pulumi.Input['DiskInfoArgs'] os_disk: OS disk details
-        :param pulumi.Input['OsImageProfileArgs'] os_image: OS image used for creating the nodes
-        :param pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]] data_disks: Data disks details. This property is not in use right now
-        :param pulumi.Input[str] name: VM or VMSS name
-        """
-        pulumi.set(__self__, "node_sku", node_sku)
-        pulumi.set(__self__, "os_disk", os_disk)
-        pulumi.set(__self__, "os_image", os_image)
-        if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="nodeSku")
-    def node_sku(self) -> pulumi.Input[str]:
-        """
-        VM SKU for node(s)
-        """
-        return pulumi.get(self, "node_sku")
-
-    @node_sku.setter
-    def node_sku(self, value: pulumi.Input[str]):
-        pulumi.set(self, "node_sku", value)
-
-    @property
-    @pulumi.getter(name="osDisk")
-    def os_disk(self) -> pulumi.Input['DiskInfoArgs']:
-        """
-        OS disk details
-        """
-        return pulumi.get(self, "os_disk")
-
-    @os_disk.setter
-    def os_disk(self, value: pulumi.Input['DiskInfoArgs']):
-        pulumi.set(self, "os_disk", value)
-
-    @property
-    @pulumi.getter(name="osImage")
-    def os_image(self) -> pulumi.Input['OsImageProfileArgs']:
-        """
-        OS image used for creating the nodes
-        """
-        return pulumi.get(self, "os_image")
-
-    @os_image.setter
-    def os_image(self, value: pulumi.Input['OsImageProfileArgs']):
-        pulumi.set(self, "os_image", value)
-
-    @property
-    @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]]:
-        """
-        Data disks details. This property is not in use right now
-        """
-        return pulumi.get(self, "data_disks")
-
-    @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]]):
-        pulumi.set(self, "data_disks", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        VM or VMSS name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @network_interface_name.setter
+    def network_interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_name", value)
 
 
 @pulumi.input_type
@@ -2148,78 +1855,6 @@ class OSProfileArgs:
 
 
 @pulumi.input_type
-class OsImageProfileArgs:
-    def __init__(__self__, *,
-                 offer: Optional[pulumi.Input[Union[str, 'OSImageOffer']]] = None,
-                 publisher: Optional[pulumi.Input[Union[str, 'OSImagePublisher']]] = None,
-                 sku: Optional[pulumi.Input[Union[str, 'OSImageSku']]] = None,
-                 version: Optional[pulumi.Input[Union[str, 'OSImageVersion']]] = None):
-        """
-        OS image profile
-        :param pulumi.Input[Union[str, 'OSImageOffer']] offer: OS image offer
-        :param pulumi.Input[Union[str, 'OSImagePublisher']] publisher: OS image publisher
-        :param pulumi.Input[Union[str, 'OSImageSku']] sku: OS image sku
-        :param pulumi.Input[Union[str, 'OSImageVersion']] version: OS image version
-        """
-        if offer is not None:
-            pulumi.set(__self__, "offer", offer)
-        if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def offer(self) -> Optional[pulumi.Input[Union[str, 'OSImageOffer']]]:
-        """
-        OS image offer
-        """
-        return pulumi.get(self, "offer")
-
-    @offer.setter
-    def offer(self, value: Optional[pulumi.Input[Union[str, 'OSImageOffer']]]):
-        pulumi.set(self, "offer", value)
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[Union[str, 'OSImagePublisher']]]:
-        """
-        OS image publisher
-        """
-        return pulumi.get(self, "publisher")
-
-    @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[Union[str, 'OSImagePublisher']]]):
-        pulumi.set(self, "publisher", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[Union[str, 'OSImageSku']]]:
-        """
-        OS image sku
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input[Union[str, 'OSImageSku']]]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[str, 'OSImageVersion']]]:
-        """
-        OS image version
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[str, 'OSImageVersion']]]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
 class OsSapConfigurationArgs:
     def __init__(__self__, *,
                  deployer_vm_packages: Optional[pulumi.Input['DeployerVmPackagesArgs']] = None,
@@ -2257,68 +1892,6 @@ class OsSapConfigurationArgs:
     @sap_fqdn.setter
     def sap_fqdn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sap_fqdn", value)
-
-
-@pulumi.input_type
-class PhpProfileArgs:
-    def __init__(__self__, *,
-                 version: pulumi.Input[Union[str, 'PHPVersion']]):
-        """
-        PHP profile
-        :param pulumi.Input[Union[str, 'PHPVersion']] version: PHP version
-        """
-        pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Input[Union[str, 'PHPVersion']]:
-        """
-        PHP version
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: pulumi.Input[Union[str, 'PHPVersion']]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class PhpWorkloadResourceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        Identity for the resource. Currently not supported
-        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of manage identity
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: User assigned identities dictionary
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
-        """
-        Type of manage identity
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        User assigned identities dictionary
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -2447,6 +2020,7 @@ class PrometheusOSProviderInstancePropertiesArgs:
     def __init__(__self__, *,
                  provider_type: pulumi.Input[str],
                  prometheus_url: Optional[pulumi.Input[str]] = None,
+                 sap_sid: Optional[pulumi.Input[str]] = None,
                  ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
                  ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
         """
@@ -2454,12 +2028,15 @@ class PrometheusOSProviderInstancePropertiesArgs:
         :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'PrometheusOS'.
         :param pulumi.Input[str] prometheus_url: URL of the Node Exporter endpoint
+        :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier
         :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
         :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
         """
         pulumi.set(__self__, "provider_type", 'PrometheusOS')
         if prometheus_url is not None:
             pulumi.set(__self__, "prometheus_url", prometheus_url)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
         if ssl_certificate_uri is not None:
             pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
         if ssl_preference is not None:
@@ -2489,6 +2066,18 @@ class PrometheusOSProviderInstancePropertiesArgs:
     @prometheus_url.setter
     def prometheus_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prometheus_url", value)
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the SAP System Identifier
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @sap_sid.setter
+    def sap_sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sap_sid", value)
 
     @property
     @pulumi.getter(name="sslCertificateUri")
@@ -2602,6 +2191,158 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
 
 
 @pulumi.input_type
+class SapLandscapeMonitorMetricThresholdsArgs:
+    def __init__(__self__, *,
+                 green: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 red: Optional[pulumi.Input[float]] = None,
+                 yellow: Optional[pulumi.Input[float]] = None):
+        """
+        Gets or sets the Threshold Values for Top Metrics Health.
+        :param pulumi.Input[float] green: Gets or sets the threshold value for Green.
+        :param pulumi.Input[str] name: Gets or sets the name of the threshold.
+        :param pulumi.Input[float] red: Gets or sets the threshold value for Red.
+        :param pulumi.Input[float] yellow: Gets or sets the threshold value for Yellow.
+        """
+        if green is not None:
+            pulumi.set(__self__, "green", green)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if red is not None:
+            pulumi.set(__self__, "red", red)
+        if yellow is not None:
+            pulumi.set(__self__, "yellow", yellow)
+
+    @property
+    @pulumi.getter
+    def green(self) -> Optional[pulumi.Input[float]]:
+        """
+        Gets or sets the threshold value for Green.
+        """
+        return pulumi.get(self, "green")
+
+    @green.setter
+    def green(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "green", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the threshold.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def red(self) -> Optional[pulumi.Input[float]]:
+        """
+        Gets or sets the threshold value for Red.
+        """
+        return pulumi.get(self, "red")
+
+    @red.setter
+    def red(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "red", value)
+
+    @property
+    @pulumi.getter
+    def yellow(self) -> Optional[pulumi.Input[float]]:
+        """
+        Gets or sets the threshold value for Yellow.
+        """
+        return pulumi.get(self, "yellow")
+
+    @yellow.setter
+    def yellow(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "yellow", value)
+
+
+@pulumi.input_type
+class SapLandscapeMonitorPropertiesGroupingArgs:
+    def __init__(__self__, *,
+                 landscape: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]]] = None,
+                 sap_application: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]]] = None):
+        """
+        Gets or sets the SID groupings by landscape and Environment.
+        :param pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]] landscape: Gets or sets the list of landscape to SID mappings.
+        :param pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]] sap_application: Gets or sets the list of Sap Applications to SID mappings.
+        """
+        if landscape is not None:
+            pulumi.set(__self__, "landscape", landscape)
+        if sap_application is not None:
+            pulumi.set(__self__, "sap_application", sap_application)
+
+    @property
+    @pulumi.getter
+    def landscape(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]]]:
+        """
+        Gets or sets the list of landscape to SID mappings.
+        """
+        return pulumi.get(self, "landscape")
+
+    @landscape.setter
+    def landscape(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]]]):
+        pulumi.set(self, "landscape", value)
+
+    @property
+    @pulumi.getter(name="sapApplication")
+    def sap_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]]]:
+        """
+        Gets or sets the list of Sap Applications to SID mappings.
+        """
+        return pulumi.get(self, "sap_application")
+
+    @sap_application.setter
+    def sap_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorSidMappingArgs']]]]):
+        pulumi.set(self, "sap_application", value)
+
+
+@pulumi.input_type
+class SapLandscapeMonitorSidMappingArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 top_sid: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Gets or sets the mapping for SID to Environment/Applications.
+        :param pulumi.Input[str] name: Gets or sets the name of the grouping.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] top_sid: Gets or sets the list of SID's.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if top_sid is not None:
+            pulumi.set(__self__, "top_sid", top_sid)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the grouping.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="topSid")
+    def top_sid(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets the list of SID's.
+        """
+        return pulumi.get(self, "top_sid")
+
+    @top_sid.setter
+    def top_sid(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "top_sid", value)
+
+
+@pulumi.input_type
 class SapNetWeaverProviderInstancePropertiesArgs:
     def __init__(__self__, *,
                  provider_type: pulumi.Input[str],
@@ -2613,7 +2354,6 @@ class SapNetWeaverProviderInstancePropertiesArgs:
                  sap_password_uri: Optional[pulumi.Input[str]] = None,
                  sap_port_number: Optional[pulumi.Input[str]] = None,
                  sap_sid: Optional[pulumi.Input[str]] = None,
-                 sap_ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
                  sap_username: Optional[pulumi.Input[str]] = None,
                  ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
                  ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
@@ -2629,7 +2369,6 @@ class SapNetWeaverProviderInstancePropertiesArgs:
         :param pulumi.Input[str] sap_password_uri: Gets or sets the key vault URI to secret with the SAP password.
         :param pulumi.Input[str] sap_port_number: Gets or sets the SAP HTTP port number.
         :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier
-        :param pulumi.Input[str] sap_ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SAP system.
         :param pulumi.Input[str] sap_username: Gets or sets the SAP user name.
         :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SAP system.
         :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
@@ -2651,8 +2390,6 @@ class SapNetWeaverProviderInstancePropertiesArgs:
             pulumi.set(__self__, "sap_port_number", sap_port_number)
         if sap_sid is not None:
             pulumi.set(__self__, "sap_sid", sap_sid)
-        if sap_ssl_certificate_uri is not None:
-            pulumi.set(__self__, "sap_ssl_certificate_uri", sap_ssl_certificate_uri)
         if sap_username is not None:
             pulumi.set(__self__, "sap_username", sap_username)
         if ssl_certificate_uri is not None:
@@ -2770,18 +2507,6 @@ class SapNetWeaverProviderInstancePropertiesArgs:
         pulumi.set(self, "sap_sid", value)
 
     @property
-    @pulumi.getter(name="sapSslCertificateUri")
-    def sap_ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the blob URI to SSL certificate for the SAP system.
-        """
-        return pulumi.get(self, "sap_ssl_certificate_uri")
-
-    @sap_ssl_certificate_uri.setter
-    def sap_ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sap_ssl_certificate_uri", value)
-
-    @property
     @pulumi.getter(name="sapUsername")
     def sap_username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2816,106 +2541,6 @@ class SapNetWeaverProviderInstancePropertiesArgs:
     @ssl_preference.setter
     def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
         pulumi.set(self, "ssl_preference", value)
-
-
-@pulumi.input_type
-class SearchProfileArgs:
-    def __init__(__self__, *,
-                 node_sku: pulumi.Input[str],
-                 os_disk: pulumi.Input['DiskInfoArgs'],
-                 os_image: pulumi.Input['OsImageProfileArgs'],
-                 search_type: pulumi.Input[Union[str, 'SearchType']],
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Search profile
-        :param pulumi.Input[str] node_sku: VM SKU for node(s)
-        :param pulumi.Input['DiskInfoArgs'] os_disk: OS disk details
-        :param pulumi.Input['OsImageProfileArgs'] os_image: OS image used for creating the nodes
-        :param pulumi.Input[Union[str, 'SearchType']] search_type: Search type
-        :param pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]] data_disks: Data disks details. This property is not in use right now
-        :param pulumi.Input[str] name: VM or VMSS name
-        """
-        pulumi.set(__self__, "node_sku", node_sku)
-        pulumi.set(__self__, "os_disk", os_disk)
-        pulumi.set(__self__, "os_image", os_image)
-        pulumi.set(__self__, "search_type", search_type)
-        if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="nodeSku")
-    def node_sku(self) -> pulumi.Input[str]:
-        """
-        VM SKU for node(s)
-        """
-        return pulumi.get(self, "node_sku")
-
-    @node_sku.setter
-    def node_sku(self, value: pulumi.Input[str]):
-        pulumi.set(self, "node_sku", value)
-
-    @property
-    @pulumi.getter(name="osDisk")
-    def os_disk(self) -> pulumi.Input['DiskInfoArgs']:
-        """
-        OS disk details
-        """
-        return pulumi.get(self, "os_disk")
-
-    @os_disk.setter
-    def os_disk(self, value: pulumi.Input['DiskInfoArgs']):
-        pulumi.set(self, "os_disk", value)
-
-    @property
-    @pulumi.getter(name="osImage")
-    def os_image(self) -> pulumi.Input['OsImageProfileArgs']:
-        """
-        OS image used for creating the nodes
-        """
-        return pulumi.get(self, "os_image")
-
-    @os_image.setter
-    def os_image(self, value: pulumi.Input['OsImageProfileArgs']):
-        pulumi.set(self, "os_image", value)
-
-    @property
-    @pulumi.getter(name="searchType")
-    def search_type(self) -> pulumi.Input[Union[str, 'SearchType']]:
-        """
-        Search type
-        """
-        return pulumi.get(self, "search_type")
-
-    @search_type.setter
-    def search_type(self, value: pulumi.Input[Union[str, 'SearchType']]):
-        pulumi.set(self, "search_type", value)
-
-    @property
-    @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]]:
-        """
-        Data disks details. This property is not in use right now
-        """
-        return pulumi.get(self, "data_disks")
-
-    @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]]):
-        pulumi.set(self, "data_disks", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        VM or VMSS name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -3035,22 +2660,64 @@ class ServiceInitiatedSoftwareConfigurationArgs:
 
 
 @pulumi.input_type
+class SharedStorageResourceNamesArgs:
+    def __init__(__self__, *,
+                 shared_storage_account_name: Optional[pulumi.Input[str]] = None,
+                 shared_storage_account_private_end_point_name: Optional[pulumi.Input[str]] = None):
+        """
+        The resource names object for shared storage.
+        :param pulumi.Input[str] shared_storage_account_name: The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.
+        :param pulumi.Input[str] shared_storage_account_private_end_point_name: The full name of private end point for the shared storage account. If it is not provided, it will be defaulted to {storageAccountName}_pe
+        """
+        if shared_storage_account_name is not None:
+            pulumi.set(__self__, "shared_storage_account_name", shared_storage_account_name)
+        if shared_storage_account_private_end_point_name is not None:
+            pulumi.set(__self__, "shared_storage_account_private_end_point_name", shared_storage_account_private_end_point_name)
+
+    @property
+    @pulumi.getter(name="sharedStorageAccountName")
+    def shared_storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.
+        """
+        return pulumi.get(self, "shared_storage_account_name")
+
+    @shared_storage_account_name.setter
+    def shared_storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="sharedStorageAccountPrivateEndPointName")
+    def shared_storage_account_private_end_point_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full name of private end point for the shared storage account. If it is not provided, it will be defaulted to {storageAccountName}_pe
+        """
+        return pulumi.get(self, "shared_storage_account_private_end_point_name")
+
+    @shared_storage_account_private_end_point_name.setter
+    def shared_storage_account_private_end_point_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_storage_account_private_end_point_name", value)
+
+
+@pulumi.input_type
 class SingleServerConfigurationArgs:
     def __init__(__self__, *,
                  app_resource_group: pulumi.Input[str],
                  deployment_type: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  virtual_machine_configuration: pulumi.Input['VirtualMachineConfigurationArgs'],
+                 custom_resource_names: Optional[pulumi.Input['SingleServerFullResourceNamesArgs']] = None,
                  database_type: Optional[pulumi.Input[Union[str, 'SAPDatabaseType']]] = None,
                  db_disk_configuration: Optional[pulumi.Input['DiskConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None):
         """
-        Gets or sets the single server configuration.
+        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
         :param pulumi.Input[str] app_resource_group: The application resource group where SAP system resources will be deployed.
         :param pulumi.Input[str] deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'SingleServer'.
         :param pulumi.Input[str] subnet_id: The subnet id.
         :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: Gets or sets the virtual machine configuration.
+        :param pulumi.Input['SingleServerFullResourceNamesArgs'] custom_resource_names: The set of custom names to be used for underlying azure resources that are part of the SAP system.
         :param pulumi.Input[Union[str, 'SAPDatabaseType']] database_type: The database type.
         :param pulumi.Input['DiskConfigurationArgs'] db_disk_configuration: Gets or sets the disk configuration.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: Network configuration for the server
@@ -3059,6 +2726,8 @@ class SingleServerConfigurationArgs:
         pulumi.set(__self__, "deployment_type", 'SingleServer')
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
+        if custom_resource_names is not None:
+            pulumi.set(__self__, "custom_resource_names", custom_resource_names)
         if database_type is not None:
             pulumi.set(__self__, "database_type", database_type)
         if db_disk_configuration is not None:
@@ -3116,6 +2785,18 @@ class SingleServerConfigurationArgs:
         pulumi.set(self, "virtual_machine_configuration", value)
 
     @property
+    @pulumi.getter(name="customResourceNames")
+    def custom_resource_names(self) -> Optional[pulumi.Input['SingleServerFullResourceNamesArgs']]:
+        """
+        The set of custom names to be used for underlying azure resources that are part of the SAP system.
+        """
+        return pulumi.get(self, "custom_resource_names")
+
+    @custom_resource_names.setter
+    def custom_resource_names(self, value: Optional[pulumi.Input['SingleServerFullResourceNamesArgs']]):
+        pulumi.set(self, "custom_resource_names", value)
+
+    @property
     @pulumi.getter(name="databaseType")
     def database_type(self) -> Optional[pulumi.Input[Union[str, 'SAPDatabaseType']]]:
         """
@@ -3153,27 +2834,44 @@ class SingleServerConfigurationArgs:
 
 
 @pulumi.input_type
-class SiteProfileArgs:
+class SingleServerFullResourceNamesArgs:
     def __init__(__self__, *,
-                 domain_name: Optional[pulumi.Input[str]] = None):
+                 naming_pattern_type: pulumi.Input[str],
+                 virtual_machine: Optional[pulumi.Input['VirtualMachineResourceNamesArgs']] = None):
         """
-        Workload website profile
-        :param pulumi.Input[str] domain_name: Domain name for the application site URL
+        The resource name object where the specified values will be full resource names of the corresponding resources in a single server SAP system.
+        :param pulumi.Input[str] naming_pattern_type: The pattern type to be used for resource naming.
+               Expected value is 'FullResourceName'.
+        :param pulumi.Input['VirtualMachineResourceNamesArgs'] virtual_machine: The resource names object for virtual machine and related resources.
         """
-        if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "naming_pattern_type", 'FullResourceName')
+        if virtual_machine is not None:
+            pulumi.set(__self__, "virtual_machine", virtual_machine)
 
     @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="namingPatternType")
+    def naming_pattern_type(self) -> pulumi.Input[str]:
         """
-        Domain name for the application site URL
+        The pattern type to be used for resource naming.
+        Expected value is 'FullResourceName'.
         """
-        return pulumi.get(self, "domain_name")
+        return pulumi.get(self, "naming_pattern_type")
 
-    @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "domain_name", value)
+    @naming_pattern_type.setter
+    def naming_pattern_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "naming_pattern_type", value)
+
+    @property
+    @pulumi.getter(name="virtualMachine")
+    def virtual_machine(self) -> Optional[pulumi.Input['VirtualMachineResourceNamesArgs']]:
+        """
+        The resource names object for virtual machine and related resources.
+        """
+        return pulumi.get(self, "virtual_machine")
+
+    @virtual_machine.setter
+    def virtual_machine(self, value: Optional[pulumi.Input['VirtualMachineResourceNamesArgs']]):
+        pulumi.set(self, "virtual_machine", value)
 
 
 @pulumi.input_type
@@ -3199,93 +2897,6 @@ class SkipFileShareConfigurationArgs:
     @configuration_type.setter
     def configuration_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "configuration_type", value)
-
-
-@pulumi.input_type
-class SkuArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[int]] = None,
-                 family: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
-        """
-        The resource model definition representing SKU
-        :param pulumi.Input[str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
-        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-        pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[str]]:
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "size", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
-        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type
@@ -3408,17 +3019,19 @@ class ThreeTierConfigurationArgs:
                  central_server: pulumi.Input['CentralServerConfigurationArgs'],
                  database_server: pulumi.Input['DatabaseConfigurationArgs'],
                  deployment_type: pulumi.Input[str],
+                 custom_resource_names: Optional[pulumi.Input['ThreeTierFullResourceNamesArgs']] = None,
                  high_availability_config: Optional[pulumi.Input['HighAvailabilityConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
                  storage_configuration: Optional[pulumi.Input['StorageConfigurationArgs']] = None):
         """
-        Gets or sets the three tier SAP configuration.
+        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
         :param pulumi.Input[str] app_resource_group: The application resource group where SAP system resources will be deployed.
         :param pulumi.Input['ApplicationServerConfigurationArgs'] application_server: The application server configuration.
         :param pulumi.Input['CentralServerConfigurationArgs'] central_server: The central server configuration.
         :param pulumi.Input['DatabaseConfigurationArgs'] database_server: The database configuration.
         :param pulumi.Input[str] deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'ThreeTier'.
+        :param pulumi.Input['ThreeTierFullResourceNamesArgs'] custom_resource_names: The set of custom names to be used for underlying azure resources that are part of the SAP system.
         :param pulumi.Input['HighAvailabilityConfigurationArgs'] high_availability_config: The high availability configuration.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: Network configuration common to all servers
         :param pulumi.Input['StorageConfigurationArgs'] storage_configuration: The storage configuration.
@@ -3428,6 +3041,8 @@ class ThreeTierConfigurationArgs:
         pulumi.set(__self__, "central_server", central_server)
         pulumi.set(__self__, "database_server", database_server)
         pulumi.set(__self__, "deployment_type", 'ThreeTier')
+        if custom_resource_names is not None:
+            pulumi.set(__self__, "custom_resource_names", custom_resource_names)
         if high_availability_config is not None:
             pulumi.set(__self__, "high_availability_config", high_availability_config)
         if network_configuration is not None:
@@ -3497,6 +3112,18 @@ class ThreeTierConfigurationArgs:
         pulumi.set(self, "deployment_type", value)
 
     @property
+    @pulumi.getter(name="customResourceNames")
+    def custom_resource_names(self) -> Optional[pulumi.Input['ThreeTierFullResourceNamesArgs']]:
+        """
+        The set of custom names to be used for underlying azure resources that are part of the SAP system.
+        """
+        return pulumi.get(self, "custom_resource_names")
+
+    @custom_resource_names.setter
+    def custom_resource_names(self, value: Optional[pulumi.Input['ThreeTierFullResourceNamesArgs']]):
+        pulumi.set(self, "custom_resource_names", value)
+
+    @property
     @pulumi.getter(name="highAvailabilityConfig")
     def high_availability_config(self) -> Optional[pulumi.Input['HighAvailabilityConfigurationArgs']]:
         """
@@ -3534,12 +3161,101 @@ class ThreeTierConfigurationArgs:
 
 
 @pulumi.input_type
+class ThreeTierFullResourceNamesArgs:
+    def __init__(__self__, *,
+                 naming_pattern_type: pulumi.Input[str],
+                 application_server: Optional[pulumi.Input['ApplicationServerFullResourceNamesArgs']] = None,
+                 central_server: Optional[pulumi.Input['CentralServerFullResourceNamesArgs']] = None,
+                 database_server: Optional[pulumi.Input['DatabaseServerFullResourceNamesArgs']] = None,
+                 shared_storage: Optional[pulumi.Input['SharedStorageResourceNamesArgs']] = None):
+        """
+        The resource name object where the specified values will be full resource names of the corresponding resources in a three tier SAP system.
+        :param pulumi.Input[str] naming_pattern_type: The pattern type to be used for resource naming.
+               Expected value is 'FullResourceName'.
+        :param pulumi.Input['ApplicationServerFullResourceNamesArgs'] application_server: The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+        :param pulumi.Input['CentralServerFullResourceNamesArgs'] central_server: The full resource names object for central server layer resources.
+        :param pulumi.Input['DatabaseServerFullResourceNamesArgs'] database_server: The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+        :param pulumi.Input['SharedStorageResourceNamesArgs'] shared_storage: The resource names object for shared storage.
+        """
+        pulumi.set(__self__, "naming_pattern_type", 'FullResourceName')
+        if application_server is not None:
+            pulumi.set(__self__, "application_server", application_server)
+        if central_server is not None:
+            pulumi.set(__self__, "central_server", central_server)
+        if database_server is not None:
+            pulumi.set(__self__, "database_server", database_server)
+        if shared_storage is not None:
+            pulumi.set(__self__, "shared_storage", shared_storage)
+
+    @property
+    @pulumi.getter(name="namingPatternType")
+    def naming_pattern_type(self) -> pulumi.Input[str]:
+        """
+        The pattern type to be used for resource naming.
+        Expected value is 'FullResourceName'.
+        """
+        return pulumi.get(self, "naming_pattern_type")
+
+    @naming_pattern_type.setter
+    def naming_pattern_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "naming_pattern_type", value)
+
+    @property
+    @pulumi.getter(name="applicationServer")
+    def application_server(self) -> Optional[pulumi.Input['ApplicationServerFullResourceNamesArgs']]:
+        """
+        The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+        """
+        return pulumi.get(self, "application_server")
+
+    @application_server.setter
+    def application_server(self, value: Optional[pulumi.Input['ApplicationServerFullResourceNamesArgs']]):
+        pulumi.set(self, "application_server", value)
+
+    @property
+    @pulumi.getter(name="centralServer")
+    def central_server(self) -> Optional[pulumi.Input['CentralServerFullResourceNamesArgs']]:
+        """
+        The full resource names object for central server layer resources.
+        """
+        return pulumi.get(self, "central_server")
+
+    @central_server.setter
+    def central_server(self, value: Optional[pulumi.Input['CentralServerFullResourceNamesArgs']]):
+        pulumi.set(self, "central_server", value)
+
+    @property
+    @pulumi.getter(name="databaseServer")
+    def database_server(self) -> Optional[pulumi.Input['DatabaseServerFullResourceNamesArgs']]:
+        """
+        The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+        """
+        return pulumi.get(self, "database_server")
+
+    @database_server.setter
+    def database_server(self, value: Optional[pulumi.Input['DatabaseServerFullResourceNamesArgs']]):
+        pulumi.set(self, "database_server", value)
+
+    @property
+    @pulumi.getter(name="sharedStorage")
+    def shared_storage(self) -> Optional[pulumi.Input['SharedStorageResourceNamesArgs']]:
+        """
+        The resource names object for shared storage.
+        """
+        return pulumi.get(self, "shared_storage")
+
+    @shared_storage.setter
+    def shared_storage(self, value: Optional[pulumi.Input['SharedStorageResourceNamesArgs']]):
+        pulumi.set(self, "shared_storage", value)
+
+
+@pulumi.input_type
 class UserAssignedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
-        Managed service identity (user assigned identities)
+        A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of manage identity
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: User assigned identities dictionary
         """
@@ -3570,44 +3286,6 @@ class UserAssignedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
-
-
-@pulumi.input_type
-class UserProfileArgs:
-    def __init__(__self__, *,
-                 ssh_public_key: pulumi.Input[str],
-                 user_name: pulumi.Input[str]):
-        """
-        User profile to configure on a compute resources such as VM, VMSS
-        :param pulumi.Input[str] ssh_public_key: SSH public key data
-        :param pulumi.Input[str] user_name: User name
-        """
-        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
-        pulumi.set(__self__, "user_name", user_name)
-
-    @property
-    @pulumi.getter(name="sshPublicKey")
-    def ssh_public_key(self) -> pulumi.Input[str]:
-        """
-        SSH public key data
-        """
-        return pulumi.get(self, "ssh_public_key")
-
-    @ssh_public_key.setter
-    def ssh_public_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "ssh_public_key", value)
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[str]:
-        """
-        User name
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
@@ -3664,120 +3342,91 @@ class VirtualMachineConfigurationArgs:
 
 
 @pulumi.input_type
-class VmssNodesProfileArgs:
+class VirtualMachineResourceNamesArgs:
     def __init__(__self__, *,
-                 node_sku: pulumi.Input[str],
-                 os_disk: pulumi.Input['DiskInfoArgs'],
-                 os_image: pulumi.Input['OsImageProfileArgs'],
-                 auto_scale_max_count: Optional[pulumi.Input[int]] = None,
-                 auto_scale_min_count: Optional[pulumi.Input[int]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 data_disk_names: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+                 host_name: Optional[pulumi.Input[str]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceResourceNamesArgs']]]] = None,
+                 os_disk_name: Optional[pulumi.Input[str]] = None,
+                 vm_name: Optional[pulumi.Input[str]] = None):
         """
-        VMSS profile
-        :param pulumi.Input[str] node_sku: VM SKU for node(s)
-        :param pulumi.Input['DiskInfoArgs'] os_disk: OS disk details
-        :param pulumi.Input['OsImageProfileArgs'] os_image: OS image used for creating the nodes
-        :param pulumi.Input[int] auto_scale_max_count: Maximum number of nodes for autoscale
-        :param pulumi.Input[int] auto_scale_min_count: Minimum number of nodes for autoscale
-        :param pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]] data_disks: Data disks details. This property is not in use right now
-        :param pulumi.Input[str] name: VM or VMSS name
+        The resource names object for virtual machine and related resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] data_disk_names: The full resource names for virtual machine data disks. This is a dictionary containing list of names of data disks per volume. Currently supported volumes for database layer are ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os', 'backup']. For application and cs layers, only 'default' volume is supported
+        :param pulumi.Input[str] host_name: The full name for virtual-machine's host (computer name). Currently, ACSS only supports host names which are less than or equal to 13 characters long. If this value is not provided, vmName will be used as host name.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceResourceNamesArgs']]] network_interfaces: The list of network interface name objects for the selected virtual machine. Currently, only one network interface is supported per virtual machine.
+        :param pulumi.Input[str] os_disk_name: The full name for OS disk attached to the VM. If this value is not provided, it will be named by ARM as per its default naming standards (prefixed with vm name). There is only one OS disk attached per Virtual Machine.
+        :param pulumi.Input[str] vm_name: The full name for virtual machine. The length of this field can be upto 64 characters. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}vm. In case of HA-AvZone systems, default name will be {SID}{app/ascs/db}z{a/b}vm with an incrementor at the end in case of more than 1 vm per layer. For distributed and HA-AvSet systems, default name will be {SID}{app/ascs/db}vm with an incrementor at the end in case of more than 1 vm per layer.
         """
-        pulumi.set(__self__, "node_sku", node_sku)
-        pulumi.set(__self__, "os_disk", os_disk)
-        pulumi.set(__self__, "os_image", os_image)
-        if auto_scale_max_count is not None:
-            pulumi.set(__self__, "auto_scale_max_count", auto_scale_max_count)
-        if auto_scale_min_count is not None:
-            pulumi.set(__self__, "auto_scale_min_count", auto_scale_min_count)
-        if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        if data_disk_names is not None:
+            pulumi.set(__self__, "data_disk_names", data_disk_names)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if os_disk_name is not None:
+            pulumi.set(__self__, "os_disk_name", os_disk_name)
+        if vm_name is not None:
+            pulumi.set(__self__, "vm_name", vm_name)
 
     @property
-    @pulumi.getter(name="nodeSku")
-    def node_sku(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dataDiskNames")
+    def data_disk_names(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]:
         """
-        VM SKU for node(s)
+        The full resource names for virtual machine data disks. This is a dictionary containing list of names of data disks per volume. Currently supported volumes for database layer are ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os', 'backup']. For application and cs layers, only 'default' volume is supported
         """
-        return pulumi.get(self, "node_sku")
+        return pulumi.get(self, "data_disk_names")
 
-    @node_sku.setter
-    def node_sku(self, value: pulumi.Input[str]):
-        pulumi.set(self, "node_sku", value)
-
-    @property
-    @pulumi.getter(name="osDisk")
-    def os_disk(self) -> pulumi.Input['DiskInfoArgs']:
-        """
-        OS disk details
-        """
-        return pulumi.get(self, "os_disk")
-
-    @os_disk.setter
-    def os_disk(self, value: pulumi.Input['DiskInfoArgs']):
-        pulumi.set(self, "os_disk", value)
+    @data_disk_names.setter
+    def data_disk_names(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
+        pulumi.set(self, "data_disk_names", value)
 
     @property
-    @pulumi.getter(name="osImage")
-    def os_image(self) -> pulumi.Input['OsImageProfileArgs']:
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[str]]:
         """
-        OS image used for creating the nodes
+        The full name for virtual-machine's host (computer name). Currently, ACSS only supports host names which are less than or equal to 13 characters long. If this value is not provided, vmName will be used as host name.
         """
-        return pulumi.get(self, "os_image")
+        return pulumi.get(self, "host_name")
 
-    @os_image.setter
-    def os_image(self, value: pulumi.Input['OsImageProfileArgs']):
-        pulumi.set(self, "os_image", value)
-
-    @property
-    @pulumi.getter(name="autoScaleMaxCount")
-    def auto_scale_max_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum number of nodes for autoscale
-        """
-        return pulumi.get(self, "auto_scale_max_count")
-
-    @auto_scale_max_count.setter
-    def auto_scale_max_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "auto_scale_max_count", value)
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_name", value)
 
     @property
-    @pulumi.getter(name="autoScaleMinCount")
-    def auto_scale_min_count(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceResourceNamesArgs']]]]:
         """
-        Minimum number of nodes for autoscale
+        The list of network interface name objects for the selected virtual machine. Currently, only one network interface is supported per virtual machine.
         """
-        return pulumi.get(self, "auto_scale_min_count")
+        return pulumi.get(self, "network_interfaces")
 
-    @auto_scale_min_count.setter
-    def auto_scale_min_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "auto_scale_min_count", value)
-
-    @property
-    @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]]:
-        """
-        Data disks details. This property is not in use right now
-        """
-        return pulumi.get(self, "data_disks")
-
-    @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskInfoArgs']]]]):
-        pulumi.set(self, "data_disks", value)
+    @network_interfaces.setter
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceResourceNamesArgs']]]]):
+        pulumi.set(self, "network_interfaces", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="osDiskName")
+    def os_disk_name(self) -> Optional[pulumi.Input[str]]:
         """
-        VM or VMSS name
+        The full name for OS disk attached to the VM. If this value is not provided, it will be named by ARM as per its default naming standards (prefixed with vm name). There is only one OS disk attached per Virtual Machine.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "os_disk_name")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @os_disk_name.setter
+    def os_disk_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_disk_name", value)
+
+    @property
+    @pulumi.getter(name="vmName")
+    def vm_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full name for virtual machine. The length of this field can be upto 64 characters. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}vm. In case of HA-AvZone systems, default name will be {SID}{app/ascs/db}z{a/b}vm with an incrementor at the end in case of more than 1 vm per layer. For distributed and HA-AvSet systems, default name will be {SID}{app/ascs/db}vm with an incrementor at the end in case of more than 1 vm per layer.
+        """
+        return pulumi.get(self, "vm_name")
+
+    @vm_name.setter
+    def vm_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_name", value)
 
 
 @pulumi.input_type

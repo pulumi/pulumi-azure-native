@@ -44,22 +44,6 @@ export const CachingType = {
  */
 export type CachingType = (typeof CachingType)[keyof typeof CachingType];
 
-export const CertificateFormat = {
-    /**
-     * The certificate is a PFX (PKCS#12) formatted certificate or certificate chain.
-     */
-    Pfx: "Pfx",
-    /**
-     * The certificate is a base64-encoded X.509 certificate.
-     */
-    Cer: "Cer",
-} as const;
-
-/**
- * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
- */
-export type CertificateFormat = (typeof CertificateFormat)[keyof typeof CertificateFormat];
-
 export const CertificateStoreLocation = {
     /**
      * Certificates should be installed to the CurrentUser certificate store.
@@ -233,22 +217,6 @@ export const InterNodeCommunicationState = {
  */
 export type InterNodeCommunicationState = (typeof InterNodeCommunicationState)[keyof typeof InterNodeCommunicationState];
 
-export const KeySource = {
-    /**
-     * Batch creates and manages the encryption keys used to protect the account data.
-     */
-    Microsoft_Batch: "Microsoft.Batch",
-    /**
-     * The encryption keys used to protect the account data are stored in an external key vault. If this is set then the Batch Account identity must be set to `SystemAssigned` and a valid Key Identifier must also be supplied under the keyVaultProperties.
-     */
-    Microsoft_KeyVault: "Microsoft.KeyVault",
-} as const;
-
-/**
- * Type of the key source.
- */
-export type KeySource = (typeof KeySource)[keyof typeof KeySource];
-
 export const LoginMode = {
     /**
      * The LOGON32_LOGON_BATCH Win32 login mode. The batch login mode is recommended for long running parallel processes.
@@ -277,54 +245,6 @@ export const NetworkSecurityGroupRuleAccess = {
 } as const;
 
 export type NetworkSecurityGroupRuleAccess = (typeof NetworkSecurityGroupRuleAccess)[keyof typeof NetworkSecurityGroupRuleAccess];
-
-export const PoolAllocationMode = {
-    /**
-     * Pools will be allocated in subscriptions owned by the Batch service.
-     */
-    BatchService: "BatchService",
-    /**
-     * Pools will be allocated in a subscription owned by the user.
-     */
-    UserSubscription: "UserSubscription",
-} as const;
-
-/**
- * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
- */
-export type PoolAllocationMode = (typeof PoolAllocationMode)[keyof typeof PoolAllocationMode];
-
-export const PublicNetworkAccessType = {
-    /**
-     * Enables connectivity to Azure Batch through public DNS.
-     */
-    Enabled: "Enabled",
-    /**
-     * Disables public connectivity and enables private connectivity to Azure Batch Service through private endpoint resource.
-     */
-    Disabled: "Disabled",
-} as const;
-
-/**
- * If not specified, the default value is 'enabled'.
- */
-export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
-
-export const ResourceIdentityType = {
-    /**
-     * Batch account has a system assigned identity with it.
-     */
-    SystemAssigned: "SystemAssigned",
-    /**
-     * Batch account has no identity associated with it. Setting `None` in update account will remove existing identities.
-     */
-    None: "None",
-} as const;
-
-/**
- * The type of identity used for the Batch account.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const StorageAccountType = {
     /**

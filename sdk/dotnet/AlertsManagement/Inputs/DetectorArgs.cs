@@ -16,34 +16,10 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
     public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The detector id.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
-
-        [Input("imagePaths")]
-        private InputList<string>? _imagePaths;
-
-        /// <summary>
-        /// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
-        /// </summary>
-        public InputList<string> ImagePaths
-        {
-            get => _imagePaths ?? (_imagePaths = new InputList<string>());
-            set => _imagePaths = value;
-        }
-
-        /// <summary>
-        /// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputMap<object>? _parameters;
@@ -55,18 +31,6 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         {
             get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
-        }
-
-        [Input("supportedResourceTypes")]
-        private InputList<string>? _supportedResourceTypes;
-
-        /// <summary>
-        /// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
-        /// </summary>
-        public InputList<string> SupportedResourceTypes
-        {
-            get => _supportedResourceTypes ?? (_supportedResourceTypes = new InputList<string>());
-            set => _supportedResourceTypes = value;
         }
 
         public DetectorArgs()

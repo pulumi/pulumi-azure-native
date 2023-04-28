@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media.Outputs
 {
 
     /// <summary>
-    /// The HLS setting for a text track.
+    /// The HLS setting for a track.
     /// </summary>
     [OutputType]
     public sealed class HlsSettingsResponse

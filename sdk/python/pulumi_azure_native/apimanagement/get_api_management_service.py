@@ -22,7 +22,7 @@ class GetApiManagementServiceResult:
     """
     A single API Management service resource in List or Get response.
     """
-    def __init__(__self__, additional_locations=None, api_version_constraint=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, restore=None, scm_url=None, sku=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None, zones=None):
+    def __init__(__self__, additional_locations=None, api_version_constraint=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, location=None, management_api_url=None, name=None, nat_gateway_state=None, notification_sender_email=None, outbound_public_ip_addresses=None, platform_version=None, portal_url=None, private_endpoint_connections=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, public_ip_address_id=None, public_network_access=None, publisher_email=None, publisher_name=None, restore=None, scm_url=None, sku=None, system_data=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None, zones=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         pulumi.set(__self__, "additional_locations", additional_locations)
@@ -74,12 +74,24 @@ class GetApiManagementServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if nat_gateway_state and not isinstance(nat_gateway_state, str):
+            raise TypeError("Expected argument 'nat_gateway_state' to be a str")
+        pulumi.set(__self__, "nat_gateway_state", nat_gateway_state)
         if notification_sender_email and not isinstance(notification_sender_email, str):
             raise TypeError("Expected argument 'notification_sender_email' to be a str")
         pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+        if outbound_public_ip_addresses and not isinstance(outbound_public_ip_addresses, list):
+            raise TypeError("Expected argument 'outbound_public_ip_addresses' to be a list")
+        pulumi.set(__self__, "outbound_public_ip_addresses", outbound_public_ip_addresses)
+        if platform_version and not isinstance(platform_version, str):
+            raise TypeError("Expected argument 'platform_version' to be a str")
+        pulumi.set(__self__, "platform_version", platform_version)
         if portal_url and not isinstance(portal_url, str):
             raise TypeError("Expected argument 'portal_url' to be a str")
         pulumi.set(__self__, "portal_url", portal_url)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if private_ip_addresses and not isinstance(private_ip_addresses, list):
             raise TypeError("Expected argument 'private_ip_addresses' to be a list")
         pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
@@ -89,6 +101,12 @@ class GetApiManagementServiceResult:
         if public_ip_addresses and not isinstance(public_ip_addresses, list):
             raise TypeError("Expected argument 'public_ip_addresses' to be a list")
         pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if public_ip_address_id and not isinstance(public_ip_address_id, str):
+            raise TypeError("Expected argument 'public_ip_address_id' to be a str")
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if publisher_email and not isinstance(publisher_email, str):
             raise TypeError("Expected argument 'publisher_email' to be a str")
         pulumi.set(__self__, "publisher_email", publisher_email)
@@ -104,6 +122,9 @@ class GetApiManagementServiceResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -159,7 +180,7 @@ class GetApiManagementServiceResult:
     @pulumi.getter(name="customProperties")
     def custom_properties(self) -> Optional[Mapping[str, str]]:
         """
-        Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384
+        Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
         """
         return pulumi.get(self, "custom_properties")
 
@@ -260,6 +281,14 @@ class GetApiManagementServiceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="natGatewayState")
+    def nat_gateway_state(self) -> Optional[str]:
+        """
+        Property can be used to enable NAT Gateway for this API Management service.
+        """
+        return pulumi.get(self, "nat_gateway_state")
+
+    @property
     @pulumi.getter(name="notificationSenderEmail")
     def notification_sender_email(self) -> Optional[str]:
         """
@@ -268,12 +297,36 @@ class GetApiManagementServiceResult:
         return pulumi.get(self, "notification_sender_email")
 
     @property
+    @pulumi.getter(name="outboundPublicIPAddresses")
+    def outbound_public_ip_addresses(self) -> Sequence[str]:
+        """
+        Outbound public IPV4 address prefixes associated with NAT Gateway deployed service. Available only for Premium SKU on stv2 platform.
+        """
+        return pulumi.get(self, "outbound_public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> str:
+        """
+        Compute Platform Version running the service in this location.
+        """
+        return pulumi.get(self, "platform_version")
+
+    @property
     @pulumi.getter(name="portalUrl")
     def portal_url(self) -> str:
         """
         Publisher portal endpoint Url of the API Management service.
         """
         return pulumi.get(self, "portal_url")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.RemotePrivateEndpointConnectionWrapperResponse']]:
+        """
+        List of Private Endpoint Connections of this service.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="privateIPAddresses")
@@ -298,6 +351,22 @@ class GetApiManagementServiceResult:
         Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
         """
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[str]:
+        """
+        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="publisherEmail")
@@ -338,6 +407,14 @@ class GetApiManagementServiceResult:
         SKU properties of the API Management service.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -411,16 +488,23 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
             location=self.location,
             management_api_url=self.management_api_url,
             name=self.name,
+            nat_gateway_state=self.nat_gateway_state,
             notification_sender_email=self.notification_sender_email,
+            outbound_public_ip_addresses=self.outbound_public_ip_addresses,
+            platform_version=self.platform_version,
             portal_url=self.portal_url,
+            private_endpoint_connections=self.private_endpoint_connections,
             private_ip_addresses=self.private_ip_addresses,
             provisioning_state=self.provisioning_state,
             public_ip_addresses=self.public_ip_addresses,
+            public_ip_address_id=self.public_ip_address_id,
+            public_network_access=self.public_network_access,
             publisher_email=self.publisher_email,
             publisher_name=self.publisher_name,
             restore=self.restore,
             scm_url=self.scm_url,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             target_provisioning_state=self.target_provisioning_state,
             type=self.type,
@@ -434,10 +518,10 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceResult:
     """
     Gets an API Management service resource description.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -464,16 +548,23 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         management_api_url=__ret__.management_api_url,
         name=__ret__.name,
+        nat_gateway_state=__ret__.nat_gateway_state,
         notification_sender_email=__ret__.notification_sender_email,
+        outbound_public_ip_addresses=__ret__.outbound_public_ip_addresses,
+        platform_version=__ret__.platform_version,
         portal_url=__ret__.portal_url,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         private_ip_addresses=__ret__.private_ip_addresses,
         provisioning_state=__ret__.provisioning_state,
         public_ip_addresses=__ret__.public_ip_addresses,
+        public_ip_address_id=__ret__.public_ip_address_id,
+        public_network_access=__ret__.public_network_access,
         publisher_email=__ret__.publisher_email,
         publisher_name=__ret__.publisher_name,
         restore=__ret__.restore,
         scm_url=__ret__.scm_url,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         target_provisioning_state=__ret__.target_provisioning_state,
         type=__ret__.type,
@@ -488,10 +579,10 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceResult]:
     """
     Gets an API Management service resource description.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

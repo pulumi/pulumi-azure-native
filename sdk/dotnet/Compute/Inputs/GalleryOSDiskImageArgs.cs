@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Pulumi.AzureNative.Compute.HostCaching>? HostCaching { get; set; }
 
         /// <summary>
-        /// The gallery artifact version source.
+        /// The source for the disk image.
         /// </summary>
         [Input("source")]
-        public Input<Inputs.GalleryArtifactVersionSourceArgs>? Source { get; set; }
+        public Input<Inputs.GalleryDiskImageSourceArgs>? Source { get; set; }
 
         public GalleryOSDiskImageArgs()
         {

@@ -22,7 +22,7 @@ class GetWatchlistResult:
     """
     Represents a Watchlist in Azure Security Insights.
     """
-    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, items_search_key=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, upload_status=None, watchlist_alias=None, watchlist_id=None, watchlist_items_count=None, watchlist_type=None):
+    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, items_search_key=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, upload_status=None, watchlist_alias=None, watchlist_id=None, watchlist_type=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -95,9 +95,6 @@ class GetWatchlistResult:
         if watchlist_id and not isinstance(watchlist_id, str):
             raise TypeError("Expected argument 'watchlist_id' to be a str")
         pulumi.set(__self__, "watchlist_id", watchlist_id)
-        if watchlist_items_count and not isinstance(watchlist_items_count, int):
-            raise TypeError("Expected argument 'watchlist_items_count' to be a int")
-        pulumi.set(__self__, "watchlist_items_count", watchlist_items_count)
         if watchlist_type and not isinstance(watchlist_type, str):
             raise TypeError("Expected argument 'watchlist_type' to be a str")
         pulumi.set(__self__, "watchlist_type", watchlist_type)
@@ -106,7 +103,7 @@ class GetWatchlistResult:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[str]:
         """
-        The content type of the raw content. Example : text/csv or text/tsv 
+        The content type of the raw content. For now, only text/csv is valid
         """
         return pulumi.get(self, "content_type")
 
@@ -162,7 +159,7 @@ class GetWatchlistResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -194,7 +191,7 @@ class GetWatchlistResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -202,7 +199,7 @@ class GetWatchlistResult:
     @pulumi.getter(name="numberOfLinesToSkip")
     def number_of_lines_to_skip(self) -> Optional[int]:
         """
-        The number of lines in a csv/tsv content to skip before the header
+        The number of lines in a csv content to skip before the header
         """
         return pulumi.get(self, "number_of_lines_to_skip")
 
@@ -218,7 +215,9 @@ class GetWatchlistResult:
     @pulumi.getter(name="rawContent")
     def raw_content(self) -> Optional[str]:
         """
-        The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        The raw content that represents to watchlist items to create. Example : This line will be skipped
+        header1,header2
+        value1,value2
         """
         return pulumi.get(self, "raw_content")
 
@@ -250,7 +249,7 @@ class GetWatchlistResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -274,7 +273,7 @@ class GetWatchlistResult:
     @pulumi.getter(name="uploadStatus")
     def upload_status(self) -> Optional[str]:
         """
-        The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         """
         return pulumi.get(self, "upload_status")
 
@@ -293,14 +292,6 @@ class GetWatchlistResult:
         The id (a Guid) of the watchlist
         """
         return pulumi.get(self, "watchlist_id")
-
-    @property
-    @pulumi.getter(name="watchlistItemsCount")
-    def watchlist_items_count(self) -> Optional[int]:
-        """
-        The number of Watchlist Items in the Watchlist
-        """
-        return pulumi.get(self, "watchlist_items_count")
 
     @property
     @pulumi.getter(name="watchlistType")
@@ -341,27 +332,23 @@ class AwaitableGetWatchlistResult(GetWatchlistResult):
             upload_status=self.upload_status,
             watchlist_alias=self.watchlist_alias,
             watchlist_id=self.watchlist_id,
-            watchlist_items_count=self.watchlist_items_count,
             watchlist_type=self.watchlist_type)
 
 
-def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
-                  resource_group_name: Optional[str] = None,
+def get_watchlist(resource_group_name: Optional[str] = None,
                   watchlist_alias: Optional[str] = None,
                   workspace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatchlistResult:
     """
-    Gets a watchlist, without its watchlist items.
-    API Version: 2021-03-01-preview.
+    Get a watchlist, without its watchlist items.
+    API Version: 2023-02-01.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str watchlist_alias: Watchlist Alias
+    :param str watchlist_alias: The watchlist alias
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['watchlistAlias'] = watchlist_alias
     __args__['workspaceName'] = workspace_name
@@ -393,24 +380,21 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
         upload_status=__ret__.upload_status,
         watchlist_alias=__ret__.watchlist_alias,
         watchlist_id=__ret__.watchlist_id,
-        watchlist_items_count=__ret__.watchlist_items_count,
         watchlist_type=__ret__.watchlist_type)
 
 
 @_utilities.lift_output_func(get_watchlist)
-def get_watchlist_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                         resource_group_name: Optional[pulumi.Input[str]] = None,
+def get_watchlist_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          watchlist_alias: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatchlistResult]:
     """
-    Gets a watchlist, without its watchlist items.
-    API Version: 2021-03-01-preview.
+    Get a watchlist, without its watchlist items.
+    API Version: 2023-02-01.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str watchlist_alias: Watchlist Alias
+    :param str watchlist_alias: The watchlist alias
     :param str workspace_name: The name of the workspace.
     """
     ...

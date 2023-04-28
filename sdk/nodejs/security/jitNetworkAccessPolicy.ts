@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * API Version: 2020-01-01.
+ * Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     /**

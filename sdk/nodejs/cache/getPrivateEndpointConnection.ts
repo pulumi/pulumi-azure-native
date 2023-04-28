@@ -8,14 +8,14 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
- * API Version: 2021-03-01.
+ * Gets the specified private endpoint connection associated with the redis cache.
+ * API Version: 2022-06-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache:getPrivateEndpointConnection", {
-        "clusterName": args.clusterName,
+        "cacheName": args.cacheName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,15 +23,15 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * The name of the RedisEnterprise cluster.
+     * The name of the Redis cache.
      */
-    clusterName: string;
+    cacheName: string;
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
     privateEndpointConnectionName: string;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group.
      */
     resourceGroupName: string;
 }
@@ -66,8 +66,8 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
- * API Version: 2021-03-01.
+ * Gets the specified private endpoint connection associated with the redis cache.
+ * API Version: 2022-06-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
@@ -75,15 +75,15 @@ export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConne
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the RedisEnterprise cluster.
+     * The name of the Redis cache.
      */
-    clusterName: pulumi.Input<string>;
+    cacheName: pulumi.Input<string>;
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
 }

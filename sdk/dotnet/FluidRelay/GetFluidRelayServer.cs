@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.FluidRelay
     {
         /// <summary>
         /// A FluidRelay Server.
-        /// API Version: 2021-03-12-preview.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Task<GetFluidRelayServerResult> InvokeAsync(GetFluidRelayServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A FluidRelay Server.
-        /// API Version: 2021-03-12-preview.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());
@@ -30,10 +30,10 @@ namespace Pulumi.AzureNative.FluidRelay
     public sealed class GetFluidRelayServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource name.
+        /// The Fluid Relay server resource name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("fluidRelayServerName", required: true)]
+        public string FluidRelayServerName { get; set; } = null!;
 
         /// <summary>
         /// The resource group containing the resource.
@@ -50,10 +50,10 @@ namespace Pulumi.AzureNative.FluidRelay
     public sealed class GetFluidRelayServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource name.
+        /// The Fluid Relay server resource name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("fluidRelayServerName", required: true)]
+        public Input<string> FluidRelayServerName { get; set; } = null!;
 
         /// <summary>
         /// The resource group containing the resource.
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.FluidRelay
     public sealed class GetFluidRelayServerResult
     {
         /// <summary>
+        /// All encryption configuration for a resource.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesResponse? Encryption;
+        /// <summary>
         /// The Fluid Relay Service endpoints for this server.
         /// </summary>
         public readonly Outputs.FluidRelayEndpointsResponse FluidRelayEndpoints;
@@ -84,6 +88,10 @@ namespace Pulumi.AzureNative.FluidRelay
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The type of identity used for the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -95,6 +103,10 @@ namespace Pulumi.AzureNative.FluidRelay
         /// Provision states for FluidRelay RP
         /// </summary>
         public readonly string? ProvisioningState;
+        /// <summary>
+        /// Sku of the storage associated with the resource
+        /// </summary>
+        public readonly string? Storagesku;
         /// <summary>
         /// System meta data for this resource, including creation and modification information.
         /// </summary>
@@ -110,11 +122,15 @@ namespace Pulumi.AzureNative.FluidRelay
 
         [OutputConstructor]
         private GetFluidRelayServerResult(
+            Outputs.EncryptionPropertiesResponse? encryption,
+
             Outputs.FluidRelayEndpointsResponse fluidRelayEndpoints,
 
             string frsTenantId,
 
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             string location,
 
@@ -122,18 +138,23 @@ namespace Pulumi.AzureNative.FluidRelay
 
             string? provisioningState,
 
+            string? storagesku,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Encryption = encryption;
             FluidRelayEndpoints = fluidRelayEndpoints;
             FrsTenantId = frsTenantId;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            Storagesku = storagesku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

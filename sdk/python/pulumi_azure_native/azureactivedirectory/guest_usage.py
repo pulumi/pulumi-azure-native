@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['GuestUsageArgs', 'GuestUsage']
 
@@ -23,7 +24,7 @@ class GuestUsageArgs:
         The set of arguments for constructing a GuestUsage resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] location: Location of the Guest Usages resource.
-        :param pulumi.Input[str] resource_name: The initial domain name of the AAD tenant.
+        :param pulumi.Input[str] resource_name: The initial domain name of the Azure AD B2C tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         :param pulumi.Input[str] tenant_id: An identifier for the tenant for which the resource is being created
         """
@@ -65,7 +66,7 @@ class GuestUsageArgs:
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The initial domain name of the AAD tenant.
+        The initial domain name of the Azure AD B2C tenant.
         """
         return pulumi.get(self, "resource_name")
 
@@ -111,13 +112,14 @@ class GuestUsage(pulumi.CustomResource):
                  __props__=None):
         """
         Guest Usages Resource
-        API Version: 2020-05-01-preview.
+        API Version: 2021-04-01.
+        Previous API Version: 2020-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the Guest Usages resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] resource_name_: The initial domain name of the AAD tenant.
+        :param pulumi.Input[str] resource_name_: The initial domain name of the Azure AD B2C tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         :param pulumi.Input[str] tenant_id: An identifier for the tenant for which the resource is being created
         """
@@ -129,7 +131,8 @@ class GuestUsage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Guest Usages Resource
-        API Version: 2020-05-01-preview.
+        API Version: 2021-04-01.
+        Previous API Version: 2020-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param GuestUsageArgs args: The arguments to use to populate this resource's properties.
@@ -168,6 +171,7 @@ class GuestUsage(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azureactivedirectory/v20200501preview:GuestUsage"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20210401:GuestUsage"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20230118preview:GuestUsage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -195,6 +199,7 @@ class GuestUsage(pulumi.CustomResource):
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
@@ -215,6 +220,14 @@ class GuestUsage(pulumi.CustomResource):
         The name of the Guest Usages resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

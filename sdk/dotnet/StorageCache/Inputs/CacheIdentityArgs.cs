@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
         [Input("type")]
         public Input<Pulumi.AzureNative.StorageCache.CacheIdentityType>? Type { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
+
         public CacheIdentityArgs()
         {
         }

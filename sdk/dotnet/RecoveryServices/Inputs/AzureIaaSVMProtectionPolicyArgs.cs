@@ -31,11 +31,26 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("instantRpRetentionRangeInDays")]
         public Input<int>? InstantRpRetentionRangeInDays { get; set; }
 
+        [Input("policyType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.IAASVMPolicyType>? PolicyType { get; set; }
+
         /// <summary>
         /// Number of items associated with this policy.
         /// </summary>
         [Input("protectedItemsCount")]
         public Input<int>? ProtectedItemsCount { get; set; }
+
+        [Input("resourceGuardOperationRequests")]
+        private InputList<string>? _resourceGuardOperationRequests;
+
+        /// <summary>
+        /// ResourceGuard Operation Requests
+        /// </summary>
+        public InputList<string> ResourceGuardOperationRequests
+        {
+            get => _resourceGuardOperationRequests ?? (_resourceGuardOperationRequests = new InputList<string>());
+            set => _resourceGuardOperationRequests = value;
+        }
 
         /// <summary>
         /// Retention policy with the details on backup copy retention ranges.
@@ -48,6 +63,20 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("schedulePolicy")]
         public object? SchedulePolicy { get; set; }
+
+        [Input("tieringPolicy")]
+        private InputMap<Inputs.TieringPolicyArgs>? _tieringPolicy;
+
+        /// <summary>
+        /// Tiering policy to automatically move RPs to another tier
+        /// Key is Target Tier, defined in RecoveryPointTierType enum.
+        /// Tiering policy specifies the criteria to move RP to the target tier.
+        /// </summary>
+        public InputMap<Inputs.TieringPolicyArgs> TieringPolicy
+        {
+            get => _tieringPolicy ?? (_tieringPolicy = new InputMap<Inputs.TieringPolicyArgs>());
+            set => _tieringPolicy = value;
+        }
 
         /// <summary>
         /// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".

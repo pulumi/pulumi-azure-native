@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified SIM group.
-        /// API Version: 2022-04-01-preview.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetSimGroupResult> InvokeAsync(GetSimGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimGroupResult>("azure-native:mobilenetwork:getSimGroup", args ?? new GetSimGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified SIM group.
-        /// API Version: 2022-04-01-preview.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetSimGroupResult> Invoke(GetSimGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimGroupResult>("azure-native:mobilenetwork:getSimGroup", args ?? new GetSimGroupInvokeArgs(), options.WithDefaults());
@@ -72,18 +72,6 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetSimGroupResult
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        public readonly string? CreatedAt;
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
-        /// <summary>
         /// A key to encrypt the SIM data that belongs to this SIM group.
         /// </summary>
         public readonly Outputs.KeyVaultKeyResponse? EncryptionKey;
@@ -96,23 +84,11 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        public readonly string? LastModifiedAt;
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Mobile network that this SIM belongs to
+        /// Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
         /// </summary>
         public readonly Outputs.MobileNetworkResourceIdResponse? MobileNetwork;
         /// <summary>
@@ -138,23 +114,11 @@ namespace Pulumi.AzureNative.MobileNetwork
 
         [OutputConstructor]
         private GetSimGroupResult(
-            string? createdAt,
-
-            string? createdBy,
-
-            string? createdByType,
-
             Outputs.KeyVaultKeyResponse? encryptionKey,
 
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
-
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
 
             string location,
 
@@ -170,15 +134,9 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string type)
         {
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
             EncryptionKey = encryptionKey;
             Id = id;
             Identity = identity;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
             Location = location;
             MobileNetwork = mobileNetwork;
             Name = name;

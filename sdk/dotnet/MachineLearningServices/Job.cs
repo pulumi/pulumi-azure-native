@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Job")]
     public partial class Job : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("jobBaseProperties")]
+        public Output<object> JobBaseProperties { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -23,13 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("properties")]
-        public Output<Union<Outputs.CommandJobResponse, Outputs.SweepJobResponse>> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -72,6 +73,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Job"},
                 },
             };
@@ -97,7 +99,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name and identifier for the Job.
+        /// The name and identifier for the Job. This is case-sensitive.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -105,8 +107,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Input("properties", required: true)]
-        public InputUnion<Inputs.CommandJobArgs, Inputs.SweepJobArgs> Properties { get; set; } = null!;
+        [Input("jobBaseProperties", required: true)]
+        public object JobBaseProperties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.KeyVault
         public static JsonWebKeyOperation WrapKey { get; } = new JsonWebKeyOperation("wrapKey");
         public static JsonWebKeyOperation UnwrapKey { get; } = new JsonWebKeyOperation("unwrapKey");
         public static JsonWebKeyOperation Import { get; } = new JsonWebKeyOperation("import");
+        public static JsonWebKeyOperation Release { get; } = new JsonWebKeyOperation("release");
 
         public static bool operator ==(JsonWebKeyOperation left, JsonWebKeyOperation right) => left.Equals(right);
         public static bool operator !=(JsonWebKeyOperation left, JsonWebKeyOperation right) => !left.Equals(right);
@@ -240,6 +241,10 @@ namespace Pulumi.AzureNative.KeyVault
         public static KeyPermissions Restore { get; } = new KeyPermissions("restore");
         public static KeyPermissions Recover { get; } = new KeyPermissions("recover");
         public static KeyPermissions Purge { get; } = new KeyPermissions("purge");
+        public static KeyPermissions Release { get; } = new KeyPermissions("release");
+        public static KeyPermissions Rotate { get; } = new KeyPermissions("rotate");
+        public static KeyPermissions Getrotationpolicy { get; } = new KeyPermissions("getrotationpolicy");
+        public static KeyPermissions Setrotationpolicy { get; } = new KeyPermissions("setrotationpolicy");
 
         public static bool operator ==(KeyPermissions left, KeyPermissions right) => left.Equals(right);
         public static bool operator !=(KeyPermissions left, KeyPermissions right) => !left.Equals(right);
@@ -249,6 +254,37 @@ namespace Pulumi.AzureNative.KeyVault
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KeyPermissions other && Equals(other);
         public bool Equals(KeyPermissions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action.
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyRotationPolicyActionType : IEquatable<KeyRotationPolicyActionType>
+    {
+        private readonly string _value;
+
+        private KeyRotationPolicyActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyRotationPolicyActionType Rotate { get; } = new KeyRotationPolicyActionType("rotate");
+        public static KeyRotationPolicyActionType Notify { get; } = new KeyRotationPolicyActionType("notify");
+
+        public static bool operator ==(KeyRotationPolicyActionType left, KeyRotationPolicyActionType right) => left.Equals(right);
+        public static bool operator !=(KeyRotationPolicyActionType left, KeyRotationPolicyActionType right) => !left.Equals(right);
+
+        public static explicit operator string(KeyRotationPolicyActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyRotationPolicyActionType other && Equals(other);
+        public bool Equals(KeyRotationPolicyActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

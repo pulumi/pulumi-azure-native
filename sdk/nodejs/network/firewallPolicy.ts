@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * FirewallPolicy Resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class FirewallPolicy extends pulumi.CustomResource {
     /**
@@ -55,6 +56,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Explicit Proxy Settings definition.
+     */
+    public readonly explicitProxy!: pulumi.Output<outputs.network.ExplicitProxyResponse | undefined>;
+    /**
      * List of references to Azure Firewalls that this Firewall Policy is associated with.
      */
     public /*out*/ readonly firewalls!: pulumi.Output<outputs.network.SubResourceResponse[]>;
@@ -95,6 +100,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly snat!: pulumi.Output<outputs.network.FirewallPolicySNATResponse | undefined>;
     /**
+     * SQL Settings definition.
+     */
+    public readonly sql!: pulumi.Output<outputs.network.FirewallPolicySQLResponse | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -131,6 +140,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             }
             resourceInputs["basePolicy"] = args ? args.basePolicy : undefined;
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            resourceInputs["explicitProxy"] = args ? args.explicitProxy : undefined;
             resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -140,6 +150,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["snat"] = args ? args.snat : undefined;
+            resourceInputs["sql"] = args ? args.sql : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             resourceInputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
@@ -156,6 +167,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["childPolicies"] = undefined /*out*/;
             resourceInputs["dnsSettings"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["explicitProxy"] = undefined /*out*/;
             resourceInputs["firewalls"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["insights"] = undefined /*out*/;
@@ -166,6 +178,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["ruleCollectionGroups"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["snat"] = undefined /*out*/;
+            resourceInputs["sql"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["threatIntelMode"] = undefined /*out*/;
             resourceInputs["threatIntelWhitelist"] = undefined /*out*/;
@@ -191,6 +204,10 @@ export interface FirewallPolicyArgs {
      * DNS Proxy Settings definition.
      */
     dnsSettings?: pulumi.Input<inputs.network.DnsSettingsArgs>;
+    /**
+     * Explicit Proxy Settings definition.
+     */
+    explicitProxy?: pulumi.Input<inputs.network.ExplicitProxyArgs>;
     /**
      * The name of the Firewall Policy.
      */
@@ -227,6 +244,10 @@ export interface FirewallPolicyArgs {
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
     snat?: pulumi.Input<inputs.network.FirewallPolicySNATArgs>;
+    /**
+     * SQL Settings definition.
+     */
+    sql?: pulumi.Input<inputs.network.FirewallPolicySQLArgs>;
     /**
      * Resource tags.
      */

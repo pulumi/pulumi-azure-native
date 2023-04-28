@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-    /// API Version: 2016-03-01.
+    /// API Version: 2020-03-01.
+    /// Previous API Version: 2016-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Function")]
     public partial class Function : global::Pulumi.CustomResource
@@ -26,7 +27,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// The properties that are associated with a function.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ScalarFunctionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.AggregateFunctionPropertiesResponse, Outputs.ScalarFunctionPropertiesResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -108,10 +109,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// The properties that are associated with a function.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ScalarFunctionPropertiesArgs>? Properties { get; set; }
+        public InputUnion<Inputs.AggregateFunctionPropertiesArgs, Inputs.ScalarFunctionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

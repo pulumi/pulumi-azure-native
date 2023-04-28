@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public Input<string>? Publisher { get; set; }
 
         /// <summary>
-        /// Specified the shared gallery image unique id for vm deployment. This can be fetched from shared gallery image GET call.
-        /// </summary>
-        [Input("sharedGalleryImageId")]
-        public Input<string>? SharedGalleryImageId { get; set; }
-
-        /// <summary>
         /// The image SKU.
         /// </summary>
         [Input("sku")]

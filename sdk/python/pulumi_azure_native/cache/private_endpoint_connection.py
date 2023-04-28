@@ -17,34 +17,34 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[str],
+                 cache_name: pulumi.Input[str],
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group_name: pulumi.Input[str],
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
-        :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
+        :param pulumi.Input[str] cache_name: The name of the Redis cache.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "cache_name", cache_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if private_endpoint_connection_name is not None:
             pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
 
     @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="cacheName")
+    def cache_name(self) -> pulumi.Input[str]:
         """
-        The name of the RedisEnterprise cluster.
+        The name of the Redis cache.
         """
-        return pulumi.get(self, "cluster_name")
+        return pulumi.get(self, "cache_name")
 
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cluster_name", value)
+    @cache_name.setter
+    def cache_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cache_name", value)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -62,7 +62,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group. The name is case insensitive.
+        The name of the resource group.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -88,21 +88,22 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cache_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-03-01.
+        API Version: 2022-06-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
+        :param pulumi.Input[str] cache_name: The name of the Redis cache.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         ...
     @overload
@@ -112,7 +113,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-03-01.
+        API Version: 2022-06-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -129,7 +131,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cache_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -142,9 +144,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
-            __props__.__dict__["cluster_name"] = cluster_name
+            if cache_name is None and not opts.urn:
+                raise TypeError("Missing required property 'cache_name'")
+            __props__.__dict__["cache_name"] = cache_name
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
@@ -156,7 +158,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20220101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20221101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20230301preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20200601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20201201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20220501:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20220601:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:cache:PrivateEndpointConnection',

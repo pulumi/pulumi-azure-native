@@ -11,13 +11,14 @@ namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2017-04-18.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Entity Tag
+        /// Resource Etag.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -39,6 +40,12 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Output("properties")]
         public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

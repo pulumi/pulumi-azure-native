@@ -2,23 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const DayOfWeek = {
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-    Sunday: "Sunday",
-    Everyday: "Everyday",
-    Weekend: "Weekend",
-} as const;
-
-/**
- * Day of the week when a cache can be patched.
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
-
 export const ReplicationRole = {
     Primary: "Primary",
     Secondary: "Secondary",

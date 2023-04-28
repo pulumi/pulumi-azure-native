@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a virtual machine scale set virtual machine.
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-11-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVM")]
     public partial class VirtualMachineScaleSetVM : global::Pulumi.CustomResource
@@ -39,6 +40,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("hardwareProfile")]
         public Output<Outputs.HardwareProfileResponse?> HardwareProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the virtual machine, if configured.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.VirtualMachineIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine instance ID.
@@ -260,6 +267,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("hardwareProfile")]
         public Input<Inputs.HardwareProfileArgs>? HardwareProfile { get; set; }
+
+        /// <summary>
+        /// The identity of the virtual machine, if configured.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.VirtualMachineIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The instance ID of the virtual machine.

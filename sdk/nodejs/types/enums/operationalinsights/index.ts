@@ -3,7 +3,6 @@
 
 // Export sub-modules:
 import * as v20151101preview from "./v20151101preview";
-import * as v20200301preview from "./v20200301preview";
 import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
 import * as v20210601 from "./v20210601";
@@ -12,7 +11,6 @@ import * as v20221001 from "./v20221001";
 
 export {
     v20151101preview,
-    v20200301preview,
     v20200801,
     v20201001,
     v20210601,
@@ -143,19 +141,6 @@ export const LinkedServiceEntityStatus = {
  */
 export type LinkedServiceEntityStatus = (typeof LinkedServiceEntityStatus)[keyof typeof LinkedServiceEntityStatus];
 
-export const MachineGroupType = {
-    Unknown: "unknown",
-    Azure_cs: "azure-cs",
-    Azure_sf: "azure-sf",
-    Azure_vmss: "azure-vmss",
-    User_static: "user-static",
-} as const;
-
-/**
- * Type of the machine group
- */
-export type MachineGroupType = (typeof MachineGroupType)[keyof typeof MachineGroupType];
-
 export const PublicNetworkAccessType = {
     /**
      * Enables connectivity to Log Analytics through public DNS.
@@ -187,21 +172,6 @@ export const TablePlanEnum = {
  * Instruct the system how to handle and charge the logs ingested to this table.
  */
 export type TablePlanEnum = (typeof TablePlanEnum)[keyof typeof TablePlanEnum];
-
-export const WorkspaceEntityStatus = {
-    Creating: "Creating",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    Deleting: "Deleting",
-    ProvisioningAccount: "ProvisioningAccount",
-    Updating: "Updating",
-} as const;
-
-/**
- * The provisioning state of the workspace.
- */
-export type WorkspaceEntityStatus = (typeof WorkspaceEntityStatus)[keyof typeof WorkspaceEntityStatus];
 
 export const WorkspaceSkuNameEnum = {
     Free: "Free",

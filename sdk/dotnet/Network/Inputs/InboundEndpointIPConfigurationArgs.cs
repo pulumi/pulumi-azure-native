@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// <summary>
         /// The reference to the subnet bound to the IP configuration.
         /// </summary>
-        [Input("subnet")]
-        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
+        [Input("subnet", required: true)]
+        public Input<Inputs.SubResourceArgs> Subnet { get; set; } = null!;
 
         public InboundEndpointIPConfigurationArgs()
         {

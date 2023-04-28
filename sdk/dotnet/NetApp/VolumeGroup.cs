@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Volume group resource for create
-    /// API Version: 2021-10-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource
@@ -39,12 +40,6 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -131,22 +126,10 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// The name of the volumeGroup

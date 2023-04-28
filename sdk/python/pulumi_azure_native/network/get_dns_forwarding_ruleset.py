@@ -56,7 +56,7 @@ class GetDnsForwardingRulesetResult:
 
     @property
     @pulumi.getter(name="dnsResolverOutboundEndpoints")
-    def dns_resolver_outbound_endpoints(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+    def dns_resolver_outbound_endpoints(self) -> Sequence['outputs.SubResourceResponse']:
         """
         The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
         """
@@ -158,7 +158,7 @@ def get_dns_forwarding_ruleset(dns_forwarding_ruleset_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsForwardingRulesetResult:
     """
     Gets a DNS forwarding ruleset properties.
-    API Version: 2020-04-01-preview.
+    API Version: 2022-07-01.
 
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -189,7 +189,7 @@ def get_dns_forwarding_ruleset_output(dns_forwarding_ruleset_name: Optional[pulu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsForwardingRulesetResult]:
     """
     Gets a DNS forwarding ruleset properties.
-    API Version: 2020-04-01-preview.
+    API Version: 2022-07-01.
 
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.

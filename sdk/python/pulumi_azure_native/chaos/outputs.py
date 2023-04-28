@@ -21,6 +21,8 @@ __all__ = [
     'KeyValuePairResponse',
     'ResourceIdentityResponse',
     'SelectorResponse',
+    'SimpleFilterParametersResponse',
+    'SimpleFilterResponse',
     'StepResponse',
     'SystemDataResponse',
     'TargetReferenceResponse',
@@ -515,16 +517,20 @@ class SelectorResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  targets: Sequence['outputs.TargetReferenceResponse'],
-                 type: str):
+                 type: str,
+                 filter: Optional['outputs.SimpleFilterResponse'] = None):
         """
         Model that represents a selector in the Experiment resource.
         :param str id: String of the selector ID.
         :param Sequence['TargetReferenceResponse'] targets: List of Target references.
         :param str type: Enum of the selector type.
+        :param 'SimpleFilterResponse' filter: Model that represents available filter types that can be applied to a targets list.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "targets", targets)
         pulumi.set(__self__, "type", type)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
 
     @property
     @pulumi.getter
@@ -549,6 +555,73 @@ class SelectorResponse(dict):
         Enum of the selector type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.SimpleFilterResponse']:
+        """
+        Model that represents available filter types that can be applied to a targets list.
+        """
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class SimpleFilterParametersResponse(dict):
+    """
+    Model that represents the Simple filter parameters.
+    """
+    def __init__(__self__, *,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Model that represents the Simple filter parameters.
+        :param Sequence[str] zones: List of Azure availability zones to filter targets by.
+        """
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        List of Azure availability zones to filter targets by.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class SimpleFilterResponse(dict):
+    """
+    Model that represents a simple target filter.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 parameters: Optional['outputs.SimpleFilterParametersResponse'] = None):
+        """
+        Model that represents a simple target filter.
+        :param str type: Enum that discriminates between filter types. Currently only `Simple` type is supported.
+               Expected value is 'Simple'.
+        :param 'SimpleFilterParametersResponse' parameters: Model that represents the Simple filter parameters.
+        """
+        pulumi.set(__self__, "type", 'Simple')
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Enum that discriminates between filter types. Currently only `Simple` type is supported.
+        Expected value is 'Simple'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional['outputs.SimpleFilterParametersResponse']:
+        """
+        Model that represents the Simple filter parameters.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This method gets the unencrypted secrets related to the job.
- * API Version: 2020-11-01.
+ * API Version: 2022-12-01.
  */
 export function listJobCredentials(args: ListJobCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobCredentialsResult> {
 
@@ -46,7 +46,7 @@ export interface ListJobCredentialsResult {
 }
 /**
  * This method gets the unencrypted secrets related to the job.
- * API Version: 2020-11-01.
+ * API Version: 2022-12-01.
  */
 export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listJobCredentials(a, opts))

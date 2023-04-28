@@ -31,7 +31,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Protected settings for the extension which are encrypted before sent to the role instance.
         /// </summary>
-        public readonly string? ProtectedSettings;
+        public readonly object? ProtectedSettings;
+        /// <summary>
+        /// Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
+        /// </summary>
         public readonly Outputs.CloudServiceVaultAndSecretReferenceResponse? ProtectedSettingsFromKeyVault;
         /// <summary>
         /// The provisioning state, which only appears in the response.
@@ -48,7 +51,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
         /// </summary>
-        public readonly string? Settings;
+        public readonly object? Settings;
         /// <summary>
         /// Specifies the type of the extension.
         /// </summary>
@@ -64,7 +67,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? forceUpdateTag,
 
-            string? protectedSettings,
+            object? protectedSettings,
 
             Outputs.CloudServiceVaultAndSecretReferenceResponse? protectedSettingsFromKeyVault,
 
@@ -74,7 +77,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             ImmutableArray<string> rolesAppliedTo,
 
-            string? settings,
+            object? settings,
 
             string? type,
 

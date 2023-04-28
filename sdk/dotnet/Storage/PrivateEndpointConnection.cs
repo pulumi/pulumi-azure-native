@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

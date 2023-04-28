@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Quota Rule of a Volume
-    /// API Version: 2022-01-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:VolumeQuotaRule")]
     public partial class VolumeQuotaRule : global::Pulumi.CustomResource
@@ -159,7 +160,7 @@ namespace Pulumi.AzureNative.NetApp
         public InputUnion<string, Pulumi.AzureNative.NetApp.Type>? QuotaType { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

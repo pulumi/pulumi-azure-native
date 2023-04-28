@@ -177,55 +177,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     }
 
     /// <summary>
-    /// The type of operation for migration.
-    /// </summary>
-    [EnumType]
-    public readonly struct Operation : IEquatable<Operation>
-    {
-        private readonly string _value;
-
-        private Operation(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Start the migration.
-        /// </summary>
-        public static Operation Start { get; } = new Operation("Start");
-        /// <summary>
-        /// Revoke the migration.
-        /// </summary>
-        public static Operation Revoke { get; } = new Operation("Revoke");
-        /// <summary>
-        /// Complete the migration.
-        /// </summary>
-        public static Operation Complete { get; } = new Operation("Complete");
-        /// <summary>
-        /// Hide the hostpool.
-        /// </summary>
-        public static Operation Hide { get; } = new Operation("Hide");
-        /// <summary>
-        /// Unhide the hostpool.
-        /// </summary>
-        public static Operation Unhide { get; } = new Operation("Unhide");
-
-        public static bool operator ==(Operation left, Operation right) => left.Equals(right);
-        public static bool operator !=(Operation left, Operation right) => !left.Equals(right);
-
-        public static explicit operator string(Operation value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Operation other && Equals(other);
-        public bool Equals(Operation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// PersonalDesktopAssignment type for HostPool.
     /// </summary>
     [EnumType]
@@ -281,38 +232,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PreferredAppGroupType other && Equals(other);
         public bool Equals(PreferredAppGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
-    {
-        private readonly string _value;
-
-        private PrivateEndpointServiceConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
-        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
-        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
-
-        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
-        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -439,6 +358,76 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SSOSecretType other && Equals(other);
         public bool Equals(SSOSecretType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// HostPool type for desktop.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScalingHostPoolType : IEquatable<ScalingHostPoolType>
+    {
+        private readonly string _value;
+
+        private ScalingHostPoolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Users get a new (random) SessionHost every time it connects to the HostPool.
+        /// </summary>
+        public static ScalingHostPoolType Pooled { get; } = new ScalingHostPoolType("Pooled");
+
+        public static bool operator ==(ScalingHostPoolType left, ScalingHostPoolType right) => left.Equals(right);
+        public static bool operator !=(ScalingHostPoolType left, ScalingHostPoolType right) => !left.Equals(right);
+
+        public static explicit operator string(ScalingHostPoolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScalingHostPoolType other && Equals(other);
+        public bool Equals(ScalingHostPoolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of maintenance for session host components.
+    /// </summary>
+    [EnumType]
+    public readonly struct SessionHostComponentUpdateType : IEquatable<SessionHostComponentUpdateType>
+    {
+        private readonly string _value;
+
+        private SessionHostComponentUpdateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Agent and other agent side components are delivery schedule is controlled by WVD Infra.
+        /// </summary>
+        public static SessionHostComponentUpdateType Default { get; } = new SessionHostComponentUpdateType("Default");
+        /// <summary>
+        /// TenantAdmin have opted in for Scheduled Component Update feature.
+        /// </summary>
+        public static SessionHostComponentUpdateType Scheduled { get; } = new SessionHostComponentUpdateType("Scheduled");
+
+        public static bool operator ==(SessionHostComponentUpdateType left, SessionHostComponentUpdateType right) => left.Equals(right);
+        public static bool operator !=(SessionHostComponentUpdateType left, SessionHostComponentUpdateType right) => !left.Equals(right);
+
+        public static explicit operator string(SessionHostComponentUpdateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionHostComponentUpdateType other && Equals(other);
+        public bool Equals(SessionHostComponentUpdateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

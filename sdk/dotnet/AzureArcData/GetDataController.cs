@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Retrieves a dataController resource
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2023-03-15-preview.
         /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a dataController resource
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2023-03-15-preview.
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());
@@ -29,6 +29,9 @@ namespace Pulumi.AzureNative.AzureArcData
 
     public sealed class GetDataControllerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the data controller
+        /// </summary>
         [Input("dataControllerName", required: true)]
         public string DataControllerName { get; set; } = null!;
 
@@ -46,6 +49,9 @@ namespace Pulumi.AzureNative.AzureArcData
 
     public sealed class GetDataControllerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the data controller
+        /// </summary>
         [Input("dataControllerName", required: true)]
         public Input<string> DataControllerName { get; set; } = null!;
 
@@ -70,7 +76,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -86,7 +92,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public readonly Outputs.DataControllerPropertiesResponse Properties;
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -94,7 +100,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

@@ -25,6 +25,8 @@ class Provider(str, Enum):
     VM_WARE = "VMWare"
     HCI = "HCI"
     SCVMM = "SCVMM"
+    KUBE_VIRT = "KubeVirt"
+    OPEN_STACK = "OpenStack"
 
 
 class ResourceIdentityType(str, Enum):

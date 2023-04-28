@@ -3,21 +3,31 @@
 
 // Export sub-modules:
 import * as v20211201preview from "./v20211201preview";
-import * as v20220415preview from "./v20220415preview";
 import * as v20221201 from "./v20221201";
 
 export {
     v20211201preview,
-    v20220415preview,
     v20221201,
 };
 
-export const SystemAssignedServiceIdentityType = {
+export const ManagedServiceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
- * Type of managed service identity (either system assigned, or none).
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
-export type SystemAssignedServiceIdentityType = (typeof SystemAssignedServiceIdentityType)[keyof typeof SystemAssignedServiceIdentityType];
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const Type = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Managed identity type to use for accessing encryption key Url
+ */
+export type Type = (typeof Type)[keyof typeof Type];

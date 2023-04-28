@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * A short term retention policy.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
     /**
@@ -35,6 +36,10 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupShortTermRetentionPolicy.__pulumiType;
     }
 
+    /**
+     * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+     */
+    public readonly diffBackupIntervalInHours!: pulumi.Output<number | undefined>;
     /**
      * Resource name.
      */
@@ -69,6 +74,7 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["diffBackupIntervalInHours"] = args ? args.diffBackupIntervalInHours : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
@@ -76,6 +82,7 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["diffBackupIntervalInHours"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["retentionDays"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -95,6 +102,10 @@ export interface BackupShortTermRetentionPolicyArgs {
      * The name of the database.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+     */
+    diffBackupIntervalInHours?: pulumi.Input<number>;
     /**
      * The policy name. Should always be "default".
      */

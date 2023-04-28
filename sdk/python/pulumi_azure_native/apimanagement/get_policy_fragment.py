@@ -111,12 +111,12 @@ def get_policy_fragment(format: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyFragmentResult:
     """
     Gets a policy fragment.
-    API Version: 2021-12-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str format: Policy fragment content format.
     :param str id: A resource identifier.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -144,12 +144,12 @@ def get_policy_fragment_output(format: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyFragmentResult]:
     """
     Gets a policy fragment.
-    API Version: 2021-12-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str format: Policy fragment content format.
     :param str id: A resource identifier.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

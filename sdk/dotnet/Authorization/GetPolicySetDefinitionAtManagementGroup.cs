@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves the policy set definition in the given management group with the given name.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetPolicySetDefinitionAtManagementGroupResult> InvokeAsync(GetPolicySetDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves the policy set definition in the given management group with the given name.
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetPolicySetDefinitionAtManagementGroupResult> Invoke(GetPolicySetDefinitionAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? PolicyType;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource (Microsoft.Authorization/policySetDefinitions).
         /// </summary>
         public readonly string Type;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.Authorization
 
             string? policyType,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Description = description;
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNative.Authorization
             PolicyDefinitionGroups = policyDefinitionGroups;
             PolicyDefinitions = policyDefinitions;
             PolicyType = policyType;
+            SystemData = systemData;
             Type = type;
         }
     }

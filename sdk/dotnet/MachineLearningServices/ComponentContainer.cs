@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2022-02-01-preview.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ComponentContainer")]
     public partial class ComponentContainer : global::Pulumi.CustomResource
@@ -19,8 +20,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Output("componentContainerDetails")]
-        public Output<Outputs.ComponentContainerResponse> ComponentContainerDetails { get; private set; } = null!;
+        [Output("componentContainerProperties")]
+        public Output<Outputs.ComponentContainerResponse> ComponentContainerProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:ComponentContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:ComponentContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:ComponentContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:ComponentContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:ComponentContainer"},
                 },
             };
@@ -98,8 +100,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Input("componentContainerDetails", required: true)]
-        public Input<Inputs.ComponentContainerArgs> ComponentContainerDetails { get; set; } = null!;
+        [Input("componentContainerProperties", required: true)]
+        public Input<Inputs.ComponentContainerArgs> ComponentContainerProperties { get; set; } = null!;
 
         /// <summary>
         /// Container name.

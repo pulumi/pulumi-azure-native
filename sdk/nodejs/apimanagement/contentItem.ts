@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Content type contract details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ContentItem extends pulumi.CustomResource {
     /**
@@ -36,15 +37,15 @@ export class ContentItem extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the content item.
      */
-    public /*out*/ readonly properties!: pulumi.Output<any>;
+    public readonly properties!: pulumi.Output<any>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -70,10 +71,10 @@ export class ContentItem extends pulumi.CustomResource {
             }
             resourceInputs["contentItemId"] = args ? args.contentItemId : undefined;
             resourceInputs["contentTypeId"] = args ? args.contentTypeId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
@@ -100,7 +101,11 @@ export interface ContentItemArgs {
      */
     contentTypeId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * Properties of the content item.
+     */
+    properties?: any;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

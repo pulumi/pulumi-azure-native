@@ -133,7 +133,7 @@ def get_application_security_group(application_security_group_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationSecurityGroupResult:
     """
     Gets information about the specified application security group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str application_security_group_name: The name of the application security group.
@@ -162,7 +162,7 @@ def get_application_security_group_output(application_security_group_name: Optio
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationSecurityGroupResult]:
     """
     Gets information about the specified application security group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str application_security_group_name: The name of the application security group.

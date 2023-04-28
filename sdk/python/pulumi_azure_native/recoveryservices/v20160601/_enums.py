@@ -7,11 +7,9 @@ from enum import Enum
 __all__ = [
     'DayOfWeek',
     'MonthOfYear',
-    'ResourceIdentityType',
     'RetentionDurationType',
     'RetentionScheduleFormat',
     'ScheduleRunType',
-    'SkuName',
     'WeekOfMonth',
 ]
 
@@ -42,14 +40,6 @@ class MonthOfYear(str, Enum):
     DECEMBER = "December"
 
 
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"
-
-
 class RetentionDurationType(str, Enum):
     """
     The retention duration type of the retention policy.
@@ -77,14 +67,6 @@ class ScheduleRunType(str, Enum):
     INVALID = "Invalid"
     DAILY = "Daily"
     WEEKLY = "Weekly"
-
-
-class SkuName(str, Enum):
-    """
-    The Sku name.
-    """
-    STANDARD = "Standard"
-    RS0 = "RS0"
 
 
 class WeekOfMonth(str, Enum):

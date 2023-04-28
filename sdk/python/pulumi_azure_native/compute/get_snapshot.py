@@ -22,10 +22,19 @@ class GetSnapshotResult:
     """
     Snapshot resource.
     """
-    def __init__(__self__, creation_data=None, disk_access_id=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, incremental=None, location=None, managed_by=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, purchase_plan=None, sku=None, supports_hibernation=None, tags=None, time_created=None, type=None, unique_id=None):
+    def __init__(__self__, completion_percent=None, copy_completion_error=None, creation_data=None, data_access_auth_mode=None, disk_access_id=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, incremental=None, incremental_snapshot_family_id=None, location=None, managed_by=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, public_network_access=None, purchase_plan=None, security_profile=None, sku=None, supported_capabilities=None, supports_hibernation=None, tags=None, time_created=None, type=None, unique_id=None):
+        if completion_percent and not isinstance(completion_percent, float):
+            raise TypeError("Expected argument 'completion_percent' to be a float")
+        pulumi.set(__self__, "completion_percent", completion_percent)
+        if copy_completion_error and not isinstance(copy_completion_error, dict):
+            raise TypeError("Expected argument 'copy_completion_error' to be a dict")
+        pulumi.set(__self__, "copy_completion_error", copy_completion_error)
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
+        if data_access_auth_mode and not isinstance(data_access_auth_mode, str):
+            raise TypeError("Expected argument 'data_access_auth_mode' to be a str")
+        pulumi.set(__self__, "data_access_auth_mode", data_access_auth_mode)
         if disk_access_id and not isinstance(disk_access_id, str):
             raise TypeError("Expected argument 'disk_access_id' to be a str")
         pulumi.set(__self__, "disk_access_id", disk_access_id)
@@ -56,6 +65,9 @@ class GetSnapshotResult:
         if incremental and not isinstance(incremental, bool):
             raise TypeError("Expected argument 'incremental' to be a bool")
         pulumi.set(__self__, "incremental", incremental)
+        if incremental_snapshot_family_id and not isinstance(incremental_snapshot_family_id, str):
+            raise TypeError("Expected argument 'incremental_snapshot_family_id' to be a str")
+        pulumi.set(__self__, "incremental_snapshot_family_id", incremental_snapshot_family_id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -74,12 +86,21 @@ class GetSnapshotResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if purchase_plan and not isinstance(purchase_plan, dict):
             raise TypeError("Expected argument 'purchase_plan' to be a dict")
         pulumi.set(__self__, "purchase_plan", purchase_plan)
+        if security_profile and not isinstance(security_profile, dict):
+            raise TypeError("Expected argument 'security_profile' to be a dict")
+        pulumi.set(__self__, "security_profile", security_profile)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if supported_capabilities and not isinstance(supported_capabilities, dict):
+            raise TypeError("Expected argument 'supported_capabilities' to be a dict")
+        pulumi.set(__self__, "supported_capabilities", supported_capabilities)
         if supports_hibernation and not isinstance(supports_hibernation, bool):
             raise TypeError("Expected argument 'supports_hibernation' to be a bool")
         pulumi.set(__self__, "supports_hibernation", supports_hibernation)
@@ -97,12 +118,36 @@ class GetSnapshotResult:
         pulumi.set(__self__, "unique_id", unique_id)
 
     @property
+    @pulumi.getter(name="completionPercent")
+    def completion_percent(self) -> Optional[float]:
+        """
+        Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        """
+        return pulumi.get(self, "completion_percent")
+
+    @property
+    @pulumi.getter(name="copyCompletionError")
+    def copy_completion_error(self) -> Optional['outputs.CopyCompletionErrorResponse']:
+        """
+        Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
+        """
+        return pulumi.get(self, "copy_completion_error")
+
+    @property
     @pulumi.getter(name="creationData")
     def creation_data(self) -> 'outputs.CreationDataResponse':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
         return pulumi.get(self, "creation_data")
+
+    @property
+    @pulumi.getter(name="dataAccessAuthMode")
+    def data_access_auth_mode(self) -> Optional[str]:
+        """
+        Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        """
+        return pulumi.get(self, "data_access_auth_mode")
 
     @property
     @pulumi.getter(name="diskAccessId")
@@ -185,6 +230,14 @@ class GetSnapshotResult:
         return pulumi.get(self, "incremental")
 
     @property
+    @pulumi.getter(name="incrementalSnapshotFamilyId")
+    def incremental_snapshot_family_id(self) -> str:
+        """
+        Incremental snapshots for a disk share an incremental snapshot family id. The Get Page Range Diff API can only be called on incremental snapshots with the same family id.
+        """
+        return pulumi.get(self, "incremental_snapshot_family_id")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -233,6 +286,14 @@ class GetSnapshotResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Policy for controlling export on the disk.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="purchasePlan")
     def purchase_plan(self) -> Optional['outputs.PurchasePlanResponse']:
         """
@@ -241,12 +302,28 @@ class GetSnapshotResult:
         return pulumi.get(self, "purchase_plan")
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional['outputs.DiskSecurityProfileResponse']:
+        """
+        Contains the security related information for the resource.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SnapshotSkuResponse']:
         """
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="supportedCapabilities")
+    def supported_capabilities(self) -> Optional['outputs.SupportedCapabilitiesResponse']:
+        """
+        List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+        """
+        return pulumi.get(self, "supported_capabilities")
 
     @property
     @pulumi.getter(name="supportsHibernation")
@@ -295,7 +372,10 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
         if False:
             yield self
         return GetSnapshotResult(
+            completion_percent=self.completion_percent,
+            copy_completion_error=self.copy_completion_error,
             creation_data=self.creation_data,
+            data_access_auth_mode=self.data_access_auth_mode,
             disk_access_id=self.disk_access_id,
             disk_size_bytes=self.disk_size_bytes,
             disk_size_gb=self.disk_size_gb,
@@ -306,14 +386,18 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             hyper_v_generation=self.hyper_v_generation,
             id=self.id,
             incremental=self.incremental,
+            incremental_snapshot_family_id=self.incremental_snapshot_family_id,
             location=self.location,
             managed_by=self.managed_by,
             name=self.name,
             network_access_policy=self.network_access_policy,
             os_type=self.os_type,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             purchase_plan=self.purchase_plan,
+            security_profile=self.security_profile,
             sku=self.sku,
+            supported_capabilities=self.supported_capabilities,
             supports_hibernation=self.supports_hibernation,
             tags=self.tags,
             time_created=self.time_created,
@@ -326,11 +410,11 @@ def get_snapshot(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Gets information about a snapshot.
-    API Version: 2020-12-01.
+    API Version: 2022-07-02.
 
 
     :param str resource_group_name: The name of the resource group.
-    :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+    :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -339,7 +423,10 @@ def get_snapshot(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
+        completion_percent=__ret__.completion_percent,
+        copy_completion_error=__ret__.copy_completion_error,
         creation_data=__ret__.creation_data,
+        data_access_auth_mode=__ret__.data_access_auth_mode,
         disk_access_id=__ret__.disk_access_id,
         disk_size_bytes=__ret__.disk_size_bytes,
         disk_size_gb=__ret__.disk_size_gb,
@@ -350,14 +437,18 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         hyper_v_generation=__ret__.hyper_v_generation,
         id=__ret__.id,
         incremental=__ret__.incremental,
+        incremental_snapshot_family_id=__ret__.incremental_snapshot_family_id,
         location=__ret__.location,
         managed_by=__ret__.managed_by,
         name=__ret__.name,
         network_access_policy=__ret__.network_access_policy,
         os_type=__ret__.os_type,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         purchase_plan=__ret__.purchase_plan,
+        security_profile=__ret__.security_profile,
         sku=__ret__.sku,
+        supported_capabilities=__ret__.supported_capabilities,
         supports_hibernation=__ret__.supports_hibernation,
         tags=__ret__.tags,
         time_created=__ret__.time_created,
@@ -371,10 +462,10 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Gets information about a snapshot.
-    API Version: 2020-12-01.
+    API Version: 2022-07-02.
 
 
     :param str resource_group_name: The name of the resource group.
-    :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+    :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
     """
     ...

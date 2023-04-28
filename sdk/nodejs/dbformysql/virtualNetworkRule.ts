@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * A virtual network rule.
  * API Version: 2017-12-01.
+ * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
@@ -92,7 +93,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201preview:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201preview:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }

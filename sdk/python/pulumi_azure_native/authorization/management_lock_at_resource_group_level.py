@@ -113,7 +113,8 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
                  __props__=None):
         """
         The lock information.
-        API Version: 2017-04-01.
+        API Version: 2020-05-01.
+        Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +132,8 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The lock information.
-        API Version: 2017-04-01.
+        API Version: 2020-05-01.
+        Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ManagementLockAtResourceGroupLevelArgs args: The arguments to use to populate this resource's properties.
@@ -172,6 +174,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -201,6 +204,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["notes"] = None
         __props__.__dict__["owners"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ManagementLockAtResourceGroupLevel(resource_name, opts=opts, __props__=__props__)
 
@@ -235,6 +239,14 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
         The owners of the lock.
         """
         return pulumi.get(self, "owners")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -2,12 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20150301preview from "./v20150301preview";
 import * as v20180601preview from "./v20180601preview";
 import * as v20210601 from "./v20210601";
 
 export {
-    v20150301preview,
     v20180601preview,
     v20210601,
 };
@@ -53,6 +51,16 @@ export const OSType = {
  * The type of operating system.
  */
 export type OSType = (typeof OSType)[keyof typeof OSType];
+
+export const PrivateIPAllocationMethod = {
+    Dynamic: "dynamic",
+    Static: "static",
+} as const;
+
+/**
+ * The method that private IP address is allocated.
+ */
+export type PrivateIPAllocationMethod = (typeof PrivateIPAllocationMethod)[keyof typeof PrivateIPAllocationMethod];
 
 export const PrivateLink = {
     Disabled: "Disabled",

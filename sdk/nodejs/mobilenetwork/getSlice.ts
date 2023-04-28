@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified network slice.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-11-01.
  */
 export function getSlice(args: GetSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetSliceResult> {
 
@@ -37,21 +37,9 @@ export interface GetSliceArgs {
 }
 
 /**
- * Network slice resource.
+ * Network slice resource. Must be created in the same location as its parent mobile network.
  */
 export interface GetSliceResult {
-    /**
-     * The timestamp of resource creation (UTC).
-     */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
     /**
      * An optional description for this network slice.
      */
@@ -60,18 +48,6 @@ export interface GetSliceResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -103,7 +79,7 @@ export interface GetSliceResult {
 }
 /**
  * Gets information about the specified network slice.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-11-01.
  */
 export function getSliceOutput(args: GetSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSliceResult> {
     return pulumi.output(args).apply((a: any) => getSlice(a, opts))

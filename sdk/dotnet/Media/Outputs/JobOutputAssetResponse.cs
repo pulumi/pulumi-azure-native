@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly string OdataType;
         /// <summary>
+        /// A preset used to override the preset in the corresponding transform output.
+        /// </summary>
+        public readonly object? PresetOverride;
+        /// <summary>
         /// If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
         /// </summary>
         public readonly int Progress;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             string odataType,
 
+            object? presetOverride,
+
             int progress,
 
             string startTime,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.Media.Outputs
             Error = error;
             Label = label;
             OdataType = odataType;
+            PresetOverride = presetOverride;
             Progress = progress;
             StartTime = startTime;
             State = state;

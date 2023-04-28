@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? ProtectedItemsCount;
         /// <summary>
+        /// ResourceGuard Operation Requests
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
         /// Common settings for the backup management
         /// </summary>
         public readonly Outputs.SettingsResponse? Settings;
@@ -50,6 +54,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? protectedItemsCount,
 
+            ImmutableArray<string> resourceGuardOperationRequests,
+
             Outputs.SettingsResponse? settings,
 
             ImmutableArray<Outputs.SubProtectionPolicyResponse> subProtectionPolicy,
@@ -59,6 +65,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             BackupManagementType = backupManagementType;
             MakePolicyConsistent = makePolicyConsistent;
             ProtectedItemsCount = protectedItemsCount;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             Settings = settings;
             SubProtectionPolicy = subProtectionPolicy;
             WorkLoadType = workLoadType;

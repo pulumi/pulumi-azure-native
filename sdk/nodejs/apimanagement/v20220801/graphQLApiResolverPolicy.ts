@@ -96,6 +96,8 @@ export class GraphQLApiResolverPolicy extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GraphQLApiResolverPolicy" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GraphQLApiResolverPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

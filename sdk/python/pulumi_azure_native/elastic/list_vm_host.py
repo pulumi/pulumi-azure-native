@@ -62,7 +62,7 @@ def list_vm_host(monitor_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVMHostResult:
     """
     Response of a list operation.
-    API Version: 2020-07-01.
+    API Version: 2023-02-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -85,7 +85,7 @@ def list_vm_host_output(monitor_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVMHostResult]:
     """
     Response of a list operation.
-    API Version: 2020-07-01.
+    API Version: 2023-02-01-preview.
 
 
     :param str monitor_name: Monitor resource name

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Synapse.Inputs
     public sealed class CustomerManagedKeyDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Key encryption key
+        /// </summary>
+        [Input("kekIdentity")]
+        public Input<Inputs.KekIdentityPropertiesArgs>? KekIdentity { get; set; }
+
+        /// <summary>
         /// The key object of the workspace
         /// </summary>
         [Input("key")]

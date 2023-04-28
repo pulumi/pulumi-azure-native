@@ -12,15 +12,20 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CloudEndpointChangeEnumerationActivityResponse',
+    'CloudEndpointChangeEnumerationStatusResponse',
+    'CloudEndpointLastChangeEnumerationStatusResponse',
     'CloudTieringCachePerformanceResponse',
     'CloudTieringDatePolicyStatusResponse',
     'CloudTieringFilesNotTieringResponse',
+    'CloudTieringLowDiskModeResponse',
     'CloudTieringSpaceSavingsResponse',
     'CloudTieringVolumeFreeSpacePolicyStatusResponse',
     'FilesNotTieringErrorResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ServerEndpointBackgroundDataDownloadActivityResponse',
     'ServerEndpointCloudTieringStatusResponse',
     'ServerEndpointFilesNotSyncingErrorResponse',
     'ServerEndpointRecallErrorResponse',
@@ -28,7 +33,370 @@ __all__ = [
     'ServerEndpointSyncActivityStatusResponse',
     'ServerEndpointSyncSessionStatusResponse',
     'ServerEndpointSyncStatusResponse',
+    'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class CloudEndpointChangeEnumerationActivityResponse(dict):
+    """
+    Cloud endpoint change enumeration activity object
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletesProgressPercent":
+            suggest = "deletes_progress_percent"
+        elif key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+        elif key == "minutesRemaining":
+            suggest = "minutes_remaining"
+        elif key == "operationState":
+            suggest = "operation_state"
+        elif key == "processedDirectoriesCount":
+            suggest = "processed_directories_count"
+        elif key == "processedFilesCount":
+            suggest = "processed_files_count"
+        elif key == "progressPercent":
+            suggest = "progress_percent"
+        elif key == "startedTimestamp":
+            suggest = "started_timestamp"
+        elif key == "statusCode":
+            suggest = "status_code"
+        elif key == "totalCountsState":
+            suggest = "total_counts_state"
+        elif key == "totalDirectoriesCount":
+            suggest = "total_directories_count"
+        elif key == "totalFilesCount":
+            suggest = "total_files_count"
+        elif key == "totalSizeBytes":
+            suggest = "total_size_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudEndpointChangeEnumerationActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudEndpointChangeEnumerationActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudEndpointChangeEnumerationActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletes_progress_percent: int,
+                 last_updated_timestamp: str,
+                 minutes_remaining: int,
+                 operation_state: str,
+                 processed_directories_count: float,
+                 processed_files_count: float,
+                 progress_percent: int,
+                 started_timestamp: str,
+                 status_code: int,
+                 total_counts_state: str,
+                 total_directories_count: float,
+                 total_files_count: float,
+                 total_size_bytes: float):
+        """
+        Cloud endpoint change enumeration activity object
+        :param int deletes_progress_percent: Progress percentage for processing deletes. This is done separately from the rest of the enumeration run
+        :param str last_updated_timestamp: Last updated timestamp
+        :param int minutes_remaining: Estimate of time remaining for the enumeration run
+        :param str operation_state: Change enumeration operation state
+        :param float processed_directories_count: Count of directories processed
+        :param float processed_files_count: Count of files processed
+        :param int progress_percent: Progress percentage for change enumeration run, excluding processing of deletes
+        :param str started_timestamp: Timestamp when change enumeration started
+        :param int status_code: When non-zero, indicates an issue that is delaying change enumeration
+        :param str total_counts_state: Change enumeration total counts state
+        :param float total_directories_count: Total count of directories enumerated
+        :param float total_files_count: Total count of files enumerated
+        :param float total_size_bytes: Total enumerated size in bytes
+        """
+        pulumi.set(__self__, "deletes_progress_percent", deletes_progress_percent)
+        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+        pulumi.set(__self__, "minutes_remaining", minutes_remaining)
+        pulumi.set(__self__, "operation_state", operation_state)
+        pulumi.set(__self__, "processed_directories_count", processed_directories_count)
+        pulumi.set(__self__, "processed_files_count", processed_files_count)
+        pulumi.set(__self__, "progress_percent", progress_percent)
+        pulumi.set(__self__, "started_timestamp", started_timestamp)
+        pulumi.set(__self__, "status_code", status_code)
+        pulumi.set(__self__, "total_counts_state", total_counts_state)
+        pulumi.set(__self__, "total_directories_count", total_directories_count)
+        pulumi.set(__self__, "total_files_count", total_files_count)
+        pulumi.set(__self__, "total_size_bytes", total_size_bytes)
+
+    @property
+    @pulumi.getter(name="deletesProgressPercent")
+    def deletes_progress_percent(self) -> int:
+        """
+        Progress percentage for processing deletes. This is done separately from the rest of the enumeration run
+        """
+        return pulumi.get(self, "deletes_progress_percent")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTimestamp")
+    def last_updated_timestamp(self) -> str:
+        """
+        Last updated timestamp
+        """
+        return pulumi.get(self, "last_updated_timestamp")
+
+    @property
+    @pulumi.getter(name="minutesRemaining")
+    def minutes_remaining(self) -> int:
+        """
+        Estimate of time remaining for the enumeration run
+        """
+        return pulumi.get(self, "minutes_remaining")
+
+    @property
+    @pulumi.getter(name="operationState")
+    def operation_state(self) -> str:
+        """
+        Change enumeration operation state
+        """
+        return pulumi.get(self, "operation_state")
+
+    @property
+    @pulumi.getter(name="processedDirectoriesCount")
+    def processed_directories_count(self) -> float:
+        """
+        Count of directories processed
+        """
+        return pulumi.get(self, "processed_directories_count")
+
+    @property
+    @pulumi.getter(name="processedFilesCount")
+    def processed_files_count(self) -> float:
+        """
+        Count of files processed
+        """
+        return pulumi.get(self, "processed_files_count")
+
+    @property
+    @pulumi.getter(name="progressPercent")
+    def progress_percent(self) -> int:
+        """
+        Progress percentage for change enumeration run, excluding processing of deletes
+        """
+        return pulumi.get(self, "progress_percent")
+
+    @property
+    @pulumi.getter(name="startedTimestamp")
+    def started_timestamp(self) -> str:
+        """
+        Timestamp when change enumeration started
+        """
+        return pulumi.get(self, "started_timestamp")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> int:
+        """
+        When non-zero, indicates an issue that is delaying change enumeration
+        """
+        return pulumi.get(self, "status_code")
+
+    @property
+    @pulumi.getter(name="totalCountsState")
+    def total_counts_state(self) -> str:
+        """
+        Change enumeration total counts state
+        """
+        return pulumi.get(self, "total_counts_state")
+
+    @property
+    @pulumi.getter(name="totalDirectoriesCount")
+    def total_directories_count(self) -> float:
+        """
+        Total count of directories enumerated
+        """
+        return pulumi.get(self, "total_directories_count")
+
+    @property
+    @pulumi.getter(name="totalFilesCount")
+    def total_files_count(self) -> float:
+        """
+        Total count of files enumerated
+        """
+        return pulumi.get(self, "total_files_count")
+
+    @property
+    @pulumi.getter(name="totalSizeBytes")
+    def total_size_bytes(self) -> float:
+        """
+        Total enumerated size in bytes
+        """
+        return pulumi.get(self, "total_size_bytes")
+
+
+@pulumi.output_type
+class CloudEndpointChangeEnumerationStatusResponse(dict):
+    """
+    Cloud endpoint change enumeration status object
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastEnumerationStatus":
+            suggest = "last_enumeration_status"
+        elif key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudEndpointChangeEnumerationStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudEndpointChangeEnumerationStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudEndpointChangeEnumerationStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activity: 'outputs.CloudEndpointChangeEnumerationActivityResponse',
+                 last_enumeration_status: 'outputs.CloudEndpointLastChangeEnumerationStatusResponse',
+                 last_updated_timestamp: str):
+        """
+        Cloud endpoint change enumeration status object
+        :param 'CloudEndpointChangeEnumerationActivityResponse' activity: Change enumeration activity
+        :param 'CloudEndpointLastChangeEnumerationStatusResponse' last_enumeration_status: Status of last completed change enumeration
+        :param str last_updated_timestamp: Last updated timestamp
+        """
+        pulumi.set(__self__, "activity", activity)
+        pulumi.set(__self__, "last_enumeration_status", last_enumeration_status)
+        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+
+    @property
+    @pulumi.getter
+    def activity(self) -> 'outputs.CloudEndpointChangeEnumerationActivityResponse':
+        """
+        Change enumeration activity
+        """
+        return pulumi.get(self, "activity")
+
+    @property
+    @pulumi.getter(name="lastEnumerationStatus")
+    def last_enumeration_status(self) -> 'outputs.CloudEndpointLastChangeEnumerationStatusResponse':
+        """
+        Status of last completed change enumeration
+        """
+        return pulumi.get(self, "last_enumeration_status")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTimestamp")
+    def last_updated_timestamp(self) -> str:
+        """
+        Last updated timestamp
+        """
+        return pulumi.get(self, "last_updated_timestamp")
+
+
+@pulumi.output_type
+class CloudEndpointLastChangeEnumerationStatusResponse(dict):
+    """
+    Cloud endpoint change enumeration status object
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completedTimestamp":
+            suggest = "completed_timestamp"
+        elif key == "namespaceDirectoriesCount":
+            suggest = "namespace_directories_count"
+        elif key == "namespaceFilesCount":
+            suggest = "namespace_files_count"
+        elif key == "namespaceSizeBytes":
+            suggest = "namespace_size_bytes"
+        elif key == "nextRunTimestamp":
+            suggest = "next_run_timestamp"
+        elif key == "startedTimestamp":
+            suggest = "started_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudEndpointLastChangeEnumerationStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudEndpointLastChangeEnumerationStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudEndpointLastChangeEnumerationStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 completed_timestamp: str,
+                 namespace_directories_count: float,
+                 namespace_files_count: float,
+                 namespace_size_bytes: float,
+                 next_run_timestamp: str,
+                 started_timestamp: str):
+        """
+        Cloud endpoint change enumeration status object
+        :param str completed_timestamp: Timestamp when change enumeration completed
+        :param float namespace_directories_count: Count of directories in the namespace
+        :param float namespace_files_count: Count of files in the namespace
+        :param float namespace_size_bytes: Namespace size in bytes
+        :param str next_run_timestamp: Timestamp of when change enumeration is expected to run again
+        :param str started_timestamp: Timestamp when change enumeration started
+        """
+        pulumi.set(__self__, "completed_timestamp", completed_timestamp)
+        pulumi.set(__self__, "namespace_directories_count", namespace_directories_count)
+        pulumi.set(__self__, "namespace_files_count", namespace_files_count)
+        pulumi.set(__self__, "namespace_size_bytes", namespace_size_bytes)
+        pulumi.set(__self__, "next_run_timestamp", next_run_timestamp)
+        pulumi.set(__self__, "started_timestamp", started_timestamp)
+
+    @property
+    @pulumi.getter(name="completedTimestamp")
+    def completed_timestamp(self) -> str:
+        """
+        Timestamp when change enumeration completed
+        """
+        return pulumi.get(self, "completed_timestamp")
+
+    @property
+    @pulumi.getter(name="namespaceDirectoriesCount")
+    def namespace_directories_count(self) -> float:
+        """
+        Count of directories in the namespace
+        """
+        return pulumi.get(self, "namespace_directories_count")
+
+    @property
+    @pulumi.getter(name="namespaceFilesCount")
+    def namespace_files_count(self) -> float:
+        """
+        Count of files in the namespace
+        """
+        return pulumi.get(self, "namespace_files_count")
+
+    @property
+    @pulumi.getter(name="namespaceSizeBytes")
+    def namespace_size_bytes(self) -> float:
+        """
+        Namespace size in bytes
+        """
+        return pulumi.get(self, "namespace_size_bytes")
+
+    @property
+    @pulumi.getter(name="nextRunTimestamp")
+    def next_run_timestamp(self) -> str:
+        """
+        Timestamp of when change enumeration is expected to run again
+        """
+        return pulumi.get(self, "next_run_timestamp")
+
+    @property
+    @pulumi.getter(name="startedTimestamp")
+    def started_timestamp(self) -> str:
+        """
+        Timestamp when change enumeration started
+        """
+        return pulumi.get(self, "started_timestamp")
+
 
 @pulumi.output_type
 class CloudTieringCachePerformanceResponse(dict):
@@ -221,6 +589,56 @@ class CloudTieringFilesNotTieringResponse(dict):
         Last cloud tiering result (HResult)
         """
         return pulumi.get(self, "total_file_count")
+
+
+@pulumi.output_type
+class CloudTieringLowDiskModeResponse(dict):
+    """
+    Information regarding the low disk mode state
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudTieringLowDiskModeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudTieringLowDiskModeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudTieringLowDiskModeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_timestamp: str,
+                 state: str):
+        """
+        Information regarding the low disk mode state
+        :param str last_updated_timestamp: Last updated timestamp
+        :param str state: Low disk mode state
+        """
+        pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTimestamp")
+    def last_updated_timestamp(self) -> str:
+        """
+        Last updated timestamp
+        """
+        return pulumi.get(self, "last_updated_timestamp")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Low disk mode state
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -456,6 +874,8 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
 
@@ -475,6 +895,7 @@ class PrivateEndpointConnectionResponse(dict):
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
@@ -483,6 +904,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
@@ -490,6 +912,7 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -525,6 +948,14 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -630,6 +1061,82 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ServerEndpointBackgroundDataDownloadActivityResponse(dict):
+    """
+    Background data download activity object
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "downloadedBytes":
+            suggest = "downloaded_bytes"
+        elif key == "percentProgress":
+            suggest = "percent_progress"
+        elif key == "startedTimestamp":
+            suggest = "started_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointBackgroundDataDownloadActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointBackgroundDataDownloadActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointBackgroundDataDownloadActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 downloaded_bytes: float,
+                 percent_progress: int,
+                 started_timestamp: str,
+                 timestamp: str):
+        """
+        Background data download activity object
+        :param float downloaded_bytes: Running count of bytes downloaded
+        :param int percent_progress: Progress percentage
+        :param str started_timestamp: Timestamp when the operation started
+        :param str timestamp: Timestamp when properties were updated
+        """
+        pulumi.set(__self__, "downloaded_bytes", downloaded_bytes)
+        pulumi.set(__self__, "percent_progress", percent_progress)
+        pulumi.set(__self__, "started_timestamp", started_timestamp)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="downloadedBytes")
+    def downloaded_bytes(self) -> float:
+        """
+        Running count of bytes downloaded
+        """
+        return pulumi.get(self, "downloaded_bytes")
+
+    @property
+    @pulumi.getter(name="percentProgress")
+    def percent_progress(self) -> int:
+        """
+        Progress percentage
+        """
+        return pulumi.get(self, "percent_progress")
+
+    @property
+    @pulumi.getter(name="startedTimestamp")
+    def started_timestamp(self) -> str:
+        """
+        Timestamp when the operation started
+        """
+        return pulumi.get(self, "started_timestamp")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        Timestamp when properties were updated
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
 class ServerEndpointCloudTieringStatusResponse(dict):
     """
     Server endpoint cloud tiering status object.
@@ -651,6 +1158,8 @@ class ServerEndpointCloudTieringStatusResponse(dict):
             suggest = "last_success_timestamp"
         elif key == "lastUpdatedTimestamp":
             suggest = "last_updated_timestamp"
+        elif key == "lowDiskMode":
+            suggest = "low_disk_mode"
         elif key == "spaceSavings":
             suggest = "space_savings"
         elif key == "volumeFreeSpacePolicyStatus":
@@ -676,6 +1185,7 @@ class ServerEndpointCloudTieringStatusResponse(dict):
                  last_cloud_tiering_result: int,
                  last_success_timestamp: str,
                  last_updated_timestamp: str,
+                 low_disk_mode: 'outputs.CloudTieringLowDiskModeResponse',
                  space_savings: 'outputs.CloudTieringSpaceSavingsResponse',
                  volume_free_space_policy_status: 'outputs.CloudTieringVolumeFreeSpacePolicyStatusResponse'):
         """
@@ -688,6 +1198,7 @@ class ServerEndpointCloudTieringStatusResponse(dict):
         :param int last_cloud_tiering_result: Last cloud tiering result (HResult)
         :param str last_success_timestamp: Last cloud tiering success timestamp
         :param str last_updated_timestamp: Last updated timestamp
+        :param 'CloudTieringLowDiskModeResponse' low_disk_mode: Information regarding the low disk mode state
         :param 'CloudTieringSpaceSavingsResponse' space_savings: Information regarding how much local space cloud tiering is saving.
         :param 'CloudTieringVolumeFreeSpacePolicyStatusResponse' volume_free_space_policy_status: Status of the volume free space policy
         """
@@ -699,6 +1210,7 @@ class ServerEndpointCloudTieringStatusResponse(dict):
         pulumi.set(__self__, "last_cloud_tiering_result", last_cloud_tiering_result)
         pulumi.set(__self__, "last_success_timestamp", last_success_timestamp)
         pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+        pulumi.set(__self__, "low_disk_mode", low_disk_mode)
         pulumi.set(__self__, "space_savings", space_savings)
         pulumi.set(__self__, "volume_free_space_policy_status", volume_free_space_policy_status)
 
@@ -765,6 +1277,14 @@ class ServerEndpointCloudTieringStatusResponse(dict):
         Last updated timestamp
         """
         return pulumi.get(self, "last_updated_timestamp")
+
+    @property
+    @pulumi.getter(name="lowDiskMode")
+    def low_disk_mode(self) -> 'outputs.CloudTieringLowDiskModeResponse':
+        """
+        Information regarding the low disk mode state
+        """
+        return pulumi.get(self, "low_disk_mode")
 
     @property
     @pulumi.getter(name="spaceSavings")
@@ -977,6 +1497,8 @@ class ServerEndpointSyncActivityStatusResponse(dict):
             suggest = "applied_item_count"
         elif key == "perItemErrorCount":
             suggest = "per_item_error_count"
+        elif key == "sessionMinutesRemaining":
+            suggest = "session_minutes_remaining"
         elif key == "syncMode":
             suggest = "sync_mode"
         elif key == "totalBytes":
@@ -999,6 +1521,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
                  applied_bytes: float,
                  applied_item_count: float,
                  per_item_error_count: float,
+                 session_minutes_remaining: int,
                  sync_mode: str,
                  timestamp: str,
                  total_bytes: float,
@@ -1008,6 +1531,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         :param float applied_bytes: Applied bytes
         :param float applied_item_count: Applied item count.
         :param float per_item_error_count: Per item error count
+        :param int session_minutes_remaining: Session minutes remaining (if available)
         :param str sync_mode: Sync mode
         :param str timestamp: Timestamp when properties were updated
         :param float total_bytes: Total bytes (if available)
@@ -1016,6 +1540,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         pulumi.set(__self__, "applied_bytes", applied_bytes)
         pulumi.set(__self__, "applied_item_count", applied_item_count)
         pulumi.set(__self__, "per_item_error_count", per_item_error_count)
+        pulumi.set(__self__, "session_minutes_remaining", session_minutes_remaining)
         pulumi.set(__self__, "sync_mode", sync_mode)
         pulumi.set(__self__, "timestamp", timestamp)
         pulumi.set(__self__, "total_bytes", total_bytes)
@@ -1044,6 +1569,14 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         Per item error count
         """
         return pulumi.get(self, "per_item_error_count")
+
+    @property
+    @pulumi.getter(name="sessionMinutesRemaining")
+    def session_minutes_remaining(self) -> int:
+        """
+        Session minutes remaining (if available)
+        """
+        return pulumi.get(self, "session_minutes_remaining")
 
     @property
     @pulumi.getter(name="syncMode")
@@ -1216,7 +1749,9 @@ class ServerEndpointSyncStatusResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "combinedHealth":
+        if key == "backgroundDataDownloadActivity":
+            suggest = "background_data_download_activity"
+        elif key == "combinedHealth":
             suggest = "combined_health"
         elif key == "downloadActivity":
             suggest = "download_activity"
@@ -1251,6 +1786,7 @@ class ServerEndpointSyncStatusResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 background_data_download_activity: 'outputs.ServerEndpointBackgroundDataDownloadActivityResponse',
                  combined_health: str,
                  download_activity: 'outputs.ServerEndpointSyncActivityStatusResponse',
                  download_health: str,
@@ -1264,6 +1800,7 @@ class ServerEndpointSyncStatusResponse(dict):
                  upload_status: 'outputs.ServerEndpointSyncSessionStatusResponse'):
         """
         Server Endpoint sync status
+        :param 'ServerEndpointBackgroundDataDownloadActivityResponse' background_data_download_activity: Background data download activity
         :param str combined_health: Combined Health Status.
         :param 'ServerEndpointSyncActivityStatusResponse' download_activity: Download sync activity
         :param str download_health: Download Health Status.
@@ -1276,6 +1813,7 @@ class ServerEndpointSyncStatusResponse(dict):
         :param str upload_health: Upload Health Status.
         :param 'ServerEndpointSyncSessionStatusResponse' upload_status: Upload Status
         """
+        pulumi.set(__self__, "background_data_download_activity", background_data_download_activity)
         pulumi.set(__self__, "combined_health", combined_health)
         pulumi.set(__self__, "download_activity", download_activity)
         pulumi.set(__self__, "download_health", download_health)
@@ -1287,6 +1825,14 @@ class ServerEndpointSyncStatusResponse(dict):
         pulumi.set(__self__, "upload_activity", upload_activity)
         pulumi.set(__self__, "upload_health", upload_health)
         pulumi.set(__self__, "upload_status", upload_status)
+
+    @property
+    @pulumi.getter(name="backgroundDataDownloadActivity")
+    def background_data_download_activity(self) -> 'outputs.ServerEndpointBackgroundDataDownloadActivityResponse':
+        """
+        Background data download activity
+        """
+        return pulumi.get(self, "background_data_download_activity")
 
     @property
     @pulumi.getter(name="combinedHealth")
@@ -1375,5 +1921,115 @@ class ServerEndpointSyncStatusResponse(dict):
         Upload Status
         """
         return pulumi.get(self, "upload_status")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 

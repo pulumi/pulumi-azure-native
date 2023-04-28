@@ -89,6 +89,12 @@ namespace Pulumi.AzureNative.DataBox.Inputs
         }
 
         /// <summary>
+        /// Optional Reverse Shipping details for order.
+        /// </summary>
+        [Input("reverseShippingDetails")]
+        public Input<Inputs.ReverseShippingDetailsArgs>? ReverseShippingDetails { get; set; }
+
+        /// <summary>
         /// Shipping address of the customer.
         /// </summary>
         [Input("shippingAddress")]

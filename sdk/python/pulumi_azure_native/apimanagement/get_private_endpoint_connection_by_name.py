@@ -111,11 +111,11 @@ def get_private_endpoint_connection_by_name(private_endpoint_connection_name: Op
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionByNameResult:
     """
     Gets the details of the Private Endpoint Connection specified by its identifier.
-    API Version: 2021-04-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -141,11 +141,11 @@ def get_private_endpoint_connection_by_name_output(private_endpoint_connection_n
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionByNameResult]:
     """
     Gets the details of the Private Endpoint Connection specified by its identifier.
-    API Version: 2021-04-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

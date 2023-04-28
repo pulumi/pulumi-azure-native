@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Dedicated host.
- * API Version: 2020-12-01.
+ * API Version: 2022-11-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**
@@ -83,6 +84,10 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Specifies the time at which the Dedicated Host resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -125,6 +130,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["provisioningTime"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
         } else {
@@ -139,6 +145,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["provisioningTime"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
         }

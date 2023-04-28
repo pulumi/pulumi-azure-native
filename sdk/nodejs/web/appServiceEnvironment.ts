@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * App Service Environment ARM resource.
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
@@ -43,9 +44,13 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly clusterSettings!: pulumi.Output<outputs.web.NameValuePairResponse[] | undefined>;
     /**
+     * Full view of the custom domain suffix configuration for ASEv3.
+     */
+    public readonly customDnsSuffixConfiguration!: pulumi.Output<outputs.web.CustomDnsSuffixConfigurationResponse | undefined>;
+    /**
      * Dedicated Host Count
      */
-    public /*out*/ readonly dedicatedHostCount!: pulumi.Output<number>;
+    public readonly dedicatedHostCount!: pulumi.Output<number | undefined>;
     /**
      * DNS suffix of the App Service Environment.
      */
@@ -91,6 +96,10 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Full view of networking configuration for an ASE.
+     */
+    public readonly networkingConfiguration!: pulumi.Output<outputs.web.AseV3NetworkingConfigurationResponse | undefined>;
+    /**
      * Provisioning state of the App Service Environment.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -112,13 +121,25 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * User added list of IP Ranges allowed on ASE db
+     * Whether an upgrade is available for this App Service Environment.
+     */
+    public /*out*/ readonly upgradeAvailability!: pulumi.Output<string>;
+    /**
+     * Upgrade Preference
+     */
+    public readonly upgradePreference!: pulumi.Output<string | undefined>;
+    /**
+     * User added ip ranges to whitelist on ASE db
      */
     public readonly userWhitelistedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
      * Description of the Virtual Network.
      */
     public readonly virtualNetwork!: pulumi.Output<outputs.web.VirtualNetworkProfileResponse>;
+    /**
+     * Whether or not this App Service Environment is zone-redundant.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AppServiceEnvironment resource with the given unique name, arguments, and options.
@@ -138,6 +159,8 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
             resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
+            resourceInputs["customDnsSuffixConfiguration"] = args ? args.customDnsSuffixConfiguration : undefined;
+            resourceInputs["dedicatedHostCount"] = args ? args.dedicatedHostCount : undefined;
             resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
             resourceInputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
             resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
@@ -146,11 +169,13 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["multiSize"] = args ? args.multiSize : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkingConfiguration"] = args ? args.networkingConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradePreference"] = (args ? args.upgradePreference : undefined) ?? "None";
             resourceInputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
             resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["dedicatedHostCount"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             resourceInputs["hasLinuxWorkers"] = undefined /*out*/;
             resourceInputs["maximumNumberOfMachines"] = undefined /*out*/;
             resourceInputs["multiRoleCount"] = undefined /*out*/;
@@ -158,8 +183,10 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["suspended"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeAvailability"] = undefined /*out*/;
         } else {
             resourceInputs["clusterSettings"] = undefined /*out*/;
+            resourceInputs["customDnsSuffixConfiguration"] = undefined /*out*/;
             resourceInputs["dedicatedHostCount"] = undefined /*out*/;
             resourceInputs["dnsSuffix"] = undefined /*out*/;
             resourceInputs["frontEndScaleFactor"] = undefined /*out*/;
@@ -172,13 +199,17 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             resourceInputs["multiRoleCount"] = undefined /*out*/;
             resourceInputs["multiSize"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkingConfiguration"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["suspended"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeAvailability"] = undefined /*out*/;
+            resourceInputs["upgradePreference"] = undefined /*out*/;
             resourceInputs["userWhitelistedIpRanges"] = undefined /*out*/;
             resourceInputs["virtualNetwork"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:AppServiceEnvironment" }, { type: "azure-native:web/v20160901:AppServiceEnvironment" }, { type: "azure-native:web/v20180201:AppServiceEnvironment" }, { type: "azure-native:web/v20190801:AppServiceEnvironment" }, { type: "azure-native:web/v20200601:AppServiceEnvironment" }, { type: "azure-native:web/v20200901:AppServiceEnvironment" }, { type: "azure-native:web/v20201001:AppServiceEnvironment" }, { type: "azure-native:web/v20201201:AppServiceEnvironment" }, { type: "azure-native:web/v20210101:AppServiceEnvironment" }, { type: "azure-native:web/v20210115:AppServiceEnvironment" }, { type: "azure-native:web/v20210201:AppServiceEnvironment" }, { type: "azure-native:web/v20210301:AppServiceEnvironment" }, { type: "azure-native:web/v20220301:AppServiceEnvironment" }, { type: "azure-native:web/v20220901:AppServiceEnvironment" }] };
@@ -195,6 +226,14 @@ export interface AppServiceEnvironmentArgs {
      * Custom settings for changing the behavior of the App Service Environment.
      */
     clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairArgs>[]>;
+    /**
+     * Full view of the custom domain suffix configuration for ASEv3.
+     */
+    customDnsSuffixConfiguration?: pulumi.Input<inputs.web.CustomDnsSuffixConfigurationArgs>;
+    /**
+     * Dedicated Host Count
+     */
+    dedicatedHostCount?: pulumi.Input<number>;
     /**
      * DNS suffix of the App Service Environment.
      */
@@ -228,6 +267,10 @@ export interface AppServiceEnvironmentArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Full view of networking configuration for an ASE.
+     */
+    networkingConfiguration?: pulumi.Input<inputs.web.AseV3NetworkingConfigurationArgs>;
+    /**
      * Name of the resource group to which the resource belongs.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -236,11 +279,19 @@ export interface AppServiceEnvironmentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * User added list of IP Ranges allowed on ASE db
+     * Upgrade Preference
+     */
+    upgradePreference?: pulumi.Input<string | enums.web.UpgradePreference>;
+    /**
+     * User added ip ranges to whitelist on ASE db
      */
     userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Description of the Virtual Network.
      */
     virtualNetwork: pulumi.Input<inputs.web.VirtualNetworkProfileArgs>;
+    /**
+     * Whether or not this App Service Environment is zone-redundant.
+     */
+    zoneRedundant?: pulumi.Input<boolean>;
 }

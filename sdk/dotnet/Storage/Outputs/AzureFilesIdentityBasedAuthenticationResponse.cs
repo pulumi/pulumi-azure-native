@@ -17,11 +17,15 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class AzureFilesIdentityBasedAuthenticationResponse
     {
         /// <summary>
-        /// Required if choose AD.
+        /// Required if directoryServiceOptions are AD, optional if they are AADKERB.
         /// </summary>
         public readonly Outputs.ActiveDirectoryPropertiesResponse? ActiveDirectoryProperties;
         /// <summary>
-        /// Indicates the directory service used.
+        /// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+        /// </summary>
+        public readonly string? DefaultSharePermission;
+        /// <summary>
+        /// Indicates the directory service used. Note that this enum may be extended in the future.
         /// </summary>
         public readonly string DirectoryServiceOptions;
 
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Storage.Outputs
         private AzureFilesIdentityBasedAuthenticationResponse(
             Outputs.ActiveDirectoryPropertiesResponse? activeDirectoryProperties,
 
+            string? defaultSharePermission,
+
             string directoryServiceOptions)
         {
             ActiveDirectoryProperties = activeDirectoryProperties;
+            DefaultSharePermission = defaultSharePermission;
             DirectoryServiceOptions = directoryServiceOptions;
         }
     }

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a read only following database.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-12-29.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ReadOnlyFollowingDatabase")]
     public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource
@@ -21,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("attachedDatabaseConfigurationName")]
         public Output<string> AttachedDatabaseConfigurationName { get; private set; } = null!;
+
+        /// <summary>
+        /// The origin of the following setup.
+        /// </summary>
+        [Output("databaseShareOrigin")]
+        public Output<string> DatabaseShareOrigin { get; private set; } = null!;
 
         /// <summary>
         /// The time the data should be kept in cache for fast queries in TimeSpan.
@@ -54,6 +61,12 @@ namespace Pulumi.AzureNative.Kusto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The original database name, before databaseNameOverride or databaseNamePrefix where applied.
+        /// </summary>
+        [Output("originalDatabaseName")]
+        public Output<string> OriginalDatabaseName { get; private set; } = null!;
+
+        /// <summary>
         /// The principals modification kind of the database
         /// </summary>
         [Output("principalsModificationKind")]
@@ -76,6 +89,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("statistics")]
         public Output<Outputs.DatabaseStatisticsResponse> Statistics { get; private set; } = null!;
+
+        /// <summary>
+        /// Table level sharing specifications
+        /// </summary>
+        [Output("tableLevelSharingProperties")]
+        public Output<Outputs.TableLevelSharingPropertiesResponse> TableLevelSharingProperties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -153,6 +172,12 @@ namespace Pulumi.AzureNative.Kusto
 
     public sealed class ReadOnlyFollowingDatabaseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
+        /// </summary>
+        [Input("callerRole")]
+        public Input<string>? CallerRole { get; set; }
+
         /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>

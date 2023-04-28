@@ -10,14 +10,14 @@ __all__ = [
     'DayOfWeek',
     'HostPoolType',
     'LoadBalancerType',
-    'Operation',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
-    'PrivateEndpointServiceConnectionStatus',
     'RegistrationTokenOperation',
     'RemoteApplicationType',
     'ResourceIdentityType',
     'SSOSecretType',
+    'ScalingHostPoolType',
+    'SessionHostComponentUpdateType',
     'SessionHostLoadBalancingAlgorithm',
     'SkuTier',
     'StopHostsWhen',
@@ -78,32 +78,6 @@ class LoadBalancerType(str, Enum):
     PERSISTENT = "Persistent"
 
 
-class Operation(str, Enum):
-    """
-    The type of operation for migration.
-    """
-    START = "Start"
-    """
-    Start the migration.
-    """
-    REVOKE = "Revoke"
-    """
-    Revoke the migration.
-    """
-    COMPLETE = "Complete"
-    """
-    Complete the migration.
-    """
-    HIDE = "Hide"
-    """
-    Hide the hostpool.
-    """
-    UNHIDE = "Unhide"
-    """
-    Unhide the hostpool.
-    """
-
-
 class PersonalDesktopAssignmentType(str, Enum):
     """
     PersonalDesktopAssignment type for HostPool.
@@ -119,15 +93,6 @@ class PreferredAppGroupType(str, Enum):
     NONE = "None"
     DESKTOP = "Desktop"
     RAIL_APPLICATIONS = "RailApplications"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 class RegistrationTokenOperation(str, Enum):
@@ -162,6 +127,30 @@ class SSOSecretType(str, Enum):
     CERTIFICATE = "Certificate"
     SHARED_KEY_IN_KEY_VAULT = "SharedKeyInKeyVault"
     CERTIFICATE_IN_KEY_VAULT = "CertificateInKeyVault"
+
+
+class ScalingHostPoolType(str, Enum):
+    """
+    HostPool type for desktop.
+    """
+    POOLED = "Pooled"
+    """
+    Users get a new (random) SessionHost every time it connects to the HostPool.
+    """
+
+
+class SessionHostComponentUpdateType(str, Enum):
+    """
+    The type of maintenance for session host components.
+    """
+    DEFAULT = "Default"
+    """
+    Agent and other agent side components are delivery schedule is controlled by WVD Infra.
+    """
+    SCHEDULED = "Scheduled"
+    """
+    TenantAdmin have opted in for Scheduled Component Update feature.
+    """
 
 
 class SessionHostLoadBalancingAlgorithm(str, Enum):

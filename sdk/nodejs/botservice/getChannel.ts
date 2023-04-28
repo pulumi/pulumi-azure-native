@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a BotService Channel registration specified by the parameters.
- * API Version: 2021-03-01.
+ * API Version: 2022-09-15.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
 
@@ -41,7 +41,7 @@ export interface GetChannelArgs {
  */
 export interface GetChannelResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**
@@ -83,7 +83,7 @@ export interface GetChannelResult {
 }
 /**
  * Returns a BotService Channel registration specified by the parameters.
- * API Version: 2021-03-01.
+ * API Version: 2022-09-15.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
     return pulumi.output(args).apply((a: any) => getChannel(a, opts))

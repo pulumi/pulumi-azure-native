@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An extended server blob auditing policy.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
     /**
@@ -71,6 +72,10 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
      * USER_CHANGE_PASSWORD_GROUP
      * BATCH_STARTED_GROUP
      * BATCH_COMPLETED_GROUP
+     * DBCC_GROUP
+     * DATABASE_OWNERSHIP_CHANGE_GROUP
+     * DATABASE_CHANGE_GROUP
+     * LEDGER_OPERATION_GROUP
      * 
      * These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
      * 
@@ -125,6 +130,10 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
     public readonly isDevopsAuditEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether Managed Identity is used to access blob storage
+     */
+    public readonly isManagedIdentityInUse!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */
@@ -187,6 +196,7 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["blobAuditingPolicyName"] = args ? args.blobAuditingPolicyName : undefined;
             resourceInputs["isAzureMonitorTargetEnabled"] = args ? args.isAzureMonitorTargetEnabled : undefined;
             resourceInputs["isDevopsAuditEnabled"] = args ? args.isDevopsAuditEnabled : undefined;
+            resourceInputs["isManagedIdentityInUse"] = args ? args.isManagedIdentityInUse : undefined;
             resourceInputs["isStorageSecondaryKeyInUse"] = args ? args.isStorageSecondaryKeyInUse : undefined;
             resourceInputs["predicateExpression"] = args ? args.predicateExpression : undefined;
             resourceInputs["queueDelayMs"] = args ? args.queueDelayMs : undefined;
@@ -203,6 +213,7 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["auditActionsAndGroups"] = undefined /*out*/;
             resourceInputs["isAzureMonitorTargetEnabled"] = undefined /*out*/;
             resourceInputs["isDevopsAuditEnabled"] = undefined /*out*/;
+            resourceInputs["isManagedIdentityInUse"] = undefined /*out*/;
             resourceInputs["isStorageSecondaryKeyInUse"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["predicateExpression"] = undefined /*out*/;
@@ -257,6 +268,10 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      * USER_CHANGE_PASSWORD_GROUP
      * BATCH_STARTED_GROUP
      * BATCH_COMPLETED_GROUP
+     * DBCC_GROUP
+     * DATABASE_OWNERSHIP_CHANGE_GROUP
+     * DATABASE_CHANGE_GROUP
+     * LEDGER_OPERATION_GROUP
      * 
      * These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
      * 
@@ -315,6 +330,10 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
     isDevopsAuditEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether Managed Identity is used to access blob storage
+     */
+    isManagedIdentityInUse?: pulumi.Input<boolean>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */

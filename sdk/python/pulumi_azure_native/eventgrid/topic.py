@@ -18,6 +18,9 @@ __all__ = ['TopicArgs', 'Topic']
 class TopicArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['IdentityInfoArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input['JsonInputSchemaMappingArgs']] = None,
@@ -28,6 +31,9 @@ class TopicArgs:
         """
         The set of arguments for constructing a Topic resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
+        :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        :param pulumi.Input['IdentityInfoArgs'] identity: Identity information for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the topic.
         :param pulumi.Input['JsonInputSchemaMappingArgs'] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
@@ -38,6 +44,14 @@ class TopicArgs:
         :param pulumi.Input[str] topic_name: Name of the topic.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_residency_boundary is not None:
+            pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
+        if disable_local_auth is None:
+            disable_local_auth = False
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
             pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if input_schema is None:
@@ -68,6 +82,42 @@ class TopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]]:
+        """
+        Data Residency Boundary of the resource.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @data_residency_boundary.setter
+    def data_residency_boundary(self, value: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]]):
+        pulumi.set(self, "data_residency_boundary", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityInfoArgs']]:
+        """
+        Identity information for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityInfoArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -160,6 +210,9 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
@@ -171,10 +224,14 @@ class Topic(pulumi.CustomResource):
                  __props__=None):
         """
         EventGrid Topic
-        API Version: 2020-06-01.
+        API Version: 2022-06-15.
+        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
+        :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        :param pulumi.Input[pulumi.InputType['IdentityInfoArgs']] identity: Identity information for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the topic.
         :param pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
@@ -193,7 +250,8 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Topic
-        API Version: 2020-06-01.
+        API Version: 2022-06-15.
+        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.
@@ -210,6 +268,9 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
@@ -227,6 +288,11 @@ class Topic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TopicArgs.__new__(TopicArgs)
 
+            __props__.__dict__["data_residency_boundary"] = data_residency_boundary
+            if disable_local_auth is None:
+                disable_local_auth = False
+            __props__.__dict__["disable_local_auth"] = disable_local_auth
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             if input_schema is None:
                 input_schema = 'EventGridSchema'
@@ -272,7 +338,10 @@ class Topic(pulumi.CustomResource):
 
         __props__ = TopicArgs.__new__(TopicArgs)
 
+        __props__.__dict__["data_residency_boundary"] = None
+        __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["endpoint"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["inbound_ip_rules"] = None
         __props__.__dict__["input_schema"] = None
         __props__.__dict__["input_schema_mapping"] = None
@@ -288,12 +357,36 @@ class Topic(pulumi.CustomResource):
         return Topic(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> pulumi.Output[Optional[str]]:
+        """
+        Data Residency Boundary of the resource.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
         Endpoint for the topic.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityInfoResponse']]:
+        """
+        Identity information for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="inboundIpRules")

@@ -164,7 +164,8 @@ class IotConnector(pulumi.CustomResource):
                  __props__=None):
         """
         IoT Connector definition.
-        API Version: 2022-05-15.
+        API Version: 2022-12-01.
+        Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +186,8 @@ class IotConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT Connector definition.
-        API Version: 2022-05-15.
+        API Version: 2022-12-01.
+        Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param IotConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -236,7 +238,7 @@ class IotConnector(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:IotConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:IotConnector"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:IotConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotConnector, __self__).__init__(
             'azure-native:healthcareapis:IotConnector',

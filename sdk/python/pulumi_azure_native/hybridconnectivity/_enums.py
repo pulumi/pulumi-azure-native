@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'CreatedByType',
+    'ServiceName',
     'Type',
 ]
 
@@ -18,6 +19,14 @@ class CreatedByType(str, Enum):
     APPLICATION = "Application"
     MANAGED_IDENTITY = "ManagedIdentity"
     KEY = "Key"
+
+
+class ServiceName(str, Enum):
+    """
+    Name of the service.
+    """
+    SSH = "SSH"
+    WAC = "WAC"
 
 
 class Type(str, Enum):

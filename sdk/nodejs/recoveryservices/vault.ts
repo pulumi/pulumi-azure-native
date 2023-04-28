@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information, as returned by the resource provider.
- * API Version: 2021-01-01.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Vault extends pulumi.CustomResource {
     /**
@@ -135,7 +136,7 @@ export interface VaultArgs {
      */
     properties?: pulumi.Input<inputs.recoveryservices.VaultPropertiesArgs>;
     /**
-     * The name of the resource group where the recovery services vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

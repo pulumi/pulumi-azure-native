@@ -19,6 +19,7 @@ class ExpressRouteCircuitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
@@ -39,6 +40,7 @@ class ExpressRouteCircuitArgs:
         The set of arguments for constructing a ExpressRouteCircuit resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] allow_classic_operations: Allow classic operations.
+        :param pulumi.Input[str] authorization_key: The authorizationKey.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]] authorizations: The list of authorizations.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] circuit_name: The name of the circuit.
@@ -59,6 +61,8 @@ class ExpressRouteCircuitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_classic_operations is not None:
             pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
         if bandwidth_in_gbps is not None:
@@ -115,6 +119,18 @@ class ExpressRouteCircuitArgs:
     @allow_classic_operations.setter
     def allow_classic_operations(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_classic_operations", value)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorizationKey.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @authorization_key.setter
+    def authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_key", value)
 
     @property
     @pulumi.getter
@@ -315,6 +331,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
@@ -335,11 +352,13 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRouteCircuit resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow classic operations.
+        :param pulumi.Input[str] authorization_key: The authorizationKey.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: The list of authorizations.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] circuit_name: The name of the circuit.
@@ -366,7 +385,8 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRouteCircuit resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitArgs args: The arguments to use to populate this resource's properties.
@@ -384,6 +404,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
@@ -411,6 +432,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__ = ExpressRouteCircuitArgs.__new__(ExpressRouteCircuitArgs)
 
             __props__.__dict__["allow_classic_operations"] = allow_classic_operations
+            __props__.__dict__["authorization_key"] = authorization_key
             __props__.__dict__["authorizations"] = authorizations
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
             __props__.__dict__["circuit_name"] = circuit_name
@@ -430,6 +452,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["service_provider_provisioning_state"] = service_provider_provisioning_state
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["authorization_status"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -460,6 +483,8 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         __props__ = ExpressRouteCircuitArgs.__new__(ExpressRouteCircuitArgs)
 
         __props__.__dict__["allow_classic_operations"] = None
+        __props__.__dict__["authorization_key"] = None
+        __props__.__dict__["authorization_status"] = None
         __props__.__dict__["authorizations"] = None
         __props__.__dict__["bandwidth_in_gbps"] = None
         __props__.__dict__["circuit_provisioning_state"] = None
@@ -488,6 +513,22 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         Allow classic operations.
         """
         return pulumi.get(self, "allow_classic_operations")
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The authorizationKey.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="authorizationStatus")
+    def authorization_status(self) -> pulumi.Output[str]:
+        """
+        The authorization status of the Circuit.
+        """
+        return pulumi.get(self, "authorization_status")
 
     @property
     @pulumi.getter

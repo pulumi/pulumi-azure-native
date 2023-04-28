@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// Available actions on the job.
+        /// </summary>
+        public readonly ImmutableArray<string> Actions;
+        /// <summary>
         /// To indicate bytes transferred.
         /// </summary>
         public readonly double BytesProcessed;
@@ -32,6 +36,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// To indicate directories errored out in the job.
         /// </summary>
         public readonly double DirectoriesErroredOut;
+        /// <summary>
+        /// Error, if any, in the stage
+        /// </summary>
+        public readonly Outputs.CloudErrorResponse Error;
         /// <summary>
         /// Number of files which could not be copied
         /// </summary>
@@ -82,11 +90,15 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         private CopyProgressResponse(
             string accountId,
 
+            ImmutableArray<string> actions,
+
             double bytesProcessed,
 
             string dataAccountType,
 
             double directoriesErroredOut,
+
+            Outputs.CloudErrorResponse error,
 
             double filesErroredOut,
 
@@ -111,9 +123,11 @@ namespace Pulumi.AzureNative.DataBox.Outputs
             string transferType)
         {
             AccountId = accountId;
+            Actions = actions;
             BytesProcessed = bytesProcessed;
             DataAccountType = dataAccountType;
             DirectoriesErroredOut = directoriesErroredOut;
+            Error = error;
             FilesErroredOut = filesErroredOut;
             FilesProcessed = filesProcessed;
             InvalidDirectoriesProcessed = invalidDirectoriesProcessed;

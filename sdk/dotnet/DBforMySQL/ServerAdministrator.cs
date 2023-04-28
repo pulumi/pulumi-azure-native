@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// Represents a and external administrator to be created.
     /// API Version: 2017-12-01.
+    /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:ServerAdministrator")]
     public partial class ServerAdministrator : global::Pulumi.CustomResource
@@ -79,6 +80,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:ServerAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:ServerAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

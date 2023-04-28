@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description of a namespace authorization rule.
- * API Version: 2017-04-01.
+ * Single item in a List or Get AuthorizationRule operation
+ * API Version: 2021-11-01.
+ * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -39,7 +40,11 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -47,7 +52,11 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly rights!: pulumi.Output<string[]>;
     /**
-     * Resource type.
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.relay.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -79,11 +88,15 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rights"] = args ? args.rights : undefined;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,5 +129,5 @@ export interface HybridConnectionAuthorizationRuleArgs {
     /**
      * The rights associated with the rule.
      */
-    rights: pulumi.Input<pulumi.Input<enums.relay.AccessRights>[]>;
+    rights: pulumi.Input<pulumi.Input<string | enums.relay.AccessRights>[]>;
 }

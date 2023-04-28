@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a partner topic.
-        /// API Version: 2021-10-15-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetPartnerTopicResult> InvokeAsync(GetPartnerTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicResult>("azure-native:eventgrid:getPartnerTopic", args ?? new GetPartnerTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a partner topic.
-        /// API Version: 2021-10-15-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerTopicResult> Invoke(GetPartnerTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicResult>("azure-native:eventgrid:getPartnerTopic", args ?? new GetPartnerTopicInvokeArgs(), options.WithDefaults());

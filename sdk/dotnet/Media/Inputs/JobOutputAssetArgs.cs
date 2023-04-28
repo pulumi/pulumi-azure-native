@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Media.Inputs
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;
 
+        /// <summary>
+        /// A preset used to override the preset in the corresponding transform output.
+        /// </summary>
+        [Input("presetOverride")]
+        public object? PresetOverride { get; set; }
+
         public JobOutputAssetArgs()
         {
         }

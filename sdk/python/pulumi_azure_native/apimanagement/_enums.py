@@ -10,9 +10,12 @@ __all__ = [
     'ApimIdentityType',
     'AppType',
     'AuthorizationMethod',
+    'AuthorizationType',
     'BackendProtocol',
     'BearerTokenSendingMethod',
     'BearerTokenSendingMethods',
+    'CertificateSource',
+    'CertificateStatus',
     'ClientAuthenticationMethod',
     'Confirmation',
     'ContentFormat',
@@ -24,6 +27,8 @@ __all__ = [
     'IdentityProviderType',
     'KeyType',
     'LoggerType',
+    'NatGatewayState',
+    'OAuth2GrantType',
     'OperationNameFormat',
     'PolicyContentFormat',
     'PolicyFragmentContentFormat',
@@ -31,12 +36,14 @@ __all__ = [
     'ProductState',
     'Protocol',
     'ProvisioningState',
+    'PublicNetworkAccess',
     'SamplingType',
     'SchemaType',
     'SkuType',
     'SoapApiType',
     'State',
     'SubscriptionState',
+    'TranslateRequiredQueryParametersConduct',
     'UserState',
     'Verbosity',
     'VersioningScheme',
@@ -60,6 +67,8 @@ class ApiType(str, Enum):
     """
     HTTP = "http"
     SOAP = "soap"
+    WEBSOCKET = "websocket"
+    GRAPHQL = "graphql"
 
 
 class ApimIdentityType(str, Enum):
@@ -97,6 +106,16 @@ class AuthorizationMethod(str, Enum):
     DELETE = "DELETE"
 
 
+class AuthorizationType(str, Enum):
+    """
+    Authorization type options
+    """
+    O_AUTH2 = "OAuth2"
+    """
+    OAuth2 authorization type
+    """
+
+
 class BackendProtocol(str, Enum):
     """
     Backend communication protocol.
@@ -128,6 +147,25 @@ class BearerTokenSendingMethods(str, Enum):
     """
     Access token will be transmitted as query parameters.
     """
+
+
+class CertificateSource(str, Enum):
+    """
+    Certificate Source.
+    """
+    MANAGED = "Managed"
+    KEY_VAULT = "KeyVault"
+    CUSTOM = "Custom"
+    BUILT_IN = "BuiltIn"
+
+
+class CertificateStatus(str, Enum):
+    """
+    Certificate Status.
+    """
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+    IN_PROGRESS = "InProgress"
 
 
 class ClientAuthenticationMethod(str, Enum):
@@ -198,6 +236,10 @@ class ContentFormat(str, Enum):
     OPENAPI_JSON_LINK = "openapi+json-link"
     """
     The OpenAPI 3.0 JSON document is hosted on a publicly accessible internet address.
+    """
+    GRAPHQL_LINK = "graphql-link"
+    """
+    The GraphQL API endpoint hosted on a publicly accessible internet address.
     """
 
 
@@ -328,6 +370,34 @@ class LoggerType(str, Enum):
     """
 
 
+class NatGatewayState(str, Enum):
+    """
+    Property can be used to enable NAT Gateway for this API Management service.
+    """
+    ENABLED = "Enabled"
+    """
+    Nat Gateway is enabled for the service.
+    """
+    DISABLED = "Disabled"
+    """
+    Nat Gateway is disabled for the service.
+    """
+
+
+class OAuth2GrantType(str, Enum):
+    """
+    OAuth2 grant type options
+    """
+    AUTHORIZATION_CODE = "AuthorizationCode"
+    """
+    Authorization Code grant
+    """
+    CLIENT_CREDENTIALS = "ClientCredentials"
+    """
+    Client Credential grant
+    """
+
+
 class OperationNameFormat(str, Enum):
     """
     The format of the Operation Name for Application Insights telemetries. Default is Name.
@@ -352,7 +422,7 @@ class PolicyContentFormat(str, Enum):
     """
     XML_LINK = "xml-link"
     """
-    The policy XML document is hosted on a http endpoint accessible from the API Management service.
+    The policy XML document is hosted on a HTTP endpoint accessible from the API Management service.
     """
     RAWXML = "rawxml"
     """
@@ -360,7 +430,7 @@ class PolicyContentFormat(str, Enum):
     """
     RAWXML_LINK = "rawxml-link"
     """
-    The policy document is not Xml encoded and is hosted on a http endpoint accessible from the API Management service.
+    The policy document is not XML encoded and is hosted on a HTTP endpoint accessible from the API Management service.
     """
 
 
@@ -398,6 +468,8 @@ class ProductState(str, Enum):
 class Protocol(str, Enum):
     HTTP = "http"
     HTTPS = "https"
+    WS = "ws"
+    WSS = "wss"
 
 
 class ProvisioningState(str, Enum):
@@ -405,6 +477,14 @@ class ProvisioningState(str, Enum):
     Provisioning state.
     """
     CREATED = "created"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SamplingType(str, Enum):
@@ -423,7 +503,7 @@ class SchemaType(str, Enum):
     """
     XML = "xml"
     """
-    Xml schema type.
+    XML schema type.
     """
     JSON = "json"
     """
@@ -463,9 +543,11 @@ class SkuType(str, Enum):
 
 class SoapApiType(str, Enum):
     """
-    Type of Api to create. 
-     * `http` creates a SOAP to REST API 
-     * `soap` creates a SOAP pass-through API .
+    Type of API to create. 
+     * `http` creates a REST API 
+     * `soap` creates a SOAP pass-through API  
+     * `websocket` creates websocket API 
+     * `graphql` creates GraphQL API.
     """
     SOAP_TO_REST = "http"
     """
@@ -473,7 +555,15 @@ class SoapApiType(str, Enum):
     """
     SOAP_PASS_THROUGH = "soap"
     """
-    Imports the Soap API having a SOAP front end.
+    Imports the SOAP API having a SOAP front end.
+    """
+    WEB_SOCKET = "websocket"
+    """
+    Imports the API having a Websocket front end.
+    """
+    GRAPH_QL = "graphql"
+    """
+    Imports the API having a GraphQL front end.
     """
 
 
@@ -513,6 +603,20 @@ class SubscriptionState(str, Enum):
     SUBMITTED = "submitted"
     REJECTED = "rejected"
     CANCELLED = "cancelled"
+
+
+class TranslateRequiredQueryParametersConduct(str, Enum):
+    """
+    Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'
+    """
+    TEMPLATE = "template"
+    """
+    Translates required query parameters to template ones. Is a default value
+    """
+    QUERY = "query"
+    """
+    Leaves required query parameters as they are (no translation done).
+    """
 
 
 class UserState(str, Enum):

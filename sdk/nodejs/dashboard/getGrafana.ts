@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The grafana resource type.
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-08-01.
  */
 export function getGrafana(args: GetGrafanaArgs, opts?: pulumi.InvokeOptions): Promise<GetGrafanaResult> {
 
@@ -74,7 +74,7 @@ export interface GetGrafanaResult {
 }
 /**
  * The grafana resource type.
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-08-01.
  */
 export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
     return pulumi.output(args).apply((a: any) => getGrafana(a, opts))

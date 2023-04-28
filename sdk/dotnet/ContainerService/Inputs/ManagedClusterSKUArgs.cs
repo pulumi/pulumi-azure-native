@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
+    /// <summary>
+    /// The SKU of a Managed Cluster.
+    /// </summary>
     public sealed class ManagedClusterSKUArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of a managed cluster SKU.
+        /// The name of a managed cluster SKU.
         /// </summary>
         [Input("name")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ManagedClusterSKUName>? Name { get; set; }
 
         /// <summary>
-        /// Tier of a managed cluster SKU.
+        /// If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
         /// </summary>
         [Input("tier")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ManagedClusterSKUTier>? Tier { get; set; }

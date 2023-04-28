@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getOnlineDeploymentLogs(args: GetOnlineDeploymentLogsArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineDeploymentLogsResult> {
 
@@ -57,7 +57,7 @@ export interface GetOnlineDeploymentLogsResult {
     readonly content?: string;
 }
 /**
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getOnlineDeploymentLogsOutput(args: GetOnlineDeploymentLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentLogsResult> {
     return pulumi.output(args).apply((a: any) => getOnlineDeploymentLogs(a, opts))

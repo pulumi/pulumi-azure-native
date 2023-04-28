@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Sql
     public static class GetTransparentDataEncryption
     {
         /// <summary>
-        /// Gets a database's transparent data encryption configuration.
-        /// API Version: 2014-04-01.
+        /// Gets a logical database's transparent data encryption.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetTransparentDataEncryptionResult> InvokeAsync(GetTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-native:sql:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a database's transparent data encryption configuration.
-        /// API Version: 2014-04-01.
+        /// Gets a logical database's transparent data encryption.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetTransparentDataEncryptionResult> Invoke(GetTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransparentDataEncryptionResult>("azure-native:sql:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetTransparentDataEncryptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the database for which the transparent data encryption applies.
+        /// The name of the logical database for which the transparent data encryption is defined.
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
@@ -50,8 +50,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the transparent data encryption configuration.
         /// </summary>
-        [Input("transparentDataEncryptionName", required: true)]
-        public string TransparentDataEncryptionName { get; set; } = null!;
+        [Input("tdeName", required: true)]
+        public string TdeName { get; set; } = null!;
 
         public GetTransparentDataEncryptionArgs()
         {
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetTransparentDataEncryptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the database for which the transparent data encryption applies.
+        /// The name of the logical database for which the transparent data encryption is defined.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the transparent data encryption configuration.
         /// </summary>
-        [Input("transparentDataEncryptionName", required: true)]
-        public Input<string> TransparentDataEncryptionName { get; set; } = null!;
+        [Input("tdeName", required: true)]
+        public Input<string> TdeName { get; set; } = null!;
 
         public GetTransparentDataEncryptionInvokeArgs()
         {
@@ -100,17 +100,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The status of the database transparent data encryption.
+        /// Specifies the state of the transparent data encryption.
         /// </summary>
-        public readonly string? Status;
+        public readonly string State;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -120,18 +116,15 @@ namespace Pulumi.AzureNative.Sql
         private GetTransparentDataEncryptionResult(
             string id,
 
-            string location,
-
             string name,
 
-            string? status,
+            string state,
 
             string type)
         {
             Id = id;
-            Location = location;
             Name = name;
-            Status = status;
+            State = state;
             Type = type;
         }
     }

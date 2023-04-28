@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an environment type.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
+ * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ProjectEnvironmentType extends pulumi.CustomResource {
     /**
@@ -128,7 +129,7 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
             resourceInputs["userRoleAssignments"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:ProjectEnvironmentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20230101preview:ProjectEnvironmentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectEnvironmentType.__pulumiType, name, resourceInputs, opts);
     }
@@ -163,7 +164,7 @@ export interface ProjectEnvironmentTypeArgs {
      */
     projectName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

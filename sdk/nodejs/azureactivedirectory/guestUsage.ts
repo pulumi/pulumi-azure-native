@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Guest Usages Resource
- * API Version: 2020-05-01-preview.
+ * API Version: 2021-04-01.
+ * Previous API Version: 2020-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class GuestUsage extends pulumi.CustomResource {
     /**
@@ -44,6 +48,10 @@ export class GuestUsage extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.azureactivedirectory.SystemDataResponse>;
+    /**
      * Key-value pairs of additional resource provisioning properties.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -76,10 +84,12 @@ export class GuestUsage extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -104,7 +114,7 @@ export interface GuestUsageArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The initial domain name of the AAD tenant.
+     * The initial domain name of the Azure AD B2C tenant.
      */
     resourceName?: pulumi.Input<string>;
     /**

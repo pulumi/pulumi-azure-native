@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderInstanceResult> {
 
@@ -49,7 +49,7 @@ export interface GetProviderInstanceResult {
      */
     readonly id: string;
     /**
-     * Managed service identity (user assigned identities)
+     * [currently not in use] Managed service identity(user assigned identities)
      */
     readonly identity?: outputs.workloads.UserAssignedServiceIdentityResponse;
     /**
@@ -57,7 +57,7 @@ export interface GetProviderInstanceResult {
      */
     readonly name: string;
     /**
-     * Defines the provider instance errors.
+     * Defines the provider specific properties.
      */
     readonly providerSettings?: outputs.workloads.DB2ProviderInstancePropertiesResponse | outputs.workloads.HanaDbProviderInstancePropertiesResponse | outputs.workloads.MsSqlServerProviderInstancePropertiesResponse | outputs.workloads.PrometheusHaClusterProviderInstancePropertiesResponse | outputs.workloads.PrometheusOSProviderInstancePropertiesResponse | outputs.workloads.SapNetWeaverProviderInstancePropertiesResponse;
     /**
@@ -75,7 +75,7 @@ export interface GetProviderInstanceResult {
 }
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
     return pulumi.output(args).apply((a: any) => getProviderInstance(a, opts))

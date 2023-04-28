@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
         /// Percentage completed for the drive. 
         /// </summary>
         [Input("percentComplete")]
-        public Input<int>? PercentComplete { get; set; }
+        public Input<double>? PercentComplete { get; set; }
 
         /// <summary>
         /// The drive's current state. 

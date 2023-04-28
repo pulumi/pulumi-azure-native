@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly string? BufferWindow;
         /// <summary>
+        /// The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 28.
+        /// </summary>
+        public readonly double? Crf;
+        /// <summary>
         /// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
         /// </summary>
         public readonly string? FrameRate;
@@ -52,11 +56,6 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
         /// </summary>
         public readonly int? MaxBitrate;
-        /// <summary>
-        /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.H265Layer'.
-        /// </summary>
-        public readonly string OdataType;
         /// <summary>
         /// We currently support Main. Default is Auto.
         /// </summary>
@@ -84,6 +83,8 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             string? bufferWindow,
 
+            double? crf,
+
             string? frameRate,
 
             string? height,
@@ -93,8 +94,6 @@ namespace Pulumi.AzureNative.Media.Outputs
             string? level,
 
             int? maxBitrate,
-
-            string odataType,
 
             string? profile,
 
@@ -108,12 +107,12 @@ namespace Pulumi.AzureNative.Media.Outputs
             BFrames = bFrames;
             Bitrate = bitrate;
             BufferWindow = bufferWindow;
+            Crf = crf;
             FrameRate = frameRate;
             Height = height;
             Label = label;
             Level = level;
             MaxBitrate = maxBitrate;
-            OdataType = odataType;
             Profile = profile;
             ReferenceFrames = referenceFrames;
             Slices = slices;

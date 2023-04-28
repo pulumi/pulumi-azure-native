@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the application settings of a static site build.
- * API Version: 2020-12-01.
+ * Description for Gets the application settings of a static site build.
+ * API Version: 2022-09-01.
  */
 export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuildFunctionAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteBuildFunctionAppSettingsResult> {
 
@@ -59,8 +59,8 @@ export interface ListStaticSiteBuildFunctionAppSettingsResult {
     readonly type: string;
 }
 /**
- * Gets the application settings of a static site build.
- * API Version: 2020-12-01.
+ * Description for Gets the application settings of a static site build.
+ * API Version: 2022-09-01.
  */
 export function listStaticSiteBuildFunctionAppSettingsOutput(args: ListStaticSiteBuildFunctionAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteBuildFunctionAppSettingsResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteBuildFunctionAppSettings(a, opts))

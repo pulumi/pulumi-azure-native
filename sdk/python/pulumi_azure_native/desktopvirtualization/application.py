@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -263,7 +264,8 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         Schema for Application properties.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-09.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,7 +292,8 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for Application properties.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-09.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -354,6 +357,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["icon_hash"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["object_id"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -394,6 +398,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
         __props__.__dict__["show_in_portal"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
@@ -516,6 +521,14 @@ class Application(pulumi.CustomResource):
         Specifies whether to show the RemoteApp program in the RD Web Access server.
         """
         return pulumi.get(self, "show_in_portal")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

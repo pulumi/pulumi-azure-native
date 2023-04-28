@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection of a Digital Twin.
- * API Version: 2020-12-01.
+ * API Version: 2023-01-31.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -42,7 +43,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * The resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.digitaltwins.PrivateEndpointConnectionResponseProperties>;
+    /**
+     * The connection properties.
+     */
+    public readonly properties!: pulumi.Output<outputs.digitaltwins.ConnectionPropertiesResponse>;
+    /**
+     * Metadata pertaining to creation and last modification of the private endpoint connection.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.digitaltwins.SystemDataResponse>;
     /**
      * The resource type.
      */
@@ -73,10 +81,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -94,7 +104,10 @@ export interface PrivateEndpointConnectionArgs {
      * The name of the private endpoint connection.
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
-    properties: pulumi.Input<inputs.digitaltwins.PrivateEndpointConnectionPropertiesArgs>;
+    /**
+     * The connection properties.
+     */
+    properties: pulumi.Input<inputs.digitaltwins.ConnectionPropertiesArgs>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */

@@ -3,24 +3,18 @@
 
 // Export sub-modules:
 import * as v20171115preview from "./v20171115preview";
-import * as v20180315preview from "./v20180315preview";
 import * as v20180331preview from "./v20180331preview";
 import * as v20180419 from "./v20180419";
-import * as v20180715preview from "./v20180715preview";
 import * as v20210630 from "./v20210630";
 import * as v20211030preview from "./v20211030preview";
-import * as v20220130preview from "./v20220130preview";
 import * as v20220330preview from "./v20220330preview";
 
 export {
     v20171115preview,
-    v20180315preview,
     v20180331preview,
     v20180419,
-    v20180715preview,
     v20210630,
     v20211030preview,
-    v20220130preview,
     v20220330preview,
 };
 
@@ -47,8 +41,43 @@ export const BackupMode = {
  */
 export type BackupMode = (typeof BackupMode)[keyof typeof BackupMode];
 
+export const MongoDbReplication = {
+    Disabled: "Disabled",
+    OneTime: "OneTime",
+    Continuous: "Continuous",
+} as const;
+
+/**
+ * Describes how changes will be replicated from the source to the target. The default is OneTime.
+ */
+export type MongoDbReplication = (typeof MongoDbReplication)[keyof typeof MongoDbReplication];
+
+export const MongoDbShardKeyOrder = {
+    Forward: "Forward",
+    Reverse: "Reverse",
+    Hashed: "Hashed",
+} as const;
+
+/**
+ * The field ordering
+ */
+export type MongoDbShardKeyOrder = (typeof MongoDbShardKeyOrder)[keyof typeof MongoDbShardKeyOrder];
+
+export const MySqlTargetPlatformType = {
+    SqlServer: "SqlServer",
+    AzureDbForMySQL: "AzureDbForMySQL",
+} as const;
+
+/**
+ * Target Platform for the migration
+ */
+export type MySqlTargetPlatformType = (typeof MySqlTargetPlatformType)[keyof typeof MySqlTargetPlatformType];
+
 export const ProjectSourcePlatform = {
     SQL: "SQL",
+    MySQL: "MySQL",
+    PostgreSql: "PostgreSql",
+    MongoDb: "MongoDb",
     Unknown: "Unknown",
 } as const;
 
@@ -59,6 +88,10 @@ export type ProjectSourcePlatform = (typeof ProjectSourcePlatform)[keyof typeof 
 
 export const ProjectTargetPlatform = {
     SQLDB: "SQLDB",
+    SQLMI: "SQLMI",
+    AzureDbForMySql: "AzureDbForMySql",
+    AzureDbForPostgreSql: "AzureDbForPostgreSql",
+    MongoDb: "MongoDb",
     Unknown: "Unknown",
 } as const;
 
@@ -66,14 +99,6 @@ export const ProjectTargetPlatform = {
  * Target platform for the project
  */
 export type ProjectTargetPlatform = (typeof ProjectTargetPlatform)[keyof typeof ProjectTargetPlatform];
-
-export const ResourceType = {
-    SqlMi: "SqlMi",
-    SqlVm: "SqlVm",
-    SqlDb: "SqlDb",
-} as const;
-
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 export const ServerLevelPermissionsGroup = {
     Default: "Default",
@@ -95,3 +120,22 @@ export const SqlSourcePlatform = {
  * Server platform type for connection
  */
 export type SqlSourcePlatform = (typeof SqlSourcePlatform)[keyof typeof SqlSourcePlatform];
+
+export const SsisMigrationOverwriteOption = {
+    Ignore: "Ignore",
+    Overwrite: "Overwrite",
+} as const;
+
+/**
+ * The overwrite option for the SSIS project migration
+ */
+export type SsisMigrationOverwriteOption = (typeof SsisMigrationOverwriteOption)[keyof typeof SsisMigrationOverwriteOption];
+
+export const SsisStoreType = {
+    SsisCatalog: "SsisCatalog",
+} as const;
+
+/**
+ * The SSIS store type of source, only SSIS catalog is supported now in DMS
+ */
+export type SsisStoreType = (typeof SsisStoreType)[keyof typeof SsisStoreType];

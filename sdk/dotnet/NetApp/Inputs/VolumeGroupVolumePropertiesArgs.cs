@@ -70,16 +70,22 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<double>? DefaultUserQuotaInKiBs { get; set; }
 
         /// <summary>
+        /// If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+        /// </summary>
+        [Input("deleteBaseSnapshot")]
+        public Input<bool>? DeleteBaseSnapshot { get; set; }
+
+        /// <summary>
         /// Flag indicating whether subvolume operations are enabled on the volume
         /// </summary>
         [Input("enableSubvolumes")]
         public InputUnion<string, Pulumi.AzureNative.NetApp.EnableSubvolumes>? EnableSubvolumes { get; set; }
 
         /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        /// Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
         /// </summary>
         [Input("encryptionKeySource")]
-        public Input<string>? EncryptionKeySource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.NetApp.EncryptionKeySource>? EncryptionKeySource { get; set; }
 
         /// <summary>
         /// Set of export policy rules
@@ -94,6 +100,12 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<bool>? IsDefaultQuotaEnabled { get; set; }
 
         /// <summary>
+        /// Specifies whether volume is a Large Volume or Regular Volume.
+        /// </summary>
+        [Input("isLargeVolume")]
+        public Input<bool>? IsLargeVolume { get; set; }
+
+        /// <summary>
         /// Restoring
         /// </summary>
         [Input("isRestoring")]
@@ -104,6 +116,12 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         /// </summary>
         [Input("kerberosEnabled")]
         public Input<bool>? KerberosEnabled { get; set; }
+
+        /// <summary>
+        /// The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        /// </summary>
+        [Input("keyVaultPrivateEndpointResourceId")]
+        public Input<string>? KeyVaultPrivateEndpointResourceId { get; set; }
 
         /// <summary>
         /// Specifies whether LDAP is enabled or not for a given NFS volume.
@@ -166,6 +184,12 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetApp.ServiceLevel>? ServiceLevel { get; set; }
 
         /// <summary>
+        /// Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        /// </summary>
+        [Input("smbAccessBasedEnumeration")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.SmbAccessBasedEnumeration>? SmbAccessBasedEnumeration { get; set; }
+
+        /// <summary>
         /// Enables continuously available share property for smb volume. Only applicable for SMB volume
         /// </summary>
         [Input("smbContinuouslyAvailable")]
@@ -176,6 +200,12 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         /// </summary>
         [Input("smbEncryption")]
         public Input<bool>? SmbEncryption { get; set; }
+
+        /// <summary>
+        /// Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        /// </summary>
+        [Input("smbNonBrowsable")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.SmbNonBrowsable>? SmbNonBrowsable { get; set; }
 
         /// <summary>
         /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
@@ -217,7 +247,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<string>? UnixPermissions { get; set; }
 
         /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         /// </summary>
         [Input("usageThreshold", required: true)]
         public Input<double> UsageThreshold { get; set; } = null!;
@@ -241,7 +271,9 @@ namespace Pulumi.AzureNative.NetApp.Inputs
             DefaultGroupQuotaInKiBs = 0;
             DefaultUserQuotaInKiBs = 0;
             EnableSubvolumes = "Disabled";
+            EncryptionKeySource = "Microsoft.NetApp";
             IsDefaultQuotaEnabled = false;
+            IsLargeVolume = false;
             KerberosEnabled = false;
             LdapEnabled = false;
             NetworkFeatures = "Basic";

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list VM Host Update Operation.
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function listSubAccountVMHosts(args: ListSubAccountVMHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubAccountVMHostsResult> {
 
@@ -51,7 +51,7 @@ export interface ListSubAccountVMHostsResult {
 }
 /**
  * Response of a list VM Host Update Operation.
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function listSubAccountVMHostsOutput(args: ListSubAccountVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountVMHostsResult> {
     return pulumi.output(args).apply((a: any) => listSubAccountVMHosts(a, opts))

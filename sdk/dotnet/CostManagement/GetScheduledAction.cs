@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Get the private scheduled action by name.
-        /// API Version: 2022-04-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the private scheduled action by name.
-        /// API Version: 2022-04-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:costmanagement:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
@@ -64,15 +64,15 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Resource Etag.
+        /// Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
         /// </summary>
         public readonly string ETag;
         /// <summary>
-        /// Destination format of the view data.
+        /// Destination format of the view data. This is optional.
         /// </summary>
         public readonly Outputs.FileDestinationResponse? FileDestination;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -80,13 +80,17 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// Notification properties based on scheduled action kind.
         /// </summary>
         public readonly Outputs.NotificationPropertiesResponse Notification;
+        /// <summary>
+        /// Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        /// </summary>
+        public readonly string? NotificationEmail;
         /// <summary>
         /// Schedule of the scheduled action.
         /// </summary>
@@ -100,11 +104,11 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// Kind of the scheduled action.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.CostManagement
 
             Outputs.NotificationPropertiesResponse notification,
 
+            string? notificationEmail,
+
             Outputs.SchedulePropertiesResponse schedule,
 
             string? scope,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.CostManagement
             Kind = kind;
             Name = name;
             Notification = notification;
+            NotificationEmail = notificationEmail;
             Schedule = schedule;
             Scope = scope;
             Status = status;

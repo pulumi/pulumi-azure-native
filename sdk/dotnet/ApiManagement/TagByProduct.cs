@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Tag Contract details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-08-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:TagByProduct")]
     public partial class TagByProduct : global::Pulumi.CustomResource
@@ -23,13 +24,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -103,7 +104,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> ProductId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

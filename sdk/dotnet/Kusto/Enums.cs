@@ -20,20 +20,30 @@ namespace Pulumi.AzureNative.Kusto
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static AzureSkuName Dev_No_SLA_Standard_D11_v2 { get; } = new AzureSkuName("Dev(No SLA)_Standard_D11_v2");
+        public static AzureSkuName Dev_No_SLA_Standard_E2a_v4 { get; } = new AzureSkuName("Dev(No SLA)_Standard_E2a_v4");
+        public static AzureSkuName Standard_D11_v2 { get; } = new AzureSkuName("Standard_D11_v2");
+        public static AzureSkuName Standard_D12_v2 { get; } = new AzureSkuName("Standard_D12_v2");
+        public static AzureSkuName Standard_D13_v2 { get; } = new AzureSkuName("Standard_D13_v2");
+        public static AzureSkuName Standard_D14_v2 { get; } = new AzureSkuName("Standard_D14_v2");
+        public static AzureSkuName Standard_D32d_v4 { get; } = new AzureSkuName("Standard_D32d_v4");
+        public static AzureSkuName Standard_D16d_v5 { get; } = new AzureSkuName("Standard_D16d_v5");
+        public static AzureSkuName Standard_D32d_v5 { get; } = new AzureSkuName("Standard_D32d_v5");
         public static AzureSkuName Standard_DS13_v2_1TB_PS { get; } = new AzureSkuName("Standard_DS13_v2+1TB_PS");
         public static AzureSkuName Standard_DS13_v2_2TB_PS { get; } = new AzureSkuName("Standard_DS13_v2+2TB_PS");
         public static AzureSkuName Standard_DS14_v2_3TB_PS { get; } = new AzureSkuName("Standard_DS14_v2+3TB_PS");
         public static AzureSkuName Standard_DS14_v2_4TB_PS { get; } = new AzureSkuName("Standard_DS14_v2+4TB_PS");
-        public static AzureSkuName Standard_D13_v2 { get; } = new AzureSkuName("Standard_D13_v2");
-        public static AzureSkuName Standard_D14_v2 { get; } = new AzureSkuName("Standard_D14_v2");
+        public static AzureSkuName Standard_L4s { get; } = new AzureSkuName("Standard_L4s");
         public static AzureSkuName Standard_L8s { get; } = new AzureSkuName("Standard_L8s");
         public static AzureSkuName Standard_L16s { get; } = new AzureSkuName("Standard_L16s");
         public static AzureSkuName Standard_L8s_v2 { get; } = new AzureSkuName("Standard_L8s_v2");
         public static AzureSkuName Standard_L16s_v2 { get; } = new AzureSkuName("Standard_L16s_v2");
-        public static AzureSkuName Standard_D11_v2 { get; } = new AzureSkuName("Standard_D11_v2");
-        public static AzureSkuName Standard_D12_v2 { get; } = new AzureSkuName("Standard_D12_v2");
-        public static AzureSkuName Standard_L4s { get; } = new AzureSkuName("Standard_L4s");
-        public static AzureSkuName Dev_No_SLA_Standard_D11_v2 { get; } = new AzureSkuName("Dev(No SLA)_Standard_D11_v2");
+        public static AzureSkuName Standard_L8s_v3 { get; } = new AzureSkuName("Standard_L8s_v3");
+        public static AzureSkuName Standard_L16s_v3 { get; } = new AzureSkuName("Standard_L16s_v3");
+        public static AzureSkuName Standard_L32s_v3 { get; } = new AzureSkuName("Standard_L32s_v3");
+        public static AzureSkuName Standard_L8as_v3 { get; } = new AzureSkuName("Standard_L8as_v3");
+        public static AzureSkuName Standard_L16as_v3 { get; } = new AzureSkuName("Standard_L16as_v3");
+        public static AzureSkuName Standard_L32as_v3 { get; } = new AzureSkuName("Standard_L32as_v3");
         public static AzureSkuName Standard_E64i_v3 { get; } = new AzureSkuName("Standard_E64i_v3");
         public static AzureSkuName Standard_E80ids_v4 { get; } = new AzureSkuName("Standard_E80ids_v4");
         public static AzureSkuName Standard_E2a_v4 { get; } = new AzureSkuName("Standard_E2a_v4");
@@ -44,7 +54,36 @@ namespace Pulumi.AzureNative.Kusto
         public static AzureSkuName Standard_E8as_v4_2TB_PS { get; } = new AzureSkuName("Standard_E8as_v4+2TB_PS");
         public static AzureSkuName Standard_E16as_v4_3TB_PS { get; } = new AzureSkuName("Standard_E16as_v4+3TB_PS");
         public static AzureSkuName Standard_E16as_v4_4TB_PS { get; } = new AzureSkuName("Standard_E16as_v4+4TB_PS");
-        public static AzureSkuName Dev_No_SLA_Standard_E2a_v4 { get; } = new AzureSkuName("Dev(No SLA)_Standard_E2a_v4");
+        public static AzureSkuName Standard_E8as_v5_1TB_PS { get; } = new AzureSkuName("Standard_E8as_v5+1TB_PS");
+        public static AzureSkuName Standard_E8as_v5_2TB_PS { get; } = new AzureSkuName("Standard_E8as_v5+2TB_PS");
+        public static AzureSkuName Standard_E16as_v5_3TB_PS { get; } = new AzureSkuName("Standard_E16as_v5+3TB_PS");
+        public static AzureSkuName Standard_E16as_v5_4TB_PS { get; } = new AzureSkuName("Standard_E16as_v5+4TB_PS");
+        public static AzureSkuName Standard_E2ads_v5 { get; } = new AzureSkuName("Standard_E2ads_v5");
+        public static AzureSkuName Standard_E4ads_v5 { get; } = new AzureSkuName("Standard_E4ads_v5");
+        public static AzureSkuName Standard_E8ads_v5 { get; } = new AzureSkuName("Standard_E8ads_v5");
+        public static AzureSkuName Standard_E16ads_v5 { get; } = new AzureSkuName("Standard_E16ads_v5");
+        public static AzureSkuName Standard_EC8as_v5_1TB_PS { get; } = new AzureSkuName("Standard_EC8as_v5+1TB_PS");
+        public static AzureSkuName Standard_EC8as_v5_2TB_PS { get; } = new AzureSkuName("Standard_EC8as_v5+2TB_PS");
+        public static AzureSkuName Standard_EC16as_v5_3TB_PS { get; } = new AzureSkuName("Standard_EC16as_v5+3TB_PS");
+        public static AzureSkuName Standard_EC16as_v5_4TB_PS { get; } = new AzureSkuName("Standard_EC16as_v5+4TB_PS");
+        public static AzureSkuName Standard_EC8ads_v5 { get; } = new AzureSkuName("Standard_EC8ads_v5");
+        public static AzureSkuName Standard_EC16ads_v5 { get; } = new AzureSkuName("Standard_EC16ads_v5");
+        public static AzureSkuName Standard_E8s_v4_1TB_PS { get; } = new AzureSkuName("Standard_E8s_v4+1TB_PS");
+        public static AzureSkuName Standard_E8s_v4_2TB_PS { get; } = new AzureSkuName("Standard_E8s_v4+2TB_PS");
+        public static AzureSkuName Standard_E16s_v4_3TB_PS { get; } = new AzureSkuName("Standard_E16s_v4+3TB_PS");
+        public static AzureSkuName Standard_E16s_v4_4TB_PS { get; } = new AzureSkuName("Standard_E16s_v4+4TB_PS");
+        public static AzureSkuName Standard_E8s_v5_1TB_PS { get; } = new AzureSkuName("Standard_E8s_v5+1TB_PS");
+        public static AzureSkuName Standard_E8s_v5_2TB_PS { get; } = new AzureSkuName("Standard_E8s_v5+2TB_PS");
+        public static AzureSkuName Standard_E16s_v5_3TB_PS { get; } = new AzureSkuName("Standard_E16s_v5+3TB_PS");
+        public static AzureSkuName Standard_E16s_v5_4TB_PS { get; } = new AzureSkuName("Standard_E16s_v5+4TB_PS");
+        public static AzureSkuName Standard_E2d_v4 { get; } = new AzureSkuName("Standard_E2d_v4");
+        public static AzureSkuName Standard_E4d_v4 { get; } = new AzureSkuName("Standard_E4d_v4");
+        public static AzureSkuName Standard_E8d_v4 { get; } = new AzureSkuName("Standard_E8d_v4");
+        public static AzureSkuName Standard_E16d_v4 { get; } = new AzureSkuName("Standard_E16d_v4");
+        public static AzureSkuName Standard_E2d_v5 { get; } = new AzureSkuName("Standard_E2d_v5");
+        public static AzureSkuName Standard_E4d_v5 { get; } = new AzureSkuName("Standard_E4d_v5");
+        public static AzureSkuName Standard_E8d_v5 { get; } = new AzureSkuName("Standard_E8d_v5");
+        public static AzureSkuName Standard_E16d_v5 { get; } = new AzureSkuName("Standard_E16d_v5");
 
         public static bool operator ==(AzureSkuName left, AzureSkuName right) => left.Equals(right);
         public static bool operator !=(AzureSkuName left, AzureSkuName right) => !left.Equals(right);
@@ -116,6 +155,37 @@ namespace Pulumi.AzureNative.Kusto
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BlobStorageEventType other && Equals(other);
         public bool Equals(BlobStorageEventType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterNetworkAccessFlag : IEquatable<ClusterNetworkAccessFlag>
+    {
+        private readonly string _value;
+
+        private ClusterNetworkAccessFlag(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterNetworkAccessFlag Enabled { get; } = new ClusterNetworkAccessFlag("Enabled");
+        public static ClusterNetworkAccessFlag Disabled { get; } = new ClusterNetworkAccessFlag("Disabled");
+
+        public static bool operator ==(ClusterNetworkAccessFlag left, ClusterNetworkAccessFlag right) => left.Equals(right);
+        public static bool operator !=(ClusterNetworkAccessFlag left, ClusterNetworkAccessFlag right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterNetworkAccessFlag value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterNetworkAccessFlag other && Equals(other);
+        public bool Equals(ClusterNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -201,6 +271,7 @@ namespace Pulumi.AzureNative.Kusto
         public static DataConnectionKind EventHub { get; } = new DataConnectionKind("EventHub");
         public static DataConnectionKind EventGrid { get; } = new DataConnectionKind("EventGrid");
         public static DataConnectionKind IotHub { get; } = new DataConnectionKind("IotHub");
+        public static DataConnectionKind CosmosDb { get; } = new DataConnectionKind("CosmosDb");
 
         public static bool operator ==(DataConnectionKind left, DataConnectionKind right) => left.Equals(right);
         public static bool operator !=(DataConnectionKind left, DataConnectionKind right) => !left.Equals(right);
@@ -210,38 +281,6 @@ namespace Pulumi.AzureNative.Kusto
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataConnectionKind other && Equals(other);
         public bool Equals(DataConnectionKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The data format of the message. Optionally the data format can be added to each message.
-    /// </summary>
-    [EnumType]
-    public readonly struct DataFormat : IEquatable<DataFormat>
-    {
-        private readonly string _value;
-
-        private DataFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataFormat MULTIJSON { get; } = new DataFormat("MULTIJSON");
-        public static DataFormat JSON { get; } = new DataFormat("JSON");
-        public static DataFormat CSV { get; } = new DataFormat("CSV");
-
-        public static bool operator ==(DataFormat left, DataFormat right) => left.Equals(right);
-        public static bool operator !=(DataFormat left, DataFormat right) => !left.Equals(right);
-
-        public static explicit operator string(DataFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataFormat other && Equals(other);
-        public bool Equals(DataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -277,6 +316,37 @@ namespace Pulumi.AzureNative.Kusto
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatabasePrincipalRole other && Equals(other);
         public bool Equals(DatabasePrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indication for database routing information from the data connection, by default only database routing information is allowed
+    /// </summary>
+    [EnumType]
+    public readonly struct DatabaseRouting : IEquatable<DatabaseRouting>
+    {
+        private readonly string _value;
+
+        private DatabaseRouting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatabaseRouting Single { get; } = new DatabaseRouting("Single");
+        public static DatabaseRouting Multi { get; } = new DatabaseRouting("Multi");
+
+        public static bool operator ==(DatabaseRouting left, DatabaseRouting right) => left.Equals(right);
+        public static bool operator !=(DatabaseRouting left, DatabaseRouting right) => !left.Equals(right);
+
+        public static explicit operator string(DatabaseRouting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatabaseRouting other && Equals(other);
+        public bool Equals(DatabaseRouting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -547,6 +617,69 @@ namespace Pulumi.AzureNative.Kusto
     }
 
     /// <summary>
+    /// The language extension image name.
+    /// </summary>
+    [EnumType]
+    public readonly struct LanguageExtensionImageName : IEquatable<LanguageExtensionImageName>
+    {
+        private readonly string _value;
+
+        private LanguageExtensionImageName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LanguageExtensionImageName R { get; } = new LanguageExtensionImageName("R");
+        public static LanguageExtensionImageName Python3_6_5 { get; } = new LanguageExtensionImageName("Python3_6_5");
+        public static LanguageExtensionImageName Python3_10_8 { get; } = new LanguageExtensionImageName("Python3_10_8");
+
+        public static bool operator ==(LanguageExtensionImageName left, LanguageExtensionImageName right) => left.Equals(right);
+        public static bool operator !=(LanguageExtensionImageName left, LanguageExtensionImageName right) => !left.Equals(right);
+
+        public static explicit operator string(LanguageExtensionImageName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LanguageExtensionImageName other && Equals(other);
+        public bool Equals(LanguageExtensionImageName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The language extension name.
+    /// </summary>
+    [EnumType]
+    public readonly struct LanguageExtensionName : IEquatable<LanguageExtensionName>
+    {
+        private readonly string _value;
+
+        private LanguageExtensionName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LanguageExtensionName PYTHON { get; } = new LanguageExtensionName("PYTHON");
+        public static LanguageExtensionName R { get; } = new LanguageExtensionName("R");
+
+        public static bool operator ==(LanguageExtensionName left, LanguageExtensionName right) => left.Equals(right);
+        public static bool operator !=(LanguageExtensionName left, LanguageExtensionName right) => !left.Equals(right);
+
+        public static explicit operator string(LanguageExtensionName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LanguageExtensionName other && Equals(other);
+        public bool Equals(LanguageExtensionName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Principal type.
     /// </summary>
     [EnumType]
@@ -571,6 +704,68 @@ namespace Pulumi.AzureNative.Kusto
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrincipalType other && Equals(other);
         public bool Equals(PrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPType : IEquatable<PublicIPType>
+    {
+        private readonly string _value;
+
+        private PublicIPType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPType IPv4 { get; } = new PublicIPType("IPv4");
+        public static PublicIPType DualStack { get; } = new PublicIPType("DualStack");
+
+        public static bool operator ==(PublicIPType left, PublicIPType right) => left.Equals(right);
+        public static bool operator !=(PublicIPType left, PublicIPType right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPType other && Equals(other);
+        public bool Equals(PublicIPType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -22,10 +22,13 @@ class GetMECRoleResult:
     """
     MEC role.
     """
-    def __init__(__self__, connection_string=None, id=None, kind=None, name=None, role_status=None, system_data=None, type=None):
+    def __init__(__self__, connection_string=None, controller_endpoint=None, id=None, kind=None, name=None, resource_unique_id=None, role_status=None, system_data=None, type=None):
         if connection_string and not isinstance(connection_string, dict):
             raise TypeError("Expected argument 'connection_string' to be a dict")
         pulumi.set(__self__, "connection_string", connection_string)
+        if controller_endpoint and not isinstance(controller_endpoint, str):
+            raise TypeError("Expected argument 'controller_endpoint' to be a str")
+        pulumi.set(__self__, "controller_endpoint", controller_endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,6 +38,9 @@ class GetMECRoleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if resource_unique_id and not isinstance(resource_unique_id, str):
+            raise TypeError("Expected argument 'resource_unique_id' to be a str")
+        pulumi.set(__self__, "resource_unique_id", resource_unique_id)
         if role_status and not isinstance(role_status, str):
             raise TypeError("Expected argument 'role_status' to be a str")
         pulumi.set(__self__, "role_status", role_status)
@@ -52,6 +58,14 @@ class GetMECRoleResult:
         Activation key of the MEC.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="controllerEndpoint")
+    def controller_endpoint(self) -> Optional[str]:
+        """
+        Controller Endpoint.
+        """
+        return pulumi.get(self, "controller_endpoint")
 
     @property
     @pulumi.getter
@@ -79,6 +93,14 @@ class GetMECRoleResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="resourceUniqueId")
+    def resource_unique_id(self) -> Optional[str]:
+        """
+        Unique Id of the Resource.
+        """
+        return pulumi.get(self, "resource_unique_id")
+
+    @property
     @pulumi.getter(name="roleStatus")
     def role_status(self) -> str:
         """
@@ -90,7 +112,7 @@ class GetMECRoleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Role configured on ASE resource
+        Metadata pertaining to creation and last modification of Role
         """
         return pulumi.get(self, "system_data")
 
@@ -110,9 +132,11 @@ class AwaitableGetMECRoleResult(GetMECRoleResult):
             yield self
         return GetMECRoleResult(
             connection_string=self.connection_string,
+            controller_endpoint=self.controller_endpoint,
             id=self.id,
             kind=self.kind,
             name=self.name,
+            resource_unique_id=self.resource_unique_id,
             role_status=self.role_status,
             system_data=self.system_data,
             type=self.type)
@@ -124,7 +148,7 @@ def get_mec_role(device_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMECRoleResult:
     """
     Gets a specific role by name.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -140,9 +164,11 @@ def get_mec_role(device_name: Optional[str] = None,
 
     return AwaitableGetMECRoleResult(
         connection_string=__ret__.connection_string,
+        controller_endpoint=__ret__.controller_endpoint,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
+        resource_unique_id=__ret__.resource_unique_id,
         role_status=__ret__.role_status,
         system_data=__ret__.system_data,
         type=__ret__.type)
@@ -155,7 +181,7 @@ def get_mec_role_output(device_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMECRoleResult]:
     """
     Gets a specific role by name.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

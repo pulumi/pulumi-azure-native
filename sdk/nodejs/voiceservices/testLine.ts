@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A TestLine resource
- * API Version: 2022-12-01-preview.
+ * API Version: 2023-01-31.
+ * Previous API Version: 2022-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class TestLine extends pulumi.CustomResource {
     /**
@@ -141,7 +142,7 @@ export interface TestLineArgs {
     /**
      * Purpose of this test line, e.g. automated or manual testing
      */
-    purpose: pulumi.Input<enums.voiceservices.TestLinePurpose>;
+    purpose: pulumi.Input<string | enums.voiceservices.TestLinePurpose>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

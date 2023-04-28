@@ -21,18 +21,60 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly Outputs.DestinationsSpecResponseAzureMonitorMetrics? AzureMonitorMetrics;
         /// <summary>
+        /// List of Event Hubs destinations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventHubDestinationResponse> EventHubs;
+        /// <summary>
+        /// List of Event Hubs Direct destinations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventHubDirectDestinationResponse> EventHubsDirect;
+        /// <summary>
         /// List of Log Analytics destinations.
         /// </summary>
         public readonly ImmutableArray<Outputs.LogAnalyticsDestinationResponse> LogAnalytics;
+        /// <summary>
+        /// List of monitoring account destinations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MonitoringAccountDestinationResponse> MonitoringAccounts;
+        /// <summary>
+        /// List of storage accounts destinations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageBlobDestinationResponse> StorageAccounts;
+        /// <summary>
+        /// List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageBlobDestinationResponse> StorageBlobsDirect;
+        /// <summary>
+        /// List of Storage Table Direct destinations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageTableDestinationResponse> StorageTablesDirect;
 
         [OutputConstructor]
         private DataCollectionRuleResponseDestinations(
             Outputs.DestinationsSpecResponseAzureMonitorMetrics? azureMonitorMetrics,
 
-            ImmutableArray<Outputs.LogAnalyticsDestinationResponse> logAnalytics)
+            ImmutableArray<Outputs.EventHubDestinationResponse> eventHubs,
+
+            ImmutableArray<Outputs.EventHubDirectDestinationResponse> eventHubsDirect,
+
+            ImmutableArray<Outputs.LogAnalyticsDestinationResponse> logAnalytics,
+
+            ImmutableArray<Outputs.MonitoringAccountDestinationResponse> monitoringAccounts,
+
+            ImmutableArray<Outputs.StorageBlobDestinationResponse> storageAccounts,
+
+            ImmutableArray<Outputs.StorageBlobDestinationResponse> storageBlobsDirect,
+
+            ImmutableArray<Outputs.StorageTableDestinationResponse> storageTablesDirect)
         {
             AzureMonitorMetrics = azureMonitorMetrics;
+            EventHubs = eventHubs;
+            EventHubsDirect = eventHubsDirect;
             LogAnalytics = logAnalytics;
+            MonitoringAccounts = monitoringAccounts;
+            StorageAccounts = storageAccounts;
+            StorageBlobsDirect = storageBlobsDirect;
+            StorageTablesDirect = storageTablesDirect;
         }
     }
 }

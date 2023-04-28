@@ -22,7 +22,7 @@ class GetCatalogResult:
     """
     Represents a catalog.
     """
-    def __init__(__self__, ado_git=None, git_hub=None, id=None, last_sync_time=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, ado_git=None, git_hub=None, id=None, last_sync_time=None, name=None, provisioning_state=None, sync_state=None, system_data=None, type=None):
         if ado_git and not isinstance(ado_git, dict):
             raise TypeError("Expected argument 'ado_git' to be a dict")
         pulumi.set(__self__, "ado_git", ado_git)
@@ -41,6 +41,9 @@ class GetCatalogResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sync_state and not isinstance(sync_state, str):
+            raise TypeError("Expected argument 'sync_state' to be a str")
+        pulumi.set(__self__, "sync_state", sync_state)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -97,6 +100,14 @@ class GetCatalogResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="syncState")
+    def sync_state(self) -> str:
+        """
+        The synchronization state of the catalog.
+        """
+        return pulumi.get(self, "sync_state")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -125,6 +136,7 @@ class AwaitableGetCatalogResult(GetCatalogResult):
             last_sync_time=self.last_sync_time,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            sync_state=self.sync_state,
             system_data=self.system_data,
             type=self.type)
 
@@ -135,12 +147,12 @@ def get_catalog(catalog_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogResult:
     """
     Gets a catalog
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str catalog_name: The name of the Catalog.
     :param str dev_center_name: The name of the devcenter.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['catalogName'] = catalog_name
@@ -156,6 +168,7 @@ def get_catalog(catalog_name: Optional[str] = None,
         last_sync_time=__ret__.last_sync_time,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        sync_state=__ret__.sync_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -167,11 +180,11 @@ def get_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCatalogResult]:
     """
     Gets a catalog
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str catalog_name: The name of the Catalog.
     :param str dev_center_name: The name of the devcenter.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

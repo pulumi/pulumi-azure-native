@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the Monitoring Setting and its properties.
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-12-01.
         /// </summary>
         public static Task<GetMonitoringSettingResult> InvokeAsync(GetMonitoringSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringSettingResult>("azure-native:appplatform:getMonitoringSetting", args ?? new GetMonitoringSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Monitoring Setting and its properties.
-        /// API Version: 2020-07-01.
+        /// API Version: 2022-12-01.
         /// </summary>
         public static Output<GetMonitoringSettingResult> Invoke(GetMonitoringSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringSettingResult>("azure-native:appplatform:getMonitoringSetting", args ?? new GetMonitoringSettingInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         public readonly Outputs.MonitoringSettingPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -96,11 +100,14 @@ namespace Pulumi.AzureNative.AppPlatform
 
             Outputs.MonitoringSettingPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

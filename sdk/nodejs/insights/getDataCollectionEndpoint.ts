@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2021-09-01-preview.
+ * API Version: 2022-06-01.
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
 
@@ -48,9 +48,17 @@ export interface GetDataCollectionEndpointResult {
      */
     readonly etag: string;
     /**
+     * Failover configuration on this endpoint. This property is READ-ONLY.
+     */
+    readonly failoverConfiguration: outputs.insights.DataCollectionEndpointResponseFailoverConfiguration;
+    /**
      * Fully qualified ID of the resource.
      */
     readonly id: string;
+    /**
+     * Managed service identity of the resource.
+     */
+    readonly identity?: outputs.insights.DataCollectionEndpointResourceResponseIdentity;
     /**
      * The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
      */
@@ -68,6 +76,14 @@ export interface GetDataCollectionEndpointResult {
      */
     readonly logsIngestion?: outputs.insights.DataCollectionEndpointResponseLogsIngestion;
     /**
+     * Metadata for the resource. This property is READ-ONLY.
+     */
+    readonly metadata: outputs.insights.DataCollectionEndpointResponseMetadata;
+    /**
+     * The endpoint used by clients to ingest metrics.
+     */
+    readonly metricsIngestion?: outputs.insights.DataCollectionEndpointResponseMetricsIngestion;
+    /**
      * The name of the resource.
      */
     readonly name: string;
@@ -75,6 +91,10 @@ export interface GetDataCollectionEndpointResult {
      * Network access control rules for the endpoints.
      */
     readonly networkAcls?: outputs.insights.DataCollectionEndpointResponseNetworkAcls;
+    /**
+     * List of Azure Monitor Private Link Scope Resources to which this data collection endpoint resource is associated. This property is READ-ONLY.
+     */
+    readonly privateLinkScopedResources: outputs.insights.PrivateLinkScopedResourceResponse[];
     /**
      * The resource provisioning state. This property is READ-ONLY.
      */
@@ -94,7 +114,7 @@ export interface GetDataCollectionEndpointResult {
 }
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2021-09-01-preview.
+ * API Version: 2022-06-01.
  */
 export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionEndpoint(a, opts))

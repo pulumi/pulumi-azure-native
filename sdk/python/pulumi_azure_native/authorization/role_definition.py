@@ -147,7 +147,8 @@ class RoleDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         Role definition.
-        API Version: 2018-01-01-preview.
+        API Version: 2022-04-01.
+        Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +168,8 @@ class RoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Role definition.
-        API Version: 2018-01-01-preview.
+        API Version: 2022-04-01.
+        Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param RoleDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -209,8 +211,12 @@ class RoleDefinition(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["created_by"] = None
+            __props__.__dict__["created_on"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["updated_by"] = None
+            __props__.__dict__["updated_on"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20150701:RoleDefinition"), pulumi.Alias(type_="azure-native:authorization/v20180101preview:RoleDefinition"), pulumi.Alias(type_="azure-native:authorization/v20220401:RoleDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleDefinition, __self__).__init__(
@@ -236,12 +242,16 @@ class RoleDefinition(pulumi.CustomResource):
         __props__ = RoleDefinitionArgs.__new__(RoleDefinitionArgs)
 
         __props__.__dict__["assignable_scopes"] = None
+        __props__.__dict__["created_by"] = None
+        __props__.__dict__["created_on"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["permissions"] = None
         __props__.__dict__["role_name"] = None
         __props__.__dict__["role_type"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["updated_by"] = None
+        __props__.__dict__["updated_on"] = None
         return RoleDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -251,6 +261,22 @@ class RoleDefinition(pulumi.CustomResource):
         Role definition assignable scopes.
         """
         return pulumi.get(self, "assignable_scopes")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> pulumi.Output[str]:
+        """
+        Id of the user who created the assignment
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Output[str]:
+        """
+        Time it was created
+        """
+        return pulumi.get(self, "created_on")
 
     @property
     @pulumi.getter
@@ -299,4 +325,20 @@ class RoleDefinition(pulumi.CustomResource):
         The role definition type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> pulumi.Output[str]:
+        """
+        Id of the user who updated the assignment
+        """
+        return pulumi.get(self, "updated_by")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> pulumi.Output[str]:
+        """
+        Time it was updated
+        """
+        return pulumi.get(self, "updated_on")
 

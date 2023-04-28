@@ -5,6 +5,4 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
-from .communication_service import *
-from .get_communication_service import *
 from .list_communication_service_keys import *

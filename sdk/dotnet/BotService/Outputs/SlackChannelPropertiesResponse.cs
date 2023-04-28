@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// <summary>
         /// Whether to register the settings before OAuth validation is performed. Recommended to True.
         /// </summary>
-        public readonly bool RegisterBeforeOAuthFlow;
+        public readonly bool? RegisterBeforeOAuthFlow;
         /// <summary>
         /// The Slack permission scopes.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             string redirectAction,
 
-            bool registerBeforeOAuthFlow,
+            bool? registerBeforeOAuthFlow,
 
             string? scopes,
 

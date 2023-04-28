@@ -148,14 +148,14 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolWorkloadClassifierResult:
     """
     Get a workload classifier of Sql pool's workload group.
-    API Version: 2021-03-01.
+    API Version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_pool_name: SQL pool name
     :param str workload_classifier_name: The name of the workload classifier.
     :param str workload_group_name: The name of the workload group.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -187,13 +187,13 @@ def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolWorkloadClassifierResult]:
     """
     Get a workload classifier of Sql pool's workload group.
-    API Version: 2021-03-01.
+    API Version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_pool_name: SQL pool name
     :param str workload_classifier_name: The name of the workload classifier.
     :param str workload_group_name: The name of the workload group.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// API Version: 2019-11-01-preview.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// API Version: 2019-11-01-preview.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetDataCollectionRuleResult
     {
         /// <summary>
+        /// The resource ID of the data collection endpoint that this rule can be used with.
+        /// </summary>
+        public readonly string? DataCollectionEndpointId;
+        /// <summary>
         /// The specification of data flows.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataFlowResponse> DataFlows;
@@ -97,6 +101,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Managed service identity of the resource.
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleResourceResponseIdentity? Identity;
+        /// <summary>
         /// The immutable ID of this data collection rule. This property is READ-ONLY.
         /// </summary>
         public readonly string ImmutableId;
@@ -109,6 +117,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Metadata about the resource
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleResponseMetadata Metadata;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -116,6 +128,14 @@ namespace Pulumi.AzureNative.Insights
         /// The resource provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Declaration of custom streams used in this rule.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.StreamDeclarationResponse>? StreamDeclarations;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleResourceResponseSystemData SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -127,6 +147,8 @@ namespace Pulumi.AzureNative.Insights
 
         [OutputConstructor]
         private GetDataCollectionRuleResult(
+            string? dataCollectionEndpointId,
+
             ImmutableArray<Outputs.DataFlowResponse> dataFlows,
 
             Outputs.DataCollectionRuleResponseDataSources? dataSources,
@@ -139,31 +161,44 @@ namespace Pulumi.AzureNative.Insights
 
             string id,
 
+            Outputs.DataCollectionRuleResourceResponseIdentity? identity,
+
             string immutableId,
 
             string? kind,
 
             string location,
 
+            Outputs.DataCollectionRuleResponseMetadata metadata,
+
             string name,
 
             string provisioningState,
+
+            ImmutableDictionary<string, Outputs.StreamDeclarationResponse>? streamDeclarations,
+
+            Outputs.DataCollectionRuleResourceResponseSystemData systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            DataCollectionEndpointId = dataCollectionEndpointId;
             DataFlows = dataFlows;
             DataSources = dataSources;
             Description = description;
             Destinations = destinations;
             Etag = etag;
             Id = id;
+            Identity = identity;
             ImmutableId = immutableId;
             Kind = kind;
             Location = location;
+            Metadata = metadata;
             Name = name;
             ProvisioningState = provisioningState;
+            StreamDeclarations = streamDeclarations;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

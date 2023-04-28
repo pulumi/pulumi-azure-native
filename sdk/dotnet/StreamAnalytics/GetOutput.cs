@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// Gets details about the specified output.
-        /// API Version: 2016-03-01.
+        /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details about the specified output.
-        /// API Version: 2016-03-01.
+        /// API Version: 2020-03-01.
         /// </summary>
         public static Output<GetOutputResult> Invoke(GetOutputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public string OutputName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Input<string> OutputName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -108,6 +108,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly object? Serialization;
         /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
+        public readonly int? SizeWindow;
+        /// <summary>
+        /// The time frame for filtering Stream Analytics job outputs.
+        /// </summary>
+        public readonly string? TimeWindow;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -126,6 +134,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             object? serialization,
 
+            int? sizeWindow,
+
+            string? timeWindow,
+
             string type)
         {
             Datasource = datasource;
@@ -134,6 +146,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
             Id = id;
             Name = name;
             Serialization = serialization;
+            SizeWindow = sizeWindow;
+            TimeWindow = timeWindow;
             Type = type;
         }
     }

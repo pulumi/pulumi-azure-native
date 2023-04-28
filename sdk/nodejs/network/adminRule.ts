@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Network admin rule.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AdminRule extends pulumi.CustomResource {
     /**
@@ -59,10 +60,6 @@ export class AdminRule extends pulumi.CustomResource {
      */
     public readonly direction!: pulumi.Output<string>;
     /**
-     * A friendly name for the rule.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -78,7 +75,7 @@ export class AdminRule extends pulumi.CustomResource {
     /**
      * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * Network protocol this rule applies to.
      */
@@ -130,6 +127,9 @@ export class AdminRule extends pulumi.CustomResource {
             if ((!args || args.networkManagerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
+            if ((!args || args.priority === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'priority'");
+            }
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
@@ -145,7 +145,6 @@ export class AdminRule extends pulumi.CustomResource {
             resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
             resourceInputs["destinations"] = args ? args.destinations : undefined;
             resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["kind"] = "Custom";
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
@@ -166,7 +165,6 @@ export class AdminRule extends pulumi.CustomResource {
             resourceInputs["destinationPortRanges"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -194,7 +192,7 @@ export interface AdminRuleArgs {
      */
     access: pulumi.Input<string | enums.network.SecurityConfigurationRuleAccess>;
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**
@@ -214,10 +212,6 @@ export interface AdminRuleArgs {
      */
     direction: pulumi.Input<string | enums.network.SecurityConfigurationRuleDirection>;
     /**
-     * A friendly name for the rule.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Whether the rule is custom or default.
      * Expected value is 'Custom'.
      */
@@ -229,7 +223,7 @@ export interface AdminRuleArgs {
     /**
      * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    priority?: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
     /**
      * Network protocol this rule applies to.
      */

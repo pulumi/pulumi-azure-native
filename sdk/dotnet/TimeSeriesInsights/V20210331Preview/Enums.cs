@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
 {
     /// <summary>
-    /// A role defining the data plane operations that a principal can perform on a Time Series Insights client.
-    /// </summary>
-    [EnumType]
-    public readonly struct AccessPolicyRole : IEquatable<AccessPolicyRole>
-    {
-        private readonly string _value;
-
-        private AccessPolicyRole(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessPolicyRole Reader { get; } = new AccessPolicyRole("Reader");
-        public static AccessPolicyRole Contributor { get; } = new AccessPolicyRole("Contributor");
-
-        public static bool operator ==(AccessPolicyRole left, AccessPolicyRole right) => left.Equals(right);
-        public static bool operator !=(AccessPolicyRole left, AccessPolicyRole right) => !left.Equals(right);
-
-        public static explicit operator string(AccessPolicyRole value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessPolicyRole other && Equals(other);
-        public bool Equals(AccessPolicyRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-    /// </summary>
-    [EnumType]
-    public readonly struct DataStringComparisonBehavior : IEquatable<DataStringComparisonBehavior>
-    {
-        private readonly string _value;
-
-        private DataStringComparisonBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataStringComparisonBehavior Ordinal { get; } = new DataStringComparisonBehavior("Ordinal");
-        public static DataStringComparisonBehavior OrdinalIgnoreCase { get; } = new DataStringComparisonBehavior("OrdinalIgnoreCase");
-
-        public static bool operator ==(DataStringComparisonBehavior left, DataStringComparisonBehavior right) => left.Equals(right);
-        public static bool operator !=(DataStringComparisonBehavior left, DataStringComparisonBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(DataStringComparisonBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataStringComparisonBehavior other && Equals(other);
-        public bool Equals(DataStringComparisonBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The kind of the environment.
     /// </summary>
     [EnumType]
@@ -279,39 +217,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of the key property.
-    /// </summary>
-    [EnumType]
-    public readonly struct ReferenceDataKeyPropertyType : IEquatable<ReferenceDataKeyPropertyType>
-    {
-        private readonly string _value;
-
-        private ReferenceDataKeyPropertyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ReferenceDataKeyPropertyType String { get; } = new ReferenceDataKeyPropertyType("String");
-        public static ReferenceDataKeyPropertyType Double { get; } = new ReferenceDataKeyPropertyType("Double");
-        public static ReferenceDataKeyPropertyType Bool { get; } = new ReferenceDataKeyPropertyType("Bool");
-        public static ReferenceDataKeyPropertyType DateTime { get; } = new ReferenceDataKeyPropertyType("DateTime");
-
-        public static bool operator ==(ReferenceDataKeyPropertyType left, ReferenceDataKeyPropertyType right) => left.Equals(right);
-        public static bool operator !=(ReferenceDataKeyPropertyType left, ReferenceDataKeyPropertyType right) => !left.Equals(right);
-
-        public static explicit operator string(ReferenceDataKeyPropertyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReferenceDataKeyPropertyType other && Equals(other);
-        public bool Equals(ReferenceDataKeyPropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

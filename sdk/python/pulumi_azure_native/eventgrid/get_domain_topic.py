@@ -99,7 +99,7 @@ def get_domain_topic(domain_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainTopicResult:
     """
     Get properties of a domain topic.
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the domain.
@@ -128,7 +128,7 @@ def get_domain_topic_output(domain_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainTopicResult]:
     """
     Get properties of a domain topic.
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str domain_name: Name of the domain.

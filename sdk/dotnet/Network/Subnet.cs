@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Subnet in a virtual network resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource
@@ -31,8 +32,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Application gateway IP configurations of virtual network resource.
         /// </summary>
-        [Output("applicationGatewayIpConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> ApplicationGatewayIpConfigurations { get; private set; } = null!;
+        [Output("applicationGatewayIPConfigurations")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> ApplicationGatewayIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// An array of references to the delegations on the subnet.
@@ -258,16 +259,16 @@ namespace Pulumi.AzureNative.Network
             set => _addressPrefixes = value;
         }
 
-        [Input("applicationGatewayIpConfigurations")]
-        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIpConfigurations;
+        [Input("applicationGatewayIPConfigurations")]
+        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIPConfigurations;
 
         /// <summary>
         /// Application gateway IP configurations of virtual network resource.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIpConfigurations
+        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIPConfigurations
         {
-            get => _applicationGatewayIpConfigurations ?? (_applicationGatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
-            set => _applicationGatewayIpConfigurations = value;
+            get => _applicationGatewayIPConfigurations ?? (_applicationGatewayIPConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
+            set => _applicationGatewayIPConfigurations = value;
         }
 
         [Input("delegations")]
@@ -386,7 +387,7 @@ namespace Pulumi.AzureNative.Network
 
         public SubnetArgs()
         {
-            PrivateEndpointNetworkPolicies = "Enabled";
+            PrivateEndpointNetworkPolicies = "Disabled";
             PrivateLinkServiceNetworkPolicies = "Enabled";
         }
         public static new SubnetArgs Empty => new SubnetArgs();

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Define the virtualMachine.
-    /// API Version: 2020-10-01-preview.
+    /// API Version: 2022-07-15-preview.
+    /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -138,6 +139,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string?> ResourcePoolId { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the security profile.
+        /// </summary>
+        [Output("securityProfile")]
+        public Output<Outputs.SecurityProfileResponse?> SecurityProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the SMBIOS UUID of the vm.
         /// </summary>
         [Output("smbiosUuid")]
@@ -261,6 +268,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public InputUnion<string, Pulumi.AzureNative.ConnectedVMwarevSphere.FirmwareType>? FirmwareType { get; set; }
 
         /// <summary>
+        /// Guest agent status properties.
+        /// </summary>
+        [Input("guestAgentProfile")]
+        public Input<Inputs.GuestAgentProfileArgs>? GuestAgentProfile { get; set; }
+
+        /// <summary>
         /// Hardware properties.
         /// </summary>
         [Input("hardwareProfile")]
@@ -326,6 +339,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Input("resourcePoolId")]
         public Input<string>? ResourcePoolId { get; set; }
+
+        /// <summary>
+        /// Gets the security profile.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.SecurityProfileArgs>? SecurityProfile { get; set; }
 
         /// <summary>
         /// Gets or sets the SMBIOS UUID of the vm.

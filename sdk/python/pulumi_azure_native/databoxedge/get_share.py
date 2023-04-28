@@ -158,7 +158,7 @@ class GetShareResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Share on ASE device
+        Metadata pertaining to creation and last modification of Share
         """
         return pulumi.get(self, "system_data")
 
@@ -207,7 +207,7 @@ def get_share(device_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareResult:
     """
     Represents a share on the  Data Box Edge/Gateway device.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -245,7 +245,7 @@ def get_share_output(device_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
     """
     Represents a share on the  Data Box Edge/Gateway device.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

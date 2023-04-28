@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents an incident comment
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:IncidentComment")]
     public partial class IncidentComment : global::Pulumi.CustomResource
@@ -47,7 +48,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Message { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -59,7 +60,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -109,6 +110,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:IncidentComment"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:IncidentComment"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:IncidentComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:IncidentComment"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:IncidentComment"},
                 },
             };
@@ -150,12 +152,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

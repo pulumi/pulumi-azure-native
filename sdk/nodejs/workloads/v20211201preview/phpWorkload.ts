@@ -207,8 +207,6 @@ export class PhpWorkload extends pulumi.CustomResource {
             resourceInputs["webNodesProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads:PhpWorkload" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PhpWorkload.__pulumiType, name, resourceInputs, opts);
     }
 }

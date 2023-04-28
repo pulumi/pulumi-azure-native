@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Email Template details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class EmailTemplate extends pulumi.CustomResource {
     /**
@@ -47,11 +48,11 @@ export class EmailTemplate extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether the template is the default template provided by Api Management or has been edited.
+     * Whether the template is the default template provided by API Management or has been edited.
      */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -67,7 +68,7 @@ export class EmailTemplate extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -133,7 +134,7 @@ export interface EmailTemplateArgs {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.EmailTemplateParametersContractPropertiesArgs>[]>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

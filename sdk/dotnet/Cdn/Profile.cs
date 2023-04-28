@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
-    /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
-    /// API Version: 2020-09-01.
+    /// A profile is a logical grouping of endpoints that share the same settings.
+    /// API Version: 2021-06-01.
+    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
@@ -19,8 +20,14 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The Id of the frontdoor.
         /// </summary>
-        [Output("frontdoorId")]
-        public Output<string> FrontdoorId { get; private set; } = null!;
+        [Output("frontDoorId")]
+        public Output<string> FrontDoorId { get; private set; } = null!;
+
+        /// <summary>
+        /// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -35,6 +42,12 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        /// </summary>
+        [Output("originResponseTimeoutSeconds")]
+        public Output<int?> OriginResponseTimeoutSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning status of the profile.
         /// </summary>
         [Output("provisioningState")]
@@ -47,7 +60,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
-        /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+        /// The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
@@ -140,7 +153,13 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        /// </summary>
+        [Input("originResponseTimeoutSeconds")]
+        public Input<int>? OriginResponseTimeoutSeconds { get; set; }
+
+        /// <summary>
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName")]
         public Input<string>? ProfileName { get; set; }
@@ -152,7 +171,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+        /// The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;

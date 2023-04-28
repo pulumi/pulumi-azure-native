@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AccessControlRecordArgs } from "./accessControlRecord";
-export type AccessControlRecord = import("./accessControlRecord").AccessControlRecord;
-export const AccessControlRecord: typeof import("./accessControlRecord").AccessControlRecord = null as any;
-utilities.lazyLoad(exports, ["AccessControlRecord"], () => require("./accessControlRecord"));
-
 export { BackupScheduleGroupArgs } from "./backupScheduleGroup";
 export type BackupScheduleGroup = import("./backupScheduleGroup").BackupScheduleGroup;
 export const BackupScheduleGroup: typeof import("./backupScheduleGroup").BackupScheduleGroup = null as any;
@@ -29,11 +24,6 @@ export { FileShareArgs } from "./fileShare";
 export type FileShare = import("./fileShare").FileShare;
 export const FileShare: typeof import("./fileShare").FileShare = null as any;
 utilities.lazyLoad(exports, ["FileShare"], () => require("./fileShare"));
-
-export { GetAccessControlRecordArgs, GetAccessControlRecordResult, GetAccessControlRecordOutputArgs } from "./getAccessControlRecord";
-export const getAccessControlRecord: typeof import("./getAccessControlRecord").getAccessControlRecord = null as any;
-export const getAccessControlRecordOutput: typeof import("./getAccessControlRecord").getAccessControlRecordOutput = null as any;
-utilities.lazyLoad(exports, ["getAccessControlRecord","getAccessControlRecordOutput"], () => require("./getAccessControlRecord"));
 
 export { GetBackupScheduleGroupArgs, GetBackupScheduleGroupResult, GetBackupScheduleGroupOutputArgs } from "./getBackupScheduleGroup";
 export const getBackupScheduleGroup: typeof import("./getBackupScheduleGroup").getBackupScheduleGroup = null as any;
@@ -75,11 +65,6 @@ export const getManagerEncryptionKey: typeof import("./getManagerEncryptionKey")
 export const getManagerEncryptionKeyOutput: typeof import("./getManagerEncryptionKey").getManagerEncryptionKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getManagerEncryptionKey","getManagerEncryptionKeyOutput"], () => require("./getManagerEncryptionKey"));
 
-export { GetManagerExtendedInfoArgs, GetManagerExtendedInfoResult, GetManagerExtendedInfoOutputArgs } from "./getManagerExtendedInfo";
-export const getManagerExtendedInfo: typeof import("./getManagerExtendedInfo").getManagerExtendedInfo = null as any;
-export const getManagerExtendedInfoOutput: typeof import("./getManagerExtendedInfo").getManagerExtendedInfoOutput = null as any;
-utilities.lazyLoad(exports, ["getManagerExtendedInfo","getManagerExtendedInfoOutput"], () => require("./getManagerExtendedInfo"));
-
 export { GetStorageAccountCredentialArgs, GetStorageAccountCredentialResult, GetStorageAccountCredentialOutputArgs } from "./getStorageAccountCredential";
 export const getStorageAccountCredential: typeof import("./getStorageAccountCredential").getStorageAccountCredential = null as any;
 export const getStorageAccountCredentialOutput: typeof import("./getStorageAccountCredential").getStorageAccountCredentialOutput = null as any;
@@ -105,11 +90,6 @@ export type Manager = import("./manager").Manager;
 export const Manager: typeof import("./manager").Manager = null as any;
 utilities.lazyLoad(exports, ["Manager"], () => require("./manager"));
 
-export { ManagerExtendedInfoArgs } from "./managerExtendedInfo";
-export type ManagerExtendedInfo = import("./managerExtendedInfo").ManagerExtendedInfo;
-export const ManagerExtendedInfo: typeof import("./managerExtendedInfo").ManagerExtendedInfo = null as any;
-utilities.lazyLoad(exports, ["ManagerExtendedInfo"], () => require("./managerExtendedInfo"));
-
 export { StorageAccountCredentialArgs } from "./storageAccountCredential";
 export type StorageAccountCredential = import("./storageAccountCredential").StorageAccountCredential;
 export const StorageAccountCredential: typeof import("./storageAccountCredential").StorageAccountCredential = null as any;
@@ -128,8 +108,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:storsimple/v20161001:AccessControlRecord":
-                return new AccessControlRecord(name, <any>undefined, { urn })
             case "azure-native:storsimple/v20161001:BackupScheduleGroup":
                 return new BackupScheduleGroup(name, <any>undefined, { urn })
             case "azure-native:storsimple/v20161001:ChapSetting":
@@ -144,8 +122,6 @@ const _module = {
                 return new IscsiServer(name, <any>undefined, { urn })
             case "azure-native:storsimple/v20161001:Manager":
                 return new Manager(name, <any>undefined, { urn })
-            case "azure-native:storsimple/v20161001:ManagerExtendedInfo":
-                return new ManagerExtendedInfo(name, <any>undefined, { urn })
             case "azure-native:storsimple/v20161001:StorageAccountCredential":
                 return new StorageAccountCredential(name, <any>undefined, { urn })
             case "azure-native:storsimple/v20161001:StorageDomain":

@@ -25,50 +25,20 @@ export const getDisk: typeof import("./getDisk").getDisk = null as any;
 export const getDiskOutput: typeof import("./getDisk").getDiskOutput = null as any;
 utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
 
-export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
-export const getImage: typeof import("./getImage").getImage = null as any;
-export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
-utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
-
 export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
 export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
 export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
-
-export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
-export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
-export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
-
-export { GetVirtualMachineExtensionArgs, GetVirtualMachineExtensionResult, GetVirtualMachineExtensionOutputArgs } from "./getVirtualMachineExtension";
-export const getVirtualMachineExtension: typeof import("./getVirtualMachineExtension").getVirtualMachineExtension = null as any;
-export const getVirtualMachineExtensionOutput: typeof import("./getVirtualMachineExtension").getVirtualMachineExtensionOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachineExtension","getVirtualMachineExtensionOutput"], () => require("./getVirtualMachineExtension"));
 
 export { GetVirtualMachineScaleSetArgs, GetVirtualMachineScaleSetResult, GetVirtualMachineScaleSetOutputArgs } from "./getVirtualMachineScaleSet";
 export const getVirtualMachineScaleSet: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSet = null as any;
 export const getVirtualMachineScaleSetOutput: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSetOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualMachineScaleSet","getVirtualMachineScaleSetOutput"], () => require("./getVirtualMachineScaleSet"));
 
-export { ImageArgs } from "./image";
-export type Image = import("./image").Image;
-export const Image: typeof import("./image").Image = null as any;
-utilities.lazyLoad(exports, ["Image"], () => require("./image"));
-
 export { SnapshotArgs } from "./snapshot";
 export type Snapshot = import("./snapshot").Snapshot;
 export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
 utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
-
-export { VirtualMachineArgs } from "./virtualMachine";
-export type VirtualMachine = import("./virtualMachine").VirtualMachine;
-export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
-utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
-
-export { VirtualMachineExtensionArgs } from "./virtualMachineExtension";
-export type VirtualMachineExtension = import("./virtualMachineExtension").VirtualMachineExtension;
-export const VirtualMachineExtension: typeof import("./virtualMachineExtension").VirtualMachineExtension = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineExtension"], () => require("./virtualMachineExtension"));
 
 export { VirtualMachineScaleSetArgs } from "./virtualMachineScaleSet";
 export type VirtualMachineScaleSet = import("./virtualMachineScaleSet").VirtualMachineScaleSet;
@@ -87,14 +57,8 @@ const _module = {
                 return new AvailabilitySet(name, <any>undefined, { urn })
             case "azure-native:compute/v20160430preview:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-native:compute/v20160430preview:Image":
-                return new Image(name, <any>undefined, { urn })
             case "azure-native:compute/v20160430preview:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
-            case "azure-native:compute/v20160430preview:VirtualMachine":
-                return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-native:compute/v20160430preview:VirtualMachineExtension":
-                return new VirtualMachineExtension(name, <any>undefined, { urn })
             case "azure-native:compute/v20160430preview:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
             default:

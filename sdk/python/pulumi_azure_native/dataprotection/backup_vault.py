@@ -27,7 +27,7 @@ class BackupVaultInitArgs:
         """
         The set of arguments for constructing a BackupVault resource.
         :param pulumi.Input['BackupVaultArgs'] properties: BackupVaultResource properties
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input['DppIdentityDetailsArgs'] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
@@ -63,7 +63,7 @@ class BackupVaultInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group where the backup vault is present.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -147,7 +147,8 @@ class BackupVault(pulumi.CustomResource):
                  __props__=None):
         """
         Backup Vault Resource
-        API Version: 2021-01-01.
+        API Version: 2023-01-01.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +156,7 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['BackupVaultArgs']] properties: BackupVaultResource properties
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
@@ -167,7 +168,8 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backup Vault Resource
-        API Version: 2021-01-01.
+        API Version: 2023-01-01.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param BackupVaultInitArgs args: The arguments to use to populate this resource's properties.

@@ -19,29 +19,29 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Query text retrieved from the source server
         /// </summary>
-        public readonly string QueryText;
+        public readonly string? QueryText;
         /// <summary>
         /// Query analysis result from the source
         /// </summary>
-        public readonly Outputs.ExecutionStatisticsResponse SourceResult;
+        public readonly Outputs.ExecutionStatisticsResponse? SourceResult;
         /// <summary>
         /// Total no. of statements in the batch
         /// </summary>
-        public readonly double StatementsInBatch;
+        public readonly double? StatementsInBatch;
         /// <summary>
         /// Query analysis result from the target
         /// </summary>
-        public readonly Outputs.ExecutionStatisticsResponse TargetResult;
+        public readonly Outputs.ExecutionStatisticsResponse? TargetResult;
 
         [OutputConstructor]
         private QueryExecutionResultResponse(
-            string queryText,
+            string? queryText,
 
-            Outputs.ExecutionStatisticsResponse sourceResult,
+            Outputs.ExecutionStatisticsResponse? sourceResult,
 
-            double statementsInBatch,
+            double? statementsInBatch,
 
-            Outputs.ExecutionStatisticsResponse targetResult)
+            Outputs.ExecutionStatisticsResponse? targetResult)
         {
             QueryText = queryText;
             SourceResult = sourceResult;

@@ -104,7 +104,7 @@ class GetOutboundEndpointResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.SubResourceResponse']:
+    def subnet(self) -> 'outputs.SubResourceResponse':
         """
         The reference to the subnet used for the outbound endpoint.
         """
@@ -159,7 +159,7 @@ def get_outbound_endpoint(dns_resolver_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutboundEndpointResult:
     """
     Gets properties of an outbound endpoint for a DNS resolver.
-    API Version: 2020-04-01-preview.
+    API Version: 2022-07-01.
 
 
     :param str dns_resolver_name: The name of the DNS resolver.
@@ -193,7 +193,7 @@ def get_outbound_endpoint_output(dns_resolver_name: Optional[pulumi.Input[str]] 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutboundEndpointResult]:
     """
     Gets properties of an outbound endpoint for a DNS resolver.
-    API Version: 2020-04-01-preview.
+    API Version: 2022-07-01.
 
 
     :param str dns_resolver_name: The name of the DNS resolver.

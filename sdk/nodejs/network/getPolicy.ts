@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve protection policy with specified name within a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-05-01.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -95,7 +95,7 @@ export interface GetPolicyResult {
 }
 /**
  * Retrieve protection policy with specified name within a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-05-01.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

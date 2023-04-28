@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class GatewayRouteConfigPropertiesResponse
     {
         /// <summary>
-        /// The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
+        /// The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
         /// </summary>
         public readonly string? AppResourceId;
+        /// <summary>
+        /// OpenAPI properties of Spring Cloud Gateway route config.
+        /// </summary>
+        public readonly Outputs.GatewayRouteConfigOpenApiPropertiesResponse? OpenApi;
+        /// <summary>
+        /// Protocol of routed Azure Spring Apps applications.
+        /// </summary>
+        public readonly string? Protocol;
         /// <summary>
         /// State of the Spring Cloud Gateway route config.
         /// </summary>
@@ -33,11 +41,17 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         private GatewayRouteConfigPropertiesResponse(
             string? appResourceId,
 
+            Outputs.GatewayRouteConfigOpenApiPropertiesResponse? openApi,
+
+            string? protocol,
+
             string provisioningState,
 
             ImmutableArray<Outputs.GatewayApiRouteResponse> routes)
         {
             AppResourceId = appResourceId;
+            OpenApi = openApi;
+            Protocol = protocol;
             ProvisioningState = provisioningState;
             Routes = routes;
         }

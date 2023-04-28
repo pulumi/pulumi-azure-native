@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the collector policy in a specified Traffic Collector
- * API Version: 2022-05-01.
+ * API Version: 2022-11-01.
  */
 export function getCollectorPolicy(args: GetCollectorPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectorPolicyResult> {
 
@@ -49,7 +49,7 @@ export interface GetCollectorPolicyResult {
      */
     readonly etag: string;
     /**
-     * Azure resource Id
+     * Resource ID.
      */
     readonly id: string;
     /**
@@ -57,7 +57,11 @@ export interface GetCollectorPolicyResult {
      */
     readonly ingestionPolicy?: outputs.networkfunction.IngestionPolicyPropertiesFormatResponse;
     /**
-     * Azure resource name
+     * Resource location.
+     */
+    readonly location: string;
+    /**
+     * Resource name.
      */
     readonly name: string;
     /**
@@ -67,15 +71,19 @@ export interface GetCollectorPolicyResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.networkfunction.CollectorPolicyResponseSystemData;
+    readonly systemData: outputs.networkfunction.TrackedResourceResponseSystemData;
     /**
-     * Azure resource type
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * Resource type.
      */
     readonly type: string;
 }
 /**
  * Gets the collector policy in a specified Traffic Collector
- * API Version: 2022-05-01.
+ * API Version: 2022-11-01.
  */
 export function getCollectorPolicyOutput(args: GetCollectorPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectorPolicyResult> {
     return pulumi.output(args).apply((a: any) => getCollectorPolicy(a, opts))

@@ -35,11 +35,6 @@ export type ComponentVersion = import("./componentVersion").ComponentVersion;
 export const ComponentVersion: typeof import("./componentVersion").ComponentVersion = null as any;
 utilities.lazyLoad(exports, ["ComponentVersion"], () => require("./componentVersion"));
 
-export { ComputeArgs } from "./compute";
-export type Compute = import("./compute").Compute;
-export const Compute: typeof import("./compute").Compute = null as any;
-utilities.lazyLoad(exports, ["Compute"], () => require("./compute"));
-
 export { DataContainerArgs } from "./dataContainer";
 export type DataContainer = import("./dataContainer").DataContainer;
 export const DataContainer: typeof import("./dataContainer").DataContainer = null as any;
@@ -94,11 +89,6 @@ export { GetComponentVersionArgs, GetComponentVersionResult, GetComponentVersion
 export const getComponentVersion: typeof import("./getComponentVersion").getComponentVersion = null as any;
 export const getComponentVersionOutput: typeof import("./getComponentVersion").getComponentVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getComponentVersion","getComponentVersionOutput"], () => require("./getComponentVersion"));
-
-export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCompute";
-export const getCompute: typeof import("./getCompute").getCompute = null as any;
-export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
-utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
 
 export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
 export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
@@ -159,16 +149,6 @@ export { GetOnlineEndpointTokenArgs, GetOnlineEndpointTokenResult, GetOnlineEndp
 export const getOnlineEndpointToken: typeof import("./getOnlineEndpointToken").getOnlineEndpointToken = null as any;
 export const getOnlineEndpointTokenOutput: typeof import("./getOnlineEndpointToken").getOnlineEndpointTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEndpointToken","getOnlineEndpointTokenOutput"], () => require("./getOnlineEndpointToken"));
-
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
-export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
-export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
-utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
 export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
 export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
@@ -245,16 +225,6 @@ export type OnlineEndpoint = import("./onlineEndpoint").OnlineEndpoint;
 export const OnlineEndpoint: typeof import("./onlineEndpoint").OnlineEndpoint = null as any;
 utilities.lazyLoad(exports, ["OnlineEndpoint"], () => require("./onlineEndpoint"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-export { WorkspaceArgs } from "./workspace";
-export type Workspace = import("./workspace").Workspace;
-export const Workspace: typeof import("./workspace").Workspace = null as any;
-utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
-
 export { WorkspaceConnectionArgs } from "./workspaceConnection";
 export type WorkspaceConnection = import("./workspaceConnection").WorkspaceConnection;
 export const WorkspaceConnection: typeof import("./workspaceConnection").WorkspaceConnection = null as any;
@@ -280,8 +250,6 @@ const _module = {
                 return new ComponentContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20220201preview:ComponentVersion":
                 return new ComponentVersion(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20220201preview:Compute":
-                return new Compute(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20220201preview:DataContainer":
                 return new DataContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20220201preview:DataVersion":
@@ -302,10 +270,6 @@ const _module = {
                 return new OnlineDeployment(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint":
                 return new OnlineEndpoint(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20220201preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20220201preview:Workspace":
-                return new Workspace(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection":
                 return new WorkspaceConnection(name, <any>undefined, { urn })
             default:

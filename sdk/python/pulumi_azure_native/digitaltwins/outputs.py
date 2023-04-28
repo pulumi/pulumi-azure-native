@@ -13,15 +13,17 @@ from ._enums import *
 
 __all__ = [
     'AzureDataExplorerConnectionPropertiesResponse',
-    'ConnectionPropertiesResponsePrivateEndpoint',
+    'ConnectionPropertiesResponse',
     'ConnectionPropertiesResponsePrivateLinkServiceConnectionState',
     'DigitalTwinsIdentityResponse',
     'EventGridResponse',
     'EventHubResponse',
+    'ManagedIdentityReferenceResponse',
     'PrivateEndpointConnectionResponse',
-    'PrivateEndpointConnectionResponseProperties',
+    'PrivateEndpointResponse',
     'ServiceBusResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -48,10 +50,16 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
             suggest = "event_hub_namespace_resource_id"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "adxRelationshipLifecycleEventsTableName":
+            suggest = "adx_relationship_lifecycle_events_table_name"
         elif key == "adxTableName":
             suggest = "adx_table_name"
+        elif key == "adxTwinLifecycleEventsTableName":
+            suggest = "adx_twin_lifecycle_events_table_name"
         elif key == "eventHubConsumerGroup":
             suggest = "event_hub_consumer_group"
+        elif key == "recordPropertyAndItemRemovals":
+            suggest = "record_property_and_item_removals"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureDataExplorerConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -73,8 +81,12 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
                  event_hub_entity_path: str,
                  event_hub_namespace_resource_id: str,
                  provisioning_state: str,
+                 adx_relationship_lifecycle_events_table_name: Optional[str] = None,
                  adx_table_name: Optional[str] = None,
-                 event_hub_consumer_group: Optional[str] = None):
+                 adx_twin_lifecycle_events_table_name: Optional[str] = None,
+                 event_hub_consumer_group: Optional[str] = None,
+                 identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None,
+                 record_property_and_item_removals: Optional[str] = None):
         """
         Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
         :param str adx_database_name: The name of the Azure Data Explorer database.
@@ -86,8 +98,12 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
         :param str event_hub_entity_path: The EventHub name in the EventHub namespace for identity-based authentication.
         :param str event_hub_namespace_resource_id: The resource ID of the EventHub namespace.
         :param str provisioning_state: The provisioning state.
-        :param str adx_table_name: The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
+        :param str adx_relationship_lifecycle_events_table_name: The name of the Azure Data Explorer table used for recording relationship lifecycle events. The table will not be created if this property is left unspecified.
+        :param str adx_table_name: The name of the Azure Data Explorer table used for storing updates to properties of twins and relationships. Defaults to AdtPropertyEvents.
+        :param str adx_twin_lifecycle_events_table_name: The name of the Azure Data Explorer table used for recording twin lifecycle events. The table will not be created if this property is left unspecified.
         :param str event_hub_consumer_group: The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
+        :param 'ManagedIdentityReferenceResponse' identity: Managed identity properties for the time series database connection resource.
+        :param str record_property_and_item_removals: Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
         """
         pulumi.set(__self__, "adx_database_name", adx_database_name)
         pulumi.set(__self__, "adx_endpoint_uri", adx_endpoint_uri)
@@ -97,14 +113,24 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
         pulumi.set(__self__, "event_hub_entity_path", event_hub_entity_path)
         pulumi.set(__self__, "event_hub_namespace_resource_id", event_hub_namespace_resource_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if adx_relationship_lifecycle_events_table_name is not None:
+            pulumi.set(__self__, "adx_relationship_lifecycle_events_table_name", adx_relationship_lifecycle_events_table_name)
         if adx_table_name is None:
             adx_table_name = 'AdtPropertyEvents'
         if adx_table_name is not None:
             pulumi.set(__self__, "adx_table_name", adx_table_name)
+        if adx_twin_lifecycle_events_table_name is not None:
+            pulumi.set(__self__, "adx_twin_lifecycle_events_table_name", adx_twin_lifecycle_events_table_name)
         if event_hub_consumer_group is None:
             event_hub_consumer_group = '$Default'
         if event_hub_consumer_group is not None:
             pulumi.set(__self__, "event_hub_consumer_group", event_hub_consumer_group)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if record_property_and_item_removals is None:
+            record_property_and_item_removals = 'false'
+        if record_property_and_item_removals is not None:
+            pulumi.set(__self__, "record_property_and_item_removals", record_property_and_item_removals)
 
     @property
     @pulumi.getter(name="adxDatabaseName")
@@ -172,12 +198,28 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="adxRelationshipLifecycleEventsTableName")
+    def adx_relationship_lifecycle_events_table_name(self) -> Optional[str]:
+        """
+        The name of the Azure Data Explorer table used for recording relationship lifecycle events. The table will not be created if this property is left unspecified.
+        """
+        return pulumi.get(self, "adx_relationship_lifecycle_events_table_name")
+
+    @property
     @pulumi.getter(name="adxTableName")
     def adx_table_name(self) -> Optional[str]:
         """
-        The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
+        The name of the Azure Data Explorer table used for storing updates to properties of twins and relationships. Defaults to AdtPropertyEvents.
         """
         return pulumi.get(self, "adx_table_name")
+
+    @property
+    @pulumi.getter(name="adxTwinLifecycleEventsTableName")
+    def adx_twin_lifecycle_events_table_name(self) -> Optional[str]:
+        """
+        The name of the Azure Data Explorer table used for recording twin lifecycle events. The table will not be created if this property is left unspecified.
+        """
+        return pulumi.get(self, "adx_twin_lifecycle_events_table_name")
 
     @property
     @pulumi.getter(name="eventHubConsumerGroup")
@@ -187,27 +229,109 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
         """
         return pulumi.get(self, "event_hub_consumer_group")
 
-
-@pulumi.output_type
-class ConnectionPropertiesResponsePrivateEndpoint(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The resource identifier.
-        """
-        pulumi.set(__self__, "id", id)
-
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def identity(self) -> Optional['outputs.ManagedIdentityReferenceResponse']:
         """
-        The resource identifier.
+        Managed identity properties for the time series database connection resource.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="recordPropertyAndItemRemovals")
+    def record_property_and_item_removals(self) -> Optional[str]:
+        """
+        Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
+        """
+        return pulumi.get(self, "record_property_and_item_removals")
+
+
+@pulumi.output_type
+class ConnectionPropertiesResponse(dict):
+    """
+    The properties of a private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 group_ids: Optional[Sequence[str]] = None,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None):
+        """
+        The properties of a private endpoint connection.
+        :param str provisioning_state: The provisioning state.
+        :param Sequence[str] group_ids: The list of group ids for the private endpoint connection.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint.
+        :param 'ConnectionPropertiesResponsePrivateLinkServiceConnectionState' private_link_service_connection_state: The connection state.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of group ids for the private endpoint connection.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState']:
+        """
+        The connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
 
 @pulumi.output_type
 class ConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
+    """
+    The connection state.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -230,6 +354,7 @@ class ConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
                  status: str,
                  actions_required: Optional[str] = None):
         """
+        The connection state.
         :param str description: The description for the current state of a private endpoint connection.
         :param str status: The status of a private endpoint connection.
         :param str actions_required: Actions required for a private endpoint connection.
@@ -276,6 +401,8 @@ class DigitalTwinsIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DigitalTwinsIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -291,17 +418,23 @@ class DigitalTwinsIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         The managed identity for the DigitalTwinsInstance.
         :param str principal_id: The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param str tenant_id: The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-        :param str type: The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+        :param str type: The type of Managed Identity used by the DigitalTwinsInstance.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+               '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+               .
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -323,9 +456,19 @@ class DigitalTwinsIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+        The type of Managed Identity used by the DigitalTwinsInstance.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        .
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -375,7 +518,8 @@ class EventGridResponse(dict):
                  access_key2: Optional[str] = None,
                  authentication_type: Optional[str] = None,
                  dead_letter_secret: Optional[str] = None,
-                 dead_letter_uri: Optional[str] = None):
+                 dead_letter_uri: Optional[str] = None,
+                 identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None):
         """
         Properties related to EventGrid.
         :param str access_key1: EventGrid secondary accesskey. Will be obfuscated during read.
@@ -383,11 +527,12 @@ class EventGridResponse(dict):
         :param str endpoint_type: The type of Digital Twins endpoint
                Expected value is 'EventGrid'.
         :param str provisioning_state: The provisioning state.
-        :param str topic_endpoint: EventGrid Topic Endpoint
+        :param str topic_endpoint: EventGrid Topic Endpoint.
         :param str access_key2: EventGrid secondary accesskey. Will be obfuscated during read.
-        :param str authentication_type: Specifies the authentication type being used for connecting to the endpoint.
+        :param str authentication_type: Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
         :param str dead_letter_secret: Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         :param str dead_letter_uri: Dead letter storage URL for identity-based authentication.
+        :param 'ManagedIdentityReferenceResponse' identity: Managed identity properties for the endpoint.
         """
         pulumi.set(__self__, "access_key1", access_key1)
         pulumi.set(__self__, "created_time", created_time)
@@ -402,6 +547,8 @@ class EventGridResponse(dict):
             pulumi.set(__self__, "dead_letter_secret", dead_letter_secret)
         if dead_letter_uri is not None:
             pulumi.set(__self__, "dead_letter_uri", dead_letter_uri)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
 
     @property
     @pulumi.getter(name="accessKey1")
@@ -440,7 +587,7 @@ class EventGridResponse(dict):
     @pulumi.getter(name="topicEndpoint")
     def topic_endpoint(self) -> str:
         """
-        EventGrid Topic Endpoint
+        EventGrid Topic Endpoint.
         """
         return pulumi.get(self, "topic_endpoint")
 
@@ -456,7 +603,7 @@ class EventGridResponse(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[str]:
         """
-        Specifies the authentication type being used for connecting to the endpoint.
+        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -475,6 +622,14 @@ class EventGridResponse(dict):
         Dead letter storage URL for identity-based authentication.
         """
         return pulumi.get(self, "dead_letter_uri")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedIdentityReferenceResponse']:
+        """
+        Managed identity properties for the endpoint.
+        """
+        return pulumi.get(self, "identity")
 
 
 @pulumi.output_type
@@ -527,20 +682,22 @@ class EventHubResponse(dict):
                  dead_letter_secret: Optional[str] = None,
                  dead_letter_uri: Optional[str] = None,
                  endpoint_uri: Optional[str] = None,
-                 entity_path: Optional[str] = None):
+                 entity_path: Optional[str] = None,
+                 identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None):
         """
         Properties related to EventHub.
         :param str created_time: Time when the Endpoint was added to DigitalTwinsInstance.
         :param str endpoint_type: The type of Digital Twins endpoint
                Expected value is 'EventHub'.
         :param str provisioning_state: The provisioning state.
-        :param str authentication_type: Specifies the authentication type being used for connecting to the endpoint.
+        :param str authentication_type: Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
         :param str connection_string_primary_key: PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         :param str connection_string_secondary_key: SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         :param str dead_letter_secret: Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         :param str dead_letter_uri: Dead letter storage URL for identity-based authentication.
-        :param str endpoint_uri: The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+        :param str endpoint_uri: The URL of the EventHub namespace for identity-based authentication. It must include the protocol 'sb://'.
         :param str entity_path: The EventHub name in the EventHub namespace for identity-based authentication.
+        :param 'ManagedIdentityReferenceResponse' identity: Managed identity properties for the endpoint.
         """
         pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "endpoint_type", 'EventHub')
@@ -559,6 +716,8 @@ class EventHubResponse(dict):
             pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         if entity_path is not None:
             pulumi.set(__self__, "entity_path", entity_path)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
 
     @property
     @pulumi.getter(name="createdTime")
@@ -589,7 +748,7 @@ class EventHubResponse(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[str]:
         """
-        Specifies the authentication type being used for connecting to the endpoint.
+        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -629,7 +788,7 @@ class EventHubResponse(dict):
     @pulumi.getter(name="endpointUri")
     def endpoint_uri(self) -> Optional[str]:
         """
-        The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+        The URL of the EventHub namespace for identity-based authentication. It must include the protocol 'sb://'.
         """
         return pulumi.get(self, "endpoint_uri")
 
@@ -641,26 +800,107 @@ class EventHubResponse(dict):
         """
         return pulumi.get(self, "entity_path")
 
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedIdentityReferenceResponse']:
+        """
+        Managed identity properties for the endpoint.
+        """
+        return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
+class ManagedIdentityReferenceResponse(dict):
+    """
+    The properties of the Managed Identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The properties of the Managed Identity.
+        :param str type: The type of managed identity used.
+        :param str user_assigned_identity: The user identity ARM resource id if the managed identity type is 'UserAssigned'.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of managed identity used.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user identity ARM resource id if the managed identity type is 'UserAssigned'.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The private endpoint connection of a Digital Twin.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 properties: 'outputs.PrivateEndpointConnectionResponseProperties',
+                 properties: 'outputs.ConnectionPropertiesResponse',
+                 system_data: 'outputs.SystemDataResponse',
                  type: str):
         """
         The private endpoint connection of a Digital Twin.
         :param str id: The resource identifier.
         :param str name: The resource name.
+        :param 'ConnectionPropertiesResponse' properties: The connection properties.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the private endpoint connection.
         :param str type: The resource type.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
 
     @property
@@ -681,8 +921,19 @@ class PrivateEndpointConnectionResponse(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PrivateEndpointConnectionResponseProperties':
+    def properties(self) -> 'outputs.ConnectionPropertiesResponse':
+        """
+        The connection properties.
+        """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the private endpoint connection.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -694,72 +945,25 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionResponseProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "groupIds":
-            suggest = "group_ids"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-        elif key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponseProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponseProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponseProperties.__key_warning(key)
-        return super().get(key, default)
-
+class PrivateEndpointResponse(dict):
+    """
+    The private endpoint property of a private endpoint connection.
+    """
     def __init__(__self__, *,
-                 provisioning_state: str,
-                 group_ids: Optional[Sequence[str]] = None,
-                 private_endpoint: Optional['outputs.ConnectionPropertiesResponsePrivateEndpoint'] = None,
-                 private_link_service_connection_state: Optional['outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None):
+                 id: str):
         """
-        :param str provisioning_state: The provisioning state.
-        :param Sequence[str] group_ids: The list of group ids for the private endpoint connection.
+        The private endpoint property of a private endpoint connection.
+        :param str id: The resource identifier.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "id", id)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def id(self) -> str:
         """
-        The provisioning state.
+        The resource identifier.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[Sequence[str]]:
-        """
-        The list of group ids for the private endpoint connection.
-        """
-        return pulumi.get(self, "group_ids")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.ConnectionPropertiesResponsePrivateEndpoint']:
-        return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState']:
-        return pulumi.get(self, "private_link_service_connection_state")
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -811,6 +1015,7 @@ class ServiceBusResponse(dict):
                  dead_letter_uri: Optional[str] = None,
                  endpoint_uri: Optional[str] = None,
                  entity_path: Optional[str] = None,
+                 identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None,
                  primary_connection_string: Optional[str] = None,
                  secondary_connection_string: Optional[str] = None):
         """
@@ -819,11 +1024,12 @@ class ServiceBusResponse(dict):
         :param str endpoint_type: The type of Digital Twins endpoint
                Expected value is 'ServiceBus'.
         :param str provisioning_state: The provisioning state.
-        :param str authentication_type: Specifies the authentication type being used for connecting to the endpoint.
+        :param str authentication_type: Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
         :param str dead_letter_secret: Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         :param str dead_letter_uri: Dead letter storage URL for identity-based authentication.
-        :param str endpoint_uri: The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
-        :param str entity_path: The ServiceBus Topic name for identity-based authentication
+        :param str endpoint_uri: The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.
+        :param str entity_path: The ServiceBus Topic name for identity-based authentication.
+        :param 'ManagedIdentityReferenceResponse' identity: Managed identity properties for the endpoint.
         :param str primary_connection_string: PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         :param str secondary_connection_string: SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         """
@@ -840,6 +1046,8 @@ class ServiceBusResponse(dict):
             pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         if entity_path is not None:
             pulumi.set(__self__, "entity_path", entity_path)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if primary_connection_string is not None:
             pulumi.set(__self__, "primary_connection_string", primary_connection_string)
         if secondary_connection_string is not None:
@@ -874,7 +1082,7 @@ class ServiceBusResponse(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[str]:
         """
-        Specifies the authentication type being used for connecting to the endpoint.
+        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -898,7 +1106,7 @@ class ServiceBusResponse(dict):
     @pulumi.getter(name="endpointUri")
     def endpoint_uri(self) -> Optional[str]:
         """
-        The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
+        The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.
         """
         return pulumi.get(self, "endpoint_uri")
 
@@ -906,9 +1114,17 @@ class ServiceBusResponse(dict):
     @pulumi.getter(name="entityPath")
     def entity_path(self) -> Optional[str]:
         """
-        The ServiceBus Topic name for identity-based authentication
+        The ServiceBus Topic name for identity-based authentication.
         """
         return pulumi.get(self, "entity_path")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedIdentityReferenceResponse']:
+        """
+        Managed identity properties for the endpoint.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="primaryConnectionString")
@@ -1035,5 +1251,57 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    The information about the user assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        The information about the user assigned identity.
+        :param str client_id: The client id of the User Assigned Identity Resource.
+        :param str principal_id: The object id of the User Assigned Identity Resource.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of the User Assigned Identity Resource.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The object id of the User Assigned Identity Resource.
+        """
+        return pulumi.get(self, "principal_id")
 
 

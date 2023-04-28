@@ -26,8 +26,6 @@ __all__ = [
     'DirectLineSpeechChannelResponse',
     'EmailChannelPropertiesResponse',
     'EmailChannelResponse',
-    'EnterpriseChannelNodeResponse',
-    'EnterpriseChannelPropertiesResponse',
     'FacebookChannelPropertiesResponse',
     'FacebookChannelResponse',
     'FacebookPageResponse',
@@ -41,6 +39,7 @@ __all__ = [
     'MsTeamsChannelResponse',
     'OmnichannelResponse',
     'OutlookChannelResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'SearchAssistantResponse',
@@ -342,6 +341,8 @@ class BotPropertiesResponse(dict):
             suggest = "migration_token"
         elif key == "msaAppId":
             suggest = "msa_app_id"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "allSettings":
@@ -410,6 +411,7 @@ class BotPropertiesResponse(dict):
                  is_developer_app_insights_api_key_set: bool,
                  migration_token: str,
                  msa_app_id: str,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  provisioning_state: str,
                  all_settings: Optional[Mapping[str, str]] = None,
                  app_password_hint: Optional[str] = None,
@@ -446,6 +448,7 @@ class BotPropertiesResponse(dict):
         :param bool is_developer_app_insights_api_key_set: Whether the bot is developerAppInsightsApiKey set
         :param str migration_token: Token used to migrate non Azure bot to azure subscription
         :param str msa_app_id: Microsoft App Id for the bot
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of Private Endpoint Connections configured for the bot
         :param str provisioning_state: Provisioning state of the resource
         :param Mapping[str, str] all_settings: Contains resource all settings defined as key/value pairs.
         :param str app_password_hint: The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
@@ -481,6 +484,7 @@ class BotPropertiesResponse(dict):
         pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
         pulumi.set(__self__, "migration_token", migration_token)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if all_settings is not None:
             pulumi.set(__self__, "all_settings", all_settings)
@@ -610,6 +614,14 @@ class BotPropertiesResponse(dict):
         Microsoft App Id for the bot
         """
         return pulumi.get(self, "msa_app_id")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of Private Endpoint Connections configured for the bot
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1018,6 +1030,8 @@ class ConnectionSettingPropertiesResponse(dict):
                  setting_id: str,
                  client_id: Optional[str] = None,
                  client_secret: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.ConnectionSettingParameterResponse']] = None,
                  provisioning_state: Optional[str] = None,
                  scopes: Optional[str] = None,
@@ -1028,6 +1042,8 @@ class ConnectionSettingPropertiesResponse(dict):
         :param str setting_id: Setting Id set by the service for the Connection Setting.
         :param str client_id: Client Id associated with the Connection Setting.
         :param str client_secret: Client Secret associated with the Connection Setting
+        :param str id: Id of the Connection Setting.
+        :param str name: Name of the Connection Setting.
         :param Sequence['ConnectionSettingParameterResponse'] parameters: Service Provider Parameters associated with the Connection Setting
         :param str provisioning_state: Provisioning state of the resource
         :param str scopes: Scopes associated with the Connection Setting
@@ -1039,6 +1055,10 @@ class ConnectionSettingPropertiesResponse(dict):
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if provisioning_state is not None:
@@ -1075,6 +1095,22 @@ class ConnectionSettingPropertiesResponse(dict):
         Client Secret associated with the Connection Setting
         """
         return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the Connection Setting.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Connection Setting.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
@@ -1975,126 +2011,6 @@ class EmailChannelResponse(dict):
         The set of properties specific to email channel resource
         """
         return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
-class EnterpriseChannelNodeResponse(dict):
-    """
-    The properties specific to an Enterprise Channel Node.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "azureLocation":
-            suggest = "azure_location"
-        elif key == "azureSku":
-            suggest = "azure_sku"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnterpriseChannelNodeResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EnterpriseChannelNodeResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EnterpriseChannelNodeResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 azure_location: str,
-                 azure_sku: str,
-                 id: str,
-                 name: str,
-                 state: Optional[str] = None):
-        """
-        The properties specific to an Enterprise Channel Node.
-        :param str azure_location: The location of the Enterprise Channel Node.
-        :param str azure_sku: The sku of the Enterprise Channel Node.
-        :param str id: Id of Enterprise Channel Node. This is generated by the Bot Framework.
-        :param str name: The name of the Enterprise Channel Node.
-        :param str state: The current state of the Enterprise Channel Node.
-        """
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_sku", azure_sku)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="azureLocation")
-    def azure_location(self) -> str:
-        """
-        The location of the Enterprise Channel Node.
-        """
-        return pulumi.get(self, "azure_location")
-
-    @property
-    @pulumi.getter(name="azureSku")
-    def azure_sku(self) -> str:
-        """
-        The sku of the Enterprise Channel Node.
-        """
-        return pulumi.get(self, "azure_sku")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Id of Enterprise Channel Node. This is generated by the Bot Framework.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the Enterprise Channel Node.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[str]:
-        """
-        The current state of the Enterprise Channel Node.
-        """
-        return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class EnterpriseChannelPropertiesResponse(dict):
-    """
-    The parameters to provide for the Enterprise Channel.
-    """
-    def __init__(__self__, *,
-                 nodes: Sequence['outputs.EnterpriseChannelNodeResponse'],
-                 state: Optional[str] = None):
-        """
-        The parameters to provide for the Enterprise Channel.
-        :param Sequence['EnterpriseChannelNodeResponse'] nodes: The nodes associated with the Enterprise Channel.
-        :param str state: The current state of the Enterprise Channel.
-        """
-        pulumi.set(__self__, "nodes", nodes)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def nodes(self) -> Sequence['outputs.EnterpriseChannelNodeResponse']:
-        """
-        The nodes associated with the Enterprise Channel.
-        """
-        return pulumi.get(self, "nodes")
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[str]:
-        """
-        The current state of the Enterprise Channel.
-        """
-        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -3186,6 +3102,119 @@ class OutlookChannelResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 type: str,
+                 group_ids: Optional[Sequence[str]] = None,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The Private Endpoint Connection resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param Sequence[str] group_ids: Group ids
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Group ids
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     The Private Endpoint resource.
@@ -4134,14 +4163,14 @@ class SlackChannelPropertiesResponse(dict):
             suggest = "last_submission_id"
         elif key == "redirectAction":
             suggest = "redirect_action"
-        elif key == "registerBeforeOAuthFlow":
-            suggest = "register_before_o_auth_flow"
         elif key == "clientId":
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
         elif key == "landingPageUrl":
             suggest = "landing_page_url"
+        elif key == "registerBeforeOAuthFlow":
+            suggest = "register_before_o_auth_flow"
         elif key == "signingSecret":
             suggest = "signing_secret"
         elif key == "verificationToken":
@@ -4163,10 +4192,10 @@ class SlackChannelPropertiesResponse(dict):
                  is_validated: bool,
                  last_submission_id: str,
                  redirect_action: str,
-                 register_before_o_auth_flow: bool,
                  client_id: Optional[str] = None,
                  client_secret: Optional[str] = None,
                  landing_page_url: Optional[str] = None,
+                 register_before_o_auth_flow: Optional[bool] = None,
                  scopes: Optional[str] = None,
                  signing_secret: Optional[str] = None,
                  verification_token: Optional[str] = None):
@@ -4176,10 +4205,10 @@ class SlackChannelPropertiesResponse(dict):
         :param bool is_validated: Whether this channel is validated for the bot
         :param str last_submission_id: The Sms auth token
         :param str redirect_action: The Slack redirect action
-        :param bool register_before_o_auth_flow: Whether to register the settings before OAuth validation is performed. Recommended to True.
         :param str client_id: The Slack client id
         :param str client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param str landing_page_url: The Slack landing page Url
+        :param bool register_before_o_auth_flow: Whether to register the settings before OAuth validation is performed. Recommended to True.
         :param str scopes: The Slack permission scopes.
         :param str signing_secret: The Slack signing secret.
         :param str verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -4188,13 +4217,14 @@ class SlackChannelPropertiesResponse(dict):
         pulumi.set(__self__, "is_validated", is_validated)
         pulumi.set(__self__, "last_submission_id", last_submission_id)
         pulumi.set(__self__, "redirect_action", redirect_action)
-        pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
         if landing_page_url is not None:
             pulumi.set(__self__, "landing_page_url", landing_page_url)
+        if register_before_o_auth_flow is not None:
+            pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if signing_secret is not None:
@@ -4235,14 +4265,6 @@ class SlackChannelPropertiesResponse(dict):
         return pulumi.get(self, "redirect_action")
 
     @property
-    @pulumi.getter(name="registerBeforeOAuthFlow")
-    def register_before_o_auth_flow(self) -> bool:
-        """
-        Whether to register the settings before OAuth validation is performed. Recommended to True.
-        """
-        return pulumi.get(self, "register_before_o_auth_flow")
-
-    @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
@@ -4265,6 +4287,14 @@ class SlackChannelPropertiesResponse(dict):
         The Slack landing page Url
         """
         return pulumi.get(self, "landing_page_url")
+
+    @property
+    @pulumi.getter(name="registerBeforeOAuthFlow")
+    def register_before_o_auth_flow(self) -> Optional[bool]:
+        """
+        Whether to register the settings before OAuth validation is performed. Recommended to True.
+        """
+        return pulumi.get(self, "register_before_o_auth_flow")
 
     @property
     @pulumi.getter

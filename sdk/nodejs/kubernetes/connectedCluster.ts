@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a connected cluster.
- * API Version: 2021-03-01.
+ * API Version: 2021-10-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ConnectedCluster extends pulumi.CustomResource {
     /**

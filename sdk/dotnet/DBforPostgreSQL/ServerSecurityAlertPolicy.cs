@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// <summary>
     /// A server security alert policy.
     /// API Version: 2017-12-01.
+    /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:ServerSecurityAlertPolicy")]
     public partial class ServerSecurityAlertPolicy : global::Pulumi.CustomResource

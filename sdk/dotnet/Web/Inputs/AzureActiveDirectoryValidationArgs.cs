@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         }
 
         /// <summary>
+        /// The configuration settings of the default authorization policy.
+        /// </summary>
+        [Input("defaultAuthorizationPolicy")]
+        public Input<Inputs.DefaultAuthorizationPolicyArgs>? DefaultAuthorizationPolicy { get; set; }
+
+        /// <summary>
         /// The configuration settings of the checks that should be made while validating the JWT Claims.
         /// </summary>
         [Input("jwtClaimChecks")]

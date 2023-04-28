@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a distributed availability group info.
- * API Version: 2021-05-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getDistributedAvailabilityGroup(args: GetDistributedAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributedAvailabilityGroupResult> {
 
@@ -92,7 +92,7 @@ export interface GetDistributedAvailabilityGroupResult {
 }
 /**
  * Gets a distributed availability group info.
- * API Version: 2021-05-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
     return pulumi.output(args).apply((a: any) => getDistributedAvailabilityGroup(a, opts))

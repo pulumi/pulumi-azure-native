@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The routing intent child resource of a Virtual hub.
-    /// API Version: 2022-01-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RoutingIntent")]
     public partial class RoutingIntent : global::Pulumi.CustomResource

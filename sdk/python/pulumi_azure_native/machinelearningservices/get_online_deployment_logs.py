@@ -50,7 +50,7 @@ def get_online_deployment_logs(container_type: Optional[Union[str, 'ContainerTyp
                                workspace_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineDeploymentLogsResult:
     """
-    API Version: 2021-03-01-preview.
+    API Version: 2022-10-01.
 
 
     :param Union[str, 'ContainerType'] container_type: The type of container to retrieve logs from.
@@ -83,7 +83,7 @@ def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Opti
                                       workspace_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnlineDeploymentLogsResult]:
     """
-    API Version: 2021-03-01-preview.
+    API Version: 2022-10-01.
 
 
     :param Union[str, 'ContainerType'] container_type: The type of container to retrieve logs from.

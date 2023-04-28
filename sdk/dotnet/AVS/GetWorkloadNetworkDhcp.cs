@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// NSX DHCP
-        /// API Version: 2020-07-17-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetWorkloadNetworkDhcpResult> InvokeAsync(GetWorkloadNetworkDhcpArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX DHCP
-        /// API Version: 2020-07-17-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
@@ -84,14 +84,6 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkDhcpResult
     {
         /// <summary>
-        /// Type of DHCP: SERVER or RELAY.
-        /// </summary>
-        public readonly string DhcpType;
-        /// <summary>
-        /// Display name of the DHCP entity.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -100,17 +92,9 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state
+        /// DHCP properties.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// NSX revision number.
-        /// </summary>
-        public readonly double? Revision;
-        /// <summary>
-        /// NSX Segments consuming DHCP.
-        /// </summary>
-        public readonly ImmutableArray<string> Segments;
+        public readonly Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse> Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -118,29 +102,17 @@ namespace Pulumi.AzureNative.AVS
 
         [OutputConstructor]
         private GetWorkloadNetworkDhcpResult(
-            string dhcpType,
-
-            string? displayName,
-
             string id,
 
             string name,
 
-            string provisioningState,
-
-            double? revision,
-
-            ImmutableArray<string> segments,
+            Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse> properties,
 
             string type)
         {
-            DhcpType = dhcpType;
-            DisplayName = displayName;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            Revision = revision;
-            Segments = segments;
+            Properties = properties;
             Type = type;
         }
     }

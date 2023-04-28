@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// A private endpoint connection
     /// API Version: 2018-06-01.
+    /// Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -72,6 +73,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

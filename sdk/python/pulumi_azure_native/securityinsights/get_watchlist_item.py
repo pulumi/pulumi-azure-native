@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetWatchlistItemResult:
     """
-    Represents a Watchlist item in Azure Security Insights.
+    Represents a Watchlist Item in Azure Security Insights.
     """
     def __init__(__self__, created=None, created_by=None, entity_mapping=None, etag=None, id=None, is_deleted=None, items_key_value=None, name=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_item_id=None, watchlist_item_type=None):
         if created and not isinstance(created, str):
@@ -105,7 +105,7 @@ class GetWatchlistItemResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -129,7 +129,7 @@ class GetWatchlistItemResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -153,7 +153,7 @@ class GetWatchlistItemResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -213,25 +213,22 @@ class AwaitableGetWatchlistItemResult(GetWatchlistItemResult):
             watchlist_item_type=self.watchlist_item_type)
 
 
-def get_watchlist_item(operational_insights_resource_provider: Optional[str] = None,
-                       resource_group_name: Optional[str] = None,
+def get_watchlist_item(resource_group_name: Optional[str] = None,
                        watchlist_alias: Optional[str] = None,
                        watchlist_item_id: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatchlistItemResult:
     """
-    Gets a watchlist, without its watchlist items.
-    API Version: 2021-03-01-preview.
+    Get a watchlist item.
+    API Version: 2023-02-01.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str watchlist_alias: Watchlist Alias
-    :param str watchlist_item_id: Watchlist Item Id (GUID)
+    :param str watchlist_alias: The watchlist alias
+    :param str watchlist_item_id: The watchlist item id (GUID)
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['watchlistAlias'] = watchlist_alias
     __args__['watchlistItemId'] = watchlist_item_id
@@ -258,21 +255,19 @@ def get_watchlist_item(operational_insights_resource_provider: Optional[str] = N
 
 
 @_utilities.lift_output_func(get_watchlist_item)
-def get_watchlist_item_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                              resource_group_name: Optional[pulumi.Input[str]] = None,
+def get_watchlist_item_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               watchlist_alias: Optional[pulumi.Input[str]] = None,
                               watchlist_item_id: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatchlistItemResult]:
     """
-    Gets a watchlist, without its watchlist items.
-    API Version: 2021-03-01-preview.
+    Get a watchlist item.
+    API Version: 2023-02-01.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str watchlist_alias: Watchlist Alias
-    :param str watchlist_item_id: Watchlist Item Id (GUID)
+    :param str watchlist_alias: The watchlist alias
+    :param str watchlist_item_id: The watchlist item id (GUID)
     :param str workspace_name: The name of the workspace.
     """
     ...

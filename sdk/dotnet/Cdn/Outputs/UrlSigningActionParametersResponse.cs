@@ -20,23 +20,23 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Algorithm to use for URL signing
         /// </summary>
         public readonly string? Algorithm;
-        public readonly string OdataType;
         /// <summary>
         /// Defines which query string parameters in the url to be considered for expires, key id etc. 
         /// </summary>
         public readonly ImmutableArray<Outputs.UrlSigningParamIdentifierResponse> ParameterNameOverride;
+        public readonly string TypeName;
 
         [OutputConstructor]
         private UrlSigningActionParametersResponse(
             string? algorithm,
 
-            string odataType,
+            ImmutableArray<Outputs.UrlSigningParamIdentifierResponse> parameterNameOverride,
 
-            ImmutableArray<Outputs.UrlSigningParamIdentifierResponse> parameterNameOverride)
+            string typeName)
         {
             Algorithm = algorithm;
-            OdataType = odataType;
             ParameterNameOverride = parameterNameOverride;
+            TypeName = typeName;
         }
     }
 }

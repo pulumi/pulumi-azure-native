@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
     /// API Version: 2018-08-01.
+    /// Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly Outputs.IngressResponse? Ingress;
         /// <summary>
+        /// Optional. Max inactive revisions a Container App can have.
+        /// </summary>
+        public readonly int? MaxInactiveRevisions;
+        /// <summary>
         /// Collection of private container registry credentials for containers used by the Container app
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryCredentialsResponse> Registries;
@@ -46,6 +50,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
             Outputs.IngressResponse? ingress,
 
+            int? maxInactiveRevisions,
+
             ImmutableArray<Outputs.RegistryCredentialsResponse> registries,
 
             ImmutableArray<Outputs.SecretResponse> secrets)
@@ -53,6 +59,7 @@ namespace Pulumi.AzureNative.App.Outputs
             ActiveRevisionsMode = activeRevisionsMode;
             Dapr = dapr;
             Ingress = ingress;
+            MaxInactiveRevisions = maxInactiveRevisions;
             Registries = registries;
             Secrets = secrets;
         }

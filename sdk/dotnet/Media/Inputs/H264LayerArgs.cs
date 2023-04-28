@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Media.Inputs
         public Input<string>? BufferWindow { get; set; }
 
         /// <summary>
+        /// The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 23.
+        /// </summary>
+        [Input("crf")]
+        public Input<double>? Crf { get; set; }
+
+        /// <summary>
         /// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
         /// </summary>
         [Input("entropyMode")]
@@ -74,13 +80,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         /// </summary>
         [Input("maxBitrate")]
         public Input<int>? MaxBitrate { get; set; }
-
-        /// <summary>
-        /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.H264Layer'.
-        /// </summary>
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
 
         /// <summary>
         /// We currently support Baseline, Main, High, High422, High444. Default is Auto.

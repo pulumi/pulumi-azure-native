@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom domain analysis.
- * API Version: 2022-03-01.
+ * API Version: 2022-10-01.
  */
 export function listContainerAppCustomHostNameAnalysis(args: ListContainerAppCustomHostNameAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<ListContainerAppCustomHostNameAnalysisResult> {
 
@@ -91,7 +91,7 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
 }
 /**
  * Custom domain analysis.
- * API Version: 2022-03-01.
+ * API Version: 2022-10-01.
  */
 export function listContainerAppCustomHostNameAnalysisOutput(args: ListContainerAppCustomHostNameAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppCustomHostNameAnalysisResult> {
     return pulumi.output(args).apply((a: any) => listContainerAppCustomHostNameAnalysis(a, opts))

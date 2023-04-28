@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List synchronizations of a share subscription
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function listShareSubscriptionSynchronizations(args: ListShareSubscriptionSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSynchronizationsResult> {
 
@@ -66,7 +66,7 @@ export interface ListShareSubscriptionSynchronizationsResult {
 }
 /**
  * List synchronizations of a share subscription
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function listShareSubscriptionSynchronizationsOutput(args: ListShareSubscriptionSynchronizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSynchronizationsResult> {
     return pulumi.output(args).apply((a: any) => listShareSubscriptionSynchronizations(a, opts))

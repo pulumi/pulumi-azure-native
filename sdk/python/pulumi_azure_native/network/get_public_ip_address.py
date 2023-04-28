@@ -22,10 +22,13 @@ class GetPublicIPAddressResult:
     """
     Public IP address resource.
     """
-    def __init__(__self__, ddos_settings=None, dns_settings=None, etag=None, extended_location=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, ip_tags=None, linked_public_ip_address=None, location=None, migration_phase=None, name=None, nat_gateway=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, public_ip_prefix=None, resource_guid=None, service_public_ip_address=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, ddos_settings=None, delete_option=None, dns_settings=None, etag=None, extended_location=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, ip_tags=None, linked_public_ip_address=None, location=None, migration_phase=None, name=None, nat_gateway=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, public_ip_prefix=None, resource_guid=None, service_public_ip_address=None, sku=None, tags=None, type=None, zones=None):
         if ddos_settings and not isinstance(ddos_settings, dict):
             raise TypeError("Expected argument 'ddos_settings' to be a dict")
         pulumi.set(__self__, "ddos_settings", ddos_settings)
+        if delete_option and not isinstance(delete_option, str):
+            raise TypeError("Expected argument 'delete_option' to be a str")
+        pulumi.set(__self__, "delete_option", delete_option)
         if dns_settings and not isinstance(dns_settings, dict):
             raise TypeError("Expected argument 'dns_settings' to be a dict")
         pulumi.set(__self__, "dns_settings", dns_settings)
@@ -103,6 +106,14 @@ class GetPublicIPAddressResult:
         The DDoS protection custom policy associated with the public IP address.
         """
         return pulumi.get(self, "ddos_settings")
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[str]:
+        """
+        Specify what happens to the public IP address when the VM using it is deleted
+        """
+        return pulumi.get(self, "delete_option")
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -296,6 +307,7 @@ class AwaitableGetPublicIPAddressResult(GetPublicIPAddressResult):
             yield self
         return GetPublicIPAddressResult(
             ddos_settings=self.ddos_settings,
+            delete_option=self.delete_option,
             dns_settings=self.dns_settings,
             etag=self.etag,
             extended_location=self.extended_location,
@@ -327,7 +339,7 @@ def get_public_ip_address(expand: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPAddressResult:
     """
     Gets the specified public IP address in a specified resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.
@@ -343,6 +355,7 @@ def get_public_ip_address(expand: Optional[str] = None,
 
     return AwaitableGetPublicIPAddressResult(
         ddos_settings=__ret__.ddos_settings,
+        delete_option=__ret__.delete_option,
         dns_settings=__ret__.dns_settings,
         etag=__ret__.etag,
         extended_location=__ret__.extended_location,
@@ -375,7 +388,7 @@ def get_public_ip_address_output(expand: Optional[pulumi.Input[Optional[str]]] =
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPAddressResult]:
     """
     Gets the specified public IP address in a specified resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.

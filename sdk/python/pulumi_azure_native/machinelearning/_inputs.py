@@ -28,8 +28,8 @@ __all__ = [
     'ModuleAssetParameterArgs',
     'OutputPortArgs',
     'RealtimeConfigurationArgs',
-    'ResourceSkuArgs',
     'ServiceInputOutputSpecificationArgs',
+    'SkuArgs',
     'StorageAccountArgs',
     'TableSpecificationArgs',
     'WebServiceKeysArgs',
@@ -886,62 +886,6 @@ class RealtimeConfigurationArgs:
 
 
 @pulumi.input_type
-class ResourceSkuArgs:
-    def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
-        """
-        The SKU of a resource.
-        :param pulumi.Input[int] capacity: The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-        :param pulumi.Input[str] name: The SKU name. Along with tier, uniquely identifies the SKU.
-        :param pulumi.Input[str] tier: The SKU tier. Along with name, uniquely identifies the SKU.
-        """
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SKU name. Along with tier, uniquely identifies the SKU.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SKU tier. Along with name, uniquely identifies the SKU.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tier", value)
-
-
-@pulumi.input_type
 class ServiceInputOutputSpecificationArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Mapping[str, pulumi.Input['TableSpecificationArgs']]],
@@ -1011,6 +955,46 @@ class ServiceInputOutputSpecificationArgs:
     @title.setter
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class SkuArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input[str]] = None):
+        """
+        Sku of the resource
+        :param pulumi.Input[str] name: Name of the sku
+        :param pulumi.Input[str] tier: Tier of the sku like Basic or Enterprise
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the sku
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tier of the sku like Basic or Enterprise
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

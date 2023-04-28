@@ -122,7 +122,7 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitAuthorizationResult:
     """
     Gets the specified authorization from the specified express route circuit.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str authorization_name: The name of the authorization.
@@ -153,7 +153,7 @@ def get_express_route_circuit_authorization_output(authorization_name: Optional[
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitAuthorizationResult]:
     """
     Gets the specified authorization from the specified express route circuit.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str authorization_name: The name of the authorization.

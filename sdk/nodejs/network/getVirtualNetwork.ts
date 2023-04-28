@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network by resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
 
@@ -65,6 +65,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly enableVmProtection?: boolean;
     /**
+     * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+     */
+    readonly encryption?: outputs.network.VirtualNetworkEncryptionResponse;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -72,6 +76,14 @@ export interface GetVirtualNetworkResult {
      * The extended location of the virtual network.
      */
     readonly extendedLocation?: outputs.network.ExtendedLocationResponse;
+    /**
+     * A collection of references to flow log resources.
+     */
+    readonly flowLogs: outputs.network.FlowLogResponse[];
+    /**
+     * The FlowTimeout value (in minutes) for the Virtual Network
+     */
+    readonly flowTimeoutInMinutes?: number;
     /**
      * Resource ID.
      */
@@ -115,7 +127,7 @@ export interface GetVirtualNetworkResult {
 }
 /**
  * Gets the specified virtual network by resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))

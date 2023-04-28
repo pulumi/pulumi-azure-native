@@ -5,40 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { BotArgs } from "./bot";
-export type Bot = import("./bot").Bot;
-export const Bot: typeof import("./bot").Bot = null as any;
-utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
-
-export { BotConnectionArgs } from "./botConnection";
-export type BotConnection = import("./botConnection").BotConnection;
-export const BotConnection: typeof import("./botConnection").BotConnection = null as any;
-utilities.lazyLoad(exports, ["BotConnection"], () => require("./botConnection"));
-
-export { ChannelArgs } from "./channel";
-export type Channel = import("./channel").Channel;
-export const Channel: typeof import("./channel").Channel = null as any;
-utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
-
 export { EnterpriseChannelArgs } from "./enterpriseChannel";
 export type EnterpriseChannel = import("./enterpriseChannel").EnterpriseChannel;
 export const EnterpriseChannel: typeof import("./enterpriseChannel").EnterpriseChannel = null as any;
 utilities.lazyLoad(exports, ["EnterpriseChannel"], () => require("./enterpriseChannel"));
-
-export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
-export const getBot: typeof import("./getBot").getBot = null as any;
-export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
-utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
-
-export { GetBotConnectionArgs, GetBotConnectionResult, GetBotConnectionOutputArgs } from "./getBotConnection";
-export const getBotConnection: typeof import("./getBotConnection").getBotConnection = null as any;
-export const getBotConnectionOutput: typeof import("./getBotConnection").getBotConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getBotConnection","getBotConnectionOutput"], () => require("./getBotConnection"));
-
-export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
-export const getChannel: typeof import("./getChannel").getChannel = null as any;
-export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
 
 export { GetEnterpriseChannelArgs, GetEnterpriseChannelResult, GetEnterpriseChannelOutputArgs } from "./getEnterpriseChannel";
 export const getEnterpriseChannel: typeof import("./getEnterpriseChannel").getEnterpriseChannel = null as any;
@@ -67,12 +37,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:botservice/v20180712:Bot":
-                return new Bot(name, <any>undefined, { urn })
-            case "azure-native:botservice/v20180712:BotConnection":
-                return new BotConnection(name, <any>undefined, { urn })
-            case "azure-native:botservice/v20180712:Channel":
-                return new Channel(name, <any>undefined, { urn })
             case "azure-native:botservice/v20180712:EnterpriseChannel":
                 return new EnterpriseChannel(name, <any>undefined, { urn })
             default:

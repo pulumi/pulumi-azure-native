@@ -29,11 +29,15 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
         /// </summary>
         public readonly string? Format;
         /// <summary>
-        /// If the export has an active schedule, provides an estimate of the next execution time.
+        /// If the export has an active schedule, provides an estimate of the next run time.
         /// </summary>
         public readonly string NextRunTimeEstimate;
         /// <summary>
-        /// If requested, has the most recent execution history for the export.
+        /// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+        /// </summary>
+        public readonly bool? PartitionData;
+        /// <summary>
+        /// If requested, has the most recent run history for the export.
         /// </summary>
         public readonly Outputs.ExportExecutionListResultResponse? RunHistory;
 
@@ -47,12 +51,15 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
 
             string nextRunTimeEstimate,
 
+            bool? partitionData,
+
             Outputs.ExportExecutionListResultResponse? runHistory)
         {
             Definition = definition;
             DeliveryInfo = deliveryInfo;
             Format = format;
             NextRunTimeEstimate = nextRunTimeEstimate;
+            PartitionData = partitionData;
             RunHistory = runHistory;
         }
     }

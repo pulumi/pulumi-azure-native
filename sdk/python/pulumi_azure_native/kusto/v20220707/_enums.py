@@ -9,19 +9,15 @@ __all__ = [
     'AzureSkuTier',
     'BlobStorageEventType',
     'ClusterNetworkAccessFlag',
-    'ClusterPrincipalRole',
     'Compression',
     'DataConnectionKind',
-    'DatabasePrincipalRole',
     'DatabaseRouting',
-    'DefaultPrincipalsModificationKind',
     'EngineType',
     'EventGridDataFormat',
     'EventHubDataFormat',
     'IdentityType',
     'IotHubDataFormat',
     'Kind',
-    'PrincipalType',
     'PublicIPType',
     'PublicNetworkAccess',
 ]
@@ -119,14 +115,6 @@ class ClusterNetworkAccessFlag(str, Enum):
     DISABLED = "Disabled"
 
 
-class ClusterPrincipalRole(str, Enum):
-    """
-    Cluster principal role.
-    """
-    ALL_DATABASES_ADMIN = "AllDatabasesAdmin"
-    ALL_DATABASES_VIEWER = "AllDatabasesViewer"
-
-
 class Compression(str, Enum):
     """
     The event hub messages compression type
@@ -144,33 +132,12 @@ class DataConnectionKind(str, Enum):
     IOT_HUB = "IotHub"
 
 
-class DatabasePrincipalRole(str, Enum):
-    """
-    Database principal role.
-    """
-    ADMIN = "Admin"
-    INGESTOR = "Ingestor"
-    MONITOR = "Monitor"
-    USER = "User"
-    UNRESTRICTED_VIEWER = "UnrestrictedViewer"
-    VIEWER = "Viewer"
-
-
 class DatabaseRouting(str, Enum):
     """
     Indication for database routing information from the data connection, by default only database routing information is allowed
     """
     SINGLE = "Single"
     MULTI = "Multi"
-
-
-class DefaultPrincipalsModificationKind(str, Enum):
-    """
-    The default principals modification kind
-    """
-    UNION = "Union"
-    REPLACE = "Replace"
-    NONE = "None"
 
 
 class EngineType(str, Enum):
@@ -263,15 +230,6 @@ class Kind(str, Enum):
     """
     READ_WRITE = "ReadWrite"
     READ_ONLY_FOLLOWING = "ReadOnlyFollowing"
-
-
-class PrincipalType(str, Enum):
-    """
-    Principal type.
-    """
-    APP = "App"
-    GROUP = "Group"
-    USER = "User"
 
 
 class PublicIPType(str, Enum):

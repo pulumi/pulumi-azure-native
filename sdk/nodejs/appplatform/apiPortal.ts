@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * API portal resource
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ApiPortal extends pulumi.CustomResource {
     /**
@@ -80,7 +81,7 @@ export class ApiPortal extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.apiPortalPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -92,7 +93,7 @@ export class ApiPortal extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ApiPortal" }, { type: "azure-native:appplatform/v20220301preview:ApiPortal" }, { type: "azure-native:appplatform/v20220501preview:ApiPortal" }, { type: "azure-native:appplatform/v20220901preview:ApiPortal" }, { type: "azure-native:appplatform/v20221101preview:ApiPortal" }, { type: "azure-native:appplatform/v20221201:ApiPortal" }, { type: "azure-native:appplatform/v20230101preview:ApiPortal" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ApiPortal" }, { type: "azure-native:appplatform/v20220301preview:ApiPortal" }, { type: "azure-native:appplatform/v20220501preview:ApiPortal" }, { type: "azure-native:appplatform/v20220901preview:ApiPortal" }, { type: "azure-native:appplatform/v20221101preview:ApiPortal" }, { type: "azure-native:appplatform/v20221201:ApiPortal" }, { type: "azure-native:appplatform/v20230101preview:ApiPortal" }, { type: "azure-native:appplatform/v20230301preview:ApiPortal" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiPortal.__pulumiType, name, resourceInputs, opts);
     }

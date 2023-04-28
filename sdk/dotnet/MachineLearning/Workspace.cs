@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.MachineLearning
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
-    /// API Version: 2016-04-01.
+    /// API Version: 2019-10-01.
+    /// Previous API Version: 2016-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -45,6 +46,12 @@ namespace Pulumi.AzureNative.MachineLearning
         /// </summary>
         [Output("ownerEmail")]
         public Output<string> OwnerEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// The sku of the workspace.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The regional endpoint for the machine learning studio service which hosts this workspace.
@@ -161,6 +168,12 @@ namespace Pulumi.AzureNative.MachineLearning
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The sku of the workspace.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

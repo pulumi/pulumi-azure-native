@@ -125,6 +125,7 @@ class ServerAdministrator(pulumi.CustomResource):
         """
         Represents a and external administrator to be created.
         API Version: 2017-12-01.
+        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,6 +145,7 @@ class ServerAdministrator(pulumi.CustomResource):
         """
         Represents a and external administrator to be created.
         API Version: 2017-12-01.
+        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ServerAdministratorArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +197,7 @@ class ServerAdministrator(pulumi.CustomResource):
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:ServerAdministrator"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:ServerAdministrator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:ServerAdministrator"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:ServerAdministrator"), pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:ServerAdministrator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerAdministrator, __self__).__init__(
             'azure-native:dbformysql:ServerAdministrator',

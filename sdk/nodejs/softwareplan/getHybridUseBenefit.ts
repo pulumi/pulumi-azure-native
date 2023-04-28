@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a given plan ID
- * API Version: 2019-06-01-preview.
+ * API Version: 2019-12-01.
  */
 export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridUseBenefitResult> {
 
@@ -70,7 +70,7 @@ export interface GetHybridUseBenefitResult {
 }
 /**
  * Gets a given plan ID
- * API Version: 2019-06-01-preview.
+ * API Version: 2019-12-01.
  */
 export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridUseBenefitResult> {
     return pulumi.output(args).apply((a: any) => getHybridUseBenefit(a, opts))

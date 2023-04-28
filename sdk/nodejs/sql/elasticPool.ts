@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An elastic pool.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**
@@ -43,6 +44,10 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
+     * The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+     */
+    public readonly highAvailabilityReplicaCount!: pulumi.Output<number | undefined>;
+    /**
      * Kind of elastic pool. This is metadata used for the Azure portal experience.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -62,6 +67,10 @@ export class ElasticPool extends pulumi.CustomResource {
      * The storage limit for the database elastic pool in bytes.
      */
     public readonly maxSizeBytes!: pulumi.Output<number | undefined>;
+    /**
+     * Minimal capacity that serverless pool will not shrink below, if not paused
+     */
+    public readonly minCapacity!: pulumi.Output<number | undefined>;
     /**
      * Resource name.
      */
@@ -115,10 +124,12 @@ export class ElasticPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             resourceInputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
+            resourceInputs["highAvailabilityReplicaCount"] = args ? args.highAvailabilityReplicaCount : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
             resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
             resourceInputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
@@ -132,11 +143,13 @@ export class ElasticPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["highAvailabilityReplicaCount"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["licenseType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maintenanceConfigurationId"] = undefined /*out*/;
             resourceInputs["maxSizeBytes"] = undefined /*out*/;
+            resourceInputs["minCapacity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perDatabaseSettings"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -161,6 +174,10 @@ export interface ElasticPoolArgs {
      */
     elasticPoolName?: pulumi.Input<string>;
     /**
+     * The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+     */
+    highAvailabilityReplicaCount?: pulumi.Input<number>;
+    /**
      * The license type to apply for this elastic pool.
      */
     licenseType?: pulumi.Input<string | enums.sql.ElasticPoolLicenseType>;
@@ -176,6 +193,10 @@ export interface ElasticPoolArgs {
      * The storage limit for the database elastic pool in bytes.
      */
     maxSizeBytes?: pulumi.Input<number>;
+    /**
+     * Minimal capacity that serverless pool will not shrink below, if not paused
+     */
+    minCapacity?: pulumi.Input<number>;
     /**
      * The per database settings for the elastic pool.
      */

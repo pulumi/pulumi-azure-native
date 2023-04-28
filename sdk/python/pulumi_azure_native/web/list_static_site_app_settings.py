@@ -96,8 +96,8 @@ def list_static_site_app_settings(name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteAppSettingsResult:
     """
-    Gets the application settings of a static site.
-    API Version: 2020-12-01.
+    Description for Gets the application settings of a static site.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the static site.
@@ -122,8 +122,8 @@ def list_static_site_app_settings_output(name: Optional[pulumi.Input[str]] = Non
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteAppSettingsResult]:
     """
-    Gets the application settings of a static site.
-    API Version: 2020-12-01.
+    Description for Gets the application settings of a static site.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the static site.

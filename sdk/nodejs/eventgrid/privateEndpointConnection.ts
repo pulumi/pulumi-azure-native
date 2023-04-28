@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
+ * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -116,11 +117,11 @@ export interface PrivateEndpointConnectionArgs {
      */
     groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the parent resource (namely, either, the topic name or domain name).
+     * The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
      */
     parentName: pulumi.Input<string>;
     /**
-     * The type of the parent resource. This can be either \'topics\' or \'domains\'.
+     * The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
      */
     parentType: pulumi.Input<string>;
     /**

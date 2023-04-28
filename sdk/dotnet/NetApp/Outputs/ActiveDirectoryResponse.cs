@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? AdName;
         /// <summary>
+        /// Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        /// </summary>
+        public readonly ImmutableArray<string> Administrators;
+        /// <summary>
         /// If enabled, AES encryption will be enabled for SMB communication.
         /// </summary>
         public readonly bool? AesEncryption;
@@ -45,6 +49,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? Domain;
         /// <summary>
+        /// If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+        /// </summary>
+        public readonly bool? EncryptDCConnections;
+        /// <summary>
         /// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
         /// </summary>
         public readonly string? KdcIP;
@@ -52,6 +60,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// Specifies whether or not the LDAP traffic needs to be secured via TLS.
         /// </summary>
         public readonly bool? LdapOverTLS;
+        /// <summary>
+        /// LDAP Search scope options
+        /// </summary>
+        public readonly Outputs.LdapSearchScopeOptResponse? LdapSearchScope;
         /// <summary>
         /// Specifies whether or not the LDAP traffic needs to be signed.
         /// </summary>
@@ -64,6 +76,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// Plain text password of Active Directory domain administrator, value is masked in the response
         /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
+        /// </summary>
+        public readonly string? PreferredServersForLdapClient;
         /// <summary>
         /// Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
         /// </summary>
@@ -99,6 +115,8 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? adName,
 
+            ImmutableArray<string> administrators,
+
             bool? aesEncryption,
 
             bool? allowLocalNfsUsersWithLdap,
@@ -109,15 +127,21 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? domain,
 
+            bool? encryptDCConnections,
+
             string? kdcIP,
 
             bool? ldapOverTLS,
+
+            Outputs.LdapSearchScopeOptResponse? ldapSearchScope,
 
             bool? ldapSigning,
 
             string? organizationalUnit,
 
             string? password,
+
+            string? preferredServersForLdapClient,
 
             ImmutableArray<string> securityOperators,
 
@@ -135,16 +159,20 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         {
             ActiveDirectoryId = activeDirectoryId;
             AdName = adName;
+            Administrators = administrators;
             AesEncryption = aesEncryption;
             AllowLocalNfsUsersWithLdap = allowLocalNfsUsersWithLdap;
             BackupOperators = backupOperators;
             Dns = dns;
             Domain = domain;
+            EncryptDCConnections = encryptDCConnections;
             KdcIP = kdcIP;
             LdapOverTLS = ldapOverTLS;
+            LdapSearchScope = ldapSearchScope;
             LdapSigning = ldapSigning;
             OrganizationalUnit = organizationalUnit;
             Password = password;
+            PreferredServersForLdapClient = preferredServersForLdapClient;
             SecurityOperators = securityOperators;
             ServerRootCACertificate = serverRootCACertificate;
             Site = site;

@@ -11,11 +11,24 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A network interface in a resource group.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Auxiliary mode of Network Interface resource.
+        /// </summary>
+        [Output("auxiliaryMode")]
+        public Output<string?> AuxiliaryMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether to disable tcp state tracking.
+        /// </summary>
+        [Output("disableTcpStateTracking")]
+        public Output<bool?> DisableTcpStateTracking { get; private set; } = null!;
+
         /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
@@ -29,7 +42,7 @@ namespace Pulumi.AzureNative.Network
         public Output<Outputs.SubResourceResponse> DscpConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// If the network interface is accelerated networking enabled.
+        /// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         /// </summary>
         [Output("enableAcceleratedNetworking")]
         public Output<bool?> EnableAcceleratedNetworking { get; private set; } = null!;
@@ -154,6 +167,18 @@ namespace Pulumi.AzureNative.Network
         [Output("virtualMachine")]
         public Output<Outputs.SubResourceResponse> VirtualMachine { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the virtual machine this nic is attached to supports encryption.
+        /// </summary>
+        [Output("vnetEncryptionSupported")]
+        public Output<bool> VnetEncryptionSupported { get; private set; } = null!;
+
+        /// <summary>
+        /// WorkloadType of the NetworkInterface for BareMetal resources
+        /// </summary>
+        [Output("workloadType")]
+        public Output<string?> WorkloadType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -247,13 +272,25 @@ namespace Pulumi.AzureNative.Network
     public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Auxiliary mode of Network Interface resource.
+        /// </summary>
+        [Input("auxiliaryMode")]
+        public InputUnion<string, Pulumi.AzureNative.Network.NetworkInterfaceAuxiliaryMode>? AuxiliaryMode { get; set; }
+
+        /// <summary>
+        /// Indicates whether to disable tcp state tracking.
+        /// </summary>
+        [Input("disableTcpStateTracking")]
+        public Input<bool>? DisableTcpStateTracking { get; set; }
+
+        /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.NetworkInterfaceDnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
-        /// If the network interface is accelerated networking enabled.
+        /// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         /// </summary>
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }
@@ -341,6 +378,12 @@ namespace Pulumi.AzureNative.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// WorkloadType of the NetworkInterface for BareMetal resources
+        /// </summary>
+        [Input("workloadType")]
+        public Input<string>? WorkloadType { get; set; }
 
         public NetworkInterfaceArgs()
         {

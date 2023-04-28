@@ -8,14 +8,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
-    'MigrationRequestPropertiesResponse',
+    'AgentUpdatePropertiesResponse',
+    'MaintenanceWindowPropertiesResponse',
     'MsixPackageApplicationsResponse',
     'MsixPackageDependenciesResponse',
-    'PrivateEndpointResponse',
-    'PrivateLinkServiceConnectionStateResponse',
     'RegistrationInfoResponse',
     'ResourceModelWithAllowedPropertySetResponseIdentity',
     'ResourceModelWithAllowedPropertySetResponsePlan',
@@ -27,55 +27,135 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class MigrationRequestPropertiesResponse(dict):
+class AgentUpdatePropertiesResponse(dict):
     """
-    Properties for arm migration.
+    The session host configuration for updating agent, monitoring agent, and stack component.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "migrationPath":
-            suggest = "migration_path"
+        if key == "maintenanceWindowTimeZone":
+            suggest = "maintenance_window_time_zone"
+        elif key == "maintenanceWindows":
+            suggest = "maintenance_windows"
+        elif key == "useSessionHostLocalTime":
+            suggest = "use_session_host_local_time"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MigrationRequestPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AgentUpdatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MigrationRequestPropertiesResponse.__key_warning(key)
+        AgentUpdatePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MigrationRequestPropertiesResponse.__key_warning(key)
+        AgentUpdatePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 migration_path: Optional[str] = None,
-                 operation: Optional[str] = None):
+                 maintenance_window_time_zone: Optional[str] = None,
+                 maintenance_windows: Optional[Sequence['outputs.MaintenanceWindowPropertiesResponse']] = None,
+                 type: Optional[str] = None,
+                 use_session_host_local_time: Optional[bool] = None):
         """
-        Properties for arm migration.
-        :param str migration_path: The path to the legacy object to migrate.
-        :param str operation: The type of operation for migration.
+        The session host configuration for updating agent, monitoring agent, and stack component.
+        :param str maintenance_window_time_zone: Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+        :param Sequence['MaintenanceWindowPropertiesResponse'] maintenance_windows: List of maintenance windows. Maintenance windows are 2 hours long.
+        :param str type: The type of maintenance for session host components.
+        :param bool use_session_host_local_time: Whether to use localTime of the virtual machine.
         """
-        if migration_path is not None:
-            pulumi.set(__self__, "migration_path", migration_path)
-        if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+        if maintenance_window_time_zone is not None:
+            pulumi.set(__self__, "maintenance_window_time_zone", maintenance_window_time_zone)
+        if maintenance_windows is not None:
+            pulumi.set(__self__, "maintenance_windows", maintenance_windows)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_session_host_local_time is not None:
+            pulumi.set(__self__, "use_session_host_local_time", use_session_host_local_time)
 
     @property
-    @pulumi.getter(name="migrationPath")
-    def migration_path(self) -> Optional[str]:
+    @pulumi.getter(name="maintenanceWindowTimeZone")
+    def maintenance_window_time_zone(self) -> Optional[str]:
         """
-        The path to the legacy object to migrate.
+        Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
         """
-        return pulumi.get(self, "migration_path")
+        return pulumi.get(self, "maintenance_window_time_zone")
+
+    @property
+    @pulumi.getter(name="maintenanceWindows")
+    def maintenance_windows(self) -> Optional[Sequence['outputs.MaintenanceWindowPropertiesResponse']]:
+        """
+        List of maintenance windows. Maintenance windows are 2 hours long.
+        """
+        return pulumi.get(self, "maintenance_windows")
 
     @property
     @pulumi.getter
-    def operation(self) -> Optional[str]:
+    def type(self) -> Optional[str]:
         """
-        The type of operation for migration.
+        The type of maintenance for session host components.
         """
-        return pulumi.get(self, "operation")
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useSessionHostLocalTime")
+    def use_session_host_local_time(self) -> Optional[bool]:
+        """
+        Whether to use localTime of the virtual machine.
+        """
+        return pulumi.get(self, "use_session_host_local_time")
+
+
+@pulumi.output_type
+class MaintenanceWindowPropertiesResponse(dict):
+    """
+    Maintenance window starting hour and day of week.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: Optional[str] = None,
+                 hour: Optional[int] = None):
+        """
+        Maintenance window starting hour and day of week.
+        :param str day_of_week: Day of the week.
+        :param int hour: The update start hour of the day. (0 - 23)
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[str]:
+        """
+        Day of the week.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[int]:
+        """
+        The update start hour of the day. (0 - 23)
+        """
+        return pulumi.get(self, "hour")
 
 
 @pulumi.output_type
@@ -264,92 +344,6 @@ class MsixPackageDependenciesResponse(dict):
         Name of dependency publisher.
         """
         return pulumi.get(self, "publisher")
-
-
-@pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    The Private Endpoint resource.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        The Private Endpoint resource.
-        :param str id: The ARM identifier for Private Endpoint
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ARM identifier for Private Endpoint
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStateResponse(dict):
-    """
-    A collection of information about the state of the connection between service consumer and provider.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionsRequired":
-            suggest = "actions_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 actions_required: Optional[str] = None,
-                 description: Optional[str] = None,
-                 status: Optional[str] = None):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param str description: The reason for approval/rejection of the connection.
-        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[str]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The reason for approval/rejection of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -682,7 +676,7 @@ class ScalingHostPoolReferenceResponse(dict):
 @pulumi.output_type
 class ScalingScheduleResponse(dict):
     """
-    Scaling plan schedule.
+    A ScalingPlanPooledSchedule.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -737,41 +731,41 @@ class ScalingScheduleResponse(dict):
                  days_of_week: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  off_peak_load_balancing_algorithm: Optional[str] = None,
-                 off_peak_start_time: Optional[str] = None,
+                 off_peak_start_time: Optional['outputs.TimeResponse'] = None,
                  peak_load_balancing_algorithm: Optional[str] = None,
-                 peak_start_time: Optional[str] = None,
+                 peak_start_time: Optional['outputs.TimeResponse'] = None,
                  ramp_down_capacity_threshold_pct: Optional[int] = None,
                  ramp_down_force_logoff_users: Optional[bool] = None,
                  ramp_down_load_balancing_algorithm: Optional[str] = None,
                  ramp_down_minimum_hosts_pct: Optional[int] = None,
                  ramp_down_notification_message: Optional[str] = None,
-                 ramp_down_start_time: Optional[str] = None,
+                 ramp_down_start_time: Optional['outputs.TimeResponse'] = None,
                  ramp_down_stop_hosts_when: Optional[str] = None,
                  ramp_down_wait_time_minutes: Optional[int] = None,
                  ramp_up_capacity_threshold_pct: Optional[int] = None,
                  ramp_up_load_balancing_algorithm: Optional[str] = None,
                  ramp_up_minimum_hosts_pct: Optional[int] = None,
-                 ramp_up_start_time: Optional[str] = None):
+                 ramp_up_start_time: Optional['outputs.TimeResponse'] = None):
         """
-        Scaling plan schedule.
+        A ScalingPlanPooledSchedule.
         :param Sequence[str] days_of_week: Set of days of the week on which this schedule is active.
-        :param str name: Name of the scaling schedule.
+        :param str name: Name of the ScalingPlanPooledSchedule.
         :param str off_peak_load_balancing_algorithm: Load balancing algorithm for off-peak period.
-        :param str off_peak_start_time: Starting time for off-peak period.
+        :param 'TimeResponse' off_peak_start_time: Starting time for off-peak period.
         :param str peak_load_balancing_algorithm: Load balancing algorithm for peak period.
-        :param str peak_start_time: Starting time for peak period.
+        :param 'TimeResponse' peak_start_time: Starting time for peak period.
         :param int ramp_down_capacity_threshold_pct: Capacity threshold for ramp down period.
         :param bool ramp_down_force_logoff_users: Should users be logged off forcefully from hosts.
         :param str ramp_down_load_balancing_algorithm: Load balancing algorithm for ramp down period.
         :param int ramp_down_minimum_hosts_pct: Minimum host percentage for ramp down period.
         :param str ramp_down_notification_message: Notification message for users during ramp down period.
-        :param str ramp_down_start_time: Starting time for ramp down period.
+        :param 'TimeResponse' ramp_down_start_time: Starting time for ramp down period.
         :param str ramp_down_stop_hosts_when: Specifies when to stop hosts during ramp down period.
         :param int ramp_down_wait_time_minutes: Number of minutes to wait to stop hosts during ramp down period.
         :param int ramp_up_capacity_threshold_pct: Capacity threshold for ramp up period.
         :param str ramp_up_load_balancing_algorithm: Load balancing algorithm for ramp up period.
         :param int ramp_up_minimum_hosts_pct: Minimum host percentage for ramp up period.
-        :param str ramp_up_start_time: Starting time for ramp up period.
+        :param 'TimeResponse' ramp_up_start_time: Starting time for ramp up period.
         """
         if days_of_week is not None:
             pulumi.set(__self__, "days_of_week", days_of_week)
@@ -822,7 +816,7 @@ class ScalingScheduleResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the scaling schedule.
+        Name of the ScalingPlanPooledSchedule.
         """
         return pulumi.get(self, "name")
 
@@ -836,7 +830,7 @@ class ScalingScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="offPeakStartTime")
-    def off_peak_start_time(self) -> Optional[str]:
+    def off_peak_start_time(self) -> Optional['outputs.TimeResponse']:
         """
         Starting time for off-peak period.
         """
@@ -852,7 +846,7 @@ class ScalingScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="peakStartTime")
-    def peak_start_time(self) -> Optional[str]:
+    def peak_start_time(self) -> Optional['outputs.TimeResponse']:
         """
         Starting time for peak period.
         """
@@ -900,7 +894,7 @@ class ScalingScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="rampDownStartTime")
-    def ramp_down_start_time(self) -> Optional[str]:
+    def ramp_down_start_time(self) -> Optional['outputs.TimeResponse']:
         """
         Starting time for ramp down period.
         """
@@ -948,7 +942,7 @@ class ScalingScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="rampUpStartTime")
-    def ramp_up_start_time(self) -> Optional[str]:
+    def ramp_up_start_time(self) -> Optional['outputs.TimeResponse']:
         """
         Starting time for ramp up period.
         """

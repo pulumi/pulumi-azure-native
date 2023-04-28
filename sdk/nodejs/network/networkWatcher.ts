@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Network watcher in a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**

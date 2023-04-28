@@ -136,7 +136,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult:
     """
     Get the specific private end point connection by specific private link service in the resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.
@@ -171,7 +171,7 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicePrivateEndpointConnectionResult]:
     """
     Get the specific private end point connection by specific private link service in the resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.

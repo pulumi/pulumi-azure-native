@@ -163,20 +163,6 @@ export const Percentile = {
  */
 export type Percentile = (typeof Percentile)[keyof typeof Percentile];
 
-export const ProvisioningState = {
-    Accepted: "Accepted",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-    Moving: "Moving",
-    Succeeded: "Succeeded",
-} as const;
-
-/**
- * Provisioning state of the project.
- */
-export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
-
 export const TimeRange = {
     Day: "Day",
     Week: "Week",

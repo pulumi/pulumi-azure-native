@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the cluster user credentials for the dedicated appliance.
- * API Version: 2021-10-31-preview.
+ * API Version: 2022-10-27.
  */
 export function listApplianceClusterUserCredential(args: ListApplianceClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceClusterUserCredentialResult> {
 
@@ -46,7 +46,7 @@ export interface ListApplianceClusterUserCredentialResult {
 }
 /**
  * Returns the cluster user credentials for the dedicated appliance.
- * API Version: 2021-10-31-preview.
+ * API Version: 2022-10-27.
  */
 export function listApplianceClusterUserCredentialOutput(args: ListApplianceClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceClusterUserCredentialResult> {
     return pulumi.output(args).apply((a: any) => listApplianceClusterUserCredential(a, opts))

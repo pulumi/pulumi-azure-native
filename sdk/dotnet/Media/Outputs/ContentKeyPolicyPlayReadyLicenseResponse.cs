@@ -56,6 +56,10 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// The relative expiration date of license.
         /// </summary>
         public readonly string? RelativeExpirationDate;
+        /// <summary>
+        /// The security level.
+        /// </summary>
+        public readonly string? SecurityLevel;
 
         [OutputConstructor]
         private ContentKeyPolicyPlayReadyLicenseResponse(
@@ -77,7 +81,9 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             string? relativeBeginDate,
 
-            string? relativeExpirationDate)
+            string? relativeExpirationDate,
+
+            string? securityLevel)
         {
             AllowTestDevices = allowTestDevices;
             BeginDate = beginDate;
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNative.Media.Outputs
             PlayRight = playRight;
             RelativeBeginDate = relativeBeginDate;
             RelativeExpirationDate = relativeExpirationDate;
+            SecurityLevel = securityLevel;
         }
     }
 }

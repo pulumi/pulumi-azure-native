@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
-    /// API Version: 2021-03-15.
+    /// API Version: 2022-11-15.
+    /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:DatabaseAccount")]
     public partial class DatabaseAccount : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Analytical storage specific properties.
+        /// </summary>
+        [Output("analyticalStorageConfiguration")]
+        public Output<Outputs.AnalyticalStorageConfigurationResponse?> AnalyticalStorageConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// API specific properties.
         /// </summary>
@@ -33,6 +40,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<Outputs.CapabilityResponse>> Capabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// The object that represents all properties related to capacity enforcement on an account.
+        /// </summary>
+        [Output("capacity")]
+        public Output<Outputs.CapacityResponse?> Capacity { get; private set; } = null!;
 
         /// <summary>
         /// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -53,6 +66,12 @@ namespace Pulumi.AzureNative.DocumentDB
         public Output<ImmutableArray<Outputs.CorsPolicyResponse>> Cors { get; private set; } = null!;
 
         /// <summary>
+        /// Enum to indicate the mode of account creation.
+        /// </summary>
+        [Output("createMode")]
+        public Output<string?> CreateMode { get; private set; } = null!;
+
+        /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
         [Output("databaseAccountOfferType")]
@@ -69,6 +88,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Output("disableKeyBasedMetadataWriteAccess")]
         public Output<bool?> DisableKeyBasedMetadataWriteAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
 
         /// <summary>
         /// The connection endpoint for the Cosmos DB database account.
@@ -107,6 +132,12 @@ namespace Pulumi.AzureNative.DocumentDB
         public Output<bool?> EnableMultipleWriteLocations { get; private set; } = null!;
 
         /// <summary>
+        /// Flag to indicate enabling/disabling of Partition Merge feature on the account
+        /// </summary>
+        [Output("enablePartitionMerge")]
+        public Output<bool?> EnablePartitionMerge { get; private set; } = null!;
+
+        /// <summary>
         /// An array that contains the regions ordered by their failover priorities.
         /// </summary>
         [Output("failoverPolicies")]
@@ -117,6 +148,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique identifier assigned to the database account
+        /// </summary>
+        [Output("instanceId")]
+        public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
         /// List of IpRules.
@@ -137,6 +174,12 @@ namespace Pulumi.AzureNative.DocumentDB
         public Output<string?> KeyVaultKeyUri { get; private set; } = null!;
 
         /// <summary>
+        /// The object that represents the metadata for the Account Keys of the Cosmos DB account.
+        /// </summary>
+        [Output("keysMetadata")]
+        public Output<Outputs.DatabaseAccountKeysMetadataResponse> KeysMetadata { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates the type of database account. This can only be set at database account creation.
         /// </summary>
         [Output("kind")]
@@ -153,6 +196,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<Outputs.LocationResponse>> Locations { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
+        /// </summary>
+        [Output("minimalTlsVersion")]
+        public Output<string?> MinimalTlsVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the ARM resource.
@@ -195,6 +244,18 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Output("readLocations")]
         public Output<ImmutableArray<Outputs.LocationResponse>> ReadLocations { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters to indicate the information about the restore.
+        /// </summary>
+        [Output("restoreParameters")]
+        public Output<Outputs.RestoreParametersResponse?> RestoreParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -273,6 +334,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:DatabaseAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:DatabaseAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:DatabaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:DatabaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:DatabaseAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:DatabaseAccount"},
                 },
             };
@@ -304,6 +367,12 @@ namespace Pulumi.AzureNative.DocumentDB
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
+        /// Analytical storage specific properties.
+        /// </summary>
+        [Input("analyticalStorageConfiguration")]
+        public Input<Inputs.AnalyticalStorageConfigurationArgs>? AnalyticalStorageConfiguration { get; set; }
+
+        /// <summary>
         /// API specific properties. Currently, supported only for MongoDB API.
         /// </summary>
         [Input("apiProperties")]
@@ -326,6 +395,12 @@ namespace Pulumi.AzureNative.DocumentDB
             get => _capabilities ?? (_capabilities = new InputList<Inputs.CapabilityArgs>());
             set => _capabilities = value;
         }
+
+        /// <summary>
+        /// The object that represents all properties related to capacity enforcement on an account.
+        /// </summary>
+        [Input("capacity")]
+        public Input<Inputs.CapacityArgs>? Capacity { get; set; }
 
         /// <summary>
         /// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -352,6 +427,12 @@ namespace Pulumi.AzureNative.DocumentDB
         }
 
         /// <summary>
+        /// Enum to indicate the mode of account creation.
+        /// </summary>
+        [Input("createMode")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.CreateMode>? CreateMode { get; set; }
+
+        /// <summary>
         /// The offer type for the database
         /// </summary>
         [Input("databaseAccountOfferType", required: true)]
@@ -368,6 +449,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Input("disableKeyBasedMetadataWriteAccess")]
         public Input<bool>? DisableKeyBasedMetadataWriteAccess { get; set; }
+
+        /// <summary>
+        /// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
 
         /// <summary>
         /// Flag to indicate whether to enable storage analytics.
@@ -398,6 +485,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Input("enableMultipleWriteLocations")]
         public Input<bool>? EnableMultipleWriteLocations { get; set; }
+
+        /// <summary>
+        /// Flag to indicate enabling/disabling of Partition Merge feature on the account
+        /// </summary>
+        [Input("enablePartitionMerge")]
+        public Input<bool>? EnablePartitionMerge { get; set; }
 
         /// <summary>
         /// Identity for the resource.
@@ -454,6 +547,12 @@ namespace Pulumi.AzureNative.DocumentDB
         }
 
         /// <summary>
+        /// Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
+        /// </summary>
+        [Input("minimalTlsVersion")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.MinimalTlsVersion>? MinimalTlsVersion { get; set; }
+
+        /// <summary>
         /// Indicates what services are allowed to bypass firewall checks.
         /// </summary>
         [Input("networkAclBypass")]
@@ -483,6 +582,12 @@ namespace Pulumi.AzureNative.DocumentDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Parameters to indicate the information about the restore.
+        /// </summary>
+        [Input("restoreParameters")]
+        public Input<Inputs.RestoreParametersArgs>? RestoreParameters { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -509,6 +614,7 @@ namespace Pulumi.AzureNative.DocumentDB
 
         public DatabaseAccountArgs()
         {
+            CreateMode = "Default";
             Kind = "GlobalDocumentDB";
         }
         public static new DatabaseAccountArgs Empty => new DatabaseAccountArgs();

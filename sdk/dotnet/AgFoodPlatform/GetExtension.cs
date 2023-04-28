@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     {
         /// <summary>
         /// Get installed extension details by extension id.
-        /// API Version: 2020-05-12-preview.
+        /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get installed extension details by extension id.
-        /// API Version: 2020-05-12-preview.
+        /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetExtensionResult
     {
         /// <summary>
+        /// Additional api properties.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.ApiPropertiesResponse> AdditionalApiProperties;
+        /// <summary>
         /// The ETag value to implement optimistic concurrency.
         /// </summary>
         public readonly string ETag;
@@ -104,7 +108,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// </summary>
         public readonly string ExtensionId;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -116,7 +120,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
         [OutputConstructor]
         private GetExtensionResult(
+            ImmutableDictionary<string, Outputs.ApiPropertiesResponse> additionalApiProperties,
+
             string eTag,
 
             string extensionApiDocsLink,
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 
             string type)
         {
+            AdditionalApiProperties = additionalApiProperties;
             ETag = eTag;
             ExtensionApiDocsLink = extensionApiDocsLink;
             ExtensionAuthLink = extensionAuthLink;

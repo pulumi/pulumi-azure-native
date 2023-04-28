@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AzureADMetricArgs } from "./azureADMetric";
-export type AzureADMetric = import("./azureADMetric").AzureADMetric;
-export const AzureADMetric: typeof import("./azureADMetric").AzureADMetric = null as any;
-utilities.lazyLoad(exports, ["AzureADMetric"], () => require("./azureADMetric"));
-
 export { DiagnosticSettingArgs } from "./diagnosticSetting";
 export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
 export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
@@ -24,11 +19,6 @@ export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, G
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { GetazureADMetricArgs, GetazureADMetricResult, GetazureADMetricOutputArgs } from "./getazureADMetric";
-export const getazureADMetric: typeof import("./getazureADMetric").getazureADMetric = null as any;
-export const getazureADMetricOutput: typeof import("./getazureADMetric").getazureADMetricOutput = null as any;
-utilities.lazyLoad(exports, ["getazureADMetric","getazureADMetricOutput"], () => require("./getazureADMetric"));
 
 export { GetprivateLinkForAzureAdArgs, GetprivateLinkForAzureAdResult, GetprivateLinkForAzureAdOutputArgs } from "./getprivateLinkForAzureAd";
 export const getprivateLinkForAzureAd: typeof import("./getprivateLinkForAzureAd").getprivateLinkForAzureAd = null as any;
@@ -72,8 +62,6 @@ const _module = {
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:aadiam:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:aadiam:azureADMetric":
-                return new AzureADMetric(name, <any>undefined, { urn })
             case "azure-native:aadiam:privateLinkForAzureAd":
                 return new PrivateLinkForAzureAd(name, <any>undefined, { urn })
             default:

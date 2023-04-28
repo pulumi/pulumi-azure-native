@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the private scheduled action by name.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
 
@@ -35,15 +35,15 @@ export interface GetScheduledActionResult {
      */
     readonly displayName: string;
     /**
-     * Resource Etag.
+     * Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
      */
     readonly eTag: string;
     /**
-     * Destination format of the view data.
+     * Destination format of the view data. This is optional.
      */
     readonly fileDestination?: outputs.costmanagement.FileDestinationResponse;
     /**
-     * Resource Id.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -51,13 +51,17 @@ export interface GetScheduledActionResult {
      */
     readonly kind?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
      * Notification properties based on scheduled action kind.
      */
     readonly notification: outputs.costmanagement.NotificationPropertiesResponse;
+    /**
+     * Email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    readonly notificationEmail?: string;
     /**
      * Schedule of the scheduled action.
      */
@@ -71,11 +75,11 @@ export interface GetScheduledActionResult {
      */
     readonly status: string;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * Kind of the scheduled action.
      */
     readonly systemData: outputs.costmanagement.SystemDataResponse;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -85,7 +89,7 @@ export interface GetScheduledActionResult {
 }
 /**
  * Get the private scheduled action by name.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Search
 {
     /// <summary>
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-    /// API Version: 2020-08-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:search:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

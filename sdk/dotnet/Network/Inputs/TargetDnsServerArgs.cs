@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// <summary>
         /// DNS server IP address.
         /// </summary>
-        [Input("ipAddress")]
-        public Input<string>? IpAddress { get; set; }
+        [Input("ipAddress", required: true)]
+        public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
         /// DNS server port.

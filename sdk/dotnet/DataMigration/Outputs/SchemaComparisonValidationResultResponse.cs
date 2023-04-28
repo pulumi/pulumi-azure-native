@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// List of schema differences between the source and target databases
         /// </summary>
-        public readonly Outputs.SchemaComparisonValidationResultTypeResponse SchemaDifferences;
+        public readonly Outputs.SchemaComparisonValidationResultTypeResponse? SchemaDifferences;
         /// <summary>
         /// Count of source database objects
         /// </summary>
@@ -31,17 +31,17 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// List of errors that happened while performing schema compare validation
         /// </summary>
-        public readonly Outputs.ValidationErrorResponse ValidationErrors;
+        public readonly Outputs.ValidationErrorResponse? ValidationErrors;
 
         [OutputConstructor]
         private SchemaComparisonValidationResultResponse(
-            Outputs.SchemaComparisonValidationResultTypeResponse schemaDifferences,
+            Outputs.SchemaComparisonValidationResultTypeResponse? schemaDifferences,
 
             ImmutableDictionary<string, double>? sourceDatabaseObjectCount,
 
             ImmutableDictionary<string, double>? targetDatabaseObjectCount,
 
-            Outputs.ValidationErrorResponse validationErrors)
+            Outputs.ValidationErrorResponse? validationErrors)
         {
             SchemaDifferences = schemaDifferences;
             SourceDatabaseObjectCount = sourceDatabaseObjectCount;

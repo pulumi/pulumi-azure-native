@@ -11,13 +11,14 @@ namespace Pulumi.AzureNative.BotService
 {
     /// <summary>
     /// Bot channel resource definition
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-09-15.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice:Channel")]
     public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Entity Tag
+        /// Entity Tag.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;

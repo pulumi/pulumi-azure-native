@@ -278,40 +278,6 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
     /// <summary>
-    /// Type of the machine group
-    /// </summary>
-    [EnumType]
-    public readonly struct MachineGroupType : IEquatable<MachineGroupType>
-    {
-        private readonly string _value;
-
-        private MachineGroupType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MachineGroupType Unknown { get; } = new MachineGroupType("unknown");
-        public static MachineGroupType Azure_cs { get; } = new MachineGroupType("azure-cs");
-        public static MachineGroupType Azure_sf { get; } = new MachineGroupType("azure-sf");
-        public static MachineGroupType Azure_vmss { get; } = new MachineGroupType("azure-vmss");
-        public static MachineGroupType User_static { get; } = new MachineGroupType("user-static");
-
-        public static bool operator ==(MachineGroupType left, MachineGroupType right) => left.Equals(right);
-        public static bool operator !=(MachineGroupType left, MachineGroupType right) => !left.Equals(right);
-
-        public static explicit operator string(MachineGroupType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MachineGroupType other && Equals(other);
-        public bool Equals(MachineGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The network access type for accessing Log Analytics query.
     /// </summary>
     [EnumType]
@@ -378,42 +344,6 @@ namespace Pulumi.AzureNative.OperationalInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TablePlanEnum other && Equals(other);
         public bool Equals(TablePlanEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The provisioning state of the workspace.
-    /// </summary>
-    [EnumType]
-    public readonly struct WorkspaceEntityStatus : IEquatable<WorkspaceEntityStatus>
-    {
-        private readonly string _value;
-
-        private WorkspaceEntityStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WorkspaceEntityStatus Creating { get; } = new WorkspaceEntityStatus("Creating");
-        public static WorkspaceEntityStatus Succeeded { get; } = new WorkspaceEntityStatus("Succeeded");
-        public static WorkspaceEntityStatus Failed { get; } = new WorkspaceEntityStatus("Failed");
-        public static WorkspaceEntityStatus Canceled { get; } = new WorkspaceEntityStatus("Canceled");
-        public static WorkspaceEntityStatus Deleting { get; } = new WorkspaceEntityStatus("Deleting");
-        public static WorkspaceEntityStatus ProvisioningAccount { get; } = new WorkspaceEntityStatus("ProvisioningAccount");
-        public static WorkspaceEntityStatus Updating { get; } = new WorkspaceEntityStatus("Updating");
-
-        public static bool operator ==(WorkspaceEntityStatus left, WorkspaceEntityStatus right) => left.Equals(right);
-        public static bool operator !=(WorkspaceEntityStatus left, WorkspaceEntityStatus right) => !left.Equals(right);
-
-        public static explicit operator string(WorkspaceEntityStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WorkspaceEntityStatus other && Equals(other);
-        public bool Equals(WorkspaceEntityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

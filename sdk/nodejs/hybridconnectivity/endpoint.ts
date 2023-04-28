@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The endpoint for the target resource.
  * API Version: 2022-05-01-preview.
+ * Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -121,7 +122,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20211006preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20220501preview:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20211006preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20220501preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20230315:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }

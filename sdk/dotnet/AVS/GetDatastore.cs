@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// A datastore resource
-        /// API Version: 2021-01-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:avs:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// A datastore resource
-        /// API Version: 2021-01-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:avs:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The operational status of the datastore
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.AVS
 
             string provisioningState,
 
+            string status,
+
             string type)
         {
             DiskPoolVolume = diskPoolVolume;
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.AVS
             Name = name;
             NetAppVolume = netAppVolume;
             ProvisioningState = provisioningState;
+            Status = status;
             Type = type;
         }
     }

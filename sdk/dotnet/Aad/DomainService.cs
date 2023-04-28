@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Aad
 {
     /// <summary>
     /// Domain service.
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:DomainService")]
     public partial class DomainService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration diagnostics data containing latest execution from client.
+        /// </summary>
+        [Output("configDiagnostics")]
+        public Output<Outputs.ConfigDiagnosticsResponse?> ConfigDiagnostics { get; private set; } = null!;
+
         /// <summary>
         /// Deployment Id
         /// </summary>
@@ -107,10 +114,22 @@ namespace Pulumi.AzureNative.Aad
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The unique sync application id of the Azure AD Domain Services deployment.
+        /// </summary>
+        [Output("syncApplicationId")]
+        public Output<string> SyncApplicationId { get; private set; } = null!;
+
+        /// <summary>
         /// SyncOwner ReplicaSet Id
         /// </summary>
         [Output("syncOwner")]
         public Output<string> SyncOwner { get; private set; } = null!;
+
+        /// <summary>
+        /// All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+        /// </summary>
+        [Output("syncScope")]
+        public Output<string?> SyncScope { get; private set; } = null!;
 
         /// <summary>
         /// The system meta data relating to this resource.
@@ -198,6 +217,12 @@ namespace Pulumi.AzureNative.Aad
     public sealed class DomainServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration diagnostics data containing latest execution from client.
+        /// </summary>
+        [Input("configDiagnostics")]
+        public Input<Inputs.ConfigDiagnosticsArgs>? ConfigDiagnostics { get; set; }
+
+        /// <summary>
         /// Domain Configuration Type
         /// </summary>
         [Input("domainConfigurationType")]
@@ -275,6 +300,12 @@ namespace Pulumi.AzureNative.Aad
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+        /// </summary>
+        [Input("syncScope")]
+        public InputUnion<string, Pulumi.AzureNative.Aad.SyncScope>? SyncScope { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -289,6 +320,7 @@ namespace Pulumi.AzureNative.Aad
 
         public DomainServiceArgs()
         {
+            SyncScope = "All";
         }
         public static new DomainServiceArgs Empty => new DomainServiceArgs();
     }

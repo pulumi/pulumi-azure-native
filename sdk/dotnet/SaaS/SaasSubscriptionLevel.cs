@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SaaS
     /// <summary>
     /// SaaS REST API resource definition.
     /// API Version: 2018-03-01-beta.
+    /// Previous API Version: 2018-03-01-beta. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:saas:SaasSubscriptionLevel")]
     public partial class SaasSubscriptionLevel : global::Pulumi.CustomResource

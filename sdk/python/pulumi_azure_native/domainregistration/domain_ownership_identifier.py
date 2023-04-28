@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = ['DomainOwnershipIdentifierArgs', 'DomainOwnershipIdentifier']
 
@@ -111,7 +110,8 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
                  __props__=None):
         """
         Domain ownership Identifier.
-        API Version: 2020-10-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,8 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Domain ownership Identifier.
-        API Version: 2020-10-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DomainOwnershipIdentifierArgs args: The arguments to use to populate this resource's properties.
@@ -169,7 +170,6 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20200601:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20200901:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20210115:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20210201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20210301:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20220301:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20220901:DomainOwnershipIdentifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -198,7 +198,6 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["ownership_id"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DomainOwnershipIdentifier(resource_name, opts=opts, __props__=__props__)
 
@@ -225,14 +224,6 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         Ownership Id.
         """
         return pulumi.get(self, "ownership_id")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

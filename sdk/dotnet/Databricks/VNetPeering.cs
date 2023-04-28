@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// Peerings in a VirtualNetwork resource
-    /// API Version: 2018-04-01.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:vNetPeering")]
     public partial class VNetPeering : global::Pulumi.CustomResource

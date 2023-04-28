@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
+        /// Group IDs
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -25,15 +29,15 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Private endpoint associated with the private endpoint connection
+        /// Private endpoint
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
-        /// Connection state
+        /// Connection state of the private endpoint connection
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Provisioning state of the private endpoint connection
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
 
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

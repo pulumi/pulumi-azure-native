@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network manager connectivity configuration resource
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConnectivityConfiguration")]
     public partial class ConnectivityConfiguration : global::Pulumi.CustomResource
@@ -39,12 +40,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the resource.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -144,7 +139,7 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class ConnectivityConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("appliesToGroups")]
+        [Input("appliesToGroups", required: true)]
         private InputList<Inputs.ConnectivityGroupItemArgs>? _appliesToGroups;
 
         /// <summary>
@@ -179,12 +174,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A friendly name for the resource.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
 
         [Input("hubs")]
         private InputList<Inputs.HubArgs>? _hubs;

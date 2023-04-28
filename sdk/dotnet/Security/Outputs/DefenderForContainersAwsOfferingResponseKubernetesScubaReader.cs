@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderForContainersAwsOfferingResponseKubernetesScubaReader
     {
         /// <summary>
-        /// The cloud role ARN in AWS for this feature
+        /// The cloud role ARN in AWS for this feature used for reading data
         /// </summary>
         public readonly string? CloudRoleArn;
 

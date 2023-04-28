@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Shared Image Gallery that you want to create or update.
- * API Version: 2020-09-30.
+ * API Version: 2022-03-03.
+ * Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Gallery extends pulumi.CustomResource {
     /**
@@ -63,6 +64,14 @@ export class Gallery extends pulumi.CustomResource {
      */
     public readonly sharingProfile!: pulumi.Output<outputs.compute.SharingProfileResponse | undefined>;
     /**
+     * Sharing status of current gallery.
+     */
+    public /*out*/ readonly sharingStatus!: pulumi.Output<outputs.compute.SharingStatusResponse>;
+    /**
+     * Contains information about the soft deletion policy of the gallery.
+     */
+    public readonly softDeletePolicy!: pulumi.Output<outputs.compute.SoftDeletePolicyResponse | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -90,10 +99,12 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sharingProfile"] = args ? args.sharingProfile : undefined;
+            resourceInputs["softDeletePolicy"] = args ? args.softDeletePolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sharingStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
@@ -102,6 +113,8 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sharingProfile"] = undefined /*out*/;
+            resourceInputs["sharingStatus"] = undefined /*out*/;
+            resourceInputs["softDeletePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -136,6 +149,10 @@ export interface GalleryArgs {
      * Profile for gallery sharing to subscription or tenant
      */
     sharingProfile?: pulumi.Input<inputs.compute.SharingProfileArgs>;
+    /**
+     * Contains information about the soft deletion policy of the gallery.
+     */
+    softDeletePolicy?: pulumi.Input<inputs.compute.SoftDeletePolicyArgs>;
     /**
      * Resource tags
      */

@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get a deployment by its ID for an app, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get a deployment by its ID for an app, or a deployment slot.
+ * API Version: 2022-09-01.
  */
 export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentResult> {
 
@@ -91,8 +91,8 @@ export interface GetWebAppDeploymentResult {
     readonly type: string;
 }
 /**
- * Get a deployment by its ID for an app, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get a deployment by its ID for an app, or a deployment slot.
+ * API Version: 2022-09-01.
  */
 export function getWebAppDeploymentOutput(args: GetWebAppDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDeployment(a, opts))

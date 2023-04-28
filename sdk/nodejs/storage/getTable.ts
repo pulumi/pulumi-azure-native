@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the table with the specified table name, under the specified account if it exists.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
 
@@ -46,6 +49,10 @@ export interface GetTableResult {
      */
     readonly name: string;
     /**
+     * List of stored access policies specified on the table.
+     */
+    readonly signedIdentifiers?: outputs.storage.TableSignedIdentifierResponse[];
+    /**
      * Table name under the specified account
      */
     readonly tableName: string;
@@ -56,7 +63,7 @@ export interface GetTableResult {
 }
 /**
  * Gets the table with the specified table name, under the specified account if it exists.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply((a: any) => getTable(a, opts))

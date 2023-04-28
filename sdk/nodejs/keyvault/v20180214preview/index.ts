@@ -5,20 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
-export const getSecret: typeof import("./getSecret").getSecret = null as any;
-export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
-utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
-
 export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
 export const getVault: typeof import("./getVault").getVault = null as any;
 export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
 utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
-
-export { SecretArgs } from "./secret";
-export type Secret = import("./secret").Secret;
-export const Secret: typeof import("./secret").Secret = null as any;
-utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
 
 export { VaultArgs } from "./vault";
 export type Vault = import("./vault").Vault;
@@ -33,8 +23,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:keyvault/v20180214preview:Secret":
-                return new Secret(name, <any>undefined, { urn })
             case "azure-native:keyvault/v20180214preview:Vault":
                 return new Vault(name, <any>undefined, { urn })
             default:

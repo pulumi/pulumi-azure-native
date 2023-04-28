@@ -32,7 +32,6 @@ __all__ = [
     'RunbookParameterResponse',
     'SUCSchedulePropertiesResponse',
     'ScheduleAssociationPropertyResponse',
-    'SkuResponse',
     'SoftwareUpdateConfigurationTasksResponse',
     'TagSettingsPropertiesResponse',
     'TargetPropertiesResponse',
@@ -1246,52 +1245,6 @@ class ScheduleAssociationPropertyResponse(dict):
         Gets or sets the name of the Schedule.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class SkuResponse(dict):
-    """
-    The account SKU.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 capacity: Optional[int] = None,
-                 family: Optional[str] = None):
-        """
-        The account SKU.
-        :param str name: Gets or sets the SKU name of the account.
-        :param int capacity: Gets or sets the SKU capacity.
-        :param str family: Gets or sets the SKU family.
-        """
-        pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Gets or sets the SKU name of the account.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[int]:
-        """
-        Gets or sets the SKU capacity.
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[str]:
-        """
-        Gets or sets the SKU family.
-        """
-        return pulumi.get(self, "family")
 
 
 @pulumi.output_type

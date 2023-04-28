@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ListDeploymentInfoResult',
@@ -21,10 +22,16 @@ class ListDeploymentInfoResult:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
     """
-    def __init__(__self__, disk_capacity=None, memory_capacity=None, status=None, version=None):
+    def __init__(__self__, deployment_url=None, disk_capacity=None, marketplace_saas_info=None, memory_capacity=None, status=None, version=None):
+        if deployment_url and not isinstance(deployment_url, str):
+            raise TypeError("Expected argument 'deployment_url' to be a str")
+        pulumi.set(__self__, "deployment_url", deployment_url)
         if disk_capacity and not isinstance(disk_capacity, str):
             raise TypeError("Expected argument 'disk_capacity' to be a str")
         pulumi.set(__self__, "disk_capacity", disk_capacity)
+        if marketplace_saas_info and not isinstance(marketplace_saas_info, dict):
+            raise TypeError("Expected argument 'marketplace_saas_info' to be a dict")
+        pulumi.set(__self__, "marketplace_saas_info", marketplace_saas_info)
         if memory_capacity and not isinstance(memory_capacity, str):
             raise TypeError("Expected argument 'memory_capacity' to be a str")
         pulumi.set(__self__, "memory_capacity", memory_capacity)
@@ -36,12 +43,28 @@ class ListDeploymentInfoResult:
         pulumi.set(__self__, "version", version)
 
     @property
+    @pulumi.getter(name="deploymentUrl")
+    def deployment_url(self) -> str:
+        """
+        Deployment URL of the elasticsearch in Elastic cloud deployment.
+        """
+        return pulumi.get(self, "deployment_url")
+
+    @property
     @pulumi.getter(name="diskCapacity")
     def disk_capacity(self) -> str:
         """
         Disk capacity of the elasticsearch in Elastic cloud deployment.
         """
         return pulumi.get(self, "disk_capacity")
+
+    @property
+    @pulumi.getter(name="marketplaceSaasInfo")
+    def marketplace_saas_info(self) -> 'outputs.MarketplaceSaaSInfoResponse':
+        """
+        Marketplace SaaS Info of the resource.
+        """
+        return pulumi.get(self, "marketplace_saas_info")
 
     @property
     @pulumi.getter(name="memoryCapacity")
@@ -74,7 +97,9 @@ class AwaitableListDeploymentInfoResult(ListDeploymentInfoResult):
         if False:
             yield self
         return ListDeploymentInfoResult(
+            deployment_url=self.deployment_url,
             disk_capacity=self.disk_capacity,
+            marketplace_saas_info=self.marketplace_saas_info,
             memory_capacity=self.memory_capacity,
             status=self.status,
             version=self.version)
@@ -85,7 +110,7 @@ def list_deployment_info(monitor_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeploymentInfoResult:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
-    API Version: 2020-07-01.
+    API Version: 2023-02-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -98,7 +123,9 @@ def list_deployment_info(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elastic:listDeploymentInfo', __args__, opts=opts, typ=ListDeploymentInfoResult).value
 
     return AwaitableListDeploymentInfoResult(
+        deployment_url=__ret__.deployment_url,
         disk_capacity=__ret__.disk_capacity,
+        marketplace_saas_info=__ret__.marketplace_saas_info,
         memory_capacity=__ret__.memory_capacity,
         status=__ret__.status,
         version=__ret__.version)
@@ -110,7 +137,7 @@ def list_deployment_info_output(monitor_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeploymentInfoResult]:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
-    API Version: 2020-07-01.
+    API Version: 2023-02-01-preview.
 
 
     :param str monitor_name: Monitor resource name

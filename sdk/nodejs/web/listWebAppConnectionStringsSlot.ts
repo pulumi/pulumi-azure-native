@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the connection strings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the connection strings of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppConnectionStringsSlot(args: ListWebAppConnectionStringsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsSlotResult> {
 
@@ -62,8 +62,8 @@ export interface ListWebAppConnectionStringsSlotResult {
     readonly type: string;
 }
 /**
- * Gets the connection strings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the connection strings of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppConnectionStringsSlotOutput(args: ListWebAppConnectionStringsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppConnectionStringsSlot(a, opts))

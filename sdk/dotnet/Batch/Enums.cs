@@ -8,6 +8,84 @@ using Pulumi;
 namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
+    /// The authentication mode for the Batch account.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationMode : IEquatable<AuthenticationMode>
+    {
+        private readonly string _value;
+
+        private AuthenticationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The authentication mode using shared keys.
+        /// </summary>
+        public static AuthenticationMode SharedKey { get; } = new AuthenticationMode("SharedKey");
+        /// <summary>
+        /// The authentication mode using Azure Active Directory.
+        /// </summary>
+        public static AuthenticationMode AAD { get; } = new AuthenticationMode("AAD");
+        /// <summary>
+        /// The authentication mode using task authentication tokens.
+        /// </summary>
+        public static AuthenticationMode TaskAuthenticationToken { get; } = new AuthenticationMode("TaskAuthenticationToken");
+
+        public static bool operator ==(AuthenticationMode left, AuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(AuthenticationMode left, AuthenticationMode right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationMode other && Equals(other);
+        public bool Equals(AuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication mode which the Batch service will use to manage the auto-storage account.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoStorageAuthenticationMode : IEquatable<AutoStorageAuthenticationMode>
+    {
+        private readonly string _value;
+
+        private AutoStorageAuthenticationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Batch service will authenticate requests to auto-storage using storage account keys.
+        /// </summary>
+        public static AutoStorageAuthenticationMode StorageKeys { get; } = new AutoStorageAuthenticationMode("StorageKeys");
+        /// <summary>
+        /// The Batch service will authenticate requests to auto-storage using the managed identity assigned to the Batch account.
+        /// </summary>
+        public static AutoStorageAuthenticationMode BatchAccountManagedIdentity { get; } = new AutoStorageAuthenticationMode("BatchAccountManagedIdentity");
+
+        public static bool operator ==(AutoStorageAuthenticationMode left, AutoStorageAuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(AutoStorageAuthenticationMode left, AutoStorageAuthenticationMode right) => !left.Equals(right);
+
+        public static explicit operator string(AutoStorageAuthenticationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoStorageAuthenticationMode other && Equals(other);
+        public bool Equals(AutoStorageAuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
     /// </summary>
     [EnumType]
@@ -84,43 +162,6 @@ namespace Pulumi.AzureNative.Batch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CachingType other && Equals(other);
         public bool Equals(CachingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-    /// </summary>
-    [EnumType]
-    public readonly struct CertificateFormat : IEquatable<CertificateFormat>
-    {
-        private readonly string _value;
-
-        private CertificateFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// The certificate is a PFX (PKCS#12) formatted certificate or certificate chain.
-        /// </summary>
-        public static CertificateFormat Pfx { get; } = new CertificateFormat("Pfx");
-        /// <summary>
-        /// The certificate is a base64-encoded X.509 certificate.
-        /// </summary>
-        public static CertificateFormat Cer { get; } = new CertificateFormat("Cer");
-
-        public static bool operator ==(CertificateFormat left, CertificateFormat right) => left.Equals(right);
-        public static bool operator !=(CertificateFormat left, CertificateFormat right) => !left.Equals(right);
-
-        public static explicit operator string(CertificateFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CertificateFormat other && Equals(other);
-        public bool Equals(CertificateFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -347,6 +388,39 @@ namespace Pulumi.AzureNative.Batch
     }
 
     /// <summary>
+    /// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiffDiskPlacement : IEquatable<DiffDiskPlacement>
+    {
+        private readonly string _value;
+
+        private DiffDiskPlacement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Ephemeral OS Disk is stored on the VM cache.
+        /// </summary>
+        public static DiffDiskPlacement CacheDisk { get; } = new DiffDiskPlacement("CacheDisk");
+
+        public static bool operator ==(DiffDiskPlacement left, DiffDiskPlacement right) => left.Equals(right);
+        public static bool operator !=(DiffDiskPlacement left, DiffDiskPlacement right) => !left.Equals(right);
+
+        public static explicit operator string(DiffDiskPlacement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiffDiskPlacement other && Equals(other);
+        public bool Equals(DiffDiskPlacement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If omitted, no disks on the compute nodes in the pool will be encrypted.
     /// </summary>
     [EnumType]
@@ -376,6 +450,40 @@ namespace Pulumi.AzureNative.Batch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiskEncryptionTarget other && Equals(other);
         public bool Equals(DiskEncryptionTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DynamicVNetAssignmentScope : IEquatable<DynamicVNetAssignmentScope>
+    {
+        private readonly string _value;
+
+        private DynamicVNetAssignmentScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No dynamic VNet assignment is enabled.
+        /// </summary>
+        public static DynamicVNetAssignmentScope None { get; } = new DynamicVNetAssignmentScope("none");
+        /// <summary>
+        /// Dynamic VNet assignment is done per-job. If this value is set, the network configuration subnet ID must also be set. This feature requires approval before use, please contact support
+        /// </summary>
+        public static DynamicVNetAssignmentScope Job { get; } = new DynamicVNetAssignmentScope("job");
+
+        public static bool operator ==(DynamicVNetAssignmentScope left, DynamicVNetAssignmentScope right) => left.Equals(right);
+        public static bool operator !=(DynamicVNetAssignmentScope left, DynamicVNetAssignmentScope right) => !left.Equals(right);
+
+        public static explicit operator string(DynamicVNetAssignmentScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DynamicVNetAssignmentScope other && Equals(other);
+        public bool Equals(DynamicVNetAssignmentScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -421,6 +529,43 @@ namespace Pulumi.AzureNative.Batch
     }
 
     /// <summary>
+    /// Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct EndpointAccessDefaultAction : IEquatable<EndpointAccessDefaultAction>
+    {
+        private readonly string _value;
+
+        private EndpointAccessDefaultAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Allow client access.
+        /// </summary>
+        public static EndpointAccessDefaultAction Allow { get; } = new EndpointAccessDefaultAction("Allow");
+        /// <summary>
+        /// Deny client access.
+        /// </summary>
+        public static EndpointAccessDefaultAction Deny { get; } = new EndpointAccessDefaultAction("Deny");
+
+        public static bool operator ==(EndpointAccessDefaultAction left, EndpointAccessDefaultAction right) => left.Equals(right);
+        public static bool operator !=(EndpointAccessDefaultAction left, EndpointAccessDefaultAction right) => !left.Equals(right);
+
+        public static explicit operator string(EndpointAccessDefaultAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EndpointAccessDefaultAction other && Equals(other);
+        public bool Equals(EndpointAccessDefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The default value is BatchManaged
     /// </summary>
     [EnumType]
@@ -454,6 +599,39 @@ namespace Pulumi.AzureNative.Batch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IPAddressProvisioningType other && Equals(other);
         public bool Equals(IPAddressProvisioningType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Action when client IP address is matched.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPRuleAction : IEquatable<IPRuleAction>
+    {
+        private readonly string _value;
+
+        private IPRuleAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Allow access for the matched client IP address.
+        /// </summary>
+        public static IPRuleAction Allow { get; } = new IPRuleAction("Allow");
+
+        public static bool operator ==(IPRuleAction left, IPRuleAction right) => left.Equals(right);
+        public static bool operator !=(IPRuleAction left, IPRuleAction right) => !left.Equals(right);
+
+        public static explicit operator string(IPRuleAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPRuleAction other && Equals(other);
+        public bool Equals(IPRuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -633,6 +811,47 @@ namespace Pulumi.AzureNative.Batch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkSecurityGroupRuleAccess other && Equals(other);
         public bool Equals(NetworkSecurityGroupRuleAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// If omitted, the default value is Default.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeCommunicationMode : IEquatable<NodeCommunicationMode>
+    {
+        private readonly string _value;
+
+        private NodeCommunicationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The node communication mode is automatically set by the Batch service.
+        /// </summary>
+        public static NodeCommunicationMode Default { get; } = new NodeCommunicationMode("Default");
+        /// <summary>
+        /// Nodes using the Classic communication mode require inbound TCP communication on ports 29876 and 29877 from the "BatchNodeManagement.{region}" service tag and outbound TCP communication on port 443 to the "Storage.region" and "BatchNodeManagement.{region}" service tags.
+        /// </summary>
+        public static NodeCommunicationMode Classic { get; } = new NodeCommunicationMode("Classic");
+        /// <summary>
+        /// Nodes using the Simplified communication mode require outbound TCP communication on port 443 to the "BatchNodeManagement.{region}" service tag. No open inbound ports are required.
+        /// </summary>
+        public static NodeCommunicationMode Simplified { get; } = new NodeCommunicationMode("Simplified");
+
+        public static bool operator ==(NodeCommunicationMode left, NodeCommunicationMode right) => left.Equals(right);
+        public static bool operator !=(NodeCommunicationMode left, NodeCommunicationMode right) => !left.Equals(right);
+
+        public static explicit operator string(NodeCommunicationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeCommunicationMode other && Equals(other);
+        public bool Equals(NodeCommunicationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

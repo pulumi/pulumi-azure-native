@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly bool? EnableInternetSecurity;
         /// <summary>
+        /// Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        /// </summary>
+        public readonly bool? EnablePrivateLinkFastPath;
+        /// <summary>
         /// The ExpressRoute circuit peering.
         /// </summary>
         public readonly Outputs.ExpressRouteCircuitPeeringIdResponse ExpressRouteCircuitPeering;
@@ -59,6 +63,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             bool? enableInternetSecurity,
 
+            bool? enablePrivateLinkFastPath,
+
             Outputs.ExpressRouteCircuitPeeringIdResponse expressRouteCircuitPeering,
 
             bool? expressRouteGatewayBypass,
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             AuthorizationKey = authorizationKey;
             EnableInternetSecurity = enableInternetSecurity;
+            EnablePrivateLinkFastPath = enablePrivateLinkFastPath;
             ExpressRouteCircuitPeering = expressRouteCircuitPeering;
             ExpressRouteGatewayBypass = expressRouteGatewayBypass;
             Id = id;

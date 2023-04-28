@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Base class for backup items.
- * API Version: 2021-02-01.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ProtectedItem extends pulumi.CustomResource {
     /**
@@ -53,7 +54,7 @@ export class ProtectedItem extends pulumi.CustomResource {
     /**
      * ProtectedItemResource properties
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.AzureFileshareProtectedItemResponse | outputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemResponse | outputs.recoveryservices.AzureIaaSComputeVMProtectedItemResponse | outputs.recoveryservices.AzureIaaSVMProtectedItemResponse | outputs.recoveryservices.AzureSqlProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemResponse | outputs.recoveryservices.DPMProtectedItemResponse | outputs.recoveryservices.GenericProtectedItemResponse | outputs.recoveryservices.MabFileFolderProtectedItemResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.AzureFileshareProtectedItemResponse | outputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemResponse | outputs.recoveryservices.AzureIaaSComputeVMProtectedItemResponse | outputs.recoveryservices.AzureIaaSVMProtectedItemResponse | outputs.recoveryservices.AzureSqlProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemResponse | outputs.recoveryservices.DPMProtectedItemResponse | outputs.recoveryservices.GenericProtectedItemResponse | outputs.recoveryservices.MabFileFolderProtectedItemResponse>;
     /**
      * Resource tags.
      */
@@ -135,7 +136,7 @@ export interface ProtectedItemArgs {
     /**
      * ProtectedItemResource properties
      */
-    properties?: pulumi.Input<inputs.recoveryservices.AzureFileshareProtectedItemArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSVMProtectedItemArgs | inputs.recoveryservices.AzureSqlProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemArgs | inputs.recoveryservices.DPMProtectedItemArgs | inputs.recoveryservices.GenericProtectedItemArgs | inputs.recoveryservices.MabFileFolderProtectedItemArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.AzureFileshareProtectedItemArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSVMProtectedItemArgs | inputs.recoveryservices.AzureSqlProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemArgs | inputs.recoveryservices.DPMProtectedItemArgs | inputs.recoveryservices.GenericProtectedItemArgs | inputs.recoveryservices.MabFileFolderProtectedItemArgs>;
     /**
      * Item name to be backed up.
      */

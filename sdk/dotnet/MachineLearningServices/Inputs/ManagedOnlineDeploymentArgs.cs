@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
+    /// <summary>
+    /// Properties specific to a ManagedOnlineDeployment.
+    /// </summary>
     public sealed class ManagedOnlineDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -31,6 +34,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        /// </summary>
+        [Input("egressPublicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EgressPublicNetworkAccessType>? EgressPublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Enum to determine endpoint compute type.
         /// Expected value is 'Managed'.
         /// </summary>
@@ -38,7 +47,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string> EndpointComputeType { get; set; } = null!;
 
         /// <summary>
-        /// ARM resource ID of the environment specification for the endpoint deployment.
+        /// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
@@ -62,16 +71,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// Deployment container liveness/readiness probe configuration.
+        /// Liveness probe monitors the health of the container regularly.
         /// </summary>
         [Input("livenessProbe")]
         public Input<Inputs.ProbeSettingsArgs>? LivenessProbe { get; set; }
 
         /// <summary>
-        /// Reference to the model asset for the endpoint deployment.
+        /// The URI path to the model.
         /// </summary>
         [Input("model")]
-        public object? Model { get; set; }
+        public Input<string>? Model { get; set; }
+
+        /// <summary>
+        /// The path to mount the model in custom container.
+        /// </summary>
+        [Input("modelMountPath")]
+        public Input<string>? ModelMountPath { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -86,25 +101,30 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         }
 
         /// <summary>
-        /// Deployment container liveness/readiness probe configuration.
+        /// Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
         /// </summary>
         [Input("readinessProbe")]
         public Input<Inputs.ProbeSettingsArgs>? ReadinessProbe { get; set; }
 
         /// <summary>
-        /// Online deployment scoring requests configuration.
+        /// Request settings for the deployment.
         /// </summary>
         [Input("requestSettings")]
         public Input<Inputs.OnlineRequestSettingsArgs>? RequestSettings { get; set; }
 
         /// <summary>
-        /// Online deployment scaling configuration.
+        /// Scale settings for the deployment.
+        /// If it is null or not provided,
+        /// it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
+        /// and to DefaultScaleSettings for ManagedOnlineDeployment.
         /// </summary>
         [Input("scaleSettings")]
-        public InputUnion<Inputs.AutoScaleSettingsArgs, Inputs.ManualScaleSettingsArgs>? ScaleSettings { get; set; }
+        public InputUnion<Inputs.DefaultScaleSettingsArgs, Inputs.TargetUtilizationScaleSettingsArgs>? ScaleSettings { get; set; }
 
         public ManagedOnlineDeploymentArgs()
         {
+            AppInsightsEnabled = false;
+            EgressPublicNetworkAccess = "Enabled";
         }
         public static new ManagedOnlineDeploymentArgs Empty => new ManagedOnlineDeploymentArgs();
     }

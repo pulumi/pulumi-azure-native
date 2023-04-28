@@ -99,10 +99,10 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
     Gets a backup policy belonging to a backup vault
-    API Version: 2021-01-01.
+    API Version: 2023-01-01.
 
 
-    :param str resource_group_name: The name of the resource group where the backup vault is present.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vault_name: The name of the backup vault.
     """
     __args__ = dict()
@@ -127,10 +127,10 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Gets a backup policy belonging to a backup vault
-    API Version: 2021-01-01.
+    API Version: 2023-01-01.
 
 
-    :param str resource_group_name: The name of the resource group where the backup vault is present.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vault_name: The name of the backup vault.
     """
     ...

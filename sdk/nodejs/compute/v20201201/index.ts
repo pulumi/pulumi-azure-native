@@ -105,46 +105,6 @@ export const getSshPublicKey: typeof import("./getSshPublicKey").getSshPublicKey
 export const getSshPublicKeyOutput: typeof import("./getSshPublicKey").getSshPublicKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getSshPublicKey","getSshPublicKeyOutput"], () => require("./getSshPublicKey"));
 
-export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
-export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
-export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
-
-export { GetVirtualMachineExtensionArgs, GetVirtualMachineExtensionResult, GetVirtualMachineExtensionOutputArgs } from "./getVirtualMachineExtension";
-export const getVirtualMachineExtension: typeof import("./getVirtualMachineExtension").getVirtualMachineExtension = null as any;
-export const getVirtualMachineExtensionOutput: typeof import("./getVirtualMachineExtension").getVirtualMachineExtensionOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachineExtension","getVirtualMachineExtensionOutput"], () => require("./getVirtualMachineExtension"));
-
-export { GetVirtualMachineRunCommandByVirtualMachineArgs, GetVirtualMachineRunCommandByVirtualMachineResult, GetVirtualMachineRunCommandByVirtualMachineOutputArgs } from "./getVirtualMachineRunCommandByVirtualMachine";
-export const getVirtualMachineRunCommandByVirtualMachine: typeof import("./getVirtualMachineRunCommandByVirtualMachine").getVirtualMachineRunCommandByVirtualMachine = null as any;
-export const getVirtualMachineRunCommandByVirtualMachineOutput: typeof import("./getVirtualMachineRunCommandByVirtualMachine").getVirtualMachineRunCommandByVirtualMachineOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachineRunCommandByVirtualMachine","getVirtualMachineRunCommandByVirtualMachineOutput"], () => require("./getVirtualMachineRunCommandByVirtualMachine"));
-
-export { GetVirtualMachineScaleSetArgs, GetVirtualMachineScaleSetResult, GetVirtualMachineScaleSetOutputArgs } from "./getVirtualMachineScaleSet";
-export const getVirtualMachineScaleSet: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSet = null as any;
-export const getVirtualMachineScaleSetOutput: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSetOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachineScaleSet","getVirtualMachineScaleSetOutput"], () => require("./getVirtualMachineScaleSet"));
-
-export { GetVirtualMachineScaleSetExtensionArgs, GetVirtualMachineScaleSetExtensionResult, GetVirtualMachineScaleSetExtensionOutputArgs } from "./getVirtualMachineScaleSetExtension";
-export const getVirtualMachineScaleSetExtension: typeof import("./getVirtualMachineScaleSetExtension").getVirtualMachineScaleSetExtension = null as any;
-export const getVirtualMachineScaleSetExtensionOutput: typeof import("./getVirtualMachineScaleSetExtension").getVirtualMachineScaleSetExtensionOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachineScaleSetExtension","getVirtualMachineScaleSetExtensionOutput"], () => require("./getVirtualMachineScaleSetExtension"));
-
-export { GetVirtualMachineScaleSetVMArgs, GetVirtualMachineScaleSetVMResult, GetVirtualMachineScaleSetVMOutputArgs } from "./getVirtualMachineScaleSetVM";
-export const getVirtualMachineScaleSetVM: typeof import("./getVirtualMachineScaleSetVM").getVirtualMachineScaleSetVM = null as any;
-export const getVirtualMachineScaleSetVMOutput: typeof import("./getVirtualMachineScaleSetVM").getVirtualMachineScaleSetVMOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVM","getVirtualMachineScaleSetVMOutput"], () => require("./getVirtualMachineScaleSetVM"));
-
-export { GetVirtualMachineScaleSetVMExtensionArgs, GetVirtualMachineScaleSetVMExtensionResult, GetVirtualMachineScaleSetVMExtensionOutputArgs } from "./getVirtualMachineScaleSetVMExtension";
-export const getVirtualMachineScaleSetVMExtension: typeof import("./getVirtualMachineScaleSetVMExtension").getVirtualMachineScaleSetVMExtension = null as any;
-export const getVirtualMachineScaleSetVMExtensionOutput: typeof import("./getVirtualMachineScaleSetVMExtension").getVirtualMachineScaleSetVMExtensionOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVMExtension","getVirtualMachineScaleSetVMExtensionOutput"], () => require("./getVirtualMachineScaleSetVMExtension"));
-
-export { GetVirtualMachineScaleSetVMRunCommandArgs, GetVirtualMachineScaleSetVMRunCommandResult, GetVirtualMachineScaleSetVMRunCommandOutputArgs } from "./getVirtualMachineScaleSetVMRunCommand";
-export const getVirtualMachineScaleSetVMRunCommand: typeof import("./getVirtualMachineScaleSetVMRunCommand").getVirtualMachineScaleSetVMRunCommand = null as any;
-export const getVirtualMachineScaleSetVMRunCommandOutput: typeof import("./getVirtualMachineScaleSetVMRunCommand").getVirtualMachineScaleSetVMRunCommandOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualMachineScaleSetVMRunCommand","getVirtualMachineScaleSetVMRunCommandOutput"], () => require("./getVirtualMachineScaleSetVMRunCommand"));
-
 export { ImageArgs } from "./image";
 export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
@@ -164,46 +124,6 @@ export { SshPublicKeyArgs } from "./sshPublicKey";
 export type SshPublicKey = import("./sshPublicKey").SshPublicKey;
 export const SshPublicKey: typeof import("./sshPublicKey").SshPublicKey = null as any;
 utilities.lazyLoad(exports, ["SshPublicKey"], () => require("./sshPublicKey"));
-
-export { VirtualMachineArgs } from "./virtualMachine";
-export type VirtualMachine = import("./virtualMachine").VirtualMachine;
-export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
-utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
-
-export { VirtualMachineExtensionArgs } from "./virtualMachineExtension";
-export type VirtualMachineExtension = import("./virtualMachineExtension").VirtualMachineExtension;
-export const VirtualMachineExtension: typeof import("./virtualMachineExtension").VirtualMachineExtension = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineExtension"], () => require("./virtualMachineExtension"));
-
-export { VirtualMachineRunCommandByVirtualMachineArgs } from "./virtualMachineRunCommandByVirtualMachine";
-export type VirtualMachineRunCommandByVirtualMachine = import("./virtualMachineRunCommandByVirtualMachine").VirtualMachineRunCommandByVirtualMachine;
-export const VirtualMachineRunCommandByVirtualMachine: typeof import("./virtualMachineRunCommandByVirtualMachine").VirtualMachineRunCommandByVirtualMachine = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineRunCommandByVirtualMachine"], () => require("./virtualMachineRunCommandByVirtualMachine"));
-
-export { VirtualMachineScaleSetArgs } from "./virtualMachineScaleSet";
-export type VirtualMachineScaleSet = import("./virtualMachineScaleSet").VirtualMachineScaleSet;
-export const VirtualMachineScaleSet: typeof import("./virtualMachineScaleSet").VirtualMachineScaleSet = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineScaleSet"], () => require("./virtualMachineScaleSet"));
-
-export { VirtualMachineScaleSetExtensionArgs } from "./virtualMachineScaleSetExtension";
-export type VirtualMachineScaleSetExtension = import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension;
-export const VirtualMachineScaleSetExtension: typeof import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineScaleSetExtension"], () => require("./virtualMachineScaleSetExtension"));
-
-export { VirtualMachineScaleSetVMArgs } from "./virtualMachineScaleSetVM";
-export type VirtualMachineScaleSetVM = import("./virtualMachineScaleSetVM").VirtualMachineScaleSetVM;
-export const VirtualMachineScaleSetVM: typeof import("./virtualMachineScaleSetVM").VirtualMachineScaleSetVM = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineScaleSetVM"], () => require("./virtualMachineScaleSetVM"));
-
-export { VirtualMachineScaleSetVMExtensionArgs } from "./virtualMachineScaleSetVMExtension";
-export type VirtualMachineScaleSetVMExtension = import("./virtualMachineScaleSetVMExtension").VirtualMachineScaleSetVMExtension;
-export const VirtualMachineScaleSetVMExtension: typeof import("./virtualMachineScaleSetVMExtension").VirtualMachineScaleSetVMExtension = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineScaleSetVMExtension"], () => require("./virtualMachineScaleSetVMExtension"));
-
-export { VirtualMachineScaleSetVMRunCommandArgs } from "./virtualMachineScaleSetVMRunCommand";
-export type VirtualMachineScaleSetVMRunCommand = import("./virtualMachineScaleSetVMRunCommand").VirtualMachineScaleSetVMRunCommand;
-export const VirtualMachineScaleSetVMRunCommand: typeof import("./virtualMachineScaleSetVMRunCommand").VirtualMachineScaleSetVMRunCommand = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineScaleSetVMRunCommand"], () => require("./virtualMachineScaleSetVMRunCommand"));
 
 
 // Export enums:
@@ -235,22 +155,6 @@ const _module = {
                 return new Snapshot(name, <any>undefined, { urn })
             case "azure-native:compute/v20201201:SshPublicKey":
                 return new SshPublicKey(name, <any>undefined, { urn })
-            case "azure-native:compute/v20201201:VirtualMachine":
-                return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-native:compute/v20201201:VirtualMachineExtension":
-                return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine":
-                return new VirtualMachineRunCommandByVirtualMachine(name, <any>undefined, { urn })
-            case "azure-native:compute/v20201201:VirtualMachineScaleSet":
-                return new VirtualMachineScaleSet(name, <any>undefined, { urn })
-            case "azure-native:compute/v20201201:VirtualMachineScaleSetExtension":
-                return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
-            case "azure-native:compute/v20201201:VirtualMachineScaleSetVM":
-                return new VirtualMachineScaleSetVM(name, <any>undefined, { urn })
-            case "azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension":
-                return new VirtualMachineScaleSetVMExtension(name, <any>undefined, { urn })
-            case "azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand":
-                return new VirtualMachineScaleSetVMRunCommand(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

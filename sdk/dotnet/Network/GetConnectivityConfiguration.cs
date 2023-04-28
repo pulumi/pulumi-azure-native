@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetConnectivityConfigurationResult> InvokeAsync(GetConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectivityConfigurationResult>("azure-native:network:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetConnectivityConfigurationResult> Invoke(GetConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectivityConfigurationResult>("azure-native:network:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationInvokeArgs(), options.WithDefaults());
@@ -100,10 +100,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A friendly name for the resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -146,8 +142,6 @@ namespace Pulumi.AzureNative.Network
 
             string? description,
 
-            string? displayName,
-
             string etag,
 
             ImmutableArray<Outputs.HubResponse> hubs,
@@ -168,7 +162,6 @@ namespace Pulumi.AzureNative.Network
             ConnectivityTopology = connectivityTopology;
             DeleteExistingPeering = deleteExistingPeering;
             Description = description;
-            DisplayName = displayName;
             Etag = etag;
             Hubs = hubs;
             Id = id;

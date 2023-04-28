@@ -17,9 +17,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class SkuResponse
     {
         /// <summary>
-        /// The Sku name.
+        /// The sku capacity
+        /// </summary>
+        public readonly string? Capacity;
+        /// <summary>
+        /// The sku family
+        /// </summary>
+        public readonly string? Family;
+        /// <summary>
+        /// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The sku size
+        /// </summary>
+        public readonly string? Size;
         /// <summary>
         /// The Sku tier.
         /// </summary>
@@ -27,11 +39,20 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private SkuResponse(
+            string? capacity,
+
+            string? family,
+
             string name,
+
+            string? size,
 
             string? tier)
         {
+            Capacity = capacity;
+            Family = family;
             Name = name;
+            Size = size;
             Tier = tier;
         }
     }

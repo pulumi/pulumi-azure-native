@@ -10,6 +10,11 @@ export const getGuestConfigurationAssignment: typeof import("./getGuestConfigura
 export const getGuestConfigurationAssignmentOutput: typeof import("./getGuestConfigurationAssignment").getGuestConfigurationAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getGuestConfigurationAssignment","getGuestConfigurationAssignmentOutput"], () => require("./getGuestConfigurationAssignment"));
 
+export { GetGuestConfigurationAssignmentsVMSSArgs, GetGuestConfigurationAssignmentsVMSSResult, GetGuestConfigurationAssignmentsVMSSOutputArgs } from "./getGuestConfigurationAssignmentsVMSS";
+export const getGuestConfigurationAssignmentsVMSS: typeof import("./getGuestConfigurationAssignmentsVMSS").getGuestConfigurationAssignmentsVMSS = null as any;
+export const getGuestConfigurationAssignmentsVMSSOutput: typeof import("./getGuestConfigurationAssignmentsVMSS").getGuestConfigurationAssignmentsVMSSOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestConfigurationAssignmentsVMSS","getGuestConfigurationAssignmentsVMSSOutput"], () => require("./getGuestConfigurationAssignmentsVMSS"));
+
 export { GetGuestConfigurationConnectedVMwarevSphereAssignmentArgs, GetGuestConfigurationConnectedVMwarevSphereAssignmentResult, GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs } from "./getGuestConfigurationConnectedVMwarevSphereAssignment";
 export const getGuestConfigurationConnectedVMwarevSphereAssignment: typeof import("./getGuestConfigurationConnectedVMwarevSphereAssignment").getGuestConfigurationConnectedVMwarevSphereAssignment = null as any;
 export const getGuestConfigurationConnectedVMwarevSphereAssignmentOutput: typeof import("./getGuestConfigurationConnectedVMwarevSphereAssignment").getGuestConfigurationConnectedVMwarevSphereAssignmentOutput = null as any;
@@ -24,6 +29,11 @@ export { GuestConfigurationAssignmentArgs } from "./guestConfigurationAssignment
 export type GuestConfigurationAssignment = import("./guestConfigurationAssignment").GuestConfigurationAssignment;
 export const GuestConfigurationAssignment: typeof import("./guestConfigurationAssignment").GuestConfigurationAssignment = null as any;
 utilities.lazyLoad(exports, ["GuestConfigurationAssignment"], () => require("./guestConfigurationAssignment"));
+
+export { GuestConfigurationAssignmentsVMSSArgs } from "./guestConfigurationAssignmentsVMSS";
+export type GuestConfigurationAssignmentsVMSS = import("./guestConfigurationAssignmentsVMSS").GuestConfigurationAssignmentsVMSS;
+export const GuestConfigurationAssignmentsVMSS: typeof import("./guestConfigurationAssignmentsVMSS").GuestConfigurationAssignmentsVMSS = null as any;
+utilities.lazyLoad(exports, ["GuestConfigurationAssignmentsVMSS"], () => require("./guestConfigurationAssignmentsVMSS"));
 
 export { GuestConfigurationConnectedVMwarevSphereAssignmentArgs } from "./guestConfigurationConnectedVMwarevSphereAssignment";
 export type GuestConfigurationConnectedVMwarevSphereAssignment = import("./guestConfigurationConnectedVMwarevSphereAssignment").GuestConfigurationConnectedVMwarevSphereAssignment;
@@ -40,17 +50,11 @@ utilities.lazyLoad(exports, ["GuestConfigurationHCRPAssignment"], () => require(
 export * from "../types/enums/guestconfiguration";
 
 // Export sub-modules:
-import * as v20180630preview from "./v20180630preview";
-import * as v20181120 from "./v20181120";
 import * as v20200625 from "./v20200625";
-import * as v20210125 from "./v20210125";
 import * as v20220125 from "./v20220125";
 
 export {
-    v20180630preview,
-    v20181120,
     v20200625,
-    v20210125,
     v20220125,
 };
 
@@ -60,6 +64,8 @@ const _module = {
         switch (type) {
             case "azure-native:guestconfiguration:GuestConfigurationAssignment":
                 return new GuestConfigurationAssignment(name, <any>undefined, { urn })
+            case "azure-native:guestconfiguration:GuestConfigurationAssignmentsVMSS":
+                return new GuestConfigurationAssignmentsVMSS(name, <any>undefined, { urn })
             case "azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment":
                 return new GuestConfigurationConnectedVMwarevSphereAssignment(name, <any>undefined, { urn })
             case "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment":

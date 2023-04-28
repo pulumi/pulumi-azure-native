@@ -22,7 +22,10 @@ class GetDevCenterResult:
     """
     Represents a devcenter resource.
     """
-    def __init__(__self__, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, dev_center_uri=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if dev_center_uri and not isinstance(dev_center_uri, str):
+            raise TypeError("Expected argument 'dev_center_uri' to be a str")
+        pulumi.set(__self__, "dev_center_uri", dev_center_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,6 +50,14 @@ class GetDevCenterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="devCenterUri")
+    def dev_center_uri(self) -> str:
+        """
+        The URI of the resource.
+        """
+        return pulumi.get(self, "dev_center_uri")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetDevCenterResult(GetDevCenterResult):
         if False:
             yield self
         return GetDevCenterResult(
+            dev_center_uri=self.dev_center_uri,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -134,11 +146,11 @@ def get_dev_center(dev_center_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevCenterResult:
     """
     Gets a devcenter.
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str dev_center_name: The name of the devcenter.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['devCenterName'] = dev_center_name
@@ -147,6 +159,7 @@ def get_dev_center(dev_center_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getDevCenter', __args__, opts=opts, typ=GetDevCenterResult).value
 
     return AwaitableGetDevCenterResult(
+        dev_center_uri=__ret__.dev_center_uri,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
@@ -163,10 +176,10 @@ def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevCenterResult]:
     """
     Gets a devcenter.
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str dev_center_name: The name of the devcenter.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

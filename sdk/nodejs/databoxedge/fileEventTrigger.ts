@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class FileEventTrigger extends pulumi.CustomResource {
     /**
@@ -60,7 +61,7 @@ export class FileEventTrigger extends pulumi.CustomResource {
      */
     public readonly sourceInfo!: pulumi.Output<outputs.databoxedge.FileSourceInfoResponse>;
     /**
-     * Trigger in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Trigger
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public Input<Inputs.SqlConnectivityUpdateSettingsArgs>? SqlConnectivityUpdateSettings { get; set; }
 
         /// <summary>
+        /// SQL Instance settings.
+        /// </summary>
+        [Input("sqlInstanceSettings")]
+        public Input<Inputs.SQLInstanceSettingsArgs>? SqlInstanceSettings { get; set; }
+
+        /// <summary>
         /// SQL storage update settings.
         /// </summary>
         [Input("sqlStorageUpdateSettings")]

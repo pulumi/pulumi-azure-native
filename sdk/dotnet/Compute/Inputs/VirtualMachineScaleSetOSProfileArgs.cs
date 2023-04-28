@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
+        /// Specifies whether extension operations should be allowed on the virtual machine scale set. &lt;br&gt;&lt;br&gt;This may only be set to False when no extensions are present on the virtual machine scale set.
+        /// </summary>
+        [Input("allowExtensionOperations")]
+        public Input<bool>? AllowExtensionOperations { get; set; }
+
+        /// <summary>
         /// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
         /// </summary>
         [Input("computerNamePrefix")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("linuxConfiguration")]
         public Input<Inputs.LinuxConfigurationArgs>? LinuxConfiguration { get; set; }
+
+        /// <summary>
+        /// Optional property which must either be set to True or omitted.
+        /// </summary>
+        [Input("requireGuestProvisionSignal")]
+        public Input<bool>? RequireGuestProvisionSignal { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.VaultSecretGroupArgs>? _secrets;

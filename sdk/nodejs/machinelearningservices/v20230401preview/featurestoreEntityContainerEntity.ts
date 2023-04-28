@@ -87,6 +87,8 @@ export class FeaturestoreEntityContainerEntity extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:FeaturestoreEntityContainerEntity" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FeaturestoreEntityContainerEntity.__pulumiType, name, resourceInputs, opts);
     }
 }

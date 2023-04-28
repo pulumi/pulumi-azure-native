@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -63,6 +64,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly enableVmProtection!: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+     */
+    public readonly encryption!: pulumi.Output<outputs.network.VirtualNetworkEncryptionResponse | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -70,6 +75,14 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * The extended location of the virtual network.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    /**
+     * A collection of references to flow log resources.
+     */
+    public /*out*/ readonly flowLogs!: pulumi.Output<outputs.network.FlowLogResponse[]>;
+    /**
+     * The FlowTimeout value (in minutes) for the Virtual Network
+     */
+    public readonly flowTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
      * Array of IpAllocation which reference this VNET.
      */
@@ -127,7 +140,9 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
             resourceInputs["enableDdosProtection"] = (args ? args.enableDdosProtection : undefined) ?? false;
             resourceInputs["enableVmProtection"] = (args ? args.enableVmProtection : undefined) ?? false;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -137,6 +152,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             resourceInputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["flowLogs"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
@@ -148,8 +164,11 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["dhcpOptions"] = undefined /*out*/;
             resourceInputs["enableDdosProtection"] = undefined /*out*/;
             resourceInputs["enableVmProtection"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["flowLogs"] = undefined /*out*/;
+            resourceInputs["flowTimeoutInMinutes"] = undefined /*out*/;
             resourceInputs["ipAllocations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -196,9 +215,17 @@ export interface VirtualNetworkArgs {
      */
     enableVmProtection?: pulumi.Input<boolean>;
     /**
+     * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+     */
+    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryptionArgs>;
+    /**
      * The extended location of the virtual network.
      */
     extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
+    /**
+     * The FlowTimeout value (in minutes) for the Virtual Network
+     */
+    flowTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Resource ID.
      */

@@ -196,12 +196,12 @@ def get_subvolume_metadata(account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubvolumeMetadataResult:
     """
     Get details of the specified subvolume
-    API Version: 2021-10-01.
+    API Version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str subvolume_name: The name of the subvolume.
     :param str volume_name: The name of the volume
     """
@@ -239,12 +239,12 @@ def get_subvolume_metadata_output(account_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubvolumeMetadataResult]:
     """
     Get details of the specified subvolume
-    API Version: 2021-10-01.
+    API Version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str subvolume_name: The name of the subvolume.
     :param str volume_name: The name of the volume
     """

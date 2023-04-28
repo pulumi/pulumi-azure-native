@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
     /// <summary>
-    /// Destination of the view data. Currently only csv format is supported.
+    /// Destination of the view data. This is optional. Currently only CSV format is supported.
     /// </summary>
     [OutputType]
     public sealed class FileDestinationResponse
     {
         /// <summary>
-        /// Destination of the view data. Currently only csv format is supported.
+        /// Destination of the view data. Currently only CSV format is supported.
         /// </summary>
         public readonly ImmutableArray<string> FileFormats;
 

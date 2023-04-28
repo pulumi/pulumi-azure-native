@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getKustoClusterDataSetMapping(args: GetKustoClusterDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoClusterDataSetMappingResult> {
 
@@ -89,7 +89,7 @@ export interface GetKustoClusterDataSetMappingResult {
 }
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getKustoClusterDataSetMappingOutput(args: GetKustoClusterDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getKustoClusterDataSetMapping(a, opts))

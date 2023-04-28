@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2020-06-01.
+    /// API Version: 2022-05-01.
+    /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

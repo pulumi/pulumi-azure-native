@@ -8,7 +8,5 @@ import typing
 from ._enums import *
 from .extension import *
 from .get_extension import *
-from .get_source_control_configuration import *
-from .source_control_configuration import *
 from ._inputs import *
 from . import outputs

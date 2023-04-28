@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class TimeInWeekResponse
     {
         /// <summary>
-        /// A day in a week.
+        /// The day of the week.
         /// </summary>
         public readonly string? Day;
         /// <summary>
-        /// hour slots in a day.
+        /// Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
         /// </summary>
         public readonly ImmutableArray<int> HourSlots;
 

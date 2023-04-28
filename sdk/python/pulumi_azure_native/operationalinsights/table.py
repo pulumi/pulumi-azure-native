@@ -181,7 +181,8 @@ class Table(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace data table definition.
-        API Version: 2021-12-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +204,8 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace data table definition.
-        API Version: 2021-12-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
@@ -256,7 +258,9 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["result_statistics"] = None
+            __props__.__dict__["retention_in_days_as_default"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["total_retention_in_days_as_default"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20211201preview:Table"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Table")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -290,10 +294,12 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["restored_logs"] = None
         __props__.__dict__["result_statistics"] = None
         __props__.__dict__["retention_in_days"] = None
+        __props__.__dict__["retention_in_days_as_default"] = None
         __props__.__dict__["schema"] = None
         __props__.__dict__["search_results"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["total_retention_in_days"] = None
+        __props__.__dict__["total_retention_in_days_as_default"] = None
         __props__.__dict__["type"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
 
@@ -347,7 +353,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resultStatistics")
-    def result_statistics(self) -> pulumi.Output[Optional['outputs.ResultStatisticsResponse']]:
+    def result_statistics(self) -> pulumi.Output['outputs.ResultStatisticsResponse']:
         """
         Search job execution statistics.
         """
@@ -360,6 +366,14 @@ class Table(pulumi.CustomResource):
         The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         """
         return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="retentionInDaysAsDefault")
+    def retention_in_days_as_default(self) -> pulumi.Output[bool]:
+        """
+        True - Value originates from workspace retention in days, False - Customer specific.
+        """
+        return pulumi.get(self, "retention_in_days_as_default")
 
     @property
     @pulumi.getter
@@ -392,6 +406,14 @@ class Table(pulumi.CustomResource):
         The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
         """
         return pulumi.get(self, "total_retention_in_days")
+
+    @property
+    @pulumi.getter(name="totalRetentionInDaysAsDefault")
+    def total_retention_in_days_as_default(self) -> pulumi.Output[bool]:
+        """
+        True - Value originates from retention in days, False - Customer specific.
+        """
+        return pulumi.get(self, "total_retention_in_days_as_default")
 
     @property
     @pulumi.getter

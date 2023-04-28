@@ -39,38 +39,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201110Preview
     }
 
     /// <summary>
-    /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-    /// </summary>
-    [EnumType]
-    public readonly struct CommandLineSetting : IEquatable<CommandLineSetting>
-    {
-        private readonly string _value;
-
-        private CommandLineSetting(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CommandLineSetting DoNotAllow { get; } = new CommandLineSetting("DoNotAllow");
-        public static CommandLineSetting Allow { get; } = new CommandLineSetting("Allow");
-        public static CommandLineSetting Require { get; } = new CommandLineSetting("Require");
-
-        public static bool operator ==(CommandLineSetting left, CommandLineSetting right) => left.Equals(right);
-        public static bool operator !=(CommandLineSetting left, CommandLineSetting right) => !left.Equals(right);
-
-        public static explicit operator string(CommandLineSetting value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CommandLineSetting other && Equals(other);
-        public bool Equals(CommandLineSetting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// HostPool type for scaling plan.
     /// </summary>
     [EnumType]
@@ -221,37 +189,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201110Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RegistrationTokenOperation other && Equals(other);
         public bool Equals(RegistrationTokenOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Resource Type of Application.
-    /// </summary>
-    [EnumType]
-    public readonly struct RemoteApplicationType : IEquatable<RemoteApplicationType>
-    {
-        private readonly string _value;
-
-        private RemoteApplicationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RemoteApplicationType InBuilt { get; } = new RemoteApplicationType("InBuilt");
-        public static RemoteApplicationType MsixApplication { get; } = new RemoteApplicationType("MsixApplication");
-
-        public static bool operator ==(RemoteApplicationType left, RemoteApplicationType right) => left.Equals(right);
-        public static bool operator !=(RemoteApplicationType left, RemoteApplicationType right) => !left.Equals(right);
-
-        public static explicit operator string(RemoteApplicationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RemoteApplicationType other && Equals(other);
-        public bool Equals(RemoteApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

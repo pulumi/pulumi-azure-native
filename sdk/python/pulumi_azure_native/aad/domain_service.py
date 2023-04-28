@@ -18,6 +18,7 @@ __all__ = ['DomainServiceArgs', 'DomainService']
 class DomainServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 config_diagnostics: Optional[pulumi.Input['ConfigDiagnosticsArgs']] = None,
                  domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input['DomainSecuritySettingsArgs']] = None,
@@ -29,10 +30,12 @@ class DomainServiceArgs:
                  replica_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicaSetArgs']]]] = None,
                  resource_forest_settings: Optional[pulumi.Input['ResourceForestSettingsArgs']] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sync_scope: Optional[pulumi.Input[Union[str, 'SyncScope']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DomainService resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input['ConfigDiagnosticsArgs'] config_diagnostics: Configuration diagnostics data containing latest execution from client.
         :param pulumi.Input[str] domain_configuration_type: Domain Configuration Type
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
         :param pulumi.Input['DomainSecuritySettingsArgs'] domain_security_settings: DomainSecurity Settings
@@ -44,9 +47,12 @@ class DomainServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicaSetArgs']]] replica_sets: List of ReplicaSets
         :param pulumi.Input['ResourceForestSettingsArgs'] resource_forest_settings: Resource Forest Settings
         :param pulumi.Input[str] sku: Sku Type
+        :param pulumi.Input[Union[str, 'SyncScope']] sync_scope: All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if config_diagnostics is not None:
+            pulumi.set(__self__, "config_diagnostics", config_diagnostics)
         if domain_configuration_type is not None:
             pulumi.set(__self__, "domain_configuration_type", domain_configuration_type)
         if domain_name is not None:
@@ -69,6 +75,10 @@ class DomainServiceArgs:
             pulumi.set(__self__, "resource_forest_settings", resource_forest_settings)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sync_scope is None:
+            sync_scope = 'All'
+        if sync_scope is not None:
+            pulumi.set(__self__, "sync_scope", sync_scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -83,6 +93,18 @@ class DomainServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="configDiagnostics")
+    def config_diagnostics(self) -> Optional[pulumi.Input['ConfigDiagnosticsArgs']]:
+        """
+        Configuration diagnostics data containing latest execution from client.
+        """
+        return pulumi.get(self, "config_diagnostics")
+
+    @config_diagnostics.setter
+    def config_diagnostics(self, value: Optional[pulumi.Input['ConfigDiagnosticsArgs']]):
+        pulumi.set(self, "config_diagnostics", value)
 
     @property
     @pulumi.getter(name="domainConfigurationType")
@@ -217,6 +239,18 @@ class DomainServiceArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="syncScope")
+    def sync_scope(self) -> Optional[pulumi.Input[Union[str, 'SyncScope']]]:
+        """
+        All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+        """
+        return pulumi.get(self, "sync_scope")
+
+    @sync_scope.setter
+    def sync_scope(self, value: Optional[pulumi.Input[Union[str, 'SyncScope']]]):
+        pulumi.set(self, "sync_scope", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -234,6 +268,7 @@ class DomainService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 config_diagnostics: Optional[pulumi.Input[pulumi.InputType['ConfigDiagnosticsArgs']]] = None,
                  domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
@@ -246,14 +281,17 @@ class DomainService(pulumi.CustomResource):
                  resource_forest_settings: Optional[pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sync_scope: Optional[pulumi.Input[Union[str, 'SyncScope']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Domain service.
-        API Version: 2021-03-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConfigDiagnosticsArgs']] config_diagnostics: Configuration diagnostics data containing latest execution from client.
         :param pulumi.Input[str] domain_configuration_type: Domain Configuration Type
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
         :param pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']] domain_security_settings: DomainSecurity Settings
@@ -266,6 +304,7 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']] resource_forest_settings: Resource Forest Settings
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] sku: Sku Type
+        :param pulumi.Input[Union[str, 'SyncScope']] sync_scope: All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -276,7 +315,8 @@ class DomainService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Domain service.
-        API Version: 2021-03-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DomainServiceArgs args: The arguments to use to populate this resource's properties.
@@ -293,6 +333,7 @@ class DomainService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 config_diagnostics: Optional[pulumi.Input[pulumi.InputType['ConfigDiagnosticsArgs']]] = None,
                  domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
@@ -305,6 +346,7 @@ class DomainService(pulumi.CustomResource):
                  resource_forest_settings: Optional[pulumi.Input[pulumi.InputType['ResourceForestSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sync_scope: Optional[pulumi.Input[Union[str, 'SyncScope']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -315,6 +357,7 @@ class DomainService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainServiceArgs.__new__(DomainServiceArgs)
 
+            __props__.__dict__["config_diagnostics"] = config_diagnostics
             __props__.__dict__["domain_configuration_type"] = domain_configuration_type
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_security_settings"] = domain_security_settings
@@ -329,12 +372,16 @@ class DomainService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            if sync_scope is None:
+                sync_scope = 'All'
+            __props__.__dict__["sync_scope"] = sync_scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["deployment_id"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["migration_properties"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sync_application_id"] = None
             __props__.__dict__["sync_owner"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
@@ -364,6 +411,7 @@ class DomainService(pulumi.CustomResource):
 
         __props__ = DomainServiceArgs.__new__(DomainServiceArgs)
 
+        __props__.__dict__["config_diagnostics"] = None
         __props__.__dict__["deployment_id"] = None
         __props__.__dict__["domain_configuration_type"] = None
         __props__.__dict__["domain_name"] = None
@@ -379,13 +427,23 @@ class DomainService(pulumi.CustomResource):
         __props__.__dict__["replica_sets"] = None
         __props__.__dict__["resource_forest_settings"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["sync_application_id"] = None
         __props__.__dict__["sync_owner"] = None
+        __props__.__dict__["sync_scope"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return DomainService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="configDiagnostics")
+    def config_diagnostics(self) -> pulumi.Output[Optional['outputs.ConfigDiagnosticsResponse']]:
+        """
+        Configuration diagnostics data containing latest execution from client.
+        """
+        return pulumi.get(self, "config_diagnostics")
 
     @property
     @pulumi.getter(name="deploymentId")
@@ -508,12 +566,28 @@ class DomainService(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="syncApplicationId")
+    def sync_application_id(self) -> pulumi.Output[str]:
+        """
+        The unique sync application id of the Azure AD Domain Services deployment.
+        """
+        return pulumi.get(self, "sync_application_id")
+
+    @property
     @pulumi.getter(name="syncOwner")
     def sync_owner(self) -> pulumi.Output[str]:
         """
         SyncOwner ReplicaSet Id
         """
         return pulumi.get(self, "sync_owner")
+
+    @property
+    @pulumi.getter(name="syncScope")
+    def sync_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+        """
+        return pulumi.get(self, "sync_scope")
 
     @property
     @pulumi.getter(name="systemData")

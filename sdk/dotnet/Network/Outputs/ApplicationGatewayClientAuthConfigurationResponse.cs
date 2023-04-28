@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Verify client certificate issuer name on the application gateway.
         /// </summary>
         public readonly bool? VerifyClientCertIssuerDN;
+        /// <summary>
+        /// Verify client certificate revocation status.
+        /// </summary>
+        public readonly string? VerifyClientRevocation;
 
         [OutputConstructor]
-        private ApplicationGatewayClientAuthConfigurationResponse(bool? verifyClientCertIssuerDN)
+        private ApplicationGatewayClientAuthConfigurationResponse(
+            bool? verifyClientCertIssuerDN,
+
+            string? verifyClientRevocation)
         {
             VerifyClientCertIssuerDN = verifyClientCertIssuerDN;
+            VerifyClientRevocation = verifyClientRevocation;
         }
     }
 }

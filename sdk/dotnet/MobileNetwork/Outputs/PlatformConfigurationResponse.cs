@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
     public sealed class PlatformConfigurationResponse
     {
         /// <summary>
-        /// The Azure Stack Edge device where where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
+        /// The Azure Stack Edge device where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
         /// </summary>
         public readonly Outputs.AzureStackEdgeDeviceResourceIdResponse? AzureStackEdgeDevice;
+        /// <summary>
+        /// The Azure Stack Edge devices where the packet core is deployed. If the packet core is deployed across multiple devices, all devices will appear in this list.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureStackEdgeDeviceResourceIdResponse> AzureStackEdgeDevices;
+        /// <summary>
+        /// The Azure Stack HCI cluster where the packet core is deployed.
+        /// </summary>
+        public readonly Outputs.AzureStackHCIClusterResourceIdResponse? AzureStackHciCluster;
         /// <summary>
         /// Azure Arc connected cluster where the packet core is deployed.
         /// </summary>
@@ -37,6 +45,10 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
         private PlatformConfigurationResponse(
             Outputs.AzureStackEdgeDeviceResourceIdResponse? azureStackEdgeDevice,
 
+            ImmutableArray<Outputs.AzureStackEdgeDeviceResourceIdResponse> azureStackEdgeDevices,
+
+            Outputs.AzureStackHCIClusterResourceIdResponse? azureStackHciCluster,
+
             Outputs.ConnectedClusterResourceIdResponse? connectedCluster,
 
             Outputs.CustomLocationResourceIdResponse? customLocation,
@@ -44,6 +56,8 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
             string type)
         {
             AzureStackEdgeDevice = azureStackEdgeDevice;
+            AzureStackEdgeDevices = azureStackEdgeDevices;
+            AzureStackHciCluster = azureStackHciCluster;
             ConnectedCluster = connectedCluster;
             CustomLocation = customLocation;
             Type = type;

@@ -11,36 +11,11 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'CacheSkuArgs',
     'ClfsTargetArgs',
     'NamespaceJunctionArgs',
     'Nfs3TargetArgs',
     'UnknownTargetArgs',
 ]
-
-@pulumi.input_type
-class CacheSkuArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        SKU for the Cache.
-        :param pulumi.Input[str] name: SKU name for this Cache.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        SKU name for this Cache.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
 
 @pulumi.input_type
 class ClfsTargetArgs:

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the provisioning service.
- * API Version: 2020-03-01.
+ * API Version: 2022-12-12.
+ * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**
@@ -55,9 +56,21 @@ export class IotDpsResource extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.devices.IotDpsPropertiesDescriptionResponse>;
     /**
+     * The resource group of the resource.
+     */
+    public readonly resourcegroup!: pulumi.Output<string | undefined>;
+    /**
      * Sku info for a provisioning Service.
      */
     public readonly sku!: pulumi.Output<outputs.devices.IotDpsSkuInfoResponse>;
+    /**
+     * The subscription id of the resource.
+     */
+    public readonly subscriptionid!: pulumi.Output<string | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.devices.SystemDataResponse>;
     /**
      * The resource tags.
      */
@@ -91,17 +104,23 @@ export class IotDpsResource extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourcegroup"] = args ? args.resourcegroup : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["subscriptionid"] = args ? args.subscriptionid : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["resourcegroup"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["subscriptionid"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -133,9 +152,17 @@ export interface IotDpsResourceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * The resource group of the resource.
+     */
+    resourcegroup?: pulumi.Input<string>;
+    /**
      * Sku info for a provisioning Service.
      */
     sku: pulumi.Input<inputs.devices.IotDpsSkuInfoArgs>;
+    /**
+     * The subscription id of the resource.
+     */
+    subscriptionid?: pulumi.Input<string>;
     /**
      * The resource tags.
      */

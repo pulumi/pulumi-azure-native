@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// ExpressRoute Circuit Authorization
-        /// API Version: 2020-03-20.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRoute Circuit Authorization
-        /// API Version: 2020-03-20.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string ExpressRouteAuthorizationKey;
         /// <summary>
+        /// The ID of the ExpressRoute Circuit
+        /// </summary>
+        public readonly string? ExpressRouteId;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNative.AVS
 
             string expressRouteAuthorizationKey,
 
+            string? expressRouteId,
+
             string id,
 
             string name,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNative.AVS
         {
             ExpressRouteAuthorizationId = expressRouteAuthorizationId;
             ExpressRouteAuthorizationKey = expressRouteAuthorizationKey;
+            ExpressRouteId = expressRouteId;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

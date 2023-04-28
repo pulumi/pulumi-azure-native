@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents Amazon Web Services CloudTrail data connector.
- * API Version: 2020-01-01.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
     /**
@@ -56,11 +57,15 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"AmazonWebServicesCloudTrail">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -92,6 +97,7 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["awsRoleArn"] = undefined /*out*/;
@@ -99,10 +105,11 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220801:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:AwsCloudTrailDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220801:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230301preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:AwsCloudTrailDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AwsCloudTrailDataConnector.__pulumiType, name, resourceInputs, opts);
     }
@@ -130,7 +137,7 @@ export interface AwsCloudTrailDataConnectorArgs {
      */
     kind: pulumi.Input<"AmazonWebServicesCloudTrail">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

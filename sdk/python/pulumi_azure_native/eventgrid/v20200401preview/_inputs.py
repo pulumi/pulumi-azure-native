@@ -16,9 +16,6 @@ __all__ = [
     'ConnectionStateArgs',
     'DeadLetterWithResourceIdentityArgs',
     'DeliveryWithResourceIdentityArgs',
-    'EventChannelDestinationArgs',
-    'EventChannelFilterArgs',
-    'EventChannelSourceArgs',
     'EventHubEventSubscriptionDestinationArgs',
     'EventSubscriptionFilterArgs',
     'EventSubscriptionIdentityArgs',
@@ -323,116 +320,6 @@ class DeliveryWithResourceIdentityArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['EventSubscriptionIdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-
-@pulumi.input_type
-class EventChannelDestinationArgs:
-    def __init__(__self__, *,
-                 azure_subscription_id: Optional[pulumi.Input[str]] = None,
-                 partner_topic_name: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of the destination of an event channel.
-        :param pulumi.Input[str] azure_subscription_id: Azure subscription ID of the customer creating the event channel. The partner topic
-               associated with the event channel will be created under this Azure subscription.
-        :param pulumi.Input[str] partner_topic_name: Name of the partner topic associated with the event channel.
-        :param pulumi.Input[str] resource_group: Azure Resource Group of the customer creating the event channel. The partner topic
-               associated with the event channel will be created under this resource group.
-        """
-        if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
-        if partner_topic_name is not None:
-            pulumi.set(__self__, "partner_topic_name", partner_topic_name)
-        if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
-
-    @property
-    @pulumi.getter(name="azureSubscriptionId")
-    def azure_subscription_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure subscription ID of the customer creating the event channel. The partner topic
-        associated with the event channel will be created under this Azure subscription.
-        """
-        return pulumi.get(self, "azure_subscription_id")
-
-    @azure_subscription_id.setter
-    def azure_subscription_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_subscription_id", value)
-
-    @property
-    @pulumi.getter(name="partnerTopicName")
-    def partner_topic_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the partner topic associated with the event channel.
-        """
-        return pulumi.get(self, "partner_topic_name")
-
-    @partner_topic_name.setter
-    def partner_topic_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "partner_topic_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure Resource Group of the customer creating the event channel. The partner topic
-        associated with the event channel will be created under this resource group.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group", value)
-
-
-@pulumi.input_type
-class EventChannelFilterArgs:
-    def __init__(__self__, *,
-                 advanced_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]] = None):
-        """
-        Filter for the Event Channel.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]] advanced_filters: An array of advanced filters that are used for filtering event channels.
-        """
-        if advanced_filters is not None:
-            pulumi.set(__self__, "advanced_filters", advanced_filters)
-
-    @property
-    @pulumi.getter(name="advancedFilters")
-    def advanced_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]:
-        """
-        An array of advanced filters that are used for filtering event channels.
-        """
-        return pulumi.get(self, "advanced_filters")
-
-    @advanced_filters.setter
-    def advanced_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]):
-        pulumi.set(self, "advanced_filters", value)
-
-
-@pulumi.input_type
-class EventChannelSourceArgs:
-    def __init__(__self__, *,
-                 source: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of the source of an event channel.
-        :param pulumi.Input[str] source: The identifier of the resource that's the source of the events.
-               This represents a unique resource in the partner's resource model.
-        """
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the resource that's the source of the events.
-        This represents a unique resource in the partner's resource model.
-        """
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source", value)
 
 
 @pulumi.input_type

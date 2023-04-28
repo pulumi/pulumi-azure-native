@@ -35,39 +35,59 @@ export const getExtension: typeof import("./getExtension").getExtension = null a
 export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
 utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
+export { GetUpdateArgs, GetUpdateResult, GetUpdateOutputArgs } from "./getUpdate";
+export const getUpdate: typeof import("./getUpdate").getUpdate = null as any;
+export const getUpdateOutput: typeof import("./getUpdate").getUpdateOutput = null as any;
+utilities.lazyLoad(exports, ["getUpdate","getUpdateOutput"], () => require("./getUpdate"));
+
+export { GetUpdateRunArgs, GetUpdateRunResult, GetUpdateRunOutputArgs } from "./getUpdateRun";
+export const getUpdateRun: typeof import("./getUpdateRun").getUpdateRun = null as any;
+export const getUpdateRunOutput: typeof import("./getUpdateRun").getUpdateRunOutput = null as any;
+utilities.lazyLoad(exports, ["getUpdateRun","getUpdateRunOutput"], () => require("./getUpdateRun"));
+
+export { GetUpdateSummaryArgs, GetUpdateSummaryResult, GetUpdateSummaryOutputArgs } from "./getUpdateSummary";
+export const getUpdateSummary: typeof import("./getUpdateSummary").getUpdateSummary = null as any;
+export const getUpdateSummaryOutput: typeof import("./getUpdateSummary").getUpdateSummaryOutput = null as any;
+utilities.lazyLoad(exports, ["getUpdateSummary","getUpdateSummaryOutput"], () => require("./getUpdateSummary"));
+
+export { UpdateArgs } from "./update";
+export type Update = import("./update").Update;
+export const Update: typeof import("./update").Update = null as any;
+utilities.lazyLoad(exports, ["Update"], () => require("./update"));
+
+export { UpdateRunArgs } from "./updateRun";
+export type UpdateRun = import("./updateRun").UpdateRun;
+export const UpdateRun: typeof import("./updateRun").UpdateRun = null as any;
+utilities.lazyLoad(exports, ["UpdateRun"], () => require("./updateRun"));
+
+export { UpdateSummaryArgs } from "./updateSummary";
+export type UpdateSummary = import("./updateSummary").UpdateSummary;
+export const UpdateSummary: typeof import("./updateSummary").UpdateSummary = null as any;
+utilities.lazyLoad(exports, ["UpdateSummary"], () => require("./updateSummary"));
+
 
 // Export enums:
 export * from "../types/enums/azurestackhci";
 
 // Export sub-modules:
-import * as v20200301preview from "./v20200301preview";
 import * as v20201001 from "./v20201001";
 import * as v20210101preview from "./v20210101preview";
-import * as v20210701preview from "./v20210701preview";
-import * as v20210901 from "./v20210901";
 import * as v20210901preview from "./v20210901preview";
 import * as v20220101 from "./v20220101";
-import * as v20220301 from "./v20220301";
-import * as v20220501 from "./v20220501";
 import * as v20220901 from "./v20220901";
 import * as v20221001 from "./v20221001";
-import * as v20221201 from "./v20221201";
 import * as v20230201 from "./v20230201";
+import * as v20230301 from "./v20230301";
 
 export {
-    v20200301preview,
     v20201001,
     v20210101preview,
-    v20210701preview,
-    v20210901,
     v20210901preview,
     v20220101,
-    v20220301,
-    v20220501,
     v20220901,
     v20221001,
-    v20221201,
     v20230201,
+    v20230301,
 };
 
 const _module = {
@@ -80,6 +100,12 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Extension":
                 return new Extension(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:Update":
+                return new Update(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:UpdateRun":
+                return new UpdateRun(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:UpdateSummary":
+                return new UpdateSummary(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

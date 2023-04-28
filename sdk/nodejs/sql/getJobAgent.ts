@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a job agent.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getJobAgent(args: GetJobAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetJobAgentResult> {
 
@@ -75,7 +75,7 @@ export interface GetJobAgentResult {
 }
 /**
  * Gets a job agent.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getJobAgentOutput(args: GetJobAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobAgentResult> {
     return pulumi.output(args).apply((a: any) => getJobAgent(a, opts))

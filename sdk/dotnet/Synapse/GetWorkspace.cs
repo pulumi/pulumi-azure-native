@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Gets a workspace
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:synapse:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a workspace
-        /// API Version: 2021-03-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:synapse:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Synapse
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -78,7 +78,11 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Connectivity endpoints
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? ConnectivityEndpoints;
+        public readonly ImmutableDictionary<string, string> ConnectivityEndpoints;
+        /// <summary>
+        /// Initial workspace AAD admin properties for a CSP subscription
+        /// </summary>
+        public readonly Outputs.CspWorkspaceAdminPropertiesResponse? CspWorkspaceAdminProperties;
         /// <summary>
         /// Workspace default data lake storage account details
         /// </summary>
@@ -90,7 +94,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
-        public readonly ImmutableDictionary<string, object> ExtraProperties;
+        public readonly object ExtraProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -136,6 +140,10 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly Outputs.PurviewConfigurationResponse? PurviewConfiguration;
         /// <summary>
+        /// Workspace settings
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Settings;
+        /// <summary>
         /// Login for workspace SQL active directory administrator
         /// </summary>
         public readonly string? SqlAdministratorLogin;
@@ -147,6 +155,10 @@ namespace Pulumi.AzureNative.Synapse
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Is trustedServiceBypassEnabled for the workspace
+        /// </summary>
+        public readonly bool? TrustedServiceBypassEnabled;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -168,13 +180,15 @@ namespace Pulumi.AzureNative.Synapse
         private GetWorkspaceResult(
             string adlaResourceId,
 
-            ImmutableDictionary<string, string>? connectivityEndpoints,
+            ImmutableDictionary<string, string> connectivityEndpoints,
+
+            Outputs.CspWorkspaceAdminPropertiesResponse? cspWorkspaceAdminProperties,
 
             Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
 
             Outputs.EncryptionDetailsResponse? encryption,
 
-            ImmutableDictionary<string, object> extraProperties,
+            object extraProperties,
 
             string id,
 
@@ -198,11 +212,15 @@ namespace Pulumi.AzureNative.Synapse
 
             Outputs.PurviewConfigurationResponse? purviewConfiguration,
 
+            ImmutableDictionary<string, object> settings,
+
             string? sqlAdministratorLogin,
 
             string? sqlAdministratorLoginPassword,
 
             ImmutableDictionary<string, string>? tags,
+
+            bool? trustedServiceBypassEnabled,
 
             string type,
 
@@ -214,6 +232,7 @@ namespace Pulumi.AzureNative.Synapse
         {
             AdlaResourceId = adlaResourceId;
             ConnectivityEndpoints = connectivityEndpoints;
+            CspWorkspaceAdminProperties = cspWorkspaceAdminProperties;
             DefaultDataLakeStorage = defaultDataLakeStorage;
             Encryption = encryption;
             ExtraProperties = extraProperties;
@@ -228,9 +247,11 @@ namespace Pulumi.AzureNative.Synapse
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             PurviewConfiguration = purviewConfiguration;
+            Settings = settings;
             SqlAdministratorLogin = sqlAdministratorLogin;
             SqlAdministratorLoginPassword = sqlAdministratorLoginPassword;
             Tags = tags;
+            TrustedServiceBypassEnabled = trustedServiceBypassEnabled;
             Type = type;
             VirtualNetworkProfile = virtualNetworkProfile;
             WorkspaceRepositoryConfiguration = workspaceRepositoryConfiguration;

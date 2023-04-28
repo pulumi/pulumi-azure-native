@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetworkGatewayInitArgs', 'VirtualNetworkGateway']
+__all__ = ['VirtualNetworkGatewayArgs', 'VirtualNetworkGateway']
 
 @pulumi.input_type
-class VirtualNetworkGatewayInitArgs:
+class VirtualNetworkGatewayArgs:
     def __init__(__self__, *,
                  gateway_type: pulumi.Input[Union[str, 'VirtualNetworkGatewayType']],
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]],
@@ -309,18 +309,18 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkGatewayInitArgs,
+                 args: VirtualNetworkGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkGatewayInitArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -352,7 +352,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkGatewayInitArgs.__new__(VirtualNetworkGatewayInitArgs)
+            __props__ = VirtualNetworkGatewayArgs.__new__(VirtualNetworkGatewayArgs)
 
             __props__.__dict__["active_active"] = active_active
             __props__.__dict__["bgp_settings"] = bgp_settings
@@ -403,7 +403,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualNetworkGatewayInitArgs.__new__(VirtualNetworkGatewayInitArgs)
+        __props__ = VirtualNetworkGatewayArgs.__new__(VirtualNetworkGatewayArgs)
 
         __props__.__dict__["active_active"] = None
         __props__.__dict__["bgp_settings"] = None

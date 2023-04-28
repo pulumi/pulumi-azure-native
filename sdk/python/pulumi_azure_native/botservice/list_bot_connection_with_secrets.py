@@ -58,7 +58,7 @@ class ListBotConnectionWithSecretsResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        Entity Tag
+        Entity Tag.
         """
         return pulumi.get(self, "etag")
 
@@ -159,7 +159,7 @@ def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionWithSecretsResult:
     """
     Get a Connection Setting registration for a Bot Service
-    API Version: 2021-03-01.
+    API Version: 2022-09-15.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.
@@ -193,7 +193,7 @@ def list_bot_connection_with_secrets_output(connection_name: Optional[pulumi.Inp
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBotConnectionWithSecretsResult]:
     """
     Get a Connection Setting registration for a Bot Service
-    API Version: 2021-03-01.
+    API Version: 2022-09-15.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.

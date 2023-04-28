@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the cloud service.
- * API Version: 2021-03-01.
+ * API Version: 2022-09-04.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class CloudService extends pulumi.CustomResource {
     /**
@@ -51,6 +52,10 @@ export class CloudService extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.compute.CloudServicePropertiesResponse>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -58,6 +63,10 @@ export class CloudService extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CloudService resource with the given unique name, arguments, and options.
@@ -78,14 +87,18 @@ export class CloudService extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201001preview:CloudService" }, { type: "azure-native:compute/v20210301:CloudService" }, { type: "azure-native:compute/v20220404:CloudService" }, { type: "azure-native:compute/v20220904:CloudService" }] };
@@ -118,4 +131,8 @@ export interface CloudServiceArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a disk.
- * API Version: 2020-12-01.
+ * API Version: 2022-07-02.
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
 
@@ -22,7 +22,7 @@ export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise
 
 export interface GetDiskArgs {
     /**
-     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskName: string;
     /**
@@ -40,9 +40,21 @@ export interface GetDiskResult {
      */
     readonly burstingEnabled?: boolean;
     /**
+     * Latest time when bursting was last enabled on a disk.
+     */
+    readonly burstingEnabledTime: string;
+    /**
+     * Percentage complete for the background copy when a resource is created via the CopyStart operation.
+     */
+    readonly completionPercent?: number;
+    /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
     readonly creationData: outputs.compute.CreationDataResponse;
+    /**
+     * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+     */
+    readonly dataAccessAuthMode?: string;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -120,6 +132,10 @@ export interface GetDiskResult {
      */
     readonly networkAccessPolicy?: string;
     /**
+     * Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
+     */
+    readonly optimizedForFrequentAttach?: boolean;
+    /**
      * The Operating System type.
      */
     readonly osType?: string;
@@ -131,6 +147,10 @@ export interface GetDiskResult {
      * The disk provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Policy for controlling export on the disk.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
      */
@@ -144,9 +164,13 @@ export interface GetDiskResult {
      */
     readonly shareInfo: outputs.compute.ShareInfoElementResponse[];
     /**
-     * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
+     * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
      */
     readonly sku?: outputs.compute.DiskSkuResponse;
+    /**
+     * List of supported capabilities for the image from which the OS disk was created.
+     */
+    readonly supportedCapabilities?: outputs.compute.SupportedCapabilitiesResponse;
     /**
      * Indicates the OS on a disk supports hibernation.
      */
@@ -178,7 +202,7 @@ export interface GetDiskResult {
 }
 /**
  * Gets information about a disk.
- * API Version: 2020-12-01.
+ * API Version: 2022-07-02.
  */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
     return pulumi.output(args).apply((a: any) => getDisk(a, opts))
@@ -186,7 +210,7 @@ export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptio
 
 export interface GetDiskOutputArgs {
     /**
-     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskName: pulumi.Input<string>;
     /**

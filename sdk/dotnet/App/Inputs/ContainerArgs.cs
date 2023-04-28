@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.Inputs
 {
 
     /// <summary>
-    /// Container App container definition.
+    /// Container App container definition
     /// </summary>
     public sealed class ContainerArgs : global::Pulumi.ResourceArgs
     {

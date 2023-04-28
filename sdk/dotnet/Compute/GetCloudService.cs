@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Display information about a cloud service.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-09-04.
         /// </summary>
         public static Task<GetCloudServiceResult> InvokeAsync(GetCloudServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Display information about a cloud service.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-09-04.
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.CloudServicePropertiesResponse Properties;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse? SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -95,6 +99,10 @@ namespace Pulumi.AzureNative.Compute
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetCloudServiceResult(
@@ -106,16 +114,22 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.CloudServicePropertiesResponse properties,
 
+            Outputs.SystemDataResponse? systemData,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<string> zones)
         {
             Id = id;
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
+            Zones = zones;
         }
     }
 }

@@ -194,7 +194,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualWanResult:
     """
     Retrieves the details of a VirtualWAN.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualWan.
@@ -228,7 +228,7 @@ def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualWanResult]:
     """
     Retrieves the details of a VirtualWAN.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualWan.

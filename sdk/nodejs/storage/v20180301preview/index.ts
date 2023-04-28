@@ -5,35 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { BlobContainerArgs } from "./blobContainer";
-export type BlobContainer = import("./blobContainer").BlobContainer;
-export const BlobContainer: typeof import("./blobContainer").BlobContainer = null as any;
-utilities.lazyLoad(exports, ["BlobContainer"], () => require("./blobContainer"));
-
-export { BlobContainerImmutabilityPolicyArgs } from "./blobContainerImmutabilityPolicy";
-export type BlobContainerImmutabilityPolicy = import("./blobContainerImmutabilityPolicy").BlobContainerImmutabilityPolicy;
-export const BlobContainerImmutabilityPolicy: typeof import("./blobContainerImmutabilityPolicy").BlobContainerImmutabilityPolicy = null as any;
-utilities.lazyLoad(exports, ["BlobContainerImmutabilityPolicy"], () => require("./blobContainerImmutabilityPolicy"));
-
-export { GetBlobContainerArgs, GetBlobContainerResult, GetBlobContainerOutputArgs } from "./getBlobContainer";
-export const getBlobContainer: typeof import("./getBlobContainer").getBlobContainer = null as any;
-export const getBlobContainerOutput: typeof import("./getBlobContainer").getBlobContainerOutput = null as any;
-utilities.lazyLoad(exports, ["getBlobContainer","getBlobContainerOutput"], () => require("./getBlobContainer"));
-
-export { GetBlobContainerImmutabilityPolicyArgs, GetBlobContainerImmutabilityPolicyResult, GetBlobContainerImmutabilityPolicyOutputArgs } from "./getBlobContainerImmutabilityPolicy";
-export const getBlobContainerImmutabilityPolicy: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicy = null as any;
-export const getBlobContainerImmutabilityPolicyOutput: typeof import("./getBlobContainerImmutabilityPolicy").getBlobContainerImmutabilityPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getBlobContainerImmutabilityPolicy","getBlobContainerImmutabilityPolicyOutput"], () => require("./getBlobContainerImmutabilityPolicy"));
-
 export { GetManagementPolicyArgs, GetManagementPolicyResult, GetManagementPolicyOutputArgs } from "./getManagementPolicy";
 export const getManagementPolicy: typeof import("./getManagementPolicy").getManagementPolicy = null as any;
 export const getManagementPolicyOutput: typeof import("./getManagementPolicy").getManagementPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getManagementPolicy","getManagementPolicyOutput"], () => require("./getManagementPolicy"));
-
-export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
-export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
-export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
-utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
 
 export { GetStorageAccountManagementPoliciesArgs, GetStorageAccountManagementPoliciesResult, GetStorageAccountManagementPoliciesOutputArgs } from "./getStorageAccountManagementPolicies";
 export const getStorageAccountManagementPolicies: typeof import("./getStorageAccountManagementPolicies").getStorageAccountManagementPolicies = null as any;
@@ -60,11 +35,6 @@ export type ManagementPolicy = import("./managementPolicy").ManagementPolicy;
 export const ManagementPolicy: typeof import("./managementPolicy").ManagementPolicy = null as any;
 utilities.lazyLoad(exports, ["ManagementPolicy"], () => require("./managementPolicy"));
 
-export { StorageAccountArgs } from "./storageAccount";
-export type StorageAccount = import("./storageAccount").StorageAccount;
-export const StorageAccount: typeof import("./storageAccount").StorageAccount = null as any;
-utilities.lazyLoad(exports, ["StorageAccount"], () => require("./storageAccount"));
-
 export { StorageAccountManagementPoliciesArgs } from "./storageAccountManagementPolicies";
 export type StorageAccountManagementPolicies = import("./storageAccountManagementPolicies").StorageAccountManagementPolicies;
 export const StorageAccountManagementPolicies: typeof import("./storageAccountManagementPolicies").StorageAccountManagementPolicies = null as any;
@@ -78,14 +48,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:storage/v20180301preview:BlobContainer":
-                return new BlobContainer(name, <any>undefined, { urn })
-            case "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy":
-                return new BlobContainerImmutabilityPolicy(name, <any>undefined, { urn })
             case "azure-native:storage/v20180301preview:ManagementPolicy":
                 return new ManagementPolicy(name, <any>undefined, { urn })
-            case "azure-native:storage/v20180301preview:StorageAccount":
-                return new StorageAccount(name, <any>undefined, { urn })
             case "azure-native:storage/v20180301preview:StorageAccountManagementPolicies":
                 return new StorageAccountManagementPolicies(name, <any>undefined, { urn })
             default:

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['ExtensionArgs', 'Extension']
 
@@ -17,17 +18,25 @@ class ExtensionArgs:
     def __init__(__self__, *,
                  farm_beats_resource_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 extension_id: Optional[pulumi.Input[str]] = None):
+                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]] = None,
+                 extension_id: Optional[pulumi.Input[str]] = None,
+                 extension_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Extension resource.
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]] additional_api_properties: Additional Api Properties.
         :param pulumi.Input[str] extension_id: Id of extension resource.
+        :param pulumi.Input[str] extension_version: Extension Version.
         """
         pulumi.set(__self__, "farm_beats_resource_name", farm_beats_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if additional_api_properties is not None:
+            pulumi.set(__self__, "additional_api_properties", additional_api_properties)
         if extension_id is not None:
             pulumi.set(__self__, "extension_id", extension_id)
+        if extension_version is not None:
+            pulumi.set(__self__, "extension_version", extension_version)
 
     @property
     @pulumi.getter(name="farmBeatsResourceName")
@@ -54,6 +63,18 @@ class ExtensionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="additionalApiProperties")
+    def additional_api_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]]:
+        """
+        Additional Api Properties.
+        """
+        return pulumi.get(self, "additional_api_properties")
+
+    @additional_api_properties.setter
+    def additional_api_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]]):
+        pulumi.set(self, "additional_api_properties", value)
+
+    @property
     @pulumi.getter(name="extensionId")
     def extension_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -65,23 +86,40 @@ class ExtensionArgs:
     def extension_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extension_id", value)
 
+    @property
+    @pulumi.getter(name="extensionVersion")
+    def extension_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Extension Version.
+        """
+        return pulumi.get(self, "extension_version")
+
+    @extension_version.setter
+    def extension_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_version", value)
+
 
 class Extension(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]]] = None,
                  extension_id: Optional[pulumi.Input[str]] = None,
+                 extension_version: Optional[pulumi.Input[str]] = None,
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Extension resource.
-        API Version: 2020-05-12-preview.
+        API Version: 2021-09-01-preview.
+        Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]] additional_api_properties: Additional Api Properties.
         :param pulumi.Input[str] extension_id: Id of extension resource.
+        :param pulumi.Input[str] extension_version: Extension Version.
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -93,7 +131,8 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Extension resource.
-        API Version: 2020-05-12-preview.
+        API Version: 2021-09-01-preview.
+        Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -110,7 +149,9 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]]] = None,
                  extension_id: Optional[pulumi.Input[str]] = None,
+                 extension_version: Optional[pulumi.Input[str]] = None,
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -122,7 +163,9 @@ class Extension(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
+            __props__.__dict__["additional_api_properties"] = additional_api_properties
             __props__.__dict__["extension_id"] = extension_id
+            __props__.__dict__["extension_version"] = extension_version
             if farm_beats_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'farm_beats_resource_name'")
             __props__.__dict__["farm_beats_resource_name"] = farm_beats_resource_name
@@ -161,6 +204,7 @@ class Extension(pulumi.CustomResource):
 
         __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
+        __props__.__dict__["additional_api_properties"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["extension_api_docs_link"] = None
         __props__.__dict__["extension_auth_link"] = None
@@ -171,6 +215,14 @@ class Extension(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Extension(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalApiProperties")
+    def additional_api_properties(self) -> pulumi.Output[Mapping[str, 'outputs.ApiPropertiesResponse']]:
+        """
+        Additional api properties.
+        """
+        return pulumi.get(self, "additional_api_properties")
 
     @property
     @pulumi.getter(name="eTag")
@@ -232,7 +284,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

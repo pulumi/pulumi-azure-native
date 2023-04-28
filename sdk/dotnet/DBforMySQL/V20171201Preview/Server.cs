@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

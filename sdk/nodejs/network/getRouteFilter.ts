@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified route filter.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterResult> {
 
@@ -83,7 +83,7 @@ export interface GetRouteFilterResult {
 }
 /**
  * Gets the specified route filter.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
     return pulumi.output(args).apply((a: any) => getRouteFilter(a, opts))

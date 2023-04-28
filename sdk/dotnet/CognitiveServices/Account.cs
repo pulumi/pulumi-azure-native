@@ -10,20 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
-    /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
-    /// API Version: 2017-04-18.
+    /// Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Entity Tag
+        /// Resource Etag.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of Cognitive Services account.
+        /// Identity for the resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
@@ -35,13 +36,13 @@ namespace Pulumi.AzureNative.CognitiveServices
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the resource
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the created account
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -50,22 +51,28 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Properties of Cognitive Services account.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CognitiveServicesAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AccountPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of Cognitive Services account.
+        /// The resource model definition representing SKU
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -132,7 +139,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// The identity of Cognitive Services account.
+        /// Identity for the resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
@@ -144,7 +151,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The location of the resource
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -153,7 +160,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Properties of Cognitive Services account.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.CognitiveServicesAccountPropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.AccountPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -162,7 +169,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU of Cognitive Services account.
+        /// The resource model definition representing SKU
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
@@ -171,7 +178,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

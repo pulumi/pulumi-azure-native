@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class VMwareCbtProtectionContainerMappingDetailsResponse
     {
         /// <summary>
+        /// The SKUs to be excluded.
+        /// </summary>
+        public readonly ImmutableArray<string> ExcludedSkus;
+        /// <summary>
         /// Gets the class type. Overridden in derived classes.
         /// Expected value is 'VMwareCbt'.
         /// </summary>
@@ -29,6 +33,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The target key vault URI.
         /// </summary>
         public readonly string KeyVaultUri;
+        /// <summary>
+        /// The role size to NIC count map.
+        /// </summary>
+        public readonly ImmutableDictionary<string, int> RoleSizeToNicCountMap;
         /// <summary>
         /// The secret name of the service bus connection string.
         /// </summary>
@@ -48,11 +56,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private VMwareCbtProtectionContainerMappingDetailsResponse(
+            ImmutableArray<string> excludedSkus,
+
             string instanceType,
 
             string keyVaultId,
 
             string keyVaultUri,
+
+            ImmutableDictionary<string, int> roleSizeToNicCountMap,
 
             string serviceBusConnectionStringSecretName,
 
@@ -62,9 +74,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string targetLocation)
         {
+            ExcludedSkus = excludedSkus;
             InstanceType = instanceType;
             KeyVaultId = keyVaultId;
             KeyVaultUri = keyVaultUri;
+            RoleSizeToNicCountMap = roleSizeToNicCountMap;
             ServiceBusConnectionStringSecretName = serviceBusConnectionStringSecretName;
             StorageAccountId = storageAccountId;
             StorageAccountSasSecretName = storageAccountSasSecretName;

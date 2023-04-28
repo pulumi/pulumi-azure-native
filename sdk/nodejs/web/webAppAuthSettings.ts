@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class WebAppAuthSettings extends pulumi.CustomResource {
     /**
@@ -48,7 +49,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
      */
     public readonly additionalLoginParams!: pulumi.Output<string[] | undefined>;
     /**
-     * Allowed audience values to consider when validating JWTs issued by 
+     * Allowed audience values to consider when validating JSON Web Tokens issued by 
      * Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
      * allowed audience, regardless of this setting.
      */
@@ -378,7 +379,7 @@ export interface WebAppAuthSettingsArgs {
      */
     additionalLoginParams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Allowed audience values to consider when validating JWTs issued by 
+     * Allowed audience values to consider when validating JSON Web Tokens issued by 
      * Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
      * allowed audience, regardless of this setting.
      */

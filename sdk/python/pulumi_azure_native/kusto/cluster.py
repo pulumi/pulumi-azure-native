@@ -19,7 +19,11 @@ class ClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['AzureSkuArgs'],
+                 accepted_audiences: Optional[pulumi.Input[Sequence[pulumi.Input['AcceptedAudiencesArgs']]]] = None,
+                 allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_double_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
@@ -27,17 +31,26 @@ class ClusterArgs:
                  engine_type: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+                 language_extensions: Optional[pulumi.Input['LanguageExtensionsListArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  optimized_autoscale: Optional[pulumi.Input['OptimizedAutoscaleArgs']] = None,
+                 public_ip_type: Optional[pulumi.Input[Union[str, 'PublicIPType']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input['TrustedExternalTenantArgs']]]] = None,
+                 virtual_cluster_graduation_properties: Optional[pulumi.Input[str]] = None,
                  virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input['AzureSkuArgs'] sku: The SKU of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['AcceptedAudiencesArgs']]] accepted_audiences: The cluster's accepted audiences.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_fqdn_list: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_range_list: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
+        :param pulumi.Input[bool] enable_auto_stop: A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[bool] enable_disk_encryption: A boolean value that indicates if the cluster's disks are encrypted.
         :param pulumi.Input[bool] enable_double_encryption: A boolean value that indicates if double encryption is enabled.
         :param pulumi.Input[bool] enable_purge: A boolean value that indicates if the purge operations are enabled.
@@ -45,17 +58,32 @@ class ClusterArgs:
         :param pulumi.Input[Union[str, 'EngineType']] engine_type: The engine type
         :param pulumi.Input['IdentityArgs'] identity: The identity of the cluster, if configured.
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: KeyVault properties for the cluster encryption.
+        :param pulumi.Input['LanguageExtensionsListArgs'] language_extensions: List of the cluster's language extensions.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['OptimizedAutoscaleArgs'] optimized_autoscale: Optimized auto scale definition.
+        :param pulumi.Input[Union[str, 'PublicIPType']] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+        :param pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['TrustedExternalTenantArgs']]] trusted_external_tenants: The cluster's external tenants.
+        :param pulumi.Input[str] virtual_cluster_graduation_properties: Virtual Cluster graduation properties
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network definition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The availability zones of the cluster.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if accepted_audiences is not None:
+            pulumi.set(__self__, "accepted_audiences", accepted_audiences)
+        if allowed_fqdn_list is not None:
+            pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
+        if allowed_ip_range_list is not None:
+            pulumi.set(__self__, "allowed_ip_range_list", allowed_ip_range_list)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if enable_auto_stop is None:
+            enable_auto_stop = True
+        if enable_auto_stop is not None:
+            pulumi.set(__self__, "enable_auto_stop", enable_auto_stop)
         if enable_disk_encryption is None:
             enable_disk_encryption = False
         if enable_disk_encryption is not None:
@@ -80,14 +108,30 @@ class ClusterArgs:
             pulumi.set(__self__, "identity", identity)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if language_extensions is not None:
+            pulumi.set(__self__, "language_extensions", language_extensions)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if optimized_autoscale is not None:
             pulumi.set(__self__, "optimized_autoscale", optimized_autoscale)
+        if public_ip_type is None:
+            public_ip_type = 'IPv4'
+        if public_ip_type is not None:
+            pulumi.set(__self__, "public_ip_type", public_ip_type)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if restrict_outbound_network_access is None:
+            restrict_outbound_network_access = 'Disabled'
+        if restrict_outbound_network_access is not None:
+            pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trusted_external_tenants is not None:
             pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
+        if virtual_cluster_graduation_properties is not None:
+            pulumi.set(__self__, "virtual_cluster_graduation_properties", virtual_cluster_graduation_properties)
         if virtual_network_configuration is not None:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
@@ -118,6 +162,42 @@ class ClusterArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="acceptedAudiences")
+    def accepted_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AcceptedAudiencesArgs']]]]:
+        """
+        The cluster's accepted audiences.
+        """
+        return pulumi.get(self, "accepted_audiences")
+
+    @accepted_audiences.setter
+    def accepted_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AcceptedAudiencesArgs']]]]):
+        pulumi.set(self, "accepted_audiences", value)
+
+    @property
+    @pulumi.getter(name="allowedFqdnList")
+    def allowed_fqdn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        """
+        return pulumi.get(self, "allowed_fqdn_list")
+
+    @allowed_fqdn_list.setter
+    def allowed_fqdn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_fqdn_list", value)
+
+    @property
+    @pulumi.getter(name="allowedIpRangeList")
+    def allowed_ip_range_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of ips in the format of CIDR allowed to connect to the cluster.
+        """
+        return pulumi.get(self, "allowed_ip_range_list")
+
+    @allowed_ip_range_list.setter
+    def allowed_ip_range_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_ip_range_list", value)
+
+    @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -128,6 +208,18 @@ class ClusterArgs:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="enableAutoStop")
+    def enable_auto_stop(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        """
+        return pulumi.get(self, "enable_auto_stop")
+
+    @enable_auto_stop.setter
+    def enable_auto_stop(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_auto_stop", value)
 
     @property
     @pulumi.getter(name="enableDiskEncryption")
@@ -214,6 +306,18 @@ class ClusterArgs:
         pulumi.set(self, "key_vault_properties", value)
 
     @property
+    @pulumi.getter(name="languageExtensions")
+    def language_extensions(self) -> Optional[pulumi.Input['LanguageExtensionsListArgs']]:
+        """
+        List of the cluster's language extensions.
+        """
+        return pulumi.get(self, "language_extensions")
+
+    @language_extensions.setter
+    def language_extensions(self, value: Optional[pulumi.Input['LanguageExtensionsListArgs']]):
+        pulumi.set(self, "language_extensions", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -238,6 +342,42 @@ class ClusterArgs:
         pulumi.set(self, "optimized_autoscale", value)
 
     @property
+    @pulumi.getter(name="publicIPType")
+    def public_ip_type(self) -> Optional[pulumi.Input[Union[str, 'PublicIPType']]]:
+        """
+        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+        """
+        return pulumi.get(self, "public_ip_type")
+
+    @public_ip_type.setter
+    def public_ip_type(self, value: Optional[pulumi.Input[Union[str, 'PublicIPType']]]):
+        pulumi.set(self, "public_ip_type", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="restrictOutboundNetworkAccess")
+    def restrict_outbound_network_access(self) -> Optional[pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']]]:
+        """
+        Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "restrict_outbound_network_access")
+
+    @restrict_outbound_network_access.setter
+    def restrict_outbound_network_access(self, value: Optional[pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']]]):
+        pulumi.set(self, "restrict_outbound_network_access", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -260,6 +400,18 @@ class ClusterArgs:
     @trusted_external_tenants.setter
     def trusted_external_tenants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrustedExternalTenantArgs']]]]):
         pulumi.set(self, "trusted_external_tenants", value)
+
+    @property
+    @pulumi.getter(name="virtualClusterGraduationProperties")
+    def virtual_cluster_graduation_properties(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual Cluster graduation properties
+        """
+        return pulumi.get(self, "virtual_cluster_graduation_properties")
+
+    @virtual_cluster_graduation_properties.setter
+    def virtual_cluster_graduation_properties(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_cluster_graduation_properties", value)
 
     @property
     @pulumi.getter(name="virtualNetworkConfiguration")
@@ -291,7 +443,11 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accepted_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceptedAudiencesArgs']]]]] = None,
+                 allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_double_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
@@ -299,22 +455,32 @@ class Cluster(pulumi.CustomResource):
                  engine_type: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
+                 language_extensions: Optional[pulumi.Input[pulumi.InputType['LanguageExtensionsListArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  optimized_autoscale: Optional[pulumi.Input[pulumi.InputType['OptimizedAutoscaleArgs']]] = None,
+                 public_ip_type: Optional[pulumi.Input[Union[str, 'PublicIPType']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]]] = None,
+                 virtual_cluster_graduation_properties: Optional[pulumi.Input[str]] = None,
                  virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Class representing a Kusto cluster.
-        API Version: 2021-01-01.
+        API Version: 2022-12-29.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceptedAudiencesArgs']]]] accepted_audiences: The cluster's accepted audiences.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_fqdn_list: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ip_range_list: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
+        :param pulumi.Input[bool] enable_auto_stop: A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[bool] enable_disk_encryption: A boolean value that indicates if the cluster's disks are encrypted.
         :param pulumi.Input[bool] enable_double_encryption: A boolean value that indicates if double encryption is enabled.
         :param pulumi.Input[bool] enable_purge: A boolean value that indicates if the purge operations are enabled.
@@ -322,12 +488,17 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'EngineType']] engine_type: The engine type
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the cluster, if configured.
         :param pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']] key_vault_properties: KeyVault properties for the cluster encryption.
+        :param pulumi.Input[pulumi.InputType['LanguageExtensionsListArgs']] language_extensions: List of the cluster's language extensions.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['OptimizedAutoscaleArgs']] optimized_autoscale: Optimized auto scale definition.
+        :param pulumi.Input[Union[str, 'PublicIPType']] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[pulumi.InputType['AzureSkuArgs']] sku: The SKU of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]] trusted_external_tenants: The cluster's external tenants.
+        :param pulumi.Input[str] virtual_cluster_graduation_properties: Virtual Cluster graduation properties
         :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] virtual_network_configuration: Virtual network definition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The availability zones of the cluster.
         """
@@ -339,7 +510,8 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Kusto cluster.
-        API Version: 2021-01-01.
+        API Version: 2022-12-29.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -356,7 +528,11 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accepted_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceptedAudiencesArgs']]]]] = None,
+                 allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_double_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
@@ -364,12 +540,17 @@ class Cluster(pulumi.CustomResource):
                  engine_type: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
+                 language_extensions: Optional[pulumi.Input[pulumi.InputType['LanguageExtensionsListArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  optimized_autoscale: Optional[pulumi.Input[pulumi.InputType['OptimizedAutoscaleArgs']]] = None,
+                 public_ip_type: Optional[pulumi.Input[Union[str, 'PublicIPType']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ClusterNetworkAccessFlag']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]]] = None,
+                 virtual_cluster_graduation_properties: Optional[pulumi.Input[str]] = None,
                  virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -381,7 +562,13 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            __props__.__dict__["accepted_audiences"] = accepted_audiences
+            __props__.__dict__["allowed_fqdn_list"] = allowed_fqdn_list
+            __props__.__dict__["allowed_ip_range_list"] = allowed_ip_range_list
             __props__.__dict__["cluster_name"] = cluster_name
+            if enable_auto_stop is None:
+                enable_auto_stop = True
+            __props__.__dict__["enable_auto_stop"] = enable_auto_stop
             if enable_disk_encryption is None:
                 enable_disk_encryption = False
             __props__.__dict__["enable_disk_encryption"] = enable_disk_encryption
@@ -399,25 +586,37 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["engine_type"] = engine_type
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_properties"] = key_vault_properties
+            __props__.__dict__["language_extensions"] = language_extensions
             __props__.__dict__["location"] = location
             __props__.__dict__["optimized_autoscale"] = optimized_autoscale
+            if public_ip_type is None:
+                public_ip_type = 'IPv4'
+            __props__.__dict__["public_ip_type"] = public_ip_type
+            if public_network_access is None:
+                public_network_access = 'Enabled'
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if restrict_outbound_network_access is None:
+                restrict_outbound_network_access = 'Disabled'
+            __props__.__dict__["restrict_outbound_network_access"] = restrict_outbound_network_access
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
+            __props__.__dict__["virtual_cluster_graduation_properties"] = virtual_cluster_graduation_properties
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["zones"] = zones
             __props__.__dict__["data_ingestion_uri"] = None
             __props__.__dict__["etag"] = None
-            __props__.__dict__["language_extensions"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["state_reason"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uri"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200918:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210101:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210827:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20220201:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20220707:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20221111:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20221229:Cluster")])
@@ -444,7 +643,11 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["accepted_audiences"] = None
+        __props__.__dict__["allowed_fqdn_list"] = None
+        __props__.__dict__["allowed_ip_range_list"] = None
         __props__.__dict__["data_ingestion_uri"] = None
+        __props__.__dict__["enable_auto_stop"] = None
         __props__.__dict__["enable_disk_encryption"] = None
         __props__.__dict__["enable_double_encryption"] = None
         __props__.__dict__["enable_purge"] = None
@@ -457,10 +660,15 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["optimized_autoscale"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_ip_type"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["restrict_outbound_network_access"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["state_reason"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["trusted_external_tenants"] = None
         __props__.__dict__["type"] = None
@@ -470,12 +678,44 @@ class Cluster(pulumi.CustomResource):
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="acceptedAudiences")
+    def accepted_audiences(self) -> pulumi.Output[Optional[Sequence['outputs.AcceptedAudiencesResponse']]]:
+        """
+        The cluster's accepted audiences.
+        """
+        return pulumi.get(self, "accepted_audiences")
+
+    @property
+    @pulumi.getter(name="allowedFqdnList")
+    def allowed_fqdn_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        """
+        return pulumi.get(self, "allowed_fqdn_list")
+
+    @property
+    @pulumi.getter(name="allowedIpRangeList")
+    def allowed_ip_range_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of ips in the format of CIDR allowed to connect to the cluster.
+        """
+        return pulumi.get(self, "allowed_ip_range_list")
+
+    @property
     @pulumi.getter(name="dataIngestionUri")
     def data_ingestion_uri(self) -> pulumi.Output[str]:
         """
         The cluster data ingestion URI.
         """
         return pulumi.get(self, "data_ingestion_uri")
+
+    @property
+    @pulumi.getter(name="enableAutoStop")
+    def enable_auto_stop(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        """
+        return pulumi.get(self, "enable_auto_stop")
 
     @property
     @pulumi.getter(name="enableDiskEncryption")
@@ -543,7 +783,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> pulumi.Output['outputs.LanguageExtensionsListResponse']:
+    def language_extensions(self) -> pulumi.Output[Optional['outputs.LanguageExtensionsListResponse']]:
         """
         List of the cluster's language extensions.
         """
@@ -574,12 +814,44 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "optimized_autoscale")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        A list of private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicIPType")
+    def public_ip_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+        """
+        return pulumi.get(self, "public_ip_type")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="restrictOutboundNetworkAccess")
+    def restrict_outbound_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "restrict_outbound_network_access")
 
     @property
     @pulumi.getter
@@ -604,6 +876,14 @@ class Cluster(pulumi.CustomResource):
         The reason for the cluster's current state.
         """
         return pulumi.get(self, "state_reason")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

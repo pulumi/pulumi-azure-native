@@ -22,9 +22,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
+        /// The primary extended location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? PrimaryExtendedLocation;
+        /// <summary>
         /// The primary zone.
         /// </summary>
         public readonly string? PrimaryZone;
+        /// <summary>
+        /// The recovery extended location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? RecoveryExtendedLocation;
         /// <summary>
         /// The recovery zone.
         /// </summary>
@@ -34,12 +42,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         private RecoveryPlanA2ADetailsResponse(
             string instanceType,
 
+            Outputs.ExtendedLocationResponse? primaryExtendedLocation,
+
             string? primaryZone,
+
+            Outputs.ExtendedLocationResponse? recoveryExtendedLocation,
 
             string? recoveryZone)
         {
             InstanceType = instanceType;
+            PrimaryExtendedLocation = primaryExtendedLocation;
             PrimaryZone = primaryZone;
+            RecoveryExtendedLocation = recoveryExtendedLocation;
             RecoveryZone = recoveryZone;
         }
     }

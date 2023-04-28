@@ -17,15 +17,23 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterAPIServerAccessProfileResponse
     {
         /// <summary>
-        /// Authorized IP Ranges to kubernetes API server.
+        /// IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
         /// </summary>
         public readonly ImmutableArray<string> AuthorizedIPRanges;
         /// <summary>
-        /// Whether to create the cluster as a private cluster or not.
+        /// Whether to disable run command for the cluster or not.
+        /// </summary>
+        public readonly bool? DisableRunCommand;
+        /// <summary>
+        /// For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
         /// </summary>
         public readonly bool? EnablePrivateCluster;
         /// <summary>
-        /// Private dns zone mode for private cluster. 
+        /// Whether to create additional public FQDN for private cluster or not.
+        /// </summary>
+        public readonly bool? EnablePrivateClusterPublicFQDN;
+        /// <summary>
+        /// The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
         /// </summary>
         public readonly string? PrivateDNSZone;
 
@@ -33,12 +41,18 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         private ManagedClusterAPIServerAccessProfileResponse(
             ImmutableArray<string> authorizedIPRanges,
 
+            bool? disableRunCommand,
+
             bool? enablePrivateCluster,
+
+            bool? enablePrivateClusterPublicFQDN,
 
             string? privateDNSZone)
         {
             AuthorizedIPRanges = authorizedIPRanges;
+            DisableRunCommand = disableRunCommand;
             EnablePrivateCluster = enablePrivateCluster;
+            EnablePrivateClusterPublicFQDN = enablePrivateClusterPublicFQDN;
             PrivateDNSZone = privateDNSZone;
         }
     }

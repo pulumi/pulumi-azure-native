@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified shared private link resource
- * API Version: 2021-04-01-preview.
+ * API Version: 2023-02-01.
  */
 export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRSharedPrivateLinkResourceResult> {
 
@@ -57,7 +57,7 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
      */
     readonly privateLinkResourceId: string;
     /**
-     * Provisioning state of the shared private link resource
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
@@ -79,7 +79,7 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
 }
 /**
  * Get the specified shared private link resource
- * API Version: 2021-04-01-preview.
+ * API Version: 2023-02-01.
  */
 export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRSharedPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getSignalRSharedPrivateLinkResource(a, opts))

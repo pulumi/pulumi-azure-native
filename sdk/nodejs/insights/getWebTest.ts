@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific Application Insights web test definition.
- * API Version: 2015-05-01.
+ * API Version: 2022-06-15.
  */
 export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
 
@@ -26,13 +26,13 @@ export interface GetWebTestArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Application Insights webtest resource.
+     * The name of the Application Insights WebTest resource.
      */
     webTestName: string;
 }
 
 /**
- * An Application Insights web test definition.
+ * An Application Insights WebTest definition.
  */
 export interface GetWebTestResult {
     /**
@@ -40,7 +40,7 @@ export interface GetWebTestResult {
      */
     readonly configuration?: outputs.insights.WebTestPropertiesResponseConfiguration;
     /**
-     * Purpose/user defined descriptive test for this WebTest.
+     * User defined description for this WebTest.
      */
     readonly description?: string;
     /**
@@ -56,7 +56,7 @@ export interface GetWebTestResult {
      */
     readonly id: string;
     /**
-     * The kind of web test that this web test watches. Choices are ping and multistep.
+     * The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
      */
     readonly kind?: string;
     /**
@@ -75,6 +75,10 @@ export interface GetWebTestResult {
      * Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
     readonly provisioningState: string;
+    /**
+     * The collection of request properties
+     */
+    readonly request?: outputs.insights.WebTestPropertiesResponseRequest;
     /**
      * Allow for retries should this WebTest fail.
      */
@@ -96,7 +100,11 @@ export interface GetWebTestResult {
      */
     readonly type: string;
     /**
-     * The kind of web test this is, valid choices are ping and multistep.
+     * The collection of validation rule properties
+     */
+    readonly validationRules?: outputs.insights.WebTestPropertiesResponseValidationRules;
+    /**
+     * The kind of web test this is, valid choices are ping, multistep and standard.
      */
     readonly webTestKind: string;
     /**
@@ -106,7 +114,7 @@ export interface GetWebTestResult {
 }
 /**
  * Get a specific Application Insights web test definition.
- * API Version: 2015-05-01.
+ * API Version: 2022-06-15.
  */
 export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebTestResult> {
     return pulumi.output(args).apply((a: any) => getWebTest(a, opts))
@@ -118,7 +126,7 @@ export interface GetWebTestOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Application Insights webtest resource.
+     * The name of the Application Insights WebTest resource.
      */
     webTestName: pulumi.Input<string>;
 }

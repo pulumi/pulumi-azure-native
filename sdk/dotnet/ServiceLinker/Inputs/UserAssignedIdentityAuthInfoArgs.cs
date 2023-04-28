@@ -25,14 +25,14 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
         /// <summary>
         /// Client Id for userAssignedIdentity.
         /// </summary>
-        [Input("clientId", required: true)]
-        public Input<string> ClientId { get; set; } = null!;
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
 
         /// <summary>
         /// Subscription id for userAssignedIdentity.
         /// </summary>
-        [Input("subscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
         public UserAssignedIdentityAuthInfoArgs()
         {

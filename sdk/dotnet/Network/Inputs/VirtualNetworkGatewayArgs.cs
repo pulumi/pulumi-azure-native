@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
+        /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        /// </summary>
+        [Input("allowRemoteVnetTraffic")]
+        public Input<bool>? AllowRemoteVnetTraffic { get; set; }
+
+        /// <summary>
+        /// Configures this gateway to accept traffic from remote Virtual WAN networks.
+        /// </summary>
+        [Input("allowVirtualWanTraffic")]
+        public Input<bool>? AllowVirtualWanTraffic { get; set; }
+
+        /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
@@ -34,10 +46,22 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<Inputs.AddressSpaceArgs>? CustomRoutes { get; set; }
 
         /// <summary>
+        /// disableIPSecReplayProtection flag.
+        /// </summary>
+        [Input("disableIPSecReplayProtection")]
+        public Input<bool>? DisableIPSecReplayProtection { get; set; }
+
+        /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
+        /// EnableBgpRouteTranslationForNat flag.
+        /// </summary>
+        [Input("enableBgpRouteTranslationForNat")]
+        public Input<bool>? EnableBgpRouteTranslationForNat { get; set; }
 
         /// <summary>
         /// Whether dns forwarding is enabled or not.
@@ -93,6 +117,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("natRules")]
+        private InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>? _natRules;
+
+        /// <summary>
+        /// NatRules for virtual network gateway.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayNatRuleArgs> NatRules
+        {
+            get => _natRules ?? (_natRules = new InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>());
+            set => _natRules = value;
+        }
+
         /// <summary>
         /// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         /// </summary>
@@ -116,6 +152,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("vNetExtendedLocationResourceId")]
         public Input<string>? VNetExtendedLocationResourceId { get; set; }
+
+        [Input("virtualNetworkGatewayPolicyGroups")]
+        private InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs>? _virtualNetworkGatewayPolicyGroups;
+
+        /// <summary>
+        /// The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs> VirtualNetworkGatewayPolicyGroups
+        {
+            get => _virtualNetworkGatewayPolicyGroups ?? (_virtualNetworkGatewayPolicyGroups = new InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs>());
+            set => _virtualNetworkGatewayPolicyGroups = value;
+        }
 
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.

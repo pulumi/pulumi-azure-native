@@ -8,7 +8,6 @@ import typing
 from ._enums import *
 from .api import *
 from .api_diagnostic import *
-from .api_diagnostic_logger import *
 from .api_issue import *
 from .api_issue_attachment import *
 from .api_issue_comment import *
@@ -20,6 +19,10 @@ from .api_release import *
 from .api_schema import *
 from .api_tag_description import *
 from .api_version_set import *
+from .api_wiki import *
+from .authorization import *
+from .authorization_access_policy import *
+from .authorization_provider import *
 from .authorization_server import *
 from .backend import *
 from .cache import *
@@ -27,7 +30,7 @@ from .certificate import *
 from .content_item import *
 from .content_type import *
 from .diagnostic import *
-from .diagnostic_logger import *
+from .documentation import *
 from .email_template import *
 from .gateway import *
 from .gateway_api_entity_tag import *
@@ -48,6 +51,11 @@ from .get_api_release import *
 from .get_api_schema import *
 from .get_api_tag_description import *
 from .get_api_version_set import *
+from .get_api_wiki import *
+from .get_authorization import *
+from .get_authorization_access_policy import *
+from .get_authorization_login_link_post import *
+from .get_authorization_provider import *
 from .get_authorization_server import *
 from .get_backend import *
 from .get_cache import *
@@ -55,10 +63,14 @@ from .get_certificate import *
 from .get_content_item import *
 from .get_content_type import *
 from .get_diagnostic import *
+from .get_documentation import *
 from .get_email_template import *
 from .get_gateway import *
 from .get_gateway_certificate_authority import *
 from .get_gateway_hostname_configuration import *
+from .get_global_schema import *
+from .get_graph_ql_api_resolver import *
+from .get_graph_ql_api_resolver_policy import *
 from .get_group import *
 from .get_identity_provider import *
 from .get_logger import *
@@ -69,8 +81,7 @@ from .get_policy_fragment import *
 from .get_private_endpoint_connection_by_name import *
 from .get_product import *
 from .get_product_policy import *
-from .get_property import *
-from .get_schema import *
+from .get_product_wiki import *
 from .get_subscription import *
 from .get_tag import *
 from .get_tag_by_api import *
@@ -78,6 +89,9 @@ from .get_tag_by_operation import *
 from .get_tag_by_product import *
 from .get_user import *
 from .get_user_shared_access_token import *
+from .global_schema import *
+from .graph_ql_api_resolver import *
+from .graph_ql_api_resolver_policy import *
 from .group import *
 from .group_user import *
 from .identity_provider import *
@@ -89,7 +103,6 @@ from .list_named_value import *
 from .list_open_id_connect_provider_secrets import *
 from .list_policy_fragment_references import *
 from .list_subscription_secrets import *
-from .list_tenant_access_git_secrets import *
 from .list_tenant_access_secrets import *
 from .logger import *
 from .named_value import *
@@ -103,8 +116,7 @@ from .product import *
 from .product_api import *
 from .product_group import *
 from .product_policy import *
-from .property import *
-from .schema import *
+from .product_wiki import *
 from .subscription import *
 from .tag import *
 from .tag_by_api import *

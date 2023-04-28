@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Logger details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Logger extends pulumi.CustomResource {
     /**
@@ -56,7 +57,7 @@ export class Logger extends pulumi.CustomResource {
      */
     public readonly loggerType!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -64,7 +65,7 @@ export class Logger extends pulumi.CustomResource {
      */
     public readonly resourceId!: pulumi.Output<string | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -140,7 +141,7 @@ export interface LoggerArgs {
      */
     loggerType: pulumi.Input<string | enums.apimanagement.LoggerType>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

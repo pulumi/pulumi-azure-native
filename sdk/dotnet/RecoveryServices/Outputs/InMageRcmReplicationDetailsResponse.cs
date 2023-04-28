@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class InMageRcmReplicationDetailsResponse
     {
         /// <summary>
+        /// The agent version to which last agent upgrade was attempted.
+        /// </summary>
+        public readonly string AgentUpgradeAttemptToVersion;
+        /// <summary>
         /// The agent upgrade blocking error information.
         /// </summary>
         public readonly ImmutableArray<Outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse> AgentUpgradeBlockingErrorDetails;
+        /// <summary>
+        /// The agent upgrade job Id.
+        /// </summary>
+        public readonly string AgentUpgradeJobId;
         /// <summary>
         /// The agent auto upgrade state.
         /// </summary>
@@ -28,6 +36,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The allocated memory in MB.
         /// </summary>
         public readonly double AllocatedMemoryInMB;
+        /// <summary>
+        /// The discovered VM details.
+        /// </summary>
+        public readonly Outputs.InMageRcmDiscoveredProtectedVmDetailsResponse? DiscoveredVmDetails;
         /// <summary>
         /// The type of the discovered VM.
         /// </summary>
@@ -49,6 +61,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double InitialReplicationProcessedBytes;
         /// <summary>
+        /// The initial replication progress health.
+        /// </summary>
+        public readonly string InitialReplicationProgressHealth;
+        /// <summary>
         /// The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
         /// </summary>
         public readonly int InitialReplicationProgressPercentage;
@@ -66,6 +82,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string InternalIdentifier;
         /// <summary>
+        /// A value indicating whether agent registration was successful after failover.
+        /// </summary>
+        public readonly bool IsAgentRegistrationSuccessfulAfterFailover;
+        /// <summary>
         /// A value indicating whether last agent upgrade was successful or not.
         /// </summary>
         public readonly string IsLastUpgradeSuccessful;
@@ -73,10 +93,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The last agent upgrade error information.
         /// </summary>
         public readonly ImmutableArray<Outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse> LastAgentUpgradeErrorDetails;
-        /// <summary>
-        /// The last agent upgrade failed or cancelled job Id.
-        /// </summary>
-        public readonly string LastAgentUpgradeFailedJobId;
         /// <summary>
         /// The last agent upgrade type.
         /// </summary>
@@ -100,11 +116,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// License Type of the VM to be used.
         /// </summary>
-        public readonly string LicenseType;
+        public readonly string? LicenseType;
         /// <summary>
         /// The mobility agent information.
         /// </summary>
-        public readonly Outputs.InMageRcmMobilityAgentDetailsResponse MobilityAgentDetails;
+        public readonly Outputs.InMageRcmMobilityAgentDetailsResponse? MobilityAgentDetails;
         /// <summary>
         /// The multi VM group name.
         /// </summary>
@@ -113,6 +129,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The type of the OS on the VM.
         /// </summary>
         public readonly string OsType;
+        /// <summary>
+        /// The IP address of the primary network interface.
+        /// </summary>
+        public readonly string PrimaryNicIpAddress;
         /// <summary>
         /// The process server Id.
         /// </summary>
@@ -134,6 +154,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double ResyncProcessedBytes;
         /// <summary>
+        /// The resync progress health.
+        /// </summary>
+        public readonly string ResyncProgressHealth;
+        /// <summary>
         /// The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
         /// </summary>
         public readonly int ResyncProgressPercentage;
@@ -154,45 +178,53 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string RunAsAccountId;
         /// <summary>
+        /// The replication storage account ARM Id. This is applicable only for the blob based replication test hook.
+        /// </summary>
+        public readonly string StorageAccountId;
+        /// <summary>
         /// The target availability set Id.
         /// </summary>
-        public readonly string TargetAvailabilitySetId;
+        public readonly string? TargetAvailabilitySetId;
         /// <summary>
         /// The target availability zone.
         /// </summary>
-        public readonly string TargetAvailabilityZone;
+        public readonly string? TargetAvailabilityZone;
         /// <summary>
         /// The target boot diagnostics storage account ARM Id.
         /// </summary>
-        public readonly string TargetBootDiagnosticsStorageAccountId;
+        public readonly string? TargetBootDiagnosticsStorageAccountId;
         /// <summary>
         /// The target generation.
         /// </summary>
         public readonly string TargetGeneration;
         /// <summary>
+        /// The target location.
+        /// </summary>
+        public readonly string? TargetLocation;
+        /// <summary>
         /// The target network Id.
         /// </summary>
-        public readonly string TargetNetworkId;
+        public readonly string? TargetNetworkId;
         /// <summary>
         /// The target proximity placement group Id.
         /// </summary>
-        public readonly string TargetProximityPlacementGroupId;
+        public readonly string? TargetProximityPlacementGroupId;
         /// <summary>
         /// The target resource group Id.
         /// </summary>
-        public readonly string TargetResourceGroupId;
+        public readonly string? TargetResourceGroupId;
         /// <summary>
         /// Target VM name.
         /// </summary>
-        public readonly string TargetVmName;
+        public readonly string? TargetVmName;
         /// <summary>
         /// The target VM size.
         /// </summary>
-        public readonly string TargetVmSize;
+        public readonly string? TargetVmSize;
         /// <summary>
         /// The test network Id.
         /// </summary>
-        public readonly string TestNetworkId;
+        public readonly string? TestNetworkId;
         /// <summary>
         /// The network details.
         /// </summary>
@@ -200,11 +232,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private InMageRcmReplicationDetailsResponse(
+            string agentUpgradeAttemptToVersion,
+
             ImmutableArray<Outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse> agentUpgradeBlockingErrorDetails,
+
+            string agentUpgradeJobId,
 
             string agentUpgradeState,
 
             double allocatedMemoryInMB,
+
+            Outputs.InMageRcmDiscoveredProtectedVmDetailsResponse? discoveredVmDetails,
 
             string discoveryType,
 
@@ -216,6 +254,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             double initialReplicationProcessedBytes,
 
+            string initialReplicationProgressHealth,
+
             int initialReplicationProgressPercentage,
 
             double initialReplicationTransferredBytes,
@@ -224,11 +264,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string internalIdentifier,
 
+            bool isAgentRegistrationSuccessfulAfterFailover,
+
             string isLastUpgradeSuccessful,
 
             ImmutableArray<Outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse> lastAgentUpgradeErrorDetails,
-
-            string lastAgentUpgradeFailedJobId,
 
             string lastAgentUpgradeType,
 
@@ -240,13 +280,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             double lastRpoInSeconds,
 
-            string licenseType,
+            string? licenseType,
 
-            Outputs.InMageRcmMobilityAgentDetailsResponse mobilityAgentDetails,
+            Outputs.InMageRcmMobilityAgentDetailsResponse? mobilityAgentDetails,
 
             string multiVmGroupName,
 
             string osType,
+
+            string primaryNicIpAddress,
 
             string processServerId,
 
@@ -258,6 +300,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             double resyncProcessedBytes,
 
+            string resyncProgressHealth,
+
             int resyncProgressPercentage,
 
             string resyncRequired,
@@ -268,43 +312,51 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string runAsAccountId,
 
-            string targetAvailabilitySetId,
+            string storageAccountId,
 
-            string targetAvailabilityZone,
+            string? targetAvailabilitySetId,
 
-            string targetBootDiagnosticsStorageAccountId,
+            string? targetAvailabilityZone,
+
+            string? targetBootDiagnosticsStorageAccountId,
 
             string targetGeneration,
 
-            string targetNetworkId,
+            string? targetLocation,
 
-            string targetProximityPlacementGroupId,
+            string? targetNetworkId,
 
-            string targetResourceGroupId,
+            string? targetProximityPlacementGroupId,
 
-            string targetVmName,
+            string? targetResourceGroupId,
 
-            string targetVmSize,
+            string? targetVmName,
 
-            string testNetworkId,
+            string? targetVmSize,
+
+            string? testNetworkId,
 
             ImmutableArray<Outputs.InMageRcmNicDetailsResponse> vmNics)
         {
+            AgentUpgradeAttemptToVersion = agentUpgradeAttemptToVersion;
             AgentUpgradeBlockingErrorDetails = agentUpgradeBlockingErrorDetails;
+            AgentUpgradeJobId = agentUpgradeJobId;
             AgentUpgradeState = agentUpgradeState;
             AllocatedMemoryInMB = allocatedMemoryInMB;
+            DiscoveredVmDetails = discoveredVmDetails;
             DiscoveryType = discoveryType;
             FabricDiscoveryMachineId = fabricDiscoveryMachineId;
             FailoverRecoveryPointId = failoverRecoveryPointId;
             FirmwareType = firmwareType;
             InitialReplicationProcessedBytes = initialReplicationProcessedBytes;
+            InitialReplicationProgressHealth = initialReplicationProgressHealth;
             InitialReplicationProgressPercentage = initialReplicationProgressPercentage;
             InitialReplicationTransferredBytes = initialReplicationTransferredBytes;
             InstanceType = instanceType;
             InternalIdentifier = internalIdentifier;
+            IsAgentRegistrationSuccessfulAfterFailover = isAgentRegistrationSuccessfulAfterFailover;
             IsLastUpgradeSuccessful = isLastUpgradeSuccessful;
             LastAgentUpgradeErrorDetails = lastAgentUpgradeErrorDetails;
-            LastAgentUpgradeFailedJobId = lastAgentUpgradeFailedJobId;
             LastAgentUpgradeType = lastAgentUpgradeType;
             LastRecoveryPointId = lastRecoveryPointId;
             LastRecoveryPointReceived = lastRecoveryPointReceived;
@@ -314,20 +366,24 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             MobilityAgentDetails = mobilityAgentDetails;
             MultiVmGroupName = multiVmGroupName;
             OsType = osType;
+            PrimaryNicIpAddress = primaryNicIpAddress;
             ProcessServerId = processServerId;
             ProcessServerName = processServerName;
             ProcessorCoreCount = processorCoreCount;
             ProtectedDisks = protectedDisks;
             ResyncProcessedBytes = resyncProcessedBytes;
+            ResyncProgressHealth = resyncProgressHealth;
             ResyncProgressPercentage = resyncProgressPercentage;
             ResyncRequired = resyncRequired;
             ResyncState = resyncState;
             ResyncTransferredBytes = resyncTransferredBytes;
             RunAsAccountId = runAsAccountId;
+            StorageAccountId = storageAccountId;
             TargetAvailabilitySetId = targetAvailabilitySetId;
             TargetAvailabilityZone = targetAvailabilityZone;
             TargetBootDiagnosticsStorageAccountId = targetBootDiagnosticsStorageAccountId;
             TargetGeneration = targetGeneration;
+            TargetLocation = targetLocation;
             TargetNetworkId = targetNetworkId;
             TargetProximityPlacementGroupId = targetProximityPlacementGroupId;
             TargetResourceGroupId = targetResourceGroupId;

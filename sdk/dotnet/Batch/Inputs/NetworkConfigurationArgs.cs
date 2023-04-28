@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
     /// </summary>
     public sealed class NetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dynamicVnetAssignmentScope")]
+        public Input<Pulumi.AzureNative.Batch.DynamicVNetAssignmentScope>? DynamicVnetAssignmentScope { get; set; }
+
         /// <summary>
         /// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
         /// </summary>

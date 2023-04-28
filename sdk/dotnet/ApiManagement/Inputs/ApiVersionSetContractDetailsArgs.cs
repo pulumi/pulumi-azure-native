@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme")]
-        public Input<string>? VersioningScheme { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.VersioningScheme>? VersioningScheme { get; set; }
 
         public ApiVersionSetContractDetailsArgs()
         {

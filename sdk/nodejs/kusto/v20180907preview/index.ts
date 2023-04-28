@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ClusterArgs } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -19,11 +14,6 @@ export { EventHubConnectionArgs } from "./eventHubConnection";
 export type EventHubConnection = import("./eventHubConnection").EventHubConnection;
 export const EventHubConnection: typeof import("./eventHubConnection").EventHubConnection = null as any;
 utilities.lazyLoad(exports, ["EventHubConnection"], () => require("./eventHubConnection"));
-
-export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
-export const getCluster: typeof import("./getCluster").getCluster = null as any;
-export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -48,8 +38,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:kusto/v20180907preview:Cluster":
-                return new Cluster(name, <any>undefined, { urn })
             case "azure-native:kusto/v20180907preview:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:kusto/v20180907preview:EventHubConnection":

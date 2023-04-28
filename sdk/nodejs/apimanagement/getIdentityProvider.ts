@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the configuration details of the identity Provider configured in specified service instance.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
 
@@ -24,7 +24,7 @@ export interface GetIdentityProviderArgs {
      */
     identityProviderName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -50,15 +50,19 @@ export interface GetIdentityProviderResult {
      */
     readonly clientId: string;
     /**
+     * The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
+     */
+    readonly clientLibrary?: string;
+    /**
      * Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
     readonly clientSecret?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -82,13 +86,13 @@ export interface GetIdentityProviderResult {
      */
     readonly signupPolicyName?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the configuration details of the identity Provider configured in specified service instance.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
     return pulumi.output(args).apply((a: any) => getIdentityProvider(a, opts))
@@ -100,7 +104,7 @@ export interface GetIdentityProviderOutputArgs {
      */
     identityProviderName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

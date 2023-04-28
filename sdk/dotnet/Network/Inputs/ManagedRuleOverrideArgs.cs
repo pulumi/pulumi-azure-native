@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class ManagedRuleOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Describes the override action to be applied when rule matches.
+        /// </summary>
+        [Input("action")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ActionType>? Action { get; set; }
+
+        /// <summary>
         /// Identifier for the managed rule.
         /// </summary>
         [Input("ruleId", required: true)]

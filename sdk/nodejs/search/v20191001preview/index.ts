@@ -10,11 +10,6 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
-export const getService: typeof import("./getService").getService = null as any;
-export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-
 export { ListAdminKeyArgs, ListAdminKeyResult, ListAdminKeyOutputArgs } from "./listAdminKey";
 export const listAdminKey: typeof import("./listAdminKey").listAdminKey = null as any;
 export const listAdminKeyOutput: typeof import("./listAdminKey").listAdminKeyOutput = null as any;
@@ -30,11 +25,6 @@ export type PrivateEndpointConnection = import("./privateEndpointConnection").Pr
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
-export { ServiceArgs } from "./service";
-export type Service = import("./service").Service;
-export const Service: typeof import("./service").Service = null as any;
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
-
 
 // Export enums:
 export * from "../../types/enums/search/v20191001preview";
@@ -45,8 +35,6 @@ const _module = {
         switch (type) {
             case "azure-native:search/v20191001preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:search/v20191001preview:Service":
-                return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

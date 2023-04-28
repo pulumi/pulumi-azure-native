@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     }
 
     /// <summary>
-    /// Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+    /// Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
     /// </summary>
     [EnumType]
     public readonly struct SharedImageStorageAccountType : IEquatable<SharedImageStorageAccountType>
@@ -53,6 +53,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 
         public static SharedImageStorageAccountType Standard_LRS { get; } = new SharedImageStorageAccountType("Standard_LRS");
         public static SharedImageStorageAccountType Standard_ZRS { get; } = new SharedImageStorageAccountType("Standard_ZRS");
+        public static SharedImageStorageAccountType Premium_LRS { get; } = new SharedImageStorageAccountType("Premium_LRS");
 
         public static bool operator ==(SharedImageStorageAccountType left, SharedImageStorageAccountType right) => left.Equals(right);
         public static bool operator !=(SharedImageStorageAccountType left, SharedImageStorageAccountType right) => !left.Equals(right);
@@ -62,6 +63,37 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SharedImageStorageAccountType other && Equals(other);
         public bool Equals(SharedImageStorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enabling this field will improve VM boot time by optimizing the final customized image output.
+    /// </summary>
+    [EnumType]
+    public readonly struct VMBootOptimizationState : IEquatable<VMBootOptimizationState>
+    {
+        private readonly string _value;
+
+        private VMBootOptimizationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VMBootOptimizationState Enabled { get; } = new VMBootOptimizationState("Enabled");
+        public static VMBootOptimizationState Disabled { get; } = new VMBootOptimizationState("Disabled");
+
+        public static bool operator ==(VMBootOptimizationState left, VMBootOptimizationState right) => left.Equals(right);
+        public static bool operator !=(VMBootOptimizationState left, VMBootOptimizationState right) => !left.Equals(right);
+
+        public static explicit operator string(VMBootOptimizationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VMBootOptimizationState other && Equals(other);
+        public bool Equals(VMBootOptimizationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

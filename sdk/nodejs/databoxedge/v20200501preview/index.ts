@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { BandwidthScheduleArgs } from "./bandwidthSchedule";
-export type BandwidthSchedule = import("./bandwidthSchedule").BandwidthSchedule;
-export const BandwidthSchedule: typeof import("./bandwidthSchedule").BandwidthSchedule = null as any;
-utilities.lazyLoad(exports, ["BandwidthSchedule"], () => require("./bandwidthSchedule"));
-
-export { ContainerArgs } from "./container";
-export type Container = import("./container").Container;
-export const Container: typeof import("./container").Container = null as any;
-utilities.lazyLoad(exports, ["Container"], () => require("./container"));
-
 export { DeviceArgs } from "./device";
 export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
@@ -24,16 +14,6 @@ export { FileEventTriggerArgs } from "./fileEventTrigger";
 export type FileEventTrigger = import("./fileEventTrigger").FileEventTrigger;
 export const FileEventTrigger: typeof import("./fileEventTrigger").FileEventTrigger = null as any;
 utilities.lazyLoad(exports, ["FileEventTrigger"], () => require("./fileEventTrigger"));
-
-export { GetBandwidthScheduleArgs, GetBandwidthScheduleResult, GetBandwidthScheduleOutputArgs } from "./getBandwidthSchedule";
-export const getBandwidthSchedule: typeof import("./getBandwidthSchedule").getBandwidthSchedule = null as any;
-export const getBandwidthScheduleOutput: typeof import("./getBandwidthSchedule").getBandwidthScheduleOutput = null as any;
-utilities.lazyLoad(exports, ["getBandwidthSchedule","getBandwidthScheduleOutput"], () => require("./getBandwidthSchedule"));
-
-export { GetContainerArgs, GetContainerResult, GetContainerOutputArgs } from "./getContainer";
-export const getContainer: typeof import("./getContainer").getContainer = null as any;
-export const getContainerOutput: typeof import("./getContainer").getContainerOutput = null as any;
-utilities.lazyLoad(exports, ["getContainer","getContainerOutput"], () => require("./getContainer"));
 
 export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
 export const getDevice: typeof import("./getDevice").getDevice = null as any;
@@ -65,25 +45,10 @@ export const getPeriodicTimerEventTrigger: typeof import("./getPeriodicTimerEven
 export const getPeriodicTimerEventTriggerOutput: typeof import("./getPeriodicTimerEventTrigger").getPeriodicTimerEventTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getPeriodicTimerEventTrigger","getPeriodicTimerEventTriggerOutput"], () => require("./getPeriodicTimerEventTrigger"));
 
-export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
-export const getShare: typeof import("./getShare").getShare = null as any;
-export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
-utilities.lazyLoad(exports, ["getShare","getShareOutput"], () => require("./getShare"));
-
 export { GetStorageAccountArgs, GetStorageAccountResult, GetStorageAccountOutputArgs } from "./getStorageAccount";
 export const getStorageAccount: typeof import("./getStorageAccount").getStorageAccount = null as any;
 export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
-
-export { GetStorageAccountCredentialArgs, GetStorageAccountCredentialResult, GetStorageAccountCredentialOutputArgs } from "./getStorageAccountCredential";
-export const getStorageAccountCredential: typeof import("./getStorageAccountCredential").getStorageAccountCredential = null as any;
-export const getStorageAccountCredentialOutput: typeof import("./getStorageAccountCredential").getStorageAccountCredentialOutput = null as any;
-utilities.lazyLoad(exports, ["getStorageAccountCredential","getStorageAccountCredentialOutput"], () => require("./getStorageAccountCredential"));
-
-export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
-export const getUser: typeof import("./getUser").getUser = null as any;
-export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
-utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
 export { IoTRoleArgs } from "./ioTRole";
 export type IoTRole = import("./ioTRole").IoTRole;
@@ -100,25 +65,10 @@ export type PeriodicTimerEventTrigger = import("./periodicTimerEventTrigger").Pe
 export const PeriodicTimerEventTrigger: typeof import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger = null as any;
 utilities.lazyLoad(exports, ["PeriodicTimerEventTrigger"], () => require("./periodicTimerEventTrigger"));
 
-export { ShareArgs } from "./share";
-export type Share = import("./share").Share;
-export const Share: typeof import("./share").Share = null as any;
-utilities.lazyLoad(exports, ["Share"], () => require("./share"));
-
 export { StorageAccountArgs } from "./storageAccount";
 export type StorageAccount = import("./storageAccount").StorageAccount;
 export const StorageAccount: typeof import("./storageAccount").StorageAccount = null as any;
 utilities.lazyLoad(exports, ["StorageAccount"], () => require("./storageAccount"));
-
-export { StorageAccountCredentialArgs } from "./storageAccountCredential";
-export type StorageAccountCredential = import("./storageAccountCredential").StorageAccountCredential;
-export const StorageAccountCredential: typeof import("./storageAccountCredential").StorageAccountCredential = null as any;
-utilities.lazyLoad(exports, ["StorageAccountCredential"], () => require("./storageAccountCredential"));
-
-export { UserArgs } from "./user";
-export type User = import("./user").User;
-export const User: typeof import("./user").User = null as any;
-utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 
 // Export enums:
@@ -128,10 +78,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:databoxedge/v20200501preview:BandwidthSchedule":
-                return new BandwidthSchedule(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:Container":
-                return new Container(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:Device":
                 return new Device(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:FileEventTrigger":
@@ -142,14 +88,8 @@ const _module = {
                 return new Order(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger":
                 return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:Share":
-                return new Share(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:StorageAccountCredential":
-                return new StorageAccountCredential(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:User":
-                return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

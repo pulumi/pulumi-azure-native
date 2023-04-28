@@ -312,7 +312,8 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
                  __props__=None):
         """
         Represents Anomaly Security ML Analytics Settings
-        API Version: 2022-05-01-preview.
+        API Version: 2023-02-01.
+        Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,7 +344,8 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents Anomaly Security ML Analytics Settings
-        API Version: 2022-05-01-preview.
+        API Version: 2023-02-01.
+        Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AnomalySecurityMLAnalyticsSettingsArgs args: The arguments to use to populate this resource's properties.
@@ -426,7 +428,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:AnomalySecurityMLAnalyticsSettings"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AnomalySecurityMLAnalyticsSettings, __self__).__init__(
             'azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings',

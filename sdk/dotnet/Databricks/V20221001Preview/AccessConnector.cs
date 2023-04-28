@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databricks:AccessConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:AccessConnector"},
                 },
             };

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoute gateway resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Configures this gateway to accept traffic from non Virtual WAN networks.
+     */
+    public readonly allowNonVirtualWanTraffic!: pulumi.Output<boolean | undefined>;
+    /**
      * Configuration for auto scaling.
      */
     public readonly autoScaleConfiguration!: pulumi.Output<outputs.network.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration | undefined>;
@@ -49,7 +54,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
      * List of ExpressRoute connections to the ExpressRoute gateway.
      */
-    public /*out*/ readonly expressRouteConnections!: pulumi.Output<outputs.network.ExpressRouteConnectionResponse[]>;
+    public readonly expressRouteConnections!: pulumi.Output<outputs.network.ExpressRouteConnectionResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -92,7 +97,9 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             if ((!args || args.virtualHub === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHub'");
             }
+            resourceInputs["allowNonVirtualWanTraffic"] = args ? args.allowNonVirtualWanTraffic : undefined;
             resourceInputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
+            resourceInputs["expressRouteConnections"] = args ? args.expressRouteConnections : undefined;
             resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -100,11 +107,11 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["expressRouteConnections"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["allowNonVirtualWanTraffic"] = undefined /*out*/;
             resourceInputs["autoScaleConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["expressRouteConnections"] = undefined /*out*/;
@@ -127,9 +134,17 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
  */
 export interface ExpressRouteGatewayArgs {
     /**
+     * Configures this gateway to accept traffic from non Virtual WAN networks.
+     */
+    allowNonVirtualWanTraffic?: pulumi.Input<boolean>;
+    /**
      * Configuration for auto scaling.
      */
     autoScaleConfiguration?: pulumi.Input<inputs.network.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>;
+    /**
+     * List of ExpressRoute connections to the ExpressRoute gateway.
+     */
+    expressRouteConnections?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteConnectionArgs>[]>;
     /**
      * The name of the ExpressRoute gateway.
      */

@@ -104,38 +104,6 @@ namespace Pulumi.AzureNative.Compute.V20210301
     }
 
     /// <summary>
-    /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
-    /// </summary>
-    [EnumType]
-    public readonly struct DedicatedHostLicenseTypes : IEquatable<DedicatedHostLicenseTypes>
-    {
-        private readonly string _value;
-
-        private DedicatedHostLicenseTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DedicatedHostLicenseTypes None { get; } = new DedicatedHostLicenseTypes("None");
-        public static DedicatedHostLicenseTypes Windows_Server_Hybrid { get; } = new DedicatedHostLicenseTypes("Windows_Server_Hybrid");
-        public static DedicatedHostLicenseTypes Windows_Server_Perpetual { get; } = new DedicatedHostLicenseTypes("Windows_Server_Perpetual");
-
-        public static bool operator ==(DedicatedHostLicenseTypes left, DedicatedHostLicenseTypes right) => left.Equals(right);
-        public static bool operator !=(DedicatedHostLicenseTypes left, DedicatedHostLicenseTypes right) => !left.Equals(right);
-
-        public static explicit operator string(DedicatedHostLicenseTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DedicatedHostLicenseTypes other && Equals(other);
-        public bool Equals(DedicatedHostLicenseTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Specify what happens to the public IP when the VM is deleted
     /// </summary>
     [EnumType]
@@ -351,37 +319,6 @@ namespace Pulumi.AzureNative.Compute.V20210301
     }
 
     /// <summary>
-    /// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
-    /// </summary>
-    [EnumType]
-    public readonly struct HyperVGenerationTypes : IEquatable<HyperVGenerationTypes>
-    {
-        private readonly string _value;
-
-        private HyperVGenerationTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static HyperVGenerationTypes V1 { get; } = new HyperVGenerationTypes("V1");
-        public static HyperVGenerationTypes V2 { get; } = new HyperVGenerationTypes("V2");
-
-        public static bool operator ==(HyperVGenerationTypes left, HyperVGenerationTypes right) => left.Equals(right);
-        public static bool operator !=(HyperVGenerationTypes left, HyperVGenerationTypes right) => !left.Equals(right);
-
-        public static explicit operator string(HyperVGenerationTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is HyperVGenerationTypes other && Equals(other);
-        public bool Equals(HyperVGenerationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
     /// </summary>
     [EnumType]
@@ -569,43 +506,6 @@ namespace Pulumi.AzureNative.Compute.V20210301
     }
 
     /// <summary>
-    /// The OS State.
-    /// </summary>
-    [EnumType]
-    public readonly struct OperatingSystemStateTypes : IEquatable<OperatingSystemStateTypes>
-    {
-        private readonly string _value;
-
-        private OperatingSystemStateTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Generalized image. Needs to be provisioned during deployment time.
-        /// </summary>
-        public static OperatingSystemStateTypes Generalized { get; } = new OperatingSystemStateTypes("Generalized");
-        /// <summary>
-        /// Specialized image. Contains already provisioned OS Disk.
-        /// </summary>
-        public static OperatingSystemStateTypes Specialized { get; } = new OperatingSystemStateTypes("Specialized");
-
-        public static bool operator ==(OperatingSystemStateTypes left, OperatingSystemStateTypes right) => left.Equals(right);
-        public static bool operator !=(OperatingSystemStateTypes left, OperatingSystemStateTypes right) => !left.Equals(right);
-
-        public static explicit operator string(OperatingSystemStateTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OperatingSystemStateTypes other && Equals(other);
-        public bool Equals(OperatingSystemStateTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
     /// </summary>
     [EnumType]
@@ -721,37 +621,6 @@ namespace Pulumi.AzureNative.Compute.V20210301
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProtocolTypes other && Equals(other);
         public bool Equals(ProtocolTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
-    /// </summary>
-    [EnumType]
-    public readonly struct ProximityPlacementGroupType : IEquatable<ProximityPlacementGroupType>
-    {
-        private readonly string _value;
-
-        private ProximityPlacementGroupType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProximityPlacementGroupType Standard { get; } = new ProximityPlacementGroupType("Standard");
-        public static ProximityPlacementGroupType Ultra { get; } = new ProximityPlacementGroupType("Ultra");
-
-        public static bool operator ==(ProximityPlacementGroupType left, ProximityPlacementGroupType right) => left.Equals(right);
-        public static bool operator !=(ProximityPlacementGroupType left, ProximityPlacementGroupType right) => !left.Equals(right);
-
-        public static explicit operator string(ProximityPlacementGroupType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProximityPlacementGroupType other && Equals(other);
-        public bool Equals(ProximityPlacementGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

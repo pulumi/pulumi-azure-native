@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Sku sub resource.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
+ * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VendorSkus extends pulumi.CustomResource {
     /**
@@ -59,6 +60,10 @@ export class VendorSkus extends pulumi.CustomResource {
      */
     public readonly networkFunctionTemplate!: pulumi.Output<outputs.hybridnetwork.NetworkFunctionTemplateResponse | undefined>;
     /**
+     * The network function type.
+     */
+    public readonly networkFunctionType!: pulumi.Output<string | undefined>;
+    /**
      * Indicates if the vendor sku is in preview mode.
      */
     public readonly preview!: pulumi.Output<boolean | undefined>;
@@ -70,6 +75,10 @@ export class VendorSkus extends pulumi.CustomResource {
      * The sku type.
      */
     public readonly skuType!: pulumi.Output<string | undefined>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -93,12 +102,14 @@ export class VendorSkus extends pulumi.CustomResource {
             resourceInputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
             resourceInputs["managedApplicationTemplate"] = args ? args.managedApplicationTemplate : undefined;
             resourceInputs["networkFunctionTemplate"] = args ? args.networkFunctionTemplate : undefined;
+            resourceInputs["networkFunctionType"] = args ? args.networkFunctionType : undefined;
             resourceInputs["preview"] = args ? args.preview : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["skuType"] = args ? args.skuType : undefined;
             resourceInputs["vendorName"] = args ? args.vendorName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["deploymentMode"] = undefined /*out*/;
@@ -106,9 +117,11 @@ export class VendorSkus extends pulumi.CustomResource {
             resourceInputs["managedApplicationTemplate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkFunctionTemplate"] = undefined /*out*/;
+            resourceInputs["networkFunctionType"] = undefined /*out*/;
             resourceInputs["preview"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["skuType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -138,6 +151,10 @@ export interface VendorSkusArgs {
      * The template definition of the network function.
      */
     networkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionTemplateArgs>;
+    /**
+     * The network function type.
+     */
+    networkFunctionType?: pulumi.Input<string | enums.hybridnetwork.NetworkFunctionType>;
     /**
      * Indicates if the vendor sku is in preview mode.
      */

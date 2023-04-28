@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
+    /// <summary>
+    /// See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
+    /// </summary>
     public sealed class ManagedClusterPodIdentityExceptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the pod identity exception.
+        /// The name of the pod identity exception.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Namespace of the pod identity exception.
+        /// The namespace of the pod identity exception.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
@@ -28,7 +31,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputMap<string>? _podLabels;
 
         /// <summary>
-        /// Pod labels to match.
+        /// The pod labels to match.
         /// </summary>
         public InputMap<string> PodLabels
         {

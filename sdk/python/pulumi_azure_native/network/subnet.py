@@ -77,7 +77,7 @@ class SubnetInitArgs:
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
         if private_endpoint_network_policies is None:
-            private_endpoint_network_policies = 'Enabled'
+            private_endpoint_network_policies = 'Disabled'
         if private_endpoint_network_policies is not None:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
         if private_link_service_network_policies is None:
@@ -144,7 +144,7 @@ class SubnetInitArgs:
         pulumi.set(self, "address_prefixes", value)
 
     @property
-    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    @pulumi.getter(name="applicationGatewayIPConfigurations")
     def application_gateway_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]]:
         """
         Application gateway IP configurations of virtual network resource.
@@ -338,7 +338,8 @@ class Subnet(pulumi.CustomResource):
                  __props__=None):
         """
         Subnet in a virtual network resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -369,7 +370,8 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subnet in a virtual network resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SubnetInitArgs args: The arguments to use to populate this resource's properties.
@@ -423,7 +425,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["nat_gateway"] = nat_gateway
             __props__.__dict__["network_security_group"] = network_security_group
             if private_endpoint_network_policies is None:
-                private_endpoint_network_policies = 'Enabled'
+                private_endpoint_network_policies = 'Disabled'
             __props__.__dict__["private_endpoint_network_policies"] = private_endpoint_network_policies
             if private_link_service_network_policies is None:
                 private_link_service_network_policies = 'Enabled'
@@ -512,7 +514,7 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "address_prefixes")
 
     @property
-    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    @pulumi.getter(name="applicationGatewayIPConfigurations")
     def application_gateway_ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]]:
         """
         Application gateway IP configurations of virtual network resource.

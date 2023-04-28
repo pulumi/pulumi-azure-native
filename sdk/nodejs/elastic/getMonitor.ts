@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Monitor resource.
- * API Version: 2020-07-01.
+ * API Version: 2023-02-01-preview.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
 
@@ -74,7 +74,7 @@ export interface GetMonitorResult {
 }
 /**
  * Monitor resource.
- * API Version: 2020-07-01.
+ * API Version: 2023-02-01-preview.
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
     return pulumi.output(args).apply((a: any) => getMonitor(a, opts))

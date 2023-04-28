@@ -24,7 +24,7 @@ class PrivateEndpointConnectionByNameArgs:
                  properties: Optional[pulumi.Input['PrivateEndpointConnectionRequestPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionByName resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] id: Private Endpoint Connection Resource Id.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection.
@@ -43,7 +43,7 @@ class PrivateEndpointConnectionByNameArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -113,14 +113,15 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-04-01-preview.
+        API Version: 2022-08-01.
+        Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Private Endpoint Connection Resource Id.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionRequestPropertiesArgs']] properties: The connection state of the private endpoint connection.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
         ...
@@ -131,7 +132,8 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-04-01-preview.
+        API Version: 2022-08-01.
+        Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionByNameArgs args: The arguments to use to populate this resource's properties.

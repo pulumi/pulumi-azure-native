@@ -13,21 +13,28 @@ namespace Pulumi.AzureNative.Batch.Outputs
     [OutputType]
     public sealed class ContainerRegistryResponse
     {
-        public readonly string Password;
+        /// <summary>
+        /// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        /// </summary>
+        public readonly Outputs.ComputeNodeIdentityReferenceResponse? IdentityReference;
+        public readonly string? Password;
         /// <summary>
         /// If omitted, the default is "docker.io".
         /// </summary>
         public readonly string? RegistryServer;
-        public readonly string UserName;
+        public readonly string? UserName;
 
         [OutputConstructor]
         private ContainerRegistryResponse(
-            string password,
+            Outputs.ComputeNodeIdentityReferenceResponse? identityReference,
+
+            string? password,
 
             string? registryServer,
 
-            string userName)
+            string? userName)
         {
+            IdentityReference = identityReference;
             Password = password;
             RegistryServer = registryServer;
             UserName = userName;

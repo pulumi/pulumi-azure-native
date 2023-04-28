@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkSecurityGroup resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
@@ -50,6 +51,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      * A collection of references to flow log resources.
      */
     public /*out*/ readonly flowLogs!: pulumi.Output<outputs.network.FlowLogResponse[]>;
+    /**
+     * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+     */
+    public readonly flushConnection!: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
@@ -101,6 +106,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["flushConnection"] = args ? args.flushConnection : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
@@ -120,6 +126,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             resourceInputs["defaultSecurityRules"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flowLogs"] = undefined /*out*/;
+            resourceInputs["flushConnection"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
@@ -141,6 +148,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkSecurityGroup resource.
  */
 export interface NetworkSecurityGroupArgs {
+    /**
+     * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+     */
+    flushConnection?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */

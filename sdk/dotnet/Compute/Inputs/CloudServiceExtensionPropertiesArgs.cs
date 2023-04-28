@@ -35,8 +35,11 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// Protected settings for the extension which are encrypted before sent to the role instance.
         /// </summary>
         [Input("protectedSettings")]
-        public Input<string>? ProtectedSettings { get; set; }
+        public Input<object>? ProtectedSettings { get; set; }
 
+        /// <summary>
+        /// Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
+        /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.CloudServiceVaultAndSecretReferenceArgs>? ProtectedSettingsFromKeyVault { get; set; }
 
@@ -62,7 +65,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
         /// </summary>
         [Input("settings")]
-        public Input<string>? Settings { get; set; }
+        public Input<object>? Settings { get; set; }
 
         /// <summary>
         /// Specifies the type of the extension.

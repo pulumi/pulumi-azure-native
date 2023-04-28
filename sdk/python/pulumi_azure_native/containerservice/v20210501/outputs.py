@@ -46,14 +46,9 @@ __all__ = [
     'ManagedClusterServicePrincipalProfileResponse',
     'ManagedClusterWindowsProfileResponse',
     'PowerStateResponse',
-    'PrivateEndpointResponse',
     'PrivateLinkResourceResponse',
-    'PrivateLinkServiceConnectionStateResponse',
     'ResourceReferenceResponse',
     'SysctlConfigResponse',
-    'SystemDataResponse',
-    'TimeInWeekResponse',
-    'TimeSpanResponse',
     'UserAssignedIdentityResponse',
 ]
 
@@ -2899,29 +2894,6 @@ class PowerStateResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    Private endpoint which a connection belongs to.
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        Private endpoint which a connection belongs to.
-        :param str id: The resource ID of the private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The resource ID of the private endpoint
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
 class PrivateLinkResourceResponse(dict):
     """
     A private link resource
@@ -3022,41 +2994,6 @@ class PrivateLinkResourceResponse(dict):
         The resource type.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStateResponse(dict):
-    """
-    The state of a private link service connection.
-    """
-    def __init__(__self__, *,
-                 description: Optional[str] = None,
-                 status: Optional[str] = None):
-        """
-        The state of a private link service connection.
-        :param str description: The private link service connection description.
-        :param str status: The private link service connection status.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -3498,203 +3435,6 @@ class SysctlConfigResponse(dict):
         Sysctl setting vm.vfs_cache_pressure.
         """
         return pulumi.get(self, "vm_vfs_cache_pressure")
-
-
-@pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The UTC timestamp of resource creation.
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The type of identity that last modified the resource.
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The UTC timestamp of resource creation.
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class TimeInWeekResponse(dict):
-    """
-    Time in a week.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "hourSlots":
-            suggest = "hour_slots"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TimeInWeekResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TimeInWeekResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TimeInWeekResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 day: Optional[str] = None,
-                 hour_slots: Optional[Sequence[int]] = None):
-        """
-        Time in a week.
-        :param str day: The day of the week.
-        :param Sequence[int] hour_slots: Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if hour_slots is not None:
-            pulumi.set(__self__, "hour_slots", hour_slots)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[str]:
-        """
-        The day of the week.
-        """
-        return pulumi.get(self, "day")
-
-    @property
-    @pulumi.getter(name="hourSlots")
-    def hour_slots(self) -> Optional[Sequence[int]]:
-        """
-        Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-        return pulumi.get(self, "hour_slots")
-
-
-@pulumi.output_type
-class TimeSpanResponse(dict):
-    """
-    For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
-    """
-    def __init__(__self__, *,
-                 end: Optional[str] = None,
-                 start: Optional[str] = None):
-        """
-        For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
-        :param str end: The end of a time span
-        :param str start: The start of a time span
-        """
-        if end is not None:
-            pulumi.set(__self__, "end", end)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def end(self) -> Optional[str]:
-        """
-        The end of a time span
-        """
-        return pulumi.get(self, "end")
-
-    @property
-    @pulumi.getter
-    def start(self) -> Optional[str]:
-        """
-        The start of a time span
-        """
-        return pulumi.get(self, "start")
 
 
 @pulumi.output_type

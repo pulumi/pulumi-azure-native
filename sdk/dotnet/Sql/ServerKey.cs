@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A server key.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource
@@ -149,7 +150,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+        /// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

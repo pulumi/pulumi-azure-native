@@ -22,7 +22,13 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, migration_phase=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
+    def __init__(__self__, auxiliary_mode=None, disable_tcp_state_tracking=None, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, migration_phase=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None, vnet_encryption_supported=None, workload_type=None):
+        if auxiliary_mode and not isinstance(auxiliary_mode, str):
+            raise TypeError("Expected argument 'auxiliary_mode' to be a str")
+        pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if disable_tcp_state_tracking and not isinstance(disable_tcp_state_tracking, bool):
+            raise TypeError("Expected argument 'disable_tcp_state_tracking' to be a bool")
+        pulumi.set(__self__, "disable_tcp_state_tracking", disable_tcp_state_tracking)
         if dns_settings and not isinstance(dns_settings, dict):
             raise TypeError("Expected argument 'dns_settings' to be a dict")
         pulumi.set(__self__, "dns_settings", dns_settings)
@@ -95,6 +101,28 @@ class GetNetworkInterfaceResult:
         if virtual_machine and not isinstance(virtual_machine, dict):
             raise TypeError("Expected argument 'virtual_machine' to be a dict")
         pulumi.set(__self__, "virtual_machine", virtual_machine)
+        if vnet_encryption_supported and not isinstance(vnet_encryption_supported, bool):
+            raise TypeError("Expected argument 'vnet_encryption_supported' to be a bool")
+        pulumi.set(__self__, "vnet_encryption_supported", vnet_encryption_supported)
+        if workload_type and not isinstance(workload_type, str):
+            raise TypeError("Expected argument 'workload_type' to be a str")
+        pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> Optional[str]:
+        """
+        Auxiliary mode of Network Interface resource.
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @property
+    @pulumi.getter(name="disableTcpStateTracking")
+    def disable_tcp_state_tracking(self) -> Optional[bool]:
+        """
+        Indicates whether to disable tcp state tracking.
+        """
+        return pulumi.get(self, "disable_tcp_state_tracking")
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -116,7 +144,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[bool]:
         """
-        If the network interface is accelerated networking enabled.
+        If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 
@@ -288,6 +316,22 @@ class GetNetworkInterfaceResult:
         """
         return pulumi.get(self, "virtual_machine")
 
+    @property
+    @pulumi.getter(name="vnetEncryptionSupported")
+    def vnet_encryption_supported(self) -> bool:
+        """
+        Whether the virtual machine this nic is attached to supports encryption.
+        """
+        return pulumi.get(self, "vnet_encryption_supported")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[str]:
+        """
+        WorkloadType of the NetworkInterface for BareMetal resources
+        """
+        return pulumi.get(self, "workload_type")
+
 
 class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
     # pylint: disable=using-constant-test
@@ -295,6 +339,8 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
         if False:
             yield self
         return GetNetworkInterfaceResult(
+            auxiliary_mode=self.auxiliary_mode,
+            disable_tcp_state_tracking=self.disable_tcp_state_tracking,
             dns_settings=self.dns_settings,
             dscp_configuration=self.dscp_configuration,
             enable_accelerated_networking=self.enable_accelerated_networking,
@@ -318,7 +364,9 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             tags=self.tags,
             tap_configurations=self.tap_configurations,
             type=self.type,
-            virtual_machine=self.virtual_machine)
+            virtual_machine=self.virtual_machine,
+            vnet_encryption_supported=self.vnet_encryption_supported,
+            workload_type=self.workload_type)
 
 
 def get_network_interface(expand: Optional[str] = None,
@@ -327,7 +375,7 @@ def get_network_interface(expand: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
     Gets information about the specified network interface.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.
@@ -342,6 +390,8 @@ def get_network_interface(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
 
     return AwaitableGetNetworkInterfaceResult(
+        auxiliary_mode=__ret__.auxiliary_mode,
+        disable_tcp_state_tracking=__ret__.disable_tcp_state_tracking,
         dns_settings=__ret__.dns_settings,
         dscp_configuration=__ret__.dscp_configuration,
         enable_accelerated_networking=__ret__.enable_accelerated_networking,
@@ -365,7 +415,9 @@ def get_network_interface(expand: Optional[str] = None,
         tags=__ret__.tags,
         tap_configurations=__ret__.tap_configurations,
         type=__ret__.type,
-        virtual_machine=__ret__.virtual_machine)
+        virtual_machine=__ret__.virtual_machine,
+        vnet_encryption_supported=__ret__.vnet_encryption_supported,
+        workload_type=__ret__.workload_type)
 
 
 @_utilities.lift_output_func(get_network_interface)
@@ -375,7 +427,7 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Gets information about the specified network interface.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.

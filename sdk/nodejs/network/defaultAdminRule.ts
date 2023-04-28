@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Network default admin rule.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DefaultAdminRule extends pulumi.CustomResource {
     /**
@@ -58,10 +59,6 @@ export class DefaultAdminRule extends pulumi.CustomResource {
      * Indicates if the traffic matched against the rule in inbound or outbound.
      */
     public /*out*/ readonly direction!: pulumi.Output<string>;
-    /**
-     * A friendly name for the rule.
-     */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -146,7 +143,6 @@ export class DefaultAdminRule extends pulumi.CustomResource {
             resourceInputs["destinationPortRanges"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
@@ -162,7 +158,6 @@ export class DefaultAdminRule extends pulumi.CustomResource {
             resourceInputs["destinationPortRanges"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -187,7 +182,7 @@ export class DefaultAdminRule extends pulumi.CustomResource {
  */
 export interface DefaultAdminRuleArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

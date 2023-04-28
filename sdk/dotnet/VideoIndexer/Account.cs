@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoIndexer
 {
     /// <summary>
-    /// An Azure Video Analyzer for Media account.
-    /// API Version: 2021-10-18-preview.
+    /// An Azure Video Indexer account.
+    /// API Version: 2022-08-01.
+    /// Previous API Version: 2021-10-18-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoindexer:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -75,6 +76,12 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// An integer representing the total seconds that have been indexed on the account
+        /// </summary>
+        [Output("totalSecondsIndexed")]
+        public Output<int> TotalSecondsIndexed { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -143,7 +150,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the Azure Video Analyzer for Media account.
+        /// The name of the Azure Video Indexer account.
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }

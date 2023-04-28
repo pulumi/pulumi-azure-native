@@ -136,6 +136,13 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<string>? DocumentRoot { get; set; }
 
         /// <summary>
+        /// Maximum number of workers that a site can scale out to.
+        /// This setting only applies to apps in plans where ElasticScaleEnabled is &lt;code&gt;true&lt;/code&gt;
+        /// </summary>
+        [Input("elasticWebAppScaleLimit")]
+        public Input<int>? ElasticWebAppScaleLimit { get; set; }
+
+        /// <summary>
         /// This is work around for polymorphic types.
         /// </summary>
         [Input("experiments")]
@@ -205,6 +212,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         }
 
         /// <summary>
+        /// Default action for main access restriction if no rules are matched.
+        /// </summary>
+        [Input("ipSecurityRestrictionsDefaultAction")]
+        public InputUnion<string, Pulumi.AzureNative.Web.DefaultAction>? IpSecurityRestrictionsDefaultAction { get; set; }
+
+        /// <summary>
         /// Java container.
         /// </summary>
         [Input("javaContainer")]
@@ -269,6 +282,18 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// </summary>
         [Input("managedServiceIdentityId")]
         public Input<int>? ManagedServiceIdentityId { get; set; }
+
+        [Input("metadata")]
+        private InputList<Inputs.NameValuePairArgs>? _metadata;
+
+        /// <summary>
+        /// Application metadata. This property cannot be retrieved, since it may contain secrets.
+        /// </summary>
+        public InputList<Inputs.NameValuePairArgs> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputList<Inputs.NameValuePairArgs>());
+            set => _metadata = value;
+        }
 
         /// <summary>
         /// MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -379,6 +404,12 @@ namespace Pulumi.AzureNative.Web.Inputs
             get => _scmIpSecurityRestrictions ?? (_scmIpSecurityRestrictions = new InputList<Inputs.IpSecurityRestrictionArgs>());
             set => _scmIpSecurityRestrictions = value;
         }
+
+        /// <summary>
+        /// Default action for scm access restriction if no rules are matched.
+        /// </summary>
+        [Input("scmIpSecurityRestrictionsDefaultAction")]
+        public InputUnion<string, Pulumi.AzureNative.Web.DefaultAction>? ScmIpSecurityRestrictionsDefaultAction { get; set; }
 
         /// <summary>
         /// IP security restrictions for scm to use main.

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
+    /// </summary>
     [OutputType]
     public sealed class CloudServiceVaultAndSecretReferenceResponse
     {
+        /// <summary>
+        /// Secret URL which contains the protected settings of the extension
+        /// </summary>
         public readonly string? SecretUrl;
+        /// <summary>
+        /// The ARM Resource ID of the Key Vault
+        /// </summary>
         public readonly Outputs.SubResourceResponse? SourceVault;
 
         [OutputConstructor]

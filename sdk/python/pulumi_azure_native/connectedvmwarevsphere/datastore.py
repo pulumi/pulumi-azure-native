@@ -181,7 +181,8 @@ class Datastore(pulumi.CustomResource):
                  __props__=None):
         """
         Define the datastore.
-        API Version: 2020-10-01-preview.
+        API Version: 2022-07-15-preview.
+        Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +204,8 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the datastore.
-        API Version: 2020-10-01-preview.
+        API Version: 2022-07-15-preview.
+        Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.
@@ -249,7 +251,9 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_center_id"] = v_center_id
+            __props__.__dict__["capacity_gb"] = None
             __props__.__dict__["custom_resource_name"] = None
+            __props__.__dict__["free_space_gb"] = None
             __props__.__dict__["mo_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -281,8 +285,10 @@ class Datastore(pulumi.CustomResource):
 
         __props__ = DatastoreArgs.__new__(DatastoreArgs)
 
+        __props__.__dict__["capacity_gb"] = None
         __props__.__dict__["custom_resource_name"] = None
         __props__.__dict__["extended_location"] = None
+        __props__.__dict__["free_space_gb"] = None
         __props__.__dict__["inventory_item_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
@@ -299,6 +305,14 @@ class Datastore(pulumi.CustomResource):
         return Datastore(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="capacityGB")
+    def capacity_gb(self) -> pulumi.Output[float]:
+        """
+        Gets or sets Maximum capacity of this datastore in GBs.
+        """
+        return pulumi.get(self, "capacity_gb")
+
+    @property
     @pulumi.getter(name="customResourceName")
     def custom_resource_name(self) -> pulumi.Output[str]:
         """
@@ -313,6 +327,14 @@ class Datastore(pulumi.CustomResource):
         Gets or sets the extended location.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="freeSpaceGB")
+    def free_space_gb(self) -> pulumi.Output[float]:
+        """
+        Gets or sets Available space of this datastore in GBs.
+        """
+        return pulumi.get(self, "free_space_gb")
 
     @property
     @pulumi.getter(name="inventoryItemId")

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['CloudEndpointArgs', 'CloudEndpoint']
 
@@ -160,7 +161,8 @@ class CloudEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Cloud Endpoint object.
-        API Version: 2020-03-01.
+        API Version: 2022-06-01.
+        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +183,8 @@ class CloudEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cloud Endpoint object.
-        API Version: 2020-03-01.
+        API Version: 2022-06-01.
+        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CloudEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -230,11 +233,13 @@ class CloudEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__.__dict__["sync_group_name"] = sync_group_name
             __props__.__dict__["backup_enabled"] = None
+            __props__.__dict__["change_enumeration_status"] = None
             __props__.__dict__["last_operation_name"] = None
             __props__.__dict__["last_workflow_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["partnership_id"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync/v20170605preview:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180402:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180701:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20181001:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190201:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190301:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190601:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20191001:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200301:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200901:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20220601:CloudEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -262,6 +267,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
         __props__.__dict__["azure_file_share_name"] = None
         __props__.__dict__["backup_enabled"] = None
+        __props__.__dict__["change_enumeration_status"] = None
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["last_operation_name"] = None
         __props__.__dict__["last_workflow_id"] = None
@@ -270,6 +276,7 @@ class CloudEndpoint(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["storage_account_resource_id"] = None
         __props__.__dict__["storage_account_tenant_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CloudEndpoint(resource_name, opts=opts, __props__=__props__)
 
@@ -288,6 +295,14 @@ class CloudEndpoint(pulumi.CustomResource):
         Backup Enabled
         """
         return pulumi.get(self, "backup_enabled")
+
+    @property
+    @pulumi.getter(name="changeEnumerationStatus")
+    def change_enumeration_status(self) -> pulumi.Output['outputs.CloudEndpointChangeEnumerationStatusResponse']:
+        """
+        Cloud endpoint change enumeration status
+        """
+        return pulumi.get(self, "change_enumeration_status")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -352,6 +367,14 @@ class CloudEndpoint(pulumi.CustomResource):
         Storage Account Tenant Id
         """
         return pulumi.get(self, "storage_account_tenant_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

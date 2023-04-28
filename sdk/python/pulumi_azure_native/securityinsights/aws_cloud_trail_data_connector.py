@@ -27,7 +27,7 @@ class AwsCloudTrailDataConnectorArgs:
         The set of arguments for constructing a AwsCloudTrailDataConnector resource.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'AmazonWebServicesCloudTrail'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] aws_role_arn: The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
         :param pulumi.Input[str] data_connector_id: Connector ID
@@ -60,7 +60,7 @@ class AwsCloudTrailDataConnectorArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -131,7 +131,8 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
                  __props__=None):
         """
         Represents Amazon Web Services CloudTrail data connector.
-        API Version: 2020-01-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,7 +141,7 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AwsCloudTrailDataConnectorDataTypesArgs']] data_types: The available data types for the connector.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'AmazonWebServicesCloudTrail'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -151,7 +152,8 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents Amazon Web Services CloudTrail data connector.
-        API Version: 2020-01-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AwsCloudTrailDataConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -197,8 +199,9 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AwsCloudTrailDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:AwsCloudTrailDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:AwsCloudTrailDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AwsCloudTrailDataConnector, __self__).__init__(
             'azure-native:securityinsights:AwsCloudTrailDataConnector',
@@ -227,6 +230,7 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return AwsCloudTrailDataConnector(resource_name, opts=opts, __props__=__props__)
 
@@ -267,15 +271,23 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

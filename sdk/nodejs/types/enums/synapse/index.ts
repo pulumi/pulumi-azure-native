@@ -2,98 +2,29 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20190601preview from "./v20190601preview";
 import * as v20200401preview from "./v20200401preview";
-import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210501 from "./v20210501";
-import * as v20210601 from "./v20210601";
 import * as v20210601preview from "./v20210601preview";
 
 export {
-    v20190601preview,
     v20200401preview,
-    v20201201,
     v20210301,
     v20210401preview,
     v20210501,
-    v20210601,
     v20210601preview,
 };
 
-export const AzureSkuName = {
-    Standard_DS13_v2_1TB_PS: "Standard_DS13_v2+1TB_PS",
-    Standard_DS13_v2_2TB_PS: "Standard_DS13_v2+2TB_PS",
-    Standard_DS14_v2_3TB_PS: "Standard_DS14_v2+3TB_PS",
-    Standard_DS14_v2_4TB_PS: "Standard_DS14_v2+4TB_PS",
-    Standard_D13_v2: "Standard_D13_v2",
-    Standard_D14_v2: "Standard_D14_v2",
-    Standard_L8s: "Standard_L8s",
-    Standard_L16s: "Standard_L16s",
-    Standard_L8s_v2: "Standard_L8s_v2",
-    Standard_L16s_v2: "Standard_L16s_v2",
-    Standard_D11_v2: "Standard_D11_v2",
-    Standard_D12_v2: "Standard_D12_v2",
-    Standard_L4s: "Standard_L4s",
-    Dev_No_SLA_Standard_D11_v2: "Dev(No SLA)_Standard_D11_v2",
-    Standard_E64i_v3: "Standard_E64i_v3",
-    Standard_E80ids_v4: "Standard_E80ids_v4",
-    Standard_E2a_v4: "Standard_E2a_v4",
-    Standard_E4a_v4: "Standard_E4a_v4",
-    Standard_E8a_v4: "Standard_E8a_v4",
-    Standard_E16a_v4: "Standard_E16a_v4",
-    Standard_E8as_v4_1TB_PS: "Standard_E8as_v4+1TB_PS",
-    Standard_E8as_v4_2TB_PS: "Standard_E8as_v4+2TB_PS",
-    Standard_E16as_v4_3TB_PS: "Standard_E16as_v4+3TB_PS",
-    Standard_E16as_v4_4TB_PS: "Standard_E16as_v4+4TB_PS",
-    Dev_No_SLA_Standard_E2a_v4: "Dev(No SLA)_Standard_E2a_v4",
+export const ConfigurationType = {
+    File: "File",
+    Artifact: "Artifact",
 } as const;
 
 /**
- * SKU name.
+ * The type of the spark config properties file.
  */
-export type AzureSkuName = (typeof AzureSkuName)[keyof typeof AzureSkuName];
-
-export const AzureSkuTier = {
-    Basic: "Basic",
-    Standard: "Standard",
-} as const;
-
-/**
- * SKU tier.
- */
-export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
-
-export const BlobStorageEventType = {
-    Microsoft_Storage_BlobCreated: "Microsoft.Storage.BlobCreated",
-    Microsoft_Storage_BlobRenamed: "Microsoft.Storage.BlobRenamed",
-} as const;
-
-/**
- * The name of blob storage event type to process.
- */
-export type BlobStorageEventType = (typeof BlobStorageEventType)[keyof typeof BlobStorageEventType];
-
-export const ClusterPrincipalRole = {
-    AllDatabasesAdmin: "AllDatabasesAdmin",
-    AllDatabasesViewer: "AllDatabasesViewer",
-} as const;
-
-/**
- * Cluster principal role.
- */
-export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
-
-export const Compression = {
-    None: "None",
-    GZip: "GZip",
-} as const;
-
-/**
- * The event hub messages compression type
- */
-export type Compression = (typeof Compression)[keyof typeof Compression];
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
 export const CreateMode = {
     Default: "Default",
@@ -115,17 +46,6 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
-export const DataConnectionKind = {
-    EventHub: "EventHub",
-    EventGrid: "EventGrid",
-    IotHub: "IotHub",
-} as const;
-
-/**
- * Kind of the endpoint for the data connection
- */
-export type DataConnectionKind = (typeof DataConnectionKind)[keyof typeof DataConnectionKind];
-
 export const DataFlowComputeType = {
     General: "General",
     MemoryOptimized: "MemoryOptimized",
@@ -136,89 +56,6 @@ export const DataFlowComputeType = {
  * Compute type of the cluster which will execute data flow job.
  */
 export type DataFlowComputeType = (typeof DataFlowComputeType)[keyof typeof DataFlowComputeType];
-
-export const DatabasePrincipalRole = {
-    Admin: "Admin",
-    Ingestor: "Ingestor",
-    Monitor: "Monitor",
-    User: "User",
-    UnrestrictedViewer: "UnrestrictedViewer",
-    Viewer: "Viewer",
-} as const;
-
-/**
- * Database principal role.
- */
-export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
-
-export const DefaultPrincipalsModificationKind = {
-    Union: "Union",
-    Replace: "Replace",
-    None: "None",
-} as const;
-
-/**
- * The default principals modification kind
- */
-export type DefaultPrincipalsModificationKind = (typeof DefaultPrincipalsModificationKind)[keyof typeof DefaultPrincipalsModificationKind];
-
-export const EngineType = {
-    V2: "V2",
-    V3: "V3",
-} as const;
-
-/**
- * The engine type
- */
-export type EngineType = (typeof EngineType)[keyof typeof EngineType];
-
-export const EventGridDataFormat = {
-    MULTIJSON: "MULTIJSON",
-    JSON: "JSON",
-    CSV: "CSV",
-    TSV: "TSV",
-    SCSV: "SCSV",
-    SOHSV: "SOHSV",
-    PSV: "PSV",
-    TXT: "TXT",
-    RAW: "RAW",
-    SINGLEJSON: "SINGLEJSON",
-    AVRO: "AVRO",
-    TSVE: "TSVE",
-    PARQUET: "PARQUET",
-    ORC: "ORC",
-    APACHEAVRO: "APACHEAVRO",
-    W3CLOGFILE: "W3CLOGFILE",
-} as const;
-
-/**
- * The data format of the message. Optionally the data format can be added to each message.
- */
-export type EventGridDataFormat = (typeof EventGridDataFormat)[keyof typeof EventGridDataFormat];
-
-export const EventHubDataFormat = {
-    MULTIJSON: "MULTIJSON",
-    JSON: "JSON",
-    CSV: "CSV",
-    TSV: "TSV",
-    SCSV: "SCSV",
-    SOHSV: "SOHSV",
-    PSV: "PSV",
-    TXT: "TXT",
-    RAW: "RAW",
-    SINGLEJSON: "SINGLEJSON",
-    AVRO: "AVRO",
-    TSVE: "TSVE",
-    PARQUET: "PARQUET",
-    ORC: "ORC",
-    APACHEAVRO: "APACHEAVRO",
-    W3CLOGFILE: "W3CLOGFILE",
-} as const;
-
-/**
- * The data format of the message. Optionally the data format can be added to each message.
- */
-export type EventHubDataFormat = (typeof EventHubDataFormat)[keyof typeof EventHubDataFormat];
 
 export const IntegrationRuntimeEdition = {
     Standard: "Standard",
@@ -272,40 +109,6 @@ export const IntegrationRuntimeType = {
  */
 export type IntegrationRuntimeType = (typeof IntegrationRuntimeType)[keyof typeof IntegrationRuntimeType];
 
-export const IotHubDataFormat = {
-    MULTIJSON: "MULTIJSON",
-    JSON: "JSON",
-    CSV: "CSV",
-    TSV: "TSV",
-    SCSV: "SCSV",
-    SOHSV: "SOHSV",
-    PSV: "PSV",
-    TXT: "TXT",
-    RAW: "RAW",
-    SINGLEJSON: "SINGLEJSON",
-    AVRO: "AVRO",
-    TSVE: "TSVE",
-    PARQUET: "PARQUET",
-    ORC: "ORC",
-    APACHEAVRO: "APACHEAVRO",
-    W3CLOGFILE: "W3CLOGFILE",
-} as const;
-
-/**
- * The data format of the message. Optionally the data format can be added to each message.
- */
-export type IotHubDataFormat = (typeof IotHubDataFormat)[keyof typeof IotHubDataFormat];
-
-export const Kind = {
-    ReadWrite: "ReadWrite",
-    ReadOnlyFollowing: "ReadOnlyFollowing",
-} as const;
-
-/**
- * Kind of the database
- */
-export type Kind = (typeof Kind)[keyof typeof Kind];
-
 export const NodeSize = {
     None: "None",
     Small: "Small",
@@ -333,20 +136,10 @@ export const NodeSizeFamily = {
  */
 export type NodeSizeFamily = (typeof NodeSizeFamily)[keyof typeof NodeSizeFamily];
 
-export const PrincipalType = {
-    App: "App",
-    Group: "Group",
-    User: "User",
-} as const;
-
-/**
- * Principal type.
- */
-export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
-
 export const ResourceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
@@ -367,7 +160,6 @@ export type SensitivityLabelRank = (typeof SensitivityLabelRank)[keyof typeof Se
 export const StorageAccountType = {
     GRS: "GRS",
     LRS: "LRS",
-    ZRS: "ZRS",
 } as const;
 
 /**

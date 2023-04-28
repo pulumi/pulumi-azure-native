@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-    /// API Version: 2016-03-01.
+    /// API Version: 2020-03-01.
+    /// Previous API Version: 2016-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Output")]
     public partial class Output : global::Pulumi.CustomResource
@@ -45,6 +46,18 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         [Output("serialization")]
         public Output<object?> Serialization { get; private set; } = null!;
+
+        /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
+        [Output("sizeWindow")]
+        public Output<int?> SizeWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// The time frame for filtering Stream Analytics job outputs.
+        /// </summary>
+        [Output("timeWindow")]
+        public Output<string?> TimeWindow { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -129,7 +142,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Input<string>? OutputName { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -139,6 +152,18 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         [Input("serialization")]
         public object? Serialization { get; set; }
+
+        /// <summary>
+        /// The size window to constrain a Stream Analytics output to.
+        /// </summary>
+        [Input("sizeWindow")]
+        public Input<int>? SizeWindow { get; set; }
+
+        /// <summary>
+        /// The time frame for filtering Stream Analytics job outputs.
+        /// </summary>
+        [Input("timeWindow")]
+        public Input<string>? TimeWindow { get; set; }
 
         public OutputArgs()
         {

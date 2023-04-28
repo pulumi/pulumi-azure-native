@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
+ * Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class TagRule extends pulumi.CustomResource {
     /**

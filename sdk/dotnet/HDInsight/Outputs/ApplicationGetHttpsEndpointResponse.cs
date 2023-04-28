@@ -40,10 +40,6 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
         /// The public port to connect to.
         /// </summary>
         public readonly int PublicPort;
-        /// <summary>
-        /// The subdomain suffix of the application.
-        /// </summary>
-        public readonly string? SubDomainSuffix;
 
         [OutputConstructor]
         private ApplicationGetHttpsEndpointResponse(
@@ -57,9 +53,7 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
 
             string? privateIPAddress,
 
-            int publicPort,
-
-            string? subDomainSuffix)
+            int publicPort)
         {
             AccessModes = accessModes;
             DestinationPort = destinationPort;
@@ -67,7 +61,6 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
             Location = location;
             PrivateIPAddress = privateIPAddress;
             PublicPort = publicPort;
-            SubDomainSuffix = subDomainSuffix;
         }
     }
 }

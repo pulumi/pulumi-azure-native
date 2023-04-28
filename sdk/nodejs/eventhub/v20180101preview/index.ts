@@ -10,70 +10,15 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
-export { ConsumerGroupArgs } from "./consumerGroup";
-export type ConsumerGroup = import("./consumerGroup").ConsumerGroup;
-export const ConsumerGroup: typeof import("./consumerGroup").ConsumerGroup = null as any;
-utilities.lazyLoad(exports, ["ConsumerGroup"], () => require("./consumerGroup"));
-
-export { DisasterRecoveryConfigArgs } from "./disasterRecoveryConfig";
-export type DisasterRecoveryConfig = import("./disasterRecoveryConfig").DisasterRecoveryConfig;
-export const DisasterRecoveryConfig: typeof import("./disasterRecoveryConfig").DisasterRecoveryConfig = null as any;
-utilities.lazyLoad(exports, ["DisasterRecoveryConfig"], () => require("./disasterRecoveryConfig"));
-
-export { EventHubArgs } from "./eventHub";
-export type EventHub = import("./eventHub").EventHub;
-export const EventHub: typeof import("./eventHub").EventHub = null as any;
-utilities.lazyLoad(exports, ["EventHub"], () => require("./eventHub"));
-
-export { EventHubAuthorizationRuleArgs } from "./eventHubAuthorizationRule";
-export type EventHubAuthorizationRule = import("./eventHubAuthorizationRule").EventHubAuthorizationRule;
-export const EventHubAuthorizationRule: typeof import("./eventHubAuthorizationRule").EventHubAuthorizationRule = null as any;
-utilities.lazyLoad(exports, ["EventHubAuthorizationRule"], () => require("./eventHubAuthorizationRule"));
-
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
-export { GetConsumerGroupArgs, GetConsumerGroupResult, GetConsumerGroupOutputArgs } from "./getConsumerGroup";
-export const getConsumerGroup: typeof import("./getConsumerGroup").getConsumerGroup = null as any;
-export const getConsumerGroupOutput: typeof import("./getConsumerGroup").getConsumerGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getConsumerGroup","getConsumerGroupOutput"], () => require("./getConsumerGroup"));
-
-export { GetDisasterRecoveryConfigArgs, GetDisasterRecoveryConfigResult, GetDisasterRecoveryConfigOutputArgs } from "./getDisasterRecoveryConfig";
-export const getDisasterRecoveryConfig: typeof import("./getDisasterRecoveryConfig").getDisasterRecoveryConfig = null as any;
-export const getDisasterRecoveryConfigOutput: typeof import("./getDisasterRecoveryConfig").getDisasterRecoveryConfigOutput = null as any;
-utilities.lazyLoad(exports, ["getDisasterRecoveryConfig","getDisasterRecoveryConfigOutput"], () => require("./getDisasterRecoveryConfig"));
-
-export { GetEventHubArgs, GetEventHubResult, GetEventHubOutputArgs } from "./getEventHub";
-export const getEventHub: typeof import("./getEventHub").getEventHub = null as any;
-export const getEventHubOutput: typeof import("./getEventHub").getEventHubOutput = null as any;
-utilities.lazyLoad(exports, ["getEventHub","getEventHubOutput"], () => require("./getEventHub"));
-
-export { GetEventHubAuthorizationRuleArgs, GetEventHubAuthorizationRuleResult, GetEventHubAuthorizationRuleOutputArgs } from "./getEventHubAuthorizationRule";
-export const getEventHubAuthorizationRule: typeof import("./getEventHubAuthorizationRule").getEventHubAuthorizationRule = null as any;
-export const getEventHubAuthorizationRuleOutput: typeof import("./getEventHubAuthorizationRule").getEventHubAuthorizationRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getEventHubAuthorizationRule","getEventHubAuthorizationRuleOutput"], () => require("./getEventHubAuthorizationRule"));
-
-export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
-export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
-export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
-utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
-
-export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
-export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
-export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
-
 export { GetNamespaceIpFilterRuleArgs, GetNamespaceIpFilterRuleResult, GetNamespaceIpFilterRuleOutputArgs } from "./getNamespaceIpFilterRule";
 export const getNamespaceIpFilterRule: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRule = null as any;
 export const getNamespaceIpFilterRuleOutput: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceIpFilterRule","getNamespaceIpFilterRuleOutput"], () => require("./getNamespaceIpFilterRule"));
-
-export { GetNamespaceNetworkRuleSetArgs, GetNamespaceNetworkRuleSetResult, GetNamespaceNetworkRuleSetOutputArgs } from "./getNamespaceNetworkRuleSet";
-export const getNamespaceNetworkRuleSet: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSet = null as any;
-export const getNamespaceNetworkRuleSetOutput: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSetOutput = null as any;
-utilities.lazyLoad(exports, ["getNamespaceNetworkRuleSet","getNamespaceNetworkRuleSetOutput"], () => require("./getNamespaceNetworkRuleSet"));
 
 export { GetNamespaceVirtualNetworkRuleArgs, GetNamespaceVirtualNetworkRuleResult, GetNamespaceVirtualNetworkRuleOutputArgs } from "./getNamespaceVirtualNetworkRule";
 export const getNamespaceVirtualNetworkRule: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRule = null as any;
@@ -100,25 +45,10 @@ export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespa
 export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listNamespaceKeys","listNamespaceKeysOutput"], () => require("./listNamespaceKeys"));
 
-export { NamespaceArgs } from "./namespace";
-export type Namespace = import("./namespace").Namespace;
-export const Namespace: typeof import("./namespace").Namespace = null as any;
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
-
-export { NamespaceAuthorizationRuleArgs } from "./namespaceAuthorizationRule";
-export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
-export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
-utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
-
 export { NamespaceIpFilterRuleArgs } from "./namespaceIpFilterRule";
 export type NamespaceIpFilterRule = import("./namespaceIpFilterRule").NamespaceIpFilterRule;
 export const NamespaceIpFilterRule: typeof import("./namespaceIpFilterRule").NamespaceIpFilterRule = null as any;
 utilities.lazyLoad(exports, ["NamespaceIpFilterRule"], () => require("./namespaceIpFilterRule"));
-
-export { NamespaceNetworkRuleSetArgs } from "./namespaceNetworkRuleSet";
-export type NamespaceNetworkRuleSet = import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet;
-export const NamespaceNetworkRuleSet: typeof import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet = null as any;
-utilities.lazyLoad(exports, ["NamespaceNetworkRuleSet"], () => require("./namespaceNetworkRuleSet"));
 
 export { NamespaceVirtualNetworkRuleArgs } from "./namespaceVirtualNetworkRule";
 export type NamespaceVirtualNetworkRule = import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule;
@@ -140,22 +70,8 @@ const _module = {
         switch (type) {
             case "azure-native:eventhub/v20180101preview:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-native:eventhub/v20180101preview:ConsumerGroup":
-                return new ConsumerGroup(name, <any>undefined, { urn })
-            case "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig":
-                return new DisasterRecoveryConfig(name, <any>undefined, { urn })
-            case "azure-native:eventhub/v20180101preview:EventHub":
-                return new EventHub(name, <any>undefined, { urn })
-            case "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule":
-                return new EventHubAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-native:eventhub/v20180101preview:Namespace":
-                return new Namespace(name, <any>undefined, { urn })
-            case "azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule":
-                return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule":
                 return new NamespaceIpFilterRule(name, <any>undefined, { urn })
-            case "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet":
-                return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule":
                 return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20180101preview:PrivateEndpointConnection":

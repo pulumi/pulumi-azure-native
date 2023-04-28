@@ -141,8 +141,6 @@ export class HanaInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hanaonazure:HanaInstance" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HanaInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
 {
 
     /// <summary>
-    /// Gets or sets the three tier SAP configuration.
+    /// Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
     /// </summary>
     public sealed class ThreeTierConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -32,6 +32,12 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         /// </summary>
         [Input("centralServer", required: true)]
         public Input<Inputs.CentralServerConfigurationArgs> CentralServer { get; set; } = null!;
+
+        /// <summary>
+        /// The set of custom names to be used for underlying azure resources that are part of the SAP system.
+        /// </summary>
+        [Input("customResourceNames")]
+        public Input<Inputs.ThreeTierFullResourceNamesArgs>? CustomResourceNames { get; set; }
 
         /// <summary>
         /// The database configuration.

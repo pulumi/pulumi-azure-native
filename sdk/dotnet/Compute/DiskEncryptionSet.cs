@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// disk encryption set resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-07-02.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : global::Pulumi.CustomResource
@@ -23,10 +24,22 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.KeyForDiskEncryptionSetResponse?> ActiveKey { get; private set; } = null!;
 
         /// <summary>
+        /// The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+        /// </summary>
+        [Output("autoKeyRotationError")]
+        public Output<Outputs.ApiErrorResponse> AutoKeyRotationError { get; private set; } = null!;
+
+        /// <summary>
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
         [Output("encryptionType")]
         public Output<string?> EncryptionType { get; private set; } = null!;
+
+        /// <summary>
+        /// Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
+        /// </summary>
+        [Output("federatedClientId")]
+        public Output<string?> FederatedClientId { get; private set; } = null!;
 
         /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -148,7 +161,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.KeyForDiskEncryptionSetArgs>? ActiveKey { get; set; }
 
         /// <summary>
-        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskEncryptionSetName")]
         public Input<string>? DiskEncryptionSetName { get; set; }
@@ -158,6 +171,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("encryptionType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.DiskEncryptionSetType>? EncryptionType { get; set; }
+
+        /// <summary>
+        /// Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
+        /// </summary>
+        [Input("federatedClientId")]
+        public Input<string>? FederatedClientId { get; set; }
 
         /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.

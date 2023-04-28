@@ -11,6 +11,7 @@ namespace Pulumi.AzureNative.PowerBI
 {
     /// <summary>
     /// API Version: 2020-06-01.
+    /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbi:PowerBIResource")]
     public partial class PowerBIResource : global::Pulumi.CustomResource

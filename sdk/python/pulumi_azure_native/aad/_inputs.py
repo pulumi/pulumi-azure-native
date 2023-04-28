@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConfigDiagnosticsValidatorResultIssueArgs',
+    'ConfigDiagnosticsValidatorResultArgs',
+    'ConfigDiagnosticsArgs',
     'DomainSecuritySettingsArgs',
     'ForestTrustArgs',
     'LdapsSettingsArgs',
@@ -20,10 +23,166 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class ConfigDiagnosticsValidatorResultIssueArgs:
+    def __init__(__self__, *,
+                 description_params: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Specific issue for a particular config diagnostics validator
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] description_params: List of domain resource property name or values used to compose a rich description.
+        :param pulumi.Input[str] id: Validation issue identifier.
+        """
+        if description_params is not None:
+            pulumi.set(__self__, "description_params", description_params)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="descriptionParams")
+    def description_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of domain resource property name or values used to compose a rich description.
+        """
+        return pulumi.get(self, "description_params")
+
+    @description_params.setter
+    def description_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "description_params", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Validation issue identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ConfigDiagnosticsValidatorResultArgs:
+    def __init__(__self__, *,
+                 issues: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]] = None,
+                 replica_set_subnet_display_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+                 validator_id: Optional[pulumi.Input[str]] = None):
+        """
+        Config Diagnostics validator result data
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]] issues: List of resource config validation issues.
+        :param pulumi.Input[str] replica_set_subnet_display_name: Replica set location and subnet name
+        :param pulumi.Input[Union[str, 'Status']] status: Status for individual validator after running diagnostics.
+        :param pulumi.Input[str] validator_id: Validator identifier
+        """
+        if issues is not None:
+            pulumi.set(__self__, "issues", issues)
+        if replica_set_subnet_display_name is not None:
+            pulumi.set(__self__, "replica_set_subnet_display_name", replica_set_subnet_display_name)
+        if status is None:
+            status = 'None'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if validator_id is not None:
+            pulumi.set(__self__, "validator_id", validator_id)
+
+    @property
+    @pulumi.getter
+    def issues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]]:
+        """
+        List of resource config validation issues.
+        """
+        return pulumi.get(self, "issues")
+
+    @issues.setter
+    def issues(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]]]):
+        pulumi.set(self, "issues", value)
+
+    @property
+    @pulumi.getter(name="replicaSetSubnetDisplayName")
+    def replica_set_subnet_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Replica set location and subnet name
+        """
+        return pulumi.get(self, "replica_set_subnet_display_name")
+
+    @replica_set_subnet_display_name.setter
+    def replica_set_subnet_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replica_set_subnet_display_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'Status']]]:
+        """
+        Status for individual validator after running diagnostics.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'Status']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="validatorId")
+    def validator_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Validator identifier
+        """
+        return pulumi.get(self, "validator_id")
+
+    @validator_id.setter
+    def validator_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "validator_id", value)
+
+
+@pulumi.input_type
+class ConfigDiagnosticsArgs:
+    def __init__(__self__, *,
+                 last_executed: Optional[pulumi.Input[str]] = None,
+                 validator_results: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]] = None):
+        """
+        Configuration Diagnostics
+        :param pulumi.Input[str] last_executed: Last domain configuration diagnostics DateTime
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]] validator_results: List of Configuration Diagnostics validator results.
+        """
+        if last_executed is not None:
+            pulumi.set(__self__, "last_executed", last_executed)
+        if validator_results is not None:
+            pulumi.set(__self__, "validator_results", validator_results)
+
+    @property
+    @pulumi.getter(name="lastExecuted")
+    def last_executed(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last domain configuration diagnostics DateTime
+        """
+        return pulumi.get(self, "last_executed")
+
+    @last_executed.setter
+    def last_executed(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_executed", value)
+
+    @property
+    @pulumi.getter(name="validatorResults")
+    def validator_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]:
+        """
+        List of Configuration Diagnostics validator results.
+        """
+        return pulumi.get(self, "validator_results")
+
+    @validator_results.setter
+    def validator_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]):
+        pulumi.set(self, "validator_results", value)
+
+
+@pulumi.input_type
 class DomainSecuritySettingsArgs:
     def __init__(__self__, *,
+                 channel_binding: Optional[pulumi.Input[Union[str, 'ChannelBinding']]] = None,
                  kerberos_armoring: Optional[pulumi.Input[Union[str, 'KerberosArmoring']]] = None,
                  kerberos_rc4_encryption: Optional[pulumi.Input[Union[str, 'KerberosRc4Encryption']]] = None,
+                 ldap_signing: Optional[pulumi.Input[Union[str, 'LdapSigning']]] = None,
                  ntlm_v1: Optional[pulumi.Input[Union[str, 'NtlmV1']]] = None,
                  sync_kerberos_passwords: Optional[pulumi.Input[Union[str, 'SyncKerberosPasswords']]] = None,
                  sync_ntlm_passwords: Optional[pulumi.Input[Union[str, 'SyncNtlmPasswords']]] = None,
@@ -31,14 +190,20 @@ class DomainSecuritySettingsArgs:
                  tls_v1: Optional[pulumi.Input[Union[str, 'TlsV1']]] = None):
         """
         Domain Security Settings
+        :param pulumi.Input[Union[str, 'ChannelBinding']] channel_binding: A flag to determine whether or not ChannelBinding is enabled or disabled.
         :param pulumi.Input[Union[str, 'KerberosArmoring']] kerberos_armoring: A flag to determine whether or not KerberosArmoring is enabled or disabled.
         :param pulumi.Input[Union[str, 'KerberosRc4Encryption']] kerberos_rc4_encryption: A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+        :param pulumi.Input[Union[str, 'LdapSigning']] ldap_signing: A flag to determine whether or not LdapSigning is enabled or disabled.
         :param pulumi.Input[Union[str, 'NtlmV1']] ntlm_v1: A flag to determine whether or not NtlmV1 is enabled or disabled.
         :param pulumi.Input[Union[str, 'SyncKerberosPasswords']] sync_kerberos_passwords: A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
         :param pulumi.Input[Union[str, 'SyncNtlmPasswords']] sync_ntlm_passwords: A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
         :param pulumi.Input[Union[str, 'SyncOnPremPasswords']] sync_on_prem_passwords: A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         :param pulumi.Input[Union[str, 'TlsV1']] tls_v1: A flag to determine whether or not TlsV1 is enabled or disabled.
         """
+        if channel_binding is None:
+            channel_binding = 'Disabled'
+        if channel_binding is not None:
+            pulumi.set(__self__, "channel_binding", channel_binding)
         if kerberos_armoring is None:
             kerberos_armoring = 'Disabled'
         if kerberos_armoring is not None:
@@ -47,6 +212,10 @@ class DomainSecuritySettingsArgs:
             kerberos_rc4_encryption = 'Enabled'
         if kerberos_rc4_encryption is not None:
             pulumi.set(__self__, "kerberos_rc4_encryption", kerberos_rc4_encryption)
+        if ldap_signing is None:
+            ldap_signing = 'Disabled'
+        if ldap_signing is not None:
+            pulumi.set(__self__, "ldap_signing", ldap_signing)
         if ntlm_v1 is None:
             ntlm_v1 = 'Enabled'
         if ntlm_v1 is not None:
@@ -67,6 +236,18 @@ class DomainSecuritySettingsArgs:
             tls_v1 = 'Enabled'
         if tls_v1 is not None:
             pulumi.set(__self__, "tls_v1", tls_v1)
+
+    @property
+    @pulumi.getter(name="channelBinding")
+    def channel_binding(self) -> Optional[pulumi.Input[Union[str, 'ChannelBinding']]]:
+        """
+        A flag to determine whether or not ChannelBinding is enabled or disabled.
+        """
+        return pulumi.get(self, "channel_binding")
+
+    @channel_binding.setter
+    def channel_binding(self, value: Optional[pulumi.Input[Union[str, 'ChannelBinding']]]):
+        pulumi.set(self, "channel_binding", value)
 
     @property
     @pulumi.getter(name="kerberosArmoring")
@@ -91,6 +272,18 @@ class DomainSecuritySettingsArgs:
     @kerberos_rc4_encryption.setter
     def kerberos_rc4_encryption(self, value: Optional[pulumi.Input[Union[str, 'KerberosRc4Encryption']]]):
         pulumi.set(self, "kerberos_rc4_encryption", value)
+
+    @property
+    @pulumi.getter(name="ldapSigning")
+    def ldap_signing(self) -> Optional[pulumi.Input[Union[str, 'LdapSigning']]]:
+        """
+        A flag to determine whether or not LdapSigning is enabled or disabled.
+        """
+        return pulumi.get(self, "ldap_signing")
+
+    @ldap_signing.setter
+    def ldap_signing(self, value: Optional[pulumi.Input[Union[str, 'LdapSigning']]]):
+        pulumi.set(self, "ldap_signing", value)
 
     @property
     @pulumi.getter(name="ntlmV1")

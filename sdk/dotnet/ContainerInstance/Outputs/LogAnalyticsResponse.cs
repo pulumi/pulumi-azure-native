@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// <summary>
         /// The workspace resource id for log analytics
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? WorkspaceResourceId;
+        public readonly string? WorkspaceResourceId;
 
         [OutputConstructor]
         private LogAnalyticsResponse(
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
             string workspaceKey,
 
-            ImmutableDictionary<string, string>? workspaceResourceId)
+            string? workspaceResourceId)
         {
             LogType = logType;
             Metadata = metadata;

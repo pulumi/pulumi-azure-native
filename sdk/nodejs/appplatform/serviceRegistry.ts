@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Service Registry resource
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ServiceRegistry extends pulumi.CustomResource {
     /**
@@ -86,7 +87,7 @@ export class ServiceRegistry extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20220301preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20220401:ServiceRegistry" }, { type: "azure-native:appplatform/v20220501preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20220901preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20221101preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20221201:ServiceRegistry" }, { type: "azure-native:appplatform/v20230101preview:ServiceRegistry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20220301preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20220401:ServiceRegistry" }, { type: "azure-native:appplatform/v20220501preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20220901preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20221101preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20221201:ServiceRegistry" }, { type: "azure-native:appplatform/v20230101preview:ServiceRegistry" }, { type: "azure-native:appplatform/v20230301preview:ServiceRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceRegistry.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
- * API Version: 2020-12-01.
+ * API Version: 2021-02-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class WebAppAuthSettingsV2Slot extends pulumi.CustomResource {
     /**

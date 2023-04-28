@@ -20,15 +20,13 @@ class PeerAsnArgs:
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peer_asn_name: Optional[pulumi.Input[str]] = None,
                  peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]]] = None,
-                 peer_name: Optional[pulumi.Input[str]] = None,
-                 validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None):
+                 peer_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PeerAsn resource.
         :param pulumi.Input[int] peer_asn: The Autonomous System Number (ASN) of the peer.
         :param pulumi.Input[str] peer_asn_name: The peer ASN name.
         :param pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]] peer_contact_detail: The contact details of the peer.
         :param pulumi.Input[str] peer_name: The name of the peer.
-        :param pulumi.Input[Union[str, 'ValidationState']] validation_state: The validation state of the ASN associated with the peer.
         """
         if peer_asn is not None:
             pulumi.set(__self__, "peer_asn", peer_asn)
@@ -38,8 +36,6 @@ class PeerAsnArgs:
             pulumi.set(__self__, "peer_contact_detail", peer_contact_detail)
         if peer_name is not None:
             pulumi.set(__self__, "peer_name", peer_name)
-        if validation_state is not None:
-            pulumi.set(__self__, "validation_state", validation_state)
 
     @property
     @pulumi.getter(name="peerAsn")
@@ -89,18 +85,6 @@ class PeerAsnArgs:
     def peer_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "peer_name", value)
 
-    @property
-    @pulumi.getter(name="validationState")
-    def validation_state(self) -> Optional[pulumi.Input[Union[str, 'ValidationState']]]:
-        """
-        The validation state of the ASN associated with the peer.
-        """
-        return pulumi.get(self, "validation_state")
-
-    @validation_state.setter
-    def validation_state(self, value: Optional[pulumi.Input[Union[str, 'ValidationState']]]):
-        pulumi.set(self, "validation_state", value)
-
 
 class PeerAsn(pulumi.CustomResource):
     @overload
@@ -111,11 +95,11 @@ class PeerAsn(pulumi.CustomResource):
                  peer_asn_name: Optional[pulumi.Input[str]] = None,
                  peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
-                 validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
                  __props__=None):
         """
         The essential information related to the peer's ASN.
-        API Version: 2021-01-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +107,6 @@ class PeerAsn(pulumi.CustomResource):
         :param pulumi.Input[str] peer_asn_name: The peer ASN name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]] peer_contact_detail: The contact details of the peer.
         :param pulumi.Input[str] peer_name: The name of the peer.
-        :param pulumi.Input[Union[str, 'ValidationState']] validation_state: The validation state of the ASN associated with the peer.
         """
         ...
     @overload
@@ -133,7 +116,8 @@ class PeerAsn(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The essential information related to the peer's ASN.
-        API Version: 2021-01-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PeerAsnArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +138,6 @@ class PeerAsn(pulumi.CustomResource):
                  peer_asn_name: Optional[pulumi.Input[str]] = None,
                  peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
-                 validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -168,10 +151,10 @@ class PeerAsn(pulumi.CustomResource):
             __props__.__dict__["peer_asn_name"] = peer_asn_name
             __props__.__dict__["peer_contact_detail"] = peer_contact_detail
             __props__.__dict__["peer_name"] = peer_name
-            __props__.__dict__["validation_state"] = validation_state
             __props__.__dict__["error_message"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["validation_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering/v20190801preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200101preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20201001:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210601:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220101:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20220601:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20221001:PeerAsn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeerAsn, __self__).__init__(
@@ -255,7 +238,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationState")
-    def validation_state(self) -> pulumi.Output[Optional[str]]:
+    def validation_state(self) -> pulumi.Output[str]:
         """
         The validation state of the ASN associated with the peer.
         """

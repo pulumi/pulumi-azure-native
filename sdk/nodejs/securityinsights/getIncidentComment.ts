@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets an incident comment.
- * API Version: 2021-03-01-preview.
+ * Gets a comment for a given incident.
+ * API Version: 2023-02-01.
  */
 export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCommentResult> {
 
@@ -17,7 +17,6 @@ export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.I
     return pulumi.runtime.invoke("azure-native:securityinsights:getIncidentComment", {
         "incidentCommentId": args.incidentCommentId,
         "incidentId": args.incidentId,
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -32,10 +31,6 @@ export interface GetIncidentCommentArgs {
      * Incident ID
      */
     incidentId: string;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -63,7 +58,7 @@ export interface GetIncidentCommentResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -75,7 +70,7 @@ export interface GetIncidentCommentResult {
      */
     readonly message: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -83,13 +78,13 @@ export interface GetIncidentCommentResult {
      */
     readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * Gets an incident comment.
- * API Version: 2021-03-01-preview.
+ * Gets a comment for a given incident.
+ * API Version: 2023-02-01.
  */
 export function getIncidentCommentOutput(args: GetIncidentCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCommentResult> {
     return pulumi.output(args).apply((a: any) => getIncidentComment(a, opts))
@@ -104,10 +99,6 @@ export interface GetIncidentCommentOutputArgs {
      * Incident ID
      */
     incidentId: pulumi.Input<string>;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

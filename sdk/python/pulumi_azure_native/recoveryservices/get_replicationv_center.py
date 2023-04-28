@@ -96,23 +96,23 @@ class AwaitableGetReplicationvCenterResult(GetReplicationvCenterResult):
 def get_replicationv_center(fabric_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             resource_name: Optional[str] = None,
-                            v_center_name: Optional[str] = None,
+                            vcenter_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationvCenterResult:
     """
-    Gets the details of a registered vCenter server(Add vCenter server.)
-    API Version: 2018-07-10.
+    Gets the details of a registered vCenter server(Add vCenter server).
+    API Version: 2023-02-01.
 
 
     :param str fabric_name: Fabric name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
-    :param str v_center_name: vCenter name.
+    :param str vcenter_name: vcenter name.
     """
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    __args__['vCenterName'] = v_center_name
+    __args__['vcenterName'] = vcenter_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:recoveryservices:getReplicationvCenter', __args__, opts=opts, typ=GetReplicationvCenterResult).value
 
@@ -128,16 +128,16 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
 def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    resource_name: Optional[pulumi.Input[str]] = None,
-                                   v_center_name: Optional[pulumi.Input[str]] = None,
+                                   vcenter_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationvCenterResult]:
     """
-    Gets the details of a registered vCenter server(Add vCenter server.)
-    API Version: 2018-07-10.
+    Gets the details of a registered vCenter server(Add vCenter server).
+    API Version: 2023-02-01.
 
 
     :param str fabric_name: Fabric name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
-    :param str v_center_name: vCenter name.
+    :param str vcenter_name: vcenter name.
     """
     ...

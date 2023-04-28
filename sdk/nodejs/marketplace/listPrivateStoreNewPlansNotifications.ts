@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List new plans notifications
- * API Version: 2021-12-01.
+ * API Version: 2022-09-01.
  */
 export function listPrivateStoreNewPlansNotifications(args: ListPrivateStoreNewPlansNotificationsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreNewPlansNotificationsResult> {
 
@@ -34,7 +34,7 @@ export interface ListPrivateStoreNewPlansNotificationsResult {
 }
 /**
  * List new plans notifications
- * API Version: 2021-12-01.
+ * API Version: 2022-09-01.
  */
 export function listPrivateStoreNewPlansNotificationsOutput(args: ListPrivateStoreNewPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreNewPlansNotificationsResult> {
     return pulumi.output(args).apply((a: any) => listPrivateStoreNewPlansNotifications(a, opts))

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
- * API Version: 2020-12-01.
+ * API Version: 2022-11-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
@@ -38,6 +39,10 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DedicatedHostGroup.__pulumiType;
     }
 
+    /**
+     * Enables or disables a capability on the dedicated host group.<br><br>Minimum api-version: 2022-03-01.
+     */
+    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.DedicatedHostGroupPropertiesResponseAdditionalCapabilities | undefined>;
     /**
      * A list of references to all dedicated hosts in the dedicated host group.
      */
@@ -92,6 +97,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             resourceInputs["hostGroupName"] = args ? args.hostGroupName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
@@ -104,6 +110,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalCapabilities"] = undefined /*out*/;
             resourceInputs["hosts"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -125,6 +132,10 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DedicatedHostGroup resource.
  */
 export interface DedicatedHostGroupArgs {
+    /**
+     * Enables or disables a capability on the dedicated host group.<br><br>Minimum api-version: 2022-03-01.
+     */
+    additionalCapabilities?: pulumi.Input<inputs.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs>;
     /**
      * The name of the dedicated host group.
      */

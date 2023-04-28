@@ -5,36 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { DeploymentArgs } from "./deployment";
-export type Deployment = import("./deployment").Deployment;
-export const Deployment: typeof import("./deployment").Deployment = null as any;
-utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
-
-export { DeploymentAtManagementGroupScopeArgs } from "./deploymentAtManagementGroupScope";
-export type DeploymentAtManagementGroupScope = import("./deploymentAtManagementGroupScope").DeploymentAtManagementGroupScope;
-export const DeploymentAtManagementGroupScope: typeof import("./deploymentAtManagementGroupScope").DeploymentAtManagementGroupScope = null as any;
-utilities.lazyLoad(exports, ["DeploymentAtManagementGroupScope"], () => require("./deploymentAtManagementGroupScope"));
-
-export { DeploymentAtSubscriptionScopeArgs } from "./deploymentAtSubscriptionScope";
-export type DeploymentAtSubscriptionScope = import("./deploymentAtSubscriptionScope").DeploymentAtSubscriptionScope;
-export const DeploymentAtSubscriptionScope: typeof import("./deploymentAtSubscriptionScope").DeploymentAtSubscriptionScope = null as any;
-utilities.lazyLoad(exports, ["DeploymentAtSubscriptionScope"], () => require("./deploymentAtSubscriptionScope"));
-
-export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
-export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
-export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
-utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
-
-export { GetDeploymentAtManagementGroupScopeArgs, GetDeploymentAtManagementGroupScopeResult, GetDeploymentAtManagementGroupScopeOutputArgs } from "./getDeploymentAtManagementGroupScope";
-export const getDeploymentAtManagementGroupScope: typeof import("./getDeploymentAtManagementGroupScope").getDeploymentAtManagementGroupScope = null as any;
-export const getDeploymentAtManagementGroupScopeOutput: typeof import("./getDeploymentAtManagementGroupScope").getDeploymentAtManagementGroupScopeOutput = null as any;
-utilities.lazyLoad(exports, ["getDeploymentAtManagementGroupScope","getDeploymentAtManagementGroupScopeOutput"], () => require("./getDeploymentAtManagementGroupScope"));
-
-export { GetDeploymentAtSubscriptionScopeArgs, GetDeploymentAtSubscriptionScopeResult, GetDeploymentAtSubscriptionScopeOutputArgs } from "./getDeploymentAtSubscriptionScope";
-export const getDeploymentAtSubscriptionScope: typeof import("./getDeploymentAtSubscriptionScope").getDeploymentAtSubscriptionScope = null as any;
-export const getDeploymentAtSubscriptionScopeOutput: typeof import("./getDeploymentAtSubscriptionScope").getDeploymentAtSubscriptionScopeOutput = null as any;
-utilities.lazyLoad(exports, ["getDeploymentAtSubscriptionScope","getDeploymentAtSubscriptionScopeOutput"], () => require("./getDeploymentAtSubscriptionScope"));
-
 export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
 export const getResource: typeof import("./getResource").getResource = null as any;
 export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
@@ -63,12 +33,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:resources/v20190501:Deployment":
-                return new Deployment(name, <any>undefined, { urn })
-            case "azure-native:resources/v20190501:DeploymentAtManagementGroupScope":
-                return new DeploymentAtManagementGroupScope(name, <any>undefined, { urn })
-            case "azure-native:resources/v20190501:DeploymentAtSubscriptionScope":
-                return new DeploymentAtSubscriptionScope(name, <any>undefined, { urn })
             case "azure-native:resources/v20190501:Resource":
                 return new Resource(name, <any>undefined, { urn })
             case "azure-native:resources/v20190501:ResourceGroup":

@@ -15,6 +15,7 @@ __all__ = [
     'NewNotificationsResponse',
     'PlanNotificationDetailsResponse',
     'PlanResponse',
+    'RuleResponse',
     'StopSellOffersPlansNotificationsListPropertiesResponse',
     'SystemDataResponse',
 ]
@@ -234,6 +235,33 @@ class PlanResponse(dict):
         Plan accessibility
         """
         return pulumi.get(self, "accessibility")
+
+
+@pulumi.output_type
+class RuleResponse(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 value: Optional[Sequence[str]] = None):
+        """
+        :param str type: Rule type
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Rule type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

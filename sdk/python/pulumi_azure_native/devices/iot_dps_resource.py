@@ -22,6 +22,8 @@ class IotDpsResourceArgs:
                  sku: pulumi.Input['IotDpsSkuInfoArgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
+                 resourcegroup: Optional[pulumi.Input[str]] = None,
+                 subscriptionid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IotDpsResource resource.
@@ -30,6 +32,8 @@ class IotDpsResourceArgs:
         :param pulumi.Input['IotDpsSkuInfoArgs'] sku: Sku info for a provisioning Service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
+        :param pulumi.Input[str] resourcegroup: The resource group of the resource.
+        :param pulumi.Input[str] subscriptionid: The subscription id of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "properties", properties)
@@ -39,6 +43,10 @@ class IotDpsResourceArgs:
             pulumi.set(__self__, "location", location)
         if provisioning_service_name is not None:
             pulumi.set(__self__, "provisioning_service_name", provisioning_service_name)
+        if resourcegroup is not None:
+            pulumi.set(__self__, "resourcegroup", resourcegroup)
+        if subscriptionid is not None:
+            pulumi.set(__self__, "subscriptionid", subscriptionid)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -104,6 +112,30 @@ class IotDpsResourceArgs:
 
     @property
     @pulumi.getter
+    def resourcegroup(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource group of the resource.
+        """
+        return pulumi.get(self, "resourcegroup")
+
+    @resourcegroup.setter
+    def resourcegroup(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resourcegroup", value)
+
+    @property
+    @pulumi.getter
+    def subscriptionid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription id of the resource.
+        """
+        return pulumi.get(self, "subscriptionid")
+
+    @subscriptionid.setter
+    def subscriptionid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscriptionid", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The resource tags.
@@ -124,12 +156,15 @@ class IotDpsResource(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resourcegroup: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']]] = None,
+                 subscriptionid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The description of the provisioning service.
-        API Version: 2020-03-01.
+        API Version: 2022-12-12.
+        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +172,9 @@ class IotDpsResource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']] properties: Service specific properties for a provisioning service
         :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
+        :param pulumi.Input[str] resourcegroup: The resource group of the resource.
         :param pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']] sku: Sku info for a provisioning Service.
+        :param pulumi.Input[str] subscriptionid: The subscription id of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         ...
@@ -148,7 +185,8 @@ class IotDpsResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the provisioning service.
-        API Version: 2020-03-01.
+        API Version: 2022-12-12.
+        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param IotDpsResourceArgs args: The arguments to use to populate this resource's properties.
@@ -169,7 +207,9 @@ class IotDpsResource(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resourcegroup: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']]] = None,
+                 subscriptionid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -188,12 +228,15 @@ class IotDpsResource(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resourcegroup"] = resourcegroup
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["subscriptionid"] = subscriptionid
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20171115:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20220205:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20221212:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20230301preview:IotDpsResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -223,7 +266,10 @@ class IotDpsResource(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["resourcegroup"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["subscriptionid"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return IotDpsResource(resource_name, opts=opts, __props__=__props__)
@@ -262,11 +308,35 @@ class IotDpsResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def resourcegroup(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource group of the resource.
+        """
+        return pulumi.get(self, "resourcegroup")
+
+    @property
+    @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.IotDpsSkuInfoResponse']:
         """
         Sku info for a provisioning Service.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def subscriptionid(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subscription id of the resource.
+        """
+        return pulumi.get(self, "subscriptionid")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

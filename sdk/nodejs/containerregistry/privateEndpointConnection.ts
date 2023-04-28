@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a private endpoint connection for a container registry.
- * API Version: 2020-11-01-preview.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -125,7 +126,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

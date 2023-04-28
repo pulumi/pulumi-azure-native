@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class ImageReferenceResponse
     {
         /// <summary>
+        /// Specified the community gallery image unique id for vm deployment. This can be fetched from community gallery image GET call.
+        /// </summary>
+        public readonly string? CommunityGalleryImageId;
+        /// <summary>
         /// Specifies in decimal numbers, the version of platform image or marketplace image used to create the virtual machine. This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
         /// </summary>
         public readonly string ExactVersion;
@@ -33,16 +37,22 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? Publisher;
         /// <summary>
+        /// Specified the shared gallery image unique id for vm deployment. This can be fetched from shared gallery image GET call.
+        /// </summary>
+        public readonly string? SharedGalleryImageId;
+        /// <summary>
         /// The image SKU.
         /// </summary>
         public readonly string? Sku;
         /// <summary>
-        /// Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+        /// Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available. Please do not use field 'version' for gallery image deployment, gallery image should always use 'id' field for deployment, to use 'latest' version of gallery image, just set '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageName}' in the 'id' field without version input.
         /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private ImageReferenceResponse(
+            string? communityGalleryImageId,
+
             string exactVersion,
 
             string? id,
@@ -51,14 +61,18 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? publisher,
 
+            string? sharedGalleryImageId,
+
             string? sku,
 
             string? version)
         {
+            CommunityGalleryImageId = communityGalleryImageId;
             ExactVersion = exactVersion;
             Id = id;
             Offer = offer;
             Publisher = publisher;
+            SharedGalleryImageId = sharedGalleryImageId;
             Sku = sku;
             Version = version;
         }

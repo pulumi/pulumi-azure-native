@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.Batch.Outputs
     public sealed class AutoStoragePropertiesResponse
     {
         /// <summary>
+        /// The authentication mode which the Batch service will use to manage the auto-storage account.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
         /// The UTC time at which storage keys were last synchronized with the Batch account.
         /// </summary>
         public readonly string LastKeySync;
+        /// <summary>
+        /// The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+        /// </summary>
+        public readonly Outputs.ComputeNodeIdentityReferenceResponse? NodeIdentityReference;
         /// <summary>
         /// The resource ID of the storage account to be used for auto-storage account.
         /// </summary>
@@ -27,11 +35,17 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
         [OutputConstructor]
         private AutoStoragePropertiesResponse(
+            string? authenticationMode,
+
             string lastKeySync,
+
+            Outputs.ComputeNodeIdentityReferenceResponse? nodeIdentityReference,
 
             string storageAccountId)
         {
+            AuthenticationMode = authenticationMode;
             LastKeySync = lastKeySync;
+            NodeIdentityReference = nodeIdentityReference;
             StorageAccountId = storageAccountId;
         }
     }

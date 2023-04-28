@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Managed Network resource
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkManager extends pulumi.CustomResource {
     /**
@@ -43,10 +44,6 @@ export class NetworkManager extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A friendly name for the network manager.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -61,13 +58,13 @@ export class NetworkManager extends pulumi.CustomResource {
     /**
      * Scope Access.
      */
-    public readonly networkManagerScopeAccesses!: pulumi.Output<string[] | undefined>;
+    public readonly networkManagerScopeAccesses!: pulumi.Output<string[]>;
     /**
      * Scope of Network Manager.
      */
-    public readonly networkManagerScopes!: pulumi.Output<outputs.network.NetworkManagerPropertiesResponseNetworkManagerScopes | undefined>;
+    public readonly networkManagerScopes!: pulumi.Output<outputs.network.NetworkManagerPropertiesResponseNetworkManagerScopes>;
     /**
-     * The provisioning state of the scope assignment resource.
+     * The provisioning state of the network manager resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -94,11 +91,16 @@ export class NetworkManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.networkManagerScopeAccesses === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'networkManagerScopeAccesses'");
+            }
+            if ((!args || args.networkManagerScopes === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'networkManagerScopes'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
@@ -113,7 +115,6 @@ export class NetworkManager extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -140,10 +141,6 @@ export interface NetworkManagerArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A friendly name for the network manager.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
@@ -158,11 +155,11 @@ export interface NetworkManagerArgs {
     /**
      * Scope Access.
      */
-    networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
+    networkManagerScopeAccesses: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
     /**
      * Scope of Network Manager.
      */
-    networkManagerScopes?: pulumi.Input<inputs.network.NetworkManagerPropertiesNetworkManagerScopesArgs>;
+    networkManagerScopes: pulumi.Input<inputs.network.NetworkManagerPropertiesNetworkManagerScopesArgs>;
     /**
      * The name of the resource group.
      */

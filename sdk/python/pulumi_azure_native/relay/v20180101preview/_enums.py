@@ -6,8 +6,6 @@ from enum import Enum
 
 __all__ = [
     'PrivateEndpointServiceConnectionStatus',
-    'SkuName',
-    'SkuTier',
 ]
 
 
@@ -19,17 +17,3 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
-
-
-class SkuName(str, Enum):
-    """
-    Name of this SKU.
-    """
-    STANDARD = "Standard"
-
-
-class SkuTier(str, Enum):
-    """
-    The tier of this SKU.
-    """
-    STANDARD = "Standard"

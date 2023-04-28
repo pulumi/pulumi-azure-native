@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a new provisioning token. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
- * API Version: 2021-05-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function listEdgeModuleProvisioningToken(args: ListEdgeModuleProvisioningTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListEdgeModuleProvisioningTokenResult> {
 
@@ -25,7 +25,7 @@ export interface ListEdgeModuleProvisioningTokenArgs {
      */
     accountName: string;
     /**
-     * The name of the edge module used to create a new provisioning token.
+     * The Edge Module name.
      */
     edgeModuleName: string;
     /**
@@ -53,7 +53,7 @@ export interface ListEdgeModuleProvisioningTokenResult {
 }
 /**
  * Creates a new provisioning token. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
- * API Version: 2021-05-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function listEdgeModuleProvisioningTokenOutput(args: ListEdgeModuleProvisioningTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEdgeModuleProvisioningTokenResult> {
     return pulumi.output(args).apply((a: any) => listEdgeModuleProvisioningToken(a, opts))
@@ -65,7 +65,7 @@ export interface ListEdgeModuleProvisioningTokenOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the edge module used to create a new provisioning token.
+     * The Edge Module name.
      */
     edgeModuleName: pulumi.Input<string>;
     /**

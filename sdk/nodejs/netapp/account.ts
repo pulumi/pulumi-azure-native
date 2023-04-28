@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * NetApp account resource
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -43,15 +44,27 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly activeDirectories!: pulumi.Output<outputs.netapp.ActiveDirectoryResponse[] | undefined>;
     /**
+     * Shows the status of disableShowmount for all volumes under the subscription, null equals false
+     */
+    public /*out*/ readonly disableShowmount!: pulumi.Output<boolean>;
+    /**
      * Encryption settings
      */
     public readonly encryption!: pulumi.Output<outputs.netapp.AccountEncryptionResponse | undefined>;
     /**
-     * Resource location
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The identity used for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.netapp.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -59,15 +72,15 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -87,17 +100,23 @@ export class Account extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["activeDirectories"] = args ? args.activeDirectories : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.netapp.accountEncryptionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["disableShowmount"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activeDirectories"] = undefined /*out*/;
+            resourceInputs["disableShowmount"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -129,15 +148,19 @@ export interface AccountArgs {
      */
     encryption?: pulumi.Input<inputs.netapp.AccountEncryptionArgs>;
     /**
-     * Resource location
+     * The identity used for the resource.
+     */
+    identity?: pulumi.Input<inputs.netapp.ManagedServiceIdentityArgs>;
+    /**
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

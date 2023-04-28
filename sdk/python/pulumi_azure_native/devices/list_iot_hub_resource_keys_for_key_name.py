@@ -86,7 +86,7 @@ def list_iot_hub_resource_keys_for_key_name(key_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotHubResourceKeysForKeyNameResult:
     """
     Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
-    API Version: 2020-08-31.
+    API Version: 2021-07-02.
 
 
     :param str key_name: The name of the shared access policy.
@@ -114,7 +114,7 @@ def list_iot_hub_resource_keys_for_key_name_output(key_name: Optional[pulumi.Inp
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotHubResourceKeysForKeyNameResult]:
     """
     Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
-    API Version: 2020-08-31.
+    API Version: 2021-07-02.
 
 
     :param str key_name: The name of the shared access policy.

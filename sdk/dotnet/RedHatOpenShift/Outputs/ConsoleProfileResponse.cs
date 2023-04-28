@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class ConsoleProfileResponse
     {
         /// <summary>
-        /// The URL to access the cluster console (immutable).
+        /// The URL to access the cluster console.
         /// </summary>
         public readonly string? Url;
 

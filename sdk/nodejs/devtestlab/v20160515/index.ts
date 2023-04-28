@@ -85,11 +85,6 @@ export const getSecret: typeof import("./getSecret").getSecret = null as any;
 export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
 utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
 
-export { GetServiceRunnerArgs, GetServiceRunnerResult, GetServiceRunnerOutputArgs } from "./getServiceRunner";
-export const getServiceRunner: typeof import("./getServiceRunner").getServiceRunner = null as any;
-export const getServiceRunnerOutput: typeof import("./getServiceRunner").getServiceRunnerOutput = null as any;
-utilities.lazyLoad(exports, ["getServiceRunner","getServiceRunnerOutput"], () => require("./getServiceRunner"));
-
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -155,11 +150,6 @@ export type Secret = import("./secret").Secret;
 export const Secret: typeof import("./secret").Secret = null as any;
 utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
 
-export { ServiceRunnerArgs } from "./serviceRunner";
-export type ServiceRunner = import("./serviceRunner").ServiceRunner;
-export const ServiceRunner: typeof import("./serviceRunner").ServiceRunner = null as any;
-utilities.lazyLoad(exports, ["ServiceRunner"], () => require("./serviceRunner"));
-
 export { UserArgs } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -210,8 +200,6 @@ const _module = {
                 return new Schedule(name, <any>undefined, { urn })
             case "azure-native:devtestlab/v20160515:Secret":
                 return new Secret(name, <any>undefined, { urn })
-            case "azure-native:devtestlab/v20160515:ServiceRunner":
-                return new ServiceRunner(name, <any>undefined, { urn })
             case "azure-native:devtestlab/v20160515:User":
                 return new User(name, <any>undefined, { urn })
             case "azure-native:devtestlab/v20160515:VirtualMachine":

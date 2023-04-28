@@ -22,7 +22,7 @@ class ManagementGroupNetworkManagerConnectionArgs:
         """
         The set of arguments for constructing a ManagementGroupNetworkManagerConnection resource.
         :param pulumi.Input[str] management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
-        :param pulumi.Input[str] description: A description of the scope connection.
+        :param pulumi.Input[str] description: A description of the network manager connection.
         :param pulumi.Input[str] network_manager_connection_name: Name for the network manager connection.
         :param pulumi.Input[str] network_manager_id: Network Manager Id.
         """
@@ -50,7 +50,7 @@ class ManagementGroupNetworkManagerConnectionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the scope connection.
+        A description of the network manager connection.
         """
         return pulumi.get(self, "description")
 
@@ -95,11 +95,12 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Network Manager Connection resource
-        API Version: 2021-05-01-preview.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the scope connection.
+        :param pulumi.Input[str] description: A description of the network manager connection.
         :param pulumi.Input[str] management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
         :param pulumi.Input[str] network_manager_connection_name: Name for the network manager connection.
         :param pulumi.Input[str] network_manager_id: Network Manager Id.
@@ -112,7 +113,8 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Network Manager Connection resource
-        API Version: 2021-05-01-preview.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupNetworkManagerConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -152,7 +154,7 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501preview:ManagementGroupNetworkManagerConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20220101:ManagementGroupNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ManagementGroupNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220701:ManagementGroupNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220901:ManagementGroupNetworkManagerConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroupNetworkManagerConnection, __self__).__init__(
             'azure-native:network:ManagementGroupNetworkManagerConnection',
@@ -188,7 +190,7 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the scope connection.
+        A description of the network manager connection.
         """
         return pulumi.get(self, "description")
 

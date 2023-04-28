@@ -22,7 +22,7 @@ class GetVirtualNetworkResult:
     """
     Virtual Network resource.
     """
-    def __init__(__self__, address_space=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, etag=None, extended_location=None, id=None, ip_allocations=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
+    def __init__(__self__, address_space=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, encryption=None, etag=None, extended_location=None, flow_logs=None, flow_timeout_in_minutes=None, id=None, ip_allocations=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
         pulumi.set(__self__, "address_space", address_space)
@@ -41,12 +41,21 @@ class GetVirtualNetworkResult:
         if enable_vm_protection and not isinstance(enable_vm_protection, bool):
             raise TypeError("Expected argument 'enable_vm_protection' to be a bool")
         pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
+        if flow_logs and not isinstance(flow_logs, list):
+            raise TypeError("Expected argument 'flow_logs' to be a list")
+        pulumi.set(__self__, "flow_logs", flow_logs)
+        if flow_timeout_in_minutes and not isinstance(flow_timeout_in_minutes, int):
+            raise TypeError("Expected argument 'flow_timeout_in_minutes' to be a int")
+        pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -128,6 +137,14 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter
+    def encryption(self) -> Optional['outputs.VirtualNetworkEncryptionResponse']:
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
     def etag(self) -> str:
         """
         A unique read-only string that changes whenever the resource is updated.
@@ -141,6 +158,22 @@ class GetVirtualNetworkResult:
         The extended location of the virtual network.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="flowLogs")
+    def flow_logs(self) -> Sequence['outputs.FlowLogResponse']:
+        """
+        A collection of references to flow log resources.
+        """
+        return pulumi.get(self, "flow_logs")
+
+    @property
+    @pulumi.getter(name="flowTimeoutInMinutes")
+    def flow_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The FlowTimeout value (in minutes) for the Virtual Network
+        """
+        return pulumi.get(self, "flow_timeout_in_minutes")
 
     @property
     @pulumi.getter
@@ -235,8 +268,11 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             dhcp_options=self.dhcp_options,
             enable_ddos_protection=self.enable_ddos_protection,
             enable_vm_protection=self.enable_vm_protection,
+            encryption=self.encryption,
             etag=self.etag,
             extended_location=self.extended_location,
+            flow_logs=self.flow_logs,
+            flow_timeout_in_minutes=self.flow_timeout_in_minutes,
             id=self.id,
             ip_allocations=self.ip_allocations,
             location=self.location,
@@ -255,7 +291,7 @@ def get_virtual_network(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     Gets the specified virtual network by resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.
@@ -276,8 +312,11 @@ def get_virtual_network(expand: Optional[str] = None,
         dhcp_options=__ret__.dhcp_options,
         enable_ddos_protection=__ret__.enable_ddos_protection,
         enable_vm_protection=__ret__.enable_vm_protection,
+        encryption=__ret__.encryption,
         etag=__ret__.etag,
         extended_location=__ret__.extended_location,
+        flow_logs=__ret__.flow_logs,
+        flow_timeout_in_minutes=__ret__.flow_timeout_in_minutes,
         id=__ret__.id,
         ip_allocations=__ret__.ip_allocations,
         location=__ret__.location,
@@ -297,7 +336,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     Gets the specified virtual network by resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.

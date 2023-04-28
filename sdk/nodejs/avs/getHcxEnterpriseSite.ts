@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An HCX Enterprise Site resource
- * API Version: 2020-03-20.
+ * API Version: 2022-05-01.
  */
 export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHcxEnterpriseSiteResult> {
 
@@ -60,7 +60,7 @@ export interface GetHcxEnterpriseSiteResult {
 }
 /**
  * An HCX Enterprise Site resource
- * API Version: 2020-03-20.
+ * API Version: 2022-05-01.
  */
 export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHcxEnterpriseSiteResult> {
     return pulumi.output(args).apply((a: any) => getHcxEnterpriseSite(a, opts))

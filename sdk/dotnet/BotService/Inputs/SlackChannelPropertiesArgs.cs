@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.BotService.Inputs
         public Input<string>? LandingPageUrl { get; set; }
 
         /// <summary>
+        /// Whether to register the settings before OAuth validation is performed. Recommended to True.
+        /// </summary>
+        [Input("registerBeforeOAuthFlow")]
+        public Input<bool>? RegisterBeforeOAuthFlow { get; set; }
+
+        /// <summary>
         /// The Slack permission scopes.
         /// </summary>
         [Input("scopes")]

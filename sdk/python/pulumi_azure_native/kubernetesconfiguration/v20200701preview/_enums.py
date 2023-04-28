@@ -6,8 +6,6 @@ from enum import Enum
 
 __all__ = [
     'LevelType',
-    'OperatorScopeType',
-    'OperatorType',
     'ResourceIdentityType',
 ]
 
@@ -19,21 +17,6 @@ class LevelType(str, Enum):
     ERROR = "Error"
     WARNING = "Warning"
     INFORMATION = "Information"
-
-
-class OperatorScopeType(str, Enum):
-    """
-    Scope at which the operator will be installed.
-    """
-    CLUSTER = "cluster"
-    NAMESPACE = "namespace"
-
-
-class OperatorType(str, Enum):
-    """
-    Type of the operator
-    """
-    FLUX = "Flux"
 
 
 class ResourceIdentityType(str, Enum):

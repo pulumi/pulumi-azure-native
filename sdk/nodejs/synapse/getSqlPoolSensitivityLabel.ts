@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the sensitivity label of a given column
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getSqlPoolSensitivityLabel(args: GetSqlPoolSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolSensitivityLabelResult> {
 
@@ -48,7 +48,7 @@ export interface GetSqlPoolSensitivityLabelArgs {
      */
     tableName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -109,7 +109,7 @@ export interface GetSqlPoolSensitivityLabelResult {
 }
 /**
  * Gets the sensitivity label of a given column
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolSensitivityLabel(a, opts))
@@ -141,7 +141,7 @@ export interface GetSqlPoolSensitivityLabelOutputArgs {
      */
     tableName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

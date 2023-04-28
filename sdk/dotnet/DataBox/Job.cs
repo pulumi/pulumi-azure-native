@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataBox
 {
     /// <summary>
     /// Job Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databox:Job")]
     public partial class Job : global::Pulumi.CustomResource
@@ -93,6 +94,18 @@ namespace Pulumi.AzureNative.DataBox
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The Editable status for Reverse Shipping Address and Contact Info
+        /// </summary>
+        [Output("reverseShippingDetailsUpdate")]
+        public Output<string> ReverseShippingDetailsUpdate { get; private set; } = null!;
+
+        /// <summary>
+        /// The Editable status for Reverse Transport preferences
+        /// </summary>
+        [Output("reverseTransportPreferenceUpdate")]
+        public Output<string> ReverseTransportPreferenceUpdate { get; private set; } = null!;
 
         /// <summary>
         /// The sku type.

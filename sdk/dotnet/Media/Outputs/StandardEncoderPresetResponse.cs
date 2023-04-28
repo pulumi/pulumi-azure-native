@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Codecs;
         /// <summary>
+        /// Dictionary containing key value pairs for parameters not exposed in the preset itself
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ExperimentalOptions;
+        /// <summary>
         /// One or more filtering operations that are applied to the input media before encoding.
         /// </summary>
         public readonly Outputs.FiltersResponse? Filters;
@@ -38,6 +42,8 @@ namespace Pulumi.AzureNative.Media.Outputs
         private StandardEncoderPresetResponse(
             ImmutableArray<object> codecs,
 
+            ImmutableDictionary<string, string>? experimentalOptions,
+
             Outputs.FiltersResponse? filters,
 
             ImmutableArray<object> formats,
@@ -45,6 +51,7 @@ namespace Pulumi.AzureNative.Media.Outputs
             string odataType)
         {
             Codecs = codecs;
+            ExperimentalOptions = experimentalOptions;
             Filters = filters;
             Formats = formats;
             OdataType = odataType;

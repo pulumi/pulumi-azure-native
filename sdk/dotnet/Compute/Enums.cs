@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
+    /// CPU architecture supported by an OS disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct Architecture : IEquatable<Architecture>
+    {
+        private readonly string _value;
+
+        private Architecture(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Architecture X64 { get; } = new Architecture("x64");
+        public static Architecture Arm64 { get; } = new Architecture("Arm64");
+
+        public static bool operator ==(Architecture left, Architecture right) => left.Equals(right);
+        public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
+
+        public static explicit operator string(Architecture value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Architecture other && Equals(other);
+        public bool Equals(Architecture other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None** for Standard storage. **ReadOnly** for Premium storage.
     /// </summary>
     [EnumType]
@@ -32,6 +63,39 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CachingTypes other && Equals(other);
         public bool Equals(CachingTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Slot type for the cloud service.
+    /// Possible values are &lt;br /&gt;&lt;br /&gt;**Production**&lt;br /&gt;&lt;br /&gt;**Staging**&lt;br /&gt;&lt;br /&gt;
+    /// If not specified, the default value is Production.
+    /// </summary>
+    [EnumType]
+    public readonly struct CloudServiceSlotType : IEquatable<CloudServiceSlotType>
+    {
+        private readonly string _value;
+
+        private CloudServiceSlotType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CloudServiceSlotType Production { get; } = new CloudServiceSlotType("Production");
+        public static CloudServiceSlotType Staging { get; } = new CloudServiceSlotType("Staging");
+
+        public static bool operator ==(CloudServiceSlotType left, CloudServiceSlotType right) => left.Equals(right);
+        public static bool operator !=(CloudServiceSlotType left, CloudServiceSlotType right) => !left.Equals(right);
+
+        public static explicit operator string(CloudServiceSlotType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CloudServiceSlotType other && Equals(other);
+        public bool Equals(CloudServiceSlotType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -96,6 +160,140 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ComponentNames other && Equals(other);
         public bool Equals(ComponentNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// confidential VM encryption types
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfidentialVMEncryptionType : IEquatable<ConfidentialVMEncryptionType>
+    {
+        private readonly string _value;
+
+        private ConfidentialVMEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfidentialVMEncryptionType EncryptedVMGuestStateOnlyWithPmk { get; } = new ConfidentialVMEncryptionType("EncryptedVMGuestStateOnlyWithPmk");
+        public static ConfidentialVMEncryptionType EncryptedWithPmk { get; } = new ConfidentialVMEncryptionType("EncryptedWithPmk");
+        public static ConfidentialVMEncryptionType EncryptedWithCmk { get; } = new ConfidentialVMEncryptionType("EncryptedWithCmk");
+
+        public static bool operator ==(ConfidentialVMEncryptionType left, ConfidentialVMEncryptionType right) => left.Equals(right);
+        public static bool operator !=(ConfidentialVMEncryptionType left, ConfidentialVMEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfidentialVMEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfidentialVMEncryptionType other && Equals(other);
+        public bool Equals(ConfidentialVMEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConsistencyModeTypes : IEquatable<ConsistencyModeTypes>
+    {
+        private readonly string _value;
+
+        private ConsistencyModeTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConsistencyModeTypes CrashConsistent { get; } = new ConsistencyModeTypes("CrashConsistent");
+        public static ConsistencyModeTypes FileSystemConsistent { get; } = new ConsistencyModeTypes("FileSystemConsistent");
+        public static ConsistencyModeTypes ApplicationConsistent { get; } = new ConsistencyModeTypes("ApplicationConsistent");
+
+        public static bool operator ==(ConsistencyModeTypes left, ConsistencyModeTypes right) => left.Equals(right);
+        public static bool operator !=(ConsistencyModeTypes left, ConsistencyModeTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ConsistencyModeTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConsistencyModeTypes other && Equals(other);
+        public bool Equals(ConsistencyModeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
+    /// </summary>
+    [EnumType]
+    public readonly struct CopyCompletionErrorReason : IEquatable<CopyCompletionErrorReason>
+    {
+        private readonly string _value;
+
+        private CopyCompletionErrorReason(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that the source snapshot was deleted while the background copy of the resource created via CopyStart operation was in progress.
+        /// </summary>
+        public static CopyCompletionErrorReason CopySourceNotFound { get; } = new CopyCompletionErrorReason("CopySourceNotFound");
+
+        public static bool operator ==(CopyCompletionErrorReason left, CopyCompletionErrorReason right) => left.Equals(right);
+        public static bool operator !=(CopyCompletionErrorReason left, CopyCompletionErrorReason right) => !left.Equals(right);
+
+        public static explicit operator string(CopyCompletionErrorReason value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CopyCompletionErrorReason other && Equals(other);
+        public bool Equals(CopyCompletionErrorReason other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataAccessAuthMode : IEquatable<DataAccessAuthMode>
+    {
+        private readonly string _value;
+
+        private DataAccessAuthMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// When export/upload URL is used, the system checks if the user has an identity in Azure Active Directory and has necessary permissions to export/upload the data. Please refer to aka.ms/DisksAzureADAuth.
+        /// </summary>
+        public static DataAccessAuthMode AzureActiveDirectory { get; } = new DataAccessAuthMode("AzureActiveDirectory");
+        /// <summary>
+        /// No additional authentication would be performed when accessing export/upload URL.
+        /// </summary>
+        public static DataAccessAuthMode None { get; } = new DataAccessAuthMode("None");
+
+        public static bool operator ==(DataAccessAuthMode left, DataAccessAuthMode right) => left.Equals(right);
+        public static bool operator !=(DataAccessAuthMode left, DataAccessAuthMode right) => !left.Equals(right);
+
+        public static explicit operator string(DataAccessAuthMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAccessAuthMode other && Equals(other);
+        public bool Equals(DataAccessAuthMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -228,6 +426,37 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Specifies the disk controller type configured for the VM. &lt;br&gt;&lt;br&gt;NOTE: This property will be set to the default disk controller type if not specified provided virtual machine is being created as a hyperVGeneration: V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. &lt;br&gt;You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. &lt;br&gt;&lt;br&gt; Minimum api-version: 2022-08-01
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskControllerTypes : IEquatable<DiskControllerTypes>
+    {
+        private readonly string _value;
+
+        private DiskControllerTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskControllerTypes SCSI { get; } = new DiskControllerTypes("SCSI");
+        public static DiskControllerTypes NVMe { get; } = new DiskControllerTypes("NVMe");
+
+        public static bool operator ==(DiskControllerTypes left, DiskControllerTypes right) => left.Equals(right);
+        public static bool operator !=(DiskControllerTypes left, DiskControllerTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DiskControllerTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskControllerTypes other && Equals(other);
+        public bool Equals(DiskControllerTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This enumerates the possible sources of a disk's creation.
     /// </summary>
     [EnumType]
@@ -268,6 +497,18 @@ namespace Pulumi.AzureNative.Compute
         /// Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
         /// </summary>
         public static DiskCreateOption Upload { get; } = new DiskCreateOption("Upload");
+        /// <summary>
+        /// Create a new disk by using a deep copy process, where the resource creation is considered complete only after all data has been copied from the source.
+        /// </summary>
+        public static DiskCreateOption CopyStart { get; } = new DiskCreateOption("CopyStart");
+        /// <summary>
+        /// Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+        /// </summary>
+        public static DiskCreateOption ImportSecure { get; } = new DiskCreateOption("ImportSecure");
+        /// <summary>
+        /// Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+        /// </summary>
+        public static DiskCreateOption UploadPreparedSecure { get; } = new DiskCreateOption("UploadPreparedSecure");
 
         public static bool operator ==(DiskCreateOption left, DiskCreateOption right) => left.Equals(right);
         public static bool operator !=(DiskCreateOption left, DiskCreateOption right) => !left.Equals(right);
@@ -391,6 +632,8 @@ namespace Pulumi.AzureNative.Compute
         }
 
         public static DiskEncryptionSetIdentityType SystemAssigned { get; } = new DiskEncryptionSetIdentityType("SystemAssigned");
+        public static DiskEncryptionSetIdentityType UserAssigned { get; } = new DiskEncryptionSetIdentityType("UserAssigned");
+        public static DiskEncryptionSetIdentityType SystemAssigned_UserAssigned { get; } = new DiskEncryptionSetIdentityType("SystemAssigned, UserAssigned");
         public static DiskEncryptionSetIdentityType None { get; } = new DiskEncryptionSetIdentityType("None");
 
         public static bool operator ==(DiskEncryptionSetIdentityType left, DiskEncryptionSetIdentityType right) => left.Equals(right);
@@ -429,6 +672,10 @@ namespace Pulumi.AzureNative.Compute
         /// Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
         /// </summary>
         public static DiskEncryptionSetType EncryptionAtRestWithPlatformAndCustomerKeys { get; } = new DiskEncryptionSetType("EncryptionAtRestWithPlatformAndCustomerKeys");
+        /// <summary>
+        /// Confidential VM supported disk and VM guest state would be encrypted with customer managed key.
+        /// </summary>
+        public static DiskEncryptionSetType ConfidentialVmEncryptedWithCustomerKey { get; } = new DiskEncryptionSetType("ConfidentialVmEncryptedWithCustomerKey");
 
         public static bool operator ==(DiskEncryptionSetType left, DiskEncryptionSetType right) => left.Equals(right);
         public static bool operator !=(DiskEncryptionSetType left, DiskEncryptionSetType right) => !left.Equals(right);
@@ -462,6 +709,18 @@ namespace Pulumi.AzureNative.Compute
         /// Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
         /// </summary>
         public static DiskSecurityTypes TrustedLaunch { get; } = new DiskSecurityTypes("TrustedLaunch");
+        /// <summary>
+        /// Indicates Confidential VM disk with only VM guest state encrypted
+        /// </summary>
+        public static DiskSecurityTypes ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey { get; } = new DiskSecurityTypes("ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey");
+        /// <summary>
+        /// Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a platform managed key
+        /// </summary>
+        public static DiskSecurityTypes ConfidentialVM_DiskEncryptedWithPlatformKey { get; } = new DiskSecurityTypes("ConfidentialVM_DiskEncryptedWithPlatformKey");
+        /// <summary>
+        /// Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a customer managed key
+        /// </summary>
+        public static DiskSecurityTypes ConfidentialVM_DiskEncryptedWithCustomerKey { get; } = new DiskSecurityTypes("ConfidentialVM_DiskEncryptedWithCustomerKey");
 
         public static bool operator ==(DiskSecurityTypes left, DiskSecurityTypes right) => left.Equals(right);
         public static bool operator !=(DiskSecurityTypes left, DiskSecurityTypes right) => !left.Equals(right);
@@ -515,6 +774,10 @@ namespace Pulumi.AzureNative.Compute
         /// Standard SSD zone redundant storage. Best for web servers, lightly used enterprise applications and dev/test that need storage resiliency against zone failures.
         /// </summary>
         public static DiskStorageAccountTypes StandardSSD_ZRS { get; } = new DiskStorageAccountTypes("StandardSSD_ZRS");
+        /// <summary>
+        /// Premium SSD v2 locally redundant storage. Best for production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput.
+        /// </summary>
+        public static DiskStorageAccountTypes PremiumV2_LRS { get; } = new DiskStorageAccountTypes("PremiumV2_LRS");
 
         public static bool operator ==(DiskStorageAccountTypes left, DiskStorageAccountTypes right) => left.Equals(right);
         public static bool operator !=(DiskStorageAccountTypes left, DiskStorageAccountTypes right) => !left.Equals(right);
@@ -603,7 +866,70 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups**
+    /// Specifies the type of the custom action parameter. Possible values are: String, ConfigurationDataBlob or LogOutputBlob
+    /// </summary>
+    [EnumType]
+    public readonly struct GalleryApplicationCustomActionParameterType : IEquatable<GalleryApplicationCustomActionParameterType>
+    {
+        private readonly string _value;
+
+        private GalleryApplicationCustomActionParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GalleryApplicationCustomActionParameterType String { get; } = new GalleryApplicationCustomActionParameterType("String");
+        public static GalleryApplicationCustomActionParameterType ConfigurationDataBlob { get; } = new GalleryApplicationCustomActionParameterType("ConfigurationDataBlob");
+        public static GalleryApplicationCustomActionParameterType LogOutputBlob { get; } = new GalleryApplicationCustomActionParameterType("LogOutputBlob");
+
+        public static bool operator ==(GalleryApplicationCustomActionParameterType left, GalleryApplicationCustomActionParameterType right) => left.Equals(right);
+        public static bool operator !=(GalleryApplicationCustomActionParameterType left, GalleryApplicationCustomActionParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(GalleryApplicationCustomActionParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GalleryApplicationCustomActionParameterType other && Equals(other);
+        public bool Equals(GalleryApplicationCustomActionParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// It is type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct GalleryExtendedLocationType : IEquatable<GalleryExtendedLocationType>
+    {
+        private readonly string _value;
+
+        private GalleryExtendedLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GalleryExtendedLocationType EdgeZone { get; } = new GalleryExtendedLocationType("EdgeZone");
+        public static GalleryExtendedLocationType Unknown { get; } = new GalleryExtendedLocationType("Unknown");
+
+        public static bool operator ==(GalleryExtendedLocationType left, GalleryExtendedLocationType right) => left.Equals(right);
+        public static bool operator !=(GalleryExtendedLocationType left, GalleryExtendedLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(GalleryExtendedLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GalleryExtendedLocationType other && Equals(other);
+        public bool Equals(GalleryExtendedLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups** &lt;br&gt;&lt;br&gt; **Community**
     /// </summary>
     [EnumType]
     public readonly struct GallerySharingPermissionTypes : IEquatable<GallerySharingPermissionTypes>
@@ -617,6 +943,7 @@ namespace Pulumi.AzureNative.Compute
 
         public static GallerySharingPermissionTypes Private { get; } = new GallerySharingPermissionTypes("Private");
         public static GallerySharingPermissionTypes Groups { get; } = new GallerySharingPermissionTypes("Groups");
+        public static GallerySharingPermissionTypes Community { get; } = new GallerySharingPermissionTypes("Community");
 
         public static bool operator ==(GallerySharingPermissionTypes left, GallerySharingPermissionTypes right) => left.Equals(right);
         public static bool operator !=(GallerySharingPermissionTypes left, GallerySharingPermissionTypes right) => !left.Equals(right);
@@ -854,6 +1181,39 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    /// </summary>
+    [EnumType]
+    public readonly struct LinuxVMGuestPatchAutomaticByPlatformRebootSetting : IEquatable<LinuxVMGuestPatchAutomaticByPlatformRebootSetting>
+    {
+        private readonly string _value;
+
+        private LinuxVMGuestPatchAutomaticByPlatformRebootSetting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Unknown { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Unknown");
+        public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting IfRequired { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("IfRequired");
+        public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Never { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Never");
+        public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Always { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Always");
+
+        public static bool operator ==(LinuxVMGuestPatchAutomaticByPlatformRebootSetting left, LinuxVMGuestPatchAutomaticByPlatformRebootSetting right) => left.Equals(right);
+        public static bool operator !=(LinuxVMGuestPatchAutomaticByPlatformRebootSetting left, LinuxVMGuestPatchAutomaticByPlatformRebootSetting right) => !left.Equals(right);
+
+        public static explicit operator string(LinuxVMGuestPatchAutomaticByPlatformRebootSetting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinuxVMGuestPatchAutomaticByPlatformRebootSetting other && Equals(other);
+        public bool Equals(LinuxVMGuestPatchAutomaticByPlatformRebootSetting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
     /// </summary>
     [EnumType]
@@ -956,7 +1316,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// The OS State.
+    /// The OS State. For managed images, use Generalized.
     /// </summary>
     [EnumType]
     public readonly struct OperatingSystemStateTypes : IEquatable<OperatingSystemStateTypes>
@@ -1272,7 +1632,107 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
+    /// Policy for controlling export on the disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// You can generate a SAS URI to access the underlying data of the disk publicly on the internet when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+        /// </summary>
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// You cannot access the underlying data of the disk publicly on the internet even when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+        /// </summary>
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+    /// </summary>
+    [EnumType]
+    public readonly struct RepairAction : IEquatable<RepairAction>
+    {
+        private readonly string _value;
+
+        private RepairAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepairAction Replace { get; } = new RepairAction("Replace");
+        public static RepairAction Restart { get; } = new RepairAction("Restart");
+        public static RepairAction Reimage { get; } = new RepairAction("Reimage");
+
+        public static bool operator ==(RepairAction left, RepairAction right) => left.Equals(right);
+        public static bool operator !=(RepairAction left, RepairAction right) => !left.Equals(right);
+
+        public static explicit operator string(RepairAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepairAction other && Equals(other);
+        public bool Equals(RepairAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationMode : IEquatable<ReplicationMode>
+    {
+        private readonly string _value;
+
+        private ReplicationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationMode Full { get; } = new ReplicationMode("Full");
+        public static ReplicationMode Shallow { get; } = new ReplicationMode("Shallow");
+
+        public static bool operator ==(ReplicationMode left, ReplicationMode right) => left.Equals(right);
+        public static bool operator !=(ReplicationMode left, ReplicationMode right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationMode other && Equals(other);
+        public bool Equals(ReplicationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
     /// </summary>
     [EnumType]
     public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
@@ -1305,7 +1765,38 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+    /// Specifies the EncryptionType of the managed disk. &lt;br&gt; It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. &lt;br&gt;&lt;br&gt; NOTE: It can be set for only Confidential VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityEncryptionTypes : IEquatable<SecurityEncryptionTypes>
+    {
+        private readonly string _value;
+
+        private SecurityEncryptionTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityEncryptionTypes VMGuestStateOnly { get; } = new SecurityEncryptionTypes("VMGuestStateOnly");
+        public static SecurityEncryptionTypes DiskWithVMGuestState { get; } = new SecurityEncryptionTypes("DiskWithVMGuestState");
+
+        public static bool operator ==(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => left.Equals(right);
+        public static bool operator !=(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityEncryptionTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityEncryptionTypes other && Equals(other);
+        public bool Equals(SecurityEncryptionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set.
     /// </summary>
     [EnumType]
     public readonly struct SecurityTypes : IEquatable<SecurityTypes>
@@ -1318,6 +1809,7 @@ namespace Pulumi.AzureNative.Compute
         }
 
         public static SecurityTypes TrustedLaunch { get; } = new SecurityTypes("TrustedLaunch");
+        public static SecurityTypes ConfidentialVM { get; } = new SecurityTypes("ConfidentialVM");
 
         public static bool operator ==(SecurityTypes left, SecurityTypes right) => left.Equals(right);
         public static bool operator !=(SecurityTypes left, SecurityTypes right) => !left.Equals(right);
@@ -1471,7 +1963,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+    /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
     /// </summary>
     [EnumType]
     public readonly struct StorageAccountTypes : IEquatable<StorageAccountTypes>
@@ -1489,6 +1981,7 @@ namespace Pulumi.AzureNative.Compute
         public static StorageAccountTypes UltraSSD_LRS { get; } = new StorageAccountTypes("UltraSSD_LRS");
         public static StorageAccountTypes Premium_ZRS { get; } = new StorageAccountTypes("Premium_ZRS");
         public static StorageAccountTypes StandardSSD_ZRS { get; } = new StorageAccountTypes("StandardSSD_ZRS");
+        public static StorageAccountTypes PremiumV2_LRS { get; } = new StorageAccountTypes("PremiumV2_LRS");
 
         public static bool operator ==(StorageAccountTypes left, StorageAccountTypes right) => left.Equals(right);
         public static bool operator !=(StorageAccountTypes left, StorageAccountTypes right) => !left.Equals(right);
@@ -1848,6 +2341,39 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WindowsPatchAssessmentMode other && Equals(other);
         public bool Equals(WindowsPatchAssessmentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    /// </summary>
+    [EnumType]
+    public readonly struct WindowsVMGuestPatchAutomaticByPlatformRebootSetting : IEquatable<WindowsVMGuestPatchAutomaticByPlatformRebootSetting>
+    {
+        private readonly string _value;
+
+        private WindowsVMGuestPatchAutomaticByPlatformRebootSetting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Unknown { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Unknown");
+        public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting IfRequired { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("IfRequired");
+        public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Never { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Never");
+        public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Always { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Always");
+
+        public static bool operator ==(WindowsVMGuestPatchAutomaticByPlatformRebootSetting left, WindowsVMGuestPatchAutomaticByPlatformRebootSetting right) => left.Equals(right);
+        public static bool operator !=(WindowsVMGuestPatchAutomaticByPlatformRebootSetting left, WindowsVMGuestPatchAutomaticByPlatformRebootSetting right) => !left.Equals(right);
+
+        public static explicit operator string(WindowsVMGuestPatchAutomaticByPlatformRebootSetting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WindowsVMGuestPatchAutomaticByPlatformRebootSetting other && Equals(other);
+        public bool Equals(WindowsVMGuestPatchAutomaticByPlatformRebootSetting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

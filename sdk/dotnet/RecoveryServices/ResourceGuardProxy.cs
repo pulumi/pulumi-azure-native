@@ -10,7 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ResourceGuardProxy")]
     public partial class ResourceGuardProxy : global::Pulumi.CustomResource
@@ -115,6 +116,24 @@ namespace Pulumi.AzureNative.RecoveryServices
     public sealed class ResourceGuardProxyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Optional ETag.
+        /// </summary>
+        [Input("eTag")]
+        public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// Resource location.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// ResourceGuardProxyBaseResource properties
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.ResourceGuardProxyBaseArgs>? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -122,6 +141,18 @@ namespace Pulumi.AzureNative.RecoveryServices
 
         [Input("resourceGuardProxyName")]
         public Input<string>? ResourceGuardProxyName { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the recovery services vault.

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
 {
 
     /// <summary>
-    /// Describes an image source that is an image version in a shared image gallery.
+    /// Describes an image source that is an image version in an Azure Compute Gallery or a Direct Shared Gallery.
     /// </summary>
     public sealed class ImageTemplateSharedImageVersionSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARM resource id of the image version in the shared image gallery
+        /// ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
         /// </summary>
         [Input("imageVersionId", required: true)]
         public Input<string> ImageVersionId { get; set; } = null!;

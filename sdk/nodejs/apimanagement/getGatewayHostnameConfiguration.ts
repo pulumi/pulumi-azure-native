@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get details of a hostname configuration
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
 
@@ -29,7 +29,7 @@ export interface GetGatewayHostnameConfigurationArgs {
      */
     hcId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -55,11 +55,11 @@ export interface GetGatewayHostnameConfigurationResult {
      */
     readonly http2Enabled?: boolean;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -75,13 +75,13 @@ export interface GetGatewayHostnameConfigurationResult {
      */
     readonly tls11Enabled?: boolean;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get details of a hostname configuration
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getGatewayHostnameConfiguration(a, opts))
@@ -97,7 +97,7 @@ export interface GetGatewayHostnameConfigurationOutputArgs {
      */
     hcId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

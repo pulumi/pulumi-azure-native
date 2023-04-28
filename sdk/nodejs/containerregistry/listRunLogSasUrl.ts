@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a link to download the run logs.
- * API Version: 2019-06-01-preview.
+ * API Version: 2019-04-01.
  */
 export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRunLogSasUrlResult> {
 
@@ -38,17 +38,13 @@ export interface ListRunLogSasUrlArgs {
  */
 export interface ListRunLogSasUrlResult {
     /**
-     * The link to logs in registry for a run on a azure container registry.
-     */
-    readonly logArtifactLink?: string;
-    /**
      * The link to logs for a run on a azure container registry.
      */
     readonly logLink?: string;
 }
 /**
  * Gets a link to download the run logs.
- * API Version: 2019-06-01-preview.
+ * API Version: 2019-04-01.
  */
 export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
     return pulumi.output(args).apply((a: any) => listRunLogSasUrl(a, opts))

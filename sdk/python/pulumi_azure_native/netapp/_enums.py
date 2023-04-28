@@ -9,12 +9,18 @@ __all__ = [
     'AvsDataStore',
     'ChownMode',
     'EnableSubvolumes',
+    'EncryptionKeySource',
+    'EncryptionType',
     'EndpointType',
+    'KeySource',
+    'ManagedServiceIdentityType',
     'NetworkFeatures',
     'QosType',
     'ReplicationSchedule',
     'SecurityStyle',
     'ServiceLevel',
+    'SmbAccessBasedEnumeration',
+    'SmbNonBrowsable',
     'Type',
 ]
 
@@ -62,12 +68,64 @@ class EnableSubvolumes(str, Enum):
     """
 
 
+class EncryptionKeySource(str, Enum):
+    """
+    Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+    """
+    MICROSOFT_NET_APP = "Microsoft.NetApp"
+    """
+    Microsoft-managed key encryption
+    """
+    MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
+    """
+    Customer-managed key encryption
+    """
+
+
+class EncryptionType(str, Enum):
+    """
+    Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+    """
+    SINGLE = "Single"
+    """
+    EncryptionType Single, volumes will use single encryption at rest
+    """
+    DOUBLE = "Double"
+    """
+    EncryptionType Double, volumes will use double encryption at rest
+    """
+
+
 class EndpointType(str, Enum):
     """
     Indicates whether the local volume is the source or destination for the Volume Replication
     """
     SRC = "src"
     DST = "dst"
+
+
+class KeySource(str, Enum):
+    """
+    The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+    """
+    MICROSOFT_NET_APP = "Microsoft.NetApp"
+    """
+    Microsoft-managed key encryption
+    """
+    MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
+    """
+    Customer-managed key encryption
+    """
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class NetworkFeatures(str, Enum):
@@ -134,6 +192,34 @@ class ServiceLevel(str, Enum):
     STANDARD_ZRS = "StandardZRS"
     """
     Zone redundant storage service level
+    """
+
+
+class SmbAccessBasedEnumeration(str, Enum):
+    """
+    Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    """
+    DISABLED = "Disabled"
+    """
+    smbAccessBasedEnumeration share setting is disabled
+    """
+    ENABLED = "Enabled"
+    """
+    smbAccessBasedEnumeration share setting is enabled
+    """
+
+
+class SmbNonBrowsable(str, Enum):
+    """
+    Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    """
+    DISABLED = "Disabled"
+    """
+    smbNonBrowsable share setting is disabled
+    """
+    ENABLED = "Enabled"
+    """
+    smbNonBrowsable share setting is enabled
     """
 
 

@@ -11,7 +11,6 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'HybridComputePrivateLinkScopePropertiesArgs',
     'IdentityArgs',
     'LocationDataArgs',
     'MachineExtensionInstanceViewStatusArgs',
@@ -21,36 +20,9 @@ __all__ = [
     'OSProfileLinuxConfigurationArgs',
     'OSProfileWindowsConfigurationArgs',
     'OSProfileArgs',
-    'PrivateEndpointConnectionPropertiesArgs',
-    'PrivateEndpointPropertyArgs',
-    'PrivateLinkServiceConnectionStatePropertyArgs',
     'ServiceStatusesArgs',
     'ServiceStatusArgs',
 ]
-
-@pulumi.input_type
-class HybridComputePrivateLinkScopePropertiesArgs:
-    def __init__(__self__, *,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None):
-        """
-        Properties that define a Azure Arc PrivateLinkScope resource.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        """
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]:
-        """
-        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]):
-        pulumi.set(self, "public_network_access", value)
-
 
 @pulumi.input_type
 class IdentityArgs:
@@ -729,108 +701,6 @@ class OSProfileArgs:
     @windows_configuration.setter
     def windows_configuration(self, value: Optional[pulumi.Input['OSProfileWindowsConfigurationArgs']]):
         pulumi.set(self, "windows_configuration", value)
-
-
-@pulumi.input_type
-class PrivateEndpointConnectionPropertiesArgs:
-    def __init__(__self__, *,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointPropertyArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']] = None):
-        """
-        Properties of a private endpoint connection.
-        :param pulumi.Input['PrivateEndpointPropertyArgs'] private_endpoint: Private endpoint which the connection belongs to.
-        :param pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs'] private_link_service_connection_state: Connection state of the private endpoint connection.
-        """
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointPropertyArgs']]:
-        """
-        Private endpoint which the connection belongs to.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointPropertyArgs']]):
-        pulumi.set(self, "private_endpoint", value)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']]:
-        """
-        Connection state of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']]):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-
-@pulumi.input_type
-class PrivateEndpointPropertyArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Private endpoint which the connection belongs to.
-        :param pulumi.Input[str] id: Resource id of the private endpoint.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource id of the private endpoint.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStatePropertyArgs:
-    def __init__(__self__, *,
-                 description: pulumi.Input[str],
-                 status: pulumi.Input[str]):
-        """
-        State of the private endpoint connection.
-        :param pulumi.Input[str] description: The private link service connection description.
-        :param pulumi.Input[str] status: The private link service connection status.
-        """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Input[str]:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: pulumi.Input[str]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[str]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

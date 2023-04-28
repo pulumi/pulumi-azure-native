@@ -22,7 +22,7 @@ class GetFrontDoorResult:
     """
     Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     """
-    def __init__(__self__, backend_pools=None, backend_pools_settings=None, cname=None, enabled_state=None, friendly_name=None, frontdoor_id=None, frontend_endpoints=None, health_probe_settings=None, id=None, load_balancing_settings=None, location=None, name=None, provisioning_state=None, resource_state=None, routing_rules=None, rules_engines=None, tags=None, type=None):
+    def __init__(__self__, backend_pools=None, backend_pools_settings=None, cname=None, enabled_state=None, extended_properties=None, friendly_name=None, frontdoor_id=None, frontend_endpoints=None, health_probe_settings=None, id=None, load_balancing_settings=None, location=None, name=None, provisioning_state=None, resource_state=None, routing_rules=None, rules_engines=None, tags=None, type=None):
         if backend_pools and not isinstance(backend_pools, list):
             raise TypeError("Expected argument 'backend_pools' to be a list")
         pulumi.set(__self__, "backend_pools", backend_pools)
@@ -35,6 +35,9 @@ class GetFrontDoorResult:
         if enabled_state and not isinstance(enabled_state, str):
             raise TypeError("Expected argument 'enabled_state' to be a str")
         pulumi.set(__self__, "enabled_state", enabled_state)
+        if extended_properties and not isinstance(extended_properties, dict):
+            raise TypeError("Expected argument 'extended_properties' to be a dict")
+        pulumi.set(__self__, "extended_properties", extended_properties)
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
@@ -109,6 +112,14 @@ class GetFrontDoorResult:
         Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Mapping[str, str]:
+        """
+        Key-Value pair representing additional properties for frontdoor.
+        """
+        return pulumi.get(self, "extended_properties")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -233,6 +244,7 @@ class AwaitableGetFrontDoorResult(GetFrontDoorResult):
             backend_pools_settings=self.backend_pools_settings,
             cname=self.cname,
             enabled_state=self.enabled_state,
+            extended_properties=self.extended_properties,
             friendly_name=self.friendly_name,
             frontdoor_id=self.frontdoor_id,
             frontend_endpoints=self.frontend_endpoints,
@@ -254,7 +266,7 @@ def get_front_door(front_door_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontDoorResult:
     """
     Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-    API Version: 2020-05-01.
+    API Version: 2021-06-01.
 
 
     :param str front_door_name: Name of the Front Door which is globally unique.
@@ -271,6 +283,7 @@ def get_front_door(front_door_name: Optional[str] = None,
         backend_pools_settings=__ret__.backend_pools_settings,
         cname=__ret__.cname,
         enabled_state=__ret__.enabled_state,
+        extended_properties=__ret__.extended_properties,
         friendly_name=__ret__.friendly_name,
         frontdoor_id=__ret__.frontdoor_id,
         frontend_endpoints=__ret__.frontend_endpoints,
@@ -293,7 +306,7 @@ def get_front_door_output(front_door_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontDoorResult]:
     """
     Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-    API Version: 2020-05-01.
+    API Version: 2021-06-01.
 
 
     :param str front_door_name: Name of the Front Door which is globally unique.

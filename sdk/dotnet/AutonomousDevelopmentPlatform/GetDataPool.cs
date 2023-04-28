@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     {
         /// <summary>
         /// Gets the properties of a Data Pool
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetDataPoolResult> InvokeAsync(GetDataPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataPoolResult>("azure-native:autonomousdevelopmentplatform:getDataPool", args ?? new GetDataPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of a Data Pool
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetDataPoolResult> Invoke(GetDataPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataPoolResult>("azure-native:autonomousdevelopmentplatform:getDataPool", args ?? new GetDataPoolInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// Resource tags
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 
             Outputs.SystemDataResponse systemData,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             DataPoolId = dataPoolId;
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

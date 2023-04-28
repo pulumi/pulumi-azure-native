@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Extension.
- * API Version: 2021-03-01.
+ * API Version: 2022-11-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualMachineExtension extends pulumi.CustomResource {
     /**
@@ -57,7 +58,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
@@ -66,6 +67,10 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
     public readonly protectedSettings!: pulumi.Output<any | undefined>;
+    /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.KeyVaultSecretReferenceResponse | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -78,6 +83,10 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
      * Json formatted public settings for the extension.
      */
     public readonly settings!: pulumi.Output<any | undefined>;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    public readonly suppressFailures!: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags
      */
@@ -114,9 +123,11 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             resourceInputs["instanceView"] = args ? args.instanceView : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["suppressFailures"] = args ? args.suppressFailures : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
@@ -132,9 +143,11 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protectedSettings"] = undefined /*out*/;
+            resourceInputs["protectedSettingsFromKeyVault"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisher"] = undefined /*out*/;
             resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["suppressFailures"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
@@ -175,6 +188,10 @@ export interface VirtualMachineExtensionArgs {
      */
     protectedSettings?: any;
     /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.KeyVaultSecretReferenceArgs>;
+    /**
      * The name of the extension handler publisher.
      */
     publisher?: pulumi.Input<string>;
@@ -186,6 +203,10 @@ export interface VirtualMachineExtensionArgs {
      * Json formatted public settings for the extension.
      */
     settings?: any;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    suppressFailures?: pulumi.Input<boolean>;
     /**
      * Resource tags
      */

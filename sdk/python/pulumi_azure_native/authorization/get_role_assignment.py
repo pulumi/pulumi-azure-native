@@ -80,7 +80,7 @@ class GetRoleAssignmentResult:
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> Optional[str]:
         """
-        Version of the condition. Currently accepted value is '2.0'
+        Version of the condition. Currently the only accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
 
@@ -218,7 +218,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
     Get a role assignment by scope and name.
-    API Version: 2020-10-01-preview.
+    API Version: 2022-04-01.
 
 
     :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.
@@ -257,7 +257,7 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
     Get a role assignment by scope and name.
-    API Version: 2020-10-01-preview.
+    API Version: 2022-04-01.
 
 
     :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.

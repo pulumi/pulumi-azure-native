@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
         [Input("exportConfiguration")]
         public Input<Inputs.ServiceExportConfigurationInfoArgs>? ExportConfiguration { get; set; }
 
+        /// <summary>
+        /// The settings for the import operation of the service instance.
+        /// </summary>
+        [Input("importConfiguration")]
+        public Input<Inputs.ServiceImportConfigurationInfoArgs>? ImportConfiguration { get; set; }
+
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
 

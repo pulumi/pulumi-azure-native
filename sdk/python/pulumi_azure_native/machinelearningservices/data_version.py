@@ -9,33 +9,44 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
-__all__ = ['DataVersionInitArgs', 'DataVersion']
+__all__ = ['DataVersionArgs', 'DataVersion']
 
 @pulumi.input_type
-class DataVersionInitArgs:
+class DataVersionArgs:
     def __init__(__self__, *,
+                 data_version_base_properties: pulumi.Input[Union['MLTableDataArgs', 'UriFileDataVersionArgs', 'UriFolderDataVersionArgs']],
                  name: pulumi.Input[str],
-                 properties: pulumi.Input['DataVersionArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataVersion resource.
+        :param pulumi.Input[Union['MLTableDataArgs', 'UriFileDataVersionArgs', 'UriFolderDataVersionArgs']] data_version_base_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input['DataVersionArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] version: Version identifier.
         """
+        pulumi.set(__self__, "data_version_base_properties", data_version_base_properties)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="dataVersionBaseProperties")
+    def data_version_base_properties(self) -> pulumi.Input[Union['MLTableDataArgs', 'UriFileDataVersionArgs', 'UriFolderDataVersionArgs']]:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "data_version_base_properties")
+
+    @data_version_base_properties.setter
+    def data_version_base_properties(self, value: pulumi.Input[Union['MLTableDataArgs', 'UriFileDataVersionArgs', 'UriFolderDataVersionArgs']]):
+        pulumi.set(self, "data_version_base_properties", value)
 
     @property
     @pulumi.getter
@@ -48,18 +59,6 @@ class DataVersionInitArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['DataVersionArgs']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['DataVersionArgs']):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -103,20 +102,21 @@ class DataVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_version_base_properties: Optional[pulumi.Input[Union[pulumi.InputType['MLTableDataArgs'], pulumi.InputType['UriFileDataVersionArgs'], pulumi.InputType['UriFolderDataVersionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DataVersionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[pulumi.InputType['MLTableDataArgs'], pulumi.InputType['UriFileDataVersionArgs'], pulumi.InputType['UriFolderDataVersionArgs']]] data_version_base_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input[pulumi.InputType['DataVersionArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: Version identifier.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -125,19 +125,20 @@ class DataVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataVersionInitArgs,
+                 args: DataVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
-        :param DataVersionInitArgs args: The arguments to use to populate this resource's properties.
+        :param DataVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataVersionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -146,8 +147,8 @@ class DataVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_version_base_properties: Optional[pulumi.Input[Union[pulumi.InputType['MLTableDataArgs'], pulumi.InputType['UriFileDataVersionArgs'], pulumi.InputType['UriFolderDataVersionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DataVersionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -158,14 +159,14 @@ class DataVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataVersionInitArgs.__new__(DataVersionInitArgs)
+            __props__ = DataVersionArgs.__new__(DataVersionArgs)
 
+            if data_version_base_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'data_version_base_properties'")
+            __props__.__dict__["data_version_base_properties"] = data_version_base_properties
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -175,7 +176,7 @@ class DataVersion(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:DataVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:DataVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataVersion, __self__).__init__(
             'azure-native:machinelearningservices:DataVersion',
@@ -197,13 +198,21 @@ class DataVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DataVersionInitArgs.__new__(DataVersionInitArgs)
+        __props__ = DataVersionArgs.__new__(DataVersionArgs)
 
+        __props__.__dict__["data_version_base_properties"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DataVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dataVersionBaseProperties")
+    def data_version_base_properties(self) -> pulumi.Output[Any]:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "data_version_base_properties")
 
     @property
     @pulumi.getter
@@ -214,18 +223,10 @@ class DataVersion(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.DataVersionResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

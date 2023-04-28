@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Workload group operations for a sql pool
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
     /**
@@ -167,7 +168,7 @@ export interface SqlPoolWorkloadGroupArgs {
      */
     workloadGroupName?: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

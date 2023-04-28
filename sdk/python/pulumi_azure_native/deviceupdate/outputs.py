@@ -16,6 +16,7 @@ __all__ = [
     'DiagnosticStoragePropertiesResponse',
     'GroupConnectivityInformationResponse',
     'IotHubSettingsResponse',
+    'LocationResponse',
     'ManagedServiceIdentityResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -300,10 +301,6 @@ class IotHubSettingsResponse(dict):
         suggest = None
         if key == "resourceId":
             suggest = "resource_id"
-        elif key == "eventHubConnectionString":
-            suggest = "event_hub_connection_string"
-        elif key == "ioTHubConnectionString":
-            suggest = "io_t_hub_connection_string"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IotHubSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -317,20 +314,12 @@ class IotHubSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_id: str,
-                 event_hub_connection_string: Optional[str] = None,
-                 io_t_hub_connection_string: Optional[str] = None):
+                 resource_id: str):
         """
         Device Update account integration with IoT Hub settings.
         :param str resource_id: IoTHub resource ID
-        :param str event_hub_connection_string: EventHub connection string.
-        :param str io_t_hub_connection_string: IoTHub connection string.
         """
         pulumi.set(__self__, "resource_id", resource_id)
-        if event_hub_connection_string is not None:
-            pulumi.set(__self__, "event_hub_connection_string", event_hub_connection_string)
-        if io_t_hub_connection_string is not None:
-            pulumi.set(__self__, "io_t_hub_connection_string", io_t_hub_connection_string)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -340,21 +329,34 @@ class IotHubSettingsResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    @property
-    @pulumi.getter(name="eventHubConnectionString")
-    def event_hub_connection_string(self) -> Optional[str]:
+
+@pulumi.output_type
+class LocationResponse(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 role: Optional[str] = None):
         """
-        EventHub connection string.
+        :param str role: Whether the location is primary or failover
         """
-        return pulumi.get(self, "event_hub_connection_string")
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if role is None:
+            role = 'Primary'
+        if role is not None:
+            pulumi.set(__self__, "role", role)
 
     @property
-    @pulumi.getter(name="ioTHubConnectionString")
-    def io_t_hub_connection_string(self) -> Optional[str]:
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
         """
-        IoTHub connection string.
+        Whether the location is primary or failover
         """
-        return pulumi.get(self, "io_t_hub_connection_string")
+        return pulumi.get(self, "role")
 
 
 @pulumi.output_type

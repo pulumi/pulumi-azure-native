@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
-    /// API Version: 2021-12-01-preview.
+    /// API Version: 2023-04-01.
+    /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
@@ -29,7 +30,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<Outputs.MonitorPropertiesResponseErrors> Errors { get; private set; } = null!;
 
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// [currently not in use] Managed service identity(user assigned identities)
         /// </summary>
         [Output("identity")]
         public Output<Outputs.UserAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -170,7 +171,7 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string>? AppLocation { get; set; }
 
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// [currently not in use] Managed service identity(user assigned identities)
         /// </summary>
         [Input("identity")]
         public Input<Inputs.UserAssignedServiceIdentityArgs>? Identity { get; set; }

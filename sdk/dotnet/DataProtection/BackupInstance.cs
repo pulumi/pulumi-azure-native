@@ -11,13 +11,14 @@ namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
     /// BackupInstance Resource
-    /// API Version: 2021-01-01.
+    /// API Version: 2023-01-01.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupInstance")]
     public partial class BackupInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name associated with the resource.
+        /// Proxy Resource name associated with the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -35,7 +36,13 @@ namespace Pulumi.AzureNative.DataProtection
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+        /// Proxy Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -106,7 +113,7 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class BackupInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the backup instance
+        /// The name of the backup instance.
         /// </summary>
         [Input("backupInstanceName")]
         public Input<string>? BackupInstanceName { get; set; }
@@ -118,10 +125,22 @@ namespace Pulumi.AzureNative.DataProtection
         public Input<Inputs.BackupInstanceArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Proxy Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the backup vault.

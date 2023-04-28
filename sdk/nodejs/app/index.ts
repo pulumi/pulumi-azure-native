@@ -10,6 +10,26 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { ConnectedEnvironmentArgs } from "./connectedEnvironment";
+export type ConnectedEnvironment = import("./connectedEnvironment").ConnectedEnvironment;
+export const ConnectedEnvironment: typeof import("./connectedEnvironment").ConnectedEnvironment = null as any;
+utilities.lazyLoad(exports, ["ConnectedEnvironment"], () => require("./connectedEnvironment"));
+
+export { ConnectedEnvironmentsCertificateArgs } from "./connectedEnvironmentsCertificate";
+export type ConnectedEnvironmentsCertificate = import("./connectedEnvironmentsCertificate").ConnectedEnvironmentsCertificate;
+export const ConnectedEnvironmentsCertificate: typeof import("./connectedEnvironmentsCertificate").ConnectedEnvironmentsCertificate = null as any;
+utilities.lazyLoad(exports, ["ConnectedEnvironmentsCertificate"], () => require("./connectedEnvironmentsCertificate"));
+
+export { ConnectedEnvironmentsDaprComponentArgs } from "./connectedEnvironmentsDaprComponent";
+export type ConnectedEnvironmentsDaprComponent = import("./connectedEnvironmentsDaprComponent").ConnectedEnvironmentsDaprComponent;
+export const ConnectedEnvironmentsDaprComponent: typeof import("./connectedEnvironmentsDaprComponent").ConnectedEnvironmentsDaprComponent = null as any;
+utilities.lazyLoad(exports, ["ConnectedEnvironmentsDaprComponent"], () => require("./connectedEnvironmentsDaprComponent"));
+
+export { ConnectedEnvironmentsStorageArgs } from "./connectedEnvironmentsStorage";
+export type ConnectedEnvironmentsStorage = import("./connectedEnvironmentsStorage").ConnectedEnvironmentsStorage;
+export const ConnectedEnvironmentsStorage: typeof import("./connectedEnvironmentsStorage").ConnectedEnvironmentsStorage = null as any;
+utilities.lazyLoad(exports, ["ConnectedEnvironmentsStorage"], () => require("./connectedEnvironmentsStorage"));
+
 export { ContainerAppArgs } from "./containerApp";
 export type ContainerApp = import("./containerApp").ContainerApp;
 export const ContainerApp: typeof import("./containerApp").ContainerApp = null as any;
@@ -35,10 +55,35 @@ export const getCertificate: typeof import("./getCertificate").getCertificate = 
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
+export { GetConnectedEnvironmentArgs, GetConnectedEnvironmentResult, GetConnectedEnvironmentOutputArgs } from "./getConnectedEnvironment";
+export const getConnectedEnvironment: typeof import("./getConnectedEnvironment").getConnectedEnvironment = null as any;
+export const getConnectedEnvironmentOutput: typeof import("./getConnectedEnvironment").getConnectedEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedEnvironment","getConnectedEnvironmentOutput"], () => require("./getConnectedEnvironment"));
+
+export { GetConnectedEnvironmentsCertificateArgs, GetConnectedEnvironmentsCertificateResult, GetConnectedEnvironmentsCertificateOutputArgs } from "./getConnectedEnvironmentsCertificate";
+export const getConnectedEnvironmentsCertificate: typeof import("./getConnectedEnvironmentsCertificate").getConnectedEnvironmentsCertificate = null as any;
+export const getConnectedEnvironmentsCertificateOutput: typeof import("./getConnectedEnvironmentsCertificate").getConnectedEnvironmentsCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedEnvironmentsCertificate","getConnectedEnvironmentsCertificateOutput"], () => require("./getConnectedEnvironmentsCertificate"));
+
+export { GetConnectedEnvironmentsDaprComponentArgs, GetConnectedEnvironmentsDaprComponentResult, GetConnectedEnvironmentsDaprComponentOutputArgs } from "./getConnectedEnvironmentsDaprComponent";
+export const getConnectedEnvironmentsDaprComponent: typeof import("./getConnectedEnvironmentsDaprComponent").getConnectedEnvironmentsDaprComponent = null as any;
+export const getConnectedEnvironmentsDaprComponentOutput: typeof import("./getConnectedEnvironmentsDaprComponent").getConnectedEnvironmentsDaprComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedEnvironmentsDaprComponent","getConnectedEnvironmentsDaprComponentOutput"], () => require("./getConnectedEnvironmentsDaprComponent"));
+
+export { GetConnectedEnvironmentsStorageArgs, GetConnectedEnvironmentsStorageResult, GetConnectedEnvironmentsStorageOutputArgs } from "./getConnectedEnvironmentsStorage";
+export const getConnectedEnvironmentsStorage: typeof import("./getConnectedEnvironmentsStorage").getConnectedEnvironmentsStorage = null as any;
+export const getConnectedEnvironmentsStorageOutput: typeof import("./getConnectedEnvironmentsStorage").getConnectedEnvironmentsStorageOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectedEnvironmentsStorage","getConnectedEnvironmentsStorageOutput"], () => require("./getConnectedEnvironmentsStorage"));
+
 export { GetContainerAppArgs, GetContainerAppResult, GetContainerAppOutputArgs } from "./getContainerApp";
 export const getContainerApp: typeof import("./getContainerApp").getContainerApp = null as any;
 export const getContainerAppOutput: typeof import("./getContainerApp").getContainerAppOutput = null as any;
 utilities.lazyLoad(exports, ["getContainerApp","getContainerAppOutput"], () => require("./getContainerApp"));
+
+export { GetContainerAppAuthTokenArgs, GetContainerAppAuthTokenResult, GetContainerAppAuthTokenOutputArgs } from "./getContainerAppAuthToken";
+export const getContainerAppAuthToken: typeof import("./getContainerAppAuthToken").getContainerAppAuthToken = null as any;
+export const getContainerAppAuthTokenOutput: typeof import("./getContainerAppAuthToken").getContainerAppAuthTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerAppAuthToken","getContainerAppAuthTokenOutput"], () => require("./getContainerAppAuthToken"));
 
 export { GetContainerAppsAuthConfigArgs, GetContainerAppsAuthConfigResult, GetContainerAppsAuthConfigOutputArgs } from "./getContainerAppsAuthConfig";
 export const getContainerAppsAuthConfig: typeof import("./getContainerAppsAuthConfig").getContainerAppsAuthConfig = null as any;
@@ -60,10 +105,20 @@ export const getManagedEnvironment: typeof import("./getManagedEnvironment").get
 export const getManagedEnvironmentOutput: typeof import("./getManagedEnvironment").getManagedEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedEnvironment","getManagedEnvironmentOutput"], () => require("./getManagedEnvironment"));
 
+export { GetManagedEnvironmentAuthTokenArgs, GetManagedEnvironmentAuthTokenResult, GetManagedEnvironmentAuthTokenOutputArgs } from "./getManagedEnvironmentAuthToken";
+export const getManagedEnvironmentAuthToken: typeof import("./getManagedEnvironmentAuthToken").getManagedEnvironmentAuthToken = null as any;
+export const getManagedEnvironmentAuthTokenOutput: typeof import("./getManagedEnvironmentAuthToken").getManagedEnvironmentAuthTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedEnvironmentAuthToken","getManagedEnvironmentAuthTokenOutput"], () => require("./getManagedEnvironmentAuthToken"));
+
 export { GetManagedEnvironmentsStorageArgs, GetManagedEnvironmentsStorageResult, GetManagedEnvironmentsStorageOutputArgs } from "./getManagedEnvironmentsStorage";
 export const getManagedEnvironmentsStorage: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorage = null as any;
 export const getManagedEnvironmentsStorageOutput: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorageOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedEnvironmentsStorage","getManagedEnvironmentsStorageOutput"], () => require("./getManagedEnvironmentsStorage"));
+
+export { ListConnectedEnvironmentsDaprComponentSecretsArgs, ListConnectedEnvironmentsDaprComponentSecretsResult, ListConnectedEnvironmentsDaprComponentSecretsOutputArgs } from "./listConnectedEnvironmentsDaprComponentSecrets";
+export const listConnectedEnvironmentsDaprComponentSecrets: typeof import("./listConnectedEnvironmentsDaprComponentSecrets").listConnectedEnvironmentsDaprComponentSecrets = null as any;
+export const listConnectedEnvironmentsDaprComponentSecretsOutput: typeof import("./listConnectedEnvironmentsDaprComponentSecrets").listConnectedEnvironmentsDaprComponentSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listConnectedEnvironmentsDaprComponentSecrets","listConnectedEnvironmentsDaprComponentSecretsOutput"], () => require("./listConnectedEnvironmentsDaprComponentSecrets"));
 
 export { ListContainerAppCustomHostNameAnalysisArgs, ListContainerAppCustomHostNameAnalysisResult, ListContainerAppCustomHostNameAnalysisOutputArgs } from "./listContainerAppCustomHostNameAnalysis";
 export const listContainerAppCustomHostNameAnalysis: typeof import("./listContainerAppCustomHostNameAnalysis").listContainerAppCustomHostNameAnalysis = null as any;
@@ -99,12 +154,14 @@ import * as v20220101preview from "./v20220101preview";
 import * as v20220301 from "./v20220301";
 import * as v20220601preview from "./v20220601preview";
 import * as v20221001 from "./v20221001";
+import * as v20221101preview from "./v20221101preview";
 
 export {
     v20220101preview,
     v20220301,
     v20220601preview,
     v20221001,
+    v20221101preview,
 };
 
 const _module = {
@@ -113,6 +170,14 @@ const _module = {
         switch (type) {
             case "azure-native:app:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "azure-native:app:ConnectedEnvironment":
+                return new ConnectedEnvironment(name, <any>undefined, { urn })
+            case "azure-native:app:ConnectedEnvironmentsCertificate":
+                return new ConnectedEnvironmentsCertificate(name, <any>undefined, { urn })
+            case "azure-native:app:ConnectedEnvironmentsDaprComponent":
+                return new ConnectedEnvironmentsDaprComponent(name, <any>undefined, { urn })
+            case "azure-native:app:ConnectedEnvironmentsStorage":
+                return new ConnectedEnvironmentsStorage(name, <any>undefined, { urn })
             case "azure-native:app:ContainerApp":
                 return new ContainerApp(name, <any>undefined, { urn })
             case "azure-native:app:ContainerAppsAuthConfig":

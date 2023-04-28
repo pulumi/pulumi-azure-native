@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified replication.
- * API Version: 2019-05-01.
+ * API Version: 2022-12-01.
  */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
 
@@ -31,7 +31,7 @@ export interface GetReplicationArgs {
      */
     replicationName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -57,9 +57,17 @@ export interface GetReplicationResult {
      */
     readonly provisioningState: string;
     /**
+     * Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+     */
+    readonly regionEndpointEnabled?: boolean;
+    /**
      * The status of the replication at the time the operation was called.
      */
     readonly status: outputs.containerregistry.StatusResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.containerregistry.SystemDataResponse;
     /**
      * The tags of the resource.
      */
@@ -68,10 +76,14 @@ export interface GetReplicationResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * Whether or not zone redundancy is enabled for this container registry replication
+     */
+    readonly zoneRedundancy?: string;
 }
 /**
  * Gets the properties of the specified replication.
- * API Version: 2019-05-01.
+ * API Version: 2022-12-01.
  */
 export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
     return pulumi.output(args).apply((a: any) => getReplication(a, opts))
@@ -87,7 +99,7 @@ export interface GetReplicationOutputArgs {
      */
     replicationName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

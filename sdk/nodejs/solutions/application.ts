@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Information about managed application.
- * API Version: 2019-07-01.
+ * API Version: 2021-07-01.
+ * Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -123,6 +124,10 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly supportUrls!: pulumi.Output<outputs.solutions.ApplicationPackageSupportUrlsResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.solutions.SystemDataResponse>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -176,6 +181,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisherTenantId"] = undefined /*out*/;
             resourceInputs["supportUrls"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedBy"] = undefined /*out*/;
         } else {
@@ -200,6 +206,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["publisherTenantId"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["supportUrls"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedBy"] = undefined /*out*/;

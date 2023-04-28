@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Router Peering resource.
-    /// API Version: 2022-01-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualRouterPeering")]
     public partial class VirtualRouterPeering : global::Pulumi.CustomResource

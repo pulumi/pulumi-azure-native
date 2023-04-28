@@ -12,25 +12,98 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DistributeVersionerLatestResponse',
+    'DistributeVersionerSourceResponse',
     'ImageTemplateFileCustomizerResponse',
+    'ImageTemplateFileValidatorResponse',
     'ImageTemplateIdentityResponse',
-    'ImageTemplateIdentityResponseUserAssignedIdentities',
     'ImageTemplateLastRunStatusResponse',
     'ImageTemplateManagedImageDistributorResponse',
     'ImageTemplateManagedImageSourceResponse',
     'ImageTemplatePlatformImageSourceResponse',
     'ImageTemplatePowerShellCustomizerResponse',
+    'ImageTemplatePowerShellValidatorResponse',
+    'ImageTemplatePropertiesResponseOptimize',
+    'ImageTemplatePropertiesResponseValidate',
+    'ImageTemplatePropertiesResponseVmBoot',
     'ImageTemplateRestartCustomizerResponse',
     'ImageTemplateSharedImageDistributorResponse',
     'ImageTemplateSharedImageVersionSourceResponse',
     'ImageTemplateShellCustomizerResponse',
+    'ImageTemplateShellValidatorResponse',
     'ImageTemplateVhdDistributorResponse',
     'ImageTemplateVmProfileResponse',
     'ImageTemplateWindowsUpdateCustomizerResponse',
     'PlatformImagePurchasePlanResponse',
     'ProvisioningErrorResponse',
+    'SystemDataResponse',
+    'TargetRegionResponse',
+    'TriggerStatusResponse',
+    'UserAssignedIdentityResponse',
     'VirtualNetworkConfigResponse',
 ]
+
+@pulumi.output_type
+class DistributeVersionerLatestResponse(dict):
+    """
+    Generates version number that will be latest based on existing version numbers.
+    """
+    def __init__(__self__, *,
+                 scheme: str,
+                 major: Optional[int] = None):
+        """
+        Generates version number that will be latest based on existing version numbers.
+        :param str scheme: Version numbering scheme to be used.
+               Expected value is 'Latest'.
+        :param int major: Major version for the generated version number. Determine what is "latest" based on versions with this value as the major version. -1 is equivalent to leaving it unset.
+        """
+        pulumi.set(__self__, "scheme", 'Latest')
+        if major is None:
+            major = -1
+        if major is not None:
+            pulumi.set(__self__, "major", major)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> str:
+        """
+        Version numbering scheme to be used.
+        Expected value is 'Latest'.
+        """
+        return pulumi.get(self, "scheme")
+
+    @property
+    @pulumi.getter
+    def major(self) -> Optional[int]:
+        """
+        Major version for the generated version number. Determine what is "latest" based on versions with this value as the major version. -1 is equivalent to leaving it unset.
+        """
+        return pulumi.get(self, "major")
+
+
+@pulumi.output_type
+class DistributeVersionerSourceResponse(dict):
+    """
+    Generates version number based on version number of source image
+    """
+    def __init__(__self__, *,
+                 scheme: str):
+        """
+        Generates version number based on version number of source image
+        :param str scheme: Version numbering scheme to be used.
+               Expected value is 'Source'.
+        """
+        pulumi.set(__self__, "scheme", 'Source')
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> str:
+        """
+        Version numbering scheme to be used.
+        Expected value is 'Source'.
+        """
+        return pulumi.get(self, "scheme")
+
 
 @pulumi.output_type
 class ImageTemplateFileCustomizerResponse(dict):
@@ -126,6 +199,99 @@ class ImageTemplateFileCustomizerResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateFileValidatorResponse(dict):
+    """
+    Uploads files required for validation to VMs (Linux, Windows). Corresponds to Packer file provisioner
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sha256Checksum":
+            suggest = "sha256_checksum"
+        elif key == "sourceUri":
+            suggest = "source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateFileValidatorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateFileValidatorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateFileValidatorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 destination: Optional[str] = None,
+                 name: Optional[str] = None,
+                 sha256_checksum: Optional[str] = None,
+                 source_uri: Optional[str] = None):
+        """
+        Uploads files required for validation to VMs (Linux, Windows). Corresponds to Packer file provisioner
+        :param str type: The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+               Expected value is 'File'.
+        :param str destination: The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
+        :param str name: Friendly Name to provide context on what this validation step does
+        :param str sha256_checksum: SHA256 checksum of the file provided in the sourceUri field above
+        :param str source_uri: The URI of the file to be uploaded to the VM for validation. It can be a github link, Azure Storage URI (authorized or SAS), etc
+        """
+        pulumi.set(__self__, "type", 'File')
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sha256_checksum is None:
+            sha256_checksum = ''
+        if sha256_checksum is not None:
+            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+        if source_uri is not None:
+            pulumi.set(__self__, "source_uri", source_uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+        Expected value is 'File'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        """
+        The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly Name to provide context on what this validation step does
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> Optional[str]:
+        """
+        SHA256 checksum of the file provided in the sourceUri field above
+        """
+        return pulumi.get(self, "sha256_checksum")
+
+    @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[str]:
+        """
+        The URI of the file to be uploaded to the VM for validation. It can be a github link, Azure Storage URI (authorized or SAS), etc
+        """
+        return pulumi.get(self, "source_uri")
+
+
+@pulumi.output_type
 class ImageTemplateIdentityResponse(dict):
     """
     Identity for the image template.
@@ -149,11 +315,11 @@ class ImageTemplateIdentityResponse(dict):
 
     def __init__(__self__, *,
                  type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.ImageTemplateIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the image template.
         :param str type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-        :param Mapping[str, 'ImageTemplateIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -170,59 +336,11 @@ class ImageTemplateIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ImageTemplateIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
-        The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class ImageTemplateIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ImageTemplateIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ImageTemplateIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -412,7 +530,7 @@ class ImageTemplateManagedImageDistributorResponse(dict):
 @pulumi.output_type
 class ImageTemplateManagedImageSourceResponse(dict):
     """
-    Describes an image source that is a managed image in customer subscription.
+    Describes an image source that is a managed image in customer subscription. This image must reside in the same subscription and region as the Image Builder template.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -435,7 +553,7 @@ class ImageTemplateManagedImageSourceResponse(dict):
                  image_id: str,
                  type: str):
         """
-        Describes an image source that is a managed image in customer subscription.
+        Describes an image source that is a managed image in customer subscription. This image must reside in the same subscription and region as the Image Builder template.
         :param str image_id: ARM resource id of the managed image in customer subscription
         :param str type: Specifies the type of source image you want to start with.
                Expected value is 'ManagedImage'.
@@ -469,7 +587,9 @@ class ImageTemplatePlatformImageSourceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "planInfo":
+        if key == "exactVersion":
+            suggest = "exact_version"
+        elif key == "planInfo":
             suggest = "plan_info"
 
         if suggest:
@@ -484,6 +604,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 exact_version: str,
                  type: str,
                  offer: Optional[str] = None,
                  plan_info: Optional['outputs.PlatformImagePurchasePlanResponse'] = None,
@@ -492,14 +613,16 @@ class ImageTemplatePlatformImageSourceResponse(dict):
                  version: Optional[str] = None):
         """
         Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        :param str exact_version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
         :param str type: Specifies the type of source image you want to start with.
                Expected value is 'PlatformImage'.
         :param str offer: Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param 'PlatformImagePurchasePlanResponse' plan_info: Optional configuration of purchase plan for platform image.
         :param str publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param str sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        :param str version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
+        :param str version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
         """
+        pulumi.set(__self__, "exact_version", exact_version)
         pulumi.set(__self__, "type", 'PlatformImage')
         if offer is not None:
             pulumi.set(__self__, "offer", offer)
@@ -511,6 +634,14 @@ class ImageTemplatePlatformImageSourceResponse(dict):
             pulumi.set(__self__, "sku", sku)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="exactVersion")
+    def exact_version(self) -> str:
+        """
+        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
+        """
+        return pulumi.get(self, "exact_version")
 
     @property
     @pulumi.getter
@@ -557,7 +688,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
+        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
         """
         return pulumi.get(self, "version")
 
@@ -702,6 +833,280 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplatePowerShellValidatorResponse(dict):
+    """
+    Runs the specified PowerShell script during the validation phase (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runAsSystem":
+            suggest = "run_as_system"
+        elif key == "runElevated":
+            suggest = "run_elevated"
+        elif key == "scriptUri":
+            suggest = "script_uri"
+        elif key == "sha256Checksum":
+            suggest = "sha256_checksum"
+        elif key == "validExitCodes":
+            suggest = "valid_exit_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplatePowerShellValidatorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplatePowerShellValidatorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplatePowerShellValidatorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 inline: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 run_as_system: Optional[bool] = None,
+                 run_elevated: Optional[bool] = None,
+                 script_uri: Optional[str] = None,
+                 sha256_checksum: Optional[str] = None,
+                 valid_exit_codes: Optional[Sequence[int]] = None):
+        """
+        Runs the specified PowerShell script during the validation phase (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+        :param str type: The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+               Expected value is 'PowerShell'.
+        :param Sequence[str] inline: Array of PowerShell commands to execute
+        :param str name: Friendly Name to provide context on what this validation step does
+        :param bool run_as_system: If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+        :param bool run_elevated: If specified, the PowerShell script will be run with elevated privileges
+        :param str script_uri: URI of the PowerShell script to be run for validation. It can be a github link, Azure Storage URI, etc
+        :param str sha256_checksum: SHA256 checksum of the power shell script provided in the scriptUri field above
+        :param Sequence[int] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
+        """
+        pulumi.set(__self__, "type", 'PowerShell')
+        if inline is not None:
+            pulumi.set(__self__, "inline", inline)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if run_as_system is None:
+            run_as_system = False
+        if run_as_system is not None:
+            pulumi.set(__self__, "run_as_system", run_as_system)
+        if run_elevated is None:
+            run_elevated = False
+        if run_elevated is not None:
+            pulumi.set(__self__, "run_elevated", run_elevated)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if sha256_checksum is None:
+            sha256_checksum = ''
+        if sha256_checksum is not None:
+            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+        if valid_exit_codes is not None:
+            pulumi.set(__self__, "valid_exit_codes", valid_exit_codes)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+        Expected value is 'PowerShell'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def inline(self) -> Optional[Sequence[str]]:
+        """
+        Array of PowerShell commands to execute
+        """
+        return pulumi.get(self, "inline")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly Name to provide context on what this validation step does
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runAsSystem")
+    def run_as_system(self) -> Optional[bool]:
+        """
+        If specified, the PowerShell script will be run with elevated privileges using the Local System user. Can only be true when the runElevated field above is set to true.
+        """
+        return pulumi.get(self, "run_as_system")
+
+    @property
+    @pulumi.getter(name="runElevated")
+    def run_elevated(self) -> Optional[bool]:
+        """
+        If specified, the PowerShell script will be run with elevated privileges
+        """
+        return pulumi.get(self, "run_elevated")
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[str]:
+        """
+        URI of the PowerShell script to be run for validation. It can be a github link, Azure Storage URI, etc
+        """
+        return pulumi.get(self, "script_uri")
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> Optional[str]:
+        """
+        SHA256 checksum of the power shell script provided in the scriptUri field above
+        """
+        return pulumi.get(self, "sha256_checksum")
+
+    @property
+    @pulumi.getter(name="validExitCodes")
+    def valid_exit_codes(self) -> Optional[Sequence[int]]:
+        """
+        Valid exit codes for the PowerShell script. [Default: 0]
+        """
+        return pulumi.get(self, "valid_exit_codes")
+
+
+@pulumi.output_type
+class ImageTemplatePropertiesResponseOptimize(dict):
+    """
+    Specifies optimization to be performed on image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmBoot":
+            suggest = "vm_boot"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplatePropertiesResponseOptimize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplatePropertiesResponseOptimize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplatePropertiesResponseOptimize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vm_boot: Optional['outputs.ImageTemplatePropertiesResponseVmBoot'] = None):
+        """
+        Specifies optimization to be performed on image.
+        :param 'ImageTemplatePropertiesResponseVmBoot' vm_boot: Optimization is applied on the image for a faster VM boot.
+        """
+        if vm_boot is not None:
+            pulumi.set(__self__, "vm_boot", vm_boot)
+
+    @property
+    @pulumi.getter(name="vmBoot")
+    def vm_boot(self) -> Optional['outputs.ImageTemplatePropertiesResponseVmBoot']:
+        """
+        Optimization is applied on the image for a faster VM boot.
+        """
+        return pulumi.get(self, "vm_boot")
+
+
+@pulumi.output_type
+class ImageTemplatePropertiesResponseValidate(dict):
+    """
+    Configuration options and list of validations to be performed on the resulting image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continueDistributeOnFailure":
+            suggest = "continue_distribute_on_failure"
+        elif key == "inVMValidations":
+            suggest = "in_vm_validations"
+        elif key == "sourceValidationOnly":
+            suggest = "source_validation_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplatePropertiesResponseValidate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplatePropertiesResponseValidate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplatePropertiesResponseValidate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continue_distribute_on_failure: Optional[bool] = None,
+                 in_vm_validations: Optional[Sequence[Any]] = None,
+                 source_validation_only: Optional[bool] = None):
+        """
+        Configuration options and list of validations to be performed on the resulting image.
+        :param bool continue_distribute_on_failure: If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]
+        :param Sequence[Union['ImageTemplateFileValidatorResponse', 'ImageTemplatePowerShellValidatorResponse', 'ImageTemplateShellValidatorResponse']] in_vm_validations: List of validations to be performed.
+        :param bool source_validation_only: If this field is set to true, the image specified in the 'source' section will directly be validated. No separate build will be run to generate and then validate a customized image.
+        """
+        if continue_distribute_on_failure is None:
+            continue_distribute_on_failure = False
+        if continue_distribute_on_failure is not None:
+            pulumi.set(__self__, "continue_distribute_on_failure", continue_distribute_on_failure)
+        if in_vm_validations is not None:
+            pulumi.set(__self__, "in_vm_validations", in_vm_validations)
+        if source_validation_only is None:
+            source_validation_only = False
+        if source_validation_only is not None:
+            pulumi.set(__self__, "source_validation_only", source_validation_only)
+
+    @property
+    @pulumi.getter(name="continueDistributeOnFailure")
+    def continue_distribute_on_failure(self) -> Optional[bool]:
+        """
+        If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]
+        """
+        return pulumi.get(self, "continue_distribute_on_failure")
+
+    @property
+    @pulumi.getter(name="inVMValidations")
+    def in_vm_validations(self) -> Optional[Sequence[Any]]:
+        """
+        List of validations to be performed.
+        """
+        return pulumi.get(self, "in_vm_validations")
+
+    @property
+    @pulumi.getter(name="sourceValidationOnly")
+    def source_validation_only(self) -> Optional[bool]:
+        """
+        If this field is set to true, the image specified in the 'source' section will directly be validated. No separate build will be run to generate and then validate a customized image.
+        """
+        return pulumi.get(self, "source_validation_only")
+
+
+@pulumi.output_type
+class ImageTemplatePropertiesResponseVmBoot(dict):
+    """
+    Optimization is applied on the image for a faster VM boot.
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        Optimization is applied on the image for a faster VM boot.
+        :param str state: Enabling this field will improve VM boot time by optimizing the final customized image output.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Enabling this field will improve VM boot time by optimizing the final customized image output.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class ImageTemplateRestartCustomizerResponse(dict):
     """
     Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
@@ -797,23 +1202,25 @@ class ImageTemplateRestartCustomizerResponse(dict):
 @pulumi.output_type
 class ImageTemplateSharedImageDistributorResponse(dict):
     """
-    Distribute via Shared Image Gallery.
+    Distribute via Azure Compute Gallery.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "galleryImageId":
             suggest = "gallery_image_id"
-        elif key == "replicationRegions":
-            suggest = "replication_regions"
         elif key == "runOutputName":
             suggest = "run_output_name"
         elif key == "artifactTags":
             suggest = "artifact_tags"
         elif key == "excludeFromLatest":
             suggest = "exclude_from_latest"
+        elif key == "replicationRegions":
+            suggest = "replication_regions"
         elif key == "storageAccountType":
             suggest = "storage_account_type"
+        elif key == "targetRegions":
+            suggest = "target_regions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ImageTemplateSharedImageDistributorResponse. Access the value via the '{suggest}' property getter instead.")
@@ -828,25 +1235,28 @@ class ImageTemplateSharedImageDistributorResponse(dict):
 
     def __init__(__self__, *,
                  gallery_image_id: str,
-                 replication_regions: Sequence[str],
                  run_output_name: str,
                  type: str,
                  artifact_tags: Optional[Mapping[str, str]] = None,
                  exclude_from_latest: Optional[bool] = None,
-                 storage_account_type: Optional[str] = None):
+                 replication_regions: Optional[Sequence[str]] = None,
+                 storage_account_type: Optional[str] = None,
+                 target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None,
+                 versioning: Optional[Any] = None):
         """
-        Distribute via Shared Image Gallery.
-        :param str gallery_image_id: Resource Id of the Shared Image Gallery image
-        :param Sequence[str] replication_regions: A list of regions that the image will be replicated to
+        Distribute via Azure Compute Gallery.
+        :param str gallery_image_id: Resource Id of the Azure Compute Gallery image
         :param str run_output_name: The name to be used for the associated RunOutput.
         :param str type: Type of distribution.
                Expected value is 'SharedImage'.
         :param Mapping[str, str] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         :param bool exclude_from_latest: Flag that indicates whether created image version should be excluded from latest. Omit to use the default (false).
-        :param str storage_account_type: Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+        :param Sequence[str] replication_regions: [Deprecated] A list of regions that the image will be replicated to. This list can be specified only if targetRegions is not specified. This field is deprecated - use targetRegions instead.
+        :param str storage_account_type: [Deprecated] Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS). This field can be specified only if replicationRegions is specified. This field is deprecated - use targetRegions instead.
+        :param Sequence['TargetRegionResponse'] target_regions: The target regions where the distributed Image Version is going to be replicated to. This object supersedes replicationRegions and can be specified only if replicationRegions is not specified.
+        :param Union['DistributeVersionerLatestResponse', 'DistributeVersionerSourceResponse'] versioning: Describes how to generate new x.y.z version number for distribution.
         """
         pulumi.set(__self__, "gallery_image_id", gallery_image_id)
-        pulumi.set(__self__, "replication_regions", replication_regions)
         pulumi.set(__self__, "run_output_name", run_output_name)
         pulumi.set(__self__, "type", 'SharedImage')
         if artifact_tags is not None:
@@ -855,24 +1265,22 @@ class ImageTemplateSharedImageDistributorResponse(dict):
             exclude_from_latest = False
         if exclude_from_latest is not None:
             pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+        if replication_regions is not None:
+            pulumi.set(__self__, "replication_regions", replication_regions)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if target_regions is not None:
+            pulumi.set(__self__, "target_regions", target_regions)
+        if versioning is not None:
+            pulumi.set(__self__, "versioning", versioning)
 
     @property
     @pulumi.getter(name="galleryImageId")
     def gallery_image_id(self) -> str:
         """
-        Resource Id of the Shared Image Gallery image
+        Resource Id of the Azure Compute Gallery image
         """
         return pulumi.get(self, "gallery_image_id")
-
-    @property
-    @pulumi.getter(name="replicationRegions")
-    def replication_regions(self) -> Sequence[str]:
-        """
-        A list of regions that the image will be replicated to
-        """
-        return pulumi.get(self, "replication_regions")
 
     @property
     @pulumi.getter(name="runOutputName")
@@ -908,23 +1316,49 @@ class ImageTemplateSharedImageDistributorResponse(dict):
         return pulumi.get(self, "exclude_from_latest")
 
     @property
+    @pulumi.getter(name="replicationRegions")
+    def replication_regions(self) -> Optional[Sequence[str]]:
+        """
+        [Deprecated] A list of regions that the image will be replicated to. This list can be specified only if targetRegions is not specified. This field is deprecated - use targetRegions instead.
+        """
+        return pulumi.get(self, "replication_regions")
+
+    @property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[str]:
         """
-        Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+        [Deprecated] Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS). This field can be specified only if replicationRegions is specified. This field is deprecated - use targetRegions instead.
         """
         return pulumi.get(self, "storage_account_type")
+
+    @property
+    @pulumi.getter(name="targetRegions")
+    def target_regions(self) -> Optional[Sequence['outputs.TargetRegionResponse']]:
+        """
+        The target regions where the distributed Image Version is going to be replicated to. This object supersedes replicationRegions and can be specified only if replicationRegions is not specified.
+        """
+        return pulumi.get(self, "target_regions")
+
+    @property
+    @pulumi.getter
+    def versioning(self) -> Optional[Any]:
+        """
+        Describes how to generate new x.y.z version number for distribution.
+        """
+        return pulumi.get(self, "versioning")
 
 
 @pulumi.output_type
 class ImageTemplateSharedImageVersionSourceResponse(dict):
     """
-    Describes an image source that is an image version in a shared image gallery.
+    Describes an image source that is an image version in an Azure Compute Gallery or a Direct Shared Gallery.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "imageVersionId":
+        if key == "exactVersion":
+            suggest = "exact_version"
+        elif key == "imageVersionId":
             suggest = "image_version_id"
 
         if suggest:
@@ -939,22 +1373,33 @@ class ImageTemplateSharedImageVersionSourceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 exact_version: str,
                  image_version_id: str,
                  type: str):
         """
-        Describes an image source that is an image version in a shared image gallery.
-        :param str image_version_id: ARM resource id of the image version in the shared image gallery
+        Describes an image source that is an image version in an Azure Compute Gallery or a Direct Shared Gallery.
+        :param str exact_version: Exact ARM resource id of the image version. This readonly field differs from the image version Id in 'imageVersionId' only if the version name specified in 'imageVersionId' field is 'latest'.
+        :param str image_version_id: ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
         :param str type: Specifies the type of source image you want to start with.
                Expected value is 'SharedImageVersion'.
         """
+        pulumi.set(__self__, "exact_version", exact_version)
         pulumi.set(__self__, "image_version_id", image_version_id)
         pulumi.set(__self__, "type", 'SharedImageVersion')
+
+    @property
+    @pulumi.getter(name="exactVersion")
+    def exact_version(self) -> str:
+        """
+        Exact ARM resource id of the image version. This readonly field differs from the image version Id in 'imageVersionId' only if the version name specified in 'imageVersionId' field is 'latest'.
+        """
+        return pulumi.get(self, "exact_version")
 
     @property
     @pulumi.getter(name="imageVersionId")
     def image_version_id(self) -> str:
         """
-        ARM resource id of the image version in the shared image gallery
+        ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
         """
         return pulumi.get(self, "image_version_id")
 
@@ -1062,6 +1507,99 @@ class ImageTemplateShellCustomizerResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateShellValidatorResponse(dict):
+    """
+    Runs the specified shell script during the validation phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptUri":
+            suggest = "script_uri"
+        elif key == "sha256Checksum":
+            suggest = "sha256_checksum"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateShellValidatorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateShellValidatorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateShellValidatorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 inline: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 script_uri: Optional[str] = None,
+                 sha256_checksum: Optional[str] = None):
+        """
+        Runs the specified shell script during the validation phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+        :param str type: The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+               Expected value is 'Shell'.
+        :param Sequence[str] inline: Array of shell commands to execute
+        :param str name: Friendly Name to provide context on what this validation step does
+        :param str script_uri: URI of the shell script to be run for validation. It can be a github link, Azure Storage URI, etc
+        :param str sha256_checksum: SHA256 checksum of the shell script provided in the scriptUri field
+        """
+        pulumi.set(__self__, "type", 'Shell')
+        if inline is not None:
+            pulumi.set(__self__, "inline", inline)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if sha256_checksum is None:
+            sha256_checksum = ''
+        if sha256_checksum is not None:
+            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of validation you want to use on the Image. For example, "Shell" can be shell validation
+        Expected value is 'Shell'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def inline(self) -> Optional[Sequence[str]]:
+        """
+        Array of shell commands to execute
+        """
+        return pulumi.get(self, "inline")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly Name to provide context on what this validation step does
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[str]:
+        """
+        URI of the shell script to be run for validation. It can be a github link, Azure Storage URI, etc
+        """
+        return pulumi.get(self, "script_uri")
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> Optional[str]:
+        """
+        SHA256 checksum of the shell script provided in the scriptUri field
+        """
+        return pulumi.get(self, "sha256_checksum")
+
+
+@pulumi.output_type
 class ImageTemplateVhdDistributorResponse(dict):
     """
     Distribute via VHD in a storage account.
@@ -1088,18 +1626,22 @@ class ImageTemplateVhdDistributorResponse(dict):
     def __init__(__self__, *,
                  run_output_name: str,
                  type: str,
-                 artifact_tags: Optional[Mapping[str, str]] = None):
+                 artifact_tags: Optional[Mapping[str, str]] = None,
+                 uri: Optional[str] = None):
         """
         Distribute via VHD in a storage account.
         :param str run_output_name: The name to be used for the associated RunOutput.
         :param str type: Type of distribution.
                Expected value is 'VHD'.
         :param Mapping[str, str] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
+        :param str uri: Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
         """
         pulumi.set(__self__, "run_output_name", run_output_name)
         pulumi.set(__self__, "type", 'VHD')
         if artifact_tags is not None:
             pulumi.set(__self__, "artifact_tags", artifact_tags)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter(name="runOutputName")
@@ -1126,17 +1668,27 @@ class ImageTemplateVhdDistributorResponse(dict):
         """
         return pulumi.get(self, "artifact_tags")
 
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
+        """
+        return pulumi.get(self, "uri")
+
 
 @pulumi.output_type
 class ImageTemplateVmProfileResponse(dict):
     """
-    Describes the virtual machine used to build, customize and capture images
+    Describes the virtual machines used to build and validate images
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "osDiskSizeGB":
             suggest = "os_disk_size_gb"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
         elif key == "vmSize":
             suggest = "vm_size"
         elif key == "vnetConfig":
@@ -1155,18 +1707,22 @@ class ImageTemplateVmProfileResponse(dict):
 
     def __init__(__self__, *,
                  os_disk_size_gb: Optional[int] = None,
+                 user_assigned_identities: Optional[Sequence[str]] = None,
                  vm_size: Optional[str] = None,
                  vnet_config: Optional['outputs.VirtualNetworkConfigResponse'] = None):
         """
-        Describes the virtual machine used to build, customize and capture images
+        Describes the virtual machines used to build and validate images
         :param int os_disk_size_gb: Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
+        :param Sequence[str] user_assigned_identities: Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
         :param str vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
-        :param 'VirtualNetworkConfigResponse' vnet_config: Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+        :param 'VirtualNetworkConfigResponse' vnet_config: Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
         """
         if os_disk_size_gb is None:
             os_disk_size_gb = 0
         if os_disk_size_gb is not None:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
         if vm_size is None:
             vm_size = ''
         if vm_size is not None:
@@ -1183,6 +1739,14 @@ class ImageTemplateVmProfileResponse(dict):
         return pulumi.get(self, "os_disk_size_gb")
 
     @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Sequence[str]]:
+        """
+        Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @property
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[str]:
         """
@@ -1194,7 +1758,7 @@ class ImageTemplateVmProfileResponse(dict):
     @pulumi.getter(name="vnetConfig")
     def vnet_config(self) -> Optional['outputs.VirtualNetworkConfigResponse']:
         """
-        Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+        Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
         """
         return pulumi.get(self, "vnet_config")
 
@@ -1245,6 +1809,8 @@ class ImageTemplateWindowsUpdateCustomizerResponse(dict):
             pulumi.set(__self__, "name", name)
         if search_criteria is not None:
             pulumi.set(__self__, "search_criteria", search_criteria)
+        if update_limit is None:
+            update_limit = 0
         if update_limit is not None:
             pulumi.set(__self__, "update_limit", update_limit)
 
@@ -1408,6 +1974,279 @@ class ProvisioningErrorResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TargetRegionResponse(dict):
+    """
+    Describes the target region information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaCount":
+            suggest = "replica_count"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetRegionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetRegionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetRegionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 replica_count: Optional[int] = None,
+                 storage_account_type: Optional[str] = None):
+        """
+        Describes the target region information.
+        :param str name: The name of the region.
+        :param int replica_count: The number of replicas of the Image Version to be created in this region. Omit to use the default (1).
+        :param str storage_account_type: Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
+        """
+        pulumi.set(__self__, "name", name)
+        if replica_count is None:
+            replica_count = 1
+        if replica_count is not None:
+            pulumi.set(__self__, "replica_count", replica_count)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the region.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="replicaCount")
+    def replica_count(self) -> Optional[int]:
+        """
+        The number of replicas of the Image Version to be created in this region. Omit to use the default (1).
+        """
+        return pulumi.get(self, "replica_count")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[str]:
+        """
+        Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
+        """
+        return pulumi.get(self, "storage_account_type")
+
+
+@pulumi.output_type
+class TriggerStatusResponse(dict):
+    """
+    Describes the status of a trigger
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str,
+                 time: str):
+        """
+        Describes the status of a trigger
+        :param str code: The status code.
+        :param str message: The detailed status message, including for alerts and error messages.
+        :param str time: The time of the status.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The status code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The detailed status message, including for alerts and error messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The time of the status.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class VirtualNetworkConfigResponse(dict):
     """
     Virtual Network configuration.
@@ -1415,7 +2254,9 @@ class VirtualNetworkConfigResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "subnetId":
+        if key == "proxyVmSize":
+            suggest = "proxy_vm_size"
+        elif key == "subnetId":
             suggest = "subnet_id"
 
         if suggest:
@@ -1430,13 +2271,27 @@ class VirtualNetworkConfigResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 proxy_vm_size: Optional[str] = None,
                  subnet_id: Optional[str] = None):
         """
         Virtual Network configuration.
+        :param str proxy_vm_size: Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
         :param str subnet_id: Resource id of a pre-existing subnet.
         """
+        if proxy_vm_size is None:
+            proxy_vm_size = ''
+        if proxy_vm_size is not None:
+            pulumi.set(__self__, "proxy_vm_size", proxy_vm_size)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="proxyVmSize")
+    def proxy_vm_size(self) -> Optional[str]:
+        """
+        Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
+        """
+        return pulumi.get(self, "proxy_vm_size")
 
     @property
     @pulumi.getter(name="subnetId")

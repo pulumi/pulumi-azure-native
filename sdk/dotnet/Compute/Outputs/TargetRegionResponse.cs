@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.EncryptionImagesResponse? Encryption;
         /// <summary>
+        /// Contains the flag setting to hide an image when users specify version='latest'
+        /// </summary>
+        public readonly bool? ExcludeFromLatest;
+        /// <summary>
         /// The name of the region.
         /// </summary>
         public readonly string Name;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private TargetRegionResponse(
             Outputs.EncryptionImagesResponse? encryption,
 
+            bool? excludeFromLatest,
+
             string name,
 
             int? regionalReplicaCount,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             string? storageAccountType)
         {
             Encryption = encryption;
+            ExcludeFromLatest = excludeFromLatest;
             Name = name;
             RegionalReplicaCount = regionalReplicaCount;
             StorageAccountType = storageAccountType;

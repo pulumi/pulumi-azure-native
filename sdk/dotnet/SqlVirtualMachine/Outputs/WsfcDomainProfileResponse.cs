@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// </summary>
         public readonly string? ClusterOperatorAccount;
         /// <summary>
+        /// Cluster subnet type.
+        /// </summary>
+        public readonly string? ClusterSubnetType;
+        /// <summary>
         /// Fully qualified name of the domain.
         /// </summary>
         public readonly string? DomainFqdn;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
             string? clusterOperatorAccount,
 
+            string? clusterSubnetType,
+
             string? domainFqdn,
 
             string? fileShareWitnessPath,
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         {
             ClusterBootstrapAccount = clusterBootstrapAccount;
             ClusterOperatorAccount = clusterOperatorAccount;
+            ClusterSubnetType = clusterSubnetType;
             DomainFqdn = domainFqdn;
             FileShareWitnessPath = fileShareWitnessPath;
             OuPath = ouPath;

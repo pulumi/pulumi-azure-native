@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Log Analytics workspace table.
- * API Version: 2021-12-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
 
@@ -71,11 +71,15 @@ export interface GetTableResult {
     /**
      * Search job execution statistics.
      */
-    readonly resultStatistics?: outputs.operationalinsights.ResultStatisticsResponse;
+    readonly resultStatistics: outputs.operationalinsights.ResultStatisticsResponse;
     /**
      * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
      */
     readonly retentionInDays?: number;
+    /**
+     * True - Value originates from workspace retention in days, False - Customer specific.
+     */
+    readonly retentionInDaysAsDefault: boolean;
     /**
      * Table schema.
      */
@@ -93,13 +97,17 @@ export interface GetTableResult {
      */
     readonly totalRetentionInDays?: number;
     /**
+     * True - Value originates from retention in days, False - Customer specific.
+     */
+    readonly totalRetentionInDaysAsDefault: boolean;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a Log Analytics workspace table.
- * API Version: 2021-12-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply((a: any) => getTable(a, opts))

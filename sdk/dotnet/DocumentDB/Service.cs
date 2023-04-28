@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// Properties for the database account.
-    /// API Version: 2021-04-01-preview.
+    /// API Version: 2022-11-15.
+    /// Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -26,7 +27,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Services response resource.
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.DataTransferServiceResourcePropertiesResponse, Outputs.SqlDedicatedGatewayServiceResourcePropertiesResponse>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of Azure resource.
@@ -69,6 +70,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:Service"},
                 },
             };

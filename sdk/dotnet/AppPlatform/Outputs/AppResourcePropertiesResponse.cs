@@ -17,21 +17,33 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class AppResourcePropertiesResponse
     {
         /// <summary>
-        /// Name of the active deployment of the App
+        /// Collection of addons
         /// </summary>
-        public readonly string? ActiveDeploymentName;
+        public readonly ImmutableDictionary<string, object>? AddonConfigs;
         /// <summary>
-        /// Date time when the resource is created
+        /// List of custom persistent disks
         /// </summary>
-        public readonly string CreatedTime;
+        public readonly ImmutableArray<Outputs.CustomPersistentDiskResourceResponse> CustomPersistentDisks;
+        /// <summary>
+        /// Indicate if end to end TLS is enabled.
+        /// </summary>
+        public readonly bool? EnableEndToEndTLS;
         /// <summary>
         /// Fully qualified dns Name.
         /// </summary>
-        public readonly string? Fqdn;
+        public readonly string Fqdn;
         /// <summary>
         /// Indicate if only https is allowed.
         /// </summary>
         public readonly bool? HttpsOnly;
+        /// <summary>
+        /// App ingress settings payload.
+        /// </summary>
+        public readonly Outputs.IngressSettingsResponse? IngressSettings;
+        /// <summary>
+        /// Collection of loaded certificates
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LoadedCertificateResponse> LoadedCertificates;
         /// <summary>
         /// Persistent disk settings
         /// </summary>
@@ -52,16 +64,26 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// URL of the App
         /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// Additional App settings in vnet injection instance
+        /// </summary>
+        public readonly Outputs.AppVNetAddonsResponse? VnetAddons;
 
         [OutputConstructor]
         private AppResourcePropertiesResponse(
-            string? activeDeploymentName,
+            ImmutableDictionary<string, object>? addonConfigs,
 
-            string createdTime,
+            ImmutableArray<Outputs.CustomPersistentDiskResourceResponse> customPersistentDisks,
 
-            string? fqdn,
+            bool? enableEndToEndTLS,
+
+            string fqdn,
 
             bool? httpsOnly,
+
+            Outputs.IngressSettingsResponse? ingressSettings,
+
+            ImmutableArray<Outputs.LoadedCertificateResponse> loadedCertificates,
 
             Outputs.PersistentDiskResponse? persistentDisk,
 
@@ -71,17 +93,23 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             Outputs.TemporaryDiskResponse? temporaryDisk,
 
-            string url)
+            string url,
+
+            Outputs.AppVNetAddonsResponse? vnetAddons)
         {
-            ActiveDeploymentName = activeDeploymentName;
-            CreatedTime = createdTime;
+            AddonConfigs = addonConfigs;
+            CustomPersistentDisks = customPersistentDisks;
+            EnableEndToEndTLS = enableEndToEndTLS;
             Fqdn = fqdn;
             HttpsOnly = httpsOnly;
+            IngressSettings = ingressSettings;
+            LoadedCertificates = loadedCertificates;
             PersistentDisk = persistentDisk;
             ProvisioningState = provisioningState;
             Public = @public;
             TemporaryDisk = temporaryDisk;
             Url = url;
+            VnetAddons = vnetAddons;
         }
     }
 }

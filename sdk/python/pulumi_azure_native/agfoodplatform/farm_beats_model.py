@@ -19,24 +19,32 @@ class FarmBeatsModelArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 sensor_integration: Optional[pulumi.Input['SensorIntegrationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FarmBeatsModel resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
+        :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Property to allow or block public traffic for an Azure FarmBeats resource.
+        :param pulumi.Input['SensorIntegrationArgs'] sensor_integration: Sensor integration request model.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if farm_beats_resource_name is not None:
             pulumi.set(__self__, "farm_beats_resource_name", farm_beats_resource_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if sensor_integration is not None:
+            pulumi.set(__self__, "sensor_integration", sensor_integration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -66,6 +74,18 @@ class FarmBeatsModelArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -77,16 +97,28 @@ class FarmBeatsModelArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
-        The resource model definition representing SKU
+        Property to allow or block public traffic for an Azure FarmBeats resource.
         """
-        return pulumi.get(self, "sku")
+        return pulumi.get(self, "public_network_access")
 
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
-        pulumi.set(self, "sku", value)
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="sensorIntegration")
+    def sensor_integration(self) -> Optional[pulumi.Input['SensorIntegrationArgs']]:
+        """
+        Sensor integration request model.
+        """
+        return pulumi.get(self, "sensor_integration")
+
+    @sensor_integration.setter
+    def sensor_integration(self, value: Optional[pulumi.Input['SensorIntegrationArgs']]):
+        pulumi.set(self, "sensor_integration", value)
 
     @property
     @pulumi.getter
@@ -107,21 +139,26 @@ class FarmBeatsModel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sensor_integration: Optional[pulumi.Input[pulumi.InputType['SensorIntegrationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         FarmBeats ARM Resource.
-        API Version: 2020-05-12-preview.
+        API Version: 2021-09-01-preview.
+        Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Property to allow or block public traffic for an Azure FarmBeats resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The resource model definition representing SKU
+        :param pulumi.Input[pulumi.InputType['SensorIntegrationArgs']] sensor_integration: Sensor integration request model.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -132,7 +169,8 @@ class FarmBeatsModel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         FarmBeats ARM Resource.
-        API Version: 2020-05-12-preview.
+        API Version: 2021-09-01-preview.
+        Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param FarmBeatsModelArgs args: The arguments to use to populate this resource's properties.
@@ -150,9 +188,11 @@ class FarmBeatsModel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sensor_integration: Optional[pulumi.Input[pulumi.InputType['SensorIntegrationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -164,14 +204,17 @@ class FarmBeatsModel(pulumi.CustomResource):
             __props__ = FarmBeatsModelArgs.__new__(FarmBeatsModelArgs)
 
             __props__.__dict__["farm_beats_resource_name"] = farm_beats_resource_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["sku"] = sku
+            __props__.__dict__["sensor_integration"] = sensor_integration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["instance_uri"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -199,15 +242,26 @@ class FarmBeatsModel(pulumi.CustomResource):
 
         __props__ = FarmBeatsModelArgs.__new__(FarmBeatsModelArgs)
 
+        __props__.__dict__["identity"] = None
         __props__.__dict__["instance_uri"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["sku"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["sensor_integration"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return FarmBeatsModel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="instanceUri")
@@ -234,6 +288,14 @@ class FarmBeatsModel(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output['outputs.PrivateEndpointConnectionResponse']:
+        """
+        The private endpoint connection resource.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -242,18 +304,26 @@ class FarmBeatsModel(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
-        The resource model definition representing SKU
+        Property to allow or block public traffic for an Azure FarmBeats resource.
         """
-        return pulumi.get(self, "sku")
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="sensorIntegration")
+    def sensor_integration(self) -> pulumi.Output[Optional['outputs.SensorIntegrationResponse']]:
+        """
+        Sensor integration request model.
+        """
+        return pulumi.get(self, "sensor_integration")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         /// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         /// Backup is VMAppContainer
-        /// Expected value is 'IaaSVMContainer'.
+        /// Expected value is 'IaasVMContainer'.
         /// </summary>
         public readonly string ContainerType;
         /// <summary>
@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Status of health of the container.
         /// </summary>
         public readonly string? HealthStatus;
+        /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        public readonly string? ProtectableObjectType;
         /// <summary>
         /// Status of registration of the container with the Recovery Services Vault.
         /// </summary>
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? healthStatus,
 
+            string? protectableObjectType,
+
             string? registrationStatus,
 
             string? resourceGroup,
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ContainerType = containerType;
             FriendlyName = friendlyName;
             HealthStatus = healthStatus;
+            ProtectableObjectType = protectableObjectType;
             RegistrationStatus = registrationStatus;
             ResourceGroup = resourceGroup;
             VirtualMachineId = virtualMachineId;

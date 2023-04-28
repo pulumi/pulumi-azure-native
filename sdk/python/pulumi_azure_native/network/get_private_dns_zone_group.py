@@ -99,7 +99,7 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateDnsZoneGroupResult:
     """
     Gets the private dns zone group resource by specified private dns zone group name.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str private_dns_zone_group_name: The name of the private dns zone group.
@@ -128,7 +128,7 @@ def get_private_dns_zone_group_output(private_dns_zone_group_name: Optional[pulu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateDnsZoneGroupResult]:
     """
     Gets the private dns zone group resource by specified private dns zone group name.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str private_dns_zone_group_name: The name of the private dns zone group.

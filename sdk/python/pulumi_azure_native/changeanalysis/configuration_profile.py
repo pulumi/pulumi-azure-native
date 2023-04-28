@@ -99,6 +99,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         """
         A profile object that contains change analysis configuration, such as notification settings, for this subscription
         API Version: 2020-04-01-preview.
+        Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,6 +117,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         """
         A profile object that contains change analysis configuration, such as notification settings, for this subscription
         API Version: 2020-04-01-preview.
+        Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly string? AuthenticationMethod;
         /// <summary>
+        /// Whether Cassandra audit logging is enabled
+        /// </summary>
+        public readonly bool? CassandraAuditLoggingEnabled;
+        /// <summary>
         /// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
         /// </summary>
         public readonly string? CassandraVersion;
@@ -32,6 +36,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
         /// </summary>
         public readonly string? ClusterNameOverride;
+        /// <summary>
+        /// Whether the cluster and associated data centers has been deallocated.
+        /// </summary>
+        public readonly bool? Deallocated;
         /// <summary>
         /// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/&lt;subscription id&gt;/resourceGroups/&lt;resource group&gt;/providers/Microsoft.Network/virtualNetworks/&lt;virtual network&gt;/subnets/&lt;subnet&gt;'
         /// </summary>
@@ -73,11 +81,15 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         private ClusterResourceResponseProperties(
             string? authenticationMethod,
 
+            bool? cassandraAuditLoggingEnabled,
+
             string? cassandraVersion,
 
             ImmutableArray<Outputs.CertificateResponse> clientCertificates,
 
             string? clusterNameOverride,
+
+            bool? deallocated,
 
             string? delegatedManagementSubnetId,
 
@@ -98,9 +110,11 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             ImmutableArray<Outputs.SeedNodeResponse> seedNodes)
         {
             AuthenticationMethod = authenticationMethod;
+            CassandraAuditLoggingEnabled = cassandraAuditLoggingEnabled;
             CassandraVersion = cassandraVersion;
             ClientCertificates = clientCertificates;
             ClusterNameOverride = clusterNameOverride;
+            Deallocated = deallocated;
             DelegatedManagementSubnetId = delegatedManagementSubnetId;
             ExternalGossipCertificates = externalGossipCertificates;
             ExternalSeedNodes = externalSeedNodes;

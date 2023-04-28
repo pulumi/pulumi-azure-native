@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL virtual machine group.
- * API Version: 2017-03-01-preview.
+ * API Version: 2022-02-01.
+ * Previous API Version: 2017-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SqlVirtualMachineGroup extends pulumi.CustomResource {
     /**
@@ -71,6 +72,10 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
      */
     public readonly sqlImageSku!: pulumi.Output<string | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.sqlvirtualmachine.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -109,6 +114,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["scaleType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["clusterConfiguration"] = undefined /*out*/;
@@ -119,6 +125,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
             resourceInputs["scaleType"] = undefined /*out*/;
             resourceInputs["sqlImageOffer"] = undefined /*out*/;
             resourceInputs["sqlImageSku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["wsfcDomainProfile"] = undefined /*out*/;

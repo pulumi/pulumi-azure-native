@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['EventHubAuthorizationRuleArgs', 'EventHubAuthorizationRule']
@@ -109,7 +110,8 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in a List or Get AuthorizationRule operation
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
+        Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +129,8 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get AuthorizationRule operation
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
+        Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param EventHubAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -171,7 +174,9 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             if rights is None and not opts.urn:
                 raise TypeError("Missing required property 'rights'")
             __props__.__dict__["rights"] = rights
+            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20140901:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20150801:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20170401:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20211101:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20221001preview:EventHubAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -197,10 +202,20 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
 
         __props__ = EventHubAuthorizationRuleArgs.__new__(EventHubAuthorizationRuleArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rights"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return EventHubAuthorizationRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -219,10 +234,18 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         return pulumi.get(self, "rights")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

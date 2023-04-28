@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from ._enums import *
+from . import outputs
 from ._inputs import *
 
 __all__ = ['ThreatIntelligenceIndicatorArgs', 'ThreatIntelligenceIndicator']
@@ -16,8 +16,7 @@ __all__ = ['ThreatIntelligenceIndicatorArgs', 'ThreatIntelligenceIndicator']
 @pulumi.input_type
 class ThreatIntelligenceIndicatorArgs:
     def __init__(__self__, *,
-                 kind: pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']],
-                 operational_insights_resource_provider: pulumi.Input[str],
+                 kind: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  confidence: Optional[pulumi.Input[int]] = None,
@@ -51,9 +50,9 @@ class ThreatIntelligenceIndicatorArgs:
                  valid_until: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ThreatIntelligenceIndicator resource.
-        :param pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']] kind: The kind of the entity.
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] kind: The kind of the threat intelligence entity
+               Expected value is 'indicator'.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[int] confidence: Confidence of threat intelligence entity
         :param pulumi.Input[str] created: Created by
@@ -85,8 +84,7 @@ class ThreatIntelligenceIndicatorArgs:
         :param pulumi.Input[str] valid_from: Valid from
         :param pulumi.Input[str] valid_until: Valid until
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
+        pulumi.set(__self__, "kind", 'indicator')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if confidence is not None:
@@ -150,33 +148,22 @@ class ThreatIntelligenceIndicatorArgs:
 
     @property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']]:
+    def kind(self) -> pulumi.Input[str]:
         """
-        The kind of the entity.
+        The kind of the threat intelligence entity
+        Expected value is 'indicator'.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']]):
+    def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter(name="operationalInsightsResourceProvider")
-    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
-        """
-        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        """
-        return pulumi.get(self, "operational_insights_resource_provider")
-
-    @operational_insights_resource_provider.setter
-    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operational_insights_resource_provider", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -563,14 +550,13 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
                  indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  modified: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  pattern_type: Optional[pulumi.Input[str]] = None,
@@ -586,7 +572,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  __props__=None):
         """
         Threat intelligence information object.
-        API Version: 2019-01-01-preview.
+        API Version: 2023-02-01.
+        Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -603,19 +590,19 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]] granular_markings: Granular Markings
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indicator_types: Indicator types of threat intelligence entities
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]] kill_chain_phases: Kill chain phases
-        :param pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']] kind: The kind of the entity.
+        :param pulumi.Input[str] kind: The kind of the threat intelligence entity
+               Expected value is 'indicator'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Labels  of threat intelligence entity
         :param pulumi.Input[str] language: Language of threat intelligence entity
         :param pulumi.Input[str] last_updated_time_utc: Last updated time in UTC
         :param pulumi.Input[str] modified: Modified by
         :param pulumi.Input[str] name: Threat intelligence indicator name field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_marking_refs: Threat intelligence entity object marking references
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]] parsed_pattern: Parsed patterns
         :param pulumi.Input[str] pattern: Pattern of a threat intelligence entity
         :param pulumi.Input[str] pattern_type: Pattern type of a threat intelligence entity
         :param pulumi.Input[str] pattern_version: Pattern version of a threat intelligence entity
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] revoked: Is threat intelligence entity revoked
         :param pulumi.Input[str] source: Source of a threat intelligence entity
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_intelligence_tags: List of tags
@@ -632,7 +619,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Threat intelligence information object.
-        API Version: 2019-01-01-preview.
+        API Version: 2023-02-01.
+        Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ThreatIntelligenceIndicatorArgs args: The arguments to use to populate this resource's properties.
@@ -662,14 +650,13 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
                  indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  modified: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  pattern_type: Optional[pulumi.Input[str]] = None,
@@ -706,16 +693,13 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__.__dict__["kill_chain_phases"] = kill_chain_phases
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
-            __props__.__dict__["kind"] = kind
+            __props__.__dict__["kind"] = 'indicator'
             __props__.__dict__["labels"] = labels
             __props__.__dict__["language"] = language
             __props__.__dict__["last_updated_time_utc"] = last_updated_time_utc
             __props__.__dict__["modified"] = modified
             __props__.__dict__["name"] = name
             __props__.__dict__["object_marking_refs"] = object_marking_refs
-            if operational_insights_resource_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             __props__.__dict__["parsed_pattern"] = parsed_pattern
             __props__.__dict__["pattern"] = pattern
             __props__.__dict__["pattern_type"] = pattern_type
@@ -733,8 +717,9 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ThreatIntelligenceIndicator, __self__).__init__(
             'azure-native:securityinsights:ThreatIntelligenceIndicator',
@@ -761,6 +746,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ThreatIntelligenceIndicator(resource_name, opts=opts, __props__=__props__)
 
@@ -784,15 +770,23 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

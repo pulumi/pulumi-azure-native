@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.ManagedServices.Outputs
 {
 
     /// <summary>
-    /// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
+    /// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
     /// </summary>
     [OutputType]
     public sealed class AuthorizationResponse
     {
         /// <summary>
-        /// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        /// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
         /// </summary>
         public readonly ImmutableArray<string> DelegatedRoleDefinitionIds;
         /// <summary>
-        /// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+        /// The identifier of the Azure Active Directory principal.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// Display name of the principal Id.
+        /// The display name of the Azure Active Directory principal.
         /// </summary>
         public readonly string? PrincipalIdDisplayName;
         /// <summary>
-        /// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+        /// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         /// </summary>
         public readonly string RoleDefinitionId;
 

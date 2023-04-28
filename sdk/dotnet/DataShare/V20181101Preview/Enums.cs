@@ -150,37 +150,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     }
 
     /// <summary>
-    /// Share kind.
-    /// </summary>
-    [EnumType]
-    public readonly struct ShareKind : IEquatable<ShareKind>
-    {
-        private readonly string _value;
-
-        private ShareKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ShareKind CopyBased { get; } = new ShareKind("CopyBased");
-        public static ShareKind InPlace { get; } = new ShareKind("InPlace");
-
-        public static bool operator ==(ShareKind left, ShareKind right) => left.Equals(right);
-        public static bool operator !=(ShareKind left, ShareKind right) => !left.Equals(right);
-
-        public static explicit operator string(ShareKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ShareKind other && Equals(other);
-        public bool Equals(ShareKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Synchronization mode
     /// </summary>
     [EnumType]
@@ -264,36 +233,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TriggerKind other && Equals(other);
         public bool Equals(TriggerKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Identity Type
-    /// </summary>
-    [EnumType]
-    public readonly struct Type : IEquatable<Type>
-    {
-        private readonly string _value;
-
-        private Type(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Type SystemAssigned { get; } = new Type("SystemAssigned");
-
-        public static bool operator ==(Type left, Type right) => left.Equals(right);
-        public static bool operator !=(Type left, Type right) => !left.Equals(right);
-
-        public static explicit operator string(Type value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Type other && Equals(other);
-        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

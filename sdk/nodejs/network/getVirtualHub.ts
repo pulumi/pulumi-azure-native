@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a VirtualHub.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
 
@@ -60,6 +60,10 @@ export interface GetVirtualHubResult {
      */
     readonly expressRouteGateway?: outputs.network.SubResourceResponse;
     /**
+     * The hubRoutingPreference of this VirtualHub.
+     */
+    readonly hubRoutingPreference?: string;
+    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -67,6 +71,10 @@ export interface GetVirtualHubResult {
      * List of references to IpConfigurations.
      */
     readonly ipConfigurations: outputs.network.SubResourceResponse[];
+    /**
+     * Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server.
+     */
+    readonly kind: string;
     /**
      * Resource location.
      */
@@ -80,9 +88,17 @@ export interface GetVirtualHubResult {
      */
     readonly p2SVpnGateway?: outputs.network.SubResourceResponse;
     /**
+     * The preferred gateway to route on-prem traffic
+     */
+    readonly preferredRoutingGateway?: string;
+    /**
      * The provisioning state of the virtual hub resource.
      */
     readonly provisioningState: string;
+    /**
+     * List of references to RouteMaps.
+     */
+    readonly routeMaps: outputs.network.SubResourceResponse[];
     /**
      * The routeTable associated with this virtual hub.
      */
@@ -120,6 +136,10 @@ export interface GetVirtualHubResult {
      */
     readonly virtualRouterAsn?: number;
     /**
+     * The VirtualHub Router autoscale configuration.
+     */
+    readonly virtualRouterAutoScaleConfiguration?: outputs.network.VirtualRouterAutoScaleConfigurationResponse;
+    /**
      * VirtualRouter IPs.
      */
     readonly virtualRouterIps?: string[];
@@ -134,7 +154,7 @@ export interface GetVirtualHubResult {
 }
 /**
  * Retrieves the details of a VirtualHub.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))

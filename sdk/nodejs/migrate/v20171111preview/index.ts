@@ -15,30 +15,10 @@ export const getAssessment: typeof import("./getAssessment").getAssessment = nul
 export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
 
-export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
-export const getGroup: typeof import("./getGroup").getGroup = null as any;
-export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
-
-export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
-export const getProject: typeof import("./getProject").getProject = null as any;
-export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
-utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
-
 export { GetProjectKeysArgs, GetProjectKeysResult, GetProjectKeysOutputArgs } from "./getProjectKeys";
 export const getProjectKeys: typeof import("./getProjectKeys").getProjectKeys = null as any;
 export const getProjectKeysOutput: typeof import("./getProjectKeys").getProjectKeysOutput = null as any;
 utilities.lazyLoad(exports, ["getProjectKeys","getProjectKeysOutput"], () => require("./getProjectKeys"));
-
-export { GroupArgs } from "./group";
-export type Group = import("./group").Group;
-export const Group: typeof import("./group").Group = null as any;
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
-
-export { ProjectArgs } from "./project";
-export type Project = import("./project").Project;
-export const Project: typeof import("./project").Project = null as any;
-utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
 
 // Export enums:
@@ -50,10 +30,6 @@ const _module = {
         switch (type) {
             case "azure-native:migrate/v20171111preview:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20171111preview:Group":
-                return new Group(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20171111preview:Project":
-                return new Project(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

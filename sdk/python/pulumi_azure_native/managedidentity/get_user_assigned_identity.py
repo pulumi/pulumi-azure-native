@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetUserAssignedIdentityResult',
@@ -21,7 +22,7 @@ class GetUserAssignedIdentityResult:
     """
     Describes an identity resource.
     """
-    def __init__(__self__, client_id=None, id=None, location=None, name=None, principal_id=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, client_id=None, id=None, location=None, name=None, principal_id=None, system_data=None, tags=None, tenant_id=None, type=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
@@ -37,6 +38,9 @@ class GetUserAssignedIdentityResult:
         if principal_id and not isinstance(principal_id, str):
             raise TypeError("Expected argument 'principal_id' to be a str")
         pulumi.set(__self__, "principal_id", principal_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -59,7 +63,7 @@ class GetUserAssignedIdentityResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -86,6 +90,14 @@ class GetUserAssignedIdentityResult:
         The id of the service principal object associated with the created identity.
         """
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -123,6 +135,7 @@ class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
             location=self.location,
             name=self.name,
             principal_id=self.principal_id,
+            system_data=self.system_data,
             tags=self.tags,
             tenant_id=self.tenant_id,
             type=self.type)
@@ -133,7 +146,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserAssignedIdentityResult:
     """
     Gets the identity.
-    API Version: 2018-11-30.
+    API Version: 2023-01-31.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
@@ -151,6 +164,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)
@@ -162,7 +176,7 @@ def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAssignedIdentityResult]:
     """
     Gets the identity.
-    API Version: 2018-11-30.
+    API Version: 2023-01-31.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.

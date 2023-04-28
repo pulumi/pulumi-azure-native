@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A DDoS protection plan in a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DdosProtectionPlan extends pulumi.CustomResource {
     /**
@@ -55,6 +56,10 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The list of public IPs associated with the DDoS protection plan resource. This list is read-only.
+     */
+    public /*out*/ readonly publicIPAddresses!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    /**
      * The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
@@ -92,6 +97,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPAddresses"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetworks"] = undefined /*out*/;
@@ -100,6 +106,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPAddresses"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

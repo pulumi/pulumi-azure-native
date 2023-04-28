@@ -10,120 +10,25 @@ export type Api = import("./api").Api;
 export const Api: typeof import("./api").Api = null as any;
 utilities.lazyLoad(exports, ["Api"], () => require("./api"));
 
-export { ApiDiagnosticArgs } from "./apiDiagnostic";
-export type ApiDiagnostic = import("./apiDiagnostic").ApiDiagnostic;
-export const ApiDiagnostic: typeof import("./apiDiagnostic").ApiDiagnostic = null as any;
-utilities.lazyLoad(exports, ["ApiDiagnostic"], () => require("./apiDiagnostic"));
-
 export { ApiDiagnosticLoggerArgs } from "./apiDiagnosticLogger";
 export type ApiDiagnosticLogger = import("./apiDiagnosticLogger").ApiDiagnosticLogger;
 export const ApiDiagnosticLogger: typeof import("./apiDiagnosticLogger").ApiDiagnosticLogger = null as any;
 utilities.lazyLoad(exports, ["ApiDiagnosticLogger"], () => require("./apiDiagnosticLogger"));
-
-export { ApiIssueArgs } from "./apiIssue";
-export type ApiIssue = import("./apiIssue").ApiIssue;
-export const ApiIssue: typeof import("./apiIssue").ApiIssue = null as any;
-utilities.lazyLoad(exports, ["ApiIssue"], () => require("./apiIssue"));
-
-export { ApiIssueAttachmentArgs } from "./apiIssueAttachment";
-export type ApiIssueAttachment = import("./apiIssueAttachment").ApiIssueAttachment;
-export const ApiIssueAttachment: typeof import("./apiIssueAttachment").ApiIssueAttachment = null as any;
-utilities.lazyLoad(exports, ["ApiIssueAttachment"], () => require("./apiIssueAttachment"));
-
-export { ApiIssueCommentArgs } from "./apiIssueComment";
-export type ApiIssueComment = import("./apiIssueComment").ApiIssueComment;
-export const ApiIssueComment: typeof import("./apiIssueComment").ApiIssueComment = null as any;
-utilities.lazyLoad(exports, ["ApiIssueComment"], () => require("./apiIssueComment"));
 
 export { ApiManagementServiceArgs } from "./apiManagementService";
 export type ApiManagementService = import("./apiManagementService").ApiManagementService;
 export const ApiManagementService: typeof import("./apiManagementService").ApiManagementService = null as any;
 utilities.lazyLoad(exports, ["ApiManagementService"], () => require("./apiManagementService"));
 
-export { ApiOperationArgs } from "./apiOperation";
-export type ApiOperation = import("./apiOperation").ApiOperation;
-export const ApiOperation: typeof import("./apiOperation").ApiOperation = null as any;
-utilities.lazyLoad(exports, ["ApiOperation"], () => require("./apiOperation"));
-
-export { ApiOperationPolicyArgs } from "./apiOperationPolicy";
-export type ApiOperationPolicy = import("./apiOperationPolicy").ApiOperationPolicy;
-export const ApiOperationPolicy: typeof import("./apiOperationPolicy").ApiOperationPolicy = null as any;
-utilities.lazyLoad(exports, ["ApiOperationPolicy"], () => require("./apiOperationPolicy"));
-
-export { ApiPolicyArgs } from "./apiPolicy";
-export type ApiPolicy = import("./apiPolicy").ApiPolicy;
-export const ApiPolicy: typeof import("./apiPolicy").ApiPolicy = null as any;
-utilities.lazyLoad(exports, ["ApiPolicy"], () => require("./apiPolicy"));
-
-export { ApiReleaseArgs } from "./apiRelease";
-export type ApiRelease = import("./apiRelease").ApiRelease;
-export const ApiRelease: typeof import("./apiRelease").ApiRelease = null as any;
-utilities.lazyLoad(exports, ["ApiRelease"], () => require("./apiRelease"));
-
-export { ApiSchemaArgs } from "./apiSchema";
-export type ApiSchema = import("./apiSchema").ApiSchema;
-export const ApiSchema: typeof import("./apiSchema").ApiSchema = null as any;
-utilities.lazyLoad(exports, ["ApiSchema"], () => require("./apiSchema"));
-
-export { ApiVersionSetArgs } from "./apiVersionSet";
-export type ApiVersionSet = import("./apiVersionSet").ApiVersionSet;
-export const ApiVersionSet: typeof import("./apiVersionSet").ApiVersionSet = null as any;
-utilities.lazyLoad(exports, ["ApiVersionSet"], () => require("./apiVersionSet"));
-
-export { AuthorizationServerArgs } from "./authorizationServer";
-export type AuthorizationServer = import("./authorizationServer").AuthorizationServer;
-export const AuthorizationServer: typeof import("./authorizationServer").AuthorizationServer = null as any;
-utilities.lazyLoad(exports, ["AuthorizationServer"], () => require("./authorizationServer"));
-
-export { BackendArgs } from "./backend";
-export type Backend = import("./backend").Backend;
-export const Backend: typeof import("./backend").Backend = null as any;
-utilities.lazyLoad(exports, ["Backend"], () => require("./backend"));
-
-export { CertificateArgs } from "./certificate";
-export type Certificate = import("./certificate").Certificate;
-export const Certificate: typeof import("./certificate").Certificate = null as any;
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-
-export { DiagnosticArgs } from "./diagnostic";
-export type Diagnostic = import("./diagnostic").Diagnostic;
-export const Diagnostic: typeof import("./diagnostic").Diagnostic = null as any;
-utilities.lazyLoad(exports, ["Diagnostic"], () => require("./diagnostic"));
-
 export { DiagnosticLoggerArgs } from "./diagnosticLogger";
 export type DiagnosticLogger = import("./diagnosticLogger").DiagnosticLogger;
 export const DiagnosticLogger: typeof import("./diagnosticLogger").DiagnosticLogger = null as any;
 utilities.lazyLoad(exports, ["DiagnosticLogger"], () => require("./diagnosticLogger"));
 
-export { EmailTemplateArgs } from "./emailTemplate";
-export type EmailTemplate = import("./emailTemplate").EmailTemplate;
-export const EmailTemplate: typeof import("./emailTemplate").EmailTemplate = null as any;
-utilities.lazyLoad(exports, ["EmailTemplate"], () => require("./emailTemplate"));
-
 export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
 export const getApi: typeof import("./getApi").getApi = null as any;
 export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
 utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
-
-export { GetApiDiagnosticArgs, GetApiDiagnosticResult, GetApiDiagnosticOutputArgs } from "./getApiDiagnostic";
-export const getApiDiagnostic: typeof import("./getApiDiagnostic").getApiDiagnostic = null as any;
-export const getApiDiagnosticOutput: typeof import("./getApiDiagnostic").getApiDiagnosticOutput = null as any;
-utilities.lazyLoad(exports, ["getApiDiagnostic","getApiDiagnosticOutput"], () => require("./getApiDiagnostic"));
-
-export { GetApiIssueArgs, GetApiIssueResult, GetApiIssueOutputArgs } from "./getApiIssue";
-export const getApiIssue: typeof import("./getApiIssue").getApiIssue = null as any;
-export const getApiIssueOutput: typeof import("./getApiIssue").getApiIssueOutput = null as any;
-utilities.lazyLoad(exports, ["getApiIssue","getApiIssueOutput"], () => require("./getApiIssue"));
-
-export { GetApiIssueAttachmentArgs, GetApiIssueAttachmentResult, GetApiIssueAttachmentOutputArgs } from "./getApiIssueAttachment";
-export const getApiIssueAttachment: typeof import("./getApiIssueAttachment").getApiIssueAttachment = null as any;
-export const getApiIssueAttachmentOutput: typeof import("./getApiIssueAttachment").getApiIssueAttachmentOutput = null as any;
-utilities.lazyLoad(exports, ["getApiIssueAttachment","getApiIssueAttachmentOutput"], () => require("./getApiIssueAttachment"));
-
-export { GetApiIssueCommentArgs, GetApiIssueCommentResult, GetApiIssueCommentOutputArgs } from "./getApiIssueComment";
-export const getApiIssueComment: typeof import("./getApiIssueComment").getApiIssueComment = null as any;
-export const getApiIssueCommentOutput: typeof import("./getApiIssueComment").getApiIssueCommentOutput = null as any;
-utilities.lazyLoad(exports, ["getApiIssueComment","getApiIssueCommentOutput"], () => require("./getApiIssueComment"));
 
 export { GetApiManagementServiceArgs, GetApiManagementServiceResult, GetApiManagementServiceOutputArgs } from "./getApiManagementService";
 export const getApiManagementService: typeof import("./getApiManagementService").getApiManagementService = null as any;
@@ -135,130 +40,10 @@ export const getApiManagementServiceSsoToken: typeof import("./getApiManagementS
 export const getApiManagementServiceSsoTokenOutput: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getApiManagementServiceSsoToken","getApiManagementServiceSsoTokenOutput"], () => require("./getApiManagementServiceSsoToken"));
 
-export { GetApiOperationArgs, GetApiOperationResult, GetApiOperationOutputArgs } from "./getApiOperation";
-export const getApiOperation: typeof import("./getApiOperation").getApiOperation = null as any;
-export const getApiOperationOutput: typeof import("./getApiOperation").getApiOperationOutput = null as any;
-utilities.lazyLoad(exports, ["getApiOperation","getApiOperationOutput"], () => require("./getApiOperation"));
-
-export { GetApiOperationPolicyArgs, GetApiOperationPolicyResult, GetApiOperationPolicyOutputArgs } from "./getApiOperationPolicy";
-export const getApiOperationPolicy: typeof import("./getApiOperationPolicy").getApiOperationPolicy = null as any;
-export const getApiOperationPolicyOutput: typeof import("./getApiOperationPolicy").getApiOperationPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getApiOperationPolicy","getApiOperationPolicyOutput"], () => require("./getApiOperationPolicy"));
-
-export { GetApiPolicyArgs, GetApiPolicyResult, GetApiPolicyOutputArgs } from "./getApiPolicy";
-export const getApiPolicy: typeof import("./getApiPolicy").getApiPolicy = null as any;
-export const getApiPolicyOutput: typeof import("./getApiPolicy").getApiPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getApiPolicy","getApiPolicyOutput"], () => require("./getApiPolicy"));
-
-export { GetApiReleaseArgs, GetApiReleaseResult, GetApiReleaseOutputArgs } from "./getApiRelease";
-export const getApiRelease: typeof import("./getApiRelease").getApiRelease = null as any;
-export const getApiReleaseOutput: typeof import("./getApiRelease").getApiReleaseOutput = null as any;
-utilities.lazyLoad(exports, ["getApiRelease","getApiReleaseOutput"], () => require("./getApiRelease"));
-
-export { GetApiSchemaArgs, GetApiSchemaResult, GetApiSchemaOutputArgs } from "./getApiSchema";
-export const getApiSchema: typeof import("./getApiSchema").getApiSchema = null as any;
-export const getApiSchemaOutput: typeof import("./getApiSchema").getApiSchemaOutput = null as any;
-utilities.lazyLoad(exports, ["getApiSchema","getApiSchemaOutput"], () => require("./getApiSchema"));
-
-export { GetApiVersionSetArgs, GetApiVersionSetResult, GetApiVersionSetOutputArgs } from "./getApiVersionSet";
-export const getApiVersionSet: typeof import("./getApiVersionSet").getApiVersionSet = null as any;
-export const getApiVersionSetOutput: typeof import("./getApiVersionSet").getApiVersionSetOutput = null as any;
-utilities.lazyLoad(exports, ["getApiVersionSet","getApiVersionSetOutput"], () => require("./getApiVersionSet"));
-
-export { GetAuthorizationServerArgs, GetAuthorizationServerResult, GetAuthorizationServerOutputArgs } from "./getAuthorizationServer";
-export const getAuthorizationServer: typeof import("./getAuthorizationServer").getAuthorizationServer = null as any;
-export const getAuthorizationServerOutput: typeof import("./getAuthorizationServer").getAuthorizationServerOutput = null as any;
-utilities.lazyLoad(exports, ["getAuthorizationServer","getAuthorizationServerOutput"], () => require("./getAuthorizationServer"));
-
-export { GetBackendArgs, GetBackendResult, GetBackendOutputArgs } from "./getBackend";
-export const getBackend: typeof import("./getBackend").getBackend = null as any;
-export const getBackendOutput: typeof import("./getBackend").getBackendOutput = null as any;
-utilities.lazyLoad(exports, ["getBackend","getBackendOutput"], () => require("./getBackend"));
-
-export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
-export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
-export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
-utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
-
-export { GetDiagnosticArgs, GetDiagnosticResult, GetDiagnosticOutputArgs } from "./getDiagnostic";
-export const getDiagnostic: typeof import("./getDiagnostic").getDiagnostic = null as any;
-export const getDiagnosticOutput: typeof import("./getDiagnostic").getDiagnosticOutput = null as any;
-utilities.lazyLoad(exports, ["getDiagnostic","getDiagnosticOutput"], () => require("./getDiagnostic"));
-
-export { GetEmailTemplateArgs, GetEmailTemplateResult, GetEmailTemplateOutputArgs } from "./getEmailTemplate";
-export const getEmailTemplate: typeof import("./getEmailTemplate").getEmailTemplate = null as any;
-export const getEmailTemplateOutput: typeof import("./getEmailTemplate").getEmailTemplateOutput = null as any;
-utilities.lazyLoad(exports, ["getEmailTemplate","getEmailTemplateOutput"], () => require("./getEmailTemplate"));
-
-export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
-export const getGroup: typeof import("./getGroup").getGroup = null as any;
-export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
-
-export { GetIdentityProviderArgs, GetIdentityProviderResult, GetIdentityProviderOutputArgs } from "./getIdentityProvider";
-export const getIdentityProvider: typeof import("./getIdentityProvider").getIdentityProvider = null as any;
-export const getIdentityProviderOutput: typeof import("./getIdentityProvider").getIdentityProviderOutput = null as any;
-utilities.lazyLoad(exports, ["getIdentityProvider","getIdentityProviderOutput"], () => require("./getIdentityProvider"));
-
 export { GetLoggerArgs, GetLoggerResult, GetLoggerOutputArgs } from "./getLogger";
 export const getLogger: typeof import("./getLogger").getLogger = null as any;
 export const getLoggerOutput: typeof import("./getLogger").getLoggerOutput = null as any;
 utilities.lazyLoad(exports, ["getLogger","getLoggerOutput"], () => require("./getLogger"));
-
-export { GetOpenIdConnectProviderArgs, GetOpenIdConnectProviderResult, GetOpenIdConnectProviderOutputArgs } from "./getOpenIdConnectProvider";
-export const getOpenIdConnectProvider: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProvider = null as any;
-export const getOpenIdConnectProviderOutput: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProviderOutput = null as any;
-utilities.lazyLoad(exports, ["getOpenIdConnectProvider","getOpenIdConnectProviderOutput"], () => require("./getOpenIdConnectProvider"));
-
-export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
-export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
-export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
-
-export { GetProductArgs, GetProductResult, GetProductOutputArgs } from "./getProduct";
-export const getProduct: typeof import("./getProduct").getProduct = null as any;
-export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
-utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
-
-export { GetProductPolicyArgs, GetProductPolicyResult, GetProductPolicyOutputArgs } from "./getProductPolicy";
-export const getProductPolicy: typeof import("./getProductPolicy").getProductPolicy = null as any;
-export const getProductPolicyOutput: typeof import("./getProductPolicy").getProductPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getProductPolicy","getProductPolicyOutput"], () => require("./getProductPolicy"));
-
-export { GetPropertyArgs, GetPropertyResult, GetPropertyOutputArgs } from "./getProperty";
-export const getProperty: typeof import("./getProperty").getProperty = null as any;
-export const getPropertyOutput: typeof import("./getProperty").getPropertyOutput = null as any;
-utilities.lazyLoad(exports, ["getProperty","getPropertyOutput"], () => require("./getProperty"));
-
-export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
-export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
-export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
-
-export { GetTagArgs, GetTagResult, GetTagOutputArgs } from "./getTag";
-export const getTag: typeof import("./getTag").getTag = null as any;
-export const getTagOutput: typeof import("./getTag").getTagOutput = null as any;
-utilities.lazyLoad(exports, ["getTag","getTagOutput"], () => require("./getTag"));
-
-export { GetTagByApiArgs, GetTagByApiResult, GetTagByApiOutputArgs } from "./getTagByApi";
-export const getTagByApi: typeof import("./getTagByApi").getTagByApi = null as any;
-export const getTagByApiOutput: typeof import("./getTagByApi").getTagByApiOutput = null as any;
-utilities.lazyLoad(exports, ["getTagByApi","getTagByApiOutput"], () => require("./getTagByApi"));
-
-export { GetTagByOperationArgs, GetTagByOperationResult, GetTagByOperationOutputArgs } from "./getTagByOperation";
-export const getTagByOperation: typeof import("./getTagByOperation").getTagByOperation = null as any;
-export const getTagByOperationOutput: typeof import("./getTagByOperation").getTagByOperationOutput = null as any;
-utilities.lazyLoad(exports, ["getTagByOperation","getTagByOperationOutput"], () => require("./getTagByOperation"));
-
-export { GetTagByProductArgs, GetTagByProductResult, GetTagByProductOutputArgs } from "./getTagByProduct";
-export const getTagByProduct: typeof import("./getTagByProduct").getTagByProduct = null as any;
-export const getTagByProductOutput: typeof import("./getTagByProduct").getTagByProductOutput = null as any;
-utilities.lazyLoad(exports, ["getTagByProduct","getTagByProductOutput"], () => require("./getTagByProduct"));
-
-export { GetTagDescriptionArgs, GetTagDescriptionResult, GetTagDescriptionOutputArgs } from "./getTagDescription";
-export const getTagDescription: typeof import("./getTagDescription").getTagDescription = null as any;
-export const getTagDescriptionOutput: typeof import("./getTagDescription").getTagDescriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getTagDescription","getTagDescriptionOutput"], () => require("./getTagDescription"));
 
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
@@ -270,100 +55,20 @@ export const getUserSharedAccessToken: typeof import("./getUserSharedAccessToken
 export const getUserSharedAccessTokenOutput: typeof import("./getUserSharedAccessToken").getUserSharedAccessTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getUserSharedAccessToken","getUserSharedAccessTokenOutput"], () => require("./getUserSharedAccessToken"));
 
-export { GroupArgs } from "./group";
-export type Group = import("./group").Group;
-export const Group: typeof import("./group").Group = null as any;
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
-
 export { GroupUserArgs } from "./groupUser";
 export type GroupUser = import("./groupUser").GroupUser;
 export const GroupUser: typeof import("./groupUser").GroupUser = null as any;
 utilities.lazyLoad(exports, ["GroupUser"], () => require("./groupUser"));
-
-export { IdentityProviderArgs } from "./identityProvider";
-export type IdentityProvider = import("./identityProvider").IdentityProvider;
-export const IdentityProvider: typeof import("./identityProvider").IdentityProvider = null as any;
-utilities.lazyLoad(exports, ["IdentityProvider"], () => require("./identityProvider"));
 
 export { LoggerArgs } from "./logger";
 export type Logger = import("./logger").Logger;
 export const Logger: typeof import("./logger").Logger = null as any;
 utilities.lazyLoad(exports, ["Logger"], () => require("./logger"));
 
-export { NotificationRecipientEmailArgs } from "./notificationRecipientEmail";
-export type NotificationRecipientEmail = import("./notificationRecipientEmail").NotificationRecipientEmail;
-export const NotificationRecipientEmail: typeof import("./notificationRecipientEmail").NotificationRecipientEmail = null as any;
-utilities.lazyLoad(exports, ["NotificationRecipientEmail"], () => require("./notificationRecipientEmail"));
-
-export { NotificationRecipientUserArgs } from "./notificationRecipientUser";
-export type NotificationRecipientUser = import("./notificationRecipientUser").NotificationRecipientUser;
-export const NotificationRecipientUser: typeof import("./notificationRecipientUser").NotificationRecipientUser = null as any;
-utilities.lazyLoad(exports, ["NotificationRecipientUser"], () => require("./notificationRecipientUser"));
-
-export { OpenIdConnectProviderArgs } from "./openIdConnectProvider";
-export type OpenIdConnectProvider = import("./openIdConnectProvider").OpenIdConnectProvider;
-export const OpenIdConnectProvider: typeof import("./openIdConnectProvider").OpenIdConnectProvider = null as any;
-utilities.lazyLoad(exports, ["OpenIdConnectProvider"], () => require("./openIdConnectProvider"));
-
-export { PolicyArgs } from "./policy";
-export type Policy = import("./policy").Policy;
-export const Policy: typeof import("./policy").Policy = null as any;
-utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
-
-export { ProductArgs } from "./product";
-export type Product = import("./product").Product;
-export const Product: typeof import("./product").Product = null as any;
-utilities.lazyLoad(exports, ["Product"], () => require("./product"));
-
 export { ProductApiArgs } from "./productApi";
 export type ProductApi = import("./productApi").ProductApi;
 export const ProductApi: typeof import("./productApi").ProductApi = null as any;
 utilities.lazyLoad(exports, ["ProductApi"], () => require("./productApi"));
-
-export { ProductGroupArgs } from "./productGroup";
-export type ProductGroup = import("./productGroup").ProductGroup;
-export const ProductGroup: typeof import("./productGroup").ProductGroup = null as any;
-utilities.lazyLoad(exports, ["ProductGroup"], () => require("./productGroup"));
-
-export { ProductPolicyArgs } from "./productPolicy";
-export type ProductPolicy = import("./productPolicy").ProductPolicy;
-export const ProductPolicy: typeof import("./productPolicy").ProductPolicy = null as any;
-utilities.lazyLoad(exports, ["ProductPolicy"], () => require("./productPolicy"));
-
-export { PropertyArgs } from "./property";
-export type Property = import("./property").Property;
-export const Property: typeof import("./property").Property = null as any;
-utilities.lazyLoad(exports, ["Property"], () => require("./property"));
-
-export { SubscriptionArgs } from "./subscription";
-export type Subscription = import("./subscription").Subscription;
-export const Subscription: typeof import("./subscription").Subscription = null as any;
-utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
-
-export { TagArgs } from "./tag";
-export type Tag = import("./tag").Tag;
-export const Tag: typeof import("./tag").Tag = null as any;
-utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
-
-export { TagByApiArgs } from "./tagByApi";
-export type TagByApi = import("./tagByApi").TagByApi;
-export const TagByApi: typeof import("./tagByApi").TagByApi = null as any;
-utilities.lazyLoad(exports, ["TagByApi"], () => require("./tagByApi"));
-
-export { TagByOperationArgs } from "./tagByOperation";
-export type TagByOperation = import("./tagByOperation").TagByOperation;
-export const TagByOperation: typeof import("./tagByOperation").TagByOperation = null as any;
-utilities.lazyLoad(exports, ["TagByOperation"], () => require("./tagByOperation"));
-
-export { TagByProductArgs } from "./tagByProduct";
-export type TagByProduct = import("./tagByProduct").TagByProduct;
-export const TagByProduct: typeof import("./tagByProduct").TagByProduct = null as any;
-utilities.lazyLoad(exports, ["TagByProduct"], () => require("./tagByProduct"));
-
-export { TagDescriptionArgs } from "./tagDescription";
-export type TagDescription = import("./tagDescription").TagDescription;
-export const TagDescription: typeof import("./tagDescription").TagDescription = null as any;
-utilities.lazyLoad(exports, ["TagDescription"], () => require("./tagDescription"));
 
 export { UserArgs } from "./user";
 export type User = import("./user").User;
@@ -380,80 +85,18 @@ const _module = {
         switch (type) {
             case "azure-native:apimanagement/v20170301:Api":
                 return new Api(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiDiagnostic":
-                return new ApiDiagnostic(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:ApiDiagnosticLogger":
                 return new ApiDiagnosticLogger(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiIssue":
-                return new ApiIssue(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiIssueAttachment":
-                return new ApiIssueAttachment(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiIssueComment":
-                return new ApiIssueComment(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:ApiManagementService":
                 return new ApiManagementService(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiOperation":
-                return new ApiOperation(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiOperationPolicy":
-                return new ApiOperationPolicy(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiPolicy":
-                return new ApiPolicy(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiRelease":
-                return new ApiRelease(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiSchema":
-                return new ApiSchema(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ApiVersionSet":
-                return new ApiVersionSet(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:AuthorizationServer":
-                return new AuthorizationServer(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Backend":
-                return new Backend(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Certificate":
-                return new Certificate(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Diagnostic":
-                return new Diagnostic(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:DiagnosticLogger":
                 return new DiagnosticLogger(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:EmailTemplate":
-                return new EmailTemplate(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Group":
-                return new Group(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:GroupUser":
                 return new GroupUser(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:IdentityProvider":
-                return new IdentityProvider(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:Logger":
                 return new Logger(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:NotificationRecipientEmail":
-                return new NotificationRecipientEmail(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:NotificationRecipientUser":
-                return new NotificationRecipientUser(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:OpenIdConnectProvider":
-                return new OpenIdConnectProvider(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Policy":
-                return new Policy(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Product":
-                return new Product(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:ProductApi":
                 return new ProductApi(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ProductGroup":
-                return new ProductGroup(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:ProductPolicy":
-                return new ProductPolicy(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Property":
-                return new Property(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Subscription":
-                return new Subscription(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:Tag":
-                return new Tag(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:TagByApi":
-                return new TagByApi(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:TagByOperation":
-                return new TagByOperation(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:TagByProduct":
-                return new TagByProduct(name, <any>undefined, { urn })
-            case "azure-native:apimanagement/v20170301:TagDescription":
-                return new TagDescription(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:User":
                 return new User(name, <any>undefined, { urn })
             default:

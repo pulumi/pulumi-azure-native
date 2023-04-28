@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getVirtualNetworkGatewayLearnedRoutes(args: GetVirtualNetworkGatewayLearnedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayLearnedRoutesResult> {
 
@@ -42,7 +42,7 @@ export interface GetVirtualNetworkGatewayLearnedRoutesResult {
 }
 /**
  * This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getVirtualNetworkGatewayLearnedRoutesOutput(args: GetVirtualNetworkGatewayLearnedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayLearnedRoutesResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayLearnedRoutes(a, opts))

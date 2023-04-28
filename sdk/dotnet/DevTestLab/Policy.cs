@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// <summary>
     /// A Policy.
     /// API Version: 2018-09-15.
+    /// Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

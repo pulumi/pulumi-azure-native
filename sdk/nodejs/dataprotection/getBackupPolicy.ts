@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a backup policy belonging to a backup vault
- * API Version: 2021-01-01.
+ * API Version: 2023-01-01.
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
 
@@ -24,7 +24,7 @@ export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeO
 export interface GetBackupPolicyArgs {
     backupPolicyName: string;
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -60,7 +60,7 @@ export interface GetBackupPolicyResult {
 }
 /**
  * Gets a backup policy belonging to a backup vault
- * API Version: 2021-01-01.
+ * API Version: 2023-01-01.
  */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
@@ -69,7 +69,7 @@ export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pu
 export interface GetBackupPolicyOutputArgs {
     backupPolicyName: pulumi.Input<string>;
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -112,7 +112,8 @@ class User(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +131,8 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -235,7 +237,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        User in DataBoxEdge Resource
+        Metadata pertaining to creation and last modification of User
         """
         return pulumi.get(self, "system_data")
 

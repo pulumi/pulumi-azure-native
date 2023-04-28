@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified peering for the express route circuit.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
 
@@ -139,7 +139,7 @@ export interface GetExpressRouteCircuitPeeringResult {
 }
 /**
  * Gets the specified peering for the express route circuit.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getExpressRouteCircuitPeeringOutput(args: GetExpressRouteCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitPeeringResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitPeering(a, opts))

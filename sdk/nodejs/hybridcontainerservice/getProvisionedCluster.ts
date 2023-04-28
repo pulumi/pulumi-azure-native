@@ -9,26 +9,26 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Hybrid AKS provisioned cluster
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
  */
 export function getProvisionedCluster(args: GetProvisionedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisionedClusterResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getProvisionedCluster", {
-        "provisionedClustersName": args.provisionedClustersName,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetProvisionedClusterArgs {
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName: string;
 }
 
 /**
@@ -68,7 +68,7 @@ export interface GetProvisionedClusterResult {
 }
 /**
  * Gets the Hybrid AKS provisioned cluster
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
  */
 export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisionedClusterResult> {
     return pulumi.output(args).apply((a: any) => getProvisionedCluster(a, opts))
@@ -76,11 +76,11 @@ export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArg
 
 export interface GetProvisionedClusterOutputArgs {
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName: pulumi.Input<string>;
 }

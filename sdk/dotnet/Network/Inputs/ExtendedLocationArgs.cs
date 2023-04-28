@@ -18,14 +18,14 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// <summary>
         /// The name of the extended location.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The type of the extended location.
         /// </summary>
-        [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Network.ExtendedLocationTypes> Type { get; set; } = null!;
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ExtendedLocationTypes>? Type { get; set; }
 
         public ExtendedLocationArgs()
         {

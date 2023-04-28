@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The agentPool resource definition
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
+ * Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -124,11 +125,11 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provisionedClustersName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'provisionedClustersName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
             }
             resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
@@ -143,9 +144,9 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["nodeImageVersion"] = args ? args.nodeImageVersion : undefined;
             resourceInputs["nodeLabels"] = args ? args.nodeLabels : undefined;
             resourceInputs["nodeTaints"] = args ? args.nodeTaints : undefined;
-            resourceInputs["osType"] = (args ? args.osType : undefined) ?? "Linux";
-            resourceInputs["provisionedClustersName"] = args ? args.provisionedClustersName : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
@@ -176,7 +177,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:agentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:agentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:agentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }
@@ -240,13 +241,13 @@ export interface AgentPoolArgs {
      */
     osType?: pulumi.Input<string | enums.hybridcontainerservice.OsType>;
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName: pulumi.Input<string>;
     /**
      * HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
      */

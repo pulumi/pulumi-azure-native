@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'ActorResponse',
@@ -19,10 +18,7 @@ __all__ = [
     'EventResponseMessageResponse',
     'RegistryPasswordResponse',
     'RequestResponse',
-    'SkuResponse',
     'SourceResponse',
-    'StatusResponse',
-    'StorageAccountPropertiesResponse',
     'TargetResponse',
 ]
 
@@ -440,39 +436,6 @@ class RequestResponse(dict):
 
 
 @pulumi.output_type
-class SkuResponse(dict):
-    """
-    The SKU of a container registry.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 tier: str):
-        """
-        The SKU of a container registry.
-        :param str name: The SKU name of the container registry. Required for registry creation.
-        :param str tier: The SKU tier based on the SKU name.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The SKU name of the container registry. Required for registry creation.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> str:
-        """
-        The SKU tier based on the SKU name.
-        """
-        return pulumi.get(self, "tier")
-
-
-@pulumi.output_type
 class SourceResponse(dict):
     """
     The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
@@ -505,89 +468,6 @@ class SourceResponse(dict):
         The running instance of an application. Changes after each restart.
         """
         return pulumi.get(self, "instance_id")
-
-
-@pulumi.output_type
-class StatusResponse(dict):
-    """
-    The status of an Azure resource at the time the operation was called.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "displayStatus":
-            suggest = "display_status"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StatusResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StatusResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StatusResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 display_status: str,
-                 message: str,
-                 timestamp: str):
-        """
-        The status of an Azure resource at the time the operation was called.
-        :param str display_status: The short label for the status.
-        :param str message: The detailed message for the status, including alerts and error messages.
-        :param str timestamp: The timestamp when the status was changed to the current value.
-        """
-        pulumi.set(__self__, "display_status", display_status)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "timestamp", timestamp)
-
-    @property
-    @pulumi.getter(name="displayStatus")
-    def display_status(self) -> str:
-        """
-        The short label for the status.
-        """
-        return pulumi.get(self, "display_status")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        The detailed message for the status, including alerts and error messages.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def timestamp(self) -> str:
-        """
-        The timestamp when the status was changed to the current value.
-        """
-        return pulumi.get(self, "timestamp")
-
-
-@pulumi.output_type
-class StorageAccountPropertiesResponse(dict):
-    """
-    The properties of a storage account for a container registry. Only applicable to Basic SKU.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        The properties of a storage account for a container registry. Only applicable to Basic SKU.
-        :param str id: The resource ID of the storage account.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The resource ID of the storage account.
-        """
-        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

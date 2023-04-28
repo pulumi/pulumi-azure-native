@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the access keys of the resource.
- * API Version: 2021-04-01-preview.
+ * API Version: 2023-02-01.
  */
 export function listWebPubSubKeys(args: ListWebPubSubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebPubSubKeysResult> {
 
@@ -51,7 +51,7 @@ export interface ListWebPubSubKeysResult {
 }
 /**
  * Get the access keys of the resource.
- * API Version: 2021-04-01-preview.
+ * API Version: 2023-02-01.
  */
 export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebPubSubKeysResult> {
     return pulumi.output(args).apply((a: any) => listWebPubSubKeys(a, opts))

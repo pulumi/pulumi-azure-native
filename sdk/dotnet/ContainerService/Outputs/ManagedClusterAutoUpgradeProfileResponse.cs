@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterAutoUpgradeProfileResponse
     {
         /// <summary>
-        /// upgrade channel for auto upgrade.
+        /// For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         /// </summary>
         public readonly string? UpgradeChannel;
 

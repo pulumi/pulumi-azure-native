@@ -22,10 +22,13 @@ class GetVpnServerConfigurationResult:
     """
     VpnServerConfiguration Resource.
     """
-    def __init__(__self__, aad_authentication_parameters=None, etag=None, id=None, location=None, name=None, p2_s_vpn_gateways=None, provisioning_state=None, radius_client_root_certificates=None, radius_server_address=None, radius_server_root_certificates=None, radius_server_secret=None, radius_servers=None, tags=None, type=None, vpn_authentication_types=None, vpn_client_ipsec_policies=None, vpn_client_revoked_certificates=None, vpn_client_root_certificates=None, vpn_protocols=None):
+    def __init__(__self__, aad_authentication_parameters=None, configuration_policy_groups=None, etag=None, id=None, location=None, name=None, p2_s_vpn_gateways=None, provisioning_state=None, radius_client_root_certificates=None, radius_server_address=None, radius_server_root_certificates=None, radius_server_secret=None, radius_servers=None, tags=None, type=None, vpn_authentication_types=None, vpn_client_ipsec_policies=None, vpn_client_revoked_certificates=None, vpn_client_root_certificates=None, vpn_protocols=None):
         if aad_authentication_parameters and not isinstance(aad_authentication_parameters, dict):
             raise TypeError("Expected argument 'aad_authentication_parameters' to be a dict")
         pulumi.set(__self__, "aad_authentication_parameters", aad_authentication_parameters)
+        if configuration_policy_groups and not isinstance(configuration_policy_groups, list):
+            raise TypeError("Expected argument 'configuration_policy_groups' to be a list")
+        pulumi.set(__self__, "configuration_policy_groups", configuration_policy_groups)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -88,6 +91,14 @@ class GetVpnServerConfigurationResult:
         The set of aad vpn authentication parameters.
         """
         return pulumi.get(self, "aad_authentication_parameters")
+
+    @property
+    @pulumi.getter(name="configurationPolicyGroups")
+    def configuration_policy_groups(self) -> Optional[Sequence['outputs.VpnServerConfigurationPolicyGroupResponse']]:
+        """
+        List of all VpnServerConfigurationPolicyGroups.
+        """
+        return pulumi.get(self, "configuration_policy_groups")
 
     @property
     @pulumi.getter
@@ -241,6 +252,7 @@ class AwaitableGetVpnServerConfigurationResult(GetVpnServerConfigurationResult):
             yield self
         return GetVpnServerConfigurationResult(
             aad_authentication_parameters=self.aad_authentication_parameters,
+            configuration_policy_groups=self.configuration_policy_groups,
             etag=self.etag,
             id=self.id,
             location=self.location,
@@ -266,7 +278,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnServerConfigurationResult:
     """
     Retrieves the details of a VpnServerConfiguration.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
@@ -280,6 +292,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVpnServerConfigurationResult(
         aad_authentication_parameters=__ret__.aad_authentication_parameters,
+        configuration_policy_groups=__ret__.configuration_policy_groups,
         etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
@@ -306,7 +319,7 @@ def get_vpn_server_configuration_output(resource_group_name: Optional[pulumi.Inp
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnServerConfigurationResult]:
     """
     Retrieves the details of a VpnServerConfiguration.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.

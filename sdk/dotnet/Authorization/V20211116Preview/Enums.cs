@@ -103,36 +103,4 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// This specifies the behavior for the autoReview feature when an access review completes.
-    /// </summary>
-    [EnumType]
-    public readonly struct DefaultDecisionType : IEquatable<DefaultDecisionType>
-    {
-        private readonly string _value;
-
-        private DefaultDecisionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefaultDecisionType Approve { get; } = new DefaultDecisionType("Approve");
-        public static DefaultDecisionType Deny { get; } = new DefaultDecisionType("Deny");
-        public static DefaultDecisionType Recommendation { get; } = new DefaultDecisionType("Recommendation");
-
-        public static bool operator ==(DefaultDecisionType left, DefaultDecisionType right) => left.Equals(right);
-        public static bool operator !=(DefaultDecisionType left, DefaultDecisionType right) => !left.Equals(right);
-
-        public static explicit operator string(DefaultDecisionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefaultDecisionType other && Equals(other);
-        public bool Equals(DefaultDecisionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

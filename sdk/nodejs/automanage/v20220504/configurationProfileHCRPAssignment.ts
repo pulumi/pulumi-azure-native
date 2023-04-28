@@ -91,7 +91,7 @@ export class ConfigurationProfileHCRPAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automanage:ConfigurationProfileHCRPAssignment" }, { type: "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationProfileHCRPAssignment.__pulumiType, name, resourceInputs, opts);
     }

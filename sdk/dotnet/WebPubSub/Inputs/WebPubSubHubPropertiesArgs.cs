@@ -33,6 +33,21 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
             set => _eventHandlers = value;
         }
 
+        [Input("eventListeners")]
+        private InputList<Inputs.EventListenerArgs>? _eventListeners;
+
+        /// <summary>
+        /// Event listener settings for forwarding your client events to listeners.
+        /// Event listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.
+        /// One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
+        /// Maximum count of event listeners among all hubs is 10.
+        /// </summary>
+        public InputList<Inputs.EventListenerArgs> EventListeners
+        {
+            get => _eventListeners ?? (_eventListeners = new InputList<Inputs.EventListenerArgs>());
+            set => _eventListeners = value;
+        }
+
         public WebPubSubHubPropertiesArgs()
         {
             AnonymousConnectPolicy = "deny";

@@ -17,17 +17,21 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class ManagedIdentityPropertiesResponse
     {
         /// <summary>
-        /// Principal Id
+        /// Principal Id of system-assigned managed identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// Tenant Id
+        /// Tenant Id of system-assigned managed identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
         /// Type of the managed identity
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Properties of user-assigned managed identities
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedManagedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ManagedIdentityPropertiesResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string? tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedManagedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
     /// <summary>
-    /// Additional error info.
+    /// This class represents additional info which Resource Providers pass when an error occurs.
     /// </summary>
     [OutputType]
     public sealed class AdditionalErrorInfoResponse
     {
         /// <summary>
-        /// Additional error info.
+        /// Additional information of the type of error.
         /// </summary>
         public readonly object? Info;
         /// <summary>
-        /// Additional error type.
+        /// Type of error (e.g. CustomerIntervention, PolicyViolation, SecurityViolation).
         /// </summary>
         public readonly string? Type;
 

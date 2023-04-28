@@ -208,6 +208,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220901:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221001:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of a Data Pool
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
 
@@ -65,13 +65,17 @@ export interface GetDataPoolResult {
      */
     readonly systemData: outputs.autonomousdevelopmentplatform.SystemDataResponse;
     /**
+     * Resource tags
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the properties of a Data Pool
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-11-01-preview.
  */
 export function getDataPoolOutput(args: GetDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataPoolResult> {
     return pulumi.output(args).apply((a: any) => getDataPool(a, opts))

@@ -98,11 +98,11 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTenantAccessSecretsResult:
     """
     Get tenant access information details.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str access_name: The identifier of the Access configuration.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -127,11 +127,11 @@ def list_tenant_access_secrets_output(access_name: Optional[pulumi.Input[str]] =
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTenantAccessSecretsResult]:
     """
     Get tenant access information details.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str access_name: The identifier of the Access configuration.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

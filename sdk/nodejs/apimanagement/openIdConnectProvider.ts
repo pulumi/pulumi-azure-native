@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * OpenId Connect Provider details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
@@ -56,13 +57,21 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      */
     public readonly metadataEndpoint!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+     */
+    public readonly useInApiDocumentation!: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
+     */
+    public readonly useInTestConsole!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a OpenIdConnectProvider resource with the given unique name, arguments, and options.
@@ -98,6 +107,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             resourceInputs["opid"] = args ? args.opid : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["useInApiDocumentation"] = args ? args.useInApiDocumentation : undefined;
+            resourceInputs["useInTestConsole"] = args ? args.useInTestConsole : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -108,6 +119,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             resourceInputs["metadataEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useInApiDocumentation"] = undefined /*out*/;
+            resourceInputs["useInTestConsole"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20200601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20201201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210101preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210401preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210801:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20211201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20220401preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20220801:OpenIdConnectProvider" }] };
@@ -145,11 +158,19 @@ export interface OpenIdConnectProviderArgs {
      */
     opid?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
     serviceName: pulumi.Input<string>;
+    /**
+     * If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+     */
+    useInApiDocumentation?: pulumi.Input<boolean>;
+    /**
+     * If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
+     */
+    useInTestConsole?: pulumi.Input<boolean>;
 }

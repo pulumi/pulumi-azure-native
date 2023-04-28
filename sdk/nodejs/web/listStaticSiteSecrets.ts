@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Lists the secrets for an existing static site.
- * API Version: 2020-12-01.
+ * Description for Lists the secrets for an existing static site.
+ * API Version: 2022-09-01.
  */
 export function listStaticSiteSecrets(args: ListStaticSiteSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteSecretsResult> {
 
@@ -54,8 +54,8 @@ export interface ListStaticSiteSecretsResult {
     readonly type: string;
 }
 /**
- * Lists the secrets for an existing static site.
- * API Version: 2020-12-01.
+ * Description for Lists the secrets for an existing static site.
+ * API Version: 2022-09-01.
  */
 export function listStaticSiteSecretsOutput(args: ListStaticSiteSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteSecretsResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteSecrets(a, opts))

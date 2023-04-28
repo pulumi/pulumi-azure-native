@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
 
+        /// <summary>
+        /// Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
+        /// </summary>
+        [Input("clientCertificateMode")]
+        public InputUnion<string, Pulumi.AzureNative.App.IngressClientCertificateMode>? ClientCertificateMode { get; set; }
+
+        /// <summary>
+        /// CORS policy for container app
+        /// </summary>
+        [Input("corsPolicy")]
+        public Input<Inputs.CorsPolicyArgs>? CorsPolicy { get; set; }
+
         [Input("customDomains")]
         private InputList<Inputs.CustomDomainArgs>? _customDomains;
 
@@ -34,10 +46,28 @@ namespace Pulumi.AzureNative.App.Inputs
         }
 
         /// <summary>
+        /// Exposed Port in containers for TCP traffic from ingress
+        /// </summary>
+        [Input("exposedPort")]
+        public Input<int>? ExposedPort { get; set; }
+
+        /// <summary>
         /// Bool indicating if app exposes an external http endpoint
         /// </summary>
         [Input("external")]
         public Input<bool>? External { get; set; }
+
+        [Input("ipSecurityRestrictions")]
+        private InputList<Inputs.IpSecurityRestrictionRuleArgs>? _ipSecurityRestrictions;
+
+        /// <summary>
+        /// Rules to restrict incoming IP address.
+        /// </summary>
+        public InputList<Inputs.IpSecurityRestrictionRuleArgs> IpSecurityRestrictions
+        {
+            get => _ipSecurityRestrictions ?? (_ipSecurityRestrictions = new InputList<Inputs.IpSecurityRestrictionRuleArgs>());
+            set => _ipSecurityRestrictions = value;
+        }
 
         /// <summary>
         /// Target Port in containers for traffic from ingress

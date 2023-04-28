@@ -5,21 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AuthenticationType',
     'ConnectionType',
-    'DigitalTwinsIdentityType',
-    'EndpointType',
-    'PrivateLinkServiceConnectionStatus',
-    'PublicNetworkAccess',
 ]
-
-
-class AuthenticationType(str, Enum):
-    """
-    Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
-    """
-    KEY_BASED = "KeyBased"
-    IDENTITY_BASED = "IdentityBased"
 
 
 class ConnectionType(str, Enum):
@@ -27,38 +14,3 @@ class ConnectionType(str, Enum):
     The type of time series connection resource.
     """
     AZURE_DATA_EXPLORER = "AzureDataExplorer"
-
-
-class DigitalTwinsIdentityType(str, Enum):
-    """
-    The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class EndpointType(str, Enum):
-    """
-    The type of Digital Twins endpoint
-    """
-    EVENT_HUB = "EventHub"
-    EVENT_GRID = "EventGrid"
-    SERVICE_BUS = "ServiceBus"
-
-
-class PrivateLinkServiceConnectionStatus(str, Enum):
-    """
-    The status of a private endpoint connection.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Public network access for the DigitalTwinsInstance.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"

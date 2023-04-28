@@ -5,20 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ApplicationArgs } from "./application";
-export type Application = import("./application").Application;
-export const Application: typeof import("./application").Application = null as any;
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-
 export { ApplicationGroupArgs } from "./applicationGroup";
 export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
 export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
 utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
-
-export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
-export const getApplication: typeof import("./getApplication").getApplication = null as any;
-export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
 export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
@@ -29,11 +19,6 @@ export { GetHostPoolArgs, GetHostPoolResult, GetHostPoolOutputArgs } from "./get
 export const getHostPool: typeof import("./getHostPool").getHostPool = null as any;
 export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
-
-export { GetMSIXPackageArgs, GetMSIXPackageResult, GetMSIXPackageOutputArgs } from "./getMSIXPackage";
-export const getMSIXPackage: typeof import("./getMSIXPackage").getMSIXPackage = null as any;
-export const getMSIXPackageOutput: typeof import("./getMSIXPackage").getMSIXPackageOutput = null as any;
-utilities.lazyLoad(exports, ["getMSIXPackage","getMSIXPackageOutput"], () => require("./getMSIXPackage"));
 
 export { GetScalingPlanArgs, GetScalingPlanResult, GetScalingPlanOutputArgs } from "./getScalingPlan";
 export const getScalingPlan: typeof import("./getScalingPlan").getScalingPlan = null as any;
@@ -49,11 +34,6 @@ export { HostPoolArgs } from "./hostPool";
 export type HostPool = import("./hostPool").HostPool;
 export const HostPool: typeof import("./hostPool").HostPool = null as any;
 utilities.lazyLoad(exports, ["HostPool"], () => require("./hostPool"));
-
-export { MSIXPackageArgs } from "./msixpackage";
-export type MSIXPackage = import("./msixpackage").MSIXPackage;
-export const MSIXPackage: typeof import("./msixpackage").MSIXPackage = null as any;
-utilities.lazyLoad(exports, ["MSIXPackage"], () => require("./msixpackage"));
 
 export { ScalingPlanArgs } from "./scalingPlan";
 export type ScalingPlan = import("./scalingPlan").ScalingPlan;
@@ -73,14 +53,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:desktopvirtualization/v20201110preview:Application":
-                return new Application(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization/v20201110preview:ApplicationGroup":
                 return new ApplicationGroup(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization/v20201110preview:HostPool":
                 return new HostPool(name, <any>undefined, { urn })
-            case "azure-native:desktopvirtualization/v20201110preview:MSIXPackage":
-                return new MSIXPackage(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization/v20201110preview:ScalingPlan":
                 return new ScalingPlan(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization/v20201110preview:Workspace":

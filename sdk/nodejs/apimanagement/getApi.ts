@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the API specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
 
@@ -27,7 +27,7 @@ export interface GetApiArgs {
      */
     apiId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -37,15 +37,15 @@ export interface GetApiArgs {
 }
 
 /**
- * Api details.
+ * API details.
  */
 export interface GetApiResult {
     /**
-     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
+     * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
     readonly apiRevision?: string;
     /**
-     * Description of the Api Revision.
+     * Description of the API Revision.
      */
     readonly apiRevisionDescription?: string;
     /**
@@ -53,11 +53,11 @@ export interface GetApiResult {
      */
     readonly apiType?: string;
     /**
-     * Indicates the Version identifier of the API if the API is versioned
+     * Indicates the version identifier of the API if the API is versioned
      */
     readonly apiVersion?: string;
     /**
-     * Description of the Api Version.
+     * Description of the API Version.
      */
     readonly apiVersionDescription?: string;
     /**
@@ -73,6 +73,10 @@ export interface GetApiResult {
      */
     readonly authenticationSettings?: outputs.apimanagement.AuthenticationSettingsContractResponse;
     /**
+     * Contact information for the API.
+     */
+    readonly contact?: outputs.apimanagement.ApiContactInformationResponse;
+    /**
      * Description of the API. May include HTML formatting tags.
      */
     readonly description?: string;
@@ -81,7 +85,7 @@ export interface GetApiResult {
      */
     readonly displayName?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -93,7 +97,11 @@ export interface GetApiResult {
      */
     readonly isOnline: boolean;
     /**
-     * Resource name.
+     * License information for the API.
+     */
+    readonly license?: outputs.apimanagement.ApiLicenseInformationResponse;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -121,13 +129,17 @@ export interface GetApiResult {
      */
     readonly subscriptionRequired?: boolean;
     /**
-     * Resource type for API Management resource.
+     *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+     */
+    readonly termsOfServiceUrl?: string;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the details of the API specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
     return pulumi.output(args).apply((a: any) => getApi(a, opts))
@@ -139,7 +151,7 @@ export interface GetApiOutputArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

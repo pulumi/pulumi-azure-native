@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-06-01.
+    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDOriginGroup")]
     public partial class AFDOriginGroup : global::Pulumi.CustomResource
@@ -38,16 +39,16 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the profile which holds the origin group.
+        /// </summary>
+        [Output("profileName")]
+        public Output<string> ProfileName { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning status
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        /// </summary>
-        [Output("responseBasedAfdOriginErrorDetectionSettings")]
-        public Output<Outputs.ResponseBasedOriginErrorDetectionParametersResponse?> ResponseBasedAfdOriginErrorDetectionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
@@ -144,7 +145,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string>? OriginGroupName { get; set; }
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -154,12 +155,6 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        /// </summary>
-        [Input("responseBasedAfdOriginErrorDetectionSettings")]
-        public Input<Inputs.ResponseBasedOriginErrorDetectionParametersArgs>? ResponseBasedAfdOriginErrorDetectionSettings { get; set; }
 
         /// <summary>
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'

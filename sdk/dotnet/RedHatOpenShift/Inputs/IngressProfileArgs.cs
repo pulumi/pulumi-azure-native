@@ -16,22 +16,22 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class IngressProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IP of the ingress (immutable).
+        /// The IP of the ingress.
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
         /// <summary>
-        /// The ingress profile name.  Must be "default" (immutable).
+        /// The ingress profile name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Ingress visibility (immutable).
+        /// Ingress visibility.
         /// </summary>
         [Input("visibility")]
-        public Input<string>? Visibility { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RedHatOpenShift.Visibility>? Visibility { get; set; }
 
         public IngressProfileArgs()
         {

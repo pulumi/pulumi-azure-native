@@ -2,14 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * A DDoS custom policy in a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DdosCustomPolicy extends pulumi.CustomResource {
     /**
@@ -51,17 +49,9 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The protocol-specific DDoS policy customization parameters.
-     */
-    public readonly protocolCustomSettings!: pulumi.Output<outputs.network.ProtocolCustomSettingsFormatResponse[] | undefined>;
-    /**
      * The provisioning state of the DDoS custom policy resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-     */
-    public /*out*/ readonly publicIPAddresses!: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
      */
@@ -92,22 +82,18 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
             resourceInputs["ddosCustomPolicyName"] = args ? args.ddosCustomPolicyName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["protocolCustomSettings"] = args ? args.protocolCustomSettings : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicIPAddresses"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["protocolCustomSettings"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicIPAddresses"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -135,10 +121,6 @@ export interface DdosCustomPolicyArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
-    /**
-     * The protocol-specific DDoS policy customization parameters.
-     */
-    protocolCustomSettings?: pulumi.Input<pulumi.Input<inputs.network.ProtocolCustomSettingsFormatArgs>[]>;
     /**
      * The name of the resource group.
      */

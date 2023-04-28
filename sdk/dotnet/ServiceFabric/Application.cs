@@ -11,17 +11,12 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// The application resource.
-    /// API Version: 2020-03-01.
+    /// API Version: 2023-02-01-preview.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Azure resource etag.
-        /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
-
         /// <summary>
         /// Describes the managed identities for an Azure resource.
         /// </summary>
@@ -29,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -39,24 +34,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("managedIdentities")]
         public Output<ImmutableArray<Outputs.ApplicationUserAssignedIdentityResponse>> ManagedIdentities { get; private set; } = null!;
-
-        /// <summary>
-        /// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-        /// </summary>
-        [Output("maximumNodes")]
-        public Output<double?> MaximumNodes { get; private set; } = null!;
-
-        /// <summary>
-        /// List of application capacity metric description.
-        /// </summary>
-        [Output("metrics")]
-        public Output<ImmutableArray<Outputs.ApplicationMetricDescriptionResponse>> Metrics { get; private set; } = null!;
-
-        /// <summary>
-        /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-        /// </summary>
-        [Output("minimumNodes")]
-        public Output<double?> MinimumNodes { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name.
@@ -77,10 +54,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Remove the current application capacity settings.
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        [Output("removeApplicationCapacity")]
-        public Output<bool?> RemoveApplicationCapacity { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.
@@ -95,22 +72,17 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The application type name as defined in the application manifest.
-        /// </summary>
-        [Output("typeName")]
-        public Output<string?> TypeName { get; private set; } = null!;
-
-        /// <summary>
-        /// The version of the application type as defined in the application manifest.
-        /// </summary>
-        [Output("typeVersion")]
-        public Output<string?> TypeVersion { get; private set; } = null!;
-
-        /// <summary>
         /// Describes the policy for a monitored application upgrade.
         /// </summary>
         [Output("upgradePolicy")]
         public Output<Outputs.ApplicationUpgradePolicyResponse?> UpgradePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the application type as defined in the application manifest.
+        /// This name must be the full Arm Resource ID for the referenced application type version.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,14 +109,17 @@ namespace Pulumi.AzureNative.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -187,7 +162,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -204,30 +179,6 @@ namespace Pulumi.AzureNative.ServiceFabric
             set => _managedIdentities = value;
         }
 
-        /// <summary>
-        /// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-        /// </summary>
-        [Input("maximumNodes")]
-        public Input<double>? MaximumNodes { get; set; }
-
-        [Input("metrics")]
-        private InputList<Inputs.ApplicationMetricDescriptionArgs>? _metrics;
-
-        /// <summary>
-        /// List of application capacity metric description.
-        /// </summary>
-        public InputList<Inputs.ApplicationMetricDescriptionArgs> Metrics
-        {
-            get => _metrics ?? (_metrics = new InputList<Inputs.ApplicationMetricDescriptionArgs>());
-            set => _metrics = value;
-        }
-
-        /// <summary>
-        /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-        /// </summary>
-        [Input("minimumNodes")]
-        public Input<double>? MinimumNodes { get; set; }
-
         [Input("parameters")]
         private InputMap<string>? _parameters;
 
@@ -239,12 +190,6 @@ namespace Pulumi.AzureNative.ServiceFabric
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// Remove the current application capacity settings.
-        /// </summary>
-        [Input("removeApplicationCapacity")]
-        public Input<bool>? RemoveApplicationCapacity { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -265,26 +210,20 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
-        /// The application type name as defined in the application manifest.
-        /// </summary>
-        [Input("typeName")]
-        public Input<string>? TypeName { get; set; }
-
-        /// <summary>
-        /// The version of the application type as defined in the application manifest.
-        /// </summary>
-        [Input("typeVersion")]
-        public Input<string>? TypeVersion { get; set; }
-
-        /// <summary>
         /// Describes the policy for a monitored application upgrade.
         /// </summary>
         [Input("upgradePolicy")]
         public Input<Inputs.ApplicationUpgradePolicyArgs>? UpgradePolicy { get; set; }
 
+        /// <summary>
+        /// The version of the application type as defined in the application manifest.
+        /// This name must be the full Arm Resource ID for the referenced application type version.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public ApplicationArgs()
         {
-            MaximumNodes = 0;
         }
         public static new ApplicationArgs Empty => new ApplicationArgs();
     }

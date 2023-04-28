@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the metadata of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the metadata of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppMetadata(args: ListWebAppMetadataArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppMetadataResult> {
 
@@ -54,8 +54,8 @@ export interface ListWebAppMetadataResult {
     readonly type: string;
 }
 /**
- * Gets the metadata of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the metadata of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppMetadataOutput(args: ListWebAppMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataResult> {
     return pulumi.output(args).apply((a: any) => listWebAppMetadata(a, opts))

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Workload classifier operations for a data warehouse
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-06-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPoolWorkloadClassifier")]
     public partial class SqlPoolWorkloadClassifier : global::Pulumi.CustomResource
@@ -180,7 +181,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> WorkloadGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

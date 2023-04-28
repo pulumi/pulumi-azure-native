@@ -24,8 +24,6 @@ __all__ = [
     'DirectLineSpeechChannelArgs',
     'EmailChannelPropertiesArgs',
     'EmailChannelArgs',
-    'EnterpriseChannelNodeArgs',
-    'EnterpriseChannelPropertiesArgs',
     'FacebookChannelPropertiesArgs',
     'FacebookChannelArgs',
     'FacebookPageArgs',
@@ -721,6 +719,8 @@ class ConnectionSettingPropertiesArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
@@ -730,6 +730,8 @@ class ConnectionSettingPropertiesArgs:
         Properties for a Connection Setting Item
         :param pulumi.Input[str] client_id: Client Id associated with the Connection Setting.
         :param pulumi.Input[str] client_secret: Client Secret associated with the Connection Setting
+        :param pulumi.Input[str] id: Id of the Connection Setting.
+        :param pulumi.Input[str] name: Name of the Connection Setting.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]] parameters: Service Provider Parameters associated with the Connection Setting
         :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         :param pulumi.Input[str] scopes: Scopes associated with the Connection Setting
@@ -740,6 +742,10 @@ class ConnectionSettingPropertiesArgs:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if provisioning_state is not None:
@@ -776,6 +782,30 @@ class ConnectionSettingPropertiesArgs:
     @client_secret.setter
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the Connection Setting.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Connection Setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -1591,114 +1621,6 @@ class EmailChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['EmailChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
-class EnterpriseChannelNodeArgs:
-    def __init__(__self__, *,
-                 azure_location: pulumi.Input[str],
-                 azure_sku: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 state: Optional[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]] = None):
-        """
-        The properties specific to an Enterprise Channel Node.
-        :param pulumi.Input[str] azure_location: The location of the Enterprise Channel Node.
-        :param pulumi.Input[str] azure_sku: The sku of the Enterprise Channel Node.
-        :param pulumi.Input[str] name: The name of the Enterprise Channel Node.
-        :param pulumi.Input[Union[str, 'EnterpriseChannelNodeState']] state: The current state of the Enterprise Channel Node.
-        """
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_sku", azure_sku)
-        pulumi.set(__self__, "name", name)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="azureLocation")
-    def azure_location(self) -> pulumi.Input[str]:
-        """
-        The location of the Enterprise Channel Node.
-        """
-        return pulumi.get(self, "azure_location")
-
-    @azure_location.setter
-    def azure_location(self, value: pulumi.Input[str]):
-        pulumi.set(self, "azure_location", value)
-
-    @property
-    @pulumi.getter(name="azureSku")
-    def azure_sku(self) -> pulumi.Input[str]:
-        """
-        The sku of the Enterprise Channel Node.
-        """
-        return pulumi.get(self, "azure_sku")
-
-    @azure_sku.setter
-    def azure_sku(self, value: pulumi.Input[str]):
-        pulumi.set(self, "azure_sku", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the Enterprise Channel Node.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]]:
-        """
-        The current state of the Enterprise Channel Node.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]]):
-        pulumi.set(self, "state", value)
-
-
-@pulumi.input_type
-class EnterpriseChannelPropertiesArgs:
-    def __init__(__self__, *,
-                 nodes: pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]],
-                 state: Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]] = None):
-        """
-        The parameters to provide for the Enterprise Channel.
-        :param pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]] nodes: The nodes associated with the Enterprise Channel.
-        :param pulumi.Input[Union[str, 'EnterpriseChannelState']] state: The current state of the Enterprise Channel.
-        """
-        pulumi.set(__self__, "nodes", nodes)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def nodes(self) -> pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]]:
-        """
-        The nodes associated with the Enterprise Channel.
-        """
-        return pulumi.get(self, "nodes")
-
-    @nodes.setter
-    def nodes(self, value: pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]]):
-        pulumi.set(self, "nodes", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]]:
-        """
-        The current state of the Enterprise Channel.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]]):
-        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type
@@ -2916,6 +2838,7 @@ class SlackChannelPropertiesArgs:
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  landing_page_url: Optional[pulumi.Input[str]] = None,
+                 register_before_o_auth_flow: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
                  signing_secret: Optional[pulumi.Input[str]] = None,
                  verification_token: Optional[pulumi.Input[str]] = None):
@@ -2925,6 +2848,7 @@ class SlackChannelPropertiesArgs:
         :param pulumi.Input[str] client_id: The Slack client id
         :param pulumi.Input[str] client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[str] landing_page_url: The Slack landing page Url
+        :param pulumi.Input[bool] register_before_o_auth_flow: Whether to register the settings before OAuth validation is performed. Recommended to True.
         :param pulumi.Input[str] scopes: The Slack permission scopes.
         :param pulumi.Input[str] signing_secret: The Slack signing secret.
         :param pulumi.Input[str] verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -2936,6 +2860,8 @@ class SlackChannelPropertiesArgs:
             pulumi.set(__self__, "client_secret", client_secret)
         if landing_page_url is not None:
             pulumi.set(__self__, "landing_page_url", landing_page_url)
+        if register_before_o_auth_flow is not None:
+            pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if signing_secret is not None:
@@ -2990,6 +2916,18 @@ class SlackChannelPropertiesArgs:
     @landing_page_url.setter
     def landing_page_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "landing_page_url", value)
+
+    @property
+    @pulumi.getter(name="registerBeforeOAuthFlow")
+    def register_before_o_auth_flow(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to register the settings before OAuth validation is performed. Recommended to True.
+        """
+        return pulumi.get(self, "register_before_o_auth_flow")
+
+    @register_before_o_auth_flow.setter
+    def register_before_o_auth_flow(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "register_before_o_auth_flow", value)
 
     @property
     @pulumi.getter

@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse? SystemData;
+        /// <summary>
         /// The resource type.
         /// </summary>
         public readonly string Type;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
+            Outputs.SystemDataResponse? systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

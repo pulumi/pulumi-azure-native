@@ -36,6 +36,9 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// Last uploaded date from Kubernetes cluster. Defaults to current date time
         /// </summary>
         public readonly string? LastUploadedDate;
+        /// <summary>
+        /// The provisioning state of the Azure Arc-enabled PostgreSQL instance.
+        /// </summary>
         public readonly string ProvisioningState;
 
         [OutputConstructor]

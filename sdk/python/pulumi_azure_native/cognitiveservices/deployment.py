@@ -96,7 +96,8 @@ class Deployment(pulumi.CustomResource):
                  __props__=None):
         """
         Cognitive Services account deployment.
-        API Version: 2021-10-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,7 +114,8 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services account deployment.
-        API Version: 2021-10-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

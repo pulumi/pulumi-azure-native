@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a management lock by scope.
- * API Version: 2017-04-01.
+ * API Version: 2020-05-01.
  */
 export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockByScopeResult> {
 
@@ -56,13 +56,17 @@ export interface GetManagementLockByScopeResult {
      */
     readonly owners?: outputs.authorization.ManagementLockOwnerResponse[];
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.authorization.SystemDataResponse;
+    /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */
     readonly type: string;
 }
 /**
  * Get a management lock by scope.
- * API Version: 2017-04-01.
+ * API Version: 2020-05-01.
  */
 export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockByScope(a, opts))

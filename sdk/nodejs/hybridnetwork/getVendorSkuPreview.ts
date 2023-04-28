@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the preview information of a vendor sku.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
 
@@ -46,13 +49,21 @@ export interface GetVendorSkuPreviewResult {
      */
     readonly name: string;
     /**
+     * The provisioning state of the PreviewSubscription resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Gets the preview information of a vendor sku.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
     return pulumi.output(args).apply((a: any) => getVendorSkuPreview(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a schedule resource.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -33,7 +33,7 @@ export interface GetScheduleArgs {
      */
     projectName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -89,7 +89,7 @@ export interface GetScheduleResult {
 }
 /**
  * Gets a schedule resource.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
@@ -105,7 +105,7 @@ export interface GetScheduleOutputArgs {
      */
     projectName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

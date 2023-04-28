@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DataPlaneAadOrApiKeyAuthOptionArgs',
+    'DataPlaneAuthOptionsArgs',
+    'EncryptionWithCmkArgs',
     'IdentityArgs',
     'IpRuleArgs',
     'NetworkRuleSetArgs',
@@ -20,6 +23,94 @@ __all__ = [
     'SharedPrivateLinkResourcePropertiesArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class DataPlaneAadOrApiKeyAuthOptionArgs:
+    def __init__(__self__, *,
+                 aad_auth_failure_mode: Optional[pulumi.Input['AadAuthFailureMode']] = None):
+        """
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        :param pulumi.Input['AadAuthFailureMode'] aad_auth_failure_mode: Describes what response the data plane API of a Search service would send for requests that failed authentication.
+        """
+        if aad_auth_failure_mode is not None:
+            pulumi.set(__self__, "aad_auth_failure_mode", aad_auth_failure_mode)
+
+    @property
+    @pulumi.getter(name="aadAuthFailureMode")
+    def aad_auth_failure_mode(self) -> Optional[pulumi.Input['AadAuthFailureMode']]:
+        """
+        Describes what response the data plane API of a Search service would send for requests that failed authentication.
+        """
+        return pulumi.get(self, "aad_auth_failure_mode")
+
+    @aad_auth_failure_mode.setter
+    def aad_auth_failure_mode(self, value: Optional[pulumi.Input['AadAuthFailureMode']]):
+        pulumi.set(self, "aad_auth_failure_mode", value)
+
+
+@pulumi.input_type
+class DataPlaneAuthOptionsArgs:
+    def __init__(__self__, *,
+                 aad_or_api_key: Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']] = None,
+                 api_key_only: Optional[Any] = None):
+        """
+        Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        :param pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs'] aad_or_api_key: Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        :param Any api_key_only: Indicates that only the API key needs to be used for authentication.
+        """
+        if aad_or_api_key is not None:
+            pulumi.set(__self__, "aad_or_api_key", aad_or_api_key)
+        if api_key_only is not None:
+            pulumi.set(__self__, "api_key_only", api_key_only)
+
+    @property
+    @pulumi.getter(name="aadOrApiKey")
+    def aad_or_api_key(self) -> Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']]:
+        """
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        """
+        return pulumi.get(self, "aad_or_api_key")
+
+    @aad_or_api_key.setter
+    def aad_or_api_key(self, value: Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']]):
+        pulumi.set(self, "aad_or_api_key", value)
+
+    @property
+    @pulumi.getter(name="apiKeyOnly")
+    def api_key_only(self) -> Optional[Any]:
+        """
+        Indicates that only the API key needs to be used for authentication.
+        """
+        return pulumi.get(self, "api_key_only")
+
+    @api_key_only.setter
+    def api_key_only(self, value: Optional[Any]):
+        pulumi.set(self, "api_key_only", value)
+
+
+@pulumi.input_type
+class EncryptionWithCmkArgs:
+    def __init__(__self__, *,
+                 enforcement: Optional[pulumi.Input['SearchEncryptionWithCmk']] = None):
+        """
+        Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
+        :param pulumi.Input['SearchEncryptionWithCmk'] enforcement: Describes how a search service should enforce having one or more non customer encrypted resources.
+        """
+        if enforcement is not None:
+            pulumi.set(__self__, "enforcement", enforcement)
+
+    @property
+    @pulumi.getter
+    def enforcement(self) -> Optional[pulumi.Input['SearchEncryptionWithCmk']]:
+        """
+        Describes how a search service should enforce having one or more non customer encrypted resources.
+        """
+        return pulumi.get(self, "enforcement")
+
+    @enforcement.setter
+    def enforcement(self, value: Optional[pulumi.Input['SearchEncryptionWithCmk']]):
+        pulumi.set(self, "enforcement", value)
+
 
 @pulumi.input_type
 class IdentityArgs:
@@ -177,17 +268,37 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
+                 group_id: Optional[pulumi.Input[str]] = None,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None):
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']]] = None):
         """
         Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        :param pulumi.Input[str] group_id: The group id from the provider of resource the private link service connection is for.
         :param pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs'] private_endpoint: The private endpoint resource from Microsoft.Network provider.
         :param pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']] provisioning_state: The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
         """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The group id from the provider of resource the private link service connection is for.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -212,6 +323,18 @@ class PrivateEndpointConnectionPropertiesArgs:
     @private_link_service_connection_state.setter
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']]]:
+        """
+        The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type

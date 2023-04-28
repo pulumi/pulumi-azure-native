@@ -21,7 +21,7 @@ class GetOpenIdConnectProviderResult:
     """
     OpenId Connect Provider details.
     """
-    def __init__(__self__, client_id=None, client_secret=None, description=None, display_name=None, id=None, metadata_endpoint=None, name=None, type=None):
+    def __init__(__self__, client_id=None, client_secret=None, description=None, display_name=None, id=None, metadata_endpoint=None, name=None, type=None, use_in_api_documentation=None, use_in_test_console=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
@@ -46,6 +46,12 @@ class GetOpenIdConnectProviderResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if use_in_api_documentation and not isinstance(use_in_api_documentation, bool):
+            raise TypeError("Expected argument 'use_in_api_documentation' to be a bool")
+        pulumi.set(__self__, "use_in_api_documentation", use_in_api_documentation)
+        if use_in_test_console and not isinstance(use_in_test_console, bool):
+            raise TypeError("Expected argument 'use_in_test_console' to be a bool")
+        pulumi.set(__self__, "use_in_test_console", use_in_test_console)
 
     @property
     @pulumi.getter(name="clientId")
@@ -83,7 +89,7 @@ class GetOpenIdConnectProviderResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -99,7 +105,7 @@ class GetOpenIdConnectProviderResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -107,9 +113,25 @@ class GetOpenIdConnectProviderResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useInApiDocumentation")
+    def use_in_api_documentation(self) -> Optional[bool]:
+        """
+        If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_api_documentation")
+
+    @property
+    @pulumi.getter(name="useInTestConsole")
+    def use_in_test_console(self) -> Optional[bool]:
+        """
+        If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_test_console")
 
 
 class AwaitableGetOpenIdConnectProviderResult(GetOpenIdConnectProviderResult):
@@ -125,7 +147,9 @@ class AwaitableGetOpenIdConnectProviderResult(GetOpenIdConnectProviderResult):
             id=self.id,
             metadata_endpoint=self.metadata_endpoint,
             name=self.name,
-            type=self.type)
+            type=self.type,
+            use_in_api_documentation=self.use_in_api_documentation,
+            use_in_test_console=self.use_in_test_console)
 
 
 def get_open_id_connect_provider(opid: Optional[str] = None,
@@ -134,11 +158,11 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenIdConnectProviderResult:
     """
     Gets specific OpenID Connect Provider without secrets.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -156,7 +180,9 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
         id=__ret__.id,
         metadata_endpoint=__ret__.metadata_endpoint,
         name=__ret__.name,
-        type=__ret__.type)
+        type=__ret__.type,
+        use_in_api_documentation=__ret__.use_in_api_documentation,
+        use_in_test_console=__ret__.use_in_test_console)
 
 
 @_utilities.lift_output_func(get_open_id_connect_provider)
@@ -166,11 +192,11 @@ def get_open_id_connect_provider_output(opid: Optional[pulumi.Input[str]] = None
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenIdConnectProviderResult]:
     """
     Gets specific OpenID Connect Provider without secrets.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkFunction
     {
         /// <summary>
         /// Gets the collector policy in a specified Traffic Collector
-        /// API Version: 2022-05-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetCollectorPolicyResult> InvokeAsync(GetCollectorPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the collector policy in a specified Traffic Collector
-        /// API Version: 2022-05-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetCollectorPolicyResult> Invoke(GetCollectorPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyInvokeArgs(), options.WithDefaults());
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// </summary>
         public readonly Outputs.IngestionPolicyPropertiesFormatResponse? IngestionPolicy;
         /// <summary>
-        /// Azure resource name
+        /// Resource location.
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -110,9 +114,13 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.CollectorPolicyResponseSystemData SystemData;
+        public readonly Outputs.TrackedResourceResponseSystemData SystemData;
         /// <summary>
-        /// Azure resource type
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Resource type.
         /// </summary>
         public readonly string Type;
 
@@ -126,11 +134,15 @@ namespace Pulumi.AzureNative.NetworkFunction
 
             Outputs.IngestionPolicyPropertiesFormatResponse? ingestionPolicy,
 
+            string location,
+
             string name,
 
             string provisioningState,
 
-            Outputs.CollectorPolicyResponseSystemData systemData,
+            Outputs.TrackedResourceResponseSystemData systemData,
+
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
@@ -138,9 +150,11 @@ namespace Pulumi.AzureNative.NetworkFunction
             Etag = etag;
             Id = id;
             IngestionPolicy = ingestionPolicy;
+            Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

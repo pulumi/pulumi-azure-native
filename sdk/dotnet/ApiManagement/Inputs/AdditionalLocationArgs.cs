@@ -28,6 +28,18 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Property can be used to enable NAT Gateway for this API Management service.
+        /// </summary>
+        [Input("natGatewayState")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.NatGatewayState>? NatGatewayState { get; set; }
+
+        /// <summary>
+        /// Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+        /// </summary>
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
+
+        /// <summary>
         /// SKU properties of the API Management service.
         /// </summary>
         [Input("sku", required: true)]
@@ -54,6 +66,7 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public AdditionalLocationArgs()
         {
             DisableGateway = false;
+            NatGatewayState = "Disabled";
         }
         public static new AdditionalLocationArgs Empty => new AdditionalLocationArgs();
     }

@@ -2,141 +2,93 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20151101preview from "./v20151101preview";
-import * as v20160330 from "./v20160330";
-import * as v20160930 from "./v20160930";
 import * as v20170131 from "./v20170131";
 import * as v20170831 from "./v20170831";
-import * as v20180331 from "./v20180331";
-import * as v20180801preview from "./v20180801preview";
 import * as v20180930preview from "./v20180930preview";
 import * as v20190201 from "./v20190201";
 import * as v20190401 from "./v20190401";
 import * as v20190430 from "./v20190430";
 import * as v20190601 from "./v20190601";
-import * as v20190801 from "./v20190801";
-import * as v20190930preview from "./v20190930preview";
-import * as v20191001 from "./v20191001";
 import * as v20191027preview from "./v20191027preview";
-import * as v20191101 from "./v20191101";
-import * as v20200101 from "./v20200101";
-import * as v20200201 from "./v20200201";
-import * as v20200301 from "./v20200301";
-import * as v20200401 from "./v20200401";
 import * as v20200601 from "./v20200601";
-import * as v20200701 from "./v20200701";
-import * as v20200901 from "./v20200901";
-import * as v20201101 from "./v20201101";
-import * as v20201201 from "./v20201201";
 import * as v20210201 from "./v20210201";
 import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
-import * as v20210701 from "./v20210701";
 import * as v20210801 from "./v20210801";
-import * as v20210901 from "./v20210901";
-import * as v20211001 from "./v20211001";
-import * as v20211101preview from "./v20211101preview";
-import * as v20220101 from "./v20220101";
-import * as v20220102preview from "./v20220102preview";
-import * as v20220201 from "./v20220201";
 import * as v20220202preview from "./v20220202preview";
-import * as v20220301 from "./v20220301";
-import * as v20220302preview from "./v20220302preview";
-import * as v20220401 from "./v20220401";
 import * as v20220402preview from "./v20220402preview";
-import * as v20220502preview from "./v20220502preview";
-import * as v20220601 from "./v20220601";
-import * as v20220602preview from "./v20220602preview";
-import * as v20220701 from "./v20220701";
-import * as v20220702preview from "./v20220702preview";
-import * as v20220802preview from "./v20220802preview";
-import * as v20220803preview from "./v20220803preview";
-import * as v20220901 from "./v20220901";
-import * as v20220902preview from "./v20220902preview";
-import * as v20221002preview from "./v20221002preview";
-import * as v20221101 from "./v20221101";
-import * as v20221102preview from "./v20221102preview";
-import * as v20230101 from "./v20230101";
 import * as v20230102preview from "./v20230102preview";
+import * as v20230201 from "./v20230201";
+import * as v20230202preview from "./v20230202preview";
 
 export {
-    v20151101preview,
-    v20160330,
-    v20160930,
     v20170131,
     v20170831,
-    v20180331,
-    v20180801preview,
     v20180930preview,
     v20190201,
     v20190401,
     v20190430,
     v20190601,
-    v20190801,
-    v20190930preview,
-    v20191001,
     v20191027preview,
-    v20191101,
-    v20200101,
-    v20200201,
-    v20200301,
-    v20200401,
     v20200601,
-    v20200701,
-    v20200901,
-    v20201101,
-    v20201201,
     v20210201,
     v20210301,
     v20210501,
-    v20210701,
     v20210801,
-    v20210901,
-    v20211001,
-    v20211101preview,
-    v20220101,
-    v20220102preview,
-    v20220201,
     v20220202preview,
-    v20220301,
-    v20220302preview,
-    v20220401,
     v20220402preview,
-    v20220502preview,
-    v20220601,
-    v20220602preview,
-    v20220701,
-    v20220702preview,
-    v20220802preview,
-    v20220803preview,
-    v20220901,
-    v20220902preview,
-    v20221002preview,
-    v20221101,
-    v20221102preview,
-    v20230101,
     v20230102preview,
+    v20230201,
+    v20230202preview,
 };
 
 export const AgentPoolMode = {
+    /**
+     * System agent pools are primarily for hosting critical system pods such as CoreDNS and metrics-server. System agent pools osType must be Linux. System agent pools VM SKU must have at least 2vCPUs and 4GB of memory.
+     */
     System: "System",
+    /**
+     * User agent pools are primarily for hosting your application pods.
+     */
     User: "User",
 } as const;
 
 /**
- * AgentPoolMode represents mode of an agent pool
+ * A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
  */
 export type AgentPoolMode = (typeof AgentPoolMode)[keyof typeof AgentPoolMode];
 
 export const AgentPoolType = {
+    /**
+     * Create an Agent Pool backed by a Virtual Machine Scale Set.
+     */
     VirtualMachineScaleSets: "VirtualMachineScaleSets",
+    /**
+     * Use of this is strongly discouraged.
+     */
     AvailabilitySet: "AvailabilitySet",
 } as const;
 
 /**
- * AgentPoolType represents types of an agent pool
+ * The type of Agent Pool.
  */
 export type AgentPoolType = (typeof AgentPoolType)[keyof typeof AgentPoolType];
+
+export const Code = {
+    /**
+     * The cluster is running.
+     */
+    Running: "Running",
+    /**
+     * The cluster is stopped.
+     */
+    Stopped: "Stopped",
+} as const;
+
+/**
+ * Tells whether the cluster is Running or Stopped
+ */
+export type Code = (typeof Code)[keyof typeof Code];
 
 export const ConnectionStatus = {
     Pending: "Pending",
@@ -151,12 +103,27 @@ export const ConnectionStatus = {
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 export const Expander = {
+    /**
+     * Selects the node group that will have the least idle CPU (if tied, unused memory) after scale-up. This is useful when you have different classes of nodes, for example, high CPU or high memory nodes, and only want to expand those when there are pending pods that need a lot of those resources.
+     */
     Least_waste: "least-waste",
+    /**
+     * Selects the node group that would be able to schedule the most pods when scaling up. This is useful when you are using nodeSelector to make sure certain pods land on certain nodes. Note that this won't cause the autoscaler to select bigger nodes vs. smaller, as it can add multiple smaller nodes at once.
+     */
     Most_pods: "most-pods",
+    /**
+     * Selects the node group that has the highest priority assigned by the user. It's configuration is described in more details [here](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/expander/priority/readme.md).
+     */
     Priority: "priority",
+    /**
+     * Used when you don't have a particular need for the node groups to scale differently.
+     */
     Random: "random",
 } as const;
 
+/**
+ * If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+ */
 export type Expander = (typeof Expander)[keyof typeof Expander];
 
 export const ExtendedLocationTypes = {
@@ -177,106 +144,191 @@ export const GPUInstanceProfile = {
 } as const;
 
 /**
- * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+ * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
  */
 export type GPUInstanceProfile = (typeof GPUInstanceProfile)[keyof typeof GPUInstanceProfile];
 
+export const IpFamily = {
+    IPv4: "IPv4",
+    IPv6: "IPv6",
+} as const;
+
+/**
+ * The IP version to use for cluster networking and IP assignment.
+ */
+export type IpFamily = (typeof IpFamily)[keyof typeof IpFamily];
+
+export const KeyVaultNetworkAccessTypes = {
+    Public: "Public",
+    Private: "Private",
+} as const;
+
+/**
+ * Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+ */
+export type KeyVaultNetworkAccessTypes = (typeof KeyVaultNetworkAccessTypes)[keyof typeof KeyVaultNetworkAccessTypes];
+
 export const KubeletDiskType = {
+    /**
+     * Kubelet will use the OS disk for its data.
+     */
     OS: "OS",
+    /**
+     * Kubelet will use the temporary disk for its data.
+     */
     Temporary: "Temporary",
 } as const;
 
 /**
- * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+ * Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
  */
 export type KubeletDiskType = (typeof KubeletDiskType)[keyof typeof KubeletDiskType];
 
 export const LicenseType = {
+    /**
+     * No additional licensing is applied.
+     */
     None: "None",
+    /**
+     * Enables Azure Hybrid User Benefits for Windows VMs.
+     */
     Windows_Server: "Windows_Server",
 } as const;
 
 /**
- * The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
+ * The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
  */
 export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 export const LoadBalancerSku = {
+    /**
+     * Use a a standard Load Balancer. This is the recommended Load Balancer SKU. For more information about on working with the load balancer in the managed cluster, see the [standard Load Balancer](https://docs.microsoft.com/azure/aks/load-balancer-standard) article.
+     */
     Standard: "standard",
+    /**
+     * Use a basic Load Balancer with limited functionality.
+     */
     Basic: "basic",
 } as const;
 
 /**
- * The load balancer sku for the managed cluster.
+ * The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
  */
 export type LoadBalancerSku = (typeof LoadBalancerSku)[keyof typeof LoadBalancerSku];
 
 export const ManagedClusterSKUName = {
+    /**
+     * Basic option for the AKS control plane.
+     */
     Basic: "Basic",
+    /**
+     * Not yet available in this version.
+     */
+    Base: "Base",
 } as const;
 
 /**
- * Name of a managed cluster SKU.
+ * The name of a managed cluster SKU.
  */
 export type ManagedClusterSKUName = (typeof ManagedClusterSKUName)[keyof typeof ManagedClusterSKUName];
 
 export const ManagedClusterSKUTier = {
+    /**
+     * Recommended for mission-critical and production workloads. Includes Kubernetes control plane autoscaling, workload-intensive testing, and up to 5,000 nodes per cluster. Guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones.
+     */
     Paid: "Paid",
+    /**
+     * Not yet available in this version.
+     */
+    Standard: "Standard",
+    /**
+     * The cluster management is free, but charged for VM, storage, and networking usage. Best for experimenting, learning, simple testing, or workloads with fewer than 10 nodes. Not recommended for production use cases.
+     */
     Free: "Free",
 } as const;
 
 /**
- * Tier of a managed cluster SKU.
+ * If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
  */
 export type ManagedClusterSKUTier = (typeof ManagedClusterSKUTier)[keyof typeof ManagedClusterSKUTier];
 
 export const NetworkMode = {
+    /**
+     * No bridge is created. Intra-VM Pod to Pod communication is through IP routes created by Azure CNI. See [Transparent Mode](https://docs.microsoft.com/azure/aks/faq#transparent-mode) for more information.
+     */
     Transparent: "transparent",
+    /**
+     * This is no longer supported
+     */
     Bridge: "bridge",
 } as const;
 
 /**
- * Network mode used for building Kubernetes network.
+ * This cannot be specified if networkPlugin is anything other than 'azure'.
  */
 export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
 
 export const NetworkPlugin = {
+    /**
+     * Use the Azure CNI network plugin. See [Azure CNI (advanced) networking](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) for more information.
+     */
     Azure: "azure",
+    /**
+     * Use the Kubenet network plugin. See [Kubenet (basic) networking](https://docs.microsoft.com/azure/aks/concepts-network#kubenet-basic-networking) for more information.
+     */
     Kubenet: "kubenet",
+    /**
+     * No CNI plugin is pre-installed. See [BYO CNI](https://docs.microsoft.com/en-us/azure/aks/use-byo-cni) for more information.
+     */
+    None: "none",
 } as const;
 
 /**
- * Network plugin used for building Kubernetes network.
+ * Network plugin used for building the Kubernetes network.
  */
 export type NetworkPlugin = (typeof NetworkPlugin)[keyof typeof NetworkPlugin];
 
 export const NetworkPolicy = {
+    /**
+     * Use Calico network policies. See [differences between Azure and Calico policies](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities) for more information.
+     */
     Calico: "calico",
+    /**
+     * Use Azure network policies. See [differences between Azure and Calico policies](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities) for more information.
+     */
     Azure: "azure",
 } as const;
 
 /**
- * Network policy used for building Kubernetes network.
+ * Network policy used for building the Kubernetes network.
  */
 export type NetworkPolicy = (typeof NetworkPolicy)[keyof typeof NetworkPolicy];
 
 export const OSDiskType = {
+    /**
+     * Azure replicates the operating system disk for a virtual machine to Azure storage to avoid data loss should the VM need to be relocated to another host. Since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
+     */
     Managed: "Managed",
+    /**
+     * Ephemeral OS disks are stored only on the host machine, just like a temporary disk. This provides lower read/write latency, along with faster node scaling and cluster upgrades.
+     */
     Ephemeral: "Ephemeral",
 } as const;
 
 /**
- * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+ * The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
  */
 export type OSDiskType = (typeof OSDiskType)[keyof typeof OSDiskType];
 
 export const OSSKU = {
     Ubuntu: "Ubuntu",
     CBLMariner: "CBLMariner",
+    Windows2019: "Windows2019",
+    Windows2022: "Windows2022",
 } as const;
 
 /**
- * OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+ * Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
  */
 export type OSSKU = (typeof OSSKU)[keyof typeof OSSKU];
 
@@ -342,43 +394,104 @@ export const OpenShiftContainerServiceVMSize = {
 export type OpenShiftContainerServiceVMSize = (typeof OpenShiftContainerServiceVMSize)[keyof typeof OpenShiftContainerServiceVMSize];
 
 export const OutboundType = {
+    /**
+     * The load balancer is used for egress through an AKS assigned public IP. This supports Kubernetes services of type 'loadBalancer'. For more information see [outbound type loadbalancer](https://docs.microsoft.com/azure/aks/egress-outboundtype#outbound-type-of-loadbalancer).
+     */
     LoadBalancer: "loadBalancer",
+    /**
+     * Egress paths must be defined by the user. This is an advanced scenario and requires proper network configuration. For more information see [outbound type userDefinedRouting](https://docs.microsoft.com/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting).
+     */
     UserDefinedRouting: "userDefinedRouting",
+    /**
+     * The AKS-managed NAT gateway is used for egress.
+     */
+    ManagedNATGateway: "managedNATGateway",
+    /**
+     * The user-assigned NAT gateway associated to the cluster subnet is used for egress. This is an advanced scenario and requires proper network configuration.
+     */
+    UserAssignedNATGateway: "userAssignedNATGateway",
 } as const;
 
 /**
- * The outbound (egress) routing method.
+ * This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
  */
 export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Allow or deny public network access for AKS
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const ResourceIdentityType = {
+    /**
+     * Use an implicitly created system assigned managed identity to manage cluster resources. Master components in the control plane such as kube-controller-manager will use the system assigned managed identity to manipulate Azure resources.
+     */
     SystemAssigned: "SystemAssigned",
+    /**
+     * Use a user-specified identity to manage cluster resources. Master components in the control plane such as kube-controller-manager will use the specified user assigned managed identity to manipulate Azure resources.
+     */
     UserAssigned: "UserAssigned",
+    /**
+     * Do not use a managed identity for the Managed Cluster, service principal will be used instead.
+     */
     None: "None",
 } as const;
 
 /**
- * The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+ * For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
-export const ScaleSetEvictionPolicy = {
+export const ScaleDownMode = {
+    /**
+     * Create new instances during scale up and remove instances during scale down.
+     */
     Delete: "Delete",
+    /**
+     * Attempt to start deallocated instances (if they exist) during scale up and deallocate instances during scale down.
+     */
     Deallocate: "Deallocate",
 } as const;
 
 /**
- * ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+ * This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+ */
+export type ScaleDownMode = (typeof ScaleDownMode)[keyof typeof ScaleDownMode];
+
+export const ScaleSetEvictionPolicy = {
+    /**
+     * Nodes in the underlying Scale Set of the node pool are deleted when they're evicted.
+     */
+    Delete: "Delete",
+    /**
+     * Nodes in the underlying Scale Set of the node pool are set to the stopped-deallocated state upon eviction. Nodes in the stopped-deallocated state count against your compute quota and can cause issues with cluster scaling or upgrading.
+     */
+    Deallocate: "Deallocate",
+} as const;
+
+/**
+ * This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
  */
 export type ScaleSetEvictionPolicy = (typeof ScaleSetEvictionPolicy)[keyof typeof ScaleSetEvictionPolicy];
 
 export const ScaleSetPriority = {
+    /**
+     * Spot priority VMs will be used. There is no SLA for spot nodes. See [spot on AKS](https://docs.microsoft.com/azure/aks/spot-node-pool) for more information.
+     */
     Spot: "Spot",
+    /**
+     * Regular VMs will be used.
+     */
     Regular: "Regular",
 } as const;
 
 /**
- * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+ * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
  */
 export type ScaleSetPriority = (typeof ScaleSetPriority)[keyof typeof ScaleSetPriority];
 
@@ -395,15 +508,30 @@ export const SnapshotType = {
 export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
 
 export const UpgradeChannel = {
+    /**
+     * Automatically upgrade the cluster to the latest supported patch release on the latest supported minor version. In cases where the cluster is at a version of Kubernetes that is at an N-2 minor version where N is the latest supported minor version, the cluster first upgrades to the latest supported patch version on N-1 minor version. For example, if a cluster is running version 1.17.7 and versions 1.17.9, 1.18.4, 1.18.6, and 1.19.1 are available, your cluster first is upgraded to 1.18.6, then is upgraded to 1.19.1.
+     */
     Rapid: "rapid",
+    /**
+     * Automatically upgrade the cluster to the latest supported patch release on minor version N-1, where N is the latest supported minor version. For example, if a cluster is running version 1.17.7 and versions 1.17.9, 1.18.4, 1.18.6, and 1.19.1 are available, your cluster is upgraded to 1.18.6.
+     */
     Stable: "stable",
+    /**
+     * Automatically upgrade the cluster to the latest supported patch version when it becomes available while keeping the minor version the same. For example, if a cluster is running version 1.17.7 and versions 1.17.9, 1.18.4, 1.18.6, and 1.19.1 are available, your cluster is upgraded to 1.17.9.
+     */
     Patch: "patch",
+    /**
+     * Automatically upgrade the node image to the latest version available. Microsoft provides patches and new images for image nodes frequently (usually weekly), but your running nodes won't get the new images unless you do a node image upgrade. Turning on the node-image channel will automatically update your node images whenever a new version is available.
+     */
     Node_image: "node-image",
+    /**
+     * Disables auto-upgrades and keeps the cluster at its current version of Kubernetes.
+     */
     None: "none",
 } as const;
 
 /**
- * upgrade channel for auto upgrade.
+ * For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
  */
 export type UpgradeChannel = (typeof UpgradeChannel)[keyof typeof UpgradeChannel];
 
@@ -418,6 +546,22 @@ export const WeekDay = {
 } as const;
 
 /**
- * A day in a week.
+ * The day of the week.
  */
 export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];
+
+export const WorkloadRuntime = {
+    /**
+     * Nodes will use Kubelet to run standard OCI container workloads.
+     */
+    OCIContainer: "OCIContainer",
+    /**
+     * Nodes will use Krustlet to run WASM workloads using the WASI provider (Preview).
+     */
+    WasmWasi: "WasmWasi",
+} as const;
+
+/**
+ * Determines the type of workload a node can run.
+ */
+export type WorkloadRuntime = (typeof WorkloadRuntime)[keyof typeof WorkloadRuntime];

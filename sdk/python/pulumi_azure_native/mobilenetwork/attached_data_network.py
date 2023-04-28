@@ -17,18 +17,12 @@ __all__ = ['AttachedDataNetworkArgs', 'AttachedDataNetwork']
 @pulumi.input_type
 class AttachedDataNetworkArgs:
     def __init__(__self__, *,
+                 dns_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  packet_core_control_plane_name: pulumi.Input[str],
                  packet_core_data_plane_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  user_plane_data_interface: pulumi.Input['InterfacePropertiesArgs'],
                  attached_data_network_name: Optional[pulumi.Input[str]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  napt_configuration: Optional[pulumi.Input['NaptConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -36,18 +30,12 @@ class AttachedDataNetworkArgs:
                  user_equipment_static_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AttachedDataNetwork resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_addresses: The DNS servers to signal to UEs to use for this attached data network. This configuration is mandatory - if you don't want DNS servers, you must provide an empty array.
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
         :param pulumi.Input[str] packet_core_data_plane_name: The name of the packet core data plane.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['InterfacePropertiesArgs'] user_plane_data_interface: The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
         :param pulumi.Input[str] attached_data_network_name: The name of the attached data network.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_addresses: The DNS servers to signal to UEs to use for this attached data network.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['NaptConfigurationArgs'] napt_configuration: The network address and port translation (NAPT) configuration.
                If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
@@ -59,26 +47,13 @@ class AttachedDataNetworkArgs:
                The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
                At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
         """
+        pulumi.set(__self__, "dns_addresses", dns_addresses)
         pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
         pulumi.set(__self__, "packet_core_data_plane_name", packet_core_data_plane_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user_plane_data_interface", user_plane_data_interface)
         if attached_data_network_name is not None:
             pulumi.set(__self__, "attached_data_network_name", attached_data_network_name)
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if dns_addresses is not None:
-            pulumi.set(__self__, "dns_addresses", dns_addresses)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if napt_configuration is not None:
@@ -89,6 +64,18 @@ class AttachedDataNetworkArgs:
             pulumi.set(__self__, "user_equipment_address_pool_prefix", user_equipment_address_pool_prefix)
         if user_equipment_static_address_pool_prefix is not None:
             pulumi.set(__self__, "user_equipment_static_address_pool_prefix", user_equipment_static_address_pool_prefix)
+
+    @property
+    @pulumi.getter(name="dnsAddresses")
+    def dns_addresses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The DNS servers to signal to UEs to use for this attached data network. This configuration is mandatory - if you don't want DNS servers, you must provide an empty array.
+        """
+        return pulumi.get(self, "dns_addresses")
+
+    @dns_addresses.setter
+    def dns_addresses(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "dns_addresses", value)
 
     @property
     @pulumi.getter(name="packetCoreControlPlaneName")
@@ -149,90 +136,6 @@ class AttachedDataNetworkArgs:
     @attached_data_network_name.setter
     def attached_data_network_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attached_data_network_name", value)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_at", value)
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_by", value)
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @created_by_type.setter
-    def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "created_by_type", value)
-
-    @property
-    @pulumi.getter(name="dnsAddresses")
-    def dns_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The DNS servers to signal to UEs to use for this attached data network.
-        """
-        return pulumi.get(self, "dns_addresses")
-
-    @dns_addresses.setter
-    def dns_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "dns_addresses", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @last_modified_at.setter
-    def last_modified_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_at", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_by", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @last_modified_by_type.setter
-    def last_modified_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "last_modified_by_type", value)
 
     @property
     @pulumi.getter
@@ -306,13 +209,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attached_data_network_name: Optional[pulumi.Input[str]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  napt_configuration: Optional[pulumi.Input[pulumi.InputType['NaptConfigurationArgs']]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
@@ -324,19 +221,14 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  user_plane_data_interface: Optional[pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']]] = None,
                  __props__=None):
         """
-        Attached data network resource.
-        API Version: 2022-04-01-preview.
+        Attached data network resource. Must be created in the same location as its parent packet core data plane.
+        API Version: 2022-11-01.
+        Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_data_network_name: The name of the attached data network.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_addresses: The DNS servers to signal to UEs to use for this attached data network.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_addresses: The DNS servers to signal to UEs to use for this attached data network. This configuration is mandatory - if you don't want DNS servers, you must provide an empty array.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['NaptConfigurationArgs']] napt_configuration: The network address and port translation (NAPT) configuration.
                If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
@@ -359,8 +251,9 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  args: AttachedDataNetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attached data network resource.
-        API Version: 2022-04-01-preview.
+        Attached data network resource. Must be created in the same location as its parent packet core data plane.
+        API Version: 2022-11-01.
+        Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AttachedDataNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -378,13 +271,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attached_data_network_name: Optional[pulumi.Input[str]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  napt_configuration: Optional[pulumi.Input[pulumi.InputType['NaptConfigurationArgs']]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
@@ -404,13 +291,9 @@ class AttachedDataNetwork(pulumi.CustomResource):
             __props__ = AttachedDataNetworkArgs.__new__(AttachedDataNetworkArgs)
 
             __props__.__dict__["attached_data_network_name"] = attached_data_network_name
-            __props__.__dict__["created_at"] = created_at
-            __props__.__dict__["created_by"] = created_by
-            __props__.__dict__["created_by_type"] = created_by_type
+            if dns_addresses is None and not opts.urn:
+                raise TypeError("Missing required property 'dns_addresses'")
             __props__.__dict__["dns_addresses"] = dns_addresses
-            __props__.__dict__["last_modified_at"] = last_modified_at
-            __props__.__dict__["last_modified_by"] = last_modified_by
-            __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             __props__.__dict__["location"] = location
             __props__.__dict__["napt_configuration"] = napt_configuration
             if packet_core_control_plane_name is None and not opts.urn:
@@ -456,13 +339,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
 
         __props__ = AttachedDataNetworkArgs.__new__(AttachedDataNetworkArgs)
 
-        __props__.__dict__["created_at"] = None
-        __props__.__dict__["created_by"] = None
-        __props__.__dict__["created_by_type"] = None
         __props__.__dict__["dns_addresses"] = None
-        __props__.__dict__["last_modified_at"] = None
-        __props__.__dict__["last_modified_by"] = None
-        __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["napt_configuration"] = None
@@ -476,60 +353,12 @@ class AttachedDataNetwork(pulumi.CustomResource):
         return AttachedDataNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
     @pulumi.getter(name="dnsAddresses")
-    def dns_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def dns_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
-        The DNS servers to signal to UEs to use for this attached data network.
+        The DNS servers to signal to UEs to use for this attached data network. This configuration is mandatory - if you don't want DNS servers, you must provide an empty array.
         """
         return pulumi.get(self, "dns_addresses")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter

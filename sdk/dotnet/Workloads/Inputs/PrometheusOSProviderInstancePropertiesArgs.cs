@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public Input<string> ProviderType { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets the SAP System Identifier
+        /// </summary>
+        [Input("sapSid")]
+        public Input<string>? SapSid { get; set; }
+
+        /// <summary>
         /// Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
         /// </summary>
         [Input("sslCertificateUri")]

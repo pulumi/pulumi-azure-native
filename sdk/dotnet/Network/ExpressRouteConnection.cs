@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// ExpressRouteConnection resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteConnection")]
     public partial class ExpressRouteConnection : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("enableInternetSecurity")]
         public Output<bool?> EnableInternetSecurity { get; private set; } = null!;
+
+        /// <summary>
+        /// Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        /// </summary>
+        [Output("enablePrivateLinkFastPath")]
+        public Output<bool?> EnablePrivateLinkFastPath { get; private set; } = null!;
 
         /// <summary>
         /// The ExpressRoute circuit peering.
@@ -156,6 +163,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("enableInternetSecurity")]
         public Input<bool>? EnableInternetSecurity { get; set; }
+
+        /// <summary>
+        /// Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        /// </summary>
+        [Input("enablePrivateLinkFastPath")]
+        public Input<bool>? EnablePrivateLinkFastPath { get; set; }
 
         /// <summary>
         /// The ExpressRoute circuit peering.

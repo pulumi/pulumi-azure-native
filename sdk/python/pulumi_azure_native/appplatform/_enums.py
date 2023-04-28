@@ -5,12 +5,24 @@
 from enum import Enum
 
 __all__ = [
+    'BackendProtocol',
     'BindingType',
+    'GatewayRouteConfigProtocol',
+    'HTTPSchemeType',
     'ManagedIdentityType',
-    'RuntimeVersion',
+    'ProbeActionType',
+    'SessionAffinity',
     'StorageType',
-    'UserSourceType',
+    'Type',
 ]
+
+
+class BackendProtocol(str, Enum):
+    """
+    How ingress should communicate with this app backend service.
+    """
+    GRPC = "GRPC"
+    DEFAULT = "Default"
 
 
 class BindingType(str, Enum):
@@ -25,6 +37,26 @@ class BindingType(str, Enum):
     ELASTIC_APM = "ElasticAPM"
 
 
+class GatewayRouteConfigProtocol(str, Enum):
+    """
+    Protocol of routed Azure Spring Apps applications.
+    """
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+
+
+class HTTPSchemeType(str, Enum):
+    """
+    Scheme to use for connecting to the host. Defaults to HTTP.
+
+    Possible enum values:
+     - `"HTTP"` means that the scheme used will be http://
+     - `"HTTPS"` means that the scheme used will be https://
+    """
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+
+
 class ManagedIdentityType(str, Enum):
     """
     Type of the managed identity
@@ -35,13 +67,21 @@ class ManagedIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
-class RuntimeVersion(str, Enum):
+class ProbeActionType(str, Enum):
     """
-    Runtime version
+    The type of the action to take to perform the health check.
     """
-    JAVA_8 = "Java_8"
-    JAVA_11 = "Java_11"
-    NET_CORE_31 = "NetCore_31"
+    HTTP_GET_ACTION = "HTTPGetAction"
+    TCP_SOCKET_ACTION = "TCPSocketAction"
+    EXEC_ACTION = "ExecAction"
+
+
+class SessionAffinity(str, Enum):
+    """
+    Type of the affinity, set this to Cookie to enable session affinity.
+    """
+    COOKIE = "Cookie"
+    NONE = "None"
 
 
 class StorageType(str, Enum):
@@ -51,10 +91,8 @@ class StorageType(str, Enum):
     STORAGE_ACCOUNT = "StorageAccount"
 
 
-class UserSourceType(str, Enum):
+class Type(str, Enum):
     """
-    Type of the source uploaded
+    The type of the underlying resource to mount as a persistent disk.
     """
-    JAR = "Jar"
-    NET_CORE_ZIP = "NetCoreZip"
-    SOURCE = "Source"
+    AZURE_FILE_VOLUME = "AzureFileVolume"

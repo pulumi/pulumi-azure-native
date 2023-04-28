@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Network manager group Id.
         /// </summary>
-        public readonly string? NetworkGroupId;
+        public readonly string NetworkGroupId;
 
         [OutputConstructor]
-        private NetworkManagerSecurityGroupItemResponse(string? networkGroupId)
+        private NetworkManagerSecurityGroupItemResponse(string networkGroupId)
         {
             NetworkGroupId = networkGroupId;
         }

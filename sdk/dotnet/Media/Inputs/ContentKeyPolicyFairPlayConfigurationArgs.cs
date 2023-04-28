@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Media.Inputs
     public sealed class ContentKeyPolicyFairPlayConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key that must be used as FairPlay Application Secret key.
+        /// The key that must be used as FairPlay Application Secret key. This needs to be base64 encoded.
         /// </summary>
         [Input("ask", required: true)]
         public Input<string> Ask { get; set; } = null!;

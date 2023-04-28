@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DigitalTwins
     {
         /// <summary>
         /// Get private endpoint connection properties for the given private endpoint.
-        /// API Version: 2020-12-01.
+        /// API Version: 2023-01-31.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:digitaltwins:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get private endpoint connection properties for the given private endpoint.
-        /// API Version: 2020-12-01.
+        /// API Version: 2023-01-31.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:digitaltwins:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -91,7 +91,14 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// The resource name.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.PrivateEndpointConnectionResponseProperties Properties;
+        /// <summary>
+        /// The connection properties.
+        /// </summary>
+        public readonly Outputs.ConnectionPropertiesResponse Properties;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the private endpoint connection.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -103,13 +110,16 @@ namespace Pulumi.AzureNative.DigitalTwins
 
             string name,
 
-            Outputs.PrivateEndpointConnectionResponseProperties properties,
+            Outputs.ConnectionPropertiesResponse properties,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

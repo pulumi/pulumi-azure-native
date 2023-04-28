@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * vCenter definition.
- * API Version: 2018-07-10.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ReplicationvCenter extends pulumi.CustomResource {
     /**
@@ -79,7 +80,7 @@ export class ReplicationvCenter extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["vCenterName"] = args ? args.vCenterName : undefined;
+            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -117,7 +118,7 @@ export interface ReplicationvCenterArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * vCenter name.
+     * vcenter name.
      */
-    vCenterName?: pulumi.Input<string>;
+    vcenterName?: pulumi.Input<string>;
 }

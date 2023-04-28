@@ -19,7 +19,6 @@ from .get_sim_group import *
 from .get_sim_policy import *
 from .get_site import *
 from .get_slice import *
-from .list_mobile_network_sim_ids import *
 from .mobile_network import *
 from .packet_core_control_plane import *
 from .packet_core_data_plane import *

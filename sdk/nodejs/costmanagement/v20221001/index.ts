@@ -25,16 +25,6 @@ export const getScheduledActionByScope: typeof import("./getScheduledActionBySco
 export const getScheduledActionByScopeOutput: typeof import("./getScheduledActionByScope").getScheduledActionByScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledActionByScope","getScheduledActionByScopeOutput"], () => require("./getScheduledActionByScope"));
 
-export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
-export const getView: typeof import("./getView").getView = null as any;
-export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
-utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
-
-export { GetViewByScopeArgs, GetViewByScopeResult, GetViewByScopeOutputArgs } from "./getViewByScope";
-export const getViewByScope: typeof import("./getViewByScope").getViewByScope = null as any;
-export const getViewByScopeOutput: typeof import("./getViewByScope").getViewByScopeOutput = null as any;
-utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
-
 export { ScheduledActionArgs } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
@@ -44,16 +34,6 @@ export { ScheduledActionByScopeArgs } from "./scheduledActionByScope";
 export type ScheduledActionByScope = import("./scheduledActionByScope").ScheduledActionByScope;
 export const ScheduledActionByScope: typeof import("./scheduledActionByScope").ScheduledActionByScope = null as any;
 utilities.lazyLoad(exports, ["ScheduledActionByScope"], () => require("./scheduledActionByScope"));
-
-export { ViewArgs } from "./view";
-export type View = import("./view").View;
-export const View: typeof import("./view").View = null as any;
-utilities.lazyLoad(exports, ["View"], () => require("./view"));
-
-export { ViewByScopeArgs } from "./viewByScope";
-export type ViewByScope = import("./viewByScope").ViewByScope;
-export const ViewByScope: typeof import("./viewByScope").ViewByScope = null as any;
-utilities.lazyLoad(exports, ["ViewByScope"], () => require("./viewByScope"));
 
 
 // Export enums:
@@ -69,10 +49,6 @@ const _module = {
                 return new ScheduledAction(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20221001:ScheduledActionByScope":
                 return new ScheduledActionByScope(name, <any>undefined, { urn })
-            case "azure-native:costmanagement/v20221001:View":
-                return new View(name, <any>undefined, { urn })
-            case "azure-native:costmanagement/v20221001:ViewByScope":
-                return new ViewByScope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

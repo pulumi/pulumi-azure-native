@@ -25,9 +25,7 @@ __all__ = [
     'EncryptionPropertiesResponseIdentity',
     'ErrorResponseResponse',
     'FieldDefinitionResponse',
-    'HybridRunbookWorkerLegacyResponse',
     'IdentityResponse',
-    'IdentityResponseUserAssignedIdentities',
     'KeyResponse',
     'KeyVaultPropertiesResponse',
     'LinuxPropertiesResponse',
@@ -49,6 +47,7 @@ __all__ = [
     'TargetPropertiesResponse',
     'TaskPropertiesResponse',
     'UpdateConfigurationResponse',
+    'UserAssignedIdentitiesPropertiesResponse',
     'WindowsPropertiesResponse',
 ]
 
@@ -706,84 +705,6 @@ class FieldDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class HybridRunbookWorkerLegacyResponse(dict):
-    """
-    Definition of hybrid runbook worker Legacy.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lastSeenDateTime":
-            suggest = "last_seen_date_time"
-        elif key == "registrationTime":
-            suggest = "registration_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HybridRunbookWorkerLegacyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HybridRunbookWorkerLegacyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HybridRunbookWorkerLegacyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ip: Optional[str] = None,
-                 last_seen_date_time: Optional[str] = None,
-                 name: Optional[str] = None,
-                 registration_time: Optional[str] = None):
-        """
-        Definition of hybrid runbook worker Legacy.
-        :param str ip: Gets or sets the assigned machine IP address.
-        :param str last_seen_date_time: Last Heartbeat from the Worker
-        :param str name: Gets or sets the worker machine name.
-        :param str registration_time: Gets or sets the registration time of the worker machine.
-        """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-        if last_seen_date_time is not None:
-            pulumi.set(__self__, "last_seen_date_time", last_seen_date_time)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if registration_time is not None:
-            pulumi.set(__self__, "registration_time", registration_time)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[str]:
-        """
-        Gets or sets the assigned machine IP address.
-        """
-        return pulumi.get(self, "ip")
-
-    @property
-    @pulumi.getter(name="lastSeenDateTime")
-    def last_seen_date_time(self) -> Optional[str]:
-        """
-        Last Heartbeat from the Worker
-        """
-        return pulumi.get(self, "last_seen_date_time")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Gets or sets the worker machine name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="registrationTime")
-    def registration_time(self) -> Optional[str]:
-        """
-        Gets or sets the registration time of the worker machine.
-        """
-        return pulumi.get(self, "registration_time")
-
-
-@pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
@@ -813,13 +734,13 @@ class IdentityResponse(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesPropertiesResponse']] = None):
         """
         Identity for the resource.
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -854,59 +775,11 @@ class IdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesPropertiesResponse']]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class IdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -2311,6 +2184,54 @@ class UpdateConfigurationResponse(dict):
         Windows specific update configuration.
         """
         return pulumi.get(self, "windows")
+
+
+@pulumi.output_type
+class UserAssignedIdentitiesPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentitiesPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentitiesPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

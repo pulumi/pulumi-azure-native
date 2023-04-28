@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a hub setting.
- * API Version: 2021-10-01.
+ * API Version: 2023-02-01.
  */
 export function getWebPubSubHub(args: GetWebPubSubHubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubHubResult> {
 
@@ -63,7 +63,7 @@ export interface GetWebPubSubHubResult {
 }
 /**
  * Get a hub setting.
- * API Version: 2021-10-01.
+ * API Version: 2023-02-01.
  */
 export function getWebPubSubHubOutput(args: GetWebPubSubHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubHubResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubHub(a, opts))

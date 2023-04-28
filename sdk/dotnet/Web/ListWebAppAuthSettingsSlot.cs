@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppAuthSettingsSlot
     {
         /// <summary>
-        /// Gets the Authentication/Authorization settings of an app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the Authentication/Authorization settings of an app.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppAuthSettingsSlotResult> InvokeAsync(ListWebAppAuthSettingsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsSlotResult>("azure-native:web:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the Authentication/Authorization settings of an app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the Authentication/Authorization settings of an app.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppAuthSettingsSlotResult> Invoke(ListWebAppAuthSettingsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsSlotResult>("azure-native:web:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotInvokeArgs(), options.WithDefaults());
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly ImmutableArray<string> AdditionalLoginParams;
         /// <summary>
-        /// Allowed audience values to consider when validating JWTs issued by 
+        /// Allowed audience values to consider when validating JSON Web Tokens issued by 
         /// Azure Active Directory. Note that the &lt;code&gt;ClientID&lt;/code&gt; value is always considered an
         /// allowed audience, regardless of this setting.
         /// </summary>

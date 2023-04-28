@@ -22,28 +22,16 @@ class GetNetworkGroupResult:
     """
     The network group resource
     """
-    def __init__(__self__, conditional_membership=None, description=None, display_name=None, etag=None, group_members=None, id=None, member_type=None, name=None, provisioning_state=None, system_data=None, type=None):
-        if conditional_membership and not isinstance(conditional_membership, str):
-            raise TypeError("Expected argument 'conditional_membership' to be a str")
-        pulumi.set(__self__, "conditional_membership", conditional_membership)
+    def __init__(__self__, description=None, etag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if group_members and not isinstance(group_members, list):
-            raise TypeError("Expected argument 'group_members' to be a list")
-        pulumi.set(__self__, "group_members", group_members)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if member_type and not isinstance(member_type, str):
-            raise TypeError("Expected argument 'member_type' to be a str")
-        pulumi.set(__self__, "member_type", member_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -58,28 +46,12 @@ class GetNetworkGroupResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="conditionalMembership")
-    def conditional_membership(self) -> Optional[str]:
-        """
-        Network group conditional filter.
-        """
-        return pulumi.get(self, "conditional_membership")
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         A description of the network group.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        A friendly name for the network group.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -90,28 +62,12 @@ class GetNetworkGroupResult:
         return pulumi.get(self, "etag")
 
     @property
-    @pulumi.getter(name="groupMembers")
-    def group_members(self) -> Optional[Sequence['outputs.GroupMembersItemResponse']]:
-        """
-        Group members of network group.
-        """
-        return pulumi.get(self, "group_members")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="memberType")
-    def member_type(self) -> Optional[str]:
-        """
-        Group member type.
-        """
-        return pulumi.get(self, "member_type")
 
     @property
     @pulumi.getter
@@ -152,13 +108,9 @@ class AwaitableGetNetworkGroupResult(GetNetworkGroupResult):
         if False:
             yield self
         return GetNetworkGroupResult(
-            conditional_membership=self.conditional_membership,
             description=self.description,
-            display_name=self.display_name,
             etag=self.etag,
-            group_members=self.group_members,
             id=self.id,
-            member_type=self.member_type,
             name=self.name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
@@ -171,10 +123,10 @@ def get_network_group(network_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkGroupResult:
     """
     Gets the specified network group.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
-    :param str network_group_name: The name of the network group to get.
+    :param str network_group_name: The name of the network group.
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     """
@@ -186,13 +138,9 @@ def get_network_group(network_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkGroup', __args__, opts=opts, typ=GetNetworkGroupResult).value
 
     return AwaitableGetNetworkGroupResult(
-        conditional_membership=__ret__.conditional_membership,
         description=__ret__.description,
-        display_name=__ret__.display_name,
         etag=__ret__.etag,
-        group_members=__ret__.group_members,
         id=__ret__.id,
-        member_type=__ret__.member_type,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
@@ -206,10 +154,10 @@ def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkGroupResult]:
     """
     Gets the specified network group.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
-    :param str network_group_name: The name of the network group to get.
+    :param str network_group_name: The name of the network group.
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     """

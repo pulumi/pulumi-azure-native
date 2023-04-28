@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// vCenter definition.
-    /// API Version: 2018-07-10.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationvCenter")]
     public partial class ReplicationvCenter : global::Pulumi.CustomResource
@@ -135,10 +136,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// vCenter name.
+        /// vcenter name.
         /// </summary>
-        [Input("vCenterName")]
-        public Input<string>? VCenterName { get; set; }
+        [Input("vcenterName")]
+        public Input<string>? VcenterName { get; set; }
 
         public ReplicationvCenterArgs()
         {

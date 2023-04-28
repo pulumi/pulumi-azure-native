@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List SSH authorized keys and shared key of the local user.
- * API Version: 2021-08-01.
+ * API Version: 2022-09-01.
  */
 export function listLocalUserKeys(args: ListLocalUserKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalUserKeysResult> {
 
@@ -51,7 +51,7 @@ export interface ListLocalUserKeysResult {
 }
 /**
  * List SSH authorized keys and shared key of the local user.
- * API Version: 2021-08-01.
+ * API Version: 2022-09-01.
  */
 export function listLocalUserKeysOutput(args: ListLocalUserKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalUserKeysResult> {
     return pulumi.output(args).apply((a: any) => listLocalUserKeys(a, opts))

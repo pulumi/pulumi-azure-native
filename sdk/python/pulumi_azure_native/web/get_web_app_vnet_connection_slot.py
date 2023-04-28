@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetWebAppVnetConnectionSlotResult:
     """
-    Virtual Network information contract.
+    Virtual Network information ARM resource.
     """
     def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, type=None, vnet_resource_id=None):
         if cert_blob and not isinstance(cert_blob, str):
@@ -172,8 +172,8 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
                                      vnet_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionSlotResult:
     """
-    Gets a virtual network the app (or deployment slot) is connected to by name.
-    API Version: 2020-12-01.
+    Description for Gets a virtual network the app (or deployment slot) is connected to by name.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -210,8 +210,8 @@ def get_web_app_vnet_connection_slot_output(name: Optional[pulumi.Input[str]] = 
                                             vnet_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppVnetConnectionSlotResult]:
     """
-    Gets a virtual network the app (or deployment slot) is connected to by name.
-    API Version: 2020-12-01.
+    Description for Gets a virtual network the app (or deployment slot) is connected to by name.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.

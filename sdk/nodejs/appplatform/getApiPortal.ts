@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the API portal and its properties.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
  */
 export function getApiPortal(args: GetApiPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPortalResult> {
 
@@ -67,7 +67,7 @@ export interface GetApiPortalResult {
 }
 /**
  * Get the API portal and its properties.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
  */
 export function getApiPortalOutput(args: GetApiPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalResult> {
     return pulumi.output(args).apply((a: any) => getApiPortal(a, opts))

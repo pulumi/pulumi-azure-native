@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single Event Hubs Cluster resource in List or Get operations.
-    /// API Version: 2018-01-01-preview.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -51,6 +52,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

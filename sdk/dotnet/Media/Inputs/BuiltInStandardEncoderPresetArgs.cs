@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Media.Inputs
     public sealed class BuiltInStandardEncoderPresetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
+        /// </summary>
+        [Input("configurations")]
+        public Input<Inputs.PresetConfigurationsArgs>? Configurations { get; set; }
+
+        /// <summary>
         /// The discriminator for derived types.
         /// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
         /// </summary>

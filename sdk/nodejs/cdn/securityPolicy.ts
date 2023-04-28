@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * SecurityPolicy association for AzureFrontDoor profile
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
+ * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SecurityPolicy extends pulumi.CustomResource {
     /**
@@ -47,6 +48,10 @@ export class SecurityPolicy extends pulumi.CustomResource {
      * object which contains security policy parameters
      */
     public readonly parameters!: pulumi.Output<outputs.cdn.SecurityPolicyWebApplicationFirewallParametersResponse | undefined>;
+    /**
+     * The name of the profile which holds the security policy.
+     */
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * Provisioning status
      */
@@ -90,6 +95,7 @@ export class SecurityPolicy extends pulumi.CustomResource {
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -110,7 +116,7 @@ export interface SecurityPolicyArgs {
      */
     parameters?: pulumi.Input<inputs.cdn.SecurityPolicyWebApplicationFirewallParametersArgs>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

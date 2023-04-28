@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Lists the access keys for the specified Azure Cosmos DB database account.
-        /// API Version: 2021-03-15.
+        /// API Version: 2022-11-15.
         /// </summary>
         public static Task<ListDatabaseAccountKeysResult> InvokeAsync(ListDatabaseAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountKeysResult>("azure-native:documentdb:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the access keys for the specified Azure Cosmos DB database account.
-        /// API Version: 2021-03-15.
+        /// API Version: 2022-11-15.
         /// </summary>
         public static Output<ListDatabaseAccountKeysResult> Invoke(ListDatabaseAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountKeysResult>("azure-native:documentdb:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysInvokeArgs(), options.WithDefaults());

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
     public sealed class ImageTemplatePlatformImageSourceResponse
     {
         /// <summary>
+        /// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
+        /// </summary>
+        public readonly string ExactVersion;
+        /// <summary>
         /// Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         /// </summary>
         public readonly string? Offer;
@@ -38,12 +42,14 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
+        /// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
         /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private ImageTemplatePlatformImageSourceResponse(
+            string exactVersion,
+
             string? offer,
 
             Outputs.PlatformImagePurchasePlanResponse? planInfo,
@@ -56,6 +62,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 
             string? version)
         {
+            ExactVersion = exactVersion;
             Offer = offer;
             PlanInfo = planInfo;
             Publisher = publisher;

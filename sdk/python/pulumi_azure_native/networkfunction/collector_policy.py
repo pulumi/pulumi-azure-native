@@ -12,16 +12,18 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['CollectorPolicyInitArgs', 'CollectorPolicy']
+__all__ = ['CollectorPolicyArgs', 'CollectorPolicy']
 
 @pulumi.input_type
-class CollectorPolicyInitArgs:
+class CollectorPolicyArgs:
     def __init__(__self__, *,
                  azure_traffic_collector_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  collector_policy_name: Optional[pulumi.Input[str]] = None,
                  emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]] = None,
-                 ingestion_policy: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']] = None):
+                 ingestion_policy: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CollectorPolicy resource.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
@@ -29,6 +31,8 @@ class CollectorPolicyInitArgs:
         :param pulumi.Input[str] collector_policy_name: Collector Policy Name
         :param pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]] emission_policies: Emission policies.
         :param pulumi.Input['IngestionPolicyPropertiesFormatArgs'] ingestion_policy: Ingestion policies.
+        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "azure_traffic_collector_name", azure_traffic_collector_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -38,6 +42,10 @@ class CollectorPolicyInitArgs:
             pulumi.set(__self__, "emission_policies", emission_policies)
         if ingestion_policy is not None:
             pulumi.set(__self__, "ingestion_policy", ingestion_policy)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="azureTrafficCollectorName")
@@ -99,6 +107,30 @@ class CollectorPolicyInitArgs:
     def ingestion_policy(self, value: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']]):
         pulumi.set(self, "ingestion_policy", value)
 
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class CollectorPolicy(pulumi.CustomResource):
     @overload
@@ -109,11 +141,14 @@ class CollectorPolicy(pulumi.CustomResource):
                  collector_policy_name: Optional[pulumi.Input[str]] = None,
                  emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmissionPoliciesPropertiesFormatArgs']]]]] = None,
                  ingestion_policy: Optional[pulumi.Input[pulumi.InputType['IngestionPolicyPropertiesFormatArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Collector policy resource.
-        API Version: 2022-05-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2022-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,25 +156,28 @@ class CollectorPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] collector_policy_name: Collector Policy Name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmissionPoliciesPropertiesFormatArgs']]]] emission_policies: Emission policies.
         :param pulumi.Input[pulumi.InputType['IngestionPolicyPropertiesFormatArgs']] ingestion_policy: Ingestion policies.
+        :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CollectorPolicyInitArgs,
+                 args: CollectorPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Collector policy resource.
-        API Version: 2022-05-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2022-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
-        :param CollectorPolicyInitArgs args: The arguments to use to populate this resource's properties.
+        :param CollectorPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CollectorPolicyInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CollectorPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -152,7 +190,9 @@ class CollectorPolicy(pulumi.CustomResource):
                  collector_policy_name: Optional[pulumi.Input[str]] = None,
                  emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmissionPoliciesPropertiesFormatArgs']]]]] = None,
                  ingestion_policy: Optional[pulumi.Input[pulumi.InputType['IngestionPolicyPropertiesFormatArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -160,7 +200,7 @@ class CollectorPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CollectorPolicyInitArgs.__new__(CollectorPolicyInitArgs)
+            __props__ = CollectorPolicyArgs.__new__(CollectorPolicyArgs)
 
             if azure_traffic_collector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_traffic_collector_name'")
@@ -168,9 +208,11 @@ class CollectorPolicy(pulumi.CustomResource):
             __props__.__dict__["collector_policy_name"] = collector_policy_name
             __props__.__dict__["emission_policies"] = emission_policies
             __props__.__dict__["ingestion_policy"] = ingestion_policy
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -198,14 +240,16 @@ class CollectorPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = CollectorPolicyInitArgs.__new__(CollectorPolicyInitArgs)
+        __props__ = CollectorPolicyArgs.__new__(CollectorPolicyArgs)
 
         __props__.__dict__["emission_policies"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["ingestion_policy"] = None
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return CollectorPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -235,9 +279,17 @@ class CollectorPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -251,7 +303,7 @@ class CollectorPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.CollectorPolicyResponseSystemData']:
+    def system_data(self) -> pulumi.Output['outputs.TrackedResourceResponseSystemData']:
         """
         Metadata pertaining to creation and last modification of the resource.
         """
@@ -259,9 +311,17 @@ class CollectorPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        Resource type.
         """
         return pulumi.get(self, "type")
 

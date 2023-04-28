@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.LabServices.V20220801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:labservices:Lab"},
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Lab"},
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Lab"},
                 },

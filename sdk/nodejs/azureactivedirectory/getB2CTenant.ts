@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Azure AD B2C tenant resource.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-04-01.
  */
 export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetB2CTenantResult> {
 
@@ -26,7 +26,7 @@ export interface GetB2CTenantArgs {
      */
     resourceGroupName: string;
     /**
-     * The initial domain name of the B2C tenant.
+     * The initial domain name of the Azure AD B2C tenant.
      */
     resourceName: string;
 }
@@ -37,15 +37,15 @@ export interface GetB2CTenantResult {
      */
     readonly billingConfig?: outputs.azureactivedirectory.B2CTenantResourcePropertiesResponseBillingConfig;
     /**
-     * An identifier that represents the B2C tenant resource.
+     * An identifier that represents the Azure AD B2C tenant resource.
      */
     readonly id: string;
     /**
-     * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+     * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
     readonly location: string;
     /**
-     * The name of the B2C tenant resource.
+     * The name of the Azure AD B2C tenant resource.
      */
     readonly name: string;
     /**
@@ -53,11 +53,15 @@ export interface GetB2CTenantResult {
      */
     readonly sku: outputs.azureactivedirectory.B2CResourceSKUResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.azureactivedirectory.SystemDataResponse;
+    /**
      * Resource Tags
      */
     readonly tags?: {[key: string]: string};
     /**
-     * An identifier of the B2C tenant.
+     * An identifier of the Azure AD B2C tenant.
      */
     readonly tenantId?: string;
     /**
@@ -67,7 +71,7 @@ export interface GetB2CTenantResult {
 }
 /**
  * Get the Azure AD B2C tenant resource.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-04-01.
  */
 export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
     return pulumi.output(args).apply((a: any) => getB2CTenant(a, opts))
@@ -79,7 +83,7 @@ export interface GetB2CTenantOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The initial domain name of the B2C tenant.
+     * The initial domain name of the Azure AD B2C tenant.
      */
     resourceName: pulumi.Input<string>;
 }

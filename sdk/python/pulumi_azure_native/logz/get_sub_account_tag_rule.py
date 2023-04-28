@@ -100,7 +100,7 @@ def get_sub_account_tag_rule(monitor_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubAccountTagRuleResult:
     """
     Capture logs and metrics of Azure resources based on ARM tags.
-    API Version: 2020-10-01.
+    API Version: 2022-01-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -131,7 +131,7 @@ def get_sub_account_tag_rule_output(monitor_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubAccountTagRuleResult]:
     """
     Capture logs and metrics of Azure resources based on ARM tags.
-    API Version: 2020-10-01.
+    API Version: 2022-01-01-preview.
 
 
     :param str monitor_name: Monitor resource name

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Service Endpoint policy definitions.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     /**
@@ -59,6 +60,10 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
      * A list of service resources.
      */
     public readonly serviceResources!: pulumi.Output<string[] | undefined>;
+    /**
+     * The type of the resource.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServiceEndpointPolicyDefinition resource with the given unique name, arguments, and options.
@@ -85,6 +90,7 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             resourceInputs["serviceEndpointPolicyDefinitionName"] = args ? args.serviceEndpointPolicyDefinitionName : undefined;
             resourceInputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
             resourceInputs["serviceResources"] = args ? args.serviceResources : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
@@ -94,6 +100,7 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;
             resourceInputs["serviceResources"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20180701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20180801:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181001:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190401:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190601:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190801:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190901:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20191101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20191201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200301:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200401:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200501:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200601:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200801:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20201101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20210201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20210301:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20210501:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20210801:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20220101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20220501:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20220701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20220901:ServiceEndpointPolicyDefinition" }] };
@@ -138,4 +145,8 @@ export interface ServiceEndpointPolicyDefinitionArgs {
      * A list of service resources.
      */
     serviceResources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The type of the resource.
+     */
+    type?: pulumi.Input<string>;
 }

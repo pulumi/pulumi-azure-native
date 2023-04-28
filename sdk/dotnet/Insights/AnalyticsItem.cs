@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights
     /// <summary>
     /// Properties that define an Analytics item that is associated to an Application Insights component.
     /// API Version: 2015-05-01.
+    /// Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:AnalyticsItem")]
     public partial class AnalyticsItem : global::Pulumi.CustomResource

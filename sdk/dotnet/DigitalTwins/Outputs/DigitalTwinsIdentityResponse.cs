@@ -25,9 +25,15 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+        /// The type of Managed Identity used by the DigitalTwinsInstance.
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+        /// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// .
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private DigitalTwinsIdentityResponse(
@@ -35,11 +41,14 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
 
             string tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

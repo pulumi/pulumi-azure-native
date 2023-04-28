@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.Outputs
 {
 
     /// <summary>
-    /// Container App container definition.
+    /// Container App container definition
     /// </summary>
     [OutputType]
     public sealed class ContainerResponse

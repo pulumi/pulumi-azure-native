@@ -146,8 +146,8 @@ def list_web_app_backup_configuration_slot(name: Optional[str] = None,
                                            slot: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupConfigurationSlotResult:
     """
-    Gets the backup configuration of an app.
-    API Version: 2020-12-01.
+    Description for Gets the backup configuration of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -179,8 +179,8 @@ def list_web_app_backup_configuration_slot_output(name: Optional[pulumi.Input[st
                                                   slot: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupConfigurationSlotResult]:
     """
-    Gets the backup configuration of an app.
-    API Version: 2020-12-01.
+    Description for Gets the backup configuration of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.

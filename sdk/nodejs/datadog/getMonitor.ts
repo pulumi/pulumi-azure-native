@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-03-01.
+ * API Version: 2022-06-01.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
 
@@ -57,7 +57,7 @@ export interface GetMonitorResult {
     readonly type: string;
 }
 /**
- * API Version: 2021-03-01.
+ * API Version: 2022-06-01.
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
     return pulumi.output(args).apply((a: any) => getMonitor(a, opts))

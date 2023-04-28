@@ -24,8 +24,8 @@ from .get_hybrid_runbook_worker import *
 from .get_hybrid_runbook_worker_group import *
 from .get_job_schedule import *
 from .get_module import *
-from .get_private_endpoint_connection import *
 from .get_python2_package import *
+from .get_python3_package import *
 from .get_runbook import *
 from .get_schedule import *
 from .get_software_update_configuration_by_name import *
@@ -38,8 +38,8 @@ from .hybrid_runbook_worker_group import *
 from .job_schedule import *
 from .list_key_by_automation_account import *
 from .module import *
-from .private_endpoint_connection import *
 from .python2_package import *
+from .python3_package import *
 from .runbook import *
 from .schedule import *
 from .software_update_configuration_by_name import *
@@ -56,28 +56,19 @@ if typing.TYPE_CHECKING:
     v20151031 = __v20151031
     import pulumi_azure_native.automation.v20170515preview as __v20170515preview
     v20170515preview = __v20170515preview
-    import pulumi_azure_native.automation.v20180115 as __v20180115
-    v20180115 = __v20180115
-    import pulumi_azure_native.automation.v20180630 as __v20180630
-    v20180630 = __v20180630
     import pulumi_azure_native.automation.v20190601 as __v20190601
     v20190601 = __v20190601
     import pulumi_azure_native.automation.v20200113preview as __v20200113preview
     v20200113preview = __v20200113preview
     import pulumi_azure_native.automation.v20210622 as __v20210622
     v20210622 = __v20210622
-    import pulumi_azure_native.automation.v20220222 as __v20220222
-    v20220222 = __v20220222
     import pulumi_azure_native.automation.v20220808 as __v20220808
     v20220808 = __v20220808
 else:
     v20151031 = _utilities.lazy_import('pulumi_azure_native.automation.v20151031')
     v20170515preview = _utilities.lazy_import('pulumi_azure_native.automation.v20170515preview')
-    v20180115 = _utilities.lazy_import('pulumi_azure_native.automation.v20180115')
-    v20180630 = _utilities.lazy_import('pulumi_azure_native.automation.v20180630')
     v20190601 = _utilities.lazy_import('pulumi_azure_native.automation.v20190601')
     v20200113preview = _utilities.lazy_import('pulumi_azure_native.automation.v20200113preview')
     v20210622 = _utilities.lazy_import('pulumi_azure_native.automation.v20210622')
-    v20220222 = _utilities.lazy_import('pulumi_azure_native.automation.v20220222')
     v20220808 = _utilities.lazy_import('pulumi_azure_native.automation.v20220808')
 

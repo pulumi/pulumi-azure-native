@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// </summary>
         public readonly Outputs.UpstreamAuthSettingsResponse? Auth;
         /// <summary>
-        /// Gets ot sets the list of system events.
+        /// Gets or sets the list of system events.
         /// </summary>
         public readonly ImmutableArray<string> SystemEvents;
         /// <summary>
@@ -31,10 +31,10 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         public readonly string UrlTemplate;
         /// <summary>
         /// Gets or sets the matching pattern for event names.
-        /// There are 3 kind of patterns supported:
-        ///     1. "*", it to matches any event name
+        /// There are 3 kinds of patterns supported:
+        ///     1. "*", it matches any event name
         ///     2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-        ///     3. The single event name, for example, "event1", it matches "event1"
+        ///     3. A single event name, for example, "event1", it matches "event1"
         /// </summary>
         public readonly string? UserEventPattern;
 

@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RadiusServerResponse> RadiusServers;
         /// <summary>
+        /// per ip address pool connection policy for virtual network gateway P2S client.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VngClientConnectionConfigurationResponse> VngClientConnectionConfigurations;
+        /// <summary>
         /// VPN authentication types for the virtual network gateway..
         /// </summary>
         public readonly ImmutableArray<string> VpnAuthenticationTypes;
@@ -79,6 +83,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.RadiusServerResponse> radiusServers,
 
+            ImmutableArray<Outputs.VngClientConnectionConfigurationResponse> vngClientConnectionConfigurations,
+
             ImmutableArray<string> vpnAuthenticationTypes,
 
             Outputs.AddressSpaceResponse? vpnClientAddressPool,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             RadiusServerAddress = radiusServerAddress;
             RadiusServerSecret = radiusServerSecret;
             RadiusServers = radiusServers;
+            VngClientConnectionConfigurations = vngClientConnectionConfigurations;
             VpnAuthenticationTypes = vpnAuthenticationTypes;
             VpnClientAddressPool = vpnClientAddressPool;
             VpnClientIpsecPolicies = vpnClientIpsecPolicies;

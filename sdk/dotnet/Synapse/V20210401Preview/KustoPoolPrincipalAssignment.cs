@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPoolPrincipalAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment"},
                 },
             };

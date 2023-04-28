@@ -148,8 +148,8 @@ def get_web_app_relay_service_connection(entity_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppRelayServiceConnectionResult:
     """
-    Gets a hybrid connection configuration by its name.
-    API Version: 2020-12-01.
+    Description for Gets a hybrid connection configuration by its name.
+    API Version: 2022-09-01.
 
 
     :param str entity_name: Name of the hybrid connection.
@@ -183,8 +183,8 @@ def get_web_app_relay_service_connection_output(entity_name: Optional[pulumi.Inp
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppRelayServiceConnectionResult]:
     """
-    Gets a hybrid connection configuration by its name.
-    API Version: 2020-12-01.
+    Description for Gets a hybrid connection configuration by its name.
+    API Version: 2022-09-01.
 
 
     :param str entity_name: Name of the hybrid connection.

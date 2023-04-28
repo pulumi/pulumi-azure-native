@@ -28,6 +28,14 @@ namespace Pulumi.AzureNative.Kusto.Outputs
         /// The database name owned by this cluster that was followed. * in case following all databases.
         /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The origin of the following setup.
+        /// </summary>
+        public readonly string DatabaseShareOrigin;
+        /// <summary>
+        /// Table level sharing specifications
+        /// </summary>
+        public readonly Outputs.TableLevelSharingPropertiesResponse TableLevelSharingProperties;
 
         [OutputConstructor]
         private FollowerDatabaseDefinitionResponse(
@@ -35,11 +43,17 @@ namespace Pulumi.AzureNative.Kusto.Outputs
 
             string clusterResourceId,
 
-            string databaseName)
+            string databaseName,
+
+            string databaseShareOrigin,
+
+            Outputs.TableLevelSharingPropertiesResponse tableLevelSharingProperties)
         {
             AttachedDatabaseConfigurationName = attachedDatabaseConfigurationName;
             ClusterResourceId = clusterResourceId;
             DatabaseName = databaseName;
+            DatabaseShareOrigin = databaseShareOrigin;
+            TableLevelSharingProperties = tableLevelSharingProperties;
         }
     }
 }

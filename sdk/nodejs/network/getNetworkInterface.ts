@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified network interface.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
 
@@ -41,6 +41,14 @@ export interface GetNetworkInterfaceArgs {
  */
 export interface GetNetworkInterfaceResult {
     /**
+     * Auxiliary mode of Network Interface resource.
+     */
+    readonly auxiliaryMode?: string;
+    /**
+     * Indicates whether to disable tcp state tracking.
+     */
+    readonly disableTcpStateTracking?: boolean;
+    /**
      * The DNS settings in network interface.
      */
     readonly dnsSettings?: outputs.network.NetworkInterfaceDnsSettingsResponse;
@@ -49,7 +57,7 @@ export interface GetNetworkInterfaceResult {
      */
     readonly dscpConfiguration: outputs.network.SubResourceResponse;
     /**
-     * If the network interface is accelerated networking enabled.
+     * If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
      */
     readonly enableAcceleratedNetworking?: boolean;
     /**
@@ -136,10 +144,18 @@ export interface GetNetworkInterfaceResult {
      * The reference to a virtual machine.
      */
     readonly virtualMachine: outputs.network.SubResourceResponse;
+    /**
+     * Whether the virtual machine this nic is attached to supports encryption.
+     */
+    readonly vnetEncryptionSupported: boolean;
+    /**
+     * WorkloadType of the NetworkInterface for BareMetal resources
+     */
+    readonly workloadType?: string;
 }
 /**
  * Gets information about the specified network interface.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))

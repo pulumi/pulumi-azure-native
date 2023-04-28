@@ -22,7 +22,7 @@ class IpFirewallRuleArgs:
         """
         The set of arguments for constructing a IpFirewallRule resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
         :param pulumi.Input[str] rule_name: The IP firewall rule name
         :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format
@@ -52,7 +52,7 @@ class IpFirewallRuleArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -110,7 +110,8 @@ class IpFirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         IP firewall rule
-        API Version: 2021-03-01.
+        API Version: 2021-06-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +119,7 @@ class IpFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The IP firewall rule name
         :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload
@@ -128,7 +129,8 @@ class IpFirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IP firewall rule
-        API Version: 2021-03-01.
+        API Version: 2021-06-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param IpFirewallRuleArgs args: The arguments to use to populate this resource's properties.

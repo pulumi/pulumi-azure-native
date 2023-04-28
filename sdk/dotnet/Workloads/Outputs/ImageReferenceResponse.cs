@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.Workloads.Outputs
     public sealed class ImageReferenceResponse
     {
         /// <summary>
-        /// Specifies in decimal numbers, the version of platform image or marketplace image used to create the virtual machine. This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
-        /// </summary>
-        public readonly string ExactVersion;
-        /// <summary>
         /// Specifies the offer of the platform image or marketplace image used to create the virtual machine.
         /// </summary>
         public readonly string? Offer;
@@ -28,10 +24,6 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// The image publisher.
         /// </summary>
         public readonly string? Publisher;
-        /// <summary>
-        /// Specified the shared gallery image unique id for vm deployment. This can be fetched from shared gallery image GET call.
-        /// </summary>
-        public readonly string? SharedGalleryImageId;
         /// <summary>
         /// The image SKU.
         /// </summary>
@@ -43,22 +35,16 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
         [OutputConstructor]
         private ImageReferenceResponse(
-            string exactVersion,
-
             string? offer,
 
             string? publisher,
-
-            string? sharedGalleryImageId,
 
             string? sku,
 
             string? version)
         {
-            ExactVersion = exactVersion;
             Offer = offer;
             Publisher = publisher;
-            SharedGalleryImageId = sharedGalleryImageId;
             Sku = sku;
             Version = version;
         }

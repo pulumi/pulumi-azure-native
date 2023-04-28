@@ -41,7 +41,6 @@ __all__ = [
     'SyncConflictResolutionPolicy',
     'SyncDirection',
     'SyncMemberDbType',
-    'TransparentDataEncryptionState',
 ]
 
 
@@ -371,11 +370,3 @@ class SyncMemberDbType(str, Enum):
     """
     AZURE_SQL_DATABASE = "AzureSqlDatabase"
     SQL_SERVER_DATABASE = "SqlServerDatabase"
-
-
-class TransparentDataEncryptionState(str, Enum):
-    """
-    Specifies the state of the transparent data encryption.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"

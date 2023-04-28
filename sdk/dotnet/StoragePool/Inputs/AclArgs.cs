@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StoragePool.Inputs
 {
 
     /// <summary>
-    /// Access Control List (ACL) for an iSCSI target portal group
+    /// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
     /// </summary>
     public sealed class AclArgs : global::Pulumi.ResourceArgs
     {
@@ -32,18 +32,6 @@ namespace Pulumi.AzureNative.StoragePool.Inputs
             get => _mappedLuns ?? (_mappedLuns = new InputList<string>());
             set => _mappedLuns = value;
         }
-
-        /// <summary>
-        /// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
 
         public AclArgs()
         {

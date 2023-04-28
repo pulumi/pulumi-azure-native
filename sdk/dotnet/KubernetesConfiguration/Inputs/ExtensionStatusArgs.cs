@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
 {
 
     /// <summary>
-    /// Status from this instance of the extension.
+    /// Status from the extension.
     /// </summary>
     public sealed class ExtensionStatusArgs : global::Pulumi.ResourceArgs
     {
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         public Input<string>? Code { get; set; }
 
         /// <summary>
-        /// Short description of status of this instance of the extension.
+        /// Short description of status of the extension.
         /// </summary>
         [Input("displayStatus")]
         public Input<string>? DisplayStatus { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Inputs
         public InputUnion<string, Pulumi.AzureNative.KubernetesConfiguration.LevelType>? Level { get; set; }
 
         /// <summary>
-        /// Detailed message of the status from the Extension instance.
+        /// Detailed message of the status from the Extension.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }

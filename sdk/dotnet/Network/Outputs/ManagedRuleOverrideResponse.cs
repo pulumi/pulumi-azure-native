@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class ManagedRuleOverrideResponse
     {
         /// <summary>
+        /// Describes the override action to be applied when rule matches.
+        /// </summary>
+        public readonly string? Action;
+        /// <summary>
         /// Identifier for the managed rule.
         /// </summary>
         public readonly string RuleId;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private ManagedRuleOverrideResponse(
+            string? action,
+
             string ruleId,
 
             string? state)
         {
+            Action = action;
             RuleId = ruleId;
             State = state;
         }

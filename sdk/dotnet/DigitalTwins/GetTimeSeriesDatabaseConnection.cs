@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DigitalTwins
     {
         /// <summary>
         /// Get the description of an existing time series database connection.
-        /// API Version: 2021-06-30-preview.
+        /// API Version: 2023-01-31.
         /// </summary>
         public static Task<GetTimeSeriesDatabaseConnectionResult> InvokeAsync(GetTimeSeriesDatabaseConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the description of an existing time series database connection.
-        /// API Version: 2021-06-30-preview.
+        /// API Version: 2023-01-31.
         /// </summary>
         public static Output<GetTimeSeriesDatabaseConnectionResult> Invoke(GetTimeSeriesDatabaseConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionInvokeArgs(), options.WithDefaults());

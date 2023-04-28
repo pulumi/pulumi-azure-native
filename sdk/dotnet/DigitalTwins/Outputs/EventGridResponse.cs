@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
         /// </summary>
         public readonly string? AccessKey2;
         /// <summary>
-        /// Specifies the authentication type being used for connecting to the endpoint.
+        /// Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
         /// </summary>
         public readonly string? AuthenticationType;
         /// <summary>
@@ -46,11 +46,15 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
         /// </summary>
         public readonly string EndpointType;
         /// <summary>
+        /// Managed identity properties for the endpoint.
+        /// </summary>
+        public readonly Outputs.ManagedIdentityReferenceResponse? Identity;
+        /// <summary>
         /// The provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// EventGrid Topic Endpoint
+        /// EventGrid Topic Endpoint.
         /// </summary>
         public readonly string TopicEndpoint;
 
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
 
             string endpointType,
 
+            Outputs.ManagedIdentityReferenceResponse? identity,
+
             string provisioningState,
 
             string topicEndpoint)
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
             DeadLetterSecret = deadLetterSecret;
             DeadLetterUri = deadLetterUri;
             EndpointType = endpointType;
+            Identity = identity;
             ProvisioningState = provisioningState;
             TopicEndpoint = topicEndpoint;
         }

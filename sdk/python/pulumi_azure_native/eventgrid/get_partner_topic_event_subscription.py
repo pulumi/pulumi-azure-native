@@ -222,8 +222,8 @@ def get_partner_topic_event_subscription(event_subscription_name: Optional[str] 
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionResult:
     """
-    Get an event subscription of a partner topic.
-    API Version: 2020-04-01-preview.
+    Get properties of an event subscription of a partner topic.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -261,8 +261,8 @@ def get_partner_topic_event_subscription_output(event_subscription_name: Optiona
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionResult]:
     """
-    Get an event subscription of a partner topic.
-    API Version: 2020-04-01-preview.
+    Get properties of an event subscription of a partner topic.
+    API Version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

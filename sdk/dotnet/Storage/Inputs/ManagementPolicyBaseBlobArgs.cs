@@ -28,16 +28,28 @@ namespace Pulumi.AzureNative.Storage.Inputs
         public Input<bool>? EnableAutoTierToHotFromCool { get; set; }
 
         /// <summary>
-        /// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
+        /// The function to tier blobs to archive storage.
         /// </summary>
         [Input("tierToArchive")]
         public Input<Inputs.DateAfterModificationArgs>? TierToArchive { get; set; }
 
         /// <summary>
-        /// The function to tier blobs to cool storage. Support blobs currently at Hot tier
+        /// The function to tier blobs to cold storage.
+        /// </summary>
+        [Input("tierToCold")]
+        public Input<Inputs.DateAfterModificationArgs>? TierToCold { get; set; }
+
+        /// <summary>
+        /// The function to tier blobs to cool storage.
         /// </summary>
         [Input("tierToCool")]
         public Input<Inputs.DateAfterModificationArgs>? TierToCool { get; set; }
+
+        /// <summary>
+        /// The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+        /// </summary>
+        [Input("tierToHot")]
+        public Input<Inputs.DateAfterModificationArgs>? TierToHot { get; set; }
 
         public ManagementPolicyBaseBlobArgs()
         {

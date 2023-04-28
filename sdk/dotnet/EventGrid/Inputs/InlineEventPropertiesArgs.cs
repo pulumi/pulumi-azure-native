@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The displayName for the inline event.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// The documentationUrl for the inline event.
         /// </summary>
         [Input("documentationUrl")]

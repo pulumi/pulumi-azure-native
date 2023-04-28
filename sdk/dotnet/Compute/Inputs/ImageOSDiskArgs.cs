@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.SubResourceArgs>? ManagedDisk { get; set; }
 
         /// <summary>
-        /// The OS State.
+        /// The OS State. For managed images, use Generalized.
         /// </summary>
         [Input("osState", required: true)]
         public Input<Pulumi.AzureNative.Compute.OperatingSystemStateTypes> OsState { get; set; } = null!;

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
     /// Account resource
-    /// API Version: 2020-12-01-preview.
+    /// API Version: 2021-07-01.
+    /// Previous API Version: 2020-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -111,7 +112,7 @@ namespace Pulumi.AzureNative.Purview
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.AccountPropertiesResponseSystemData> SystemData { get; private set; } = null!;
+        public Output<Outputs.TrackedResourceResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags on the azure resource.

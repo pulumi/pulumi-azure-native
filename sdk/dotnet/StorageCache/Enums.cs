@@ -21,6 +21,8 @@ namespace Pulumi.AzureNative.StorageCache
         }
 
         public static CacheIdentityType SystemAssigned { get; } = new CacheIdentityType("SystemAssigned");
+        public static CacheIdentityType UserAssigned { get; } = new CacheIdentityType("UserAssigned");
+        public static CacheIdentityType SystemAssigned_UserAssigned { get; } = new CacheIdentityType("SystemAssigned, UserAssigned");
         public static CacheIdentityType None { get; } = new CacheIdentityType("None");
 
         public static bool operator ==(CacheIdentityType left, CacheIdentityType right) => left.Equals(right);
@@ -103,33 +105,31 @@ namespace Pulumi.AzureNative.StorageCache
     }
 
     /// <summary>
-    /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+    /// Storage target operational state.
     /// </summary>
     [EnumType]
-    public readonly struct ProvisioningStateType : IEquatable<ProvisioningStateType>
+    public readonly struct OperationalStateType : IEquatable<OperationalStateType>
     {
         private readonly string _value;
 
-        private ProvisioningStateType(string value)
+        private OperationalStateType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ProvisioningStateType Succeeded { get; } = new ProvisioningStateType("Succeeded");
-        public static ProvisioningStateType Failed { get; } = new ProvisioningStateType("Failed");
-        public static ProvisioningStateType Cancelled { get; } = new ProvisioningStateType("Cancelled");
-        public static ProvisioningStateType Creating { get; } = new ProvisioningStateType("Creating");
-        public static ProvisioningStateType Deleting { get; } = new ProvisioningStateType("Deleting");
-        public static ProvisioningStateType Updating { get; } = new ProvisioningStateType("Updating");
+        public static OperationalStateType Ready { get; } = new OperationalStateType("Ready");
+        public static OperationalStateType Busy { get; } = new OperationalStateType("Busy");
+        public static OperationalStateType Suspended { get; } = new OperationalStateType("Suspended");
+        public static OperationalStateType Flushing { get; } = new OperationalStateType("Flushing");
 
-        public static bool operator ==(ProvisioningStateType left, ProvisioningStateType right) => left.Equals(right);
-        public static bool operator !=(ProvisioningStateType left, ProvisioningStateType right) => !left.Equals(right);
+        public static bool operator ==(OperationalStateType left, OperationalStateType right) => left.Equals(right);
+        public static bool operator !=(OperationalStateType left, OperationalStateType right) => !left.Equals(right);
 
-        public static explicit operator string(ProvisioningStateType value) => value._value;
+        public static explicit operator string(OperationalStateType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProvisioningStateType other && Equals(other);
-        public bool Equals(ProvisioningStateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is OperationalStateType other && Equals(other);
+        public bool Equals(OperationalStateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

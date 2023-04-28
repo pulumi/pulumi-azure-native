@@ -77,11 +77,11 @@ def list_policy_fragment_references(id: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPolicyFragmentReferencesResult:
     """
     Lists policy resources that reference the policy fragment.
-    API Version: 2021-12-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str id: A resource identifier.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param int skip: Number of records to skip.
     :param int top: Number of records to return.
@@ -110,11 +110,11 @@ def list_policy_fragment_references_output(id: Optional[pulumi.Input[str]] = Non
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicyFragmentReferencesResult]:
     """
     Lists policy resources that reference the policy fragment.
-    API Version: 2021-12-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str id: A resource identifier.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param int skip: Number of records to skip.
     :param int top: Number of records to return.

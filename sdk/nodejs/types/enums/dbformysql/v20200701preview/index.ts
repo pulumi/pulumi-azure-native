@@ -42,15 +42,6 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
-export const ServerKeyType = {
-    AzureKeyVault: "AzureKeyVault",
-} as const;
-
-/**
- * The key type like 'AzureKeyVault'.
- */
-export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
-
 export const ServerVersion = {
     ServerVersion_5_7: "5.7",
 } as const;

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Describes the RedisEnterprise cluster
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-01-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:RedisEnterprise")]
     public partial class RedisEnterprise : global::Pulumi.CustomResource

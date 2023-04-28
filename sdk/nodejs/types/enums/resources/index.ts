@@ -2,50 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20151101 from "./v20151101";
-import * as v20160201 from "./v20160201";
 import * as v20160701 from "./v20160701";
-import * as v20160901 from "./v20160901";
-import * as v20170510 from "./v20170510";
-import * as v20180201 from "./v20180201";
-import * as v20180501 from "./v20180501";
-import * as v20190301 from "./v20190301";
 import * as v20190501 from "./v20190501";
-import * as v20190510 from "./v20190510";
 import * as v20190601preview from "./v20190601preview";
-import * as v20190701 from "./v20190701";
-import * as v20190801 from "./v20190801";
-import * as v20191001 from "./v20191001";
 import * as v20191001preview from "./v20191001preview";
-import * as v20200601 from "./v20200601";
-import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
 import * as v20210101 from "./v20210101";
-import * as v20210401 from "./v20210401";
 import * as v20220801preview from "./v20220801preview";
 import * as v20220901 from "./v20220901";
 
 export {
-    v20151101,
-    v20160201,
     v20160701,
-    v20160901,
-    v20170510,
-    v20180201,
-    v20180501,
-    v20190301,
     v20190501,
-    v20190510,
     v20190601preview,
-    v20190701,
-    v20190801,
-    v20191001,
     v20191001preview,
-    v20200601,
-    v20200801,
     v20201001,
     v20210101,
-    v20210401,
     v20220801preview,
     v20220901,
 };
@@ -81,6 +53,15 @@ export const ExpressionEvaluationOptionsScopeType = {
  * The scope to be used for evaluation of parameters, variables and functions in a nested template.
  */
 export type ExpressionEvaluationOptionsScopeType = (typeof ExpressionEvaluationOptionsScopeType)[keyof typeof ExpressionEvaluationOptionsScopeType];
+
+export const ExtendedLocationType = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The extended location type.
+ */
+export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
 
 export const ManagedServiceIdentityType = {
     UserAssigned: "UserAssigned",

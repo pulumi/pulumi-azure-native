@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Push settings for the App.
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class WebAppSitePushSettings extends pulumi.CustomResource {
     /**
@@ -52,7 +53,7 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+     * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */
     public readonly tagWhitelistJson!: pulumi.Output<string | undefined>;
     /**
@@ -136,7 +137,7 @@ export interface WebAppSitePushSettingsArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+     * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */
     tagWhitelistJson?: pulumi.Input<string>;
     /**

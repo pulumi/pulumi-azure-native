@@ -16,10 +16,28 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Sku name.
+        /// The sku capacity
+        /// </summary>
+        [Input("capacity")]
+        public Input<string>? Capacity { get; set; }
+
+        /// <summary>
+        /// The sku family
+        /// </summary>
+        [Input("family")]
+        public Input<string>? Family { get; set; }
+
+        /// <summary>
+        /// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
         /// </summary>
         [Input("name", required: true)]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.SkuName> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The sku size
+        /// </summary>
+        [Input("size")]
+        public Input<string>? Size { get; set; }
 
         /// <summary>
         /// The Sku tier.

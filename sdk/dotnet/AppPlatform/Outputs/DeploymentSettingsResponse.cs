@@ -17,50 +17,64 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class DeploymentSettingsResponse
     {
         /// <summary>
-        /// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        /// Collection of addons
         /// </summary>
-        public readonly int? Cpu;
+        public readonly ImmutableDictionary<string, object>? AddonConfigs;
+        /// <summary>
+        /// Container liveness and readiness probe settings
+        /// </summary>
+        public readonly Outputs.ContainerProbeSettingsResponse? ContainerProbeSettings;
         /// <summary>
         /// Collection of environment variables
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
-        /// JVM parameter
+        /// Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         /// </summary>
-        public readonly string? JvmOptions;
+        public readonly Outputs.ProbeResponse? LivenessProbe;
         /// <summary>
-        /// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+        /// Periodic probe of App Instance service readiness. App Instance will be removed from service endpoints if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         /// </summary>
-        public readonly int? MemoryInGB;
+        public readonly Outputs.ProbeResponse? ReadinessProbe;
         /// <summary>
-        /// The path to the .NET executable relative to zip root
+        /// The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         /// </summary>
-        public readonly string? NetCoreMainEntryPath;
+        public readonly Outputs.ResourceRequestsResponse? ResourceRequests;
         /// <summary>
-        /// Runtime version
+        /// StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         /// </summary>
-        public readonly string? RuntimeVersion;
+        public readonly Outputs.ProbeResponse? StartupProbe;
+        /// <summary>
+        /// Optional duration in seconds the App Instance needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 90 seconds.
+        /// </summary>
+        public readonly int? TerminationGracePeriodSeconds;
 
         [OutputConstructor]
         private DeploymentSettingsResponse(
-            int? cpu,
+            ImmutableDictionary<string, object>? addonConfigs,
+
+            Outputs.ContainerProbeSettingsResponse? containerProbeSettings,
 
             ImmutableDictionary<string, string>? environmentVariables,
 
-            string? jvmOptions,
+            Outputs.ProbeResponse? livenessProbe,
 
-            int? memoryInGB,
+            Outputs.ProbeResponse? readinessProbe,
 
-            string? netCoreMainEntryPath,
+            Outputs.ResourceRequestsResponse? resourceRequests,
 
-            string? runtimeVersion)
+            Outputs.ProbeResponse? startupProbe,
+
+            int? terminationGracePeriodSeconds)
         {
-            Cpu = cpu;
+            AddonConfigs = addonConfigs;
+            ContainerProbeSettings = containerProbeSettings;
             EnvironmentVariables = environmentVariables;
-            JvmOptions = jvmOptions;
-            MemoryInGB = memoryInGB;
-            NetCoreMainEntryPath = netCoreMainEntryPath;
-            RuntimeVersion = runtimeVersion;
+            LivenessProbe = livenessProbe;
+            ReadinessProbe = readinessProbe;
+            ResourceRequests = resourceRequests;
+            StartupProbe = startupProbe;
+            TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
         }
     }
 }

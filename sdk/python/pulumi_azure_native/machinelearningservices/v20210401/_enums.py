@@ -10,10 +10,8 @@ __all__ = [
     'ComputeEnvironmentType',
     'ComputeInstanceAuthorizationType',
     'ComputeType',
-    'EncryptionStatus',
     'LoadBalancerType',
     'OsType',
-    'PrivateEndpointServiceConnectionStatus',
     'RemoteLoginPortPublicAccess',
     'ResourceIdentityType',
     'SshPublicAccess',
@@ -70,14 +68,6 @@ class ComputeType(str, Enum):
     SYNAPSE_SPARK = "SynapseSpark"
 
 
-class EncryptionStatus(str, Enum):
-    """
-    Indicates whether or not the encryption is enabled for the workspace.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class LoadBalancerType(str, Enum):
     """
     Load Balancer Type
@@ -92,17 +82,6 @@ class OsType(str, Enum):
     """
     LINUX = "Linux"
     WINDOWS = "Windows"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
-    TIMEOUT = "Timeout"
 
 
 class RemoteLoginPortPublicAccess(str, Enum):

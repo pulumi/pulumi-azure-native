@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Cache.Outputs
     public sealed class ModuleResponse
     {
         /// <summary>
-        /// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        /// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         /// </summary>
         public readonly string? Args;
         /// <summary>

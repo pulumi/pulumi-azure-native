@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace resource.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -100,7 +101,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:Workspace" }, { type: "azure-native:healthcareapis/v20211101:Workspace" }, { type: "azure-native:healthcareapis/v20220131preview:Workspace" }, { type: "azure-native:healthcareapis/v20220515:Workspace" }, { type: "azure-native:healthcareapis/v20220601:Workspace" }, { type: "azure-native:healthcareapis/v20221001preview:Workspace" }, { type: "azure-native:healthcareapis/v20221201:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:Workspace" }, { type: "azure-native:healthcareapis/v20211101:Workspace" }, { type: "azure-native:healthcareapis/v20220131preview:Workspace" }, { type: "azure-native:healthcareapis/v20220515:Workspace" }, { type: "azure-native:healthcareapis/v20220601:Workspace" }, { type: "azure-native:healthcareapis/v20221001preview:Workspace" }, { type: "azure-native:healthcareapis/v20221201:Workspace" }, { type: "azure-native:healthcareapis/v20230228:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

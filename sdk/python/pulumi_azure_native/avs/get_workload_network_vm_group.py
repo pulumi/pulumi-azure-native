@@ -134,7 +134,7 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkVMGroupResult:
     """
     NSX VM Group
-    API Version: 2020-07-17-preview.
+    API Version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -166,7 +166,7 @@ def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Inp
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkVMGroupResult]:
     """
     NSX VM Group
-    API Version: 2020-07-17-preview.
+    API Version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud

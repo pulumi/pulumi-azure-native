@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific project.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
 
@@ -26,7 +26,7 @@ export interface GetProjectArgs {
      */
     projectName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -43,6 +43,10 @@ export interface GetProjectResult {
      * Resource Id of an associated DevCenter
      */
     readonly devCenterId?: string;
+    /**
+     * The URI of the resource.
+     */
+    readonly devCenterUri: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -74,7 +78,7 @@ export interface GetProjectResult {
 }
 /**
  * Gets a specific project.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))
@@ -86,7 +90,7 @@ export interface GetProjectOutputArgs {
      */
     projectName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

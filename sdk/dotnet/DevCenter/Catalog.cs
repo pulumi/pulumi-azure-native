@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a catalog.
-    /// API Version: 2022-09-01-preview.
+    /// API Version: 2022-11-11-preview.
+    /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Catalog")]
     public partial class Catalog : global::Pulumi.CustomResource
@@ -45,6 +46,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The synchronization state of the catalog.
+        /// </summary>
+        [Output("syncState")]
+        public Output<string> SyncState { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -87,6 +94,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Catalog"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Catalog"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Catalog"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Catalog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +143,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<Inputs.GitCatalogArgs>? GitHub { get; set; }
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

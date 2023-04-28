@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an attached database configuration.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
@@ -50,6 +51,14 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
     public readonly databaseName!: pulumi.Output<string>;
+    /**
+     * Overrides the original database name. Relevant only when attaching to a specific database.
+     */
+    public readonly databaseNameOverride!: pulumi.Output<string | undefined>;
+    /**
+     * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     */
+    public readonly databaseNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * The default principals modification kind
      */
@@ -105,6 +114,8 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseNameOverride"] = args ? args.databaseNameOverride : undefined;
+            resourceInputs["databaseNamePrefix"] = args ? args.databaseNamePrefix : undefined;
             resourceInputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -117,6 +128,8 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["databaseNameOverride"] = undefined /*out*/;
+            resourceInputs["databaseNamePrefix"] = undefined /*out*/;
             resourceInputs["defaultPrincipalsModificationKind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -151,6 +164,14 @@ export interface AttachedDatabaseConfigurationArgs {
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * Overrides the original database name. Relevant only when attaching to a specific database.
+     */
+    databaseNameOverride?: pulumi.Input<string>;
+    /**
+     * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     */
+    databaseNamePrefix?: pulumi.Input<string>;
     /**
      * The default principals modification kind
      */

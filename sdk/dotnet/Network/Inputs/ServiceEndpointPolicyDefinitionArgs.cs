@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNative.Network.Inputs
             get => _serviceResources ?? (_serviceResources = new InputList<string>());
             set => _serviceResources = value;
         }
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ServiceEndpointPolicyDefinitionArgs()
         {

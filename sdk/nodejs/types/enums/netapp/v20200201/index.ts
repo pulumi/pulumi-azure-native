@@ -12,26 +12,6 @@ export const EndpointType = {
  */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
-export const PoolServiceLevel = {
-    /**
-     * Standard service level
-     */
-    Standard: "Standard",
-    /**
-     * Premium service level
-     */
-    Premium: "Premium",
-    /**
-     * Ultra service level
-     */
-    Ultra: "Ultra",
-} as const;
-
-/**
- * The service level of the file system
- */
-export type PoolServiceLevel = (typeof PoolServiceLevel)[keyof typeof PoolServiceLevel];
-
 export const ReplicationSchedule = {
     ReplicationSchedule_10minutely: "_10minutely",
     Hourly: "hourly",

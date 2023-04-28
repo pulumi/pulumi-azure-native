@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
-    /// Specifies the authentication type being used for connecting to the endpoint.
+    /// Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
     /// </summary>
     [EnumType]
     public readonly struct AuthenticationType : IEquatable<AuthenticationType>
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.DigitalTwins
     }
 
     /// <summary>
-    /// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+    /// The type of Managed Identity used by the DigitalTwinsInstance.
     /// </summary>
     [EnumType]
     public readonly struct DigitalTwinsIdentityType : IEquatable<DigitalTwinsIdentityType>
@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.DigitalTwins
 
         public static DigitalTwinsIdentityType None { get; } = new DigitalTwinsIdentityType("None");
         public static DigitalTwinsIdentityType SystemAssigned { get; } = new DigitalTwinsIdentityType("SystemAssigned");
+        public static DigitalTwinsIdentityType UserAssigned { get; } = new DigitalTwinsIdentityType("UserAssigned");
+        public static DigitalTwinsIdentityType SystemAssigned_UserAssigned { get; } = new DigitalTwinsIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(DigitalTwinsIdentityType left, DigitalTwinsIdentityType right) => left.Equals(right);
         public static bool operator !=(DigitalTwinsIdentityType left, DigitalTwinsIdentityType right) => !left.Equals(right);
@@ -124,6 +126,37 @@ namespace Pulumi.AzureNative.DigitalTwins
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EndpointType other && Equals(other);
         public bool Equals(EndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of managed identity used.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -188,6 +221,37 @@ namespace Pulumi.AzureNative.DigitalTwins
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecordPropertyAndItemRemovals : IEquatable<RecordPropertyAndItemRemovals>
+    {
+        private readonly string _value;
+
+        private RecordPropertyAndItemRemovals(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecordPropertyAndItemRemovals @True { get; } = new RecordPropertyAndItemRemovals("true");
+        public static RecordPropertyAndItemRemovals @False { get; } = new RecordPropertyAndItemRemovals("false");
+
+        public static bool operator ==(RecordPropertyAndItemRemovals left, RecordPropertyAndItemRemovals right) => left.Equals(right);
+        public static bool operator !=(RecordPropertyAndItemRemovals left, RecordPropertyAndItemRemovals right) => !left.Equals(right);
+
+        public static explicit operator string(RecordPropertyAndItemRemovals value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecordPropertyAndItemRemovals other && Equals(other);
+        public bool Equals(RecordPropertyAndItemRemovals other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

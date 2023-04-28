@@ -14,33 +14,6 @@ export const AgreementType = {
  */
 export type AgreementType = (typeof AgreementType)[keyof typeof AgreementType];
 
-export const DayOfWeek = {
-    Sunday: "Sunday",
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-} as const;
-
-/**
- * The day of the week.
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
-
-export const DaysOfWeek = {
-    Sunday: "Sunday",
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-} as const;
-
-export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
-
 export const EdifactCharacterSet = {
     NotSpecified: "NotSpecified",
     UNOB: "UNOB",
@@ -105,17 +78,6 @@ export const HashingAlgorithm = {
  */
 export type HashingAlgorithm = (typeof HashingAlgorithm)[keyof typeof HashingAlgorithm];
 
-export const IntegrationAccountSkuName = {
-    NotSpecified: "NotSpecified",
-    Free: "Free",
-    Standard: "Standard",
-} as const;
-
-/**
- * The sku name.
- */
-export type IntegrationAccountSkuName = (typeof IntegrationAccountSkuName)[keyof typeof IntegrationAccountSkuName];
-
 export const KeyType = {
     NotSpecified: "NotSpecified",
     Primary: "Primary",
@@ -174,22 +136,6 @@ export const PartnerType = {
  * The partner type.
  */
 export type PartnerType = (typeof PartnerType)[keyof typeof PartnerType];
-
-export const RecurrenceFrequency = {
-    NotSpecified: "NotSpecified",
-    Second: "Second",
-    Minute: "Minute",
-    Hour: "Hour",
-    Day: "Day",
-    Week: "Week",
-    Month: "Month",
-    Year: "Year",
-} as const;
-
-/**
- * The frequency.
- */
-export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
 
 export const RosettaNetActionType = {
     NotSpecified: "NotSpecified",

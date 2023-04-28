@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
+__all__ = ['PrivateEndpointConnectionInitArgs', 'PrivateEndpointConnection']
 
 @pulumi.input_type
-class PrivateEndpointConnectionArgs:
+class PrivateEndpointConnectionInitArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -130,7 +130,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Properties of the PrivateEndpointConnection.
-        API Version: 2018-01-01-preview.
+        API Version: 2021-11-01.
+        Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,19 +146,20 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateEndpointConnectionArgs,
+                 args: PrivateEndpointConnectionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the PrivateEndpointConnection.
-        API Version: 2018-01-01-preview.
+        API Version: 2021-11-01.
+        Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
-        :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateEndpointConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateEndpointConnectionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -179,7 +181,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
+            __props__ = PrivateEndpointConnectionInitArgs.__new__(PrivateEndpointConnectionInitArgs)
 
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
@@ -191,7 +193,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20180101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventhub/v20211101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventhub/v20221001preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -215,14 +219,24 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
+        __props__ = PrivateEndpointConnectionInitArgs.__new__(PrivateEndpointConnectionInitArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -257,10 +271,18 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL virtual machine.
- * API Version: 2017-03-01-preview.
+ * API Version: 2022-02-01.
+ * Previous API Version: 2017-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SqlVirtualMachine extends pulumi.CustomResource {
     /**
@@ -38,6 +39,10 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlVirtualMachine.__pulumiType;
     }
 
+    /**
+     * Assessment Settings.
+     */
+    public readonly assessmentSettings!: pulumi.Output<outputs.sqlvirtualmachine.AssessmentSettingsResponse | undefined>;
     /**
      * Auto backup settings for SQL Server.
      */
@@ -95,6 +100,10 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      */
     public readonly storageConfigurationSettings!: pulumi.Output<outputs.sqlvirtualmachine.StorageConfigurationSettingsResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.sqlvirtualmachine.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -110,6 +119,10 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
     public readonly wsfcDomainCredentials!: pulumi.Output<outputs.sqlvirtualmachine.WsfcDomainCredentialsResponse | undefined>;
+    /**
+     * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+     */
+    public readonly wsfcStaticIp!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SqlVirtualMachine resource with the given unique name, arguments, and options.
@@ -125,6 +138,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["assessmentSettings"] = args ? args.assessmentSettings : undefined;
             resourceInputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
             resourceInputs["autoPatchingSettings"] = args ? args.autoPatchingSettings : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -142,10 +156,13 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualMachineResourceId"] = args ? args.virtualMachineResourceId : undefined;
             resourceInputs["wsfcDomainCredentials"] = args ? args.wsfcDomainCredentials : undefined;
+            resourceInputs["wsfcStaticIp"] = args ? args.wsfcStaticIp : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["assessmentSettings"] = undefined /*out*/;
             resourceInputs["autoBackupSettings"] = undefined /*out*/;
             resourceInputs["autoPatchingSettings"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -160,10 +177,12 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             resourceInputs["sqlServerLicenseType"] = undefined /*out*/;
             resourceInputs["sqlVirtualMachineGroupResourceId"] = undefined /*out*/;
             resourceInputs["storageConfigurationSettings"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachineResourceId"] = undefined /*out*/;
             resourceInputs["wsfcDomainCredentials"] = undefined /*out*/;
+            resourceInputs["wsfcStaticIp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine" }] };
@@ -176,6 +195,10 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
  * The set of arguments for constructing a SqlVirtualMachine resource.
  */
 export interface SqlVirtualMachineArgs {
+    /**
+     * Assessment Settings.
+     */
+    assessmentSettings?: pulumi.Input<inputs.sqlvirtualmachine.AssessmentSettingsArgs>;
     /**
      * Auto backup settings for SQL Server.
      */
@@ -244,4 +267,8 @@ export interface SqlVirtualMachineArgs {
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
     wsfcDomainCredentials?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainCredentialsArgs>;
+    /**
+     * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+     */
+    wsfcStaticIp?: pulumi.Input<string>;
 }

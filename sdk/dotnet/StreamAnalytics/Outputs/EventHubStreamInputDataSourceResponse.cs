@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class EventHubStreamInputDataSourceResponse
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
         /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         /// </summary>
         public readonly string? ConsumerGroupName;
@@ -44,6 +48,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private EventHubStreamInputDataSourceResponse(
+            string? authenticationMode,
+
             string? consumerGroupName,
 
             string? eventHubName,
@@ -56,6 +62,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string type)
         {
+            AuthenticationMode = authenticationMode;
             ConsumerGroupName = consumerGroupName;
             EventHubName = eventHubName;
             ServiceBusNamespace = serviceBusNamespace;

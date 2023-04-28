@@ -72,17 +72,6 @@ export const SettingNames = {
  */
 export type SettingNames = (typeof SettingNames)[keyof typeof SettingNames];
 
-export const StatusLevelTypes = {
-    Info: "Info",
-    Warning: "Warning",
-    Error: "Error",
-} as const;
-
-/**
- * The level code.
- */
-export type StatusLevelTypes = (typeof StatusLevelTypes)[keyof typeof StatusLevelTypes];
-
 export const UpgradeMode = {
     Automatic: "Automatic",
     Manual: "Manual",
@@ -92,63 +81,3 @@ export const UpgradeMode = {
  * Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
  */
 export type UpgradeMode = (typeof UpgradeMode)[keyof typeof UpgradeMode];
-
-export const VirtualMachineSizeTypes = {
-    Basic_A0: "Basic_A0",
-    Basic_A1: "Basic_A1",
-    Basic_A2: "Basic_A2",
-    Basic_A3: "Basic_A3",
-    Basic_A4: "Basic_A4",
-    Standard_A0: "Standard_A0",
-    Standard_A1: "Standard_A1",
-    Standard_A2: "Standard_A2",
-    Standard_A3: "Standard_A3",
-    Standard_A4: "Standard_A4",
-    Standard_A5: "Standard_A5",
-    Standard_A6: "Standard_A6",
-    Standard_A7: "Standard_A7",
-    Standard_A8: "Standard_A8",
-    Standard_A9: "Standard_A9",
-    Standard_A10: "Standard_A10",
-    Standard_A11: "Standard_A11",
-    Standard_D1: "Standard_D1",
-    Standard_D2: "Standard_D2",
-    Standard_D3: "Standard_D3",
-    Standard_D4: "Standard_D4",
-    Standard_D11: "Standard_D11",
-    Standard_D12: "Standard_D12",
-    Standard_D13: "Standard_D13",
-    Standard_D14: "Standard_D14",
-    Standard_D1_v2: "Standard_D1_v2",
-    Standard_D2_v2: "Standard_D2_v2",
-    Standard_D3_v2: "Standard_D3_v2",
-    Standard_D4_v2: "Standard_D4_v2",
-    Standard_D5_v2: "Standard_D5_v2",
-    Standard_D11_v2: "Standard_D11_v2",
-    Standard_D12_v2: "Standard_D12_v2",
-    Standard_D13_v2: "Standard_D13_v2",
-    Standard_D14_v2: "Standard_D14_v2",
-    Standard_DS1: "Standard_DS1",
-    Standard_DS2: "Standard_DS2",
-    Standard_DS3: "Standard_DS3",
-    Standard_DS4: "Standard_DS4",
-    Standard_DS11: "Standard_DS11",
-    Standard_DS12: "Standard_DS12",
-    Standard_DS13: "Standard_DS13",
-    Standard_DS14: "Standard_DS14",
-    Standard_G1: "Standard_G1",
-    Standard_G2: "Standard_G2",
-    Standard_G3: "Standard_G3",
-    Standard_G4: "Standard_G4",
-    Standard_G5: "Standard_G5",
-    Standard_GS1: "Standard_GS1",
-    Standard_GS2: "Standard_GS2",
-    Standard_GS3: "Standard_GS3",
-    Standard_GS4: "Standard_GS4",
-    Standard_GS5: "Standard_GS5",
-} as const;
-
-/**
- * Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
- */
-export type VirtualMachineSizeTypes = (typeof VirtualMachineSizeTypes)[keyof typeof VirtualMachineSizeTypes];

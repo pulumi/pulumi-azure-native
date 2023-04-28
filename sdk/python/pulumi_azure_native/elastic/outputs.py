@@ -15,9 +15,13 @@ __all__ = [
     'ElasticCloudDeploymentResponse',
     'ElasticCloudUserResponse',
     'ElasticPropertiesResponse',
+    'ElasticTrafficFilterResponse',
+    'ElasticTrafficFilterRuleResponse',
     'FilteringTagResponse',
     'IdentityPropertiesResponse',
     'LogRulesResponse',
+    'MarketplaceSaaSInfoResponse',
+    'MarketplaceSaaSInfoResponseMarketplaceSubscription',
     'MonitorPropertiesResponse',
     'MonitoredResourceResponse',
     'MonitoringTagRulesPropertiesResponse',
@@ -259,6 +263,172 @@ class ElasticPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ElasticTrafficFilterResponse(dict):
+    """
+    Elastic traffic filter object
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 include_by_default: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 region: Optional[str] = None,
+                 rules: Optional[Sequence['outputs.ElasticTrafficFilterRuleResponse']] = None,
+                 type: Optional[str] = None):
+        """
+        Elastic traffic filter object
+        :param str description: Description of the elastic filter
+        :param str id: Id of the elastic filter
+        :param bool include_by_default: IncludeByDefault for the elastic filter
+        :param str name: Name of the elastic filter
+        :param str region: Region of the elastic filter
+        :param Sequence['ElasticTrafficFilterRuleResponse'] rules: Rules in the elastic filter
+        :param str type: Type of the elastic filter
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if include_by_default is not None:
+            pulumi.set(__self__, "include_by_default", include_by_default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the elastic filter
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the elastic filter
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includeByDefault")
+    def include_by_default(self) -> Optional[bool]:
+        """
+        IncludeByDefault for the elastic filter
+        """
+        return pulumi.get(self, "include_by_default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the elastic filter
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Region of the elastic filter
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ElasticTrafficFilterRuleResponse']]:
+        """
+        Rules in the elastic filter
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the elastic filter
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ElasticTrafficFilterRuleResponse(dict):
+    """
+    Elastic traffic filter rule object
+    """
+    def __init__(__self__, *,
+                 azure_endpoint_guid: Optional[str] = None,
+                 azure_endpoint_name: Optional[str] = None,
+                 description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 source: Optional[str] = None):
+        """
+        Elastic traffic filter rule object
+        :param str azure_endpoint_guid: Guid of Private Endpoint in the elastic filter rule
+        :param str azure_endpoint_name: Name of the Private Endpoint in the elastic filter rule
+        :param str description: Description of the elastic filter rule
+        :param str id: Id of the elastic filter rule
+        :param str source: IP of the elastic filter rule
+        """
+        if azure_endpoint_guid is not None:
+            pulumi.set(__self__, "azure_endpoint_guid", azure_endpoint_guid)
+        if azure_endpoint_name is not None:
+            pulumi.set(__self__, "azure_endpoint_name", azure_endpoint_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="azureEndpointGuid")
+    def azure_endpoint_guid(self) -> Optional[str]:
+        """
+        Guid of Private Endpoint in the elastic filter rule
+        """
+        return pulumi.get(self, "azure_endpoint_guid")
+
+    @property
+    @pulumi.getter(name="azureEndpointName")
+    def azure_endpoint_name(self) -> Optional[str]:
+        """
+        Name of the Private Endpoint in the elastic filter rule
+        """
+        return pulumi.get(self, "azure_endpoint_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the elastic filter rule
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the elastic filter rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        IP of the elastic filter rule
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
 class FilteringTagResponse(dict):
     """
     The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
@@ -452,6 +622,76 @@ class LogRulesResponse(dict):
 
 
 @pulumi.output_type
+class MarketplaceSaaSInfoResponse(dict):
+    """
+    Marketplace SAAS Info of the resource.
+    """
+    def __init__(__self__, *,
+                 marketplace_name: Optional[str] = None,
+                 marketplace_resource_id: Optional[str] = None,
+                 marketplace_subscription: Optional['outputs.MarketplaceSaaSInfoResponseMarketplaceSubscription'] = None):
+        """
+        Marketplace SAAS Info of the resource.
+        :param str marketplace_name: Marketplace Subscription Details: SAAS Name
+        :param str marketplace_resource_id: Marketplace Subscription Details: Resource URI
+        :param 'MarketplaceSaaSInfoResponseMarketplaceSubscription' marketplace_subscription: Marketplace Subscription
+        """
+        if marketplace_name is not None:
+            pulumi.set(__self__, "marketplace_name", marketplace_name)
+        if marketplace_resource_id is not None:
+            pulumi.set(__self__, "marketplace_resource_id", marketplace_resource_id)
+        if marketplace_subscription is not None:
+            pulumi.set(__self__, "marketplace_subscription", marketplace_subscription)
+
+    @property
+    @pulumi.getter(name="marketplaceName")
+    def marketplace_name(self) -> Optional[str]:
+        """
+        Marketplace Subscription Details: SAAS Name
+        """
+        return pulumi.get(self, "marketplace_name")
+
+    @property
+    @pulumi.getter(name="marketplaceResourceId")
+    def marketplace_resource_id(self) -> Optional[str]:
+        """
+        Marketplace Subscription Details: Resource URI
+        """
+        return pulumi.get(self, "marketplace_resource_id")
+
+    @property
+    @pulumi.getter(name="marketplaceSubscription")
+    def marketplace_subscription(self) -> Optional['outputs.MarketplaceSaaSInfoResponseMarketplaceSubscription']:
+        """
+        Marketplace Subscription
+        """
+        return pulumi.get(self, "marketplace_subscription")
+
+
+@pulumi.output_type
+class MarketplaceSaaSInfoResponseMarketplaceSubscription(dict):
+    """
+    Marketplace Subscription
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Marketplace Subscription
+        :param str id: Marketplace Subscription Id. This is a GUID-formatted string.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Marketplace Subscription Id. This is a GUID-formatted string.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class MonitorPropertiesResponse(dict):
     """
     Properties specific to the monitor resource.
@@ -465,6 +705,8 @@ class MonitorPropertiesResponse(dict):
             suggest = "liftr_resource_preference"
         elif key == "elasticProperties":
             suggest = "elastic_properties"
+        elif key == "generateApiKey":
+            suggest = "generate_api_key"
         elif key == "monitoringStatus":
             suggest = "monitoring_status"
         elif key == "provisioningState":
@@ -485,23 +727,31 @@ class MonitorPropertiesResponse(dict):
                  liftr_resource_category: str,
                  liftr_resource_preference: int,
                  elastic_properties: Optional['outputs.ElasticPropertiesResponse'] = None,
+                 generate_api_key: Optional[bool] = None,
                  monitoring_status: Optional[str] = None,
-                 provisioning_state: Optional[str] = None):
+                 provisioning_state: Optional[str] = None,
+                 version: Optional[str] = None):
         """
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
         :param 'ElasticPropertiesResponse' elastic_properties: Elastic cloud properties.
+        :param bool generate_api_key: Flag to determine if User API Key has to be generated and shared.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param str provisioning_state: Provisioning state of the monitor resource.
+        :param str version: Version of elastic of the monitor resource
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
         if elastic_properties is not None:
             pulumi.set(__self__, "elastic_properties", elastic_properties)
+        if generate_api_key is not None:
+            pulumi.set(__self__, "generate_api_key", generate_api_key)
         if monitoring_status is not None:
             pulumi.set(__self__, "monitoring_status", monitoring_status)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="liftrResourceCategory")
@@ -525,6 +775,14 @@ class MonitorPropertiesResponse(dict):
         return pulumi.get(self, "elastic_properties")
 
     @property
+    @pulumi.getter(name="generateApiKey")
+    def generate_api_key(self) -> Optional[bool]:
+        """
+        Flag to determine if User API Key has to be generated and shared.
+        """
+        return pulumi.get(self, "generate_api_key")
+
+    @property
     @pulumi.getter(name="monitoringStatus")
     def monitoring_status(self) -> Optional[str]:
         """
@@ -539,6 +797,14 @@ class MonitorPropertiesResponse(dict):
         Provisioning state of the monitor resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of elastic of the monitor resource
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

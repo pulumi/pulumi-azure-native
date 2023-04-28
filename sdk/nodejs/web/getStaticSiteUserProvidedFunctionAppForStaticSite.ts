@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the details of the user provided function app registered with a static site
- * API Version: 2020-12-01.
+ * Description for Gets the details of the user provided function app registered with a static site
+ * API Version: 2022-09-01.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSite(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
 
@@ -67,8 +67,8 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteResult {
     readonly type: string;
 }
 /**
- * Gets the details of the user provided function app registered with a static site
- * API Version: 2020-12-01.
+ * Description for Gets the details of the user provided function app registered with a static site
+ * API Version: 2022-09-01.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteUserProvidedFunctionAppForStaticSite(a, opts))

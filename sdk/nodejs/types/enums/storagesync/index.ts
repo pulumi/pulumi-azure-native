@@ -3,12 +3,10 @@
 
 // Export sub-modules:
 import * as v20200301 from "./v20200301";
-import * as v20200901 from "./v20200901";
 import * as v20220601 from "./v20220601";
 
 export {
     v20200301,
-    v20200901,
     v20220601,
 };
 
@@ -42,6 +40,16 @@ export const InitialDownloadPolicy = {
  * Policy for how namespace and files are recalled during FastDr.
  */
 export type InitialDownloadPolicy = (typeof InitialDownloadPolicy)[keyof typeof InitialDownloadPolicy];
+
+export const InitialUploadPolicy = {
+    ServerAuthoritative: "ServerAuthoritative",
+    Merge: "Merge",
+} as const;
+
+/**
+ * Policy for how the initial upload sync session is performed.
+ */
+export type InitialUploadPolicy = (typeof InitialUploadPolicy)[keyof typeof InitialUploadPolicy];
 
 export const LocalCacheMode = {
     DownloadNewAndModifiedFiles: "DownloadNewAndModifiedFiles",

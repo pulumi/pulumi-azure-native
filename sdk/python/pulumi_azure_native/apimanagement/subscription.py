@@ -30,7 +30,7 @@ class SubscriptionArgs:
         """
         The set of arguments for constructing a Subscription resource.
         :param pulumi.Input[str] display_name: Subscription name.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope: Scope like /products/{productId} or /apis or /apis/{apiId}.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled
@@ -81,7 +81,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -232,7 +232,8 @@ class Subscription(pulumi.CustomResource):
                  __props__=None):
         """
         Subscription details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,7 +245,7 @@ class Subscription(pulumi.CustomResource):
                 - If true, send email notification of change of state of subscription 
         :param pulumi.Input[str] owner_id: User (user id path) for whom subscription is being created in form /users/{userId}
         :param pulumi.Input[str] primary_key: Primary subscription key. If not specified during request key will be generated automatically.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope: Scope like /products/{productId} or /apis or /apis/{apiId}.
         :param pulumi.Input[str] secondary_key: Secondary subscription key. If not specified during request key will be generated automatically.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -259,7 +260,8 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subscription details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -410,7 +412,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -482,7 +484,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

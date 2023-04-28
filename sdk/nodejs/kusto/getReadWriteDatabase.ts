@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a database.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
 
@@ -84,7 +84,7 @@ export interface GetReadWriteDatabaseResult {
 }
 /**
  * Returns a database.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getReadWriteDatabase(a, opts))

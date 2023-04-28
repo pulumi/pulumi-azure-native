@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
- * API Version: 2018-04-19.
+ * API Version: 2021-06-30.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
 
@@ -65,7 +65,11 @@ export interface GetTaskResult {
     /**
      * Custom task properties
      */
-    readonly properties: outputs.datamigration.ConnectToSourcePostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourceSqlServerSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourceSqlServerTaskPropertiesResponse | outputs.datamigration.ConnectToTargetAzureDbForMySqlTaskPropertiesResponse | outputs.datamigration.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlDbTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlMISyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlMITaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse | outputs.datamigration.GetTdeCertificatesSqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesSqlSyncTaskPropertiesResponse | outputs.datamigration.GetUserTablesSqlTaskPropertiesResponse | outputs.datamigration.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse | outputs.datamigration.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlDbSyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlDbTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlMISyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse;
+    readonly properties: outputs.datamigration.ConnectToMongoDbTaskPropertiesResponse | outputs.datamigration.ConnectToSourceMySqlTaskPropertiesResponse | outputs.datamigration.ConnectToSourceOracleSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourcePostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourceSqlServerSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourceSqlServerTaskPropertiesResponse | outputs.datamigration.ConnectToTargetAzureDbForMySqlTaskPropertiesResponse | outputs.datamigration.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlDbTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlMISyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlMITaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse | outputs.datamigration.GetTdeCertificatesSqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesMySqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesOracleTaskPropertiesResponse | outputs.datamigration.GetUserTablesPostgreSqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesSqlSyncTaskPropertiesResponse | outputs.datamigration.GetUserTablesSqlTaskPropertiesResponse | outputs.datamigration.MigrateMongoDbTaskPropertiesResponse | outputs.datamigration.MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse | outputs.datamigration.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse | outputs.datamigration.MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlDbSyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlDbTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlMISyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.MigrateSsisTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.ValidateMongoDbTaskPropertiesResponse | outputs.datamigration.ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.datamigration.SystemDataResponse;
     /**
      * Resource type.
      */
@@ -73,7 +77,7 @@ export interface GetTaskResult {
 }
 /**
  * The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
- * API Version: 2018-04-19.
+ * API Version: 2021-06-30.
  */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
     return pulumi.output(args).apply((a: any) => getTask(a, opts))

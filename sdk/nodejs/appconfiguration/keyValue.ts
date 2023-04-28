@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * The key-value resource along with all resource properties.
- * API Version: 2020-07-01-preview.
+ * API Version: 2022-05-01.
+ * Previous API Version: 2020-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class KeyValue extends pulumi.CustomResource {
     /**

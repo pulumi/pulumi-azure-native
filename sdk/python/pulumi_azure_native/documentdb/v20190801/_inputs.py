@@ -11,7 +11,6 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'CapabilityArgs',
     'CassandraKeyspaceResourceArgs',
     'CassandraPartitionKeyArgs',
     'CassandraSchemaArgs',
@@ -20,7 +19,6 @@ __all__ = [
     'ColumnArgs',
     'CompositePathArgs',
     'ConflictResolutionPolicyArgs',
-    'ConsistencyPolicyArgs',
     'ContainerPartitionKeyArgs',
     'ExcludedPathArgs',
     'GremlinDatabaseResourceArgs',
@@ -28,7 +26,6 @@ __all__ = [
     'IncludedPathArgs',
     'IndexesArgs',
     'IndexingPolicyArgs',
-    'LocationArgs',
     'MongoDBCollectionResourceArgs',
     'MongoDBDatabaseResourceArgs',
     'MongoIndexKeysArgs',
@@ -43,32 +40,7 @@ __all__ = [
     'TableResourceArgs',
     'UniqueKeyPolicyArgs',
     'UniqueKeyArgs',
-    'VirtualNetworkRuleArgs',
 ]
-
-@pulumi.input_type
-class CapabilityArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Cosmos DB capability object
-        :param pulumi.Input[str] name: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
 
 @pulumi.input_type
 class CassandraKeyspaceResourceArgs:
@@ -403,61 +375,6 @@ class ConflictResolutionPolicyArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]]):
         pulumi.set(self, "mode", value)
-
-
-@pulumi.input_type
-class ConsistencyPolicyArgs:
-    def __init__(__self__, *,
-                 default_consistency_level: pulumi.Input['DefaultConsistencyLevel'],
-                 max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-                 max_staleness_prefix: Optional[pulumi.Input[float]] = None):
-        """
-        The consistency policy for the Cosmos DB database account.
-        :param pulumi.Input['DefaultConsistencyLevel'] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
-        :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        :param pulumi.Input[float] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        """
-        pulumi.set(__self__, "default_consistency_level", default_consistency_level)
-        if max_interval_in_seconds is not None:
-            pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
-        if max_staleness_prefix is not None:
-            pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
-
-    @property
-    @pulumi.getter(name="defaultConsistencyLevel")
-    def default_consistency_level(self) -> pulumi.Input['DefaultConsistencyLevel']:
-        """
-        The default consistency level and configuration settings of the Cosmos DB account.
-        """
-        return pulumi.get(self, "default_consistency_level")
-
-    @default_consistency_level.setter
-    def default_consistency_level(self, value: pulumi.Input['DefaultConsistencyLevel']):
-        pulumi.set(self, "default_consistency_level", value)
-
-    @property
-    @pulumi.getter(name="maxIntervalInSeconds")
-    def max_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        """
-        return pulumi.get(self, "max_interval_in_seconds")
-
-    @max_interval_in_seconds.setter
-    def max_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_interval_in_seconds", value)
-
-    @property
-    @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[pulumi.Input[float]]:
-        """
-        When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        """
-        return pulumi.get(self, "max_staleness_prefix")
-
-    @max_staleness_prefix.setter
-    def max_staleness_prefix(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "max_staleness_prefix", value)
 
 
 @pulumi.input_type
@@ -871,62 +788,6 @@ class IndexingPolicyArgs:
     @spatial_indexes.setter
     def spatial_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]]):
         pulumi.set(self, "spatial_indexes", value)
-
-
-@pulumi.input_type
-class LocationArgs:
-    def __init__(__self__, *,
-                 failover_priority: Optional[pulumi.Input[int]] = None,
-                 is_zone_redundant: Optional[pulumi.Input[bool]] = None,
-                 location_name: Optional[pulumi.Input[str]] = None):
-        """
-        A region in which the Azure Cosmos DB database account is deployed.
-        :param pulumi.Input[int] failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-        :param pulumi.Input[bool] is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
-        :param pulumi.Input[str] location_name: The name of the region.
-        """
-        if failover_priority is not None:
-            pulumi.set(__self__, "failover_priority", failover_priority)
-        if is_zone_redundant is not None:
-            pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
-        if location_name is not None:
-            pulumi.set(__self__, "location_name", location_name)
-
-    @property
-    @pulumi.getter(name="failoverPriority")
-    def failover_priority(self) -> Optional[pulumi.Input[int]]:
-        """
-        The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-        """
-        return pulumi.get(self, "failover_priority")
-
-    @failover_priority.setter
-    def failover_priority(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "failover_priority", value)
-
-    @property
-    @pulumi.getter(name="isZoneRedundant")
-    def is_zone_redundant(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Flag to indicate whether or not this region is an AvailabilityZone region
-        """
-        return pulumi.get(self, "is_zone_redundant")
-
-    @is_zone_redundant.setter
-    def is_zone_redundant(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_zone_redundant", value)
-
-    @property
-    @pulumi.getter(name="locationName")
-    def location_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the region.
-        """
-        return pulumi.get(self, "location_name")
-
-    @location_name.setter
-    def location_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location_name", value)
 
 
 @pulumi.input_type
@@ -1494,45 +1355,5 @@ class UniqueKeyArgs:
     @paths.setter
     def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "paths", value)
-
-
-@pulumi.input_type
-class VirtualNetworkRuleArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
-                 ignore_missing_v_net_service_endpoint: Optional[pulumi.Input[bool]] = None):
-        """
-        Virtual Network ACL Rule object
-        :param pulumi.Input[str] id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-        :param pulumi.Input[bool] ignore_missing_v_net_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if ignore_missing_v_net_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="ignoreMissingVNetServiceEndpoint")
-    def ignore_missing_v_net_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Create firewall rule before the virtual network has vnet service endpoint enabled.
-        """
-        return pulumi.get(self, "ignore_missing_v_net_service_endpoint")
-
-    @ignore_missing_v_net_service_endpoint.setter
-    def ignore_missing_v_net_service_endpoint(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ignore_missing_v_net_service_endpoint", value)
 
 

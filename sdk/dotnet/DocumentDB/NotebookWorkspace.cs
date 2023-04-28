@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// A notebook workspace resource
-    /// API Version: 2021-03-15.
+    /// API Version: 2022-11-15.
+    /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:NotebookWorkspace")]
     public partial class NotebookWorkspace : global::Pulumi.CustomResource
@@ -88,6 +89,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:NotebookWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:NotebookWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:NotebookWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:NotebookWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:NotebookWorkspace"},
                 },
             };

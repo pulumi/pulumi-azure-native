@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Private endpoint resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -39,9 +40,17 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * Application security groups in which the private endpoint IP configuration is included.
+     */
+    public readonly applicationSecurityGroups!: pulumi.Output<outputs.network.ApplicationSecurityGroupResponse[] | undefined>;
+    /**
      * An array of custom dns configurations.
      */
     public readonly customDnsConfigs!: pulumi.Output<outputs.network.CustomDnsConfigPropertiesFormatResponse[] | undefined>;
+    /**
+     * The custom name of the network interface attached to the private endpoint.
+     */
+    public readonly customNetworkInterfaceName!: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -50,6 +59,10 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      * The extended location of the load balancer.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    /**
+     * A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+     */
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.PrivateEndpointIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -101,9 +114,12 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["applicationSecurityGroups"] = args ? args.applicationSecurityGroups : undefined;
             resourceInputs["customDnsConfigs"] = args ? args.customDnsConfigs : undefined;
+            resourceInputs["customNetworkInterfaceName"] = args ? args.customNetworkInterfaceName : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
             resourceInputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
@@ -117,9 +133,12 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["applicationSecurityGroups"] = undefined /*out*/;
             resourceInputs["customDnsConfigs"] = undefined /*out*/;
+            resourceInputs["customNetworkInterfaceName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["manualPrivateLinkServiceConnections"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -142,9 +161,17 @@ export class PrivateEndpoint extends pulumi.CustomResource {
  */
 export interface PrivateEndpointArgs {
     /**
+     * Application security groups in which the private endpoint IP configuration is included.
+     */
+    applicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationSecurityGroupArgs>[]>;
+    /**
      * An array of custom dns configurations.
      */
     customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.network.CustomDnsConfigPropertiesFormatArgs>[]>;
+    /**
+     * The custom name of the network interface attached to the private endpoint.
+     */
+    customNetworkInterfaceName?: pulumi.Input<string>;
     /**
      * The extended location of the load balancer.
      */
@@ -153,6 +180,10 @@ export interface PrivateEndpointArgs {
      * Resource ID.
      */
     id?: pulumi.Input<string>;
+    /**
+     * A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+     */
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.PrivateEndpointIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Security ML Analytics Settings.
- * API Version: 2022-05-01-preview.
+ * API Version: 2023-02-01.
  */
 export function getAnomalySecurityMLAnalyticsSettings(args: GetAnomalySecurityMLAnalyticsSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalySecurityMLAnalyticsSettingsResult> {
 
@@ -124,7 +124,7 @@ export interface GetAnomalySecurityMLAnalyticsSettingsResult {
 }
 /**
  * Gets the Security ML Analytics Settings.
- * API Version: 2022-05-01-preview.
+ * API Version: 2023-02-01.
  */
 export function getAnomalySecurityMLAnalyticsSettingsOutput(args: GetAnomalySecurityMLAnalyticsSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalySecurityMLAnalyticsSettingsResult> {
     return pulumi.output(args).apply((a: any) => getAnomalySecurityMLAnalyticsSettings(a, opts))

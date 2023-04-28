@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL managed instance.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstance")]
     public partial class ManagedInstance : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("collation")]
         public Output<string?> Collation { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        /// </summary>
+        [Output("currentBackupStorageRedundancy")]
+        public Output<string> CurrentBackupStorageRedundancy { get; private set; } = null!;
 
         /// <summary>
         /// The Dns Zone that the managed instance is in.
@@ -122,7 +129,19 @@ namespace Pulumi.AzureNative.Sql
         public Output<bool?> PublicDataEndpointEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+        /// The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        /// </summary>
+        [Output("requestedBackupStorageRedundancy")]
+        public Output<string?> RequestedBackupStorageRedundancy { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed instance's service principal.
+        /// </summary>
+        [Output("servicePrincipal")]
+        public Output<Outputs.ServicePrincipalResponse?> ServicePrincipal { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
@@ -134,13 +153,7 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-        /// </summary>
-        [Output("storageAccountType")]
-        public Output<string?> StorageAccountType { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        /// Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         /// </summary>
         [Output("storageSizeInGB")]
         public Output<int?> StorageSizeInGB { get; private set; } = null!;
@@ -354,6 +367,12 @@ namespace Pulumi.AzureNative.Sql
         public Input<bool>? PublicDataEndpointEnabled { get; set; }
 
         /// <summary>
+        /// The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        /// </summary>
+        [Input("requestedBackupStorageRedundancy")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.BackupStorageRedundancy>? RequestedBackupStorageRedundancy { get; set; }
+
+        /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -366,7 +385,13 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+        /// The managed instance's service principal.
+        /// </summary>
+        [Input("servicePrincipal")]
+        public Input<Inputs.ServicePrincipalArgs>? ServicePrincipal { get; set; }
+
+        /// <summary>
+        /// Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
@@ -378,13 +403,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? SourceManagedInstanceId { get; set; }
 
         /// <summary>
-        /// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-        /// </summary>
-        [Input("storageAccountType")]
-        public InputUnion<string, Pulumi.AzureNative.Sql.StorageAccountType>? StorageAccountType { get; set; }
-
-        /// <summary>
-        /// Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        /// Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         /// </summary>
         [Input("storageSizeInGB")]
         public Input<int>? StorageSizeInGB { get; set; }

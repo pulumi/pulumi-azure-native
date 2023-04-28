@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Batch
     {
         /// <summary>
         /// Gets information about the specified pool.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified pool.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -99,11 +99,14 @@ namespace Pulumi.AzureNative.Batch
         public readonly Outputs.AutoScaleRunResponse AutoScaleRun;
         /// <summary>
         /// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        /// 
+        /// Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         /// </summary>
         public readonly ImmutableArray<Outputs.CertificateReferenceResponse> Certificates;
         public readonly string CreationTime;
         public readonly int CurrentDedicatedNodes;
         public readonly int CurrentLowPriorityNodes;
+        public readonly string CurrentNodeCommunicationMode;
         /// <summary>
         /// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         /// </summary>
@@ -163,6 +166,10 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly Outputs.StartTaskResponse? StartTask;
         /// <summary>
+        /// If omitted, the default value is Default.
+        /// </summary>
+        public readonly string? TargetNodeCommunicationMode;
+        /// <summary>
         /// If not specified, the default is spread.
         /// </summary>
         public readonly Outputs.TaskSchedulingPolicyResponse? TaskSchedulingPolicy;
@@ -200,6 +207,8 @@ namespace Pulumi.AzureNative.Batch
 
             int currentLowPriorityNodes,
 
+            string currentNodeCommunicationMode,
+
             Outputs.DeploymentConfigurationResponse? deploymentConfiguration,
 
             string? displayName,
@@ -232,6 +241,8 @@ namespace Pulumi.AzureNative.Batch
 
             Outputs.StartTaskResponse? startTask,
 
+            string? targetNodeCommunicationMode,
+
             Outputs.TaskSchedulingPolicyResponse? taskSchedulingPolicy,
 
             int? taskSlotsPerNode,
@@ -251,6 +262,7 @@ namespace Pulumi.AzureNative.Batch
             CreationTime = creationTime;
             CurrentDedicatedNodes = currentDedicatedNodes;
             CurrentLowPriorityNodes = currentLowPriorityNodes;
+            CurrentNodeCommunicationMode = currentNodeCommunicationMode;
             DeploymentConfiguration = deploymentConfiguration;
             DisplayName = displayName;
             Etag = etag;
@@ -267,6 +279,7 @@ namespace Pulumi.AzureNative.Batch
             ResizeOperationStatus = resizeOperationStatus;
             ScaleSettings = scaleSettings;
             StartTask = startTask;
+            TargetNodeCommunicationMode = targetNodeCommunicationMode;
             TaskSchedulingPolicy = taskSchedulingPolicy;
             TaskSlotsPerNode = taskSlotsPerNode;
             Type = type;

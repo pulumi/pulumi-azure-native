@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of an ASR replication protected item.
- * API Version: 2018-07-10.
+ * API Version: 2023-02-01.
  */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
 
@@ -73,7 +73,7 @@ export interface GetReplicationProtectedItemResult {
 }
 /**
  * Gets the details of an ASR replication protected item.
- * API Version: 2018-07-10.
+ * API Version: 2023-02-01.
  */
 export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectedItemResult> {
     return pulumi.output(args).apply((a: any) => getReplicationProtectedItem(a, opts))

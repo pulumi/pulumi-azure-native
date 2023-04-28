@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Live Output.
- * API Version: 2020-05-01.
+ * API Version: 2022-11-01.
+ * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class LiveOutput extends pulumi.CustomResource {
     /**
@@ -83,6 +84,14 @@ export class LiveOutput extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
+     * ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
+     */
+    public readonly rewindWindowLength!: pulumi.Output<string | undefined>;
+    /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -123,11 +132,13 @@ export class LiveOutput extends pulumi.CustomResource {
             resourceInputs["manifestName"] = args ? args.manifestName : undefined;
             resourceInputs["outputSnapTime"] = args ? args.outputSnapTime : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rewindWindowLength"] = args ? args.rewindWindowLength : undefined;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["archiveWindowLength"] = undefined /*out*/;
@@ -141,6 +152,8 @@ export class LiveOutput extends pulumi.CustomResource {
             resourceInputs["outputSnapTime"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["rewindWindowLength"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -194,4 +207,8 @@ export interface LiveOutputArgs {
      * The name of the resource group within the Azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
+     */
+    rewindWindowLength?: pulumi.Input<string>;
 }

@@ -18,6 +18,7 @@ __all__ = ['NetworkSecurityGroupInitArgs', 'NetworkSecurityGroup']
 class NetworkSecurityGroupInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 flush_connection: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class NetworkSecurityGroupInitArgs:
         """
         The set of arguments for constructing a NetworkSecurityGroup resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] flush_connection: When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
@@ -33,6 +35,8 @@ class NetworkSecurityGroupInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if flush_connection is not None:
+            pulumi.set(__self__, "flush_connection", flush_connection)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -55,6 +59,18 @@ class NetworkSecurityGroupInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="flushConnection")
+    def flush_connection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        """
+        return pulumi.get(self, "flush_connection")
+
+    @flush_connection.setter
+    def flush_connection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "flush_connection", value)
 
     @property
     @pulumi.getter
@@ -122,6 +138,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 flush_connection: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
@@ -131,10 +148,12 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  __props__=None):
         """
         NetworkSecurityGroup resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] flush_connection: When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
@@ -150,7 +169,8 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkSecurityGroup resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityGroupInitArgs args: The arguments to use to populate this resource's properties.
@@ -167,6 +187,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 flush_connection: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
@@ -182,6 +203,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkSecurityGroupInitArgs.__new__(NetworkSecurityGroupInitArgs)
 
+            __props__.__dict__["flush_connection"] = flush_connection
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["network_security_group_name"] = network_security_group_name
@@ -226,6 +248,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         __props__.__dict__["default_security_rules"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["flow_logs"] = None
+        __props__.__dict__["flush_connection"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_interfaces"] = None
@@ -260,6 +283,14 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         A collection of references to flow log resources.
         """
         return pulumi.get(self, "flow_logs")
+
+    @property
+    @pulumi.getter(name="flushConnection")
+    def flush_connection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        """
+        return pulumi.get(self, "flush_connection")
 
     @property
     @pulumi.getter

@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.Inputs
     public sealed class IotHubSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// EventHub connection string.
-        /// </summary>
-        [Input("eventHubConnectionString")]
-        public Input<string>? EventHubConnectionString { get; set; }
-
-        /// <summary>
-        /// IoTHub connection string.
-        /// </summary>
-        [Input("ioTHubConnectionString")]
-        public Input<string>? IoTHubConnectionString { get; set; }
-
-        /// <summary>
         /// IoTHub resource ID
         /// </summary>
         [Input("resourceId", required: true)]

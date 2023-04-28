@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.DiskEncryptionSetParametersArgs>? DiskEncryptionSet { get; set; }
 
         /// <summary>
+        /// Specifies the security profile for the managed disk.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.VMDiskSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
         /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         /// </summary>
         [Input("storageAccountType")]

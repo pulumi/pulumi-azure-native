@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class A2AEnableProtectionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The recovery disk encryption information.
+        /// The recovery disk encryption information (for two pass flows).
         /// </summary>
         [Input("diskEncryptionInfo")]
         public Input<Inputs.DiskEncryptionInfoArgs>? DiskEncryptionInfo { get; set; }
@@ -24,15 +24,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The fabric specific object Id of the virtual machine.
         /// </summary>
-        [Input("fabricObjectId")]
-        public Input<string>? FabricObjectId { get; set; }
+        [Input("fabricObjectId", required: true)]
+        public Input<string> FabricObjectId { get; set; } = null!;
 
         /// <summary>
         /// The class type.
         /// Expected value is 'A2A'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
+
+        /// <summary>
+        /// The multi vm group id.
+        /// </summary>
+        [Input("multiVmGroupId")]
+        public Input<string>? MultiVmGroupId { get; set; }
 
         /// <summary>
         /// The multi vm group name.
@@ -65,6 +71,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? RecoveryBootDiagStorageAccountId { get; set; }
 
         /// <summary>
+        /// The recovery capacity reservation group Id.
+        /// </summary>
+        [Input("recoveryCapacityReservationGroupId")]
+        public Input<string>? RecoveryCapacityReservationGroupId { get; set; }
+
+        /// <summary>
         /// The recovery cloud service Id. Valid for V1 scenarios.
         /// </summary>
         [Input("recoveryCloudServiceId")]
@@ -75,6 +87,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("recoveryContainerId")]
         public Input<string>? RecoveryContainerId { get; set; }
+
+        /// <summary>
+        /// The recovery extended location.
+        /// </summary>
+        [Input("recoveryExtendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? RecoveryExtendedLocation { get; set; }
 
         /// <summary>
         /// The recovery proximity placement group Id.
@@ -93,6 +111,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("recoverySubnetName")]
         public Input<string>? RecoverySubnetName { get; set; }
+
+        /// <summary>
+        /// The virtual machine scale set Id.
+        /// </summary>
+        [Input("recoveryVirtualMachineScaleSetId")]
+        public Input<string>? RecoveryVirtualMachineScaleSetId { get; set; }
 
         [Input("vmDisks")]
         private InputList<Inputs.A2AVmDiskInputDetailsArgs>? _vmDisks;

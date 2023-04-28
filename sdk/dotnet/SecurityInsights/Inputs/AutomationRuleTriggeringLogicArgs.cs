@@ -11,19 +11,19 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
 {
 
     /// <summary>
-    /// Describes automation rule triggering logic
+    /// Describes automation rule triggering logic.
     /// </summary>
     public sealed class AutomationRuleTriggeringLogicArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
-        private InputList<Inputs.AutomationRulePropertyValuesConditionArgs>? _conditions;
+        private InputList<object>? _conditions;
 
         /// <summary>
-        /// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+        /// The conditions to evaluate to determine if the automation rule should be triggered on a given object.
         /// </summary>
-        public InputList<Inputs.AutomationRulePropertyValuesConditionArgs> Conditions
+        public InputList<object> Conditions
         {
-            get => _conditions ?? (_conditions = new InputList<Inputs.AutomationRulePropertyValuesConditionArgs>());
+            get => _conditions ?? (_conditions = new InputList<object>());
             set => _conditions = value;
         }
 
@@ -39,15 +39,9 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
 
-        /// <summary>
-        /// The type of object the automation rule triggers on
-        /// </summary>
         [Input("triggersOn", required: true)]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.TriggersOn> TriggersOn { get; set; } = null!;
 
-        /// <summary>
-        /// The type of event the automation rule triggers on
-        /// </summary>
         [Input("triggersWhen", required: true)]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.TriggersWhen> TriggersWhen { get; set; } = null!;
 

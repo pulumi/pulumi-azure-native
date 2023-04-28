@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetAdminRuleResult> InvokeAsync(GetAdminRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetAdminRuleResult> Invoke(GetAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetAdminRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public string ConfigurationName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetAdminRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -128,10 +128,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -151,7 +147,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        public readonly int? Priority;
+        public readonly int Priority;
         /// <summary>
         /// Network protocol this rule applies to.
         /// </summary>
@@ -189,8 +185,6 @@ namespace Pulumi.AzureNative.Network
 
             string direction,
 
-            string? displayName,
-
             string etag,
 
             string id,
@@ -199,7 +193,7 @@ namespace Pulumi.AzureNative.Network
 
             string name,
 
-            int? priority,
+            int priority,
 
             string protocol,
 
@@ -218,7 +212,6 @@ namespace Pulumi.AzureNative.Network
             DestinationPortRanges = destinationPortRanges;
             Destinations = destinations;
             Direction = direction;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
             Kind = kind;

@@ -8,30 +8,29 @@ using Pulumi;
 namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
-    /// Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+    /// The identity type.
     /// </summary>
     [EnumType]
-    public readonly struct KustomizationValidationType : IEquatable<KustomizationValidationType>
+    public readonly struct AKSIdentityType : IEquatable<AKSIdentityType>
     {
         private readonly string _value;
 
-        private KustomizationValidationType(string value)
+        private AKSIdentityType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static KustomizationValidationType None { get; } = new KustomizationValidationType("none");
-        public static KustomizationValidationType Client { get; } = new KustomizationValidationType("client");
-        public static KustomizationValidationType Server { get; } = new KustomizationValidationType("server");
+        public static AKSIdentityType SystemAssigned { get; } = new AKSIdentityType("SystemAssigned");
+        public static AKSIdentityType UserAssigned { get; } = new AKSIdentityType("UserAssigned");
 
-        public static bool operator ==(KustomizationValidationType left, KustomizationValidationType right) => left.Equals(right);
-        public static bool operator !=(KustomizationValidationType left, KustomizationValidationType right) => !left.Equals(right);
+        public static bool operator ==(AKSIdentityType left, AKSIdentityType right) => left.Equals(right);
+        public static bool operator !=(AKSIdentityType left, AKSIdentityType right) => !left.Equals(right);
 
-        public static explicit operator string(KustomizationValidationType value) => value._value;
+        public static explicit operator string(AKSIdentityType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is KustomizationValidationType other && Equals(other);
-        public bool Equals(KustomizationValidationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is AKSIdentityType other && Equals(other);
+        public bool Equals(AKSIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -133,76 +132,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     }
 
     /// <summary>
-    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
-    {
-        private readonly string _value;
-
-        private PrivateEndpointServiceConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
-        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
-        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
-
-        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
-        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccessType : IEquatable<PublicNetworkAccessType>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccessType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
-        /// </summary>
-        public static PublicNetworkAccessType Enabled { get; } = new PublicNetworkAccessType("Enabled");
-        /// <summary>
-        /// Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
-        /// </summary>
-        public static PublicNetworkAccessType Disabled { get; } = new PublicNetworkAccessType("Disabled");
-
-        public static bool operator ==(PublicNetworkAccessType left, PublicNetworkAccessType right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccessType left, PublicNetworkAccessType right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccessType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccessType other && Equals(other);
-        public bool Equals(PublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+    /// The identity type.
     /// </summary>
     [EnumType]
     public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
@@ -215,7 +145,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         }
 
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
         public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
@@ -277,6 +206,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         }
 
         public static SourceKindType GitRepository { get; } = new SourceKindType("GitRepository");
+        public static SourceKindType Bucket { get; } = new SourceKindType("Bucket");
+        public static SourceKindType AzureBlob { get; } = new SourceKindType("AzureBlob");
 
         public static bool operator ==(SourceKindType left, SourceKindType right) => left.Equals(right);
         public static bool operator !=(SourceKindType left, SourceKindType right) => !left.Equals(right);

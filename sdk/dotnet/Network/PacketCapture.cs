@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Information about packet capture session.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PacketCapture")]
     public partial class PacketCapture : global::Pulumi.CustomResource
@@ -47,16 +48,28 @@ namespace Pulumi.AzureNative.Network
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        /// </summary>
+        [Output("scope")]
+        public Output<Outputs.PacketCaptureMachineScopeResponse?> Scope { get; private set; } = null!;
+
+        /// <summary>
         /// The storage location for a packet capture session.
         /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.PacketCaptureStorageLocationResponse> StorageLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the targeted resource, only VM is currently supported.
+        /// The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
+
+        /// <summary>
+        /// Target type of the resource provided.
+        /// </summary>
+        [Output("targetType")]
+        public Output<string?> TargetType { get; private set; } = null!;
 
         /// <summary>
         /// Maximum duration of the capture session in seconds.
@@ -195,16 +208,28 @@ namespace Pulumi.AzureNative.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        /// </summary>
+        [Input("scope")]
+        public Input<Inputs.PacketCaptureMachineScopeArgs>? Scope { get; set; }
+
+        /// <summary>
         /// The storage location for a packet capture session.
         /// </summary>
         [Input("storageLocation", required: true)]
         public Input<Inputs.PacketCaptureStorageLocationArgs> StorageLocation { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the targeted resource, only VM is currently supported.
+        /// The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
+
+        /// <summary>
+        /// Target type of the resource provided.
+        /// </summary>
+        [Input("targetType")]
+        public Input<Pulumi.AzureNative.Network.PacketCaptureTargetType>? TargetType { get; set; }
 
         /// <summary>
         /// Maximum duration of the capture session in seconds.

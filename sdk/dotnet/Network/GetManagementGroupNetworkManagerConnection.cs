@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Get a specified connection created by this management group.
-        /// API Version: 2021-05-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetManagementGroupNetworkManagerConnectionResult> InvokeAsync(GetManagementGroupNetworkManagerConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupNetworkManagerConnectionResult>("azure-native:network:getManagementGroupNetworkManagerConnection", args ?? new GetManagementGroupNetworkManagerConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specified connection created by this management group.
-        /// API Version: 2021-05-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetManagementGroupNetworkManagerConnectionResult> Invoke(GetManagementGroupNetworkManagerConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupNetworkManagerConnectionResult>("azure-native:network:getManagementGroupNetworkManagerConnection", args ?? new GetManagementGroupNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetManagementGroupNetworkManagerConnectionResult
     {
         /// <summary>
-        /// A description of the scope connection.
+        /// A description of the network manager connection.
         /// </summary>
         public readonly string? Description;
         /// <summary>

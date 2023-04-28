@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Purview
     {
         /// <summary>
         /// Get an account
-        /// API Version: 2020-12-01-preview.
+        /// API Version: 2021-07-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an account
-        /// API Version: 2020-12-01-preview.
+        /// API Version: 2021-07-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseSystemData SystemData;
+        public readonly Outputs.TrackedResourceResponseSystemData SystemData;
         /// <summary>
         /// Tags on the azure resource.
         /// </summary>
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.Purview
 
             Outputs.AccountResponseSku sku,
 
-            Outputs.AccountPropertiesResponseSystemData systemData,
+            Outputs.TrackedResourceResponseSystemData systemData,
 
             ImmutableDictionary<string, string>? tags,
 

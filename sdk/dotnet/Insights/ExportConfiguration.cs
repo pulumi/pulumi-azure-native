@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights
     /// <summary>
     /// Properties that define a Continuous Export configuration.
     /// API Version: 2015-05-01.
+    /// Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ExportConfiguration")]
     public partial class ExportConfiguration : global::Pulumi.CustomResource

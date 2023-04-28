@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class InboundNatRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A reference to backendAddressPool resource.
+        /// </summary>
+        [Input("backendAddressPool")]
+        public Input<Inputs.SubResourceArgs>? BackendAddressPool { get; set; }
+
+        /// <summary>
         /// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         /// </summary>
         [Input("backendPort")]
@@ -44,6 +50,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("frontendPort")]
         public Input<int>? FrontendPort { get; set; }
+
+        /// <summary>
+        /// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        /// </summary>
+        [Input("frontendPortRangeEnd")]
+        public Input<int>? FrontendPortRangeEnd { get; set; }
+
+        /// <summary>
+        /// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        /// </summary>
+        [Input("frontendPortRangeStart")]
+        public Input<int>? FrontendPortRangeStart { get; set; }
 
         /// <summary>
         /// Resource ID.

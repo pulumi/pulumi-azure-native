@@ -22,16 +22,22 @@ class GetVirtualMachineResult:
     """
     Describes a Virtual Machine.
     """
-    def __init__(__self__, additional_capabilities=None, availability_set=None, billing_profile=None, diagnostics_profile=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, scheduled_events_profile=None, security_profile=None, storage_profile=None, tags=None, type=None, user_data=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, application_profile=None, availability_set=None, billing_profile=None, capacity_reservation=None, diagnostics_profile=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, scheduled_events_profile=None, security_profile=None, storage_profile=None, tags=None, time_created=None, type=None, user_data=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if application_profile and not isinstance(application_profile, dict):
+            raise TypeError("Expected argument 'application_profile' to be a dict")
+        pulumi.set(__self__, "application_profile", application_profile)
         if availability_set and not isinstance(availability_set, dict):
             raise TypeError("Expected argument 'availability_set' to be a dict")
         pulumi.set(__self__, "availability_set", availability_set)
         if billing_profile and not isinstance(billing_profile, dict):
             raise TypeError("Expected argument 'billing_profile' to be a dict")
         pulumi.set(__self__, "billing_profile", billing_profile)
+        if capacity_reservation and not isinstance(capacity_reservation, dict):
+            raise TypeError("Expected argument 'capacity_reservation' to be a dict")
+        pulumi.set(__self__, "capacity_reservation", capacity_reservation)
         if diagnostics_profile and not isinstance(diagnostics_profile, dict):
             raise TypeError("Expected argument 'diagnostics_profile' to be a dict")
         pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
@@ -107,6 +113,9 @@ class GetVirtualMachineResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -132,6 +141,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "additional_capabilities")
 
     @property
+    @pulumi.getter(name="applicationProfile")
+    def application_profile(self) -> Optional['outputs.ApplicationProfileResponse']:
+        """
+        Specifies the gallery applications that should be made available to the VM/VMSS
+        """
+        return pulumi.get(self, "application_profile")
+
+    @property
     @pulumi.getter(name="availabilitySet")
     def availability_set(self) -> Optional['outputs.SubResourceResponse']:
         """
@@ -146,6 +163,14 @@ class GetVirtualMachineResult:
         Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
         """
         return pulumi.get(self, "billing_profile")
+
+    @property
+    @pulumi.getter(name="capacityReservation")
+    def capacity_reservation(self) -> Optional['outputs.CapacityReservationProfileResponse']:
+        """
+        Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
+        """
+        return pulumi.get(self, "capacity_reservation")
 
     @property
     @pulumi.getter(name="diagnosticsProfile")
@@ -348,6 +373,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Specifies the time at which the Virtual Machine resource was created.<br><br>Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -395,8 +428,10 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             yield self
         return GetVirtualMachineResult(
             additional_capabilities=self.additional_capabilities,
+            application_profile=self.application_profile,
             availability_set=self.availability_set,
             billing_profile=self.billing_profile,
+            capacity_reservation=self.capacity_reservation,
             diagnostics_profile=self.diagnostics_profile,
             eviction_policy=self.eviction_policy,
             extended_location=self.extended_location,
@@ -422,6 +457,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             security_profile=self.security_profile,
             storage_profile=self.storage_profile,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type,
             user_data=self.user_data,
             virtual_machine_scale_set=self.virtual_machine_scale_set,
@@ -435,7 +471,7 @@ def get_virtual_machine(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Retrieves information about the model view or the instance view of a virtual machine.
-    API Version: 2021-03-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
@@ -451,8 +487,10 @@ def get_virtual_machine(expand: Optional[str] = None,
 
     return AwaitableGetVirtualMachineResult(
         additional_capabilities=__ret__.additional_capabilities,
+        application_profile=__ret__.application_profile,
         availability_set=__ret__.availability_set,
         billing_profile=__ret__.billing_profile,
+        capacity_reservation=__ret__.capacity_reservation,
         diagnostics_profile=__ret__.diagnostics_profile,
         eviction_policy=__ret__.eviction_policy,
         extended_location=__ret__.extended_location,
@@ -478,6 +516,7 @@ def get_virtual_machine(expand: Optional[str] = None,
         security_profile=__ret__.security_profile,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,
+        time_created=__ret__.time_created,
         type=__ret__.type,
         user_data=__ret__.user_data,
         virtual_machine_scale_set=__ret__.virtual_machine_scale_set,
@@ -492,7 +531,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Retrieves information about the model view or the instance view of a virtual machine.
-    API Version: 2021-03-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.

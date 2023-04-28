@@ -28,7 +28,19 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public Input<string>? CertificatePassword { get; set; }
 
         /// <summary>
-        /// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
+        /// Certificate Source.
+        /// </summary>
+        [Input("certificateSource")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.CertificateSource>? CertificateSource { get; set; }
+
+        /// <summary>
+        /// Certificate Status.
+        /// </summary>
+        [Input("certificateStatus")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.CertificateStatus>? CertificateStatus { get; set; }
+
+        /// <summary>
+        /// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to gateway Hostname Type.
         /// </summary>
         [Input("defaultSslBinding")]
         public Input<bool>? DefaultSslBinding { get; set; }

@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Network.Inputs
             set => _staticRoutes = value;
         }
 
+        /// <summary>
+        /// Configuration for static routes on this HubVnetConnection.
+        /// </summary>
+        [Input("staticRoutesConfig")]
+        public Input<Inputs.StaticRoutesConfigArgs>? StaticRoutesConfig { get; set; }
+
         public VnetRouteArgs()
         {
         }

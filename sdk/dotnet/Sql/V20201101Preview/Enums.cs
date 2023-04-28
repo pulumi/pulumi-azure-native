@@ -1162,35 +1162,4 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// Specifies the state of the transparent data encryption.
-    /// </summary>
-    [EnumType]
-    public readonly struct TransparentDataEncryptionState : IEquatable<TransparentDataEncryptionState>
-    {
-        private readonly string _value;
-
-        private TransparentDataEncryptionState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TransparentDataEncryptionState Enabled { get; } = new TransparentDataEncryptionState("Enabled");
-        public static TransparentDataEncryptionState Disabled { get; } = new TransparentDataEncryptionState("Disabled");
-
-        public static bool operator ==(TransparentDataEncryptionState left, TransparentDataEncryptionState right) => left.Equals(right);
-        public static bool operator !=(TransparentDataEncryptionState left, TransparentDataEncryptionState right) => !left.Equals(right);
-
-        public static explicit operator string(TransparentDataEncryptionState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TransparentDataEncryptionState other && Equals(other);
-        public bool Equals(TransparentDataEncryptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

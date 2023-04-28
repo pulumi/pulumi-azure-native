@@ -4,20 +4,13 @@
 // Export sub-modules:
 import * as v20180531 from "./v20180531";
 import * as v20180801preview from "./v20180801preview";
-import * as v20190101 from "./v20190101";
 import * as v20190301preview from "./v20190301preview";
 import * as v20190401preview from "./v20190401preview";
-import * as v20190901 from "./v20190901";
 import * as v20191001 from "./v20191001";
 import * as v20191101 from "./v20191101";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200601 from "./v20200601";
-import * as v20201201preview from "./v20201201preview";
-import * as v20210101 from "./v20210101";
-import * as v20211001 from "./v20211001";
 import * as v20220401preview from "./v20220401preview";
-import * as v20220601preview from "./v20220601preview";
-import * as v20220801preview from "./v20220801preview";
 import * as v20221001 from "./v20221001";
 import * as v20221001preview from "./v20221001preview";
 import * as v20221005preview from "./v20221005preview";
@@ -25,20 +18,13 @@ import * as v20221005preview from "./v20221005preview";
 export {
     v20180531,
     v20180801preview,
-    v20190101,
     v20190301preview,
     v20190401preview,
-    v20190901,
     v20191001,
     v20191101,
     v20200301preview,
     v20200601,
-    v20201201preview,
-    v20210101,
-    v20211001,
     v20220401preview,
-    v20220601preview,
-    v20220801preview,
     v20221001,
     v20221001preview,
     v20221005preview,
@@ -66,43 +52,6 @@ export const ChartType = {
  * Chart type of the main view in Cost Analysis. Required.
  */
 export type ChartType = (typeof ChartType)[keyof typeof ChartType];
-
-export const ConnectorBillingModel = {
-    Trial: "trial",
-    AutoUpgrade: "autoUpgrade",
-    Premium: "premium",
-    Expired: "expired",
-} as const;
-
-/**
- * Connector billing model
- */
-export type ConnectorBillingModel = (typeof ConnectorBillingModel)[keyof typeof ConnectorBillingModel];
-
-export const CostAllocationPolicyType = {
-    FixedProportion: "FixedProportion",
-} as const;
-
-/**
- * Method of cost allocation for the rule
- */
-export type CostAllocationPolicyType = (typeof CostAllocationPolicyType)[keyof typeof CostAllocationPolicyType];
-
-export const CostAllocationResourceType = {
-    /**
-     * Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.
-     */
-    Dimension: "Dimension",
-    /**
-     * Allocates cost based on Azure Tag key value pairs.
-     */
-    Tag: "Tag",
-} as const;
-
-/**
- * Type of resources contained in this cost allocation rule
- */
-export type CostAllocationResourceType = (typeof CostAllocationResourceType)[keyof typeof CostAllocationResourceType];
 
 export const DaysOfWeek = {
     Monday: "Monday",
@@ -135,7 +84,7 @@ export const FileFormat = {
 } as const;
 
 /**
- * Destination of the view data. Currently only csv format is supported.
+ * Destination of the view data. Currently only CSV format is supported.
  */
 export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
 
@@ -144,14 +93,11 @@ export const FormatType = {
 } as const;
 
 /**
- * The format of the report being delivered.
+ * The format of the export being delivered. Currently only 'Csv' is supported.
  */
 export type FormatType = (typeof FormatType)[keyof typeof FormatType];
 
 export const FunctionType = {
-    Avg: "Avg",
-    Max: "Max",
-    Min: "Min",
     Sum: "Sum",
 } as const;
 
@@ -162,11 +108,10 @@ export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
 
 export const GranularityType = {
     Daily: "Daily",
-    Hourly: "Hourly",
 } as const;
 
 /**
- * The granularity of rows in the report.
+ * The granularity of rows in the export. Currently only 'Daily' is supported.
  */
 export type GranularityType = (typeof GranularityType)[keyof typeof GranularityType];
 
@@ -211,6 +156,22 @@ export const PivotTypeType = {
  */
 export type PivotTypeType = (typeof PivotTypeType)[keyof typeof PivotTypeType];
 
+export const QueryColumnType = {
+    /**
+     * The tag associated with the cost data.
+     */
+    TagKey: "TagKey",
+    /**
+     * The dimension of cost data.
+     */
+    Dimension: "Dimension",
+} as const;
+
+/**
+ * Has type of the column to group.
+ */
+export type QueryColumnType = (typeof QueryColumnType)[keyof typeof QueryColumnType];
+
 export const RecurrenceType = {
     Daily: "Daily",
     Weekly: "Weekly",
@@ -223,25 +184,15 @@ export const RecurrenceType = {
  */
 export type RecurrenceType = (typeof RecurrenceType)[keyof typeof RecurrenceType];
 
-export const ReportColumnType = {
-    Tag: "Tag",
-    Dimension: "Dimension",
+export const ReportConfigSortingType = {
+    Ascending: "Ascending",
+    Descending: "Descending",
 } as const;
 
 /**
- * Has type of the column to group.
+ * Direction of sort.
  */
-export type ReportColumnType = (typeof ReportColumnType)[keyof typeof ReportColumnType];
-
-export const ReportConfigColumnType = {
-    Tag: "Tag",
-    Dimension: "Dimension",
-} as const;
-
-/**
- * Has type of the column to group.
- */
-export type ReportConfigColumnType = (typeof ReportConfigColumnType)[keyof typeof ReportConfigColumnType];
+export type ReportConfigSortingType = (typeof ReportConfigSortingType)[keyof typeof ReportConfigSortingType];
 
 export const ReportGranularityType = {
     Daily: "Daily",
@@ -274,26 +225,6 @@ export const ReportType = {
  */
 export type ReportType = (typeof ReportType)[keyof typeof ReportType];
 
-export const RuleStatus = {
-    /**
-     * Rule is saved but not used to allocate costs.
-     */
-    NotActive: "NotActive",
-    /**
-     * Rule is saved and impacting cost allocation.
-     */
-    Active: "Active",
-    /**
-     * Rule is saved and cost allocation is being updated. Readonly value that cannot be submitted in a put request.
-     */
-    Processing: "Processing",
-} as const;
-
-/**
- * Status of the rule
- */
-export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
-
 export const ScheduleFrequency = {
     /**
      * Cost analysis data will be emailed every day.
@@ -319,6 +250,10 @@ export const ScheduledActionKind = {
      * Cost analysis data will be emailed.
      */
     Email: "Email",
+    /**
+     * Cost anomaly information will be emailed. Available only on subscription scope at daily frequency. If no anomaly is detected on the resource, an email won't be sent.
+     */
+    InsightAlert: "InsightAlert",
 } as const;
 
 /**
@@ -328,13 +263,17 @@ export type ScheduledActionKind = (typeof ScheduledActionKind)[keyof typeof Sche
 
 export const ScheduledActionStatus = {
     /**
-     * Scheduled action is saved but will not be executed.
+     * Scheduled action is saved but will not be run.
      */
     Disabled: "Disabled",
     /**
-     * Scheduled action is saved and will be executed.
+     * Scheduled action is saved and will be run.
      */
     Enabled: "Enabled",
+    /**
+     * Scheduled action is expired.
+     */
+    Expired: "Expired",
 } as const;
 
 /**
@@ -348,18 +287,21 @@ export const StatusType = {
 } as const;
 
 /**
- * The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+ * The status of the export's schedule. If 'Inactive', the export's schedule is paused.
  */
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 export const TimeframeType = {
-    WeekToDate: "WeekToDate",
     MonthToDate: "MonthToDate",
+    BillingMonthToDate: "BillingMonthToDate",
+    TheLastMonth: "TheLastMonth",
+    TheLastBillingMonth: "TheLastBillingMonth",
+    WeekToDate: "WeekToDate",
     Custom: "Custom",
 } as const;
 
 /**
- * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+ * The time frame for pulling data for the export. If custom, then a specific time period must be provided.
  */
 export type TimeframeType = (typeof TimeframeType)[keyof typeof TimeframeType];
 

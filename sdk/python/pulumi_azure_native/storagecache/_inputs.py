@@ -20,6 +20,7 @@ __all__ = [
     'CacheNetworkSettingsArgs',
     'CacheSecuritySettingsArgs',
     'CacheSkuArgs',
+    'CacheUpgradeSettingsArgs',
     'CacheUsernameDownloadSettingsCredentialsArgs',
     'CacheUsernameDownloadSettingsArgs',
     'ClfsTargetArgs',
@@ -36,16 +37,24 @@ __all__ = [
 class BlobNfsTargetArgs:
     def __init__(__self__, *,
                  target: Optional[pulumi.Input[str]] = None,
-                 usage_model: Optional[pulumi.Input[str]] = None):
+                 usage_model: Optional[pulumi.Input[str]] = None,
+                 verification_timer: Optional[pulumi.Input[int]] = None,
+                 write_back_timer: Optional[pulumi.Input[int]] = None):
         """
         Properties pertaining to the BlobNfsTarget.
         :param pulumi.Input[str] target: Resource ID of the storage container.
         :param pulumi.Input[str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
+        :param pulumi.Input[int] verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        :param pulumi.Input[int] write_back_timer: Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
         """
         if target is not None:
             pulumi.set(__self__, "target", target)
         if usage_model is not None:
             pulumi.set(__self__, "usage_model", usage_model)
+        if verification_timer is not None:
+            pulumi.set(__self__, "verification_timer", verification_timer)
+        if write_back_timer is not None:
+            pulumi.set(__self__, "write_back_timer", write_back_timer)
 
     @property
     @pulumi.getter
@@ -70,6 +79,30 @@ class BlobNfsTargetArgs:
     @usage_model.setter
     def usage_model(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "usage_model", value)
+
+    @property
+    @pulumi.getter(name="verificationTimer")
+    def verification_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        """
+        return pulumi.get(self, "verification_timer")
+
+    @verification_timer.setter
+    def verification_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "verification_timer", value)
+
+    @property
+    @pulumi.getter(name="writeBackTimer")
+    def write_back_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+        """
+        return pulumi.get(self, "write_back_timer")
+
+    @write_back_timer.setter
+    def write_back_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_back_timer", value)
 
 
 @pulumi.input_type
@@ -253,13 +286,17 @@ class CacheDirectorySettingsArgs:
 @pulumi.input_type
 class CacheEncryptionSettingsArgs:
     def __init__(__self__, *,
-                 key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None):
+                 key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None,
+                 rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Cache encryption settings.
         :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if rotation_to_latest_key_version_enabled is not None:
+            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -273,17 +310,33 @@ class CacheEncryptionSettingsArgs:
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
+    @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
+
+    @rotation_to_latest_key_version_enabled.setter
+    def rotation_to_latest_key_version_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotation_to_latest_key_version_enabled", value)
+
 
 @pulumi.input_type
 class CacheIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['CacheIdentityType']] = None):
+                 type: Optional[pulumi.Input['CacheIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Cache identity properties.
         :param pulumi.Input['CacheIdentityType'] type: The type of identity used for the cache
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -296,6 +349,18 @@ class CacheIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['CacheIdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -420,6 +485,46 @@ class CacheSkuArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CacheUpgradeSettingsArgs:
+    def __init__(__self__, *,
+                 scheduled_time: Optional[pulumi.Input[str]] = None,
+                 upgrade_schedule_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Cache Upgrade Settings.
+        :param pulumi.Input[str] scheduled_time: When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        :param pulumi.Input[bool] upgrade_schedule_enabled: True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        if scheduled_time is not None:
+            pulumi.set(__self__, "scheduled_time", scheduled_time)
+        if upgrade_schedule_enabled is not None:
+            pulumi.set(__self__, "upgrade_schedule_enabled", upgrade_schedule_enabled)
+
+    @property
+    @pulumi.getter(name="scheduledTime")
+    def scheduled_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        """
+        return pulumi.get(self, "scheduled_time")
+
+    @scheduled_time.setter
+    def scheduled_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduled_time", value)
+
+    @property
+    @pulumi.getter(name="upgradeScheduleEnabled")
+    def upgrade_schedule_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        return pulumi.get(self, "upgrade_schedule_enabled")
+
+    @upgrade_schedule_enabled.setter
+    def upgrade_schedule_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "upgrade_schedule_enabled", value)
 
 
 @pulumi.input_type
@@ -812,16 +917,24 @@ class NamespaceJunctionArgs:
 class Nfs3TargetArgs:
     def __init__(__self__, *,
                  target: Optional[pulumi.Input[str]] = None,
-                 usage_model: Optional[pulumi.Input[str]] = None):
+                 usage_model: Optional[pulumi.Input[str]] = None,
+                 verification_timer: Optional[pulumi.Input[int]] = None,
+                 write_back_timer: Optional[pulumi.Input[int]] = None):
         """
         Properties pertaining to the Nfs3Target
         :param pulumi.Input[str] target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
         :param pulumi.Input[str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
+        :param pulumi.Input[int] verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        :param pulumi.Input[int] write_back_timer: Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
         """
         if target is not None:
             pulumi.set(__self__, "target", target)
         if usage_model is not None:
             pulumi.set(__self__, "usage_model", usage_model)
+        if verification_timer is not None:
+            pulumi.set(__self__, "verification_timer", verification_timer)
+        if write_back_timer is not None:
+            pulumi.set(__self__, "write_back_timer", write_back_timer)
 
     @property
     @pulumi.getter
@@ -846,6 +959,30 @@ class Nfs3TargetArgs:
     @usage_model.setter
     def usage_model(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "usage_model", value)
+
+    @property
+    @pulumi.getter(name="verificationTimer")
+    def verification_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        """
+        return pulumi.get(self, "verification_timer")
+
+    @verification_timer.setter
+    def verification_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "verification_timer", value)
+
+    @property
+    @pulumi.getter(name="writeBackTimer")
+    def write_back_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+        """
+        return pulumi.get(self, "write_back_timer")
+
+    @write_back_timer.setter
+    def write_back_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_back_timer", value)
 
 
 @pulumi.input_type

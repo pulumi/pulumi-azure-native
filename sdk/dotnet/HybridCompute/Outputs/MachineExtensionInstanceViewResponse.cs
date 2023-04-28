@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// <summary>
         /// The machine extension name.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Instance view status.
         /// </summary>
@@ -27,21 +27,21 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// <summary>
         /// Specifies the type of the extension; an example is "CustomScriptExtension".
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// Specifies the version of the script handler.
         /// </summary>
-        public readonly string TypeHandlerVersion;
+        public readonly string? TypeHandlerVersion;
 
         [OutputConstructor]
         private MachineExtensionInstanceViewResponse(
-            string name,
+            string? name,
 
             Outputs.MachineExtensionInstanceViewResponseStatus? status,
 
-            string type,
+            string? type,
 
-            string typeHandlerVersion)
+            string? typeHandlerVersion)
         {
             Name = name;
             Status = status;

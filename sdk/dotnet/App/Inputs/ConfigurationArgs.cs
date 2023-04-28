@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("ingress")]
         public Input<Inputs.IngressArgs>? Ingress { get; set; }
 
+        /// <summary>
+        /// Optional. Max inactive revisions a Container App can have.
+        /// </summary>
+        [Input("maxInactiveRevisions")]
+        public Input<int>? MaxInactiveRevisions { get; set; }
+
         [Input("registries")]
         private InputList<Inputs.RegistryCredentialsArgs>? _registries;
 

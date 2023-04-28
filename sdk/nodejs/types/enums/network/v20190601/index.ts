@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const Access = {
-    Allow: "Allow",
-    Deny: "Deny",
-} as const;
-
-/**
- * The access type of the rule.
- */
-export type Access = (typeof Access)[keyof typeof Access];
-
 export const ApplicationGatewayCookieBasedAffinity = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -179,82 +169,6 @@ export const AuthorizationUseStatus = {
  */
 export type AuthorizationUseStatus = (typeof AuthorizationUseStatus)[keyof typeof AuthorizationUseStatus];
 
-export const AzureFirewallApplicationRuleProtocolType = {
-    Http: "Http",
-    Https: "Https",
-} as const;
-
-/**
- * Protocol type.
- */
-export type AzureFirewallApplicationRuleProtocolType = (typeof AzureFirewallApplicationRuleProtocolType)[keyof typeof AzureFirewallApplicationRuleProtocolType];
-
-export const AzureFirewallNatRCActionType = {
-    Snat: "Snat",
-    Dnat: "Dnat",
-} as const;
-
-/**
- * The type of action.
- */
-export type AzureFirewallNatRCActionType = (typeof AzureFirewallNatRCActionType)[keyof typeof AzureFirewallNatRCActionType];
-
-export const AzureFirewallNetworkRuleProtocol = {
-    TCP: "TCP",
-    UDP: "UDP",
-    Any: "Any",
-    ICMP: "ICMP",
-} as const;
-
-/**
- * The protocol of a Network Rule resource.
- */
-export type AzureFirewallNetworkRuleProtocol = (typeof AzureFirewallNetworkRuleProtocol)[keyof typeof AzureFirewallNetworkRuleProtocol];
-
-export const AzureFirewallRCActionType = {
-    Allow: "Allow",
-    Deny: "Deny",
-} as const;
-
-/**
- * The type of action.
- */
-export type AzureFirewallRCActionType = (typeof AzureFirewallRCActionType)[keyof typeof AzureFirewallRCActionType];
-
-export const AzureFirewallThreatIntelMode = {
-    Alert: "Alert",
-    Deny: "Deny",
-    Off: "Off",
-} as const;
-
-/**
- * The operation mode for Threat Intelligence.
- */
-export type AzureFirewallThreatIntelMode = (typeof AzureFirewallThreatIntelMode)[keyof typeof AzureFirewallThreatIntelMode];
-
-export const DdosCustomPolicyProtocol = {
-    Tcp: "Tcp",
-    Udp: "Udp",
-    Syn: "Syn",
-} as const;
-
-/**
- * The protocol for which the DDoS protection policy is being customized.
- */
-export type DdosCustomPolicyProtocol = (typeof DdosCustomPolicyProtocol)[keyof typeof DdosCustomPolicyProtocol];
-
-export const DdosCustomPolicyTriggerSensitivityOverride = {
-    Relaxed: "Relaxed",
-    Low: "Low",
-    Default: "Default",
-    High: "High",
-} as const;
-
-/**
- * The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
- */
-export type DdosCustomPolicyTriggerSensitivityOverride = (typeof DdosCustomPolicyTriggerSensitivityOverride)[keyof typeof DdosCustomPolicyTriggerSensitivityOverride];
-
 export const DdosSettingsProtectionCoverage = {
     Basic: "Basic",
     Standard: "Standard",
@@ -264,22 +178,6 @@ export const DdosSettingsProtectionCoverage = {
  * The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
  */
 export type DdosSettingsProtectionCoverage = (typeof DdosSettingsProtectionCoverage)[keyof typeof DdosSettingsProtectionCoverage];
-
-export const DhGroup = {
-    None: "None",
-    DHGroup1: "DHGroup1",
-    DHGroup2: "DHGroup2",
-    DHGroup14: "DHGroup14",
-    DHGroup2048: "DHGroup2048",
-    ECP256: "ECP256",
-    ECP384: "ECP384",
-    DHGroup24: "DHGroup24",
-} as const;
-
-/**
- * The DH Group used in IKE Phase 1 for initial SA.
- */
-export type DhGroup = (typeof DhGroup)[keyof typeof DhGroup];
 
 export const ExpressRouteCircuitPeeringAdvertisedPublicPrefixState = {
     NotConfigured: "NotConfigured",
@@ -325,16 +223,6 @@ export const ExpressRouteCircuitSkuTier = {
  */
 export type ExpressRouteCircuitSkuTier = (typeof ExpressRouteCircuitSkuTier)[keyof typeof ExpressRouteCircuitSkuTier];
 
-export const ExpressRouteLinkAdminState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Administrative state of the physical port.
- */
-export type ExpressRouteLinkAdminState = (typeof ExpressRouteLinkAdminState)[keyof typeof ExpressRouteLinkAdminState];
-
 export const ExpressRoutePeeringState = {
     Disabled: "Disabled",
     Enabled: "Enabled",
@@ -356,86 +244,13 @@ export const ExpressRoutePeeringType = {
  */
 export type ExpressRoutePeeringType = (typeof ExpressRoutePeeringType)[keyof typeof ExpressRoutePeeringType];
 
-export const ExpressRoutePortsEncapsulation = {
-    Dot1Q: "Dot1Q",
-    QinQ: "QinQ",
-} as const;
-
-/**
- * Encapsulation method on physical ports.
- */
-export type ExpressRoutePortsEncapsulation = (typeof ExpressRoutePortsEncapsulation)[keyof typeof ExpressRoutePortsEncapsulation];
-
-export const FirewallPolicyFilterRuleActionType = {
-    Allow: "Allow",
-    Deny: "Deny",
-    Alert_: "Alert ",
-} as const;
-
-/**
- * The type of action.
- */
-export type FirewallPolicyFilterRuleActionType = (typeof FirewallPolicyFilterRuleActionType)[keyof typeof FirewallPolicyFilterRuleActionType];
-
-export const FirewallPolicyNatRuleActionType = {
-    DNAT: "DNAT",
-    SNAT: "SNAT",
-} as const;
-
-/**
- * The type of action.
- */
-export type FirewallPolicyNatRuleActionType = (typeof FirewallPolicyNatRuleActionType)[keyof typeof FirewallPolicyNatRuleActionType];
-
-export const FirewallPolicyRuleConditionApplicationProtocolType = {
-    Http: "Http",
-    Https: "Https",
-} as const;
-
-/**
- * Protocol type
- */
-export type FirewallPolicyRuleConditionApplicationProtocolType = (typeof FirewallPolicyRuleConditionApplicationProtocolType)[keyof typeof FirewallPolicyRuleConditionApplicationProtocolType];
-
-export const FirewallPolicyRuleConditionNetworkProtocol = {
-    TCP: "TCP",
-    UDP: "UDP",
-    Any: "Any",
-    ICMP: "ICMP",
-} as const;
-
-/**
- * The Network protocol of a Rule condition
- */
-export type FirewallPolicyRuleConditionNetworkProtocol = (typeof FirewallPolicyRuleConditionNetworkProtocol)[keyof typeof FirewallPolicyRuleConditionNetworkProtocol];
-
-export const FirewallPolicyRuleConditionType = {
-    ApplicationRuleCondition: "ApplicationRuleCondition",
-    NetworkRuleCondition: "NetworkRuleCondition",
-} as const;
-
-/**
- * Rule Condition Type
- */
-export type FirewallPolicyRuleConditionType = (typeof FirewallPolicyRuleConditionType)[keyof typeof FirewallPolicyRuleConditionType];
-
-export const FirewallPolicyRuleType = {
-    FirewallPolicyNatRule: "FirewallPolicyNatRule",
-    FirewallPolicyFilterRule: "FirewallPolicyFilterRule",
-} as const;
-
-/**
- *  The type of the rule
- */
-export type FirewallPolicyRuleType = (typeof FirewallPolicyRuleType)[keyof typeof FirewallPolicyRuleType];
-
 export const IPAllocationMethod = {
     Static: "Static",
     Dynamic: "Dynamic",
 } as const;
 
 /**
- * The private IP address allocation method.
+ * The public IP address allocation method.
  */
 export type IPAllocationMethod = (typeof IPAllocationMethod)[keyof typeof IPAllocationMethod];
 
@@ -445,69 +260,9 @@ export const IPVersion = {
 } as const;
 
 /**
- * Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+ * The public IP address version.
  */
 export type IPVersion = (typeof IPVersion)[keyof typeof IPVersion];
-
-export const IkeEncryption = {
-    DES: "DES",
-    DES3: "DES3",
-    AES128: "AES128",
-    AES192: "AES192",
-    AES256: "AES256",
-    GCMAES256: "GCMAES256",
-    GCMAES128: "GCMAES128",
-} as const;
-
-/**
- * The IKE encryption algorithm (IKE phase 2).
- */
-export type IkeEncryption = (typeof IkeEncryption)[keyof typeof IkeEncryption];
-
-export const IkeIntegrity = {
-    MD5: "MD5",
-    SHA1: "SHA1",
-    SHA256: "SHA256",
-    SHA384: "SHA384",
-    GCMAES256: "GCMAES256",
-    GCMAES128: "GCMAES128",
-} as const;
-
-/**
- * The IKE integrity algorithm (IKE phase 2).
- */
-export type IkeIntegrity = (typeof IkeIntegrity)[keyof typeof IkeIntegrity];
-
-export const IpsecEncryption = {
-    None: "None",
-    DES: "DES",
-    DES3: "DES3",
-    AES128: "AES128",
-    AES192: "AES192",
-    AES256: "AES256",
-    GCMAES128: "GCMAES128",
-    GCMAES192: "GCMAES192",
-    GCMAES256: "GCMAES256",
-} as const;
-
-/**
- * The IPSec encryption algorithm (IKE phase 1).
- */
-export type IpsecEncryption = (typeof IpsecEncryption)[keyof typeof IpsecEncryption];
-
-export const IpsecIntegrity = {
-    MD5: "MD5",
-    SHA1: "SHA1",
-    SHA256: "SHA256",
-    GCMAES128: "GCMAES128",
-    GCMAES192: "GCMAES192",
-    GCMAES256: "GCMAES256",
-} as const;
-
-/**
- * The IPSec integrity algorithm (IKE phase 1).
- */
-export type IpsecIntegrity = (typeof IpsecIntegrity)[keyof typeof IpsecIntegrity];
 
 export const LoadBalancerOutboundRuleProtocol = {
     Tcp: "Tcp",
@@ -550,34 +305,6 @@ export const NatGatewaySkuName = {
  */
 export type NatGatewaySkuName = (typeof NatGatewaySkuName)[keyof typeof NatGatewaySkuName];
 
-export const PcProtocol = {
-    TCP: "TCP",
-    UDP: "UDP",
-    Any: "Any",
-} as const;
-
-/**
- * Protocol to be filtered on.
- */
-export type PcProtocol = (typeof PcProtocol)[keyof typeof PcProtocol];
-
-export const PfsGroup = {
-    None: "None",
-    PFS1: "PFS1",
-    PFS2: "PFS2",
-    PFS2048: "PFS2048",
-    ECP256: "ECP256",
-    ECP384: "ECP384",
-    PFS24: "PFS24",
-    PFS14: "PFS14",
-    PFSMM: "PFSMM",
-} as const;
-
-/**
- * The Pfs Group used in IKE Phase 2 for new child SA.
- */
-export type PfsGroup = (typeof PfsGroup)[keyof typeof PfsGroup];
-
 export const ProbeProtocol = {
     Http: "Http",
     Tcp: "Tcp",
@@ -619,15 +346,6 @@ export const ResourceIdentityType = {
  * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
-export const RouteFilterRuleType = {
-    Community: "Community",
-} as const;
-
-/**
- * The rule type of the rule.
- */
-export type RouteFilterRuleType = (typeof RouteFilterRuleType)[keyof typeof RouteFilterRuleType];
 
 export const RouteNextHopType = {
     VirtualNetworkGateway: "VirtualNetworkGateway",
@@ -698,80 +416,6 @@ export const TransportProtocol = {
  */
 export type TransportProtocol = (typeof TransportProtocol)[keyof typeof TransportProtocol];
 
-export const VirtualNetworkGatewayConnectionProtocol = {
-    IKEv2: "IKEv2",
-    IKEv1: "IKEv1",
-} as const;
-
-/**
- * Connection protocol used for this connection.
- */
-export type VirtualNetworkGatewayConnectionProtocol = (typeof VirtualNetworkGatewayConnectionProtocol)[keyof typeof VirtualNetworkGatewayConnectionProtocol];
-
-export const VirtualNetworkGatewayConnectionType = {
-    IPsec: "IPsec",
-    Vnet2Vnet: "Vnet2Vnet",
-    ExpressRoute: "ExpressRoute",
-    VPNClient: "VPNClient",
-} as const;
-
-/**
- * Gateway connection type.
- */
-export type VirtualNetworkGatewayConnectionType = (typeof VirtualNetworkGatewayConnectionType)[keyof typeof VirtualNetworkGatewayConnectionType];
-
-export const VirtualNetworkGatewaySkuName = {
-    Basic: "Basic",
-    HighPerformance: "HighPerformance",
-    Standard: "Standard",
-    UltraPerformance: "UltraPerformance",
-    VpnGw1: "VpnGw1",
-    VpnGw2: "VpnGw2",
-    VpnGw3: "VpnGw3",
-    VpnGw1AZ: "VpnGw1AZ",
-    VpnGw2AZ: "VpnGw2AZ",
-    VpnGw3AZ: "VpnGw3AZ",
-    ErGw1AZ: "ErGw1AZ",
-    ErGw2AZ: "ErGw2AZ",
-    ErGw3AZ: "ErGw3AZ",
-} as const;
-
-/**
- * Gateway SKU name.
- */
-export type VirtualNetworkGatewaySkuName = (typeof VirtualNetworkGatewaySkuName)[keyof typeof VirtualNetworkGatewaySkuName];
-
-export const VirtualNetworkGatewaySkuTier = {
-    Basic: "Basic",
-    HighPerformance: "HighPerformance",
-    Standard: "Standard",
-    UltraPerformance: "UltraPerformance",
-    VpnGw1: "VpnGw1",
-    VpnGw2: "VpnGw2",
-    VpnGw3: "VpnGw3",
-    VpnGw1AZ: "VpnGw1AZ",
-    VpnGw2AZ: "VpnGw2AZ",
-    VpnGw3AZ: "VpnGw3AZ",
-    ErGw1AZ: "ErGw1AZ",
-    ErGw2AZ: "ErGw2AZ",
-    ErGw3AZ: "ErGw3AZ",
-} as const;
-
-/**
- * Gateway SKU tier.
- */
-export type VirtualNetworkGatewaySkuTier = (typeof VirtualNetworkGatewaySkuTier)[keyof typeof VirtualNetworkGatewaySkuTier];
-
-export const VirtualNetworkGatewayType = {
-    Vpn: "Vpn",
-    ExpressRoute: "ExpressRoute",
-} as const;
-
-/**
- * The type of this virtual network gateway.
- */
-export type VirtualNetworkGatewayType = (typeof VirtualNetworkGatewayType)[keyof typeof VirtualNetworkGatewayType];
-
 export const VirtualNetworkPeeringState = {
     Initiated: "Initiated",
     Connected: "Connected",
@@ -782,123 +426,3 @@ export const VirtualNetworkPeeringState = {
  * The status of the virtual network peering.
  */
 export type VirtualNetworkPeeringState = (typeof VirtualNetworkPeeringState)[keyof typeof VirtualNetworkPeeringState];
-
-export const VpnClientProtocol = {
-    IkeV2: "IkeV2",
-    SSTP: "SSTP",
-    OpenVPN: "OpenVPN",
-} as const;
-
-/**
- * VPN client protocol enabled for the virtual network gateway.
- */
-export type VpnClientProtocol = (typeof VpnClientProtocol)[keyof typeof VpnClientProtocol];
-
-export const VpnGatewayTunnelingProtocol = {
-    IkeV2: "IkeV2",
-    OpenVPN: "OpenVPN",
-} as const;
-
-/**
- * VPN protocol enabled for the P2SVpnServerConfiguration.
- */
-export type VpnGatewayTunnelingProtocol = (typeof VpnGatewayTunnelingProtocol)[keyof typeof VpnGatewayTunnelingProtocol];
-
-export const VpnType = {
-    PolicyBased: "PolicyBased",
-    RouteBased: "RouteBased",
-} as const;
-
-/**
- * The type of this virtual network gateway.
- */
-export type VpnType = (typeof VpnType)[keyof typeof VpnType];
-
-export const WebApplicationFirewallAction = {
-    Allow: "Allow",
-    Block: "Block",
-    Log: "Log",
-} as const;
-
-/**
- * Type of Actions.
- */
-export type WebApplicationFirewallAction = (typeof WebApplicationFirewallAction)[keyof typeof WebApplicationFirewallAction];
-
-export const WebApplicationFirewallEnabledState = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-} as const;
-
-/**
- * Describes if the policy is in enabled state or disabled state.
- */
-export type WebApplicationFirewallEnabledState = (typeof WebApplicationFirewallEnabledState)[keyof typeof WebApplicationFirewallEnabledState];
-
-export const WebApplicationFirewallMatchVariable = {
-    RemoteAddr: "RemoteAddr",
-    RequestMethod: "RequestMethod",
-    QueryString: "QueryString",
-    PostArgs: "PostArgs",
-    RequestUri: "RequestUri",
-    RequestHeaders: "RequestHeaders",
-    RequestBody: "RequestBody",
-    RequestCookies: "RequestCookies",
-} as const;
-
-/**
- * Match Variable.
- */
-export type WebApplicationFirewallMatchVariable = (typeof WebApplicationFirewallMatchVariable)[keyof typeof WebApplicationFirewallMatchVariable];
-
-export const WebApplicationFirewallMode = {
-    Prevention: "Prevention",
-    Detection: "Detection",
-} as const;
-
-/**
- * Describes if it is in detection mode or prevention mode at policy level.
- */
-export type WebApplicationFirewallMode = (typeof WebApplicationFirewallMode)[keyof typeof WebApplicationFirewallMode];
-
-export const WebApplicationFirewallOperator = {
-    IPMatch: "IPMatch",
-    Equal: "Equal",
-    Contains: "Contains",
-    LessThan: "LessThan",
-    GreaterThan: "GreaterThan",
-    LessThanOrEqual: "LessThanOrEqual",
-    GreaterThanOrEqual: "GreaterThanOrEqual",
-    BeginsWith: "BeginsWith",
-    EndsWith: "EndsWith",
-    Regex: "Regex",
-} as const;
-
-/**
- * Describes operator to be matched.
- */
-export type WebApplicationFirewallOperator = (typeof WebApplicationFirewallOperator)[keyof typeof WebApplicationFirewallOperator];
-
-export const WebApplicationFirewallRuleType = {
-    MatchRule: "MatchRule",
-    Invalid: "Invalid",
-} as const;
-
-/**
- * Describes type of rule.
- */
-export type WebApplicationFirewallRuleType = (typeof WebApplicationFirewallRuleType)[keyof typeof WebApplicationFirewallRuleType];
-
-export const WebApplicationFirewallTransform = {
-    Lowercase: "Lowercase",
-    Trim: "Trim",
-    UrlDecode: "UrlDecode",
-    UrlEncode: "UrlEncode",
-    RemoveNulls: "RemoveNulls",
-    HtmlEntityDecode: "HtmlEntityDecode",
-} as const;
-
-/**
- * Describes what transforms applied before matching.
- */
-export type WebApplicationFirewallTransform = (typeof WebApplicationFirewallTransform)[keyof typeof WebApplicationFirewallTransform];

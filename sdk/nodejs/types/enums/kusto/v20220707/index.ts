@@ -102,16 +102,6 @@ export const ClusterNetworkAccessFlag = {
  */
 export type ClusterNetworkAccessFlag = (typeof ClusterNetworkAccessFlag)[keyof typeof ClusterNetworkAccessFlag];
 
-export const ClusterPrincipalRole = {
-    AllDatabasesAdmin: "AllDatabasesAdmin",
-    AllDatabasesViewer: "AllDatabasesViewer",
-} as const;
-
-/**
- * Cluster principal role.
- */
-export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
-
 export const Compression = {
     None: "None",
     GZip: "GZip",
@@ -133,20 +123,6 @@ export const DataConnectionKind = {
  */
 export type DataConnectionKind = (typeof DataConnectionKind)[keyof typeof DataConnectionKind];
 
-export const DatabasePrincipalRole = {
-    Admin: "Admin",
-    Ingestor: "Ingestor",
-    Monitor: "Monitor",
-    User: "User",
-    UnrestrictedViewer: "UnrestrictedViewer",
-    Viewer: "Viewer",
-} as const;
-
-/**
- * Database principal role.
- */
-export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
-
 export const DatabaseRouting = {
     Single: "Single",
     Multi: "Multi",
@@ -156,17 +132,6 @@ export const DatabaseRouting = {
  * Indication for database routing information from the data connection, by default only database routing information is allowed
  */
 export type DatabaseRouting = (typeof DatabaseRouting)[keyof typeof DatabaseRouting];
-
-export const DefaultPrincipalsModificationKind = {
-    Union: "Union",
-    Replace: "Replace",
-    None: "None",
-} as const;
-
-/**
- * The default principals modification kind
- */
-export type DefaultPrincipalsModificationKind = (typeof DefaultPrincipalsModificationKind)[keyof typeof DefaultPrincipalsModificationKind];
 
 export const EngineType = {
     V2: "V2",
@@ -271,17 +236,6 @@ export const Kind = {
  * Kind of the database
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
-
-export const PrincipalType = {
-    App: "App",
-    Group: "Group",
-    User: "User",
-} as const;
-
-/**
- * Principal type.
- */
-export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 export const PublicIPType = {
     IPv4: "IPv4",

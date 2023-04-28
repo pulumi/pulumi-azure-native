@@ -15,11 +15,6 @@ export type AATPDataConnector = import("./aatpdataConnector").AATPDataConnector;
 export const AATPDataConnector: typeof import("./aatpdataConnector").AATPDataConnector = null as any;
 utilities.lazyLoad(exports, ["AATPDataConnector"], () => require("./aatpdataConnector"));
 
-export { ActionArgs } from "./action";
-export type Action = import("./action").Action;
-export const Action: typeof import("./action").Action = null as any;
-utilities.lazyLoad(exports, ["Action"], () => require("./action"));
-
 export { AnomaliesArgs } from "./anomalies";
 export type Anomalies = import("./anomalies").Anomalies;
 export const Anomalies: typeof import("./anomalies").Anomalies = null as any;
@@ -85,11 +80,6 @@ export const getASCDataConnector: typeof import("./getASCDataConnector").getASCD
 export const getASCDataConnectorOutput: typeof import("./getASCDataConnector").getASCDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getASCDataConnector","getASCDataConnectorOutput"], () => require("./getASCDataConnector"));
 
-export { GetActionArgs, GetActionResult, GetActionOutputArgs } from "./getAction";
-export const getAction: typeof import("./getAction").getAction = null as any;
-export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
-utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
-
 export { GetAnomaliesArgs, GetAnomaliesResult, GetAnomaliesOutputArgs } from "./getAnomalies";
 export const getAnomalies: typeof import("./getAnomalies").getAnomalies = null as any;
 export const getAnomaliesOutput: typeof import("./getAnomalies").getAnomaliesOutput = null as any;
@@ -149,21 +139,6 @@ export { GetIPSyncerArgs, GetIPSyncerResult, GetIPSyncerOutputArgs } from "./get
 export const getIPSyncer: typeof import("./getIPSyncer").getIPSyncer = null as any;
 export const getIPSyncerOutput: typeof import("./getIPSyncer").getIPSyncerOutput = null as any;
 utilities.lazyLoad(exports, ["getIPSyncer","getIPSyncerOutput"], () => require("./getIPSyncer"));
-
-export { GetIncidentArgs, GetIncidentResult, GetIncidentOutputArgs } from "./getIncident";
-export const getIncident: typeof import("./getIncident").getIncident = null as any;
-export const getIncidentOutput: typeof import("./getIncident").getIncidentOutput = null as any;
-utilities.lazyLoad(exports, ["getIncident","getIncidentOutput"], () => require("./getIncident"));
-
-export { GetIncidentCommentArgs, GetIncidentCommentResult, GetIncidentCommentOutputArgs } from "./getIncidentComment";
-export const getIncidentComment: typeof import("./getIncidentComment").getIncidentComment = null as any;
-export const getIncidentCommentOutput: typeof import("./getIncidentComment").getIncidentCommentOutput = null as any;
-utilities.lazyLoad(exports, ["getIncidentComment","getIncidentCommentOutput"], () => require("./getIncidentComment"));
-
-export { GetIncidentRelationArgs, GetIncidentRelationResult, GetIncidentRelationOutputArgs } from "./getIncidentRelation";
-export const getIncidentRelation: typeof import("./getIncidentRelation").getIncidentRelation = null as any;
-export const getIncidentRelationOutput: typeof import("./getIncidentRelation").getIncidentRelationOutput = null as any;
-utilities.lazyLoad(exports, ["getIncidentRelation","getIncidentRelationOutput"], () => require("./getIncidentRelation"));
 
 export { GetMCASDataConnectorArgs, GetMCASDataConnectorResult, GetMCASDataConnectorOutputArgs } from "./getMCASDataConnector";
 export const getMCASDataConnector: typeof import("./getMCASDataConnector").getMCASDataConnector = null as any;
@@ -239,26 +214,6 @@ export { GetWatchlistArgs, GetWatchlistResult, GetWatchlistOutputArgs } from "./
 export const getWatchlist: typeof import("./getWatchlist").getWatchlist = null as any;
 export const getWatchlistOutput: typeof import("./getWatchlist").getWatchlistOutput = null as any;
 utilities.lazyLoad(exports, ["getWatchlist","getWatchlistOutput"], () => require("./getWatchlist"));
-
-export { GetWatchlistItemArgs, GetWatchlistItemResult, GetWatchlistItemOutputArgs } from "./getWatchlistItem";
-export const getWatchlistItem: typeof import("./getWatchlistItem").getWatchlistItem = null as any;
-export const getWatchlistItemOutput: typeof import("./getWatchlistItem").getWatchlistItemOutput = null as any;
-utilities.lazyLoad(exports, ["getWatchlistItem","getWatchlistItemOutput"], () => require("./getWatchlistItem"));
-
-export { IncidentArgs } from "./incident";
-export type Incident = import("./incident").Incident;
-export const Incident: typeof import("./incident").Incident = null as any;
-utilities.lazyLoad(exports, ["Incident"], () => require("./incident"));
-
-export { IncidentCommentArgs } from "./incidentComment";
-export type IncidentComment = import("./incidentComment").IncidentComment;
-export const IncidentComment: typeof import("./incidentComment").IncidentComment = null as any;
-utilities.lazyLoad(exports, ["IncidentComment"], () => require("./incidentComment"));
-
-export { IncidentRelationArgs } from "./incidentRelation";
-export type IncidentRelation = import("./incidentRelation").IncidentRelation;
-export const IncidentRelation: typeof import("./incidentRelation").IncidentRelation = null as any;
-utilities.lazyLoad(exports, ["IncidentRelation"], () => require("./incidentRelation"));
 
 export { IPSyncerArgs } from "./ipsyncer";
 export type IPSyncer = import("./ipsyncer").IPSyncer;
@@ -340,11 +295,6 @@ export type Watchlist = import("./watchlist").Watchlist;
 export const Watchlist: typeof import("./watchlist").Watchlist = null as any;
 utilities.lazyLoad(exports, ["Watchlist"], () => require("./watchlist"));
 
-export { WatchlistItemArgs } from "./watchlistItem";
-export type WatchlistItem = import("./watchlistItem").WatchlistItem;
-export const WatchlistItem: typeof import("./watchlistItem").WatchlistItem = null as any;
-utilities.lazyLoad(exports, ["WatchlistItem"], () => require("./watchlistItem"));
-
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20190101preview";
@@ -359,8 +309,6 @@ const _module = {
                 return new AATPDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:ASCDataConnector":
                 return new ASCDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20190101preview:Action":
-                return new Action(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Anomalies":
                 return new Anomalies(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:AutomationRule":
@@ -381,12 +329,6 @@ const _module = {
                 return new FusionAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:IPSyncer":
                 return new IPSyncer(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20190101preview:Incident":
-                return new Incident(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20190101preview:IncidentComment":
-                return new IncidentComment(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20190101preview:IncidentRelation":
-                return new IncidentRelation(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:MCASDataConnector":
                 return new MCASDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:MDATPDataConnector":
@@ -417,8 +359,6 @@ const _module = {
                 return new Ueba(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20190101preview:WatchlistItem":
-                return new WatchlistItem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

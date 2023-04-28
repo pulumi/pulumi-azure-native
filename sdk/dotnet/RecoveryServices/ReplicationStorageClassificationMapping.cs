@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Storage mapping object.
-    /// API Version: 2018-07-10.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationStorageClassificationMapping")]
     public partial class ReplicationStorageClassificationMapping : global::Pulumi.CustomResource

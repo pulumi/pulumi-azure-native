@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AnalyticalStorageSchemaType',
-    'AuthenticationMethod',
     'BackupPolicyMigrationStatus',
     'BackupPolicyType',
     'BackupStorageRedundancy',
@@ -22,18 +21,12 @@ __all__ = [
     'EnableFullTextQuery',
     'IndexKind',
     'IndexingMode',
-    'ManagedCassandraProvisioningState',
-    'ManagedCassandraResourceIdentityType',
-    'MongoRoleDefinitionType',
     'NetworkAclBypass',
     'PartitionKind',
     'PublicNetworkAccess',
     'ResourceIdentityType',
     'RestoreMode',
-    'RoleDefinitionType',
     'ServerVersion',
-    'ServiceSize',
-    'ServiceType',
     'SpatialType',
     'TriggerOperation',
     'TriggerType',
@@ -46,15 +39,6 @@ class AnalyticalStorageSchemaType(str, Enum):
     """
     WELL_DEFINED = "WellDefined"
     FULL_FIDELITY = "FullFidelity"
-
-
-class AuthenticationMethod(str, Enum):
-    """
-    Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'. 'Ldap' is in preview.
-    """
-    NONE = "None"
-    CASSANDRA = "Cassandra"
-    LDAP = "Ldap"
 
 
 class BackupPolicyMigrationStatus(str, Enum):
@@ -189,34 +173,6 @@ class IndexingMode(str, Enum):
     NONE = "none"
 
 
-class ManagedCassandraProvisioningState(str, Enum):
-    """
-    The status of the resource at the time the operation was called.
-    """
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-
-
-class ManagedCassandraResourceIdentityType(str, Enum):
-    """
-    The type of the resource.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"
-
-
-class MongoRoleDefinitionType(str, Enum):
-    """
-    Indicates whether the Role Definition was built-in or user created.
-    """
-    BUILT_IN_ROLE = "BuiltInRole"
-    CUSTOM_ROLE = "CustomRole"
-
-
 class NetworkAclBypass(str, Enum):
     """
     Indicates what services are allowed to bypass firewall checks.
@@ -259,14 +215,6 @@ class RestoreMode(str, Enum):
     POINT_IN_TIME = "PointInTime"
 
 
-class RoleDefinitionType(str, Enum):
-    """
-    Indicates whether the Role Definition was built-in or user created.
-    """
-    BUILT_IN_ROLE = "BuiltInRole"
-    CUSTOM_ROLE = "CustomRole"
-
-
 class ServerVersion(str, Enum):
     """
     Describes the ServerVersion of an a MongoDB account.
@@ -275,25 +223,6 @@ class ServerVersion(str, Enum):
     SERVER_VERSION_3_6 = "3.6"
     SERVER_VERSION_4_0 = "4.0"
     SERVER_VERSION_4_2 = "4.2"
-
-
-class ServiceSize(str, Enum):
-    """
-    Instance type for the service.
-    """
-    COSMOS_D4S = "Cosmos.D4s"
-    COSMOS_D8S = "Cosmos.D8s"
-    COSMOS_D16S = "Cosmos.D16s"
-
-
-class ServiceType(str, Enum):
-    """
-    ServiceType for the service.
-    """
-    SQL_DEDICATED_GATEWAY = "SqlDedicatedGateway"
-    DATA_TRANSFER = "DataTransfer"
-    GRAPH_API_COMPUTE = "GraphAPICompute"
-    MATERIALIZED_VIEWS_BUILDER = "MaterializedViewsBuilder"
 
 
 class SpatialType(str, Enum):

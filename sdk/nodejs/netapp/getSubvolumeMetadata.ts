@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get details of the specified subvolume
- * API Version: 2021-10-01.
+ * API Version: 2022-09-01.
  */
 export function getSubvolumeMetadata(args: GetSubvolumeMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeMetadataResult> {
 
@@ -30,7 +30,7 @@ export interface GetSubvolumeMetadataArgs {
      */
     poolName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -102,7 +102,7 @@ export interface GetSubvolumeMetadataResult {
 }
 /**
  * Get details of the specified subvolume
- * API Version: 2021-10-01.
+ * API Version: 2022-09-01.
  */
 export function getSubvolumeMetadataOutput(args: GetSubvolumeMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeMetadataResult> {
     return pulumi.output(args).apply((a: any) => getSubvolumeMetadata(a, opts))
@@ -118,7 +118,7 @@ export interface GetSubvolumeMetadataOutputArgs {
      */
     poolName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

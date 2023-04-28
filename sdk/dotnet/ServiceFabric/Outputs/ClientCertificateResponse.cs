@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
     /// <summary>
-    /// Client Certificate definition.
+    /// Client certificate definition.
     /// </summary>
     [OutputType]
     public sealed class ClientCertificateResponse
     {
         /// <summary>
-        /// Certificate Common name.
+        /// Certificate common name.
         /// </summary>
         public readonly string? CommonName;
         /// <summary>
-        /// Whether the certificate is admin or not.
+        /// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
         /// </summary>
         public readonly bool IsAdmin;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
         /// </summary>
         public readonly string? IssuerThumbprint;
         /// <summary>
-        /// Certificate Thumbprint.
+        /// Certificate thumbprint.
         /// </summary>
         public readonly string? Thumbprint;
 

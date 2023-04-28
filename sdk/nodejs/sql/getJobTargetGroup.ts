@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a target group.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getJobTargetGroup(args: GetJobTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTargetGroupResult> {
 
@@ -64,7 +64,7 @@ export interface GetJobTargetGroupResult {
 }
 /**
  * Gets a target group.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getJobTargetGroupOutput(args: GetJobTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTargetGroupResult> {
     return pulumi.output(args).apply((a: any) => getJobTargetGroup(a, opts))

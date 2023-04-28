@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class GetKubeEnvironment
     {
         /// <summary>
-        /// Get the properties of a Kubernetes Environment.
-        /// API Version: 2021-01-01.
+        /// Description for Get the properties of a Kubernetes Environment.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetKubeEnvironmentResult> InvokeAsync(GetKubeEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubeEnvironmentResult>("azure-native:web:getKubeEnvironment", args ?? new GetKubeEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the properties of a Kubernetes Environment.
-        /// API Version: 2021-01-01.
+        /// Description for Get the properties of a Kubernetes Environment.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetKubeEnvironmentResult> Invoke(GetKubeEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubeEnvironmentResult>("azure-native:web:getKubeEnvironment", args ?? new GetKubeEnvironmentInvokeArgs(), options.WithDefaults());
@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.ArcConfigurationResponse? ArcConfiguration;
         /// <summary>
+        /// Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+        /// </summary>
+        public readonly Outputs.ContainerAppsConfigurationResponse? ContainerAppsConfiguration;
+        /// <summary>
         /// Default Domain Name for the cluster
         /// </summary>
         public readonly string DefaultDomain;
@@ -92,6 +96,10 @@ namespace Pulumi.AzureNative.Web
         /// Any errors that occurred during deployment or deployment validation
         /// </summary>
         public readonly string DeploymentErrors;
+        /// <summary>
+        /// Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+        /// </summary>
+        public readonly string? EnvironmentType;
         /// <summary>
         /// Extended Location.
         /// </summary>
@@ -141,9 +149,13 @@ namespace Pulumi.AzureNative.Web
 
             Outputs.ArcConfigurationResponse? arcConfiguration,
 
+            Outputs.ContainerAppsConfigurationResponse? containerAppsConfiguration,
+
             string defaultDomain,
 
             string deploymentErrors,
+
+            string? environmentType,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
@@ -168,8 +180,10 @@ namespace Pulumi.AzureNative.Web
             AksResourceID = aksResourceID;
             AppLogsConfiguration = appLogsConfiguration;
             ArcConfiguration = arcConfiguration;
+            ContainerAppsConfiguration = containerAppsConfiguration;
             DefaultDomain = defaultDomain;
             DeploymentErrors = deploymentErrors;
+            EnvironmentType = environmentType;
             ExtendedLocation = extendedLocation;
             Id = id;
             InternalLoadBalancerEnabled = internalLoadBalancerEnabled;

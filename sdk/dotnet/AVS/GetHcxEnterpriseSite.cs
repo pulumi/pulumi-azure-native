@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// An HCX Enterprise Site resource
-        /// API Version: 2020-03-20.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetHcxEnterpriseSiteResult> InvokeAsync(GetHcxEnterpriseSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// An HCX Enterprise Site resource
-        /// API Version: 2020-03-20.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetHcxEnterpriseSiteResult> Invoke(GetHcxEnterpriseSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteInvokeArgs(), options.WithDefaults());

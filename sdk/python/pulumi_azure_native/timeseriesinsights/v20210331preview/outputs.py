@@ -21,7 +21,6 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'ReferenceDataSetKeyPropertyResponse',
     'SkuResponse',
     'TimeSeriesIdPropertyResponse',
     'WarmStorageEnvironmentStatusResponse',
@@ -492,41 +491,6 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class ReferenceDataSetKeyPropertyResponse(dict):
-    """
-    A key property for the reference data set. A reference data set can have multiple key properties.
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        A key property for the reference data set. A reference data set can have multiple key properties.
-        :param str name: The name of the key property.
-        :param str type: The type of the key property.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the key property.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of the key property.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

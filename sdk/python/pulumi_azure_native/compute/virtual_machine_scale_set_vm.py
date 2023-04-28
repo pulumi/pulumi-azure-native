@@ -23,6 +23,7 @@ class VirtualMachineScaleSetVMArgs:
                  availability_set: Optional[pulumi.Input['SubResourceArgs']] = None,
                  diagnostics_profile: Optional[pulumi.Input['DiagnosticsProfileArgs']] = None,
                  hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+                 identity: Optional[pulumi.Input['VirtualMachineIdentityArgs']] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -43,6 +44,7 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Specifies the hardware settings for the virtual machine.
+        :param pulumi.Input['VirtualMachineIdentityArgs'] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[str] license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input[str] location: Resource location
@@ -66,6 +68,8 @@ class VirtualMachineScaleSetVMArgs:
             pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
         if hardware_profile is not None:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
         if license_type is not None:
@@ -162,6 +166,18 @@ class VirtualMachineScaleSetVMArgs:
     @hardware_profile.setter
     def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
         pulumi.set(self, "hardware_profile", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['VirtualMachineIdentityArgs']]:
+        """
+        The identity of the virtual machine, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['VirtualMachineIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -317,6 +333,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  availability_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -334,7 +351,8 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a virtual machine scale set virtual machine.
-        API Version: 2021-03-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,6 +360,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Specifies the hardware settings for the virtual machine.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']] identity: The identity of the virtual machine, if configured.
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[str] license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input[str] location: Resource location
@@ -365,7 +384,8 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a virtual machine scale set virtual machine.
-        API Version: 2021-03-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMArgs args: The arguments to use to populate this resource's properties.
@@ -386,6 +406,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  availability_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -413,6 +434,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__.__dict__["availability_set"] = availability_set
             __props__.__dict__["diagnostics_profile"] = diagnostics_profile
             __props__.__dict__["hardware_profile"] = hardware_profile
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
@@ -469,6 +491,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         __props__.__dict__["availability_set"] = None
         __props__.__dict__["diagnostics_profile"] = None
         __props__.__dict__["hardware_profile"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["instance_id"] = None
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["latest_model_applied"] = None
@@ -524,6 +547,14 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         Specifies the hardware settings for the virtual machine.
         """
         return pulumi.get(self, "hardware_profile")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.VirtualMachineIdentityResponse']]:
+        """
+        The identity of the virtual machine, if configured.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="instanceId")

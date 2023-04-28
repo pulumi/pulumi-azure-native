@@ -16,10 +16,28 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class AzureIaaSVMProtectedItemExtendedInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The oldest backup copy available for this backup item.
+        /// The latest backup copy available for this backup item in archive tier
+        /// </summary>
+        [Input("newestRecoveryPointInArchive")]
+        public Input<string>? NewestRecoveryPointInArchive { get; set; }
+
+        /// <summary>
+        /// The oldest backup copy available for this backup item across all tiers.
         /// </summary>
         [Input("oldestRecoveryPoint")]
         public Input<string>? OldestRecoveryPoint { get; set; }
+
+        /// <summary>
+        /// The oldest backup copy available for this backup item in archive tier
+        /// </summary>
+        [Input("oldestRecoveryPointInArchive")]
+        public Input<string>? OldestRecoveryPointInArchive { get; set; }
+
+        /// <summary>
+        /// The oldest backup copy available for this backup item in vault tier
+        /// </summary>
+        [Input("oldestRecoveryPointInVault")]
+        public Input<string>? OldestRecoveryPointInVault { get; set; }
 
         /// <summary>
         /// Specifies if backup policy associated with the backup item is inconsistent.

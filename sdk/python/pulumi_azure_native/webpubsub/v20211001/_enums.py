@@ -5,40 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'ACLAction',
-    'ManagedIdentityType',
-    'PrivateLinkServiceConnectionStatus',
     'UpstreamAuthType',
-    'WebPubSubRequestType',
-    'WebPubSubSkuTier',
 ]
-
-
-class ACLAction(str, Enum):
-    """
-    Azure Networking ACL Action.
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
-
-
-class ManagedIdentityType(str, Enum):
-    """
-    Represents the identity type: systemAssigned, userAssigned, None
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-
-
-class PrivateLinkServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class UpstreamAuthType(str, Enum):
@@ -47,25 +15,3 @@ class UpstreamAuthType(str, Enum):
     """
     NONE = "None"
     MANAGED_IDENTITY = "ManagedIdentity"
-
-
-class WebPubSubRequestType(str, Enum):
-    """
-    The incoming request type to the service
-    """
-    CLIENT_CONNECTION = "ClientConnection"
-    SERVER_CONNECTION = "ServerConnection"
-    RESTAPI = "RESTAPI"
-    TRACE = "Trace"
-
-
-class WebPubSubSkuTier(str, Enum):
-    """
-    Optional tier of this particular SKU. 'Standard' or 'Free'. 
-    
-    `Basic` is deprecated, use `Standard` instead.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"

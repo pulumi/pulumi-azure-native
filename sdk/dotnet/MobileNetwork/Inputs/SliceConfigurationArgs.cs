@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         }
 
         /// <summary>
-        /// The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map.
+        /// The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map. The data network must be in the same location as the SIM policy.
         /// </summary>
         [Input("defaultDataNetwork", required: true)]
         public Input<Inputs.DataNetworkResourceIdArgs> DefaultDataNetwork { get; set; } = null!;
 
         /// <summary>
-        /// A reference to the slice that these settings apply to
+        /// A reference to the slice that these settings apply to. The slice must be in the same location as the SIM policy.
         /// </summary>
         [Input("slice", required: true)]
         public Input<Inputs.SliceResourceIdArgs> Slice { get; set; } = null!;

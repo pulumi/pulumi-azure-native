@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of a service instance.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -78,7 +78,7 @@ export interface GetServiceResult {
 }
 /**
  * Get the metadata of a service instance.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

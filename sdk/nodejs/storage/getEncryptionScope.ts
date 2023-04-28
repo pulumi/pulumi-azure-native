@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties for the specified encryption scope.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
 
@@ -79,7 +79,7 @@ export interface GetEncryptionScopeResult {
 }
 /**
  * Returns the properties for the specified encryption scope.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
     return pulumi.output(args).apply((a: any) => getEncryptionScope(a, opts))

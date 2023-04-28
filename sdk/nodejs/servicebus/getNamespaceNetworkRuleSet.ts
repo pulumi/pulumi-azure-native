@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets NetworkRuleSet for a Namespace.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
 
@@ -40,7 +40,7 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly defaultAction?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -48,11 +48,27 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly ipRules?: outputs.servicebus.NWRuleSetIpRulesResponse[];
     /**
-     * Resource name
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.servicebus.SystemDataResponse;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    readonly trustedServiceAccessEnabled?: boolean;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
     /**
@@ -62,7 +78,7 @@ export interface GetNamespaceNetworkRuleSetResult {
 }
 /**
  * Gets NetworkRuleSet for a Namespace.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceNetworkRuleSet(a, opts))

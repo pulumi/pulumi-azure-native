@@ -61,13 +61,13 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Specifies the resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         The identity of the resource.
         """
@@ -85,7 +85,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -125,7 +125,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -141,7 +141,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -171,11 +171,11 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the workspace.
-    API Version: 2021-01-01.
+    API Version: 2022-10-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the workspace
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
@@ -206,11 +206,11 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the workspace.
-    API Version: 2021-01-01.
+    API Version: 2022-10-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the workspace
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     ...

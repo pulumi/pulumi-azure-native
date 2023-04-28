@@ -230,7 +230,7 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     Implements virtual network GET method.
-    API Version: 2020-10-01-preview.
+    API Version: 2022-07-15-preview.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -267,7 +267,7 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     Implements virtual network GET method.
-    API Version: 2020-10-01-preview.
+    API Version: 2022-07-15-preview.
 
 
     :param str resource_group_name: The Resource Group Name.

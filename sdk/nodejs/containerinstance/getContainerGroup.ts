@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
- * API Version: 2021-03-01.
+ * API Version: 2022-09-01.
  */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
 
@@ -52,6 +52,10 @@ export interface GetContainerGroupResult {
      */
     readonly encryptionProperties?: outputs.containerinstance.EncryptionPropertiesResponse;
     /**
+     * extensions used by virtual kubelet
+     */
+    readonly extensions?: outputs.containerinstance.DeploymentExtensionSpecResponse[];
+    /**
      * The resource id.
      */
     readonly id: string;
@@ -70,7 +74,7 @@ export interface GetContainerGroupResult {
     /**
      * The instance view of the container group. Only valid in response.
      */
-    readonly instanceView: outputs.containerinstance.ContainerGroupResponseInstanceView;
+    readonly instanceView: outputs.containerinstance.ContainerGroupPropertiesResponseInstanceView;
     /**
      * The IP address type of the container group.
      */
@@ -83,10 +87,6 @@ export interface GetContainerGroupResult {
      * The resource name.
      */
     readonly name: string;
-    /**
-     * The network profile information for a container group.
-     */
-    readonly networkProfile?: outputs.containerinstance.ContainerGroupNetworkProfileResponse;
     /**
      * The operating system type required by the containers in the container group.
      */
@@ -107,6 +107,10 @@ export interface GetContainerGroupResult {
      */
     readonly sku?: string;
     /**
+     * The subnet resource IDs for a container group.
+     */
+    readonly subnetIds?: outputs.containerinstance.ContainerGroupSubnetIdResponse[];
+    /**
      * The resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -118,10 +122,14 @@ export interface GetContainerGroupResult {
      * The list of volumes that can be mounted by containers in this container group.
      */
     readonly volumes?: outputs.containerinstance.VolumeResponse[];
+    /**
+     * The zones for the container group.
+     */
+    readonly zones?: string[];
 }
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
- * API Version: 2021-03-01.
+ * API Version: 2022-09-01.
  */
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {
     return pulumi.output(args).apply((a: any) => getContainerGroup(a, opts))

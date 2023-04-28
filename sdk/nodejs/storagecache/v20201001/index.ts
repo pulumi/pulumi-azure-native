@@ -15,16 +15,6 @@ export const getCache: typeof import("./getCache").getCache = null as any;
 export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
 utilities.lazyLoad(exports, ["getCache","getCacheOutput"], () => require("./getCache"));
 
-export { GetStorageTargetArgs, GetStorageTargetResult, GetStorageTargetOutputArgs } from "./getStorageTarget";
-export const getStorageTarget: typeof import("./getStorageTarget").getStorageTarget = null as any;
-export const getStorageTargetOutput: typeof import("./getStorageTarget").getStorageTargetOutput = null as any;
-utilities.lazyLoad(exports, ["getStorageTarget","getStorageTargetOutput"], () => require("./getStorageTarget"));
-
-export { StorageTargetArgs } from "./storageTarget";
-export type StorageTarget = import("./storageTarget").StorageTarget;
-export const StorageTarget: typeof import("./storageTarget").StorageTarget = null as any;
-utilities.lazyLoad(exports, ["StorageTarget"], () => require("./storageTarget"));
-
 
 // Export enums:
 export * from "../../types/enums/storagecache/v20201001";
@@ -35,8 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:storagecache/v20201001:Cache":
                 return new Cache(name, <any>undefined, { urn })
-            case "azure-native:storagecache/v20201001:StorageTarget":
-                return new StorageTarget(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

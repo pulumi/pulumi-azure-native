@@ -11,13 +11,14 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-    /// API Version: 2021-02-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Required. Destination account name.
+        /// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
         /// </summary>
         [Output("destinationAccount")]
         public Output<string> DestinationAccount { get; private set; } = null!;
@@ -47,7 +48,7 @@ namespace Pulumi.AzureNative.Storage
         public Output<ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponse>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// Required. Source account name.
+        /// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
         /// </summary>
         [Output("sourceAccount")]
         public Output<string> SourceAccount { get; private set; } = null!;
@@ -123,13 +124,13 @@ namespace Pulumi.AzureNative.Storage
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Required. Destination account name.
+        /// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
         /// </summary>
         [Input("destinationAccount", required: true)]
         public Input<string> DestinationAccount { get; set; } = null!;
 
         /// <summary>
-        /// The ID of object replication policy or 'default' if the policy ID is unknown.
+        /// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         /// </summary>
         [Input("objectReplicationPolicyId")]
         public Input<string>? ObjectReplicationPolicyId { get; set; }
@@ -153,7 +154,7 @@ namespace Pulumi.AzureNative.Storage
         }
 
         /// <summary>
-        /// Required. Source account name.
+        /// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
         /// </summary>
         [Input("sourceAccount", required: true)]
         public Input<string> SourceAccount { get; set; } = null!;

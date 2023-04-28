@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The service resource.
- * API Version: 2020-03-01.
+ * API Version: 2023-02-01-preview.
+ * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -39,19 +40,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * A list that describes the correlation of the service with other services.
-     */
-    public readonly correlationScheme!: pulumi.Output<outputs.servicefabric.ServiceCorrelationDescriptionResponse[] | undefined>;
-    /**
-     * Specifies the move cost for the service.
-     */
-    public readonly defaultMoveCost!: pulumi.Output<string | undefined>;
-    /**
-     * Azure resource etag.
-     */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
@@ -59,41 +48,13 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Describes how the service is partitioned.
+     * The service resource properties.
      */
-    public readonly partitionDescription!: pulumi.Output<outputs.servicefabric.NamedPartitionSchemeDescriptionResponse | outputs.servicefabric.SingletonPartitionSchemeDescriptionResponse | outputs.servicefabric.UniformInt64RangePartitionSchemeDescriptionResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.servicefabric.StatefulServicePropertiesResponse | outputs.servicefabric.StatelessServicePropertiesResponse>;
     /**
-     * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+     * Metadata pertaining to creation and last modification of the resource.
      */
-    public readonly placementConstraints!: pulumi.Output<string | undefined>;
-    /**
-     * The current deployment or provisioning state, which only appears in the response
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
-     */
-    public readonly serviceDnsName!: pulumi.Output<string | undefined>;
-    /**
-     * The kind of service (Stateless or Stateful).
-     */
-    public readonly serviceKind!: pulumi.Output<string>;
-    /**
-     * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-     */
-    public readonly serviceLoadMetrics!: pulumi.Output<outputs.servicefabric.ServiceLoadMetricDescriptionResponse[] | undefined>;
-    /**
-     * The activation Mode of the service package
-     */
-    public readonly servicePackageActivationMode!: pulumi.Output<string | undefined>;
-    /**
-     * A list that describes the correlation of the service with other services.
-     */
-    public readonly servicePlacementPolicies!: pulumi.Output<outputs.servicefabric.ServicePlacementPolicyDescriptionResponse[] | undefined>;
-    /**
-     * The name of the service type
-     */
-    public readonly serviceTypeName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
     /**
      * Azure resource tags.
      */
@@ -123,49 +84,26 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceKind === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serviceKind'");
-            }
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["correlationScheme"] = args ? args.correlationScheme : undefined;
-            resourceInputs["defaultMoveCost"] = args ? args.defaultMoveCost : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["partitionDescription"] = args ? args.partitionDescription : undefined;
-            resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
-            resourceInputs["serviceKind"] = args ? args.serviceKind : undefined;
-            resourceInputs["serviceLoadMetrics"] = args ? args.serviceLoadMetrics : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["servicePackageActivationMode"] = args ? args.servicePackageActivationMode : undefined;
-            resourceInputs["servicePlacementPolicies"] = args ? args.servicePlacementPolicies : undefined;
-            resourceInputs["serviceTypeName"] = args ? args.serviceTypeName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["correlationScheme"] = undefined /*out*/;
-            resourceInputs["defaultMoveCost"] = undefined /*out*/;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["partitionDescription"] = undefined /*out*/;
-            resourceInputs["placementConstraints"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["serviceDnsName"] = undefined /*out*/;
-            resourceInputs["serviceKind"] = undefined /*out*/;
-            resourceInputs["serviceLoadMetrics"] = undefined /*out*/;
-            resourceInputs["servicePackageActivationMode"] = undefined /*out*/;
-            resourceInputs["servicePlacementPolicies"] = undefined /*out*/;
-            resourceInputs["serviceTypeName"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20170701preview:Service" }, { type: "azure-native:servicefabric/v20190301:Service" }, { type: "azure-native:servicefabric/v20190301preview:Service" }, { type: "azure-native:servicefabric/v20190601preview:Service" }, { type: "azure-native:servicefabric/v20191101preview:Service" }, { type: "azure-native:servicefabric/v20200301:Service" }, { type: "azure-native:servicefabric/v20201201preview:Service" }, { type: "azure-native:servicefabric/v20210601:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Service" }, { type: "azure-native:servicefabric/v20210501:Service" }, { type: "azure-native:servicefabric/v20210701preview:Service" }, { type: "azure-native:servicefabric/v20210901privatepreview:Service" }, { type: "azure-native:servicefabric/v20211101preview:Service" }, { type: "azure-native:servicefabric/v20220101:Service" }, { type: "azure-native:servicefabric/v20220201preview:Service" }, { type: "azure-native:servicefabric/v20220601preview:Service" }, { type: "azure-native:servicefabric/v20220801preview:Service" }, { type: "azure-native:servicefabric/v20221001preview:Service" }, { type: "azure-native:servicefabric/v20230201preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
@@ -184,57 +122,21 @@ export interface ServiceArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * A list that describes the correlation of the service with other services.
-     */
-    correlationScheme?: pulumi.Input<pulumi.Input<inputs.servicefabric.ServiceCorrelationDescriptionArgs>[]>;
-    /**
-     * Specifies the move cost for the service.
-     */
-    defaultMoveCost?: pulumi.Input<string | enums.servicefabric.MoveCost>;
-    /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     location?: pulumi.Input<string>;
     /**
-     * Describes how the service is partitioned.
+     * The service resource properties.
      */
-    partitionDescription?: pulumi.Input<inputs.servicefabric.NamedPartitionSchemeDescriptionArgs | inputs.servicefabric.SingletonPartitionSchemeDescriptionArgs | inputs.servicefabric.UniformInt64RangePartitionSchemeDescriptionArgs>;
-    /**
-     * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-     */
-    placementConstraints?: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.servicefabric.StatefulServicePropertiesArgs | inputs.servicefabric.StatelessServicePropertiesArgs>;
     /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
-     */
-    serviceDnsName?: pulumi.Input<string>;
-    /**
-     * The kind of service (Stateless or Stateful).
-     */
-    serviceKind: pulumi.Input<string | enums.servicefabric.ServiceKind>;
-    /**
-     * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-     */
-    serviceLoadMetrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.ServiceLoadMetricDescriptionArgs>[]>;
-    /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
     serviceName?: pulumi.Input<string>;
-    /**
-     * The activation Mode of the service package
-     */
-    servicePackageActivationMode?: pulumi.Input<string | enums.servicefabric.ArmServicePackageActivationMode>;
-    /**
-     * A list that describes the correlation of the service with other services.
-     */
-    servicePlacementPolicies?: pulumi.Input<pulumi.Input<inputs.servicefabric.ServicePlacementPolicyDescriptionArgs>[]>;
-    /**
-     * The name of the service type
-     */
-    serviceTypeName?: pulumi.Input<string>;
     /**
      * Azure resource tags.
      */

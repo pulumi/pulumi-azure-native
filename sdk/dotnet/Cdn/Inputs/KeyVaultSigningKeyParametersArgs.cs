@@ -15,9 +15,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// </summary>
     public sealed class KeyVaultSigningKeyParametersArgs : global::Pulumi.ResourceArgs
     {
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
-
         /// <summary>
         /// Resource group of the user's Key Vault containing the secret
         /// </summary>
@@ -41,6 +38,9 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         /// </summary>
         [Input("subscriptionId", required: true)]
         public Input<string> SubscriptionId { get; set; } = null!;
+
+        [Input("typeName", required: true)]
+        public Input<string> TypeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the user's Key Vault containing the secret

@@ -15,22 +15,16 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
     /// </summary>
     public sealed class AutomationRuleModifyPropertiesActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration of the modify properties automation rule action
-        /// </summary>
-        [Input("actionConfiguration", required: true)]
-        public Input<Inputs.AutomationRuleModifyPropertiesActionActionConfigurationArgs> ActionConfiguration { get; set; } = null!;
+        [Input("actionConfiguration")]
+        public Input<Inputs.IncidentPropertiesActionArgs>? ActionConfiguration { get; set; }
 
         /// <summary>
-        /// The type of the automation rule action
+        /// The type of the automation rule action.
         /// Expected value is 'ModifyProperties'.
         /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
-        /// <summary>
-        /// The order of execution of the automation rule action
-        /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 

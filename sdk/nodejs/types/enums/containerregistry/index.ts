@@ -2,41 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170601preview from "./v20170601preview";
-import * as v20171001 from "./v20171001";
 import * as v20180201preview from "./v20180201preview";
 import * as v20180901 from "./v20180901";
 import * as v20190401 from "./v20190401";
 import * as v20190501 from "./v20190501";
-import * as v20190501preview from "./v20190501preview";
 import * as v20190601preview from "./v20190601preview";
-import * as v20191201preview from "./v20191201preview";
 import * as v20201101preview from "./v20201101preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20210801preview from "./v20210801preview";
-import * as v20210901 from "./v20210901";
-import * as v20211201preview from "./v20211201preview";
-import * as v20220201preview from "./v20220201preview";
-import * as v20221201 from "./v20221201";
 import * as v20230101preview from "./v20230101preview";
 
 export {
-    v20170601preview,
-    v20171001,
     v20180201preview,
     v20180901,
     v20190401,
     v20190501,
-    v20190501preview,
     v20190601preview,
-    v20191201preview,
     v20201101preview,
-    v20210601preview,
-    v20210801preview,
-    v20210901,
-    v20211201preview,
-    v20220201preview,
-    v20221201,
     v20230101preview,
 };
 
@@ -45,7 +25,7 @@ export const Action = {
 } as const;
 
 /**
- * The action of virtual network rule.
+ * The action of IP ACL rule.
  */
 export type Action = (typeof Action)[keyof typeof Action];
 
@@ -62,25 +42,13 @@ export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequi
 export const Architecture = {
     Amd64: "amd64",
     X86: "x86",
-    Architecture_386: "386",
     Arm: "arm",
-    Arm64: "arm64",
 } as const;
 
 /**
  * The OS architecture.
  */
 export type Architecture = (typeof Architecture)[keyof typeof Architecture];
-
-export const AuditLogStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Indicates whether audit logs are enabled on the connected registry.
- */
-export type AuditLogStatus = (typeof AuditLogStatus)[keyof typeof AuditLogStatus];
 
 export const BaseImageTriggerType = {
     All: "All",
@@ -91,16 +59,6 @@ export const BaseImageTriggerType = {
  * The type of the auto trigger for base image dependency updates.
  */
 export type BaseImageTriggerType = (typeof BaseImageTriggerType)[keyof typeof BaseImageTriggerType];
-
-export const ConnectedRegistryMode = {
-    Registry: "Registry",
-    Mirror: "Mirror",
-} as const;
-
-/**
- * The mode of the connected registry resource that indicates the permissions of the registry.
- */
-export type ConnectedRegistryMode = (typeof ConnectedRegistryMode)[keyof typeof ConnectedRegistryMode];
 
 export const ConnectionStatus = {
     Approved: "Approved",
@@ -124,18 +82,35 @@ export const DefaultAction = {
  */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
-export const LogLevel = {
-    Debug: "Debug",
-    Information: "Information",
-    Warning: "Warning",
-    Error: "Error",
+export const EncryptionStatus = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Indicates whether or not the encryption is enabled for container registry.
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+export const ExportPolicyStatus = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * The value that indicates whether the policy is enabled or not.
+ */
+export type ExportPolicyStatus = (typeof ExportPolicyStatus)[keyof typeof ExportPolicyStatus];
+
+export const NetworkRuleBypassOptions = {
+    AzureServices: "AzureServices",
     None: "None",
 } as const;
 
 /**
- * The verbosity of logs persisted on the connected registry.
+ * Whether to allow trusted Azure services to access a network restricted registry.
  */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+export type NetworkRuleBypassOptions = (typeof NetworkRuleBypassOptions)[keyof typeof NetworkRuleBypassOptions];
 
 export const OS = {
     Windows: "Windows",
@@ -147,42 +122,6 @@ export const OS = {
  */
 export type OS = (typeof OS)[keyof typeof OS];
 
-export const PipelineOptions = {
-    OverwriteTags: "OverwriteTags",
-    OverwriteBlobs: "OverwriteBlobs",
-    DeleteSourceBlobOnSuccess: "DeleteSourceBlobOnSuccess",
-    ContinueOnErrors: "ContinueOnErrors",
-} as const;
-
-export type PipelineOptions = (typeof PipelineOptions)[keyof typeof PipelineOptions];
-
-export const PipelineRunSourceType = {
-    AzureStorageBlob: "AzureStorageBlob",
-} as const;
-
-/**
- * The type of the source.
- */
-export type PipelineRunSourceType = (typeof PipelineRunSourceType)[keyof typeof PipelineRunSourceType];
-
-export const PipelineRunTargetType = {
-    AzureStorageBlob: "AzureStorageBlob",
-} as const;
-
-/**
- * The type of the target.
- */
-export type PipelineRunTargetType = (typeof PipelineRunTargetType)[keyof typeof PipelineRunTargetType];
-
-export const PipelineSourceType = {
-    AzureStorageBlobContainer: "AzureStorageBlobContainer",
-} as const;
-
-/**
- * The type of source for the import pipeline.
- */
-export type PipelineSourceType = (typeof PipelineSourceType)[keyof typeof PipelineSourceType];
-
 export const PolicyStatus = {
     Enabled: "enabled",
     Disabled: "disabled",
@@ -192,6 +131,16 @@ export const PolicyStatus = {
  * The value that indicates whether the policy is enabled or not.
  */
 export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network access is allowed for the container registry.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
@@ -334,16 +283,6 @@ export const TrustPolicyType = {
  */
 export type TrustPolicyType = (typeof TrustPolicyType)[keyof typeof TrustPolicyType];
 
-export const UpdateTriggerPayloadType = {
-    Default: "Default",
-    Token: "Token",
-} as const;
-
-/**
- * Type of Payload body for Base image update triggers.
- */
-export type UpdateTriggerPayloadType = (typeof UpdateTriggerPayloadType)[keyof typeof UpdateTriggerPayloadType];
-
 export const Variant = {
     V6: "v6",
     V7: "v7",
@@ -374,3 +313,13 @@ export const WebhookStatus = {
  * The status of the webhook at the time the operation was called.
  */
 export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];
+
+export const ZoneRedundancy = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not zone redundancy is enabled for this container registry replication
+ */
+export type ZoneRedundancy = (typeof ZoneRedundancy)[keyof typeof ZoneRedundancy];

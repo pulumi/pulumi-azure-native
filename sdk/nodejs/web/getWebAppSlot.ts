@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the details of a web, mobile, or API app.
- * API Version: 2020-12-01.
+ * Description for Gets the details of a web, mobile, or API app.
+ * API Version: 2022-09-01.
  */
 export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotResult> {
 
@@ -89,6 +89,10 @@ export interface GetWebAppSlotResult {
      */
     readonly enabledHostNames: string[];
     /**
+     * Extended Location.
+     */
+    readonly extendedLocation?: outputs.web.ExtendedLocationResponse;
+    /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
     readonly hostNameSslStates?: outputs.web.HostNameSslStateResponse[];
@@ -151,6 +155,10 @@ export interface GetWebAppSlotResult {
      */
     readonly location: string;
     /**
+     * Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+     */
+    readonly managedEnvironmentId?: string;
+    /**
      * Maximum number of workers.
      * This only applies to Functions container.
      */
@@ -167,6 +175,10 @@ export interface GetWebAppSlotResult {
      * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
      */
     readonly possibleOutboundIpAddresses: string;
+    /**
+     * Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Site redundancy mode
      */
@@ -236,10 +248,22 @@ export interface GetWebAppSlotResult {
      * This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
      */
     readonly virtualNetworkSubnetId?: string;
+    /**
+     * To enable accessing content over virtual network
+     */
+    readonly vnetContentShareEnabled?: boolean;
+    /**
+     * To enable pulling image over Virtual Network
+     */
+    readonly vnetImagePullEnabled?: boolean;
+    /**
+     * Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+     */
+    readonly vnetRouteAllEnabled?: boolean;
 }
 /**
- * Gets the details of a web, mobile, or API app.
- * API Version: 2020-12-01.
+ * Description for Gets the details of a web, mobile, or API app.
+ * API Version: 2022-09-01.
  */
 export function getWebAppSlotOutput(args: GetWebAppSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSlot(a, opts))

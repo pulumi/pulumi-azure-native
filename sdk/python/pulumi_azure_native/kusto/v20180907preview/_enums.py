@@ -5,31 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AzureSkuName',
-    'AzureSkuTier',
     'DataFormat',
 ]
-
-
-class AzureSkuName(str, Enum):
-    """
-    SKU name.
-    """
-    KC8 = "KC8"
-    KC16 = "KC16"
-    KS8 = "KS8"
-    KS16 = "KS16"
-    D13_V2 = "D13_v2"
-    D14_V2 = "D14_v2"
-    L8 = "L8"
-    L16 = "L16"
-
-
-class AzureSkuTier(str, Enum):
-    """
-    SKU tier.
-    """
-    STANDARD = "Standard"
 
 
 class DataFormat(str, Enum):

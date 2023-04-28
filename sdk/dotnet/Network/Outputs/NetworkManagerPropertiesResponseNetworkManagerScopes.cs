@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class NetworkManagerPropertiesResponseNetworkManagerScopes
     {
         /// <summary>
+        /// List of cross tenant scopes.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CrossTenantScopesResponse> CrossTenantScopes;
+        /// <summary>
         /// List of management groups.
         /// </summary>
         public readonly ImmutableArray<string> ManagementGroups;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private NetworkManagerPropertiesResponseNetworkManagerScopes(
+            ImmutableArray<Outputs.CrossTenantScopesResponse> crossTenantScopes,
+
             ImmutableArray<string> managementGroups,
 
             ImmutableArray<string> subscriptions)
         {
+            CrossTenantScopes = crossTenantScopes;
             ManagementGroups = managementGroups;
             Subscriptions = subscriptions;
         }

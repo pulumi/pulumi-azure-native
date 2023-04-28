@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ResourceGraph
 {
     /// <summary>
     /// Graph Query entity definition.
-    /// API Version: 2018-09-01-preview.
+    /// API Version: 2020-04-01-preview.
+    /// Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:resourcegraph:GraphQuery")]
     public partial class GraphQuery : global::Pulumi.CustomResource
@@ -23,7 +24,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
+        /// This will be used to handle Optimistic Concurrency.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
@@ -32,7 +33,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// The location of the resource
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
@@ -51,6 +52,12 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         [Output("resultKind")]
         public Output<string> ResultKind { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -125,12 +132,6 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The location of the resource
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// KQL query that will be graph.

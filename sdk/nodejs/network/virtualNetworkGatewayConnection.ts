@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
@@ -67,9 +68,17 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly egressBytesTransferred!: pulumi.Output<number>;
     /**
+     * List of egress NatRules.
+     */
+    public readonly egressNatRules!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
+    /**
      * EnableBgp flag.
      */
     public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    /**
+     * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+     */
+    public readonly enablePrivateLinkFastPath!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -79,9 +88,17 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly expressRouteGatewayBypass!: pulumi.Output<boolean | undefined>;
     /**
+     * GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+     */
+    public readonly gatewayCustomBgpIpAddresses!: pulumi.Output<outputs.network.GatewayCustomBgpIpAddressIpConfigurationResponse[] | undefined>;
+    /**
      * The ingress bytes transferred in this connection.
      */
     public /*out*/ readonly ingressBytesTransferred!: pulumi.Output<number>;
+    /**
+     * List of ingress NatRules.
+     */
+    public readonly ingressNatRules!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
     /**
      * The IPSec Policies to be considered by this connection.
      */
@@ -176,9 +193,13 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
             resourceInputs["connectionType"] = args ? args.connectionType : undefined;
             resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
+            resourceInputs["egressNatRules"] = args ? args.egressNatRules : undefined;
             resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
+            resourceInputs["enablePrivateLinkFastPath"] = args ? args.enablePrivateLinkFastPath : undefined;
             resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
+            resourceInputs["gatewayCustomBgpIpAddresses"] = args ? args.gatewayCustomBgpIpAddresses : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ingressNatRules"] = args ? args.ingressNatRules : undefined;
             resourceInputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
             resourceInputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -210,10 +231,14 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["connectionType"] = undefined /*out*/;
             resourceInputs["dpdTimeoutSeconds"] = undefined /*out*/;
             resourceInputs["egressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["egressNatRules"] = undefined /*out*/;
             resourceInputs["enableBgp"] = undefined /*out*/;
+            resourceInputs["enablePrivateLinkFastPath"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["expressRouteGatewayBypass"] = undefined /*out*/;
+            resourceInputs["gatewayCustomBgpIpAddresses"] = undefined /*out*/;
             resourceInputs["ingressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["ingressNatRules"] = undefined /*out*/;
             resourceInputs["ipsecPolicies"] = undefined /*out*/;
             resourceInputs["localNetworkGateway2"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -264,17 +289,33 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     dpdTimeoutSeconds?: pulumi.Input<number>;
     /**
+     * List of egress NatRules.
+     */
+    egressNatRules?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+    /**
      * EnableBgp flag.
      */
     enableBgp?: pulumi.Input<boolean>;
+    /**
+     * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+     */
+    enablePrivateLinkFastPath?: pulumi.Input<boolean>;
     /**
      * Bypass ExpressRoute Gateway for data forwarding.
      */
     expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
+     * GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+     */
+    gatewayCustomBgpIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.GatewayCustomBgpIpAddressIpConfigurationArgs>[]>;
+    /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
+    /**
+     * List of ingress NatRules.
+     */
+    ingressNatRules?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
     /**
      * The IPSec Policies to be considered by this connection.
      */

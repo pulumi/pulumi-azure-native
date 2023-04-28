@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
-    /// API Version: 2021-10-01-preview.
+    /// API Version: 2022-08-01.
+    /// Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:LabPlan")]
     public partial class LabPlan : global::Pulumi.CustomResource
@@ -39,6 +40,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Output("defaultNetworkProfile")]
         public Output<Outputs.LabPlanNetworkProfileResponse?> DefaultNetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed Identity Information
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Base Url of the lms instance this lab plan can link lab rosters against.
@@ -174,6 +181,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Input("defaultNetworkProfile")]
         public Input<Inputs.LabPlanNetworkProfileArgs>? DefaultNetworkProfile { get; set; }
+
+        /// <summary>
+        /// Managed Identity Information
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.

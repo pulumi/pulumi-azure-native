@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub.Outputs
 {
 
     /// <summary>
-    /// Description of NetWorkRuleSet - IpRules resource.
+    /// The response from the List namespace operation.
     /// </summary>
     [OutputType]
     public sealed class NWRuleSetIpRulesResponse

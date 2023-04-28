@@ -13,6 +13,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class ScheduledEventsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies OS Image Scheduled Event related configurations.
+        /// </summary>
+        [Input("osImageNotificationProfile")]
+        public Input<Inputs.OSImageNotificationProfileArgs>? OsImageNotificationProfile { get; set; }
+
+        /// <summary>
         /// Specifies Terminate Scheduled Event related configurations.
         /// </summary>
         [Input("terminateNotificationProfile")]

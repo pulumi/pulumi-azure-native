@@ -142,7 +142,8 @@ class Target(pulumi.CustomResource):
                  __props__=None):
         """
         Model that represents a Target resource.
-        API Version: 2021-09-15-preview.
+        API Version: 2022-10-01-preview.
+        Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +163,8 @@ class Target(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Model that represents a Target resource.
-        API Version: 2021-09-15-preview.
+        API Version: 2022-10-01-preview.
+        Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.

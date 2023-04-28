@@ -19,7 +19,6 @@ __all__ = [
     'NonAzureQueryPropertiesArgs',
     'SchedulePropertiesArgs',
     'SoftwareUpdateConfigurationTasksArgs',
-    'SourceControlSecurityTokenPropertiesArgs',
     'TagSettingsPropertiesArgs',
     'TargetPropertiesArgs',
     'TaskPropertiesArgs',
@@ -587,61 +586,6 @@ class SoftwareUpdateConfigurationTasksArgs:
     @pre_task.setter
     def pre_task(self, value: Optional[pulumi.Input['TaskPropertiesArgs']]):
         pulumi.set(self, "pre_task", value)
-
-
-@pulumi.input_type
-class SourceControlSecurityTokenPropertiesArgs:
-    def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[str]] = None,
-                 refresh_token: Optional[pulumi.Input[str]] = None,
-                 token_type: Optional[pulumi.Input[Union[str, 'TokenType']]] = None):
-        """
-        :param pulumi.Input[str] access_token: The access token.
-        :param pulumi.Input[str] refresh_token: The refresh token.
-        :param pulumi.Input[Union[str, 'TokenType']] token_type: The token type. Must be either PersonalAccessToken or Oauth.
-        """
-        if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
-        if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
-        if token_type is not None:
-            pulumi.set(__self__, "token_type", token_type)
-
-    @property
-    @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        The access token.
-        """
-        return pulumi.get(self, "access_token")
-
-    @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "access_token", value)
-
-    @property
-    @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        The refresh token.
-        """
-        return pulumi.get(self, "refresh_token")
-
-    @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "refresh_token", value)
-
-    @property
-    @pulumi.getter(name="tokenType")
-    def token_type(self) -> Optional[pulumi.Input[Union[str, 'TokenType']]]:
-        """
-        The token type. Must be either PersonalAccessToken or Oauth.
-        """
-        return pulumi.get(self, "token_type")
-
-    @token_type.setter
-    def token_type(self, value: Optional[pulumi.Input[Union[str, 'TokenType']]]):
-        pulumi.set(self, "token_type", value)
 
 
 @pulumi.input_type

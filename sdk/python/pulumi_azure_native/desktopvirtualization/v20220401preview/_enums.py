@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'ApplicationGroupType',
-    'CommandLineSetting',
     'DayOfWeek',
     'HostPoolType',
     'HostpoolPublicNetworkAccess',
@@ -14,13 +13,9 @@ __all__ = [
     'Operation',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
-    'PrivateEndpointServiceConnectionStatus',
-    'PublicNetworkAccess',
     'RegistrationTokenOperation',
-    'RemoteApplicationType',
     'ResourceIdentityType',
     'SSOSecretType',
-    'ScalingHostPoolType',
     'SessionHostComponentUpdateType',
     'SessionHostLoadBalancingAlgorithm',
     'SkuTier',
@@ -34,15 +29,6 @@ class ApplicationGroupType(str, Enum):
     """
     REMOTE_APP = "RemoteApp"
     DESKTOP = "Desktop"
-
-
-class CommandLineSetting(str, Enum):
-    """
-    Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-    """
-    DO_NOT_ALLOW = "DoNotAllow"
-    ALLOW = "Allow"
-    REQUIRE = "Require"
 
 
 class DayOfWeek(str, Enum):
@@ -135,23 +121,6 @@ class PreferredAppGroupType(str, Enum):
     RAIL_APPLICATIONS = "RailApplications"
 
 
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class RegistrationTokenOperation(str, Enum):
     """
     The type of resetting the token.
@@ -159,14 +128,6 @@ class RegistrationTokenOperation(str, Enum):
     DELETE = "Delete"
     NONE = "None"
     UPDATE = "Update"
-
-
-class RemoteApplicationType(str, Enum):
-    """
-    Resource Type of Application.
-    """
-    IN_BUILT = "InBuilt"
-    MSIX_APPLICATION = "MsixApplication"
 
 
 class ResourceIdentityType(str, Enum):
@@ -184,16 +145,6 @@ class SSOSecretType(str, Enum):
     CERTIFICATE = "Certificate"
     SHARED_KEY_IN_KEY_VAULT = "SharedKeyInKeyVault"
     CERTIFICATE_IN_KEY_VAULT = "CertificateInKeyVault"
-
-
-class ScalingHostPoolType(str, Enum):
-    """
-    HostPool type for desktop.
-    """
-    POOLED = "Pooled"
-    """
-    Users get a new (random) SessionHost every time it connects to the HostPool.
-    """
 
 
 class SessionHostComponentUpdateType(str, Enum):

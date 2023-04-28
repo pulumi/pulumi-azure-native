@@ -16,6 +16,42 @@ namespace Pulumi.AzureNative.Media.Inputs
     public sealed class AudioTrackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The DASH specific setting for the audio track.
+        /// </summary>
+        [Input("dashSettings")]
+        public Input<Inputs.DashSettingsArgs>? DashSettings { get; set; }
+
+        /// <summary>
+        /// The display name of the audio track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The file name to the source file. This file is located in the storage container of the asset.
+        /// </summary>
+        [Input("fileName")]
+        public Input<string>? FileName { get; set; }
+
+        /// <summary>
+        /// The HLS specific setting for the audio track.
+        /// </summary>
+        [Input("hlsSettings")]
+        public Input<Inputs.HlsSettingsArgs>? HlsSettings { get; set; }
+
+        /// <summary>
+        /// The RFC5646 language code for the audio track.
+        /// </summary>
+        [Input("languageCode")]
+        public Input<string>? LanguageCode { get; set; }
+
+        /// <summary>
+        /// The MPEG-4 audio track ID for the audio track.
+        /// </summary>
+        [Input("mpeg4TrackId")]
+        public Input<int>? Mpeg4TrackId { get; set; }
+
+        /// <summary>
         /// The discriminator for derived types.
         /// Expected value is '#Microsoft.Media.AudioTrack'.
         /// </summary>

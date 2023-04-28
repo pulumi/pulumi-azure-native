@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about an application in a Batch account.
- * API Version: 2021-01-01.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Application extends pulumi.CustomResource {
     /**

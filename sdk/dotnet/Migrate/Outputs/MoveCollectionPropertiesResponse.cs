@@ -32,6 +32,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// Gets or sets the target region.
         /// </summary>
         public readonly string TargetRegion;
+        /// <summary>
+        /// Gets or sets the version of move collection.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private MoveCollectionPropertiesResponse(
@@ -41,12 +45,15 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string sourceRegion,
 
-            string targetRegion)
+            string targetRegion,
+
+            string? version)
         {
             Errors = errors;
             ProvisioningState = provisioningState;
             SourceRegion = sourceRegion;
             TargetRegion = targetRegion;
+            Version = version;
         }
     }
 }

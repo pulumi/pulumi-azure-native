@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin group within a profile.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
 
@@ -27,7 +27,7 @@ export interface GetAFDOriginGroupArgs {
      */
     originGroupName: string;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -58,13 +58,13 @@ export interface GetAFDOriginGroupResult {
      */
     readonly name: string;
     /**
+     * The name of the profile which holds the origin group.
+     */
+    readonly profileName: string;
+    /**
      * Provisioning status
      */
     readonly provisioningState: string;
-    /**
-     * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-     */
-    readonly responseBasedAfdOriginErrorDetectionSettings?: outputs.cdn.ResponseBasedOriginErrorDetectionParametersResponse;
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
@@ -84,7 +84,7 @@ export interface GetAFDOriginGroupResult {
 }
 /**
  * Gets an existing origin group within a profile.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginGroupResult> {
     return pulumi.output(args).apply((a: any) => getAFDOriginGroup(a, opts))
@@ -96,7 +96,7 @@ export interface GetAFDOriginGroupOutputArgs {
      */
     originGroupName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

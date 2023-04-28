@@ -15,19 +15,6 @@ export const getAdaptiveApplicationControl: typeof import("./getAdaptiveApplicat
 export const getAdaptiveApplicationControlOutput: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControlOutput = null as any;
 utilities.lazyLoad(exports, ["getAdaptiveApplicationControl","getAdaptiveApplicationControlOutput"], () => require("./getAdaptiveApplicationControl"));
 
-export { GetJitNetworkAccessPolicyArgs, GetJitNetworkAccessPolicyResult, GetJitNetworkAccessPolicyOutputArgs } from "./getJitNetworkAccessPolicy";
-export const getJitNetworkAccessPolicy: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicy = null as any;
-export const getJitNetworkAccessPolicyOutput: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getJitNetworkAccessPolicy","getJitNetworkAccessPolicyOutput"], () => require("./getJitNetworkAccessPolicy"));
-
-export { JitNetworkAccessPolicyArgs } from "./jitNetworkAccessPolicy";
-export type JitNetworkAccessPolicy = import("./jitNetworkAccessPolicy").JitNetworkAccessPolicy;
-export const JitNetworkAccessPolicy: typeof import("./jitNetworkAccessPolicy").JitNetworkAccessPolicy = null as any;
-utilities.lazyLoad(exports, ["JitNetworkAccessPolicy"], () => require("./jitNetworkAccessPolicy"));
-
-
-// Export enums:
-export * from "../../types/enums/security/v20150601preview";
 
 const _module = {
     version: utilities.getVersion(),
@@ -35,8 +22,6 @@ const _module = {
         switch (type) {
             case "azure-native:security/v20150601preview:AdaptiveApplicationControl":
                 return new AdaptiveApplicationControl(name, <any>undefined, { urn })
-            case "azure-native:security/v20150601preview:JitNetworkAccessPolicy":
-                return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

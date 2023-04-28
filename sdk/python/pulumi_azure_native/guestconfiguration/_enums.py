@@ -5,19 +5,9 @@
 from enum import Enum
 
 __all__ = [
-    'ActionAfterReboot',
     'AssignmentType',
-    'ConfigurationMode',
     'Kind',
 ]
-
-
-class ActionAfterReboot(str, Enum):
-    """
-    Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-    """
-    CONTINUE_CONFIGURATION = "ContinueConfiguration"
-    STOP_CONFIGURATION = "StopConfiguration"
 
 
 class AssignmentType(str, Enum):
@@ -28,15 +18,6 @@ class AssignmentType(str, Enum):
     DEPLOY_AND_AUTO_CORRECT = "DeployAndAutoCorrect"
     APPLY_AND_AUTO_CORRECT = "ApplyAndAutoCorrect"
     APPLY_AND_MONITOR = "ApplyAndMonitor"
-
-
-class ConfigurationMode(str, Enum):
-    """
-    Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-    """
-    APPLY_ONLY = "ApplyOnly"
-    APPLY_AND_MONITOR = "ApplyAndMonitor"
-    APPLY_AND_AUTO_CORRECT = "ApplyAndAutoCorrect"
 
 
 class Kind(str, Enum):

@@ -16,16 +16,28 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class ImageDiskReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A relative uri containing either a Platform Image Repository or user image reference.
+        /// A relative uri containing a community Azure Compute Gallery image reference.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("communityGalleryImageId")]
+        public Input<string>? CommunityGalleryImageId { get; set; }
+
+        /// <summary>
+        /// A relative uri containing either a Platform Image Repository, user image, or Azure Compute Gallery image reference.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         /// </summary>
         [Input("lun")]
         public Input<int>? Lun { get; set; }
+
+        /// <summary>
+        /// A relative uri containing a direct shared Azure Compute Gallery image reference.
+        /// </summary>
+        [Input("sharedGalleryImageId")]
+        public Input<string>? SharedGalleryImageId { get; set; }
 
         public ImageDiskReferenceArgs()
         {

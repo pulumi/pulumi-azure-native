@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// DNS server IP address.
         /// </summary>
-        public readonly string? IpAddress;
+        public readonly string IpAddress;
         /// <summary>
         /// DNS server port.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private TargetDnsServerResponse(
-            string? ipAddress,
+            string ipAddress,
 
             int? port)
         {

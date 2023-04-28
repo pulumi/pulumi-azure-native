@@ -29,6 +29,11 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string DeviceProvisioningHostName;
         /// <summary>
+        /// Optional.
+        /// Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+        /// </summary>
+        public readonly bool? EnableDataResidency;
+        /// <summary>
         /// Unique identifier of this provisioning service.
         /// </summary>
         public readonly string IdScope;
@@ -40,6 +45,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// The IP filter rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.TargetIpFilterRuleResponse> IpFilterRules;
+        /// <summary>
+        /// Portal endpoint to enable CORS for this provisioning service.
+        /// </summary>
+        public readonly string? PortalOperationsHostName;
         /// <summary>
         /// Private endpoint connections created on this IotHub
         /// </summary>
@@ -69,11 +78,15 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             string deviceProvisioningHostName,
 
+            bool? enableDataResidency,
+
             string idScope,
 
             ImmutableArray<Outputs.IotHubDefinitionDescriptionResponse> iotHubs,
 
             ImmutableArray<Outputs.TargetIpFilterRuleResponse> ipFilterRules,
+
+            string? portalOperationsHostName,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
@@ -88,9 +101,11 @@ namespace Pulumi.AzureNative.Devices.Outputs
             AllocationPolicy = allocationPolicy;
             AuthorizationPolicies = authorizationPolicies;
             DeviceProvisioningHostName = deviceProvisioningHostName;
+            EnableDataResidency = enableDataResidency;
             IdScope = idScope;
             IotHubs = iotHubs;
             IpFilterRules = ipFilterRules;
+            PortalOperationsHostName = portalOperationsHostName;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;

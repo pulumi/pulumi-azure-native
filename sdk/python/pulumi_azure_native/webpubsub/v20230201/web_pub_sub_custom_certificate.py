@@ -193,7 +193,7 @@ class WebPubSubCustomCertificate(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSubCustomCertificate"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSubCustomCertificate, __self__).__init__(
             'azure-native:webpubsub/v20230201:WebPubSubCustomCertificate',

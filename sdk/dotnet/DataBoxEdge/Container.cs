@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Container")]
     public partial class Container : global::Pulumi.CustomResource
@@ -47,7 +48,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<Outputs.RefreshDetailsResponse> RefreshDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Container in DataBoxEdge Resource
+        /// Metadata pertaining to creation and last modification of Container
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

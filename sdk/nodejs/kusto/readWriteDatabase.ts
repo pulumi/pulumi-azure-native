@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read write database.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ReadWriteDatabase extends pulumi.CustomResource {
     /**
@@ -96,6 +97,7 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["callerRole"] = args ? args.callerRole : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
@@ -130,6 +132,10 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
  * The set of arguments for constructing a ReadWriteDatabase resource.
  */
 export interface ReadWriteDatabaseArgs {
+    /**
+     * By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
+     */
+    callerRole?: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */

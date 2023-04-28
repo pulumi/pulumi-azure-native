@@ -11,19 +11,26 @@ namespace Pulumi.AzureNative.Maps
 {
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
-    /// API Version: 2018-05-01.
+    /// API Version: 2021-02-01.
+    /// Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The location of the resource.
+        /// Get or Set Kind property.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Maps Account, which is unique within a Resource Group.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -41,13 +48,19 @@ namespace Pulumi.AzureNative.Maps
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// The system meta data relating to this resource.
         /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type.
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -113,13 +126,25 @@ namespace Pulumi.AzureNative.Maps
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// The location of the resource.
+        /// Get or Set Kind property.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.Maps.Kind>? Kind { get; set; }
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Azure Resource Group.
+        /// The map account properties.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.MapsAccountPropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -134,7 +159,7 @@ namespace Pulumi.AzureNative.Maps
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

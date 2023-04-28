@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The value has one and only one group id.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// The ID of the resource.
         /// </summary>
         public readonly string Id;
@@ -31,7 +35,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// <summary>
         /// The private endpoint of the private endpoint connection.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
         /// <summary>
         /// The private link service connection state of the private endpoint connection
         /// </summary>
@@ -46,11 +50,13 @@ namespace Pulumi.AzureNative.Batch.Outputs
         private PrivateEndpointConnectionResponse(
             string etag,
 
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointResponse privateEndpoint,
 
             Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
@@ -59,6 +65,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
             string type)
         {
             Etag = etag;
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Software update configuration properties.
     /// API Version: 2019-06-01.
+    /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:SoftwareUpdateConfigurationByName")]
     public partial class SoftwareUpdateConfigurationByName : global::Pulumi.CustomResource

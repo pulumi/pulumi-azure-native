@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns Linker resource for a given name.
- * API Version: 2021-11-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getLinker(args: GetLinkerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkerResult> {
 
@@ -56,6 +56,10 @@ export interface GetLinkerResult {
      */
     readonly provisioningState: string;
     /**
+     * connection scope in source service.
+     */
+    readonly scope?: string;
+    /**
      * An option to store secret value in secure place
      */
     readonly secretStore?: outputs.servicelinker.SecretStoreResponse;
@@ -64,9 +68,9 @@ export interface GetLinkerResult {
      */
     readonly systemData: outputs.servicelinker.SystemDataResponse;
     /**
-     * The resource Id of target service.
+     * The target service properties
      */
-    readonly targetId?: string;
+    readonly targetService?: outputs.servicelinker.AzureResourceResponse | outputs.servicelinker.ConfluentBootstrapServerResponse | outputs.servicelinker.ConfluentSchemaRegistryResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -78,7 +82,7 @@ export interface GetLinkerResult {
 }
 /**
  * Returns Linker resource for a given name.
- * API Version: 2021-11-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
     return pulumi.output(args).apply((a: any) => getLinker(a, opts))

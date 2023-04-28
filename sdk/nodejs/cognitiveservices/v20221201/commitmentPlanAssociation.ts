@@ -91,6 +91,8 @@ export class CommitmentPlanAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:CommitmentPlanAssociation" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommitmentPlanAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

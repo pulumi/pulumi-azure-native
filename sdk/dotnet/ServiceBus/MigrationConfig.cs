@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Single item in List or Get Migration Config operation
-    /// API Version: 2017-04-01.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:MigrationConfig")]
     public partial class MigrationConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
         /// <summary>
         /// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
         /// </summary>
@@ -23,7 +30,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> MigrationState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -47,13 +54,19 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Existing premium Namespace ARM Id name which has no entities, will be used for migration
         /// </summary>
         [Output("targetNamespace")]
         public Output<string> TargetNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

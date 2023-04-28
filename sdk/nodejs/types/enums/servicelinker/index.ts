@@ -3,14 +3,10 @@
 
 // Export sub-modules:
 import * as v20211101preview from "./v20211101preview";
-import * as v20220101preview from "./v20220101preview";
-import * as v20220501 from "./v20220501";
 import * as v20221101preview from "./v20221101preview";
 
 export {
     v20211101preview,
-    v20220101preview,
-    v20220501,
     v20221101preview,
 };
 
@@ -27,6 +23,15 @@ export const AuthType = {
  */
 export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
+export const AzureResourceType = {
+    KeyVault: "KeyVault",
+} as const;
+
+/**
+ * The azure resource type.
+ */
+export type AzureResourceType = (typeof AzureResourceType)[keyof typeof AzureResourceType];
+
 export const ClientType = {
     None: "none",
     Dotnet: "dotnet",
@@ -38,12 +43,35 @@ export const ClientType = {
     Django: "django",
     Nodejs: "nodejs",
     SpringBoot: "springBoot",
+    Kafka_springBoot: "kafka-springBoot",
 } as const;
 
 /**
  * The application client type
  */
 export type ClientType = (typeof ClientType)[keyof typeof ClientType];
+
+export const SecretType = {
+    RawValue: "rawValue",
+    KeyVaultSecretUri: "keyVaultSecretUri",
+    KeyVaultSecretReference: "keyVaultSecretReference",
+} as const;
+
+/**
+ * The secret type.
+ */
+export type SecretType = (typeof SecretType)[keyof typeof SecretType];
+
+export const TargetServiceType = {
+    AzureResource: "AzureResource",
+    ConfluentBootstrapServer: "ConfluentBootstrapServer",
+    ConfluentSchemaRegistry: "ConfluentSchemaRegistry",
+} as const;
+
+/**
+ * The target service type.
+ */
+export type TargetServiceType = (typeof TargetServiceType)[keyof typeof TargetServiceType];
 
 export const VNetSolutionType = {
     ServiceEndpoint: "serviceEndpoint",

@@ -23,6 +23,7 @@ class PartnerNamespaceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
+                 partner_topic_routing_mode: Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -34,6 +35,8 @@ class PartnerNamespaceArgs:
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[str] partner_registration_fully_qualified_id: The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
                /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
+        :param pulumi.Input[Union[str, 'PartnerTopicRoutingMode']] partner_topic_routing_mode: This determines if events published to this partner namespace should use the source attribute in the event payload
+               or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
@@ -51,6 +54,10 @@ class PartnerNamespaceArgs:
             pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
         if partner_registration_fully_qualified_id is not None:
             pulumi.set(__self__, "partner_registration_fully_qualified_id", partner_registration_fully_qualified_id)
+        if partner_topic_routing_mode is None:
+            partner_topic_routing_mode = 'SourceEventAttribute'
+        if partner_topic_routing_mode is not None:
+            pulumi.set(__self__, "partner_topic_routing_mode", partner_topic_routing_mode)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
@@ -132,6 +139,19 @@ class PartnerNamespaceArgs:
         pulumi.set(self, "partner_registration_fully_qualified_id", value)
 
     @property
+    @pulumi.getter(name="partnerTopicRoutingMode")
+    def partner_topic_routing_mode(self) -> Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]]:
+        """
+        This determines if events published to this partner namespace should use the source attribute in the event payload
+        or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+        """
+        return pulumi.get(self, "partner_topic_routing_mode")
+
+    @partner_topic_routing_mode.setter
+    def partner_topic_routing_mode(self, value: Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]]):
+        pulumi.set(self, "partner_topic_routing_mode", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
@@ -167,13 +187,15 @@ class PartnerNamespace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
+                 partner_topic_routing_mode: Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         EventGrid Partner Namespace.
-        API Version: 2021-06-01-preview.
+        API Version: 2022-06-15.
+        Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,6 +205,8 @@ class PartnerNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[str] partner_registration_fully_qualified_id: The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
                /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
+        :param pulumi.Input[Union[str, 'PartnerTopicRoutingMode']] partner_topic_routing_mode: This determines if events published to this partner namespace should use the source attribute in the event payload
+               or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
@@ -196,7 +220,8 @@ class PartnerNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Partner Namespace.
-        API Version: 2021-06-01-preview.
+        API Version: 2022-06-15.
+        Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PartnerNamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -218,6 +243,7 @@ class PartnerNamespace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
+                 partner_topic_routing_mode: Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -237,6 +263,9 @@ class PartnerNamespace(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["partner_namespace_name"] = partner_namespace_name
             __props__.__dict__["partner_registration_fully_qualified_id"] = partner_registration_fully_qualified_id
+            if partner_topic_routing_mode is None:
+                partner_topic_routing_mode = 'SourceEventAttribute'
+            __props__.__dict__["partner_topic_routing_mode"] = partner_topic_routing_mode
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
@@ -280,6 +309,7 @@ class PartnerNamespace(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partner_registration_fully_qualified_id"] = None
+        __props__.__dict__["partner_topic_routing_mode"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
@@ -336,6 +366,15 @@ class PartnerNamespace(pulumi.CustomResource):
         /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
         """
         return pulumi.get(self, "partner_registration_fully_qualified_id")
+
+    @property
+    @pulumi.getter(name="partnerTopicRoutingMode")
+    def partner_topic_routing_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        This determines if events published to this partner namespace should use the source attribute in the event payload
+        or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+        """
+        return pulumi.get(self, "partner_topic_routing_mode")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

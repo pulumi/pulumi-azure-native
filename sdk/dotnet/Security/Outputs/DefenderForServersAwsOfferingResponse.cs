@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// The Defender for Servers AWS offering configurations
+    /// The Defender for Servers AWS offering
     /// </summary>
     [OutputType]
     public sealed class DefenderForServersAwsOfferingResponse
@@ -29,10 +29,26 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The Microsoft Defender for Endpoint autoprovisioning configuration
+        /// </summary>
+        public readonly Outputs.DefenderForServersAwsOfferingResponseMdeAutoProvisioning? MdeAutoProvisioning;
+        /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderForServersAws'.
         /// </summary>
         public readonly string OfferingType;
+        /// <summary>
+        /// configuration for the servers offering subPlan
+        /// </summary>
+        public readonly Outputs.DefenderForServersAwsOfferingResponseSubPlan? SubPlan;
+        /// <summary>
+        /// The Vulnerability Assessment autoprovisioning configuration
+        /// </summary>
+        public readonly Outputs.DefenderForServersAwsOfferingResponseVaAutoProvisioning? VaAutoProvisioning;
+        /// <summary>
+        /// The Microsoft Defender for Server VM scanning configuration
+        /// </summary>
+        public readonly Outputs.DefenderForServersAwsOfferingResponseVmScanners? VmScanners;
 
         [OutputConstructor]
         private DefenderForServersAwsOfferingResponse(
@@ -42,12 +58,24 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             string description,
 
-            string offeringType)
+            Outputs.DefenderForServersAwsOfferingResponseMdeAutoProvisioning? mdeAutoProvisioning,
+
+            string offeringType,
+
+            Outputs.DefenderForServersAwsOfferingResponseSubPlan? subPlan,
+
+            Outputs.DefenderForServersAwsOfferingResponseVaAutoProvisioning? vaAutoProvisioning,
+
+            Outputs.DefenderForServersAwsOfferingResponseVmScanners? vmScanners)
         {
             ArcAutoProvisioning = arcAutoProvisioning;
             DefenderForServers = defenderForServers;
             Description = description;
+            MdeAutoProvisioning = mdeAutoProvisioning;
             OfferingType = offeringType;
+            SubPlan = subPlan;
+            VaAutoProvisioning = vaAutoProvisioning;
+            VmScanners = vmScanners;
         }
     }
 }

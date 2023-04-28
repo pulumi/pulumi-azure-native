@@ -24,7 +24,7 @@ class DevCenterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DevCenter resource.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -44,7 +44,7 @@ class DevCenterArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -114,14 +114,15 @@ class DevCenter(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a devcenter resource.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -132,7 +133,8 @@ class DevCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a devcenter resource.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DevCenterArgs args: The arguments to use to populate this resource's properties.
@@ -170,11 +172,12 @@ class DevCenter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["dev_center_uri"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:DevCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevCenter, __self__).__init__(
             'azure-native:devcenter:DevCenter',
@@ -198,6 +201,7 @@ class DevCenter(pulumi.CustomResource):
 
         __props__ = DevCenterArgs.__new__(DevCenterArgs)
 
+        __props__.__dict__["dev_center_uri"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -206,6 +210,14 @@ class DevCenter(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DevCenter(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="devCenterUri")
+    def dev_center_uri(self) -> pulumi.Output[str]:
+        """
+        The URI of the resource.
+        """
+        return pulumi.get(self, "dev_center_uri")
 
     @property
     @pulumi.getter

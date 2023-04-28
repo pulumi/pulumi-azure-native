@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ActionGroupArgs } from "./actionGroup";
-export type ActionGroup = import("./actionGroup").ActionGroup;
-export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
-utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
-
 export { DataCollectionEndpointArgs } from "./dataCollectionEndpoint";
 export type DataCollectionEndpoint = import("./dataCollectionEndpoint").DataCollectionEndpoint;
 export const DataCollectionEndpoint: typeof import("./dataCollectionEndpoint").DataCollectionEndpoint = null as any;
@@ -24,11 +19,6 @@ export { DataCollectionRuleAssociationArgs } from "./dataCollectionRuleAssociati
 export type DataCollectionRuleAssociation = import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation;
 export const DataCollectionRuleAssociation: typeof import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation = null as any;
 utilities.lazyLoad(exports, ["DataCollectionRuleAssociation"], () => require("./dataCollectionRuleAssociation"));
-
-export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
-export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
-export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
 
 export { GetDataCollectionEndpointArgs, GetDataCollectionEndpointResult, GetDataCollectionEndpointOutputArgs } from "./getDataCollectionEndpoint";
 export const getDataCollectionEndpoint: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpoint = null as any;
@@ -53,8 +43,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:insights/v20220601:ActionGroup":
-                return new ActionGroup(name, <any>undefined, { urn })
             case "azure-native:insights/v20220601:DataCollectionEndpoint":
                 return new DataCollectionEndpoint(name, <any>undefined, { urn })
             case "azure-native:insights/v20220601:DataCollectionRule":

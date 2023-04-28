@@ -27,6 +27,10 @@ class PrimaryRegionPropertiesResponse(dict):
         suggest = None
         if key == "operatorAddresses":
             suggest = "operator_addresses"
+        elif key == "allowedMediaSourceAddressPrefixes":
+            suggest = "allowed_media_source_address_prefixes"
+        elif key == "allowedSignalingSourceAddressPrefixes":
+            suggest = "allowed_signaling_source_address_prefixes"
         elif key == "esrpAddresses":
             suggest = "esrp_addresses"
 
@@ -43,13 +47,21 @@ class PrimaryRegionPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  operator_addresses: Sequence[str],
+                 allowed_media_source_address_prefixes: Optional[Sequence[str]] = None,
+                 allowed_signaling_source_address_prefixes: Optional[Sequence[str]] = None,
                  esrp_addresses: Optional[Sequence[str]] = None):
         """
         The configuration used in this region as primary, and other regions as backup.
         :param Sequence[str] operator_addresses: IP address to use to contact the operator network from this region
+        :param Sequence[str] allowed_media_source_address_prefixes: The allowed source IP address or CIDR ranges for media
+        :param Sequence[str] allowed_signaling_source_address_prefixes: The allowed source IP address or CIDR ranges for signaling
         :param Sequence[str] esrp_addresses: IP address to use to contact the ESRP from this region
         """
         pulumi.set(__self__, "operator_addresses", operator_addresses)
+        if allowed_media_source_address_prefixes is not None:
+            pulumi.set(__self__, "allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
+        if allowed_signaling_source_address_prefixes is not None:
+            pulumi.set(__self__, "allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
         if esrp_addresses is not None:
             pulumi.set(__self__, "esrp_addresses", esrp_addresses)
 
@@ -60,6 +72,22 @@ class PrimaryRegionPropertiesResponse(dict):
         IP address to use to contact the operator network from this region
         """
         return pulumi.get(self, "operator_addresses")
+
+    @property
+    @pulumi.getter(name="allowedMediaSourceAddressPrefixes")
+    def allowed_media_source_address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        The allowed source IP address or CIDR ranges for media
+        """
+        return pulumi.get(self, "allowed_media_source_address_prefixes")
+
+    @property
+    @pulumi.getter(name="allowedSignalingSourceAddressPrefixes")
+    def allowed_signaling_source_address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        The allowed source IP address or CIDR ranges for signaling
+        """
+        return pulumi.get(self, "allowed_signaling_source_address_prefixes")
 
     @property
     @pulumi.getter(name="esrpAddresses")

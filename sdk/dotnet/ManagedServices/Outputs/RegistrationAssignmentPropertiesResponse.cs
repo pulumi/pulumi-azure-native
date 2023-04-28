@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.ManagedServices.Outputs
 {
 
     /// <summary>
-    /// Properties of a registration assignment.
+    /// The properties of the registration assignment.
     /// </summary>
     [OutputType]
     public sealed class RegistrationAssignmentPropertiesResponse
     {
         /// <summary>
-        /// Current state of the registration assignment.
+        /// The current provisioning state of the registration assignment.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Registration definition inside registration assignment.
+        /// The registration definition associated with the registration assignment.
         /// </summary>
         public readonly Outputs.RegistrationAssignmentPropertiesResponseRegistrationDefinition RegistrationDefinition;
         /// <summary>
-        /// Fully qualified path of the registration definition.
+        /// The fully qualified path of the registration definition.
         /// </summary>
         public readonly string RegistrationDefinitionId;
 

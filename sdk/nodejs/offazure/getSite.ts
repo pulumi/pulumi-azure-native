@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site REST Resource.
- * API Version: 2020-01-01.
+ * API Version: 2020-07-07.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
 
@@ -55,6 +55,10 @@ export interface GetSiteResult {
      * Nested properties of VMWare site.
      */
     readonly properties: outputs.offazure.SitePropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.offazure.SystemDataResponse;
     readonly tags?: {[key: string]: string};
     /**
      * Type of resource. Type = Microsoft.OffAzure/VMWareSites.
@@ -63,7 +67,7 @@ export interface GetSiteResult {
 }
 /**
  * Site REST Resource.
- * API Version: 2020-01-01.
+ * API Version: 2020-07-07.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))

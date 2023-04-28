@@ -113,7 +113,8 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         An account data transfer object.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
+        Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +132,8 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An account data transfer object.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
+        Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

@@ -72,43 +72,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20220510Preview
     }
 
     /// <summary>
-    /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccessType : IEquatable<PublicNetworkAccessType>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccessType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
-        /// </summary>
-        public static PublicNetworkAccessType Enabled { get; } = new PublicNetworkAccessType("Enabled");
-        /// <summary>
-        /// Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
-        /// </summary>
-        public static PublicNetworkAccessType Disabled { get; } = new PublicNetworkAccessType("Disabled");
-
-        public static bool operator ==(PublicNetworkAccessType left, PublicNetworkAccessType right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccessType left, PublicNetworkAccessType right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccessType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccessType other && Equals(other);
-        public bool Equals(PublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The identity type.
     /// </summary>
     [EnumType]

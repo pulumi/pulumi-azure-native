@@ -29,7 +29,6 @@ __all__ = [
     'FormulaPropertiesFromVmArgs',
     'GalleryImageReferenceArgs',
     'HourDetailsArgs',
-    'IdentityPropertiesArgs',
     'InboundNatRuleArgs',
     'LabVirtualMachineCreationParameterArgs',
     'LinuxOsInfoArgs',
@@ -1004,78 +1003,6 @@ class HourDetailsArgs:
     @minute.setter
     def minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minute", value)
-
-
-@pulumi.input_type
-class IdentityPropertiesArgs:
-    def __init__(__self__, *,
-                 client_secret_url: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of a managed identity
-        :param pulumi.Input[str] client_secret_url: The client secret URL of the identity.
-        :param pulumi.Input[str] principal_id: The principal id of resource identity.
-        :param pulumi.Input[str] tenant_id: The tenant identifier of resource.
-        :param pulumi.Input[str] type: Managed identity.
-        """
-        if client_secret_url is not None:
-            pulumi.set(__self__, "client_secret_url", client_secret_url)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="clientSecretUrl")
-    def client_secret_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The client secret URL of the identity.
-        """
-        return pulumi.get(self, "client_secret_url")
-
-    @client_secret_url.setter
-    def client_secret_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "client_secret_url", value)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The principal id of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tenant identifier of resource.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Managed identity.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

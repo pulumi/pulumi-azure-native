@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a HostPool definition.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2022-09-09.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:HostPool")]
     public partial class HostPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The session host configuration for updating agent, monitoring agent, and stack component.
+        /// </summary>
+        [Output("agentUpdate")]
+        public Output<Outputs.AgentUpdatePropertiesResponse?> AgentUpdate { get; private set; } = null!;
+
         /// <summary>
         /// List of applicationGroup links.
         /// </summary>
@@ -92,12 +99,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<int?> MaxSessionLimit { get; private set; } = null!;
 
         /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        [Output("migrationRequest")]
-        public Output<Outputs.MigrationRequestPropertiesResponse?> MigrationRequest { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -168,6 +169,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Output("startVMOnConnect")]
         public Output<bool?> StartVMOnConnect { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -259,6 +266,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class HostPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The session host configuration for updating agent, monitoring agent, and stack component.
+        /// </summary>
+        [Input("agentUpdate")]
+        public Input<Inputs.AgentUpdatePropertiesArgs>? AgentUpdate { get; set; }
+
+        /// <summary>
         /// Custom rdp property of HostPool.
         /// </summary>
         [Input("customRdpProperty")]
@@ -320,12 +333,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("maxSessionLimit")]
         public Input<int>? MaxSessionLimit { get; set; }
-
-        /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        [Input("migrationRequest")]
-        public Input<Inputs.MigrationRequestPropertiesArgs>? MigrationRequest { get; set; }
 
         /// <summary>
         /// PersonalDesktopAssignment type for HostPool.

@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a gallery Application Definition.
- * API Version: 2020-09-30.
+ * API Version: 2022-03-03.
  */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
 
@@ -37,6 +40,10 @@ export interface GetGalleryApplicationArgs {
  * Specifies information about the gallery Application Definition that you want to create or update.
  */
 export interface GetGalleryApplicationResult {
+    /**
+     * A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+     */
+    readonly customActions?: outputs.compute.GalleryApplicationCustomActionResponse[];
     /**
      * The description of this gallery Application Definition resource. This property is updatable.
      */
@@ -84,7 +91,7 @@ export interface GetGalleryApplicationResult {
 }
 /**
  * Retrieves information about a gallery Application Definition.
- * API Version: 2020-09-30.
+ * API Version: 2022-03-03.
  */
 export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {
     return pulumi.output(args).apply((a: any) => getGalleryApplication(a, opts))

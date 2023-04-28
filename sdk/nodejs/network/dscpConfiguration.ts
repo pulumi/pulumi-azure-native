@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * DSCP Configuration in a resource group.
- * API Version: 2020-11-01.
+ * Differentiated Services Code Point configuration for any given network interface
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DscpConfiguration extends pulumi.CustomResource {
     /**
@@ -79,6 +80,10 @@ export class DscpConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly qosCollectionId!: pulumi.Output<string>;
     /**
+     * QoS object definitions
+     */
+    public readonly qosDefinitionCollection!: pulumi.Output<outputs.network.QosDefinitionResponse[] | undefined>;
+    /**
      * The resource GUID property of the DSCP Configuration resource.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
@@ -120,6 +125,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["markings"] = args ? args.markings : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["qosDefinitionCollection"] = args ? args.qosDefinitionCollection : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sourceIpRanges"] = args ? args.sourceIpRanges : undefined;
             resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
@@ -142,6 +148,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["qosCollectionId"] = undefined /*out*/;
+            resourceInputs["qosDefinitionCollection"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["sourceIpRanges"] = undefined /*out*/;
             resourceInputs["sourcePortRanges"] = undefined /*out*/;
@@ -187,6 +194,10 @@ export interface DscpConfigurationArgs {
      * RNM supported protocol types.
      */
     protocol?: pulumi.Input<string | enums.network.ProtocolType>;
+    /**
+     * QoS object definitions
+     */
+    qosDefinitionCollection?: pulumi.Input<pulumi.Input<inputs.network.QosDefinitionArgs>[]>;
     /**
      * The name of the resource group.
      */

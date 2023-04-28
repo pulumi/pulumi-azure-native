@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
 {
 
     /// <summary>
-    /// Gets or sets the single server configuration.
+    /// Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
     /// </summary>
     public sealed class SingleServerConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -20,6 +20,12 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         /// </summary>
         [Input("appResourceGroup", required: true)]
         public Input<string> AppResourceGroup { get; set; } = null!;
+
+        /// <summary>
+        /// The set of custom names to be used for underlying azure resources that are part of the SAP system.
+        /// </summary>
+        [Input("customResourceNames")]
+        public Input<Inputs.SingleServerFullResourceNamesArgs>? CustomResourceNames { get; set; }
 
         /// <summary>
         /// The database type.

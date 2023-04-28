@@ -13,6 +13,7 @@ from .get_application_definition import *
 from .get_jit_request import *
 from .jit_request import *
 from .list_application_allowed_upgrade_plans import *
+from .list_application_tokens import *
 from ._inputs import *
 from . import outputs
 
@@ -20,12 +21,8 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.solutions.v20160901preview as __v20160901preview
     v20160901preview = __v20160901preview
-    import pulumi_azure_native.solutions.v20170901 as __v20170901
-    v20170901 = __v20170901
     import pulumi_azure_native.solutions.v20171201 as __v20171201
     v20171201 = __v20171201
-    import pulumi_azure_native.solutions.v20180201 as __v20180201
-    v20180201 = __v20180201
     import pulumi_azure_native.solutions.v20180301 as __v20180301
     v20180301 = __v20180301
     import pulumi_azure_native.solutions.v20180601 as __v20180601
@@ -42,9 +39,7 @@ if typing.TYPE_CHECKING:
     v20210701 = __v20210701
 else:
     v20160901preview = _utilities.lazy_import('pulumi_azure_native.solutions.v20160901preview')
-    v20170901 = _utilities.lazy_import('pulumi_azure_native.solutions.v20170901')
     v20171201 = _utilities.lazy_import('pulumi_azure_native.solutions.v20171201')
-    v20180201 = _utilities.lazy_import('pulumi_azure_native.solutions.v20180201')
     v20180301 = _utilities.lazy_import('pulumi_azure_native.solutions.v20180301')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.solutions.v20180601')
     v20180901preview = _utilities.lazy_import('pulumi_azure_native.solutions.v20180901preview')

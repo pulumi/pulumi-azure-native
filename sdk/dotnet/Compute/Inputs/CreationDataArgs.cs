@@ -22,13 +22,13 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public InputUnion<string, Pulumi.AzureNative.Compute.DiskCreateOption> CreateOption { get; set; } = null!;
 
         /// <summary>
-        /// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+        /// Required if creating from a Gallery Image. The id/sharedGalleryImageId/communityGalleryImageId of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
         /// </summary>
         [Input("galleryImageReference")]
         public Input<Inputs.ImageDiskReferenceArgs>? GalleryImageReference { get; set; }
 
         /// <summary>
-        /// Disk source information.
+        /// Disk source information for PIR or user images.
         /// </summary>
         [Input("imageReference")]
         public Input<Inputs.ImageDiskReferenceArgs>? ImageReference { get; set; }
@@ -38,6 +38,18 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("logicalSectorSize")]
         public Input<int>? LogicalSectorSize { get; set; }
+
+        /// <summary>
+        /// Set this flag to true to get a boost on the performance target of the disk deployed, see here on the respective performance target. This flag can only be set on disk creation time and cannot be disabled after enabled.
+        /// </summary>
+        [Input("performancePlus")]
+        public Input<bool>? PerformancePlus { get; set; }
+
+        /// <summary>
+        /// If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
+        /// </summary>
+        [Input("securityDataUri")]
+        public Input<string>? SecurityDataUri { get; set; }
 
         /// <summary>
         /// If createOption is Copy, this is the ARM id of the source snapshot or disk.

@@ -4,7 +4,6 @@
 // Export sub-modules:
 import * as v20150501preview from "./v20150501preview";
 import * as v20150615 from "./v20150615";
-import * as v20160101 from "./v20160101";
 import * as v20160501 from "./v20160501";
 import * as v20161201 from "./v20161201";
 import * as v20170601 from "./v20170601";
@@ -28,7 +27,6 @@ import * as v20220901 from "./v20220901";
 export {
     v20150501preview,
     v20150615,
-    v20160101,
     v20160501,
     v20161201,
     v20170601,
@@ -53,12 +51,34 @@ export {
 export const AccessTier = {
     Hot: "Hot",
     Cool: "Cool",
+    Premium: "Premium",
 } as const;
 
 /**
- * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+ * Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
  */
 export type AccessTier = (typeof AccessTier)[keyof typeof AccessTier];
+
+export const AccountImmutabilityPolicyState = {
+    Unlocked: "Unlocked",
+    Locked: "Locked",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+ */
+export type AccountImmutabilityPolicyState = (typeof AccountImmutabilityPolicyState)[keyof typeof AccountImmutabilityPolicyState];
+
+export const AccountType = {
+    User: "User",
+    Computer: "Computer",
+} as const;
+
+/**
+ * Specifies the Active Directory account type for Azure Storage.
+ */
+export type AccountType = (typeof AccountType)[keyof typeof AccountType];
 
 export const Action = {
     Allow: "Allow",
@@ -68,6 +88,29 @@ export const Action = {
  * The action of virtual network rule.
  */
 export type Action = (typeof Action)[keyof typeof Action];
+
+export const AllowedCopyScope = {
+    PrivateLink: "PrivateLink",
+    AAD: "AAD",
+} as const;
+
+/**
+ * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
+ */
+export type AllowedCopyScope = (typeof AllowedCopyScope)[keyof typeof AllowedCopyScope];
+
+export const AllowedMethods = {
+    DELETE: "DELETE",
+    GET: "GET",
+    HEAD: "HEAD",
+    MERGE: "MERGE",
+    POST: "POST",
+    OPTIONS: "OPTIONS",
+    PUT: "PUT",
+    PATCH: "PATCH",
+} as const;
+
+export type AllowedMethods = (typeof AllowedMethods)[keyof typeof AllowedMethods];
 
 export const BlobAccessTier = {
     /**
@@ -127,16 +170,39 @@ export const DefaultAction = {
  */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
+export const DefaultSharePermission = {
+    None: "None",
+    StorageFileDataSmbShareReader: "StorageFileDataSmbShareReader",
+    StorageFileDataSmbShareContributor: "StorageFileDataSmbShareContributor",
+    StorageFileDataSmbShareElevatedContributor: "StorageFileDataSmbShareElevatedContributor",
+} as const;
+
+/**
+ * Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+ */
+export type DefaultSharePermission = (typeof DefaultSharePermission)[keyof typeof DefaultSharePermission];
+
 export const DirectoryServiceOptions = {
     None: "None",
     AADDS: "AADDS",
     AD: "AD",
+    AADKERB: "AADKERB",
 } as const;
 
 /**
- * Indicates the directory service used.
+ * Indicates the directory service used. Note that this enum may be extended in the future.
  */
 export type DirectoryServiceOptions = (typeof DirectoryServiceOptions)[keyof typeof DirectoryServiceOptions];
+
+export const DnsEndpointType = {
+    Standard: "Standard",
+    AzureDnsZone: "AzureDnsZone",
+} as const;
+
+/**
+ * Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+ */
+export type DnsEndpointType = (typeof DnsEndpointType)[keyof typeof DnsEndpointType];
 
 export const EnabledProtocols = {
     SMB: "SMB",
@@ -185,6 +251,16 @@ export const ExtendedLocationTypes = {
  * The type of the extended location.
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
+export const Format = {
+    Csv: "Csv",
+    Parquet: "Parquet",
+} as const;
+
+/**
+ * This is a required field, it specifies the format for the inventory files.
+ */
+export type Format = (typeof Format)[keyof typeof Format];
 
 export const HttpProtocol = {
     Https_http: "https,http",
@@ -280,6 +356,16 @@ export const Name = {
  */
 export type Name = (typeof Name)[keyof typeof Name];
 
+export const ObjectType = {
+    Blob: "Blob",
+    Container: "Container",
+} as const;
+
+/**
+ * This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+ */
+export type ObjectType = (typeof ObjectType)[keyof typeof ObjectType];
+
 export const Permissions = {
     R: "r",
     D: "d",
@@ -318,6 +404,16 @@ export const PublicAccess = {
  */
 export type PublicAccess = (typeof PublicAccess)[keyof typeof PublicAccess];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const RootSquashType = {
     NoRootSquash: "NoRootSquash",
     RootSquash: "RootSquash",
@@ -347,6 +443,16 @@ export const RuleType = {
  * The valid value is Lifecycle
  */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+export const Schedule = {
+    Daily: "Daily",
+    Weekly: "Weekly",
+} as const;
+
+/**
+ * This is a required field. This field is used to schedule an inventory formation.
+ */
+export type Schedule = (typeof Schedule)[keyof typeof Schedule];
 
 export const Services = {
     B: "b",
@@ -412,11 +518,11 @@ export const SkuName = {
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const State = {
-    Provisioning: "provisioning",
-    Deprovisioning: "deprovisioning",
-    Succeeded: "succeeded",
-    Failed: "failed",
-    NetworkSourceDeleted: "networkSourceDeleted",
+    Provisioning: "Provisioning",
+    Deprovisioning: "Deprovisioning",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    NetworkSourceDeleted: "NetworkSourceDeleted",
 } as const;
 
 /**

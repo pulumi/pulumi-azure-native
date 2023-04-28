@@ -19,14 +19,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The instance type.
         /// Expected value is 'AzureToAzure'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// The primary azure vnet Id.
         /// </summary>
-        [Input("primaryNetworkId")]
-        public Input<string>? PrimaryNetworkId { get; set; }
+        [Input("primaryNetworkId", required: true)]
+        public Input<string> PrimaryNetworkId { get; set; } = null!;
 
         public AzureToAzureCreateNetworkMappingInputArgs()
         {

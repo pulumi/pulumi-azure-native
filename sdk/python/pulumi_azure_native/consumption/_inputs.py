@@ -116,21 +116,17 @@ class BudgetFilterArgs:
     def __init__(__self__, *,
                  and_: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
                  dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
-                 not_: Optional[pulumi.Input['BudgetFilterPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
         :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
-        :param pulumi.Input['BudgetFilterPropertiesArgs'] not_: The logical "NOT" expression.
         :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -157,18 +153,6 @@ class BudgetFilterArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
         pulumi.set(self, "dimensions", value)
-
-    @property
-    @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['BudgetFilterPropertiesArgs']]:
-        """
-        The logical "NOT" expression.
-        """
-        return pulumi.get(self, "not_")
-
-    @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetFilterPropertiesArgs']]):
-        pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter

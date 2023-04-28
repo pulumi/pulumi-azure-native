@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The policy assignment.
-    /// API Version: 2020-09-01.
+    /// API Version: 2022-06-01.
+    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyAssignment")]
     public partial class PolicyAssignment : global::Pulumi.CustomResource
@@ -71,6 +72,12 @@ namespace Pulumi.AzureNative.Authorization
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
+        /// The policy property value override.
+        /// </summary>
+        [Output("overrides")]
+        public Output<ImmutableArray<Outputs.OverrideResponse>> Overrides { get; private set; } = null!;
+
+        /// <summary>
         /// The parameter values for the assigned policy rule. The keys are the parameter names.
         /// </summary>
         [Output("parameters")]
@@ -83,10 +90,22 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string?> PolicyDefinitionId { get; private set; } = null!;
 
         /// <summary>
+        /// The resource selector list to filter policies by resource properties.
+        /// </summary>
+        [Output("resourceSelectors")]
+        public Output<ImmutableArray<Outputs.ResourceSelectorResponse>> ResourceSelectors { get; private set; } = null!;
+
+        /// <summary>
         /// The scope for the policy assignment.
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the policy assignment.
@@ -215,6 +234,18 @@ namespace Pulumi.AzureNative.Authorization
             set => _notScopes = value;
         }
 
+        [Input("overrides")]
+        private InputList<Inputs.OverrideArgs>? _overrides;
+
+        /// <summary>
+        /// The policy property value override.
+        /// </summary>
+        public InputList<Inputs.OverrideArgs> Overrides
+        {
+            get => _overrides ?? (_overrides = new InputList<Inputs.OverrideArgs>());
+            set => _overrides = value;
+        }
+
         [Input("parameters")]
         private InputMap<Inputs.ParameterValuesValueArgs>? _parameters;
 
@@ -238,6 +269,18 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
+
+        [Input("resourceSelectors")]
+        private InputList<Inputs.ResourceSelectorArgs>? _resourceSelectors;
+
+        /// <summary>
+        /// The resource selector list to filter policies by resource properties.
+        /// </summary>
+        public InputList<Inputs.ResourceSelectorArgs> ResourceSelectors
+        {
+            get => _resourceSelectors ?? (_resourceSelectors = new InputList<Inputs.ResourceSelectorArgs>());
+            set => _resourceSelectors = value;
+        }
 
         /// <summary>
         /// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'

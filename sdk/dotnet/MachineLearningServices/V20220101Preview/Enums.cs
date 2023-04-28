@@ -456,36 +456,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
     }
 
     /// <summary>
-    /// format for the workspace connection value
-    /// </summary>
-    [EnumType]
-    public readonly struct ValueFormat : IEquatable<ValueFormat>
-    {
-        private readonly string _value;
-
-        private ValueFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ValueFormat JSON { get; } = new ValueFormat("JSON");
-
-        public static bool operator ==(ValueFormat left, ValueFormat right) => left.Equals(right);
-        public static bool operator !=(ValueFormat left, ValueFormat right) => !left.Equals(right);
-
-        public static explicit operator string(ValueFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ValueFormat other && Equals(other);
-        public bool Equals(ValueFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Virtual Machine priority
     /// </summary>
     [EnumType]

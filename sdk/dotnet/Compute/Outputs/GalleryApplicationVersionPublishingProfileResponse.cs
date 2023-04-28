@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class GalleryApplicationVersionPublishingProfileResponse
     {
         /// <summary>
+        /// Optional. Additional settings to pass to the vm-application-manager extension. For advanced use only.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AdvancedSettings;
+        /// <summary>
+        /// A list of custom actions that can be performed with this Gallery Application Version.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GalleryApplicationCustomActionResponse> CustomActions;
+        /// <summary>
         /// Optional. Whether or not this application reports health.
         /// </summary>
         public readonly bool? EnableHealthCheck;
@@ -38,6 +46,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly int? ReplicaCount;
         /// <summary>
+        /// Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        /// </summary>
+        public readonly string? ReplicationMode;
+        /// <summary>
+        /// Additional settings for the VM app that contains the target package and config file name when it is deployed to target VM or VM scale set.
+        /// </summary>
+        public readonly Outputs.UserArtifactSettingsResponse? Settings;
+        /// <summary>
         /// The source image from which the Image Version is going to be created.
         /// </summary>
         public readonly Outputs.UserArtifactSourceResponse Source;
@@ -46,12 +62,20 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? StorageAccountType;
         /// <summary>
+        /// The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GalleryTargetExtendedLocationResponse> TargetExtendedLocations;
+        /// <summary>
         /// The target regions where the Image Version is going to be replicated to. This property is updatable.
         /// </summary>
         public readonly ImmutableArray<Outputs.TargetRegionResponse> TargetRegions;
 
         [OutputConstructor]
         private GalleryApplicationVersionPublishingProfileResponse(
+            ImmutableDictionary<string, string>? advancedSettings,
+
+            ImmutableArray<Outputs.GalleryApplicationCustomActionResponse> customActions,
+
             bool? enableHealthCheck,
 
             string? endOfLifeDate,
@@ -64,20 +88,31 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             int? replicaCount,
 
+            string? replicationMode,
+
+            Outputs.UserArtifactSettingsResponse? settings,
+
             Outputs.UserArtifactSourceResponse source,
 
             string? storageAccountType,
 
+            ImmutableArray<Outputs.GalleryTargetExtendedLocationResponse> targetExtendedLocations,
+
             ImmutableArray<Outputs.TargetRegionResponse> targetRegions)
         {
+            AdvancedSettings = advancedSettings;
+            CustomActions = customActions;
             EnableHealthCheck = enableHealthCheck;
             EndOfLifeDate = endOfLifeDate;
             ExcludeFromLatest = excludeFromLatest;
             ManageActions = manageActions;
             PublishedDate = publishedDate;
             ReplicaCount = replicaCount;
+            ReplicationMode = replicationMode;
+            Settings = settings;
             Source = source;
             StorageAccountType = storageAccountType;
+            TargetExtendedLocations = targetExtendedLocations;
             TargetRegions = targetRegions;
         }
     }

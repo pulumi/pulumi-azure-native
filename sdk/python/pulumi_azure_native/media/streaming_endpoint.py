@@ -30,6 +30,7 @@ class StreamingEndpointArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_cache_age: Optional[pulumi.Input[float]] = None,
+                 sku: Optional[pulumi.Input['ArmStreamingEndpointCurrentSkuArgs']] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -48,6 +49,7 @@ class StreamingEndpointArgs:
         :param pulumi.Input[str] description: The streaming endpoint description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_cache_age: Max cache age
+        :param pulumi.Input['ArmStreamingEndpointCurrentSkuArgs'] sku: The streaming endpoint sku.
         :param pulumi.Input[str] streaming_endpoint_name: The name of the streaming endpoint, maximum length is 24.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -76,6 +78,8 @@ class StreamingEndpointArgs:
             pulumi.set(__self__, "location", location)
         if max_cache_age is not None:
             pulumi.set(__self__, "max_cache_age", max_cache_age)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if streaming_endpoint_name is not None:
             pulumi.set(__self__, "streaming_endpoint_name", streaming_endpoint_name)
         if tags is not None:
@@ -250,6 +254,18 @@ class StreamingEndpointArgs:
         pulumi.set(self, "max_cache_age", value)
 
     @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['ArmStreamingEndpointCurrentSkuArgs']]:
+        """
+        The streaming endpoint sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['ArmStreamingEndpointCurrentSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
     @pulumi.getter(name="streamingEndpointName")
     def streaming_endpoint_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -293,12 +309,14 @@ class StreamingEndpoint(pulumi.CustomResource):
                  max_cache_age: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ArmStreamingEndpointCurrentSkuArgs']]] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The streaming endpoint.
-        API Version: 2020-05-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,6 +334,7 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[float] max_cache_age: Max cache age
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[int] scale_units: The number of scale units. Use the Scale operation to adjust this value.
+        :param pulumi.Input[pulumi.InputType['ArmStreamingEndpointCurrentSkuArgs']] sku: The streaming endpoint sku.
         :param pulumi.Input[str] streaming_endpoint_name: The name of the streaming endpoint, maximum length is 24.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -327,7 +346,8 @@ class StreamingEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The streaming endpoint.
-        API Version: 2020-05-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param StreamingEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -358,6 +378,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                  max_cache_age: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ArmStreamingEndpointCurrentSkuArgs']]] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -389,6 +410,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             if scale_units is None and not opts.urn:
                 raise TypeError("Missing required property 'scale_units'")
             __props__.__dict__["scale_units"] = scale_units
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["streaming_endpoint_name"] = streaming_endpoint_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created"] = None
@@ -442,6 +464,7 @@ class StreamingEndpoint(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_state"] = None
         __props__.__dict__["scale_units"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -590,6 +613,14 @@ class StreamingEndpoint(pulumi.CustomResource):
         The number of scale units. Use the Scale operation to adjust this value.
         """
         return pulumi.get(self, "scale_units")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.ArmStreamingEndpointCurrentSkuResponse']]:
+        """
+        The streaming endpoint sku.
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")

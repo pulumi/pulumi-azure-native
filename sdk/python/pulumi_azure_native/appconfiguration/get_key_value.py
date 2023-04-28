@@ -174,7 +174,7 @@ def get_key_value(config_store_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyValueResult:
     """
     Gets the properties of the specified key-value.
-    API Version: 2020-07-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -209,7 +209,7 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyValueResult]:
     """
     Gets the properties of the specified key-value.
-    API Version: 2020-07-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str config_store_name: The name of the configuration store.

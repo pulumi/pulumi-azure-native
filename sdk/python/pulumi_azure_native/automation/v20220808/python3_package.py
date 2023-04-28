@@ -183,6 +183,8 @@ class Python3Package(pulumi.CustomResource):
             __props__.__dict__["size_in_bytes"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Python3Package")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Python3Package, __self__).__init__(
             'azure-native:automation/v20220808:Python3Package',
             resource_name,

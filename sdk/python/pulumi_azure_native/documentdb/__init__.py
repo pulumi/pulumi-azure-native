@@ -10,15 +10,12 @@ from .cassandra_cluster import *
 from .cassandra_data_center import *
 from .cassandra_resource_cassandra_keyspace import *
 from .cassandra_resource_cassandra_table import *
-from .cassandra_resource_cassandra_view import *
 from .database_account import *
 from .get_cassandra_cluster import *
 from .get_cassandra_data_center import *
 from .get_cassandra_resource_cassandra_keyspace import *
 from .get_cassandra_resource_cassandra_table import *
-from .get_cassandra_resource_cassandra_view import *
 from .get_database_account import *
-from .get_graph_resource_graph import *
 from .get_gremlin_resource_gremlin_database import *
 from .get_gremlin_resource_gremlin_graph import *
 from .get_mongo_db_resource_mongo_db_collection import *
@@ -36,7 +33,6 @@ from .get_sql_resource_sql_stored_procedure import *
 from .get_sql_resource_sql_trigger import *
 from .get_sql_resource_sql_user_defined_function import *
 from .get_table_resource_table import *
-from .graph_resource_graph import *
 from .gremlin_resource_gremlin_database import *
 from .gremlin_resource_gremlin_graph import *
 from .list_database_account_connection_strings import *
@@ -74,8 +70,6 @@ if typing.TYPE_CHECKING:
     v20160331 = __v20160331
     import pulumi_azure_native.documentdb.v20190801 as __v20190801
     v20190801 = __v20190801
-    import pulumi_azure_native.documentdb.v20190801preview as __v20190801preview
-    v20190801preview = __v20190801preview
     import pulumi_azure_native.documentdb.v20191212 as __v20191212
     v20191212 = __v20191212
     import pulumi_azure_native.documentdb.v20200301 as __v20200301
@@ -120,6 +114,10 @@ if typing.TYPE_CHECKING:
     v20220815preview = __v20220815preview
     import pulumi_azure_native.documentdb.v20221115 as __v20221115
     v20221115 = __v20221115
+    import pulumi_azure_native.documentdb.v20221115preview as __v20221115preview
+    v20221115preview = __v20221115preview
+    import pulumi_azure_native.documentdb.v20230301preview as __v20230301preview
+    v20230301preview = __v20230301preview
     import pulumi_azure_native.documentdb.v20230315 as __v20230315
     v20230315 = __v20230315
 else:
@@ -129,7 +127,6 @@ else:
     v20160319 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20160319')
     v20160331 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20160331')
     v20190801 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20190801')
-    v20190801preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20190801preview')
     v20191212 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20191212')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20200301')
     v20200401 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20200401')
@@ -152,5 +149,7 @@ else:
     v20220815 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20220815')
     v20220815preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20220815preview')
     v20221115 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20221115')
+    v20221115preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20221115preview')
+    v20230301preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20230301preview')
     v20230315 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20230315')
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRouteConnection resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ExpressRouteConnection extends pulumi.CustomResource {
     /**
@@ -46,6 +47,10 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      * Enable internet security.
      */
     public readonly enableInternetSecurity!: pulumi.Output<boolean | undefined>;
+    /**
+     * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+     */
+    public readonly enablePrivateLinkFastPath!: pulumi.Output<boolean | undefined>;
     /**
      * The ExpressRoute circuit peering.
      */
@@ -97,6 +102,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
             resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
+            resourceInputs["enablePrivateLinkFastPath"] = args ? args.enablePrivateLinkFastPath : undefined;
             resourceInputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
             resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
             resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
@@ -109,6 +115,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         } else {
             resourceInputs["authorizationKey"] = undefined /*out*/;
             resourceInputs["enableInternetSecurity"] = undefined /*out*/;
+            resourceInputs["enablePrivateLinkFastPath"] = undefined /*out*/;
             resourceInputs["expressRouteCircuitPeering"] = undefined /*out*/;
             resourceInputs["expressRouteGatewayBypass"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -139,6 +146,10 @@ export interface ExpressRouteConnectionArgs {
      * Enable internet security.
      */
     enableInternetSecurity?: pulumi.Input<boolean>;
+    /**
+     * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+     */
+    enablePrivateLinkFastPath?: pulumi.Input<boolean>;
     /**
      * The ExpressRoute circuit peering.
      */

@@ -28,7 +28,13 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        /// Specifies the security profile for the managed disk.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.VMDiskSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         /// </summary>
         [Input("storageAccountType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.StorageAccountTypes>? StorageAccountType { get; set; }

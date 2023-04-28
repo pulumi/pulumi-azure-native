@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
- * API Version: 2022-03-01.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -98,7 +99,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:Certificate" }, { type: "azure-native:app/v20220301:Certificate" }, { type: "azure-native:app/v20220601preview:Certificate" }, { type: "azure-native:app/v20221001:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:Certificate" }, { type: "azure-native:app/v20220301:Certificate" }, { type: "azure-native:app/v20220601preview:Certificate" }, { type: "azure-native:app/v20221001:Certificate" }, { type: "azure-native:app/v20221101preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

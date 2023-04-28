@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
- * API Version: 2018-07-10.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**
@@ -72,6 +73,9 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
             if ((!args || args.networkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,7 +123,7 @@ export interface ReplicationNetworkMappingArgs {
     /**
      * Input properties for creating network mapping.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.CreateNetworkMappingInputPropertiesArgs>;
+    properties: pulumi.Input<inputs.recoveryservices.CreateNetworkMappingInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

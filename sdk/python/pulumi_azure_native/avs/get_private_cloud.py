@@ -22,16 +22,28 @@ class GetPrivateCloudResult:
     """
     A private cloud resource
     """
-    def __init__(__self__, circuit=None, endpoints=None, id=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
+    def __init__(__self__, availability=None, circuit=None, encryption=None, endpoints=None, external_cloud_links=None, id=None, identity=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsx_public_ip_quota_raised=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, secondary_circuit=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
+        if availability and not isinstance(availability, dict):
+            raise TypeError("Expected argument 'availability' to be a dict")
+        pulumi.set(__self__, "availability", availability)
         if circuit and not isinstance(circuit, dict):
             raise TypeError("Expected argument 'circuit' to be a dict")
         pulumi.set(__self__, "circuit", circuit)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if endpoints and not isinstance(endpoints, dict):
             raise TypeError("Expected argument 'endpoints' to be a dict")
         pulumi.set(__self__, "endpoints", endpoints)
+        if external_cloud_links and not isinstance(external_cloud_links, list):
+            raise TypeError("Expected argument 'external_cloud_links' to be a list")
+        pulumi.set(__self__, "external_cloud_links", external_cloud_links)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if identity_sources and not isinstance(identity_sources, list):
             raise TypeError("Expected argument 'identity_sources' to be a list")
         pulumi.set(__self__, "identity_sources", identity_sources)
@@ -53,6 +65,9 @@ class GetPrivateCloudResult:
         if network_block and not isinstance(network_block, str):
             raise TypeError("Expected argument 'network_block' to be a str")
         pulumi.set(__self__, "network_block", network_block)
+        if nsx_public_ip_quota_raised and not isinstance(nsx_public_ip_quota_raised, str):
+            raise TypeError("Expected argument 'nsx_public_ip_quota_raised' to be a str")
+        pulumi.set(__self__, "nsx_public_ip_quota_raised", nsx_public_ip_quota_raised)
         if nsxt_certificate_thumbprint and not isinstance(nsxt_certificate_thumbprint, str):
             raise TypeError("Expected argument 'nsxt_certificate_thumbprint' to be a str")
         pulumi.set(__self__, "nsxt_certificate_thumbprint", nsxt_certificate_thumbprint)
@@ -65,6 +80,9 @@ class GetPrivateCloudResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if secondary_circuit and not isinstance(secondary_circuit, dict):
+            raise TypeError("Expected argument 'secondary_circuit' to be a dict")
+        pulumi.set(__self__, "secondary_circuit", secondary_circuit)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -86,11 +104,27 @@ class GetPrivateCloudResult:
 
     @property
     @pulumi.getter
+    def availability(self) -> Optional['outputs.AvailabilityPropertiesResponse']:
+        """
+        Properties describing how the cloud is distributed across availability zones
+        """
+        return pulumi.get(self, "availability")
+
+    @property
+    @pulumi.getter
     def circuit(self) -> Optional['outputs.CircuitResponse']:
         """
         An ExpressRoute Circuit
         """
         return pulumi.get(self, "circuit")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        Customer managed key encryption, can be enabled or disabled
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -101,12 +135,28 @@ class GetPrivateCloudResult:
         return pulumi.get(self, "endpoints")
 
     @property
+    @pulumi.getter(name="externalCloudLinks")
+    def external_cloud_links(self) -> Sequence[str]:
+        """
+        Array of cloud link IDs from other clouds that connect to this one
+        """
+        return pulumi.get(self, "external_cloud_links")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.PrivateCloudIdentityResponse']:
+        """
+        The identity of the private cloud, if configured.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="identitySources")
@@ -165,6 +215,14 @@ class GetPrivateCloudResult:
         return pulumi.get(self, "network_block")
 
     @property
+    @pulumi.getter(name="nsxPublicIpQuotaRaised")
+    def nsx_public_ip_quota_raised(self) -> str:
+        """
+        Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+        """
+        return pulumi.get(self, "nsx_public_ip_quota_raised")
+
+    @property
     @pulumi.getter(name="nsxtCertificateThumbprint")
     def nsxt_certificate_thumbprint(self) -> str:
         """
@@ -195,6 +253,14 @@ class GetPrivateCloudResult:
         The provisioning state
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="secondaryCircuit")
+    def secondary_circuit(self) -> Optional['outputs.CircuitResponse']:
+        """
+        A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+        """
+        return pulumi.get(self, "secondary_circuit")
 
     @property
     @pulumi.getter
@@ -251,9 +317,13 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
         if False:
             yield self
         return GetPrivateCloudResult(
+            availability=self.availability,
             circuit=self.circuit,
+            encryption=self.encryption,
             endpoints=self.endpoints,
+            external_cloud_links=self.external_cloud_links,
             id=self.id,
+            identity=self.identity,
             identity_sources=self.identity_sources,
             internet=self.internet,
             location=self.location,
@@ -261,10 +331,12 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
             management_network=self.management_network,
             name=self.name,
             network_block=self.network_block,
+            nsx_public_ip_quota_raised=self.nsx_public_ip_quota_raised,
             nsxt_certificate_thumbprint=self.nsxt_certificate_thumbprint,
             nsxt_password=self.nsxt_password,
             provisioning_network=self.provisioning_network,
             provisioning_state=self.provisioning_state,
+            secondary_circuit=self.secondary_circuit,
             sku=self.sku,
             tags=self.tags,
             type=self.type,
@@ -278,7 +350,7 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
     A private cloud resource
-    API Version: 2020-03-20.
+    API Version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -291,9 +363,13 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getPrivateCloud', __args__, opts=opts, typ=GetPrivateCloudResult).value
 
     return AwaitableGetPrivateCloudResult(
+        availability=__ret__.availability,
         circuit=__ret__.circuit,
+        encryption=__ret__.encryption,
         endpoints=__ret__.endpoints,
+        external_cloud_links=__ret__.external_cloud_links,
         id=__ret__.id,
+        identity=__ret__.identity,
         identity_sources=__ret__.identity_sources,
         internet=__ret__.internet,
         location=__ret__.location,
@@ -301,10 +377,12 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
         management_network=__ret__.management_network,
         name=__ret__.name,
         network_block=__ret__.network_block,
+        nsx_public_ip_quota_raised=__ret__.nsx_public_ip_quota_raised,
         nsxt_certificate_thumbprint=__ret__.nsxt_certificate_thumbprint,
         nsxt_password=__ret__.nsxt_password,
         provisioning_network=__ret__.provisioning_network,
         provisioning_state=__ret__.provisioning_state,
+        secondary_circuit=__ret__.secondary_circuit,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type,
@@ -319,7 +397,7 @@ def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
     """
     A private cloud resource
-    API Version: 2020-03-20.
+    API Version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud

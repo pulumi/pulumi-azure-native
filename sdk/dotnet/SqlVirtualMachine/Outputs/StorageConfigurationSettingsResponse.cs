@@ -29,9 +29,13 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// </summary>
         public readonly Outputs.SQLStorageSettingsResponse? SqlLogSettings;
         /// <summary>
+        /// SQL Server SystemDb Storage on DataPool if true.
+        /// </summary>
+        public readonly bool? SqlSystemDbOnDataDisk;
+        /// <summary>
         /// SQL Server TempDb Storage Settings.
         /// </summary>
-        public readonly Outputs.SQLStorageSettingsResponse? SqlTempDbSettings;
+        public readonly Outputs.SQLTempDbSettingsResponse? SqlTempDbSettings;
         /// <summary>
         /// Storage workload type.
         /// </summary>
@@ -45,13 +49,16 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
             Outputs.SQLStorageSettingsResponse? sqlLogSettings,
 
-            Outputs.SQLStorageSettingsResponse? sqlTempDbSettings,
+            bool? sqlSystemDbOnDataDisk,
+
+            Outputs.SQLTempDbSettingsResponse? sqlTempDbSettings,
 
             string? storageWorkloadType)
         {
             DiskConfigurationType = diskConfigurationType;
             SqlDataSettings = sqlDataSettings;
             SqlLogSettings = sqlLogSettings;
+            SqlSystemDbOnDataDisk = sqlSystemDbOnDataDisk;
             SqlTempDbSettings = sqlTempDbSettings;
             StorageWorkloadType = storageWorkloadType;
         }

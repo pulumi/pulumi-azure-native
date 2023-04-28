@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
- * API Version: 2021-10-01-preview.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class LabPlan extends pulumi.CustomResource {
     /**
@@ -54,6 +55,10 @@ export class LabPlan extends pulumi.CustomResource {
      * The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
      */
     public readonly defaultNetworkProfile!: pulumi.Output<outputs.labservices.LabPlanNetworkProfileResponse | undefined>;
+    /**
+     * Managed Identity Information
+     */
+    public readonly identity!: pulumi.Output<outputs.labservices.IdentityResponse | undefined>;
     /**
      * Base Url of the lms instance this lab plan can link lab rosters against.
      */
@@ -109,6 +114,7 @@ export class LabPlan extends pulumi.CustomResource {
             resourceInputs["defaultAutoShutdownProfile"] = args ? (args.defaultAutoShutdownProfile ? pulumi.output(args.defaultAutoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["defaultConnectionProfile"] = args ? (args.defaultConnectionProfile ? pulumi.output(args.defaultConnectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["defaultNetworkProfile"] = args ? args.defaultNetworkProfile : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["labPlanName"] = args ? args.labPlanName : undefined;
             resourceInputs["linkedLmsInstance"] = args ? args.linkedLmsInstance : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -125,6 +131,7 @@ export class LabPlan extends pulumi.CustomResource {
             resourceInputs["defaultAutoShutdownProfile"] = undefined /*out*/;
             resourceInputs["defaultConnectionProfile"] = undefined /*out*/;
             resourceInputs["defaultNetworkProfile"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["linkedLmsInstance"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -162,6 +169,10 @@ export interface LabPlanArgs {
      * The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
      */
     defaultNetworkProfile?: pulumi.Input<inputs.labservices.LabPlanNetworkProfileArgs>;
+    /**
+     * Managed Identity Information
+     */
+    identity?: pulumi.Input<inputs.labservices.IdentityArgs>;
     /**
      * The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
      */

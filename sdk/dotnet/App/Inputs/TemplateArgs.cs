@@ -29,6 +29,18 @@ namespace Pulumi.AzureNative.App.Inputs
             set => _containers = value;
         }
 
+        [Input("initContainers")]
+        private InputList<Inputs.InitContainerArgs>? _initContainers;
+
+        /// <summary>
+        /// List of specialized containers that run before app containers.
+        /// </summary>
+        public InputList<Inputs.InitContainerArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.InitContainerArgs>());
+            set => _initContainers = value;
+        }
+
         /// <summary>
         /// User friendly suffix that is appended to the revision name
         /// </summary>

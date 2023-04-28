@@ -29,10 +29,10 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Password or account key for secret auth.
+        /// Password or key vault secret for secret auth.
         /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
+        [Input("secretInfo")]
+        public object? SecretInfo { get; set; }
 
         public SecretAuthInfoArgs()
         {

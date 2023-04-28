@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A managed Cassandra data center.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-11-15.
+ * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class CassandraDataCenter extends pulumi.CustomResource {
     /**
@@ -80,7 +81,7 @@ export class CassandraDataCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210301preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20210401preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20210701preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20211015:CassandraDataCenter" }, { type: "azure-native:documentdb/v20211015preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20211115preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220215preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220515:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220515preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220815:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220815preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20221115:CassandraDataCenter" }, { type: "azure-native:documentdb/v20230315:CassandraDataCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210301preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20210401preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20210701preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20211015:CassandraDataCenter" }, { type: "azure-native:documentdb/v20211015preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20211115preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220215preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220515:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220515preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220815:CassandraDataCenter" }, { type: "azure-native:documentdb/v20220815preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20221115:CassandraDataCenter" }, { type: "azure-native:documentdb/v20221115preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20230301preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20230315:CassandraDataCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraDataCenter.__pulumiType, name, resourceInputs, opts);
     }

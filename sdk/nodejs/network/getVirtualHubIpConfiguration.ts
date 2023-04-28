@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a Virtual Hub Ip configuration.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getVirtualHubIpConfiguration(args: GetVirtualHubIpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubIpConfigurationResult> {
 
@@ -79,7 +79,7 @@ export interface GetVirtualHubIpConfigurationResult {
 }
 /**
  * Retrieves the details of a Virtual Hub Ip configuration.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getVirtualHubIpConfigurationOutput(args: GetVirtualHubIpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubIpConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHubIpConfiguration(a, opts))

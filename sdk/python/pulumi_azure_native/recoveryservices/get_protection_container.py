@@ -124,7 +124,7 @@ def get_protection_container(container_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionContainerResult:
     """
     Gets details of the specific container registered to your Recovery Services Vault.
-    API Version: 2021-02-01.
+    API Version: 2023-02-01.
 
 
     :param str container_name: Name of the container whose details need to be fetched.
@@ -158,7 +158,7 @@ def get_protection_container_output(container_name: Optional[pulumi.Input[str]] 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionContainerResult]:
     """
     Gets details of the specific container registered to your Recovery Services Vault.
-    API Version: 2021-02-01.
+    API Version: 2023-02-01.
 
 
     :param str container_name: Name of the container whose details need to be fetched.

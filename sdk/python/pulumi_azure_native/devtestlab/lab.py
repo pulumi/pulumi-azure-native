@@ -240,6 +240,7 @@ class Lab(pulumi.CustomResource):
         """
         A lab.
         API Version: 2018-09-15.
+        Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,6 +268,7 @@ class Lab(pulumi.CustomResource):
         """
         A lab.
         API Version: 2018-09-15.
+        Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.

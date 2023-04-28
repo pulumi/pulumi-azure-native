@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public Input<string>? EnterpriseAppId { get; set; }
 
         /// <summary>
+        /// Id of the Datadog organization.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// The auth code used to linking to an existing datadog organization.
         /// </summary>
         [Input("linkingAuthCode")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         /// </summary>
         [Input("linkingClientId")]
         public Input<string>? LinkingClientId { get; set; }
+
+        /// <summary>
+        /// Name of the Datadog organization.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The redirect uri for linking.

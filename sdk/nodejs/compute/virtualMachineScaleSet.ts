@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * API Version: 2021-03-01.
+ * API Version: 2022-11-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
@@ -46,6 +47,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * Policy for automatic repairs.
      */
     public readonly automaticRepairsPolicy!: pulumi.Output<outputs.compute.AutomaticRepairsPolicyResponse | undefined>;
+    /**
+     * Optional property which must either be set to True or omitted.
+     */
+    public readonly constrainedMaximumCapacity!: pulumi.Output<boolean | undefined>;
     /**
      * When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
      */
@@ -87,6 +92,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
     /**
+     * Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
+     */
+    public readonly priorityMixPolicy!: pulumi.Output<outputs.compute.PriorityMixPolicyResponse | undefined>;
+    /**
      * The provisioning state, which only appears in the response.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -95,7 +104,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly proximityPlacementGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
-     * Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+     * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
     public readonly scaleInPolicy!: pulumi.Output<outputs.compute.ScaleInPolicyResponse | undefined>;
     /**
@@ -107,9 +116,17 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.compute.SkuResponse | undefined>;
     /**
+     * Specifies the Spot Restore properties for the virtual machine scale set.
+     */
+    public readonly spotRestorePolicy!: pulumi.Output<outputs.compute.SpotRestorePolicyResponse | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the time at which the Virtual Machine Scale Set resource was created.<br><br>Minimum api-version: 2021-11-01.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -127,7 +144,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly virtualMachineProfile!: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMProfileResponse | undefined>;
     /**
-     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
@@ -151,6 +168,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             }
             resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             resourceInputs["automaticRepairsPolicy"] = args ? args.automaticRepairsPolicy : undefined;
+            resourceInputs["constrainedMaximumCapacity"] = args ? args.constrainedMaximumCapacity : undefined;
             resourceInputs["doNotRunExtensionsOnOverprovisionedVMs"] = args ? args.doNotRunExtensionsOnOverprovisionedVMs : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hostGroup"] = args ? args.hostGroup : undefined;
@@ -160,11 +178,13 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["overprovision"] = args ? args.overprovision : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            resourceInputs["priorityMixPolicy"] = args ? args.priorityMixPolicy : undefined;
             resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
             resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["spotRestorePolicy"] = args ? args.spotRestorePolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
@@ -173,11 +193,13 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
             resourceInputs["additionalCapabilities"] = undefined /*out*/;
             resourceInputs["automaticRepairsPolicy"] = undefined /*out*/;
+            resourceInputs["constrainedMaximumCapacity"] = undefined /*out*/;
             resourceInputs["doNotRunExtensionsOnOverprovisionedVMs"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hostGroup"] = undefined /*out*/;
@@ -188,12 +210,15 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["overprovision"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["platformFaultDomainCount"] = undefined /*out*/;
+            resourceInputs["priorityMixPolicy"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
             resourceInputs["scaleInPolicy"] = undefined /*out*/;
             resourceInputs["singlePlacementGroup"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["spotRestorePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
             resourceInputs["upgradePolicy"] = undefined /*out*/;
@@ -220,6 +245,10 @@ export interface VirtualMachineScaleSetArgs {
      * Policy for automatic repairs.
      */
     automaticRepairsPolicy?: pulumi.Input<inputs.compute.AutomaticRepairsPolicyArgs>;
+    /**
+     * Optional property which must either be set to True or omitted.
+     */
+    constrainedMaximumCapacity?: pulumi.Input<boolean>;
     /**
      * When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
      */
@@ -257,6 +286,10 @@ export interface VirtualMachineScaleSetArgs {
      */
     platformFaultDomainCount?: pulumi.Input<number>;
     /**
+     * Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
+     */
+    priorityMixPolicy?: pulumi.Input<inputs.compute.PriorityMixPolicyArgs>;
+    /**
      * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
     proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
@@ -265,7 +298,7 @@ export interface VirtualMachineScaleSetArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+     * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
     scaleInPolicy?: pulumi.Input<inputs.compute.ScaleInPolicyArgs>;
     /**
@@ -276,6 +309,10 @@ export interface VirtualMachineScaleSetArgs {
      * The virtual machine scale set sku.
      */
     sku?: pulumi.Input<inputs.compute.SkuArgs>;
+    /**
+     * Specifies the Spot Restore properties for the virtual machine scale set.
+     */
+    spotRestorePolicy?: pulumi.Input<inputs.compute.SpotRestorePolicyArgs>;
     /**
      * Resource tags
      */
@@ -293,7 +330,7 @@ export interface VirtualMachineScaleSetArgs {
      */
     vmScaleSetName?: pulumi.Input<string>;
     /**
-     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**

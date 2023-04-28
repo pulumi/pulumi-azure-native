@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2022-02-01-preview.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ComponentVersion")]
     public partial class ComponentVersion : global::Pulumi.CustomResource
@@ -19,8 +20,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Output("componentVersionDetails")]
-        public Output<Outputs.ComponentVersionResponse> ComponentVersionDetails { get; private set; } = null!;
+        [Output("componentVersionProperties")]
+        public Output<Outputs.ComponentVersionResponse> ComponentVersionProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:ComponentVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:ComponentVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:ComponentVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:ComponentVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:ComponentVersion"},
                 },
             };
@@ -98,8 +100,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Input("componentVersionDetails", required: true)]
-        public Input<Inputs.ComponentVersionArgs> ComponentVersionDetails { get; set; } = null!;
+        [Input("componentVersionProperties", required: true)]
+        public Input<Inputs.ComponentVersionArgs> ComponentVersionProperties { get; set; } = null!;
 
         /// <summary>
         /// Container name.

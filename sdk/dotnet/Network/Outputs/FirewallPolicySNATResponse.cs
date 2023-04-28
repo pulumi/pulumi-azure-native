@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class FirewallPolicySNATResponse
     {
         /// <summary>
+        /// The operation mode for automatically learning private ranges to not be SNAT
+        /// </summary>
+        public readonly string? AutoLearnPrivateRanges;
+        /// <summary>
         /// List of private IP addresses/IP address ranges to not be SNAT.
         /// </summary>
         public readonly ImmutableArray<string> PrivateRanges;
 
         [OutputConstructor]
-        private FirewallPolicySNATResponse(ImmutableArray<string> privateRanges)
+        private FirewallPolicySNATResponse(
+            string? autoLearnPrivateRanges,
+
+            ImmutableArray<string> privateRanges)
         {
+            AutoLearnPrivateRanges = autoLearnPrivateRanges;
             PrivateRanges = privateRanges;
         }
     }

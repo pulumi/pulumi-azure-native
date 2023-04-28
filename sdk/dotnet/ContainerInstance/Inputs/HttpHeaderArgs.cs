@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
 {
 
     /// <summary>
-    /// The HTTP header
+    /// The HTTP header.
     /// </summary>
     public sealed class HttpHeaderArgs : global::Pulumi.ResourceArgs
     {

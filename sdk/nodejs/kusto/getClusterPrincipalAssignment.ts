@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster principalAssignment.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
 
@@ -37,6 +37,10 @@ export interface GetClusterPrincipalAssignmentArgs {
  * Class representing a cluster principal assignment.
  */
 export interface GetClusterPrincipalAssignmentResult {
+    /**
+     * The service principal object id in AAD (Azure active directory)
+     */
+    readonly aadObjectId: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -80,7 +84,7 @@ export interface GetClusterPrincipalAssignmentResult {
 }
 /**
  * Gets a Kusto cluster principalAssignment.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getClusterPrincipalAssignment(a, opts))

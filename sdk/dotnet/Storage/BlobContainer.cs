@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
-    /// API Version: 2021-02-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobContainer")]
     public partial class BlobContainer : global::Pulumi.CustomResource
@@ -41,6 +42,18 @@ namespace Pulumi.AzureNative.Storage
         public Output<bool?> DenyEncryptionScopeOverride { get; private set; } = null!;
 
         /// <summary>
+        /// Enable NFSv3 all squash on blob container.
+        /// </summary>
+        [Output("enableNfsV3AllSquash")]
+        public Output<bool?> EnableNfsV3AllSquash { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable NFSv3 root squash on blob container.
+        /// </summary>
+        [Output("enableNfsV3RootSquash")]
+        public Output<bool?> EnableNfsV3RootSquash { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         [Output("etag")]
@@ -63,6 +76,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("immutabilityPolicy")]
         public Output<Outputs.ImmutabilityPolicyPropertiesResponse> ImmutabilityPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+        /// </summary>
+        [Output("immutableStorageWithVersioning")]
+        public Output<Outputs.ImmutableStorageWithVersioningResponse?> ImmutableStorageWithVersioning { get; private set; } = null!;
 
         /// <summary>
         /// Returns the date and time the container was last modified.
@@ -216,6 +235,24 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Input("denyEncryptionScopeOverride")]
         public Input<bool>? DenyEncryptionScopeOverride { get; set; }
+
+        /// <summary>
+        /// Enable NFSv3 all squash on blob container.
+        /// </summary>
+        [Input("enableNfsV3AllSquash")]
+        public Input<bool>? EnableNfsV3AllSquash { get; set; }
+
+        /// <summary>
+        /// Enable NFSv3 root squash on blob container.
+        /// </summary>
+        [Input("enableNfsV3RootSquash")]
+        public Input<bool>? EnableNfsV3RootSquash { get; set; }
+
+        /// <summary>
+        /// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+        /// </summary>
+        [Input("immutableStorageWithVersioning")]
+        public Input<Inputs.ImmutableStorageWithVersioningArgs>? ImmutableStorageWithVersioning { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

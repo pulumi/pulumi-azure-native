@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
+        /// Gets or sets the Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// Gets or sets the target availability set id for virtual machines not in an availability set at source.
         /// </summary>
         public readonly string? TargetAvailabilitySetId;
@@ -30,6 +34,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string? TargetAvailabilityZone;
         /// <summary>
+        /// Gets or sets the target resource group name.
+        /// </summary>
+        public readonly string? TargetResourceGroupName;
+        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         public readonly string TargetResourceName;
@@ -37,24 +45,37 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// Gets or sets the target virtual machine size.
         /// </summary>
         public readonly string? TargetVmSize;
+        /// <summary>
+        /// Gets or sets user-managed identities
+        /// </summary>
+        public readonly ImmutableArray<string> UserManagedIdentities;
 
         [OutputConstructor]
         private VirtualMachineResourceSettingsResponse(
             string resourceType,
 
+            ImmutableDictionary<string, string>? tags,
+
             string? targetAvailabilitySetId,
 
             string? targetAvailabilityZone,
 
+            string? targetResourceGroupName,
+
             string targetResourceName,
 
-            string? targetVmSize)
+            string? targetVmSize,
+
+            ImmutableArray<string> userManagedIdentities)
         {
             ResourceType = resourceType;
+            Tags = tags;
             TargetAvailabilitySetId = targetAvailabilitySetId;
             TargetAvailabilityZone = targetAvailabilityZone;
+            TargetResourceGroupName = targetResourceGroupName;
             TargetResourceName = targetResourceName;
             TargetVmSize = targetVmSize;
+            UserManagedIdentities = userManagedIdentities;
         }
     }
 }

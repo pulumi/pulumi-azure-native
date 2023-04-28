@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Resource ID.
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
 
         [OutputConstructor]
-        private SubResourceResponse(string? id)
+        private SubResourceResponse(string id)
         {
             Id = id;
         }

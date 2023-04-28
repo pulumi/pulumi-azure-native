@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Inputs
 {
 
+    /// <summary>
+    /// Connectivity group item.
+    /// </summary>
     public sealed class ConnectivityGroupItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Group connectivity type.
         /// </summary>
-        [Input("groupConnectivity")]
-        public InputUnion<string, Pulumi.AzureNative.Network.GroupConnectivity>? GroupConnectivity { get; set; }
+        [Input("groupConnectivity", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Network.GroupConnectivity> GroupConnectivity { get; set; } = null!;
 
         /// <summary>
         /// Flag if global is supported.
@@ -27,8 +30,8 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// <summary>
         /// Network group Id.
         /// </summary>
-        [Input("networkGroupId")]
-        public Input<string>? NetworkGroupId { get; set; }
+        [Input("networkGroupId", required: true)]
+        public Input<string> NetworkGroupId { get; set; } = null!;
 
         /// <summary>
         /// Flag if need to use hub gateway.

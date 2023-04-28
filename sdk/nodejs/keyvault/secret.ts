@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2019-09-01.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -114,7 +115,7 @@ export interface SecretArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the secret
+     * Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
      */
     secretName?: pulumi.Input<string>;
     /**

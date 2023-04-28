@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Automanage
 {
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
-    /// API Version: 2020-06-30-preview.
+    /// API Version: 2022-05-04.
+    /// Previous API Version: 2020-06-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileAssignment")]
     public partial class ConfigurationProfileAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Azure resource id. Indicates if this resource is managed by another Azure resource.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string> ManagedBy { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -27,6 +34,12 @@ namespace Pulumi.AzureNative.Automanage
         /// </summary>
         [Output("properties")]
         public Output<Outputs.ConfigurationProfileAssignmentPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

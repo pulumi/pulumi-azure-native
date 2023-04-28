@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetDefaultAdminRuleResult> InvokeAsync(GetDefaultAdminRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultAdminRuleResult>("azure-native:network:getDefaultAdminRule", args ?? new GetDefaultAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetDefaultAdminRuleResult> Invoke(GetDefaultAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultAdminRuleResult>("azure-native:network:getDefaultAdminRule", args ?? new GetDefaultAdminRuleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetDefaultAdminRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public string ConfigurationName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetDefaultAdminRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -127,10 +127,6 @@ namespace Pulumi.AzureNative.Network
         /// Indicates if the traffic matched against the rule in inbound or outbound.
         /// </summary>
         public readonly string Direction;
-        /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        public readonly string DisplayName;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -193,8 +189,6 @@ namespace Pulumi.AzureNative.Network
 
             string direction,
 
-            string displayName,
-
             string etag,
 
             string? flag,
@@ -224,7 +218,6 @@ namespace Pulumi.AzureNative.Network
             DestinationPortRanges = destinationPortRanges;
             Destinations = destinations;
             Direction = direction;
-            DisplayName = displayName;
             Etag = etag;
             Flag = flag;
             Id = id;

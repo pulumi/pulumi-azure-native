@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetFirewallRule
     {
         /// <summary>
-        /// Gets information about a server firewall rule.
-        /// API Version: 2017-12-01.
+        /// List all the firewall rules in a given server.
+        /// API Version: 2022-12-01.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a server firewall rule.
-        /// API Version: 2017-12-01.
+        /// List all the firewall rules in a given server.
+        /// API Version: 2022-12-01.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string StartIpAddress;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -114,12 +118,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string startIpAddress,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             EndIpAddress = endIpAddress;
             Id = id;
             Name = name;
             StartIpAddress = startIpAddress;
+            SystemData = systemData;
             Type = type;
         }
     }

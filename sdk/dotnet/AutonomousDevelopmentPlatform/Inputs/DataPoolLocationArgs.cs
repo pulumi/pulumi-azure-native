@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of storage accounts provisioned per Data Pool. Default: 5
+        /// </summary>
+        [Input("storageAccountCount")]
+        public Input<int>? StorageAccountCount { get; set; }
+
+        /// <summary>
+        /// The Storage SKU. Default: Standard_ZRS.
+        /// </summary>
+        [Input("storageSku")]
+        public Input<Inputs.StorageSkuArgs>? StorageSku { get; set; }
+
         public DataPoolLocationArgs()
         {
         }

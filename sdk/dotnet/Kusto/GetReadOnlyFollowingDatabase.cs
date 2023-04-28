@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns a database.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-12-29.
         /// </summary>
         public static Task<GetReadOnlyFollowingDatabaseResult> InvokeAsync(GetReadOnlyFollowingDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a database.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-12-29.
         /// </summary>
         public static Output<GetReadOnlyFollowingDatabaseResult> Invoke(GetReadOnlyFollowingDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReadOnlyFollowingDatabaseResult>("azure-native:kusto:getReadOnlyFollowingDatabase", args ?? new GetReadOnlyFollowingDatabaseInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string AttachedDatabaseConfigurationName;
         /// <summary>
+        /// The origin of the following setup.
+        /// </summary>
+        public readonly string DatabaseShareOrigin;
+        /// <summary>
         /// The time the data should be kept in cache for fast queries in TimeSpan.
         /// </summary>
         public readonly string? HotCachePeriod;
@@ -113,6 +117,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The original database name, before databaseNameOverride or databaseNamePrefix where applied.
+        /// </summary>
+        public readonly string OriginalDatabaseName;
+        /// <summary>
         /// The principals modification kind of the database
         /// </summary>
         public readonly string PrincipalsModificationKind;
@@ -129,6 +137,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly Outputs.DatabaseStatisticsResponse Statistics;
         /// <summary>
+        /// Table level sharing specifications
+        /// </summary>
+        public readonly Outputs.TableLevelSharingPropertiesResponse TableLevelSharingProperties;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -136,6 +148,8 @@ namespace Pulumi.AzureNative.Kusto
         [OutputConstructor]
         private GetReadOnlyFollowingDatabaseResult(
             string attachedDatabaseConfigurationName,
+
+            string databaseShareOrigin,
 
             string? hotCachePeriod,
 
@@ -149,6 +163,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string name,
 
+            string originalDatabaseName,
+
             string principalsModificationKind,
 
             string provisioningState,
@@ -157,19 +173,24 @@ namespace Pulumi.AzureNative.Kusto
 
             Outputs.DatabaseStatisticsResponse statistics,
 
+            Outputs.TableLevelSharingPropertiesResponse tableLevelSharingProperties,
+
             string type)
         {
             AttachedDatabaseConfigurationName = attachedDatabaseConfigurationName;
+            DatabaseShareOrigin = databaseShareOrigin;
             HotCachePeriod = hotCachePeriod;
             Id = id;
             Kind = kind;
             LeaderClusterResourceId = leaderClusterResourceId;
             Location = location;
             Name = name;
+            OriginalDatabaseName = originalDatabaseName;
             PrincipalsModificationKind = principalsModificationKind;
             ProvisioningState = provisioningState;
             SoftDeletePeriod = softDeletePeriod;
             Statistics = statistics;
+            TableLevelSharingProperties = tableLevelSharingProperties;
             Type = type;
         }
     }

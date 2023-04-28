@@ -5,37 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AccessControlEntryAction',
-    'ComputeModeOptions',
-    'InternalLoadBalancingMode',
     'RouteType',
 ]
-
-
-class AccessControlEntryAction(str, Enum):
-    """
-    Action object.
-    """
-    PERMIT = "Permit"
-    DENY = "Deny"
-
-
-class ComputeModeOptions(str, Enum):
-    """
-    Shared or dedicated app hosting.
-    """
-    SHARED = "Shared"
-    DEDICATED = "Dedicated"
-    DYNAMIC = "Dynamic"
-
-
-class InternalLoadBalancingMode(str, Enum):
-    """
-    Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-    """
-    NONE = "None"
-    WEB = "Web"
-    PUBLISHING = "Publishing"
 
 
 class RouteType(str, Enum):

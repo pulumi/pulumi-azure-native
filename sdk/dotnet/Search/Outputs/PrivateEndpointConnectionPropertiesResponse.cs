@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Search.Outputs
     public sealed class PrivateEndpointConnectionPropertiesResponse
     {
         /// <summary>
+        /// The group id from the provider of resource the private link service connection is for.
+        /// </summary>
+        public readonly string? GroupId;
+        /// <summary>
         /// The private endpoint resource from Microsoft.Network provider.
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponsePrivateEndpoint? PrivateEndpoint;
@@ -24,15 +28,25 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private PrivateEndpointConnectionPropertiesResponse(
+            string? groupId,
+
             Outputs.PrivateEndpointConnectionPropertiesResponsePrivateEndpoint? privateEndpoint,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState? privateLinkServiceConnectionState)
+            Outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState? privateLinkServiceConnectionState,
+
+            string? provisioningState)
         {
+            GroupId = groupId;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
         }
     }
 }

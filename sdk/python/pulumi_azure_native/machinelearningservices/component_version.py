@@ -16,20 +16,20 @@ __all__ = ['ComponentVersionInitArgs', 'ComponentVersion']
 @pulumi.input_type
 class ComponentVersionInitArgs:
     def __init__(__self__, *,
-                 component_version_details: pulumi.Input['ComponentVersionArgs'],
+                 component_version_properties: pulumi.Input['ComponentVersionArgs'],
                  name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ComponentVersion resource.
-        :param pulumi.Input['ComponentVersionArgs'] component_version_details: [Required] Additional attributes of the entity.
+        :param pulumi.Input['ComponentVersionArgs'] component_version_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] name: Container name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] version: Version identifier.
         """
-        pulumi.set(__self__, "component_version_details", component_version_details)
+        pulumi.set(__self__, "component_version_properties", component_version_properties)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -37,16 +37,16 @@ class ComponentVersionInitArgs:
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="componentVersionDetails")
-    def component_version_details(self) -> pulumi.Input['ComponentVersionArgs']:
+    @pulumi.getter(name="componentVersionProperties")
+    def component_version_properties(self) -> pulumi.Input['ComponentVersionArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "component_version_details")
+        return pulumi.get(self, "component_version_properties")
 
-    @component_version_details.setter
-    def component_version_details(self, value: pulumi.Input['ComponentVersionArgs']):
-        pulumi.set(self, "component_version_details", value)
+    @component_version_properties.setter
+    def component_version_properties(self, value: pulumi.Input['ComponentVersionArgs']):
+        pulumi.set(self, "component_version_properties", value)
 
     @property
     @pulumi.getter
@@ -102,7 +102,7 @@ class ComponentVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_version_details: Optional[pulumi.Input[pulumi.InputType['ComponentVersionArgs']]] = None,
+                 component_version_properties: Optional[pulumi.Input[pulumi.InputType['ComponentVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -110,11 +110,12 @@ class ComponentVersion(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2022-02-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ComponentVersionArgs']] component_version_details: [Required] Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['ComponentVersionArgs']] component_version_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] name: Container name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: Version identifier.
@@ -128,7 +129,8 @@ class ComponentVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2022-02-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ComponentVersionInitArgs args: The arguments to use to populate this resource's properties.
@@ -145,7 +147,7 @@ class ComponentVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_version_details: Optional[pulumi.Input[pulumi.InputType['ComponentVersionArgs']]] = None,
+                 component_version_properties: Optional[pulumi.Input[pulumi.InputType['ComponentVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -159,9 +161,9 @@ class ComponentVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComponentVersionInitArgs.__new__(ComponentVersionInitArgs)
 
-            if component_version_details is None and not opts.urn:
-                raise TypeError("Missing required property 'component_version_details'")
-            __props__.__dict__["component_version_details"] = component_version_details
+            if component_version_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'component_version_properties'")
+            __props__.__dict__["component_version_properties"] = component_version_properties
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -174,7 +176,7 @@ class ComponentVersion(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:ComponentVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:ComponentVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:ComponentVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ComponentVersion, __self__).__init__(
             'azure-native:machinelearningservices:ComponentVersion',
@@ -198,19 +200,19 @@ class ComponentVersion(pulumi.CustomResource):
 
         __props__ = ComponentVersionInitArgs.__new__(ComponentVersionInitArgs)
 
-        __props__.__dict__["component_version_details"] = None
+        __props__.__dict__["component_version_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ComponentVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="componentVersionDetails")
-    def component_version_details(self) -> pulumi.Output['outputs.ComponentVersionResponse']:
+    @pulumi.getter(name="componentVersionProperties")
+    def component_version_properties(self) -> pulumi.Output['outputs.ComponentVersionResponse']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "component_version_details")
+        return pulumi.get(self, "component_version_properties")
 
     @property
     @pulumi.getter

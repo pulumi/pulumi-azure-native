@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the view for the defined scope by view name.
- * API Version: 2019-11-01.
+ * API Version: 2022-10-01.
  */
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
 
@@ -48,7 +48,7 @@ export interface GetViewByScopeResult {
      */
     readonly createdOn: string;
     /**
-     * Selected currency.
+     * Currency of the current view.
      */
     readonly currency: string;
     /**
@@ -56,7 +56,7 @@ export interface GetViewByScopeResult {
      */
     readonly dataSet?: outputs.costmanagement.ReportConfigDatasetResponse;
     /**
-     * Selected date range for viewing cost in.
+     * Date range of the current view.
      */
     readonly dateRange: string;
     /**
@@ -72,9 +72,9 @@ export interface GetViewByScopeResult {
      */
     readonly id: string;
     /**
-     * Include monetary commitment
+     * If true, report includes monetary commitment.
      */
-    readonly includeMonetaryCommitment: boolean;
+    readonly includeMonetaryCommitment?: boolean;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
@@ -114,7 +114,7 @@ export interface GetViewByScopeResult {
 }
 /**
  * Gets the view for the defined scope by view name.
- * API Version: 2019-11-01.
+ * API Version: 2022-10-01.
  */
 export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewByScopeResult> {
     return pulumi.output(args).apply((a: any) => getViewByScope(a, opts))

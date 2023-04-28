@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['DisasterRecoveryConfigArgs', 'DisasterRecoveryConfig']
 
@@ -110,7 +111,8 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
+        Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +130,8 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
+        Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.
@@ -168,10 +171,12 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["pending_replication_operations_count"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["role"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20211101:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:DisasterRecoveryConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -198,11 +203,13 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         __props__ = DisasterRecoveryConfigArgs.__new__(DisasterRecoveryConfigArgs)
 
         __props__.__dict__["alternate_name"] = None
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partner_namespace"] = None
         __props__.__dict__["pending_replication_operations_count"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["role"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DisasterRecoveryConfig(resource_name, opts=opts, __props__=__props__)
 
@@ -216,9 +223,17 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -255,10 +270,18 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         return pulumi.get(self, "role")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

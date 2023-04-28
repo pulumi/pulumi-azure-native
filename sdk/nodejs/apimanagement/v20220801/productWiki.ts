@@ -82,6 +82,8 @@ export class ProductWiki extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductWiki" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductWiki.__pulumiType, name, resourceInputs, opts);
     }
 }

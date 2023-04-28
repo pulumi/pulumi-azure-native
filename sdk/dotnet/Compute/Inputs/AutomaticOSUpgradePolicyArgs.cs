@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("enableAutomaticOSUpgrade")]
         public Input<bool>? EnableAutomaticOSUpgrade { get; set; }
 
+        /// <summary>
+        /// Indicates whether rolling upgrade policy should be used during Auto OS Upgrade. Default value is false. Auto OS Upgrade will fallback to the default policy if no policy is defined on the VMSS.
+        /// </summary>
+        [Input("useRollingUpgradePolicy")]
+        public Input<bool>? UseRollingUpgradePolicy { get; set; }
+
         public AutomaticOSUpgradePolicyArgs()
         {
         }

@@ -113,7 +113,7 @@ def get_target(parent_provider_namespace: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetResult:
     """
     Get a Target resource that extends a tracked regional resource.
-    API Version: 2021-09-15-preview.
+    API Version: 2022-10-01-preview.
 
 
     :param str parent_provider_namespace: String that represents a resource provider namespace.
@@ -149,7 +149,7 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetResult]:
     """
     Get a Target resource that extends a tracked regional resource.
-    API Version: 2021-09-15-preview.
+    API Version: 2022-10-01-preview.
 
 
     :param str parent_provider_namespace: String that represents a resource provider namespace.

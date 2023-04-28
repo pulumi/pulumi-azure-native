@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Backend details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-08-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Backend")]
     public partial class Backend : global::Pulumi.CustomResource
@@ -29,7 +30,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -47,13 +48,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// Backend Proxy Contract Properties
+        /// Backend gateway Contract Properties
         /// </summary>
         [Output("proxy")]
         public Output<Outputs.BackendProxyContractResponse?> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        /// Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         /// </summary>
         [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
@@ -71,7 +72,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<Outputs.BackendTlsPropertiesResponse?> Tls { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -177,19 +178,19 @@ namespace Pulumi.AzureNative.ApiManagement
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.BackendProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Backend Proxy Contract Properties
+        /// Backend gateway Contract Properties
         /// </summary>
         [Input("proxy")]
         public Input<Inputs.BackendProxyContractArgs>? Proxy { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        /// Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

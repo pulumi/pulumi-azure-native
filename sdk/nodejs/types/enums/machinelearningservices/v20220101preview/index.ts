@@ -156,15 +156,6 @@ export const SshPublicAccess = {
  */
 export type SshPublicAccess = (typeof SshPublicAccess)[keyof typeof SshPublicAccess];
 
-export const ValueFormat = {
-    JSON: "JSON",
-} as const;
-
-/**
- * format for the workspace connection value
- */
-export type ValueFormat = (typeof ValueFormat)[keyof typeof ValueFormat];
-
 export const VmPriority = {
     Dedicated: "Dedicated",
     LowPriority: "LowPriority",

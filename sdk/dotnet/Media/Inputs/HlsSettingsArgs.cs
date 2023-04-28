@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
-    /// The HLS setting for a text track.
+    /// The HLS setting for a track.
     /// </summary>
     public sealed class HlsSettingsArgs : global::Pulumi.ResourceArgs
     {

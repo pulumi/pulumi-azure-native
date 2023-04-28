@@ -21,11 +21,35 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         [Input("oAuth2")]
         public Input<Inputs.OAuth2AuthenticationSettingsContractArgs>? OAuth2 { get; set; }
 
+        [Input("oAuth2AuthenticationSettings")]
+        private InputList<Inputs.OAuth2AuthenticationSettingsContractArgs>? _oAuth2AuthenticationSettings;
+
+        /// <summary>
+        /// Collection of OAuth2 authentication settings included into this API.
+        /// </summary>
+        public InputList<Inputs.OAuth2AuthenticationSettingsContractArgs> OAuth2AuthenticationSettings
+        {
+            get => _oAuth2AuthenticationSettings ?? (_oAuth2AuthenticationSettings = new InputList<Inputs.OAuth2AuthenticationSettingsContractArgs>());
+            set => _oAuth2AuthenticationSettings = value;
+        }
+
         /// <summary>
         /// OpenID Connect Authentication Settings
         /// </summary>
         [Input("openid")]
         public Input<Inputs.OpenIdAuthenticationSettingsContractArgs>? Openid { get; set; }
+
+        [Input("openidAuthenticationSettings")]
+        private InputList<Inputs.OpenIdAuthenticationSettingsContractArgs>? _openidAuthenticationSettings;
+
+        /// <summary>
+        /// Collection of Open ID Connect authentication settings included into this API.
+        /// </summary>
+        public InputList<Inputs.OpenIdAuthenticationSettingsContractArgs> OpenidAuthenticationSettings
+        {
+            get => _openidAuthenticationSettings ?? (_openidAuthenticationSettings = new InputList<Inputs.OpenIdAuthenticationSettingsContractArgs>());
+            set => _openidAuthenticationSettings = value;
+        }
 
         public AuthenticationSettingsContractArgs()
         {

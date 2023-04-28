@@ -165,7 +165,6 @@ utilities.lazyLoad(exports, ["SecurityPolicy"], () => require("./securityPolicy"
 export * from "../types/enums/cdn";
 
 // Export sub-modules:
-import * as v20150601 from "./v20150601";
 import * as v20160402 from "./v20160402";
 import * as v20161002 from "./v20161002";
 import * as v20170402 from "./v20170402";
@@ -182,7 +181,6 @@ import * as v20220501preview from "./v20220501preview";
 import * as v20221101preview from "./v20221101preview";
 
 export {
-    v20150601,
     v20160402,
     v20161002,
     v20170402,

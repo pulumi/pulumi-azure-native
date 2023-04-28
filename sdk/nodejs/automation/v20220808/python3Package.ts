@@ -160,6 +160,8 @@ export class Python3Package extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Python3Package" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Python3Package.__pulumiType, name, resourceInputs, opts);
     }
 }

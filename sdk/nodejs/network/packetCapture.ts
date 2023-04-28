@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Information about packet capture session.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**
@@ -59,13 +60,21 @@ export class PacketCapture extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+     */
+    public readonly scope!: pulumi.Output<outputs.network.PacketCaptureMachineScopeResponse | undefined>;
+    /**
      * The storage location for a packet capture session.
      */
     public readonly storageLocation!: pulumi.Output<outputs.network.PacketCaptureStorageLocationResponse>;
     /**
-     * The ID of the targeted resource, only VM is currently supported.
+     * The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
      */
     public readonly target!: pulumi.Output<string>;
+    /**
+     * Target type of the resource provided.
+     */
+    public readonly targetType!: pulumi.Output<string | undefined>;
     /**
      * Maximum duration of the capture session in seconds.
      */
@@ -103,8 +112,10 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             resourceInputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) ?? 18000;
             resourceInputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 1073741824;
             resourceInputs["etag"] = undefined /*out*/;
@@ -116,8 +127,10 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["filters"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["storageLocation"] = undefined /*out*/;
             resourceInputs["target"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
             resourceInputs["timeLimitInSeconds"] = undefined /*out*/;
             resourceInputs["totalBytesPerSession"] = undefined /*out*/;
         }
@@ -153,13 +166,21 @@ export interface PacketCaptureArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+     */
+    scope?: pulumi.Input<inputs.network.PacketCaptureMachineScopeArgs>;
+    /**
      * The storage location for a packet capture session.
      */
     storageLocation: pulumi.Input<inputs.network.PacketCaptureStorageLocationArgs>;
     /**
-     * The ID of the targeted resource, only VM is currently supported.
+     * The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
      */
     target: pulumi.Input<string>;
+    /**
+     * Target type of the resource provided.
+     */
+    targetType?: pulumi.Input<enums.network.PacketCaptureTargetType>;
     /**
      * Maximum duration of the capture session in seconds.
      */

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
     public sealed class RestoredLogsResponse
     {
         /// <summary>
+        /// Search results table async operation id.
+        /// </summary>
+        public readonly string AzureAsyncOperationId;
+        /// <summary>
         /// The timestamp to end the restore by (UTC).
         /// </summary>
         public readonly string? EndRestoreTime;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
 
         [OutputConstructor]
         private RestoredLogsResponse(
+            string azureAsyncOperationId,
+
             string? endRestoreTime,
 
             string? sourceTable,
 
             string? startRestoreTime)
         {
+            AzureAsyncOperationId = azureAsyncOperationId;
             EndRestoreTime = endRestoreTime;
             SourceTable = sourceTable;
             StartRestoreTime = startRestoreTime;

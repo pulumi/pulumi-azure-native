@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a channel.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
 
@@ -41,7 +41,7 @@ export interface GetChannelArgs {
  */
 export interface GetChannelResult {
     /**
-     * The type of the event channel which represents the  direction flow of events.
+     * The type of the event channel which represents the direction flow of events.
      */
     readonly channelType?: string;
     /**
@@ -61,10 +61,6 @@ export interface GetChannelResult {
      * Name of the resource.
      */
     readonly name: string;
-    /**
-     * This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-     */
-    readonly partnerDestinationInfo?: outputs.eventgrid.WebhookPartnerDestinationInfoResponse;
     /**
      * This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
      */
@@ -88,7 +84,7 @@ export interface GetChannelResult {
 }
 /**
  * Get properties of a channel.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
     return pulumi.output(args).apply((a: any) => getChannel(a, opts))

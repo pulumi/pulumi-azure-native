@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -23,13 +24,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<bool?> AllowPublicAccessWhenBehindVnet { get; private set; } = null!;
 
         /// <summary>
-        /// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        /// ARM id of the application insights associated with this workspace.
         /// </summary>
         [Output("applicationInsights")]
         public Output<string?> ApplicationInsights { get; private set; } = null!;
 
         /// <summary>
-        /// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        /// ARM id of the container registry associated with this workspace.
         /// </summary>
         [Output("containerRegistry")]
         public Output<string?> ContainerRegistry { get; private set; } = null!;
@@ -68,7 +69,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The compute name for image build
@@ -89,7 +90,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the resource.
+        /// The URI associated with this workspace that machine learning flow must point at to set up tracking.
+        /// </summary>
+        [Output("mlFlowTrackingUri")]
+        public Output<string> MlFlowTrackingUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -125,6 +132,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Whether requests from Public Network are allowed.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The service managed resource settings.
         /// </summary>
         [Output("serviceManagedResourcesSettings")]
@@ -155,7 +168,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
-        /// Read only system data
+        /// If the storage associated with the workspace has hierarchical namespace(HNS) enabled.
+        /// </summary>
+        [Output("storageHnsEnabled")]
+        public Output<bool> StorageHnsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -167,10 +186,22 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of the resource.
+        /// The tenant id associated with this workspace.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
+        /// </summary>
+        [Output("v1LegacyMode")]
+        public Output<bool?> V1LegacyMode { get; private set; } = null!;
 
         /// <summary>
         /// The immutable id associated with this workspace.
@@ -228,6 +259,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Workspace"},
                 },
             };
@@ -259,13 +291,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<bool>? AllowPublicAccessWhenBehindVnet { get; set; }
 
         /// <summary>
-        /// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        /// ARM id of the application insights associated with this workspace.
         /// </summary>
         [Input("applicationInsights")]
         public Input<string>? ApplicationInsights { get; set; }
 
         /// <summary>
-        /// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        /// ARM id of the container registry associated with this workspace.
         /// </summary>
         [Input("containerRegistry")]
         public Input<string>? ContainerRegistry { get; set; }
@@ -304,7 +336,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The compute name for image build
@@ -331,7 +363,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// Whether requests from Public Network are allowed.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -379,6 +417,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
 
         /// <summary>
+        /// Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
+        /// </summary>
+        [Input("v1LegacyMode")]
+        public Input<bool>? V1LegacyMode { get; set; }
+
+        /// <summary>
         /// Name of Azure Machine Learning workspace.
         /// </summary>
         [Input("workspaceName")]
@@ -388,6 +432,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         {
             AllowPublicAccessWhenBehindVnet = false;
             HbiWorkspace = false;
+            V1LegacyMode = false;
         }
         public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }

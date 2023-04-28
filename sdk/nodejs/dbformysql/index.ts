@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AzureADAdministratorArgs } from "./azureADAdministrator";
+export type AzureADAdministrator = import("./azureADAdministrator").AzureADAdministrator;
+export const AzureADAdministrator: typeof import("./azureADAdministrator").AzureADAdministrator = null as any;
+utilities.lazyLoad(exports, ["AzureADAdministrator"], () => require("./azureADAdministrator"));
+
 export { ConfigurationArgs } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
@@ -19,6 +24,11 @@ export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
 utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+
+export { GetAzureADAdministratorArgs, GetAzureADAdministratorResult, GetAzureADAdministratorOutputArgs } from "./getAzureADAdministrator";
+export const getAzureADAdministrator: typeof import("./getAzureADAdministrator").getAzureADAdministrator = null as any;
+export const getAzureADAdministratorOutput: typeof import("./getAzureADAdministrator").getAzureADAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureADAdministrator","getAzureADAdministratorOutput"], () => require("./getAzureADAdministrator"));
 
 export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
 export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
@@ -97,8 +107,8 @@ export * from "../types/enums/dbformysql";
 import * as v20171201 from "./v20171201";
 import * as v20171201preview from "./v20171201preview";
 import * as v20180601 from "./v20180601";
+import * as v20180601privatepreview from "./v20180601privatepreview";
 import * as v20200101 from "./v20200101";
-import * as v20200101privatepreview from "./v20200101privatepreview";
 import * as v20200701preview from "./v20200701preview";
 import * as v20200701privatepreview from "./v20200701privatepreview";
 import * as v20210501 from "./v20210501";
@@ -111,8 +121,8 @@ export {
     v20171201,
     v20171201preview,
     v20180601,
+    v20180601privatepreview,
     v20200101,
-    v20200101privatepreview,
     v20200701preview,
     v20200701privatepreview,
     v20210501,
@@ -126,6 +136,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:dbformysql:AzureADAdministrator":
+                return new AzureADAdministrator(name, <any>undefined, { urn })
             case "azure-native:dbformysql:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
             case "azure-native:dbformysql:Database":

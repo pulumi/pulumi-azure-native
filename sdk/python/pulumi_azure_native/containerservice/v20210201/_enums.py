@@ -7,25 +7,12 @@ from enum import Enum
 __all__ = [
     'AgentPoolMode',
     'AgentPoolType',
-    'ConnectionStatus',
     'ContainerServiceVMSizeTypes',
-    'Expander',
     'KubeletDiskType',
-    'LicenseType',
-    'LoadBalancerSku',
-    'ManagedClusterSKUName',
-    'ManagedClusterSKUTier',
-    'NetworkMode',
-    'NetworkPlugin',
-    'NetworkPolicy',
     'OSDiskType',
     'OSType',
-    'OutboundType',
-    'ResourceIdentityType',
     'ScaleSetEvictionPolicy',
     'ScaleSetPriority',
-    'UpgradeChannel',
-    'WeekDay',
 ]
 
 
@@ -43,16 +30,6 @@ class AgentPoolType(str, Enum):
     """
     VIRTUAL_MACHINE_SCALE_SETS = "VirtualMachineScaleSets"
     AVAILABILITY_SET = "AvailabilitySet"
-
-
-class ConnectionStatus(str, Enum):
-    """
-    The private link service connection status.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class ContainerServiceVMSizeTypes(str, Enum):
@@ -235,74 +212,12 @@ class ContainerServiceVMSizeTypes(str, Enum):
     STANDARD_NV6 = "Standard_NV6"
 
 
-class Expander(str, Enum):
-    LEAST_WASTE = "least-waste"
-    MOST_PODS = "most-pods"
-    PRIORITY = "priority"
-    RANDOM = "random"
-
-
 class KubeletDiskType(str, Enum):
     """
     KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
     """
     OS = "OS"
     TEMPORARY = "Temporary"
-
-
-class LicenseType(str, Enum):
-    """
-    The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
-    """
-    NONE = "None"
-    WINDOWS_SERVER = "Windows_Server"
-
-
-class LoadBalancerSku(str, Enum):
-    """
-    The load balancer sku for the managed cluster.
-    """
-    STANDARD = "standard"
-    BASIC = "basic"
-
-
-class ManagedClusterSKUName(str, Enum):
-    """
-    Name of a managed cluster SKU.
-    """
-    BASIC = "Basic"
-
-
-class ManagedClusterSKUTier(str, Enum):
-    """
-    Tier of a managed cluster SKU.
-    """
-    PAID = "Paid"
-    FREE = "Free"
-
-
-class NetworkMode(str, Enum):
-    """
-    Network mode used for building Kubernetes network.
-    """
-    TRANSPARENT = "transparent"
-    BRIDGE = "bridge"
-
-
-class NetworkPlugin(str, Enum):
-    """
-    Network plugin used for building Kubernetes network.
-    """
-    AZURE = "azure"
-    KUBENET = "kubenet"
-
-
-class NetworkPolicy(str, Enum):
-    """
-    Network policy used for building Kubernetes network.
-    """
-    CALICO = "calico"
-    AZURE = "azure"
 
 
 class OSDiskType(str, Enum):
@@ -321,23 +236,6 @@ class OSType(str, Enum):
     WINDOWS = "Windows"
 
 
-class OutboundType(str, Enum):
-    """
-    The outbound (egress) routing method.
-    """
-    LOAD_BALANCER = "loadBalancer"
-    USER_DEFINED_ROUTING = "userDefinedRouting"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    NONE = "None"
-
-
 class ScaleSetEvictionPolicy(str, Enum):
     """
     ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
@@ -352,26 +250,3 @@ class ScaleSetPriority(str, Enum):
     """
     SPOT = "Spot"
     REGULAR = "Regular"
-
-
-class UpgradeChannel(str, Enum):
-    """
-    upgrade channel for auto upgrade.
-    """
-    RAPID = "rapid"
-    STABLE = "stable"
-    PATCH = "patch"
-    NONE = "none"
-
-
-class WeekDay(str, Enum):
-    """
-    A day in a week.
-    """
-    SUNDAY = "Sunday"
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['WebhookArgs', 'Webhook']
@@ -29,7 +30,7 @@ class WebhookArgs:
         The set of arguments for constructing a Webhook resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]] actions: The list of actions that trigger the webhook to post notifications.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_uri: The service URI for the webhook to post notifications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_headers: Custom headers that will be added to the webhook notifications.
         :param pulumi.Input[str] location: The location of the webhook. This cannot be changed after the resource is created.
@@ -83,7 +84,7 @@ class WebhookArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the container registry belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -194,7 +195,8 @@ class Webhook(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents a webhook for a container registry.
-        API Version: 2019-05-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +204,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_headers: Custom headers that will be added to the webhook notifications.
         :param pulumi.Input[str] location: The location of the webhook. This cannot be changed after the resource is created.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
         :param pulumi.Input[str] service_uri: The service URI for the webhook to post notifications.
         :param pulumi.Input[Union[str, 'WebhookStatus']] status: The status of the webhook at the time the operation was called.
@@ -217,7 +219,8 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a webhook for a container registry.
-        API Version: 2019-05-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
@@ -273,6 +276,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["webhook_name"] = webhook_name
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20170601preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20171001:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20190501:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210901:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20221201:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:Webhook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -304,6 +308,7 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Webhook(resource_name, opts=opts, __props__=__props__)
@@ -355,6 +360,14 @@ class Webhook(pulumi.CustomResource):
         The status of the webhook at the time the operation was called.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

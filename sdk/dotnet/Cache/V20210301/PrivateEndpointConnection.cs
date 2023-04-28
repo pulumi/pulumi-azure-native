@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.Cache.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cache:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20201001preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:PrivateEndpointConnection"},

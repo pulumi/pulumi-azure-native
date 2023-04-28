@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a DNS forwarding ruleset properties.
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-07-01.
  */
 export function getDnsForwardingRuleset(args: GetDnsForwardingRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsForwardingRulesetResult> {
 
@@ -38,7 +38,7 @@ export interface GetDnsForwardingRulesetResult {
     /**
      * The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
      */
-    readonly dnsResolverOutboundEndpoints?: outputs.network.SubResourceResponse[];
+    readonly dnsResolverOutboundEndpoints: outputs.network.SubResourceResponse[];
     /**
      * ETag of the DNS forwarding ruleset.
      */
@@ -78,7 +78,7 @@ export interface GetDnsForwardingRulesetResult {
 }
 /**
  * Gets a DNS forwarding ruleset properties.
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-07-01.
  */
 export function getDnsForwardingRulesetOutput(args: GetDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsForwardingRulesetResult> {
     return pulumi.output(args).apply((a: any) => getDnsForwardingRuleset(a, opts))

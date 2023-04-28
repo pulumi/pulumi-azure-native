@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['VirtualHubBgpConnectionArgs', 'VirtualHubBgpConnection']
 
@@ -17,6 +19,7 @@ class VirtualHubBgpConnectionArgs:
                  resource_group_name: pulumi.Input[str],
                  virtual_hub_name: pulumi.Input[str],
                  connection_name: Optional[pulumi.Input[str]] = None,
+                 hub_virtual_network_connection: Optional[pulumi.Input['SubResourceArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
@@ -26,6 +29,7 @@ class VirtualHubBgpConnectionArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[str] connection_name: The name of the connection.
+        :param pulumi.Input['SubResourceArgs'] hub_virtual_network_connection: The reference to the HubVirtualNetworkConnection resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the connection.
         :param pulumi.Input[float] peer_asn: Peer ASN.
@@ -35,6 +39,8 @@ class VirtualHubBgpConnectionArgs:
         pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
+        if hub_virtual_network_connection is not None:
+            pulumi.set(__self__, "hub_virtual_network_connection", hub_virtual_network_connection)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -79,6 +85,18 @@ class VirtualHubBgpConnectionArgs:
     @connection_name.setter
     def connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="hubVirtualNetworkConnection")
+    def hub_virtual_network_connection(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The reference to the HubVirtualNetworkConnection resource.
+        """
+        return pulumi.get(self, "hub_virtual_network_connection")
+
+    @hub_virtual_network_connection.setter
+    def hub_virtual_network_connection(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "hub_virtual_network_connection", value)
 
     @property
     @pulumi.getter
@@ -135,6 +153,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
+                 hub_virtual_network_connection: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
@@ -144,11 +163,13 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Appliance Site resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the connection.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] hub_virtual_network_connection: The reference to the HubVirtualNetworkConnection resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Name of the connection.
         :param pulumi.Input[float] peer_asn: Peer ASN.
@@ -164,7 +185,8 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Appliance Site resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param VirtualHubBgpConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -182,6 +204,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
+                 hub_virtual_network_connection: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
@@ -198,6 +221,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
             __props__ = VirtualHubBgpConnectionArgs.__new__(VirtualHubBgpConnectionArgs)
 
             __props__.__dict__["connection_name"] = connection_name
+            __props__.__dict__["hub_virtual_network_connection"] = hub_virtual_network_connection
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
             __props__.__dict__["peer_asn"] = peer_asn
@@ -238,6 +262,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
 
         __props__.__dict__["connection_state"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["hub_virtual_network_connection"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["peer_asn"] = None
         __props__.__dict__["peer_ip"] = None
@@ -260,6 +285,14 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hubVirtualNetworkConnection")
+    def hub_virtual_network_connection(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
+        """
+        The reference to the HubVirtualNetworkConnection resource.
+        """
+        return pulumi.get(self, "hub_virtual_network_connection")
 
     @property
     @pulumi.getter

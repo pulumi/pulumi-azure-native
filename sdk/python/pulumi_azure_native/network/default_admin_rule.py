@@ -24,7 +24,7 @@ class DefaultAdminRuleArgs:
                  rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DefaultAdminRule resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Default'.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
@@ -47,7 +47,7 @@ class DefaultAdminRuleArgs:
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Input[str]:
         """
-        The name of the network manager security Configuration.
+        The name of the network manager Security Configuration.
         """
         return pulumi.get(self, "configuration_name")
 
@@ -144,11 +144,12 @@ class DefaultAdminRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network default admin rule.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] flag: Default rule flag.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Default'.
@@ -165,7 +166,8 @@ class DefaultAdminRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network default admin rule.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DefaultAdminRuleArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +222,6 @@ class DefaultAdminRule(pulumi.CustomResource):
             __props__.__dict__["destination_port_ranges"] = None
             __props__.__dict__["destinations"] = None
             __props__.__dict__["direction"] = None
-            __props__.__dict__["display_name"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["priority"] = None
@@ -259,7 +260,6 @@ class DefaultAdminRule(pulumi.CustomResource):
         __props__.__dict__["destination_port_ranges"] = None
         __props__.__dict__["destinations"] = None
         __props__.__dict__["direction"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["flag"] = None
         __props__.__dict__["kind"] = None
@@ -312,14 +312,6 @@ class DefaultAdminRule(pulumi.CustomResource):
         Indicates if the traffic matched against the rule in inbound or outbound.
         """
         return pulumi.get(self, "direction")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
-        """
-        A friendly name for the rule.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter

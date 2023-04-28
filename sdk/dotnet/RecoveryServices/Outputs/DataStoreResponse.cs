@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
     /// <summary>
-    /// The data store details of the MT.
+    /// The datastore details of the MT.
     /// </summary>
     [OutputType]
     public sealed class DataStoreResponse

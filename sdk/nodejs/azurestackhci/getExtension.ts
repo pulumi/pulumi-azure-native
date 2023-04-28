@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get particular Arc Extension of HCI Cluster.
- * API Version: 2021-01-01-preview.
+ * API Version: 2023-02-01.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
@@ -54,17 +54,9 @@ export interface GetExtensionResult {
      */
     readonly autoUpgradeMinorVersion?: boolean;
     /**
-     * The timestamp of resource creation (UTC).
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
      */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
+    readonly enableAutomaticUpgrade?: boolean;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
@@ -73,18 +65,6 @@ export interface GetExtensionResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * The name of the resource
      */
@@ -110,17 +90,21 @@ export interface GetExtensionResult {
      */
     readonly settings?: any;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.azurestackhci.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
-     * Specifies the version of the script handler.
+     * Specifies the version of the script handler. Latest version would be used if not specified.
      */
     readonly typeHandlerVersion?: string;
 }
 /**
  * Get particular Arc Extension of HCI Cluster.
- * API Version: 2021-01-01-preview.
+ * API Version: 2023-02-01.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))

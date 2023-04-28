@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets information about a configuration of server.
- * API Version: 2017-12-01.
+ * API Version: 2021-05-01.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -58,6 +61,18 @@ export interface GetConfigurationResult {
      */
     readonly id: string;
     /**
+     * If is the configuration pending restart or not.
+     */
+    readonly isConfigPendingRestart: string;
+    /**
+     * If is the configuration dynamic.
+     */
+    readonly isDynamicConfig: string;
+    /**
+     * If is the configuration read only.
+     */
+    readonly isReadOnly: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -65,6 +80,10 @@ export interface GetConfigurationResult {
      * Source of the configuration.
      */
     readonly source?: string;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.dbformysql.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -76,7 +95,7 @@ export interface GetConfigurationResult {
 }
 /**
  * Gets information about a configuration of server.
- * API Version: 2017-12-01.
+ * API Version: 2021-05-01.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

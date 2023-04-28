@@ -66,16 +66,6 @@ export const RecurrenceInterval = {
  */
 export type RecurrenceInterval = (typeof RecurrenceInterval)[keyof typeof RecurrenceInterval];
 
-export const ShareKind = {
-    CopyBased: "CopyBased",
-    InPlace: "InPlace",
-} as const;
-
-/**
- * Share kind.
- */
-export type ShareKind = (typeof ShareKind)[keyof typeof ShareKind];
-
 export const SynchronizationMode = {
     Incremental: "Incremental",
     FullSync: "FullSync",
@@ -103,12 +93,3 @@ export const TriggerKind = {
  * Kind of synchronization on trigger.
  */
 export type TriggerKind = (typeof TriggerKind)[keyof typeof TriggerKind];
-
-export const Type = {
-    SystemAssigned: "SystemAssigned",
-} as const;
-
-/**
- * Identity Type
- */
-export type Type = (typeof Type)[keyof typeof Type];

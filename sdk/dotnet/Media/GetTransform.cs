@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Gets a Transform.
-        /// API Version: 2020-05-01.
+        /// API Version: 2022-07-01.
         /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Transform.
-        /// API Version: 2020-05-01.
+        /// API Version: 2022-07-01.
         /// </summary>
         public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());

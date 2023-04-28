@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets cluster monitoring user credential of the managed cluster with a specified resource group and name.
- * API Version: 2021-03-01.
+ * The list credential result response.
+ * API Version: 2023-01-01.
  */
 export function listManagedClusterMonitoringUserCredentials(args: ListManagedClusterMonitoringUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterMonitoringUserCredentialsResult> {
 
@@ -17,22 +17,27 @@ export function listManagedClusterMonitoringUserCredentials(args: ListManagedClu
     return pulumi.runtime.invoke("azure-native:containerservice:listManagedClusterMonitoringUserCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "serverFqdn": args.serverFqdn,
     }, opts);
 }
 
 export interface ListManagedClusterMonitoringUserCredentialsArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
      * The name of the managed cluster resource.
      */
     resourceName: string;
+    /**
+     * server fqdn type for credentials to be returned
+     */
+    serverFqdn?: string;
 }
 
 /**
- * The list of credential result response.
+ * The list credential result response.
  */
 export interface ListManagedClusterMonitoringUserCredentialsResult {
     /**
@@ -41,8 +46,8 @@ export interface ListManagedClusterMonitoringUserCredentialsResult {
     readonly kubeconfigs: outputs.containerservice.CredentialResultResponse[];
 }
 /**
- * Gets cluster monitoring user credential of the managed cluster with a specified resource group and name.
- * API Version: 2021-03-01.
+ * The list credential result response.
+ * API Version: 2023-01-01.
  */
 export function listManagedClusterMonitoringUserCredentialsOutput(args: ListManagedClusterMonitoringUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterMonitoringUserCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listManagedClusterMonitoringUserCredentials(a, opts))
@@ -50,11 +55,15 @@ export function listManagedClusterMonitoringUserCredentialsOutput(args: ListMana
 
 export interface ListManagedClusterMonitoringUserCredentialsOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the managed cluster resource.
      */
     resourceName: pulumi.Input<string>;
+    /**
+     * server fqdn type for credentials to be returned
+     */
+    serverFqdn?: pulumi.Input<string>;
 }

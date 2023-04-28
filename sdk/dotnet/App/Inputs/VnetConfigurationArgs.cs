@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
+        /// Configuration used to control the Environment Egress outbound traffic
+        /// </summary>
+        [Input("outboundSettings")]
+        public Input<Inputs.ManagedEnvironmentOutboundSettingsArgs>? OutboundSettings { get; set; }
+
+        /// <summary>
         /// IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
         /// </summary>
         [Input("platformReservedCidr")]

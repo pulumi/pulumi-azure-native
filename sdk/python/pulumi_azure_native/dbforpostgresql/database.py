@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['DatabaseArgs', 'Database']
 
@@ -110,7 +111,8 @@ class Database(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Database.
-        API Version: 2017-12-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +130,8 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Database.
-        API Version: 2017-12-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -169,8 +172,9 @@ class Database(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201105preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:dbforpostgresql:Database',
@@ -197,6 +201,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["charset"] = None
         __props__.__dict__["collation"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
 
@@ -223,6 +228,14 @@ class Database(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

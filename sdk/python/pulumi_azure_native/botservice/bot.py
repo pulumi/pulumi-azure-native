@@ -148,7 +148,8 @@ class Bot(pulumi.CustomResource):
                  __props__=None):
         """
         Bot resource definition
-        API Version: 2021-03-01.
+        API Version: 2022-09-15.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +169,8 @@ class Bot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bot resource definition
-        API Version: 2021-03-01.
+        API Version: 2022-09-15.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.
@@ -253,7 +255,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        Entity Tag
+        Entity Tag.
         """
         return pulumi.get(self, "etag")
 

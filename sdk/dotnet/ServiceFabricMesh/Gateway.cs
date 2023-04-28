@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// <summary>
     /// This type describes a gateway resource.
     /// API Version: 2018-09-01-preview.
+    /// Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource

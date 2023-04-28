@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? ConfigurationDescription;
         /// <summary>
-        /// A display name of the security admin configuration.
-        /// </summary>
-        public readonly string? ConfigurationDisplayName;
-        /// <summary>
         /// A description for this rule. Restricted to 140 chars.
         /// </summary>
         public readonly string? Description;
@@ -45,10 +41,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -60,7 +52,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        public readonly int? Priority;
+        public readonly int Priority;
         /// <summary>
         /// Network protocol this rule applies to.
         /// </summary>
@@ -77,10 +69,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// A description of the rule collection.
         /// </summary>
         public readonly string? RuleCollectionDescription;
-        /// <summary>
-        /// A display name of the rule collection.
-        /// </summary>
-        public readonly string? RuleCollectionDisplayName;
         /// <summary>
         /// Effective configuration groups.
         /// </summary>
@@ -100,8 +88,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? configurationDescription,
 
-            string? configurationDisplayName,
-
             string? description,
 
             ImmutableArray<string> destinationPortRanges,
@@ -110,13 +96,11 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string direction,
 
-            string? displayName,
-
             string? id,
 
             string kind,
 
-            int? priority,
+            int priority,
 
             string protocol,
 
@@ -126,8 +110,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? ruleCollectionDescription,
 
-            string? ruleCollectionDisplayName,
-
             ImmutableArray<Outputs.ConfigurationGroupResponse> ruleGroups,
 
             ImmutableArray<string> sourcePortRanges,
@@ -136,12 +118,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             Access = access;
             ConfigurationDescription = configurationDescription;
-            ConfigurationDisplayName = configurationDisplayName;
             Description = description;
             DestinationPortRanges = destinationPortRanges;
             Destinations = destinations;
             Direction = direction;
-            DisplayName = displayName;
             Id = id;
             Kind = kind;
             Priority = priority;
@@ -149,7 +129,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             ProvisioningState = provisioningState;
             RuleCollectionAppliesToGroups = ruleCollectionAppliesToGroups;
             RuleCollectionDescription = ruleCollectionDescription;
-            RuleCollectionDisplayName = ruleCollectionDisplayName;
             RuleGroups = ruleGroups;
             SourcePortRanges = sourcePortRanges;
             Sources = sources;

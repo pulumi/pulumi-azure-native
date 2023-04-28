@@ -14,7 +14,10 @@ __all__ = [
     'ApiPortalCustomDomainPropertiesArgs',
     'ApiPortalPropertiesArgs',
     'AppResourcePropertiesArgs',
+    'AppVNetAddonsArgs',
+    'AzureFileVolumeArgs',
     'BindingResourcePropertiesArgs',
+    'BuildResultUserSourceInfoArgs',
     'BuildServiceAgentPoolPropertiesArgs',
     'BuildServiceAgentPoolSizePropertiesArgs',
     'BuilderPropertiesArgs',
@@ -22,7 +25,6 @@ __all__ = [
     'BuildpackBindingPropertiesArgs',
     'BuildpackPropertiesArgs',
     'BuildpacksGroupPropertiesArgs',
-    'CertificatePropertiesArgs',
     'ClusterResourcePropertiesArgs',
     'ConfigServerGitPropertyArgs',
     'ConfigServerPropertiesArgs',
@@ -31,28 +33,49 @@ __all__ = [
     'ConfigurationServiceGitRepositoryArgs',
     'ConfigurationServicePropertiesArgs',
     'ConfigurationServiceSettingsArgs',
+    'ContainerProbeSettingsArgs',
+    'ContentCertificatePropertiesArgs',
+    'CustomContainerUserSourceInfoArgs',
+    'CustomContainerArgs',
     'CustomDomainPropertiesArgs',
+    'CustomPersistentDiskResourceArgs',
     'DeploymentResourcePropertiesArgs',
     'DeploymentSettingsArgs',
     'ErrorArgs',
+    'ExecActionArgs',
     'GatewayApiMetadataPropertiesArgs',
     'GatewayApiRouteArgs',
     'GatewayCorsPropertiesArgs',
     'GatewayCustomDomainPropertiesArgs',
     'GatewayPropertiesArgs',
     'GatewayResourceRequestsArgs',
+    'GatewayRouteConfigOpenApiPropertiesArgs',
     'GatewayRouteConfigPropertiesArgs',
     'GitPatternRepositoryArgs',
+    'HTTPGetActionArgs',
+    'ImageRegistryCredentialArgs',
+    'IngressConfigArgs',
+    'IngressSettingsClientAuthArgs',
+    'IngressSettingsArgs',
+    'JarUploadedUserSourceInfoArgs',
+    'KeyVaultCertificatePropertiesArgs',
+    'LoadedCertificateArgs',
     'ManagedIdentityPropertiesArgs',
     'MonitoringSettingPropertiesArgs',
+    'NetCoreZipUploadedUserSourceInfoArgs',
     'NetworkProfileArgs',
     'PersistentDiskArgs',
+    'ProbeArgs',
+    'ResourceRequestsArgs',
+    'ServiceVNetAddonsArgs',
     'SkuArgs',
+    'SourceUploadedUserSourceInfoArgs',
     'SsoPropertiesArgs',
     'StackPropertiesArgs',
     'StorageAccountArgs',
+    'TCPSocketActionArgs',
     'TemporaryDiskArgs',
-    'UserSourceInfoArgs',
+    'UploadedUserSourceInfoArgs',
 ]
 
 @pulumi.input_type
@@ -174,59 +197,89 @@ class ApiPortalPropertiesArgs:
 @pulumi.input_type
 class AppResourcePropertiesArgs:
     def __init__(__self__, *,
-                 active_deployment_name: Optional[pulumi.Input[str]] = None,
-                 fqdn: Optional[pulumi.Input[str]] = None,
+                 addon_configs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgs']]]] = None,
+                 enable_end_to_end_tls: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
+                 ingress_settings: Optional[pulumi.Input['IngressSettingsArgs']] = None,
+                 loaded_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['LoadedCertificateArgs']]]] = None,
                  persistent_disk: Optional[pulumi.Input['PersistentDiskArgs']] = None,
                  public: Optional[pulumi.Input[bool]] = None,
-                 temporary_disk: Optional[pulumi.Input['TemporaryDiskArgs']] = None):
+                 temporary_disk: Optional[pulumi.Input['TemporaryDiskArgs']] = None,
+                 vnet_addons: Optional[pulumi.Input['AppVNetAddonsArgs']] = None):
         """
         App resource properties payload
-        :param pulumi.Input[str] active_deployment_name: Name of the active deployment of the App
-        :param pulumi.Input[str] fqdn: Fully qualified dns Name.
+        :param pulumi.Input[Mapping[str, Any]] addon_configs: Collection of addons
+        :param pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgs']]] custom_persistent_disks: List of custom persistent disks
+        :param pulumi.Input[bool] enable_end_to_end_tls: Indicate if end to end TLS is enabled.
         :param pulumi.Input[bool] https_only: Indicate if only https is allowed.
+        :param pulumi.Input['IngressSettingsArgs'] ingress_settings: App ingress settings payload.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadedCertificateArgs']]] loaded_certificates: Collection of loaded certificates
         :param pulumi.Input['PersistentDiskArgs'] persistent_disk: Persistent disk settings
         :param pulumi.Input[bool] public: Indicates whether the App exposes public endpoint
         :param pulumi.Input['TemporaryDiskArgs'] temporary_disk: Temporary disk settings
+        :param pulumi.Input['AppVNetAddonsArgs'] vnet_addons: Additional App settings in vnet injection instance
         """
-        if active_deployment_name is not None:
-            pulumi.set(__self__, "active_deployment_name", active_deployment_name)
-        if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+        if addon_configs is not None:
+            pulumi.set(__self__, "addon_configs", addon_configs)
+        if custom_persistent_disks is not None:
+            pulumi.set(__self__, "custom_persistent_disks", custom_persistent_disks)
+        if enable_end_to_end_tls is None:
+            enable_end_to_end_tls = False
+        if enable_end_to_end_tls is not None:
+            pulumi.set(__self__, "enable_end_to_end_tls", enable_end_to_end_tls)
         if https_only is None:
             https_only = False
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
+        if ingress_settings is not None:
+            pulumi.set(__self__, "ingress_settings", ingress_settings)
+        if loaded_certificates is not None:
+            pulumi.set(__self__, "loaded_certificates", loaded_certificates)
         if persistent_disk is not None:
             pulumi.set(__self__, "persistent_disk", persistent_disk)
         if public is not None:
             pulumi.set(__self__, "public", public)
         if temporary_disk is not None:
             pulumi.set(__self__, "temporary_disk", temporary_disk)
+        if vnet_addons is not None:
+            pulumi.set(__self__, "vnet_addons", vnet_addons)
 
     @property
-    @pulumi.getter(name="activeDeploymentName")
-    def active_deployment_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="addonConfigs")
+    def addon_configs(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Name of the active deployment of the App
+        Collection of addons
         """
-        return pulumi.get(self, "active_deployment_name")
+        return pulumi.get(self, "addon_configs")
 
-    @active_deployment_name.setter
-    def active_deployment_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "active_deployment_name", value)
+    @addon_configs.setter
+    def addon_configs(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "addon_configs", value)
 
     @property
-    @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="customPersistentDisks")
+    def custom_persistent_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgs']]]]:
         """
-        Fully qualified dns Name.
+        List of custom persistent disks
         """
-        return pulumi.get(self, "fqdn")
+        return pulumi.get(self, "custom_persistent_disks")
 
-    @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "fqdn", value)
+    @custom_persistent_disks.setter
+    def custom_persistent_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgs']]]]):
+        pulumi.set(self, "custom_persistent_disks", value)
+
+    @property
+    @pulumi.getter(name="enableEndToEndTLS")
+    def enable_end_to_end_tls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate if end to end TLS is enabled.
+        """
+        return pulumi.get(self, "enable_end_to_end_tls")
+
+    @enable_end_to_end_tls.setter
+    def enable_end_to_end_tls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_end_to_end_tls", value)
 
     @property
     @pulumi.getter(name="httpsOnly")
@@ -239,6 +292,30 @@ class AppResourcePropertiesArgs:
     @https_only.setter
     def https_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "https_only", value)
+
+    @property
+    @pulumi.getter(name="ingressSettings")
+    def ingress_settings(self) -> Optional[pulumi.Input['IngressSettingsArgs']]:
+        """
+        App ingress settings payload.
+        """
+        return pulumi.get(self, "ingress_settings")
+
+    @ingress_settings.setter
+    def ingress_settings(self, value: Optional[pulumi.Input['IngressSettingsArgs']]):
+        pulumi.set(self, "ingress_settings", value)
+
+    @property
+    @pulumi.getter(name="loadedCertificates")
+    def loaded_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadedCertificateArgs']]]]:
+        """
+        Collection of loaded certificates
+        """
+        return pulumi.get(self, "loaded_certificates")
+
+    @loaded_certificates.setter
+    def loaded_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadedCertificateArgs']]]]):
+        pulumi.set(self, "loaded_certificates", value)
 
     @property
     @pulumi.getter(name="persistentDisk")
@@ -276,16 +353,141 @@ class AppResourcePropertiesArgs:
     def temporary_disk(self, value: Optional[pulumi.Input['TemporaryDiskArgs']]):
         pulumi.set(self, "temporary_disk", value)
 
+    @property
+    @pulumi.getter(name="vnetAddons")
+    def vnet_addons(self) -> Optional[pulumi.Input['AppVNetAddonsArgs']]:
+        """
+        Additional App settings in vnet injection instance
+        """
+        return pulumi.get(self, "vnet_addons")
+
+    @vnet_addons.setter
+    def vnet_addons(self, value: Optional[pulumi.Input['AppVNetAddonsArgs']]):
+        pulumi.set(self, "vnet_addons", value)
+
+
+@pulumi.input_type
+class AppVNetAddonsArgs:
+    def __init__(__self__, *,
+                 public_endpoint: Optional[pulumi.Input[bool]] = None):
+        """
+        Additional App settings in vnet injection instance
+        :param pulumi.Input[bool] public_endpoint: Indicates whether the App in vnet injection instance exposes endpoint which could be accessed from internet.
+        """
+        if public_endpoint is None:
+            public_endpoint = False
+        if public_endpoint is not None:
+            pulumi.set(__self__, "public_endpoint", public_endpoint)
+
+    @property
+    @pulumi.getter(name="publicEndpoint")
+    def public_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the App in vnet injection instance exposes endpoint which could be accessed from internet.
+        """
+        return pulumi.get(self, "public_endpoint")
+
+    @public_endpoint.setter
+    def public_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_endpoint", value)
+
+
+@pulumi.input_type
+class AzureFileVolumeArgs:
+    def __init__(__self__, *,
+                 mount_path: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of the Azure File volume. Azure File shares are mounted as volumes.
+        :param pulumi.Input[str] mount_path: The mount path of the persistent disk.
+        :param pulumi.Input[str] share_name: The share name of the Azure File share.
+        :param pulumi.Input[str] type: The type of the underlying resource to mount as a persistent disk.
+               Expected value is 'AzureFileVolume'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_options: These are the mount options for a persistent disk.
+        :param pulumi.Input[bool] read_only: Indicates whether the persistent disk is a readOnly one.
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", 'AzureFileVolume')
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[str]:
+        """
+        The mount path of the persistent disk.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The share name of the Azure File share.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the underlying resource to mount as a persistent disk.
+        Expected value is 'AzureFileVolume'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        These are the mount options for a persistent disk.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @mount_options.setter
+    def mount_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "mount_options", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the persistent disk is a readOnly one.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
 
 @pulumi.input_type
 class BindingResourcePropertiesArgs:
     def __init__(__self__, *,
-                 binding_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 binding_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Binding resource properties payload
-        :param pulumi.Input[Mapping[str, Any]] binding_parameters: Binding parameters of the Binding resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] binding_parameters: Binding parameters of the Binding resource
         :param pulumi.Input[str] key: The key of the bound resource
         :param pulumi.Input[str] resource_id: The Azure resource id of the bound resource
         """
@@ -298,14 +500,14 @@ class BindingResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="bindingParameters")
-    def binding_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def binding_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Binding parameters of the Binding resource
         """
         return pulumi.get(self, "binding_parameters")
 
     @binding_parameters.setter
-    def binding_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def binding_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "binding_parameters", value)
 
     @property
@@ -331,6 +533,63 @@ class BindingResourcePropertiesArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class BuildResultUserSourceInfoArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 build_result_id: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Reference to a build result
+        :param pulumi.Input[str] type: Type of the source uploaded
+               Expected value is 'BuildResult'.
+        :param pulumi.Input[str] build_result_id: Resource id of an existing succeeded build result under the same Spring instance.
+        :param pulumi.Input[str] version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'BuildResult')
+        if build_result_id is not None:
+            pulumi.set(__self__, "build_result_id", build_result_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the source uploaded
+        Expected value is 'BuildResult'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="buildResultId")
+    def build_result_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource id of an existing succeeded build result under the same Spring instance.
+        """
+        return pulumi.get(self, "build_result_id")
+
+    @build_result_id.setter
+    def build_result_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_result_id", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -566,69 +825,24 @@ class BuildpacksGroupPropertiesArgs:
 
 
 @pulumi.input_type
-class CertificatePropertiesArgs:
-    def __init__(__self__, *,
-                 key_vault_cert_name: pulumi.Input[str],
-                 vault_uri: pulumi.Input[str],
-                 cert_version: Optional[pulumi.Input[str]] = None):
-        """
-        Certificate resource payload.
-        :param pulumi.Input[str] key_vault_cert_name: The certificate name of key vault.
-        :param pulumi.Input[str] vault_uri: The vault uri of user key vault.
-        :param pulumi.Input[str] cert_version: The certificate version of key vault.
-        """
-        pulumi.set(__self__, "key_vault_cert_name", key_vault_cert_name)
-        pulumi.set(__self__, "vault_uri", vault_uri)
-        if cert_version is not None:
-            pulumi.set(__self__, "cert_version", cert_version)
-
-    @property
-    @pulumi.getter(name="keyVaultCertName")
-    def key_vault_cert_name(self) -> pulumi.Input[str]:
-        """
-        The certificate name of key vault.
-        """
-        return pulumi.get(self, "key_vault_cert_name")
-
-    @key_vault_cert_name.setter
-    def key_vault_cert_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key_vault_cert_name", value)
-
-    @property
-    @pulumi.getter(name="vaultUri")
-    def vault_uri(self) -> pulumi.Input[str]:
-        """
-        The vault uri of user key vault.
-        """
-        return pulumi.get(self, "vault_uri")
-
-    @vault_uri.setter
-    def vault_uri(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vault_uri", value)
-
-    @property
-    @pulumi.getter(name="certVersion")
-    def cert_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The certificate version of key vault.
-        """
-        return pulumi.get(self, "cert_version")
-
-    @cert_version.setter
-    def cert_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cert_version", value)
-
-
-@pulumi.input_type
 class ClusterResourcePropertiesArgs:
     def __init__(__self__, *,
-                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None):
+                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+                 vnet_addons: Optional[pulumi.Input['ServiceVNetAddonsArgs']] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         Service properties payload
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Network profile of the Service
+        :param pulumi.Input['ServiceVNetAddonsArgs'] vnet_addons: Additional Service settings in vnet injection instance
         """
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
+        if vnet_addons is not None:
+            pulumi.set(__self__, "vnet_addons", vnet_addons)
+        if zone_redundant is None:
+            zone_redundant = False
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="networkProfile")
@@ -641,6 +855,27 @@ class ClusterResourcePropertiesArgs:
     @network_profile.setter
     def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter(name="vnetAddons")
+    def vnet_addons(self) -> Optional[pulumi.Input['ServiceVNetAddonsArgs']]:
+        """
+        Additional Service settings in vnet injection instance
+        """
+        return pulumi.get(self, "vnet_addons")
+
+    @vnet_addons.setter
+    def vnet_addons(self, value: Optional[pulumi.Input['ServiceVNetAddonsArgs']]):
+        pulumi.set(self, "vnet_addons", value)
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
 
 
 @pulumi.input_type
@@ -1127,6 +1362,232 @@ class ConfigurationServiceSettingsArgs:
 
 
 @pulumi.input_type
+class ContainerProbeSettingsArgs:
+    def __init__(__self__, *,
+                 disable_probe: Optional[pulumi.Input[bool]] = None):
+        """
+        Container liveness and readiness probe settings
+        :param pulumi.Input[bool] disable_probe: Indicates whether disable the liveness and readiness probe
+        """
+        if disable_probe is not None:
+            pulumi.set(__self__, "disable_probe", disable_probe)
+
+    @property
+    @pulumi.getter(name="disableProbe")
+    def disable_probe(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether disable the liveness and readiness probe
+        """
+        return pulumi.get(self, "disable_probe")
+
+    @disable_probe.setter
+    def disable_probe(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_probe", value)
+
+
+@pulumi.input_type
+class ContentCertificatePropertiesArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 content: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of certificate imported from key vault.
+        :param pulumi.Input[str] type: The type of the certificate source.
+               Expected value is 'ContentCertificate'.
+        :param pulumi.Input[str] content: The content of uploaded certificate.
+        """
+        pulumi.set(__self__, "type", 'ContentCertificate')
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the certificate source.
+        Expected value is 'ContentCertificate'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content of uploaded certificate.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+
+@pulumi.input_type
+class CustomContainerUserSourceInfoArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 custom_container: Optional[pulumi.Input['CustomContainerArgs']] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Custom container user source info
+        :param pulumi.Input[str] type: Type of the source uploaded
+               Expected value is 'Container'.
+        :param pulumi.Input['CustomContainerArgs'] custom_container: Custom container payload
+        :param pulumi.Input[str] version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'Container')
+        if custom_container is not None:
+            pulumi.set(__self__, "custom_container", custom_container)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the source uploaded
+        Expected value is 'Container'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="customContainer")
+    def custom_container(self) -> Optional[pulumi.Input['CustomContainerArgs']]:
+        """
+        Custom container payload
+        """
+        return pulumi.get(self, "custom_container")
+
+    @custom_container.setter
+    def custom_container(self, value: Optional[pulumi.Input['CustomContainerArgs']]):
+        pulumi.set(self, "custom_container", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class CustomContainerArgs:
+    def __init__(__self__, *,
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 container_image: Optional[pulumi.Input[str]] = None,
+                 image_registry_credential: Optional[pulumi.Input['ImageRegistryCredentialArgs']] = None,
+                 language_framework: Optional[pulumi.Input[str]] = None,
+                 server: Optional[pulumi.Input[str]] = None):
+        """
+        Custom container payload
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: Arguments to the entrypoint. The docker image's CMD is used if this is not provided.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided.
+        :param pulumi.Input[str] container_image: Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry
+        :param pulumi.Input['ImageRegistryCredentialArgs'] image_registry_credential: Credential of the image registry
+        :param pulumi.Input[str] language_framework: Language framework of the container image uploaded
+        :param pulumi.Input[str] server: The name of the registry that contains the container image
+        """
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if container_image is not None:
+            pulumi.set(__self__, "container_image", container_image)
+        if image_registry_credential is not None:
+            pulumi.set(__self__, "image_registry_credential", image_registry_credential)
+        if language_framework is not None:
+            pulumi.set(__self__, "language_framework", language_framework)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Arguments to the entrypoint. The docker image's CMD is used if this is not provided.
+        """
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter(name="containerImage")
+    def container_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry
+        """
+        return pulumi.get(self, "container_image")
+
+    @container_image.setter
+    def container_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_image", value)
+
+    @property
+    @pulumi.getter(name="imageRegistryCredential")
+    def image_registry_credential(self) -> Optional[pulumi.Input['ImageRegistryCredentialArgs']]:
+        """
+        Credential of the image registry
+        """
+        return pulumi.get(self, "image_registry_credential")
+
+    @image_registry_credential.setter
+    def image_registry_credential(self, value: Optional[pulumi.Input['ImageRegistryCredentialArgs']]):
+        pulumi.set(self, "image_registry_credential", value)
+
+    @property
+    @pulumi.getter(name="languageFramework")
+    def language_framework(self) -> Optional[pulumi.Input[str]]:
+        """
+        Language framework of the container image uploaded
+        """
+        return pulumi.get(self, "language_framework")
+
+    @language_framework.setter
+    def language_framework(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language_framework", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the registry that contains the container image
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server", value)
+
+
+@pulumi.input_type
 class CustomDomainPropertiesArgs:
     def __init__(__self__, *,
                  cert_name: Optional[pulumi.Input[str]] = None,
@@ -1167,19 +1628,74 @@ class CustomDomainPropertiesArgs:
 
 
 @pulumi.input_type
+class CustomPersistentDiskResourceArgs:
+    def __init__(__self__, *,
+                 storage_id: pulumi.Input[str],
+                 custom_persistent_disk_properties: Optional[pulumi.Input['AzureFileVolumeArgs']] = None):
+        """
+        Custom persistent disk resource payload.
+        :param pulumi.Input[str] storage_id: The resource id of Azure Spring Apps Storage resource.
+        :param pulumi.Input['AzureFileVolumeArgs'] custom_persistent_disk_properties: Properties of the custom persistent disk resource payload.
+        """
+        pulumi.set(__self__, "storage_id", storage_id)
+        if custom_persistent_disk_properties is not None:
+            pulumi.set(__self__, "custom_persistent_disk_properties", custom_persistent_disk_properties)
+
+    @property
+    @pulumi.getter(name="storageId")
+    def storage_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of Azure Spring Apps Storage resource.
+        """
+        return pulumi.get(self, "storage_id")
+
+    @storage_id.setter
+    def storage_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_id", value)
+
+    @property
+    @pulumi.getter(name="customPersistentDiskProperties")
+    def custom_persistent_disk_properties(self) -> Optional[pulumi.Input['AzureFileVolumeArgs']]:
+        """
+        Properties of the custom persistent disk resource payload.
+        """
+        return pulumi.get(self, "custom_persistent_disk_properties")
+
+    @custom_persistent_disk_properties.setter
+    def custom_persistent_disk_properties(self, value: Optional[pulumi.Input['AzureFileVolumeArgs']]):
+        pulumi.set(self, "custom_persistent_disk_properties", value)
+
+
+@pulumi.input_type
 class DeploymentResourcePropertiesArgs:
     def __init__(__self__, *,
+                 active: Optional[pulumi.Input[bool]] = None,
                  deployment_settings: Optional[pulumi.Input['DeploymentSettingsArgs']] = None,
-                 source: Optional[pulumi.Input['UserSourceInfoArgs']] = None):
+                 source: Optional[pulumi.Input[Union['BuildResultUserSourceInfoArgs', 'CustomContainerUserSourceInfoArgs', 'JarUploadedUserSourceInfoArgs', 'NetCoreZipUploadedUserSourceInfoArgs', 'SourceUploadedUserSourceInfoArgs', 'UploadedUserSourceInfoArgs']]] = None):
         """
         Deployment resource properties payload
+        :param pulumi.Input[bool] active: Indicates whether the Deployment is active
         :param pulumi.Input['DeploymentSettingsArgs'] deployment_settings: Deployment settings of the Deployment
-        :param pulumi.Input['UserSourceInfoArgs'] source: Uploaded source information of the deployment.
+        :param pulumi.Input[Union['BuildResultUserSourceInfoArgs', 'CustomContainerUserSourceInfoArgs', 'JarUploadedUserSourceInfoArgs', 'NetCoreZipUploadedUserSourceInfoArgs', 'SourceUploadedUserSourceInfoArgs', 'UploadedUserSourceInfoArgs']] source: Uploaded source information of the deployment.
         """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
         if deployment_settings is not None:
             pulumi.set(__self__, "deployment_settings", deployment_settings)
         if source is not None:
             pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the Deployment is active
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
 
     @property
     @pulumi.getter(name="deploymentSettings")
@@ -1195,65 +1711,81 @@ class DeploymentResourcePropertiesArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['UserSourceInfoArgs']]:
+    def source(self) -> Optional[pulumi.Input[Union['BuildResultUserSourceInfoArgs', 'CustomContainerUserSourceInfoArgs', 'JarUploadedUserSourceInfoArgs', 'NetCoreZipUploadedUserSourceInfoArgs', 'SourceUploadedUserSourceInfoArgs', 'UploadedUserSourceInfoArgs']]]:
         """
         Uploaded source information of the deployment.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['UserSourceInfoArgs']]):
+    def source(self, value: Optional[pulumi.Input[Union['BuildResultUserSourceInfoArgs', 'CustomContainerUserSourceInfoArgs', 'JarUploadedUserSourceInfoArgs', 'NetCoreZipUploadedUserSourceInfoArgs', 'SourceUploadedUserSourceInfoArgs', 'UploadedUserSourceInfoArgs']]]):
         pulumi.set(self, "source", value)
 
 
 @pulumi.input_type
 class DeploymentSettingsArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[int]] = None,
+                 addon_configs: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 container_probe_settings: Optional[pulumi.Input['ContainerProbeSettingsArgs']] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 jvm_options: Optional[pulumi.Input[str]] = None,
-                 memory_in_gb: Optional[pulumi.Input[int]] = None,
-                 net_core_main_entry_path: Optional[pulumi.Input[str]] = None,
-                 runtime_version: Optional[pulumi.Input[Union[str, 'RuntimeVersion']]] = None):
+                 liveness_probe: Optional[pulumi.Input['ProbeArgs']] = None,
+                 readiness_probe: Optional[pulumi.Input['ProbeArgs']] = None,
+                 resource_requests: Optional[pulumi.Input['ResourceRequestsArgs']] = None,
+                 startup_probe: Optional[pulumi.Input['ProbeArgs']] = None,
+                 termination_grace_period_seconds: Optional[pulumi.Input[int]] = None):
         """
         Deployment settings payload
-        :param pulumi.Input[int] cpu: Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        :param pulumi.Input[Mapping[str, Any]] addon_configs: Collection of addons
+        :param pulumi.Input['ContainerProbeSettingsArgs'] container_probe_settings: Container liveness and readiness probe settings
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Collection of environment variables
-        :param pulumi.Input[str] jvm_options: JVM parameter
-        :param pulumi.Input[int] memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-        :param pulumi.Input[str] net_core_main_entry_path: The path to the .NET executable relative to zip root
-        :param pulumi.Input[Union[str, 'RuntimeVersion']] runtime_version: Runtime version
+        :param pulumi.Input['ProbeArgs'] liveness_probe: Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+        :param pulumi.Input['ProbeArgs'] readiness_probe: Periodic probe of App Instance service readiness. App Instance will be removed from service endpoints if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+        :param pulumi.Input['ResourceRequestsArgs'] resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+        :param pulumi.Input['ProbeArgs'] startup_probe: StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+        :param pulumi.Input[int] termination_grace_period_seconds: Optional duration in seconds the App Instance needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 90 seconds.
         """
-        if cpu is None:
-            cpu = 1
-        if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+        if addon_configs is not None:
+            pulumi.set(__self__, "addon_configs", addon_configs)
+        if container_probe_settings is not None:
+            pulumi.set(__self__, "container_probe_settings", container_probe_settings)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
-        if jvm_options is not None:
-            pulumi.set(__self__, "jvm_options", jvm_options)
-        if memory_in_gb is None:
-            memory_in_gb = 1
-        if memory_in_gb is not None:
-            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
-        if net_core_main_entry_path is not None:
-            pulumi.set(__self__, "net_core_main_entry_path", net_core_main_entry_path)
-        if runtime_version is None:
-            runtime_version = 'Java_8'
-        if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if resource_requests is not None:
+            pulumi.set(__self__, "resource_requests", resource_requests)
+        if startup_probe is not None:
+            pulumi.set(__self__, "startup_probe", startup_probe)
+        if termination_grace_period_seconds is None:
+            termination_grace_period_seconds = 90
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
 
     @property
-    @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="addonConfigs")
+    def addon_configs(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+        Collection of addons
         """
-        return pulumi.get(self, "cpu")
+        return pulumi.get(self, "addon_configs")
 
-    @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "cpu", value)
+    @addon_configs.setter
+    def addon_configs(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "addon_configs", value)
+
+    @property
+    @pulumi.getter(name="containerProbeSettings")
+    def container_probe_settings(self) -> Optional[pulumi.Input['ContainerProbeSettingsArgs']]:
+        """
+        Container liveness and readiness probe settings
+        """
+        return pulumi.get(self, "container_probe_settings")
+
+    @container_probe_settings.setter
+    def container_probe_settings(self, value: Optional[pulumi.Input['ContainerProbeSettingsArgs']]):
+        pulumi.set(self, "container_probe_settings", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -1268,52 +1800,64 @@ class DeploymentSettingsArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
-    @pulumi.getter(name="jvmOptions")
-    def jvm_options(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional[pulumi.Input['ProbeArgs']]:
         """
-        JVM parameter
+        Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         """
-        return pulumi.get(self, "jvm_options")
+        return pulumi.get(self, "liveness_probe")
 
-    @jvm_options.setter
-    def jvm_options(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "jvm_options", value)
-
-    @property
-    @pulumi.getter(name="memoryInGB")
-    def memory_in_gb(self) -> Optional[pulumi.Input[int]]:
-        """
-        Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-        """
-        return pulumi.get(self, "memory_in_gb")
-
-    @memory_in_gb.setter
-    def memory_in_gb(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "memory_in_gb", value)
+    @liveness_probe.setter
+    def liveness_probe(self, value: Optional[pulumi.Input['ProbeArgs']]):
+        pulumi.set(self, "liveness_probe", value)
 
     @property
-    @pulumi.getter(name="netCoreMainEntryPath")
-    def net_core_main_entry_path(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional[pulumi.Input['ProbeArgs']]:
         """
-        The path to the .NET executable relative to zip root
+        Periodic probe of App Instance service readiness. App Instance will be removed from service endpoints if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         """
-        return pulumi.get(self, "net_core_main_entry_path")
+        return pulumi.get(self, "readiness_probe")
 
-    @net_core_main_entry_path.setter
-    def net_core_main_entry_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "net_core_main_entry_path", value)
+    @readiness_probe.setter
+    def readiness_probe(self, value: Optional[pulumi.Input['ProbeArgs']]):
+        pulumi.set(self, "readiness_probe", value)
 
     @property
-    @pulumi.getter(name="runtimeVersion")
-    def runtime_version(self) -> Optional[pulumi.Input[Union[str, 'RuntimeVersion']]]:
+    @pulumi.getter(name="resourceRequests")
+    def resource_requests(self) -> Optional[pulumi.Input['ResourceRequestsArgs']]:
         """
-        Runtime version
+        The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         """
-        return pulumi.get(self, "runtime_version")
+        return pulumi.get(self, "resource_requests")
 
-    @runtime_version.setter
-    def runtime_version(self, value: Optional[pulumi.Input[Union[str, 'RuntimeVersion']]]):
-        pulumi.set(self, "runtime_version", value)
+    @resource_requests.setter
+    def resource_requests(self, value: Optional[pulumi.Input['ResourceRequestsArgs']]):
+        pulumi.set(self, "resource_requests", value)
+
+    @property
+    @pulumi.getter(name="startupProbe")
+    def startup_probe(self) -> Optional[pulumi.Input['ProbeArgs']]:
+        """
+        StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+        """
+        return pulumi.get(self, "startup_probe")
+
+    @startup_probe.setter
+    def startup_probe(self, value: Optional[pulumi.Input['ProbeArgs']]):
+        pulumi.set(self, "startup_probe", value)
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Optional duration in seconds the App Instance needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 90 seconds.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @termination_grace_period_seconds.setter
+    def termination_grace_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "termination_grace_period_seconds", value)
 
 
 @pulumi.input_type
@@ -1354,6 +1898,47 @@ class ErrorArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
+
+
+@pulumi.input_type
+class ExecActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        ExecAction describes a "run in container" action.
+        :param pulumi.Input[str] type: The type of the action to take to perform the health check.
+               Expected value is 'ExecAction'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+        """
+        pulumi.set(__self__, "type", 'ExecAction')
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the action to take to perform the health check.
+        Expected value is 'ExecAction'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
 
 
 @pulumi.input_type
@@ -1877,17 +2462,51 @@ class GatewayResourceRequestsArgs:
 
 
 @pulumi.input_type
+class GatewayRouteConfigOpenApiPropertiesArgs:
+    def __init__(__self__, *,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        OpenAPI properties of Spring Cloud Gateway route config.
+        :param pulumi.Input[str] uri: The URI of OpenAPI specification.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of OpenAPI specification.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
 class GatewayRouteConfigPropertiesArgs:
     def __init__(__self__, *,
                  app_resource_id: Optional[pulumi.Input[str]] = None,
+                 open_api: Optional[pulumi.Input['GatewayRouteConfigOpenApiPropertiesArgs']] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'GatewayRouteConfigProtocol']]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayApiRouteArgs']]]] = None):
         """
         API route config of the Spring Cloud Gateway
-        :param pulumi.Input[str] app_resource_id: The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
+        :param pulumi.Input[str] app_resource_id: The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
+        :param pulumi.Input['GatewayRouteConfigOpenApiPropertiesArgs'] open_api: OpenAPI properties of Spring Cloud Gateway route config.
+        :param pulumi.Input[Union[str, 'GatewayRouteConfigProtocol']] protocol: Protocol of routed Azure Spring Apps applications.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayApiRouteArgs']]] routes: Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
         """
         if app_resource_id is not None:
             pulumi.set(__self__, "app_resource_id", app_resource_id)
+        if open_api is not None:
+            pulumi.set(__self__, "open_api", open_api)
+        if protocol is None:
+            protocol = 'HTTP'
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
 
@@ -1895,13 +2514,37 @@ class GatewayRouteConfigPropertiesArgs:
     @pulumi.getter(name="appResourceId")
     def app_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
+        The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
         """
         return pulumi.get(self, "app_resource_id")
 
     @app_resource_id.setter
     def app_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_resource_id", value)
+
+    @property
+    @pulumi.getter(name="openApi")
+    def open_api(self) -> Optional[pulumi.Input['GatewayRouteConfigOpenApiPropertiesArgs']]:
+        """
+        OpenAPI properties of Spring Cloud Gateway route config.
+        """
+        return pulumi.get(self, "open_api")
+
+    @open_api.setter
+    def open_api(self, value: Optional[pulumi.Input['GatewayRouteConfigOpenApiPropertiesArgs']]):
+        pulumi.set(self, "open_api", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'GatewayRouteConfigProtocol']]]:
+        """
+        Protocol of routed Azure Spring Apps applications.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'GatewayRouteConfigProtocol']]]):
+        pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter
@@ -1931,7 +2574,7 @@ class GitPatternRepositoryArgs:
                  strict_host_key_checking: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
-        Git repository property payload
+        Git repository property payload for config server
         :param pulumi.Input[str] name: Name of the repository
         :param pulumi.Input[str] uri: URI of the repository
         :param pulumi.Input[str] host_key: Public sshKey of git repository.
@@ -2099,16 +2742,494 @@ class GitPatternRepositoryArgs:
 
 
 @pulumi.input_type
+class HTTPGetActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 scheme: Optional[pulumi.Input[Union[str, 'HTTPSchemeType']]] = None):
+        """
+        HTTPGetAction describes an action based on HTTP Get requests.
+        :param pulumi.Input[str] type: The type of the action to take to perform the health check.
+               Expected value is 'HTTPGetAction'.
+        :param pulumi.Input[str] path: Path to access on the HTTP server.
+        :param pulumi.Input[Union[str, 'HTTPSchemeType']] scheme: Scheme to use for connecting to the host. Defaults to HTTP.
+               
+               Possible enum values:
+                - `"HTTP"` means that the scheme used will be http://
+                - `"HTTPS"` means that the scheme used will be https://
+        """
+        pulumi.set(__self__, "type", 'HTTPGetAction')
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the action to take to perform the health check.
+        Expected value is 'HTTPGetAction'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to access on the HTTP server.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[pulumi.Input[Union[str, 'HTTPSchemeType']]]:
+        """
+        Scheme to use for connecting to the host. Defaults to HTTP.
+
+        Possible enum values:
+         - `"HTTP"` means that the scheme used will be http://
+         - `"HTTPS"` means that the scheme used will be https://
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: Optional[pulumi.Input[Union[str, 'HTTPSchemeType']]]):
+        pulumi.set(self, "scheme", value)
+
+
+@pulumi.input_type
+class ImageRegistryCredentialArgs:
+    def __init__(__self__, *,
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Credential of the image registry
+        :param pulumi.Input[str] password: The password of the image registry credential
+        :param pulumi.Input[str] username: The username of the image registry credential
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password of the image registry credential
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username of the image registry credential
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class IngressConfigArgs:
+    def __init__(__self__, *,
+                 read_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Ingress configuration payload for Azure Spring Apps resource.
+        :param pulumi.Input[int] read_timeout_in_seconds: Ingress read time out in seconds.
+        """
+        if read_timeout_in_seconds is not None:
+            pulumi.set(__self__, "read_timeout_in_seconds", read_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="readTimeoutInSeconds")
+    def read_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Ingress read time out in seconds.
+        """
+        return pulumi.get(self, "read_timeout_in_seconds")
+
+    @read_timeout_in_seconds.setter
+    def read_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_timeout_in_seconds", value)
+
+
+@pulumi.input_type
+class IngressSettingsClientAuthArgs:
+    def __init__(__self__, *,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Client-Certification Authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificates: Collection of certificate resource id.
+        """
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Collection of certificate resource id.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "certificates", value)
+
+
+@pulumi.input_type
+class IngressSettingsArgs:
+    def __init__(__self__, *,
+                 backend_protocol: Optional[pulumi.Input[Union[str, 'BackendProtocol']]] = None,
+                 client_auth: Optional[pulumi.Input['IngressSettingsClientAuthArgs']] = None,
+                 read_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 send_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 session_affinity: Optional[pulumi.Input[Union[str, 'SessionAffinity']]] = None,
+                 session_cookie_max_age: Optional[pulumi.Input[int]] = None):
+        """
+        App ingress settings payload.
+        :param pulumi.Input[Union[str, 'BackendProtocol']] backend_protocol: How ingress should communicate with this app backend service.
+        :param pulumi.Input['IngressSettingsClientAuthArgs'] client_auth: Client-Certification Authentication.
+        :param pulumi.Input[int] read_timeout_in_seconds: Ingress read time out in seconds.
+        :param pulumi.Input[int] send_timeout_in_seconds: Ingress send time out in seconds.
+        :param pulumi.Input[Union[str, 'SessionAffinity']] session_affinity: Type of the affinity, set this to Cookie to enable session affinity.
+        :param pulumi.Input[int] session_cookie_max_age: Time in seconds until the cookie expires.
+        """
+        if backend_protocol is not None:
+            pulumi.set(__self__, "backend_protocol", backend_protocol)
+        if client_auth is not None:
+            pulumi.set(__self__, "client_auth", client_auth)
+        if read_timeout_in_seconds is not None:
+            pulumi.set(__self__, "read_timeout_in_seconds", read_timeout_in_seconds)
+        if send_timeout_in_seconds is not None:
+            pulumi.set(__self__, "send_timeout_in_seconds", send_timeout_in_seconds)
+        if session_affinity is not None:
+            pulumi.set(__self__, "session_affinity", session_affinity)
+        if session_cookie_max_age is not None:
+            pulumi.set(__self__, "session_cookie_max_age", session_cookie_max_age)
+
+    @property
+    @pulumi.getter(name="backendProtocol")
+    def backend_protocol(self) -> Optional[pulumi.Input[Union[str, 'BackendProtocol']]]:
+        """
+        How ingress should communicate with this app backend service.
+        """
+        return pulumi.get(self, "backend_protocol")
+
+    @backend_protocol.setter
+    def backend_protocol(self, value: Optional[pulumi.Input[Union[str, 'BackendProtocol']]]):
+        pulumi.set(self, "backend_protocol", value)
+
+    @property
+    @pulumi.getter(name="clientAuth")
+    def client_auth(self) -> Optional[pulumi.Input['IngressSettingsClientAuthArgs']]:
+        """
+        Client-Certification Authentication.
+        """
+        return pulumi.get(self, "client_auth")
+
+    @client_auth.setter
+    def client_auth(self, value: Optional[pulumi.Input['IngressSettingsClientAuthArgs']]):
+        pulumi.set(self, "client_auth", value)
+
+    @property
+    @pulumi.getter(name="readTimeoutInSeconds")
+    def read_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Ingress read time out in seconds.
+        """
+        return pulumi.get(self, "read_timeout_in_seconds")
+
+    @read_timeout_in_seconds.setter
+    def read_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="sendTimeoutInSeconds")
+    def send_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Ingress send time out in seconds.
+        """
+        return pulumi.get(self, "send_timeout_in_seconds")
+
+    @send_timeout_in_seconds.setter
+    def send_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "send_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="sessionAffinity")
+    def session_affinity(self) -> Optional[pulumi.Input[Union[str, 'SessionAffinity']]]:
+        """
+        Type of the affinity, set this to Cookie to enable session affinity.
+        """
+        return pulumi.get(self, "session_affinity")
+
+    @session_affinity.setter
+    def session_affinity(self, value: Optional[pulumi.Input[Union[str, 'SessionAffinity']]]):
+        pulumi.set(self, "session_affinity", value)
+
+    @property
+    @pulumi.getter(name="sessionCookieMaxAge")
+    def session_cookie_max_age(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time in seconds until the cookie expires.
+        """
+        return pulumi.get(self, "session_cookie_max_age")
+
+    @session_cookie_max_age.setter
+    def session_cookie_max_age(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "session_cookie_max_age", value)
+
+
+@pulumi.input_type
+class JarUploadedUserSourceInfoArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 jvm_options: Optional[pulumi.Input[str]] = None,
+                 relative_path: Optional[pulumi.Input[str]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Uploaded Jar binary for a deployment
+        :param pulumi.Input[str] type: Type of the source uploaded
+               Expected value is 'Jar'.
+        :param pulumi.Input[str] jvm_options: JVM parameter
+        :param pulumi.Input[str] relative_path: Relative path of the storage which stores the source
+        :param pulumi.Input[str] runtime_version: Runtime version of the Jar file
+        :param pulumi.Input[str] version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'Jar')
+        if jvm_options is not None:
+            pulumi.set(__self__, "jvm_options", jvm_options)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the source uploaded
+        Expected value is 'Jar'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="jvmOptions")
+    def jvm_options(self) -> Optional[pulumi.Input[str]]:
+        """
+        JVM parameter
+        """
+        return pulumi.get(self, "jvm_options")
+
+    @jvm_options.setter
+    def jvm_options(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "jvm_options", value)
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Relative path of the storage which stores the source
+        """
+        return pulumi.get(self, "relative_path")
+
+    @relative_path.setter
+    def relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relative_path", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runtime version of the Jar file
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class KeyVaultCertificatePropertiesArgs:
+    def __init__(__self__, *,
+                 key_vault_cert_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 vault_uri: pulumi.Input[str],
+                 cert_version: Optional[pulumi.Input[str]] = None,
+                 exclude_private_key: Optional[pulumi.Input[bool]] = None):
+        """
+        Properties of certificate imported from key vault.
+        :param pulumi.Input[str] key_vault_cert_name: The certificate name of key vault.
+        :param pulumi.Input[str] type: The type of the certificate source.
+               Expected value is 'KeyVaultCertificate'.
+        :param pulumi.Input[str] vault_uri: The vault uri of user key vault.
+        :param pulumi.Input[str] cert_version: The certificate version of key vault.
+        :param pulumi.Input[bool] exclude_private_key: Optional. If set to true, it will not import private key from key vault.
+        """
+        pulumi.set(__self__, "key_vault_cert_name", key_vault_cert_name)
+        pulumi.set(__self__, "type", 'KeyVaultCertificate')
+        pulumi.set(__self__, "vault_uri", vault_uri)
+        if cert_version is not None:
+            pulumi.set(__self__, "cert_version", cert_version)
+        if exclude_private_key is None:
+            exclude_private_key = False
+        if exclude_private_key is not None:
+            pulumi.set(__self__, "exclude_private_key", exclude_private_key)
+
+    @property
+    @pulumi.getter(name="keyVaultCertName")
+    def key_vault_cert_name(self) -> pulumi.Input[str]:
+        """
+        The certificate name of key vault.
+        """
+        return pulumi.get(self, "key_vault_cert_name")
+
+    @key_vault_cert_name.setter
+    def key_vault_cert_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_cert_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the certificate source.
+        Expected value is 'KeyVaultCertificate'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="vaultUri")
+    def vault_uri(self) -> pulumi.Input[str]:
+        """
+        The vault uri of user key vault.
+        """
+        return pulumi.get(self, "vault_uri")
+
+    @vault_uri.setter
+    def vault_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_uri", value)
+
+    @property
+    @pulumi.getter(name="certVersion")
+    def cert_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate version of key vault.
+        """
+        return pulumi.get(self, "cert_version")
+
+    @cert_version.setter
+    def cert_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_version", value)
+
+    @property
+    @pulumi.getter(name="excludePrivateKey")
+    def exclude_private_key(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Optional. If set to true, it will not import private key from key vault.
+        """
+        return pulumi.get(self, "exclude_private_key")
+
+    @exclude_private_key.setter
+    def exclude_private_key(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_private_key", value)
+
+
+@pulumi.input_type
+class LoadedCertificateArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str],
+                 load_trust_store: Optional[pulumi.Input[bool]] = None):
+        """
+        Loaded certificate payload
+        :param pulumi.Input[str] resource_id: Resource Id of loaded certificate
+        :param pulumi.Input[bool] load_trust_store: Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        if load_trust_store is None:
+            load_trust_store = False
+        if load_trust_store is not None:
+            pulumi.set(__self__, "load_trust_store", load_trust_store)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource Id of loaded certificate
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="loadTrustStore")
+    def load_trust_store(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
+        """
+        return pulumi.get(self, "load_trust_store")
+
+    @load_trust_store.setter
+    def load_trust_store(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "load_trust_store", value)
+
+
+@pulumi.input_type
 class ManagedIdentityPropertiesArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Managed identity properties retrieved from ARM request headers.
-        :param pulumi.Input[str] principal_id: Principal Id
-        :param pulumi.Input[str] tenant_id: Tenant Id
+        :param pulumi.Input[str] principal_id: Principal Id of system-assigned managed identity.
+        :param pulumi.Input[str] tenant_id: Tenant Id of system-assigned managed identity.
         :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Type of the managed identity
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: Properties of user-assigned managed identities
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -2116,12 +3237,14 @@ class ManagedIdentityPropertiesArgs:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Principal Id
+        Principal Id of system-assigned managed identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -2133,7 +3256,7 @@ class ManagedIdentityPropertiesArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Tenant Id
+        Tenant Id of system-assigned managed identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2153,21 +3276,37 @@ class ManagedIdentityPropertiesArgs:
     def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Properties of user-assigned managed identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
 
 @pulumi.input_type
 class MonitoringSettingPropertiesArgs:
     def __init__(__self__, *,
                  app_insights_instrumentation_key: Optional[pulumi.Input[str]] = None,
+                 app_insights_sampling_rate: Optional[pulumi.Input[float]] = None,
                  error: Optional[pulumi.Input['ErrorArgs']] = None,
                  trace_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Monitoring Setting properties payload
-        :param pulumi.Input[str] app_insights_instrumentation_key: Target application insight instrumentation key
+        :param pulumi.Input[str] app_insights_instrumentation_key: Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
+        :param pulumi.Input[float] app_insights_sampling_rate: Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
         :param pulumi.Input['ErrorArgs'] error: Error when apply Monitoring Setting changes.
-        :param pulumi.Input[bool] trace_enabled: Indicates whether enable the trace functionality
+        :param pulumi.Input[bool] trace_enabled: Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not
         """
         if app_insights_instrumentation_key is not None:
             pulumi.set(__self__, "app_insights_instrumentation_key", app_insights_instrumentation_key)
+        if app_insights_sampling_rate is not None:
+            pulumi.set(__self__, "app_insights_sampling_rate", app_insights_sampling_rate)
         if error is not None:
             pulumi.set(__self__, "error", error)
         if trace_enabled is not None:
@@ -2177,13 +3316,25 @@ class MonitoringSettingPropertiesArgs:
     @pulumi.getter(name="appInsightsInstrumentationKey")
     def app_insights_instrumentation_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Target application insight instrumentation key
+        Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
         """
         return pulumi.get(self, "app_insights_instrumentation_key")
 
     @app_insights_instrumentation_key.setter
     def app_insights_instrumentation_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_insights_instrumentation_key", value)
+
+    @property
+    @pulumi.getter(name="appInsightsSamplingRate")
+    def app_insights_sampling_rate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
+        """
+        return pulumi.get(self, "app_insights_sampling_rate")
+
+    @app_insights_sampling_rate.setter
+    def app_insights_sampling_rate(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "app_insights_sampling_rate", value)
 
     @property
     @pulumi.getter
@@ -2201,7 +3352,7 @@ class MonitoringSettingPropertiesArgs:
     @pulumi.getter(name="traceEnabled")
     def trace_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether enable the trace functionality
+        Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not
         """
         return pulumi.get(self, "trace_enabled")
 
@@ -2211,25 +3362,122 @@ class MonitoringSettingPropertiesArgs:
 
 
 @pulumi.input_type
+class NetCoreZipUploadedUserSourceInfoArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 net_core_main_entry_path: Optional[pulumi.Input[str]] = None,
+                 relative_path: Optional[pulumi.Input[str]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Uploaded Jar binary for a deployment
+        :param pulumi.Input[str] type: Type of the source uploaded
+               Expected value is 'NetCoreZip'.
+        :param pulumi.Input[str] net_core_main_entry_path: The path to the .NET executable relative to zip root
+        :param pulumi.Input[str] relative_path: Relative path of the storage which stores the source
+        :param pulumi.Input[str] runtime_version: Runtime version of the .Net file
+        :param pulumi.Input[str] version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'NetCoreZip')
+        if net_core_main_entry_path is not None:
+            pulumi.set(__self__, "net_core_main_entry_path", net_core_main_entry_path)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the source uploaded
+        Expected value is 'NetCoreZip'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="netCoreMainEntryPath")
+    def net_core_main_entry_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the .NET executable relative to zip root
+        """
+        return pulumi.get(self, "net_core_main_entry_path")
+
+    @net_core_main_entry_path.setter
+    def net_core_main_entry_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "net_core_main_entry_path", value)
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Relative path of the storage which stores the source
+        """
+        return pulumi.get(self, "relative_path")
+
+    @relative_path.setter
+    def relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relative_path", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runtime version of the .Net file
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
                  app_network_resource_group: Optional[pulumi.Input[str]] = None,
                  app_subnet_id: Optional[pulumi.Input[str]] = None,
+                 ingress_config: Optional[pulumi.Input['IngressConfigArgs']] = None,
+                 outbound_type: Optional[pulumi.Input[str]] = None,
                  service_cidr: Optional[pulumi.Input[str]] = None,
                  service_runtime_network_resource_group: Optional[pulumi.Input[str]] = None,
                  service_runtime_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Service network profile payload
-        :param pulumi.Input[str] app_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Apps
-        :param pulumi.Input[str] app_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
-        :param pulumi.Input[str] service_cidr: Azure Spring Cloud service reserved CIDR
-        :param pulumi.Input[str] service_runtime_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
-        :param pulumi.Input[str] service_runtime_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+        :param pulumi.Input[str] app_network_resource_group: Name of the resource group containing network resources for customer apps in Azure Spring Apps
+        :param pulumi.Input[str] app_subnet_id: Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
+        :param pulumi.Input['IngressConfigArgs'] ingress_config: Ingress configuration payload for Azure Spring Apps resource.
+        :param pulumi.Input[str] outbound_type: The egress traffic type of Azure Spring Apps VNet instances.
+        :param pulumi.Input[str] service_cidr: Azure Spring Apps service reserved CIDR
+        :param pulumi.Input[str] service_runtime_network_resource_group: Name of the resource group containing network resources of Azure Spring Apps Service Runtime
+        :param pulumi.Input[str] service_runtime_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
         """
         if app_network_resource_group is not None:
             pulumi.set(__self__, "app_network_resource_group", app_network_resource_group)
         if app_subnet_id is not None:
             pulumi.set(__self__, "app_subnet_id", app_subnet_id)
+        if ingress_config is not None:
+            pulumi.set(__self__, "ingress_config", ingress_config)
+        if outbound_type is not None:
+            pulumi.set(__self__, "outbound_type", outbound_type)
         if service_cidr is not None:
             pulumi.set(__self__, "service_cidr", service_cidr)
         if service_runtime_network_resource_group is not None:
@@ -2241,7 +3489,7 @@ class NetworkProfileArgs:
     @pulumi.getter(name="appNetworkResourceGroup")
     def app_network_resource_group(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the resource group containing network resources of Azure Spring Cloud Apps
+        Name of the resource group containing network resources for customer apps in Azure Spring Apps
         """
         return pulumi.get(self, "app_network_resource_group")
 
@@ -2253,7 +3501,7 @@ class NetworkProfileArgs:
     @pulumi.getter(name="appSubnetId")
     def app_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+        Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
         """
         return pulumi.get(self, "app_subnet_id")
 
@@ -2262,10 +3510,34 @@ class NetworkProfileArgs:
         pulumi.set(self, "app_subnet_id", value)
 
     @property
+    @pulumi.getter(name="ingressConfig")
+    def ingress_config(self) -> Optional[pulumi.Input['IngressConfigArgs']]:
+        """
+        Ingress configuration payload for Azure Spring Apps resource.
+        """
+        return pulumi.get(self, "ingress_config")
+
+    @ingress_config.setter
+    def ingress_config(self, value: Optional[pulumi.Input['IngressConfigArgs']]):
+        pulumi.set(self, "ingress_config", value)
+
+    @property
+    @pulumi.getter(name="outboundType")
+    def outbound_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The egress traffic type of Azure Spring Apps VNet instances.
+        """
+        return pulumi.get(self, "outbound_type")
+
+    @outbound_type.setter
+    def outbound_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_type", value)
+
+    @property
     @pulumi.getter(name="serviceCidr")
     def service_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        Azure Spring Cloud service reserved CIDR
+        Azure Spring Apps service reserved CIDR
         """
         return pulumi.get(self, "service_cidr")
 
@@ -2277,7 +3549,7 @@ class NetworkProfileArgs:
     @pulumi.getter(name="serviceRuntimeNetworkResourceGroup")
     def service_runtime_network_resource_group(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+        Name of the resource group containing network resources of Azure Spring Apps Service Runtime
         """
         return pulumi.get(self, "service_runtime_network_resource_group")
 
@@ -2289,7 +3561,7 @@ class NetworkProfileArgs:
     @pulumi.getter(name="serviceRuntimeSubnetId")
     def service_runtime_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+        Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
         """
         return pulumi.get(self, "service_runtime_subnet_id")
 
@@ -2339,21 +3611,212 @@ class PersistentDiskArgs:
 
 
 @pulumi.input_type
+class ProbeArgs:
+    def __init__(__self__, *,
+                 disable_probe: pulumi.Input[bool],
+                 failure_threshold: Optional[pulumi.Input[int]] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 probe_action: Optional[pulumi.Input[Union['ExecActionArgs', 'HTTPGetActionArgs', 'TCPSocketActionArgs']]] = None,
+                 success_threshold: Optional[pulumi.Input[int]] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Probe describes a health check to be performed against an App Instance to determine whether it is alive or ready to receive traffic.
+        :param pulumi.Input[bool] disable_probe: Indicate whether the probe is disabled.
+        :param pulumi.Input[int] failure_threshold: Minimum consecutive failures for the probe to be considered failed after having succeeded. Minimum value is 1.
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds after the App Instance has started before probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+        :param pulumi.Input[int] period_seconds: How often (in seconds) to perform the probe. Minimum value is 1.
+        :param pulumi.Input[Union['ExecActionArgs', 'HTTPGetActionArgs', 'TCPSocketActionArgs']] probe_action: The action of the probe.
+        :param pulumi.Input[int] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. Must be 1 for liveness and startup. Minimum value is 1.
+        :param pulumi.Input[int] timeout_seconds: Number of seconds after which the probe times out. Minimum value is 1.
+        """
+        if disable_probe is None:
+            disable_probe = False
+        pulumi.set(__self__, "disable_probe", disable_probe)
+        if failure_threshold is not None:
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if probe_action is not None:
+            pulumi.set(__self__, "probe_action", probe_action)
+        if success_threshold is not None:
+            pulumi.set(__self__, "success_threshold", success_threshold)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="disableProbe")
+    def disable_probe(self) -> pulumi.Input[bool]:
+        """
+        Indicate whether the probe is disabled.
+        """
+        return pulumi.get(self, "disable_probe")
+
+    @disable_probe.setter
+    def disable_probe(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "disable_probe", value)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum consecutive failures for the probe to be considered failed after having succeeded. Minimum value is 1.
+        """
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of seconds after the App Instance has started before probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+        """
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @initial_delay_seconds.setter
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay_seconds", value)
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        How often (in seconds) to perform the probe. Minimum value is 1.
+        """
+        return pulumi.get(self, "period_seconds")
+
+    @period_seconds.setter
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_seconds", value)
+
+    @property
+    @pulumi.getter(name="probeAction")
+    def probe_action(self) -> Optional[pulumi.Input[Union['ExecActionArgs', 'HTTPGetActionArgs', 'TCPSocketActionArgs']]]:
+        """
+        The action of the probe.
+        """
+        return pulumi.get(self, "probe_action")
+
+    @probe_action.setter
+    def probe_action(self, value: Optional[pulumi.Input[Union['ExecActionArgs', 'HTTPGetActionArgs', 'TCPSocketActionArgs']]]):
+        pulumi.set(self, "probe_action", value)
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum consecutive successes for the probe to be considered successful after having failed. Must be 1 for liveness and startup. Minimum value is 1.
+        """
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "success_threshold", value)
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of seconds after which the probe times out. Minimum value is 1.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+
+@pulumi.input_type
+class ResourceRequestsArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[str]] = None,
+                 memory: Optional[pulumi.Input[str]] = None):
+        """
+        Deployment resource request payload
+        :param pulumi.Input[str] cpu: Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+        :param pulumi.Input[str] memory: Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class ServiceVNetAddonsArgs:
+    def __init__(__self__, *,
+                 log_stream_public_endpoint: Optional[pulumi.Input[bool]] = None):
+        """
+        Additional Service settings in vnet injection instance
+        :param pulumi.Input[bool] log_stream_public_endpoint: Indicates whether the log stream in vnet injection instance could be accessed from internet.
+        """
+        if log_stream_public_endpoint is None:
+            log_stream_public_endpoint = False
+        if log_stream_public_endpoint is not None:
+            pulumi.set(__self__, "log_stream_public_endpoint", log_stream_public_endpoint)
+
+    @property
+    @pulumi.getter(name="logStreamPublicEndpoint")
+    def log_stream_public_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the log stream in vnet injection instance could be accessed from internet.
+        """
+        return pulumi.get(self, "log_stream_public_endpoint")
+
+    @log_stream_public_endpoint.setter
+    def log_stream_public_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_stream_public_endpoint", value)
+
+
+@pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
-        Sku of Azure Spring Cloud
+        Sku of Azure Spring Apps
         :param pulumi.Input[int] capacity: Current capacity of the target resource
         :param pulumi.Input[str] name: Name of the Sku
         :param pulumi.Input[str] tier: Tier of the Sku
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if name is None:
+            name = 'S0'
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tier is None:
+            tier = 'Standard'
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -2392,6 +3855,97 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SourceUploadedUserSourceInfoArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 artifact_selector: Optional[pulumi.Input[str]] = None,
+                 relative_path: Optional[pulumi.Input[str]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Uploaded Java source code binary for a deployment
+        :param pulumi.Input[str] type: Type of the source uploaded
+               Expected value is 'Source'.
+        :param pulumi.Input[str] artifact_selector: Selector for the artifact to be used for the deployment for multi-module projects. This should be
+               the relative path to the target module/project.
+        :param pulumi.Input[str] relative_path: Relative path of the storage which stores the source
+        :param pulumi.Input[str] runtime_version: Runtime version of the source file
+        :param pulumi.Input[str] version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'Source')
+        if artifact_selector is not None:
+            pulumi.set(__self__, "artifact_selector", artifact_selector)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the source uploaded
+        Expected value is 'Source'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="artifactSelector")
+    def artifact_selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        Selector for the artifact to be used for the deployment for multi-module projects. This should be
+        the relative path to the target module/project.
+        """
+        return pulumi.get(self, "artifact_selector")
+
+    @artifact_selector.setter
+    def artifact_selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_selector", value)
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Relative path of the storage which stores the source
+        """
+        return pulumi.get(self, "relative_path")
+
+    @relative_path.setter
+    def relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relative_path", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runtime version of the source file
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -2562,6 +4116,31 @@ class StorageAccountArgs:
 
 
 @pulumi.input_type
+class TCPSocketActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        TCPSocketAction describes an action based on opening a socket
+        :param pulumi.Input[str] type: The type of the action to take to perform the health check.
+               Expected value is 'TCPSocketAction'.
+        """
+        pulumi.set(__self__, "type", 'TCPSocketAction')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the action to take to perform the health check.
+        Expected value is 'TCPSocketAction'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class TemporaryDiskArgs:
     def __init__(__self__, *,
                  mount_path: Optional[pulumi.Input[str]] = None,
@@ -2604,41 +4183,36 @@ class TemporaryDiskArgs:
 
 
 @pulumi.input_type
-class UserSourceInfoArgs:
+class UploadedUserSourceInfoArgs:
     def __init__(__self__, *,
-                 artifact_selector: Optional[pulumi.Input[str]] = None,
+                 type: pulumi.Input[str],
                  relative_path: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'UserSourceType']]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        Source information for a deployment
-        :param pulumi.Input[str] artifact_selector: Selector for the artifact to be used for the deployment for multi-module projects. This should be
-               the relative path to the target module/project.
+        Source with uploaded location
+        :param pulumi.Input[str] type: Type of the source uploaded
+               Expected value is 'UploadedUserSourceInfo'.
         :param pulumi.Input[str] relative_path: Relative path of the storage which stores the source
-        :param pulumi.Input[Union[str, 'UserSourceType']] type: Type of the source uploaded
         :param pulumi.Input[str] version: Version of the source
         """
-        if artifact_selector is not None:
-            pulumi.set(__self__, "artifact_selector", artifact_selector)
+        pulumi.set(__self__, "type", 'UploadedUserSourceInfo')
         if relative_path is not None:
             pulumi.set(__self__, "relative_path", relative_path)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="artifactSelector")
-    def artifact_selector(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
         """
-        Selector for the artifact to be used for the deployment for multi-module projects. This should be
-        the relative path to the target module/project.
+        Type of the source uploaded
+        Expected value is 'UploadedUserSourceInfo'.
         """
-        return pulumi.get(self, "artifact_selector")
+        return pulumi.get(self, "type")
 
-    @artifact_selector.setter
-    def artifact_selector(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "artifact_selector", value)
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="relativePath")
@@ -2651,18 +4225,6 @@ class UserSourceInfoArgs:
     @relative_path.setter
     def relative_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "relative_path", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'UserSourceType']]]:
-        """
-        Type of the source uploaded
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'UserSourceType']]]):
-        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter

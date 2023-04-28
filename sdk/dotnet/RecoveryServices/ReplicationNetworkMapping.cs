@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-    /// API Version: 2018-07-10.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationNetworkMapping")]
     public partial class ReplicationNetworkMapping : global::Pulumi.CustomResource
@@ -131,8 +132,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Input properties for creating network mapping.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CreateNetworkMappingInputPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.CreateNetworkMappingInputPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

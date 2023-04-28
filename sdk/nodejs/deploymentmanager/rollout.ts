@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Defines the PUT rollout request body.
  * API Version: 2019-11-01-preview.
+ * Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Rollout extends pulumi.CustomResource {
     /**

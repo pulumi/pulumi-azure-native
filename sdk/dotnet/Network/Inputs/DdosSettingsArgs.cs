@@ -16,22 +16,16 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class DdosSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DDoS custom policy associated with the public IP.
+        /// The DDoS protection plan associated with the public IP. Can only be set if ProtectionMode is Enabled
         /// </summary>
-        [Input("ddosCustomPolicy")]
-        public Input<Inputs.SubResourceArgs>? DdosCustomPolicy { get; set; }
+        [Input("ddosProtectionPlan")]
+        public Input<Inputs.SubResourceArgs>? DdosProtectionPlan { get; set; }
 
         /// <summary>
-        /// Enables DDoS protection on the public IP.
+        /// The DDoS protection mode of the public IP
         /// </summary>
-        [Input("protectedIP")]
-        public Input<bool>? ProtectedIP { get; set; }
-
-        /// <summary>
-        /// The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
-        /// </summary>
-        [Input("protectionCoverage")]
-        public InputUnion<string, Pulumi.AzureNative.Network.DdosSettingsProtectionCoverage>? ProtectionCoverage { get; set; }
+        [Input("protectionMode")]
+        public InputUnion<string, Pulumi.AzureNative.Network.DdosSettingsProtectionMode>? ProtectionMode { get; set; }
 
         public DdosSettingsArgs()
         {

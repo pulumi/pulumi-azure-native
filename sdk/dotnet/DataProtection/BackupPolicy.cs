@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
     /// BaseBackupPolicy resource
-    /// API Version: 2021-01-01.
+    /// API Version: 2023-01-01.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupPolicy")]
     public partial class BackupPolicy : global::Pulumi.CustomResource
@@ -118,7 +119,7 @@ namespace Pulumi.AzureNative.DataProtection
         public Input<Inputs.BackupPolicyArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

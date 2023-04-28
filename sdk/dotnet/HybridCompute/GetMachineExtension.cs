@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2020-08-02.
+        /// API Version: 2022-11-10.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2020-08-02.
+        /// API Version: 2022-11-10.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
@@ -38,11 +38,11 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the machine containing the extension.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("machineName", required: true)]
+        public string MachineName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -64,11 +64,11 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the machine containing the extension.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("machineName", required: true)]
+        public Input<string> MachineName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        /// </summary>
+        public readonly bool? EnableAutomaticUpgrade;
+        /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
         public readonly string? ForceUpdateTag;
@@ -98,7 +102,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The machine extension instance view.
         /// </summary>
-        public readonly Outputs.MachineExtensionPropertiesResponseInstanceView? InstanceView;
+        public readonly Outputs.MachineExtensionInstanceViewResponse? InstanceView;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -124,6 +128,10 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly object? Settings;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -140,11 +148,13 @@ namespace Pulumi.AzureNative.HybridCompute
         private GetMachineExtensionResult(
             bool? autoUpgradeMinorVersion,
 
+            bool? enableAutomaticUpgrade,
+
             string? forceUpdateTag,
 
             string id,
 
-            Outputs.MachineExtensionPropertiesResponseInstanceView? instanceView,
+            Outputs.MachineExtensionInstanceViewResponse? instanceView,
 
             string location,
 
@@ -158,6 +168,8 @@ namespace Pulumi.AzureNative.HybridCompute
 
             object? settings,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -165,6 +177,7 @@ namespace Pulumi.AzureNative.HybridCompute
             string? typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            EnableAutomaticUpgrade = enableAutomaticUpgrade;
             ForceUpdateTag = forceUpdateTag;
             Id = id;
             InstanceView = instanceView;
@@ -174,6 +187,7 @@ namespace Pulumi.AzureNative.HybridCompute
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;

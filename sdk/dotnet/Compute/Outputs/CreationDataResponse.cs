@@ -21,17 +21,25 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string CreateOption;
         /// <summary>
-        /// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+        /// Required if creating from a Gallery Image. The id/sharedGalleryImageId/communityGalleryImageId of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
         /// </summary>
         public readonly Outputs.ImageDiskReferenceResponse? GalleryImageReference;
         /// <summary>
-        /// Disk source information.
+        /// Disk source information for PIR or user images.
         /// </summary>
         public readonly Outputs.ImageDiskReferenceResponse? ImageReference;
         /// <summary>
         /// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
         /// </summary>
         public readonly int? LogicalSectorSize;
+        /// <summary>
+        /// Set this flag to true to get a boost on the performance target of the disk deployed, see here on the respective performance target. This flag can only be set on disk creation time and cannot be disabled after enabled.
+        /// </summary>
+        public readonly bool? PerformancePlus;
+        /// <summary>
+        /// If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
+        /// </summary>
+        public readonly string? SecurityDataUri;
         /// <summary>
         /// If createOption is Copy, this is the ARM id of the source snapshot or disk.
         /// </summary>
@@ -63,6 +71,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             int? logicalSectorSize,
 
+            bool? performancePlus,
+
+            string? securityDataUri,
+
             string? sourceResourceId,
 
             string sourceUniqueId,
@@ -77,6 +89,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
             GalleryImageReference = galleryImageReference;
             ImageReference = imageReference;
             LogicalSectorSize = logicalSectorSize;
+            PerformancePlus = performancePlus;
+            SecurityDataUri = securityDataUri;
             SourceResourceId = sourceResourceId;
             SourceUniqueId = sourceUniqueId;
             SourceUri = sourceUri;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
     /// <summary>
-    /// AgentJob level output for the task that validates connection to SQL Server and also validates source server requirements
+    /// Agent Job level output for the task that validates connection to SQL Server and also validates source server requirements
     /// </summary>
     [OutputType]
     public sealed class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse
@@ -21,19 +21,19 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The state of the original AgentJob.
+        /// The state of the original Agent Job.
         /// </summary>
         public readonly bool IsEnabled;
         /// <summary>
-        /// The type of AgentJob.
+        /// The type of Agent Job.
         /// </summary>
         public readonly string JobCategory;
         /// <summary>
-        /// The owner of the AgentJob
+        /// The owner of the Agent Job
         /// </summary>
         public readonly string JobOwner;
         /// <summary>
-        /// UTC Date and time when the AgentJob was last executed.
+        /// UTC Date and time when the Agent Job was last executed.
         /// </summary>
         public readonly string LastExecutedOn;
         /// <summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.MigrationEligibilityInfoResponse MigrationEligibility;
         /// <summary>
-        /// AgentJob name
+        /// Agent Job name
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// Expected value is 'AgentJobLevelOutput'.
         /// </summary>
         public readonly string ResultType;
+        /// <summary>
+        /// Validation errors
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ReportableExceptionResponse> ValidationErrors;
 
         [OutputConstructor]
         private ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string name,
 
-            string resultType)
+            string resultType,
+
+            ImmutableArray<Outputs.ReportableExceptionResponse> validationErrors)
         {
             Id = id;
             IsEnabled = isEnabled;
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             MigrationEligibility = migrationEligibility;
             Name = name;
             ResultType = resultType;
+            ValidationErrors = validationErrors;
         }
     }
 }

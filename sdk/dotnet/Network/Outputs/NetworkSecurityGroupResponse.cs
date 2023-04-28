@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowLogResponse> FlowLogs;
         /// <summary>
+        /// When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        /// </summary>
+        public readonly bool? FlushConnection;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.FlowLogResponse> flowLogs,
 
+            bool? flushConnection,
+
             string? id,
 
             string? location,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             DefaultSecurityRules = defaultSecurityRules;
             Etag = etag;
             FlowLogs = flowLogs;
+            FlushConnection = flushConnection;
             Id = id;
             Location = location;
             Name = name;

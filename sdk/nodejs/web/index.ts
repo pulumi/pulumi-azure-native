@@ -45,6 +45,11 @@ export type ConnectionGateway = import("./connectionGateway").ConnectionGateway;
 export const ConnectionGateway: typeof import("./connectionGateway").ConnectionGateway = null as any;
 utilities.lazyLoad(exports, ["ConnectionGateway"], () => require("./connectionGateway"));
 
+export { ContainerAppArgs } from "./containerApp";
+export type ContainerApp = import("./containerApp").ContainerApp;
+export const ContainerApp: typeof import("./containerApp").ContainerApp = null as any;
+utilities.lazyLoad(exports, ["ContainerApp"], () => require("./containerApp"));
+
 export { CustomApiArgs } from "./customApi";
 export type CustomApi = import("./customApi").CustomApi;
 export const CustomApi: typeof import("./customApi").CustomApi = null as any;
@@ -85,6 +90,11 @@ export const getConnectionGateway: typeof import("./getConnectionGateway").getCo
 export const getConnectionGatewayOutput: typeof import("./getConnectionGateway").getConnectionGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectionGateway","getConnectionGatewayOutput"], () => require("./getConnectionGateway"));
 
+export { GetContainerAppArgs, GetContainerAppResult, GetContainerAppOutputArgs } from "./getContainerApp";
+export const getContainerApp: typeof import("./getContainerApp").getContainerApp = null as any;
+export const getContainerAppOutput: typeof import("./getContainerApp").getContainerAppOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerApp","getContainerAppOutput"], () => require("./getContainerApp"));
+
 export { GetCustomApiArgs, GetCustomApiResult, GetCustomApiOutputArgs } from "./getCustomApi";
 export const getCustomApi: typeof import("./getCustomApi").getCustomApi = null as any;
 export const getCustomApiOutput: typeof import("./getCustomApi").getCustomApiOutput = null as any;
@@ -100,10 +110,20 @@ export const getStaticSite: typeof import("./getStaticSite").getStaticSite = nul
 export const getStaticSiteOutput: typeof import("./getStaticSite").getStaticSiteOutput = null as any;
 utilities.lazyLoad(exports, ["getStaticSite","getStaticSiteOutput"], () => require("./getStaticSite"));
 
+export { GetStaticSiteBuildDatabaseConnectionArgs, GetStaticSiteBuildDatabaseConnectionResult, GetStaticSiteBuildDatabaseConnectionOutputArgs } from "./getStaticSiteBuildDatabaseConnection";
+export const getStaticSiteBuildDatabaseConnection: typeof import("./getStaticSiteBuildDatabaseConnection").getStaticSiteBuildDatabaseConnection = null as any;
+export const getStaticSiteBuildDatabaseConnectionOutput: typeof import("./getStaticSiteBuildDatabaseConnection").getStaticSiteBuildDatabaseConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteBuildDatabaseConnection","getStaticSiteBuildDatabaseConnectionOutput"], () => require("./getStaticSiteBuildDatabaseConnection"));
+
 export { GetStaticSiteCustomDomainArgs, GetStaticSiteCustomDomainResult, GetStaticSiteCustomDomainOutputArgs } from "./getStaticSiteCustomDomain";
 export const getStaticSiteCustomDomain: typeof import("./getStaticSiteCustomDomain").getStaticSiteCustomDomain = null as any;
 export const getStaticSiteCustomDomainOutput: typeof import("./getStaticSiteCustomDomain").getStaticSiteCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getStaticSiteCustomDomain","getStaticSiteCustomDomainOutput"], () => require("./getStaticSiteCustomDomain"));
+
+export { GetStaticSiteDatabaseConnectionArgs, GetStaticSiteDatabaseConnectionResult, GetStaticSiteDatabaseConnectionOutputArgs } from "./getStaticSiteDatabaseConnection";
+export const getStaticSiteDatabaseConnection: typeof import("./getStaticSiteDatabaseConnection").getStaticSiteDatabaseConnection = null as any;
+export const getStaticSiteDatabaseConnectionOutput: typeof import("./getStaticSiteDatabaseConnection").getStaticSiteDatabaseConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteDatabaseConnection","getStaticSiteDatabaseConnectionOutput"], () => require("./getStaticSiteDatabaseConnection"));
 
 export { GetStaticSiteLinkedBackendArgs, GetStaticSiteLinkedBackendResult, GetStaticSiteLinkedBackendOutputArgs } from "./getStaticSiteLinkedBackend";
 export const getStaticSiteLinkedBackend: typeof import("./getStaticSiteLinkedBackend").getStaticSiteLinkedBackend = null as any;
@@ -294,11 +314,6 @@ export { ListConnectionConsentLinksArgs, ListConnectionConsentLinksResult, ListC
 export const listConnectionConsentLinks: typeof import("./listConnectionConsentLinks").listConnectionConsentLinks = null as any;
 export const listConnectionConsentLinksOutput: typeof import("./listConnectionConsentLinks").listConnectionConsentLinksOutput = null as any;
 utilities.lazyLoad(exports, ["listConnectionConsentLinks","listConnectionConsentLinksOutput"], () => require("./listConnectionConsentLinks"));
-
-export { ListConnectionKeysArgs, ListConnectionKeysResult, ListConnectionKeysOutputArgs } from "./listConnectionKeys";
-export const listConnectionKeys: typeof import("./listConnectionKeys").listConnectionKeys = null as any;
-export const listConnectionKeysOutput: typeof import("./listConnectionKeys").listConnectionKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listConnectionKeys","listConnectionKeysOutput"], () => require("./listConnectionKeys"));
 
 export { ListContainerAppSecretsArgs, ListContainerAppSecretsResult, ListContainerAppSecretsOutputArgs } from "./listContainerAppSecrets";
 export const listContainerAppSecrets: typeof import("./listContainerAppSecrets").listContainerAppSecrets = null as any;
@@ -500,6 +515,16 @@ export const listWebAppSyncFunctionTriggersSlot: typeof import("./listWebAppSync
 export const listWebAppSyncFunctionTriggersSlotOutput: typeof import("./listWebAppSyncFunctionTriggersSlot").listWebAppSyncFunctionTriggersSlotOutput = null as any;
 utilities.lazyLoad(exports, ["listWebAppSyncFunctionTriggersSlot","listWebAppSyncFunctionTriggersSlotOutput"], () => require("./listWebAppSyncFunctionTriggersSlot"));
 
+export { ListWebAppWorkflowsConnectionsArgs, ListWebAppWorkflowsConnectionsResult, ListWebAppWorkflowsConnectionsOutputArgs } from "./listWebAppWorkflowsConnections";
+export const listWebAppWorkflowsConnections: typeof import("./listWebAppWorkflowsConnections").listWebAppWorkflowsConnections = null as any;
+export const listWebAppWorkflowsConnectionsOutput: typeof import("./listWebAppWorkflowsConnections").listWebAppWorkflowsConnectionsOutput = null as any;
+utilities.lazyLoad(exports, ["listWebAppWorkflowsConnections","listWebAppWorkflowsConnectionsOutput"], () => require("./listWebAppWorkflowsConnections"));
+
+export { ListWebAppWorkflowsConnectionsSlotArgs, ListWebAppWorkflowsConnectionsSlotResult, ListWebAppWorkflowsConnectionsSlotOutputArgs } from "./listWebAppWorkflowsConnectionsSlot";
+export const listWebAppWorkflowsConnectionsSlot: typeof import("./listWebAppWorkflowsConnectionsSlot").listWebAppWorkflowsConnectionsSlot = null as any;
+export const listWebAppWorkflowsConnectionsSlotOutput: typeof import("./listWebAppWorkflowsConnectionsSlot").listWebAppWorkflowsConnectionsSlotOutput = null as any;
+utilities.lazyLoad(exports, ["listWebAppWorkflowsConnectionsSlot","listWebAppWorkflowsConnectionsSlotOutput"], () => require("./listWebAppWorkflowsConnectionsSlot"));
+
 export { ListWorkflowRunActionExpressionTracesArgs, ListWorkflowRunActionExpressionTracesResult, ListWorkflowRunActionExpressionTracesOutputArgs } from "./listWorkflowRunActionExpressionTraces";
 export const listWorkflowRunActionExpressionTraces: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTraces = null as any;
 export const listWorkflowRunActionExpressionTracesOutput: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTracesOutput = null as any;
@@ -520,10 +545,20 @@ export type StaticSite = import("./staticSite").StaticSite;
 export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
 utilities.lazyLoad(exports, ["StaticSite"], () => require("./staticSite"));
 
+export { StaticSiteBuildDatabaseConnectionArgs } from "./staticSiteBuildDatabaseConnection";
+export type StaticSiteBuildDatabaseConnection = import("./staticSiteBuildDatabaseConnection").StaticSiteBuildDatabaseConnection;
+export const StaticSiteBuildDatabaseConnection: typeof import("./staticSiteBuildDatabaseConnection").StaticSiteBuildDatabaseConnection = null as any;
+utilities.lazyLoad(exports, ["StaticSiteBuildDatabaseConnection"], () => require("./staticSiteBuildDatabaseConnection"));
+
 export { StaticSiteCustomDomainArgs } from "./staticSiteCustomDomain";
 export type StaticSiteCustomDomain = import("./staticSiteCustomDomain").StaticSiteCustomDomain;
 export const StaticSiteCustomDomain: typeof import("./staticSiteCustomDomain").StaticSiteCustomDomain = null as any;
 utilities.lazyLoad(exports, ["StaticSiteCustomDomain"], () => require("./staticSiteCustomDomain"));
+
+export { StaticSiteDatabaseConnectionArgs } from "./staticSiteDatabaseConnection";
+export type StaticSiteDatabaseConnection = import("./staticSiteDatabaseConnection").StaticSiteDatabaseConnection;
+export const StaticSiteDatabaseConnection: typeof import("./staticSiteDatabaseConnection").StaticSiteDatabaseConnection = null as any;
+utilities.lazyLoad(exports, ["StaticSiteDatabaseConnection"], () => require("./staticSiteDatabaseConnection"));
 
 export { StaticSiteLinkedBackendArgs } from "./staticSiteLinkedBackend";
 export type StaticSiteLinkedBackend = import("./staticSiteLinkedBackend").StaticSiteLinkedBackend;
@@ -847,14 +882,20 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "azure-native:web:ConnectionGateway":
                 return new ConnectionGateway(name, <any>undefined, { urn })
+            case "azure-native:web:ContainerApp":
+                return new ContainerApp(name, <any>undefined, { urn })
             case "azure-native:web:CustomApi":
                 return new CustomApi(name, <any>undefined, { urn })
             case "azure-native:web:KubeEnvironment":
                 return new KubeEnvironment(name, <any>undefined, { urn })
             case "azure-native:web:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
+            case "azure-native:web:StaticSiteBuildDatabaseConnection":
+                return new StaticSiteBuildDatabaseConnection(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteCustomDomain":
                 return new StaticSiteCustomDomain(name, <any>undefined, { urn })
+            case "azure-native:web:StaticSiteDatabaseConnection":
+                return new StaticSiteDatabaseConnection(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteLinkedBackend":
                 return new StaticSiteLinkedBackend(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteLinkedBackendForBuild":

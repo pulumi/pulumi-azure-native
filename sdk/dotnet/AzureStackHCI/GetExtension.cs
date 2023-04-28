@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get particular Arc Extension of HCI Cluster.
-        /// API Version: 2021-01-01-preview.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:azurestackhci:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get particular Arc Extension of HCI Cluster.
-        /// API Version: 2021-01-01-preview.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:azurestackhci:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -104,17 +104,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         /// </summary>
-        public readonly string? CreatedAt;
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
+        public readonly bool? EnableAutomaticUpgrade;
         /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
@@ -123,18 +115,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        public readonly string? LastModifiedAt;
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -160,11 +140,15 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly object? Settings;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies the version of the script handler.
+        /// Specifies the version of the script handler. Latest version would be used if not specified.
         /// </summary>
         public readonly string? TypeHandlerVersion;
 
@@ -174,21 +158,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             bool? autoUpgradeMinorVersion,
 
-            string? createdAt,
-
-            string? createdBy,
-
-            string? createdByType,
+            bool? enableAutomaticUpgrade,
 
             string? forceUpdateTag,
 
             string id,
-
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
 
             string name,
 
@@ -202,26 +176,24 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             object? settings,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? typeHandlerVersion)
         {
             AggregateState = aggregateState;
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
+            EnableAutomaticUpgrade = enableAutomaticUpgrade;
             ForceUpdateTag = forceUpdateTag;
             Id = id;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
             Name = name;
             PerNodeExtensionDetails = perNodeExtensionDetails;
             ProtectedSettings = protectedSettings;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SystemData = systemData;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;
         }

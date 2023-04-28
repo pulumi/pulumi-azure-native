@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// </summary>
         public readonly string? Namespace;
         /// <summary>
+        /// The provider authorization consent state.
+        /// </summary>
+        public readonly string? ProviderAuthorizationConsentState;
+        /// <summary>
         /// The registration policy of the resource provider.
         /// </summary>
         public readonly string RegistrationPolicy;
@@ -43,6 +47,8 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
             string? @namespace,
 
+            string? providerAuthorizationConsentState,
+
             string registrationPolicy,
 
             string registrationState,
@@ -51,6 +57,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         {
             Id = id;
             Namespace = @namespace;
+            ProviderAuthorizationConsentState = providerAuthorizationConsentState;
             RegistrationPolicy = registrationPolicy;
             RegistrationState = registrationState;
             ResourceTypes = resourceTypes;

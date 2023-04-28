@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Peerings in a VirtualNetwork resource
- * API Version: 2018-04-01.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VNetPeering extends pulumi.CustomResource {
     /**

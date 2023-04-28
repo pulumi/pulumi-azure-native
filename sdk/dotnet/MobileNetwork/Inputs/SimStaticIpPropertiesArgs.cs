@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     public sealed class SimStaticIpPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        /// The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
         /// </summary>
         [Input("attachedDataNetwork")]
         public Input<Inputs.AttachedDataNetworkResourceIdArgs>? AttachedDataNetwork { get; set; }
 
         /// <summary>
-        /// The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        /// The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
         /// </summary>
         [Input("slice")]
         public Input<Inputs.SliceResourceIdArgs>? Slice { get; set; }

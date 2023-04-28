@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Network related settings
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
+ * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkConnection extends pulumi.CustomResource {
     /**
@@ -148,7 +149,7 @@ export class NetworkConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:NetworkConnection" }, { type: "azure-native:devcenter/v20220901preview:NetworkConnection" }, { type: "azure-native:devcenter/v20221012preview:NetworkConnection" }, { type: "azure-native:devcenter/v20221111preview:NetworkConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:NetworkConnection" }, { type: "azure-native:devcenter/v20220901preview:NetworkConnection" }, { type: "azure-native:devcenter/v20221012preview:NetworkConnection" }, { type: "azure-native:devcenter/v20221111preview:NetworkConnection" }, { type: "azure-native:devcenter/v20230101preview:NetworkConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -191,7 +192,7 @@ export interface NetworkConnectionArgs {
      */
     organizationUnit?: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

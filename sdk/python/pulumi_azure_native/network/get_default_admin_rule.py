@@ -22,7 +22,7 @@ class GetDefaultAdminRuleResult:
     """
     Network default admin rule.
     """
-    def __init__(__self__, access=None, description=None, destination_port_ranges=None, destinations=None, direction=None, display_name=None, etag=None, flag=None, id=None, kind=None, name=None, priority=None, protocol=None, provisioning_state=None, source_port_ranges=None, sources=None, system_data=None, type=None):
+    def __init__(__self__, access=None, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, flag=None, id=None, kind=None, name=None, priority=None, protocol=None, provisioning_state=None, source_port_ranges=None, sources=None, system_data=None, type=None):
         if access and not isinstance(access, str):
             raise TypeError("Expected argument 'access' to be a str")
         pulumi.set(__self__, "access", access)
@@ -38,9 +38,6 @@ class GetDefaultAdminRuleResult:
         if direction and not isinstance(direction, str):
             raise TypeError("Expected argument 'direction' to be a str")
         pulumi.set(__self__, "direction", direction)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -117,14 +114,6 @@ class GetDefaultAdminRuleResult:
         Indicates if the traffic matched against the rule in inbound or outbound.
         """
         return pulumi.get(self, "direction")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
-        """
-        A friendly name for the rule.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -235,7 +224,6 @@ class AwaitableGetDefaultAdminRuleResult(GetDefaultAdminRuleResult):
             destination_port_ranges=self.destination_port_ranges,
             destinations=self.destinations,
             direction=self.direction,
-            display_name=self.display_name,
             etag=self.etag,
             flag=self.flag,
             id=self.id,
@@ -258,10 +246,10 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultAdminRuleResult:
     """
     Gets a network manager security configuration admin rule.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
-    :param str configuration_name: The name of the network manager security Configuration.
+    :param str configuration_name: The name of the network manager Security Configuration.
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
@@ -282,7 +270,6 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
         destination_port_ranges=__ret__.destination_port_ranges,
         destinations=__ret__.destinations,
         direction=__ret__.direction,
-        display_name=__ret__.display_name,
         etag=__ret__.etag,
         flag=__ret__.flag,
         id=__ret__.id,
@@ -306,10 +293,10 @@ def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultAdminRuleResult]:
     """
     Gets a network manager security configuration admin rule.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
-    :param str configuration_name: The name of the network manager security Configuration.
+    :param str configuration_name: The name of the network manager Security Configuration.
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a database script.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Script extends pulumi.CustomResource {
     /**
@@ -55,9 +56,9 @@ export class Script extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The url to the KQL script blob file.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property
      */
-    public readonly scriptUrl!: pulumi.Output<string>;
+    public readonly scriptUrl!: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -87,17 +88,12 @@ export class Script extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scriptUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scriptUrl'");
-            }
-            if ((!args || args.scriptUrlSasToken === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scriptUrlSasToken'");
-            }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["continueOnErrors"] = (args ? args.continueOnErrors : undefined) ?? false;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
             resourceInputs["scriptName"] = args ? args.scriptName : undefined;
             resourceInputs["scriptUrl"] = args ? args.scriptUrl : undefined;
             resourceInputs["scriptUrlSasToken"] = args ? args.scriptUrlSasToken : undefined;
@@ -146,15 +142,19 @@ export interface ScriptArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
+     */
+    scriptContent?: pulumi.Input<string>;
+    /**
      * The name of the Kusto database script.
      */
     scriptName?: pulumi.Input<string>;
     /**
-     * The url to the KQL script blob file.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property
      */
-    scriptUrl: pulumi.Input<string>;
+    scriptUrl?: pulumi.Input<string>;
     /**
-     * The SaS token.
+     * The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
      */
-    scriptUrlSasToken: pulumi.Input<string>;
+    scriptUrlSasToken?: pulumi.Input<string>;
 }

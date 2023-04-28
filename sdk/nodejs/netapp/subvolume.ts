@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Subvolume Information properties
- * API Version: 2021-10-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Subvolume extends pulumi.CustomResource {
     /**
@@ -55,7 +56,7 @@ export class Subvolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
@@ -134,7 +135,7 @@ export interface SubvolumeArgs {
      */
     poolName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get role definition by name (GUID).
- * API Version: 2018-01-01-preview.
+ * API Version: 2022-04-01.
  */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
 
@@ -40,6 +40,14 @@ export interface GetRoleDefinitionResult {
      */
     readonly assignableScopes?: string[];
     /**
+     * Id of the user who created the assignment
+     */
+    readonly createdBy: string;
+    /**
+     * Time it was created
+     */
+    readonly createdOn: string;
+    /**
      * The role definition description.
      */
     readonly description?: string;
@@ -67,10 +75,18 @@ export interface GetRoleDefinitionResult {
      * The role definition type.
      */
     readonly type: string;
+    /**
+     * Id of the user who updated the assignment
+     */
+    readonly updatedBy: string;
+    /**
+     * Time it was updated
+     */
+    readonly updatedOn: string;
 }
 /**
  * Get role definition by name (GUID).
- * API Version: 2018-01-01-preview.
+ * API Version: 2022-04-01.
  */
 export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))

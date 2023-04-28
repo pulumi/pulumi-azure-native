@@ -110,7 +110,7 @@ def get_deployment_at_scope(deployment_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtScopeResult:
     """
     Gets a deployment.
-    API Version: 2021-01-01.
+    API Version: 2022-09-01.
 
 
     :param str deployment_name: The name of the deployment.
@@ -137,7 +137,7 @@ def get_deployment_at_scope_output(deployment_name: Optional[pulumi.Input[str]] 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtScopeResult]:
     """
     Gets a deployment.
-    API Version: 2021-01-01.
+    API Version: 2022-09-01.
 
 
     :param str deployment_name: The name of the deployment.

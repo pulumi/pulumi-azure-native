@@ -45,11 +45,6 @@ export const getLinkedStorageAccount: typeof import("./getLinkedStorageAccount")
 export const getLinkedStorageAccountOutput: typeof import("./getLinkedStorageAccount").getLinkedStorageAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getLinkedStorageAccount","getLinkedStorageAccountOutput"], () => require("./getLinkedStorageAccount"));
 
-export { GetMachineGroupArgs, GetMachineGroupResult, GetMachineGroupOutputArgs } from "./getMachineGroup";
-export const getMachineGroup: typeof import("./getMachineGroup").getMachineGroup = null as any;
-export const getMachineGroupOutput: typeof import("./getMachineGroup").getMachineGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineGroup","getMachineGroupOutput"], () => require("./getMachineGroup"));
-
 export { GetQueryArgs, GetQueryResult, GetQueryOutputArgs } from "./getQuery";
 export const getQuery: typeof import("./getQuery").getQuery = null as any;
 export const getQueryOutput: typeof import("./getQuery").getQueryOutput = null as any;
@@ -95,11 +90,6 @@ export type LinkedStorageAccount = import("./linkedStorageAccount").LinkedStorag
 export const LinkedStorageAccount: typeof import("./linkedStorageAccount").LinkedStorageAccount = null as any;
 utilities.lazyLoad(exports, ["LinkedStorageAccount"], () => require("./linkedStorageAccount"));
 
-export { MachineGroupArgs } from "./machineGroup";
-export type MachineGroup = import("./machineGroup").MachineGroup;
-export const MachineGroup: typeof import("./machineGroup").MachineGroup = null as any;
-utilities.lazyLoad(exports, ["MachineGroup"], () => require("./machineGroup"));
-
 export { QueryArgs } from "./query";
 export type Query = import("./query").Query;
 export const Query: typeof import("./query").Query = null as any;
@@ -137,7 +127,6 @@ export * from "../types/enums/operationalinsights";
 // Export sub-modules:
 import * as v20150320 from "./v20150320";
 import * as v20151101preview from "./v20151101preview";
-import * as v20190801preview from "./v20190801preview";
 import * as v20190901 from "./v20190901";
 import * as v20190901preview from "./v20190901preview";
 import * as v20200301preview from "./v20200301preview";
@@ -150,7 +139,6 @@ import * as v20221001 from "./v20221001";
 export {
     v20150320,
     v20151101preview,
-    v20190801preview,
     v20190901,
     v20190901preview,
     v20200301preview,
@@ -175,8 +163,6 @@ const _module = {
                 return new LinkedService(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:LinkedStorageAccount":
                 return new LinkedStorageAccount(name, <any>undefined, { urn })
-            case "azure-native:operationalinsights:MachineGroup":
-                return new MachineGroup(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:Query":
                 return new Query(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:QueryPack":

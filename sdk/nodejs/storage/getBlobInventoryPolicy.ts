@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the blob inventory policy associated with the specified storage account.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
 
@@ -67,7 +67,7 @@ export interface GetBlobInventoryPolicyResult {
 }
 /**
  * Gets the blob inventory policy associated with the specified storage account.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getBlobInventoryPolicyOutput(args: GetBlobInventoryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobInventoryPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBlobInventoryPolicy(a, opts))

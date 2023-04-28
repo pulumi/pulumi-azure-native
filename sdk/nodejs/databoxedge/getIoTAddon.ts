@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific addon by name.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getIoTAddon(args: GetIoTAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTAddonResult> {
 
@@ -79,7 +79,7 @@ export interface GetIoTAddonResult {
      */
     readonly provisioningState: string;
     /**
-     * Addon type
+     * Metadata pertaining to creation and last modification of Addon
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
@@ -93,7 +93,7 @@ export interface GetIoTAddonResult {
 }
 /**
  * Gets a specific addon by name.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTAddonResult> {
     return pulumi.output(args).apply((a: any) => getIoTAddon(a, opts))

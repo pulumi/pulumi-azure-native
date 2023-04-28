@@ -20,8 +20,11 @@ class WorkspaceArgs:
                  managed_resource_group_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]] = None,
+                 encryption: Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 required_nsg_rules: Optional[pulumi.Input[Union[str, 'RequiredNsgRules']]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ui_definition_uri: Optional[pulumi.Input[str]] = None,
@@ -31,8 +34,11 @@ class WorkspaceArgs:
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]] authorizations: The workspace provider authorizations.
+        :param pulumi.Input['WorkspacePropertiesEncryptionArgs'] encryption: Encryption properties for databricks workspace
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['WorkspaceCustomParametersArgs'] parameters: The workspace's custom parameters.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        :param pulumi.Input[Union[str, 'RequiredNsgRules']] required_nsg_rules: Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
@@ -42,10 +48,16 @@ class WorkspaceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if required_nsg_rules is not None:
+            pulumi.set(__self__, "required_nsg_rules", required_nsg_rules)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -93,6 +105,18 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']]:
+        """
+        Encryption properties for databricks workspace
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -114,6 +138,30 @@ class WorkspaceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input['WorkspaceCustomParametersArgs']]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="requiredNsgRules")
+    def required_nsg_rules(self) -> Optional[pulumi.Input[Union[str, 'RequiredNsgRules']]]:
+        """
+        Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        """
+        return pulumi.get(self, "required_nsg_rules")
+
+    @required_nsg_rules.setter
+    def required_nsg_rules(self, value: Optional[pulumi.Input[Union[str, 'RequiredNsgRules']]]):
+        pulumi.set(self, "required_nsg_rules", value)
 
     @property
     @pulumi.getter
@@ -170,9 +218,12 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['WorkspacePropertiesEncryptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 required_nsg_rules: Optional[pulumi.Input[Union[str, 'RequiredNsgRules']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -181,14 +232,18 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         Information about workspace.
-        API Version: 2018-04-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]] authorizations: The workspace provider authorizations.
+        :param pulumi.Input[pulumi.InputType['WorkspacePropertiesEncryptionArgs']] encryption: Encryption properties for databricks workspace
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']] parameters: The workspace's custom parameters.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        :param pulumi.Input[Union[str, 'RequiredNsgRules']] required_nsg_rules: Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -203,7 +258,8 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about workspace.
-        API Version: 2018-04-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -221,9 +277,12 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['WorkspacePropertiesEncryptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 required_nsg_rules: Optional[pulumi.Input[Union[str, 'RequiredNsgRules']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -239,11 +298,14 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["authorizations"] = authorizations
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["location"] = location
             if managed_resource_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_resource_group_id'")
             __props__.__dict__["managed_resource_group_id"] = managed_resource_group_id
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["public_network_access"] = public_network_access
+            __props__.__dict__["required_nsg_rules"] = required_nsg_rules
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -253,9 +315,13 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_date_time"] = None
+            __props__.__dict__["disk_encryption_set_id"] = None
+            __props__.__dict__["managed_disk_identity"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["storage_account_identity"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
             __props__.__dict__["workspace_id"] = None
@@ -287,13 +353,20 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["authorizations"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_date_time"] = None
+        __props__.__dict__["disk_encryption_set_id"] = None
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_disk_identity"] = None
         __props__.__dict__["managed_resource_group_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["required_nsg_rules"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["storage_account_identity"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["ui_definition_uri"] = None
@@ -327,12 +400,36 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "created_date_time")
 
     @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> pulumi.Output[str]:
+        """
+        The resource Id of the managed disk encryption set.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.WorkspacePropertiesResponseEncryption']]:
+        """
+        Encryption properties for databricks workspace
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedDiskIdentity")
+    def managed_disk_identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityConfigurationResponse']]:
+        """
+        The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        """
+        return pulumi.get(self, "managed_disk_identity")
 
     @property
     @pulumi.getter(name="managedResourceGroupId")
@@ -359,12 +456,36 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        Private endpoint connections created on the workspace
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         The workspace provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="requiredNsgRules")
+    def required_nsg_rules(self) -> pulumi.Output[Optional[str]]:
+        """
+        Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        """
+        return pulumi.get(self, "required_nsg_rules")
 
     @property
     @pulumi.getter
@@ -381,6 +502,14 @@ class Workspace(pulumi.CustomResource):
         The details of Managed Identity of Storage Account
         """
         return pulumi.get(self, "storage_account_identity")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

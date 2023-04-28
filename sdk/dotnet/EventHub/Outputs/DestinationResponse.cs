@@ -25,6 +25,18 @@ namespace Pulumi.AzureNative.EventHub.Outputs
         /// </summary>
         public readonly string? BlobContainer;
         /// <summary>
+        /// The Azure Data Lake Store name for the captured events
+        /// </summary>
+        public readonly string? DataLakeAccountName;
+        /// <summary>
+        /// The destination folder path for the captured events
+        /// </summary>
+        public readonly string? DataLakeFolderPath;
+        /// <summary>
+        /// Subscription Id of Azure Data Lake Store
+        /// </summary>
+        public readonly string? DataLakeSubscriptionId;
+        /// <summary>
         /// Name for capture destination
         /// </summary>
         public readonly string? Name;
@@ -39,12 +51,21 @@ namespace Pulumi.AzureNative.EventHub.Outputs
 
             string? blobContainer,
 
+            string? dataLakeAccountName,
+
+            string? dataLakeFolderPath,
+
+            string? dataLakeSubscriptionId,
+
             string? name,
 
             string? storageAccountResourceId)
         {
             ArchiveNameFormat = archiveNameFormat;
             BlobContainer = blobContainer;
+            DataLakeAccountName = dataLakeAccountName;
+            DataLakeFolderPath = dataLakeFolderPath;
+            DataLakeSubscriptionId = dataLakeSubscriptionId;
             Name = name;
             StorageAccountResourceId = storageAccountResourceId;
         }

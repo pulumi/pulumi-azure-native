@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['ApplicationTypeVersionArgs', 'ApplicationTypeVersion']
 
@@ -27,7 +28,7 @@ class ApplicationTypeVersionArgs:
         :param pulumi.Input[str] application_type_name: The name of the application type name resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
+        :param pulumi.Input[str] location: Resource location depends on the parent resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] version: The application type version.
         """
@@ -94,7 +95,7 @@ class ApplicationTypeVersionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        It will be deprecated in New API, resource location depends on the parent resource.
+        Resource location depends on the parent resource.
         """
         return pulumi.get(self, "location")
 
@@ -142,14 +143,15 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                  __props__=None):
         """
         An application type version resource for the specified application type name resource.
-        API Version: 2020-03-01.
+        API Version: 2023-02-01-preview.
+        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_package_url: The URL to the application package
         :param pulumi.Input[str] application_type_name: The name of the application type name resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
+        :param pulumi.Input[str] location: Resource location depends on the parent resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] version: The application type version.
@@ -162,7 +164,8 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An application type version resource for the specified application type name resource.
-        API Version: 2020-03-01.
+        API Version: 2023-02-01-preview.
+        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApplicationTypeVersionArgs args: The arguments to use to populate this resource's properties.
@@ -210,12 +213,11 @@ class ApplicationTypeVersion(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
-            __props__.__dict__["default_parameter_list"] = None
-            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20170701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20190301:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20190301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20190601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20191101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20200301:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:ApplicationTypeVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ApplicationTypeVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationTypeVersion, __self__).__init__(
             'azure-native:servicefabric:ApplicationTypeVersion',
@@ -240,11 +242,10 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         __props__ = ApplicationTypeVersionArgs.__new__(ApplicationTypeVersionArgs)
 
         __props__.__dict__["app_package_url"] = None
-        __props__.__dict__["default_parameter_list"] = None
-        __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ApplicationTypeVersion(resource_name, opts=opts, __props__=__props__)
@@ -258,26 +259,10 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         return pulumi.get(self, "app_package_url")
 
     @property
-    @pulumi.getter(name="defaultParameterList")
-    def default_parameter_list(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        List of application type parameters that can be overridden when creating or updating the application.
-        """
-        return pulumi.get(self, "default_parameter_list")
-
-    @property
-    @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
-        """
-        Azure resource etag.
-        """
-        return pulumi.get(self, "etag")
-
-    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
-        It will be deprecated in New API, resource location depends on the parent resource.
+        Resource location depends on the parent resource.
         """
         return pulumi.get(self, "location")
 
@@ -296,6 +281,14 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         The current deployment or provisioning state, which only appears in the response
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

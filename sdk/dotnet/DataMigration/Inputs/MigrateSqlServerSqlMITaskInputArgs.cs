@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class MigrateSqlServerSqlMITaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
+        /// </summary>
+        [Input("aadDomainName")]
+        public Input<string>? AadDomainName { get; set; }
+
+        /// <summary>
         /// SAS URI of Azure Storage Account Container to be used for storing backup files.
         /// </summary>
         [Input("backupBlobShare", required: true)]

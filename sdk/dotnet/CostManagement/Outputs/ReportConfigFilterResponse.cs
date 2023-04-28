@@ -29,14 +29,6 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ReportConfigFilterResponse> Or;
         /// <summary>
-        /// Has comparison expression for a tag key
-        /// </summary>
-        public readonly Outputs.ReportConfigComparisonExpressionResponse? TagKey;
-        /// <summary>
-        /// Has comparison expression for a tag value
-        /// </summary>
-        public readonly Outputs.ReportConfigComparisonExpressionResponse? TagValue;
-        /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
         public readonly Outputs.ReportConfigComparisonExpressionResponse? Tags;
@@ -49,17 +41,11 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
 
             ImmutableArray<Outputs.ReportConfigFilterResponse> or,
 
-            Outputs.ReportConfigComparisonExpressionResponse? tagKey,
-
-            Outputs.ReportConfigComparisonExpressionResponse? tagValue,
-
             Outputs.ReportConfigComparisonExpressionResponse? tags)
         {
             And = and;
             Dimensions = dimensions;
             Or = or;
-            TagKey = tagKey;
-            TagValue = tagValue;
             Tags = tags;
         }
     }

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public Input<bool>? AutoRenew { get; set; }
 
         /// <summary>
+        /// Commitment plan guid.
+        /// </summary>
+        [Input("commitmentPlanGuid")]
+        public Input<string>? CommitmentPlanGuid { get; set; }
+
+        /// <summary>
         /// Cognitive Services account commitment period.
         /// </summary>
         [Input("current")]

@@ -10,36 +10,46 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
 {
 
+    /// <summary>
+    /// The error detail.
+    /// </summary>
     [OutputType]
     public sealed class ErrorDetailResponse
     {
         /// <summary>
-        /// The error's code.
+        /// The error additional info.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ErrorAdditionalInfoResponse> AdditionalInfo;
+        /// <summary>
+        /// The error code.
         /// </summary>
         public readonly string Code;
         /// <summary>
-        /// Additional error details.
+        /// The error details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorDetailResponse> Details;
         /// <summary>
-        /// A human readable error message.
+        /// The error message.
         /// </summary>
         public readonly string Message;
         /// <summary>
-        /// Indicates which property in the request is responsible for the error.
+        /// The error target.
         /// </summary>
-        public readonly string? Target;
+        public readonly string Target;
 
         [OutputConstructor]
         private ErrorDetailResponse(
+            ImmutableArray<Outputs.ErrorAdditionalInfoResponse> additionalInfo,
+
             string code,
 
             ImmutableArray<Outputs.ErrorDetailResponse> details,
 
             string message,
 
-            string? target)
+            string target)
         {
+            AdditionalInfo = additionalInfo;
             Code = code;
             Details = details;
             Message = message;

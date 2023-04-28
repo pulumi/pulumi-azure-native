@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     /// <summary>
     /// ADP Data Pool
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-11-01-preview.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform:DataPool")]
     public partial class DataPool : global::Pulumi.CustomResource
@@ -45,6 +46,12 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -132,6 +139,18 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public DataPoolArgs()
         {

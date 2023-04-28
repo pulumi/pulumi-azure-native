@@ -6,13 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .bot import *
-from .bot_connection import *
-from .channel import *
 from .enterprise_channel import *
-from .get_bot import *
-from .get_bot_connection import *
-from .get_channel import *
 from .get_enterprise_channel import *
 from .list_bot_connection_service_providers import *
 from .list_bot_connection_with_secrets import *

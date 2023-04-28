@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Media.Outputs
     public sealed class CommonEncryptionCbcsResponse
     {
         /// <summary>
+        /// Optional configuration supporting ClearKey in CommonEncryptionCbcs encryption scheme.
+        /// </summary>
+        public readonly Outputs.ClearKeyEncryptionConfigurationResponse? ClearKeyEncryptionConfiguration;
+        /// <summary>
         /// Representing which tracks should not be encrypted
         /// </summary>
         public readonly ImmutableArray<Outputs.TrackSelectionResponse> ClearTracks;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.Media.Outputs
 
         [OutputConstructor]
         private CommonEncryptionCbcsResponse(
+            Outputs.ClearKeyEncryptionConfigurationResponse? clearKeyEncryptionConfiguration,
+
             ImmutableArray<Outputs.TrackSelectionResponse> clearTracks,
 
             Outputs.StreamingPolicyContentKeysResponse? contentKeys,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             Outputs.EnabledProtocolsResponse? enabledProtocols)
         {
+            ClearKeyEncryptionConfiguration = clearKeyEncryptionConfiguration;
             ClearTracks = clearTracks;
             ContentKeys = contentKeys;
             Drm = drm;

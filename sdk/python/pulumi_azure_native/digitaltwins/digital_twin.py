@@ -29,6 +29,7 @@ class DigitalTwinArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input['DigitalTwinsIdentityArgs'] identity: The managed identity for the DigitalTwinsInstance.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The private endpoint connections.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Public network access for the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_name: The name of the DigitalTwinsInstance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -86,6 +87,9 @@ class DigitalTwinArgs:
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
+        """
+        The private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @private_endpoint_connections.setter
@@ -144,12 +148,14 @@ class DigitalTwin(pulumi.CustomResource):
                  __props__=None):
         """
         The description of the DigitalTwins service.
-        API Version: 2020-12-01.
+        API Version: 2023-01-31.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DigitalTwinsIdentityArgs']] identity: The managed identity for the DigitalTwinsInstance.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: The private endpoint connections.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Public network access for the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_name_: The name of the DigitalTwinsInstance.
@@ -163,7 +169,8 @@ class DigitalTwin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the DigitalTwins service.
-        API Version: 2020-12-01.
+        API Version: 2023-01-31.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DigitalTwinArgs args: The arguments to use to populate this resource's properties.
@@ -210,6 +217,7 @@ class DigitalTwin(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20200301preview:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20201031:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20201201:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20210630preview:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20220531:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20221031:DigitalTwin"), pulumi.Alias(type_="azure-native:digitaltwins/v20230131:DigitalTwin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -244,6 +252,7 @@ class DigitalTwin(pulumi.CustomResource):
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DigitalTwin(resource_name, opts=opts, __props__=__props__)
@@ -299,6 +308,9 @@ class DigitalTwin(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]]:
+        """
+        The private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -316,6 +328,14 @@ class DigitalTwin(pulumi.CustomResource):
         Public network access for the DigitalTwinsInstance.
         """
         return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the DigitalTwinsInstance.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

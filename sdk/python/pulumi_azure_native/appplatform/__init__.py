@@ -37,6 +37,7 @@ from .get_configuration_service import *
 from .get_custom_domain import *
 from .get_deployment import *
 from .get_deployment_log_file_url import *
+from .get_deployment_remote_debugging_config import *
 from .get_gateway import *
 from .get_gateway_custom_domain import *
 from .get_gateway_route_config import *
@@ -44,6 +45,7 @@ from .get_monitoring_setting import *
 from .get_service import *
 from .get_service_registry import *
 from .get_storage import *
+from .list_build_service_builder_deployments import *
 from .list_service_test_keys import *
 from .monitoring_setting import *
 from .service import *
@@ -78,6 +80,8 @@ if typing.TYPE_CHECKING:
     v20221201 = __v20221201
     import pulumi_azure_native.appplatform.v20230101preview as __v20230101preview
     v20230101preview = __v20230101preview
+    import pulumi_azure_native.appplatform.v20230301preview as __v20230301preview
+    v20230301preview = __v20230301preview
 else:
     v20200701 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20200701')
     v20201101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20201101preview')
@@ -91,4 +95,5 @@ else:
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20221101preview')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20221201')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20230101preview')
+    v20230301preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20230301preview')
 

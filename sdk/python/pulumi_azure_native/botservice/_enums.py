@@ -5,46 +5,12 @@
 from enum import Enum
 
 __all__ = [
-    'EnterpriseChannelNodeState',
-    'EnterpriseChannelState',
     'Kind',
     'MsaAppType',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'SkuName',
 ]
-
-
-class EnterpriseChannelNodeState(str, Enum):
-    """
-    The current state of the Enterprise Channel Node.
-    """
-    CREATING = "Creating"
-    CREATE_FAILED = "CreateFailed"
-    STARTED = "Started"
-    STARTING = "Starting"
-    START_FAILED = "StartFailed"
-    STOPPED = "Stopped"
-    STOPPING = "Stopping"
-    STOP_FAILED = "StopFailed"
-    DELETING = "Deleting"
-    DELETE_FAILED = "DeleteFailed"
-
-
-class EnterpriseChannelState(str, Enum):
-    """
-    The current state of the Enterprise Channel.
-    """
-    CREATING = "Creating"
-    CREATE_FAILED = "CreateFailed"
-    STARTED = "Started"
-    STARTING = "Starting"
-    START_FAILED = "StartFailed"
-    STOPPED = "Stopped"
-    STOPPING = "Stopping"
-    STOP_FAILED = "StopFailed"
-    DELETING = "Deleting"
-    DELETE_FAILED = "DeleteFailed"
 
 
 class Kind(str, Enum):
@@ -55,6 +21,7 @@ class Kind(str, Enum):
     DESIGNER = "designer"
     BOT = "bot"
     FUNCTION = "function"
+    AZUREBOT = "azurebot"
 
 
 class MsaAppType(str, Enum):

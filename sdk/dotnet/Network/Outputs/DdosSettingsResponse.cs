@@ -21,25 +21,32 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse? DdosCustomPolicy;
         /// <summary>
-        /// Enables DDoS protection on the public IP.
+        /// The DDoS protection plan associated with the public IP. Can only be set if ProtectionMode is Enabled
         /// </summary>
-        public readonly bool? ProtectedIP;
+        public readonly Outputs.SubResourceResponse? DdosProtectionPlan;
         /// <summary>
         /// The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
         /// </summary>
         public readonly string? ProtectionCoverage;
+        /// <summary>
+        /// The DDoS protection mode of the public IP
+        /// </summary>
+        public readonly string? ProtectionMode;
 
         [OutputConstructor]
         private DdosSettingsResponse(
             Outputs.SubResourceResponse? ddosCustomPolicy,
 
-            bool? protectedIP,
+            Outputs.SubResourceResponse? ddosProtectionPlan,
 
-            string? protectionCoverage)
+            string? protectionCoverage,
+
+            string? protectionMode)
         {
             DdosCustomPolicy = ddosCustomPolicy;
-            ProtectedIP = protectedIP;
+            DdosProtectionPlan = ddosProtectionPlan;
             ProtectionCoverage = protectionCoverage;
+            ProtectionMode = protectionMode;
         }
     }
 }

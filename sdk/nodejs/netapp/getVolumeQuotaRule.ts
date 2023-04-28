@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get details of the specified quota rule
- * API Version: 2022-01-01.
+ * API Version: 2022-09-01.
  */
 export function getVolumeQuotaRule(args: GetVolumeQuotaRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeQuotaRuleResult> {
 
@@ -33,7 +33,7 @@ export interface GetVolumeQuotaRuleArgs {
      */
     poolName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -93,7 +93,7 @@ export interface GetVolumeQuotaRuleResult {
 }
 /**
  * Get details of the specified quota rule
- * API Version: 2022-01-01.
+ * API Version: 2022-09-01.
  */
 export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
     return pulumi.output(args).apply((a: any) => getVolumeQuotaRule(a, opts))
@@ -109,7 +109,7 @@ export interface GetVolumeQuotaRuleOutputArgs {
      */
     poolName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

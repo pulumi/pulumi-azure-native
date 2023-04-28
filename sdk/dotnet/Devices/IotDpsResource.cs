@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The description of the provisioning service.
-    /// API Version: 2020-03-01.
+    /// API Version: 2022-12-12.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotDpsResource")]
     public partial class IotDpsResource : global::Pulumi.CustomResource
@@ -41,10 +42,28 @@ namespace Pulumi.AzureNative.Devices
         public Output<Outputs.IotDpsPropertiesDescriptionResponse> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// The resource group of the resource.
+        /// </summary>
+        [Output("resourcegroup")]
+        public Output<string?> Resourcegroup { get; private set; } = null!;
+
+        /// <summary>
         /// Sku info for a provisioning Service.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.IotDpsSkuInfoResponse> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The subscription id of the resource.
+        /// </summary>
+        [Output("subscriptionid")]
+        public Output<string?> Subscriptionid { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -141,10 +160,22 @@ namespace Pulumi.AzureNative.Devices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The resource group of the resource.
+        /// </summary>
+        [Input("resourcegroup")]
+        public Input<string>? Resourcegroup { get; set; }
+
+        /// <summary>
         /// Sku info for a provisioning Service.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.IotDpsSkuInfoArgs> Sku { get; set; } = null!;
+
+        /// <summary>
+        /// The subscription id of the resource.
+        /// </summary>
+        [Input("subscriptionid")]
+        public Input<string>? Subscriptionid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

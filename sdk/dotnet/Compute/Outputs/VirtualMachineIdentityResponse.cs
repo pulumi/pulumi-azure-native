@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.VirtualMachineIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponseUserAssignedIdentities>? UserAssignedIdentities;
 
         [OutputConstructor]
         private VirtualMachineIdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, Outputs.VirtualMachineIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponseUserAssignedIdentities>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

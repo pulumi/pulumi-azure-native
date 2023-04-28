@@ -164,7 +164,8 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB Mongo Role Definition.
-        API Version: 2021-10-15-preview.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +186,8 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Mongo Role Definition.
-        API Version: 2021-10-15-preview.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param MongoDBResourceMongoRoleDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -232,7 +234,7 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
             __props__.__dict__["roles"] = roles
             __props__.__dict__["type"] = type
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220815:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20221115:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220815:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20221115:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:MongoDBResourceMongoRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MongoDBResourceMongoRoleDefinition, __self__).__init__(
             'azure-native:documentdb:MongoDBResourceMongoRoleDefinition',

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
     public sealed class PeriodicModeBackupPolicyResponse
     {
         /// <summary>
+        /// The object representing the state of the migration between the backup policies.
+        /// </summary>
+        public readonly Outputs.BackupPolicyMigrationStateResponse? MigrationState;
+        /// <summary>
         /// Configuration values for periodic mode backup
         /// </summary>
         public readonly Outputs.PeriodicModePropertiesResponse? PeriodicModeProperties;
@@ -28,10 +32,13 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
         [OutputConstructor]
         private PeriodicModeBackupPolicyResponse(
+            Outputs.BackupPolicyMigrationStateResponse? migrationState,
+
             Outputs.PeriodicModePropertiesResponse? periodicModeProperties,
 
             string type)
         {
+            MigrationState = migrationState;
             PeriodicModeProperties = periodicModeProperties;
             Type = type;
         }

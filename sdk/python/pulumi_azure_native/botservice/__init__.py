@@ -9,15 +9,14 @@ from ._enums import *
 from .bot import *
 from .bot_connection import *
 from .channel import *
-from .enterprise_channel import *
 from .get_bot import *
 from .get_bot_connection import *
 from .get_channel import *
-from .get_enterprise_channel import *
 from .get_private_endpoint_connection import *
 from .list_bot_connection_service_providers import *
 from .list_bot_connection_with_secrets import *
 from .list_channel_with_keys import *
+from .list_qn_a_maker_endpoint_key import *
 from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs

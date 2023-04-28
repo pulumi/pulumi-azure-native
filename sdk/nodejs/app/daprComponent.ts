@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Dapr Component.
- * API Version: 2022-03-01.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DaprComponent extends pulumi.CustomResource {
     /**
@@ -63,6 +64,10 @@ export class DaprComponent extends pulumi.CustomResource {
      */
     public readonly scopes!: pulumi.Output<string[] | undefined>;
     /**
+     * Name of a Dapr component to retrieve component secrets from
+     */
+    public readonly secretStoreComponent!: pulumi.Output<string | undefined>;
+    /**
      * Collection of secrets used by a Dapr component
      */
     public readonly secrets!: pulumi.Output<outputs.app.SecretResponse[] | undefined>;
@@ -104,6 +109,7 @@ export class DaprComponent extends pulumi.CustomResource {
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["secretStoreComponent"] = args ? args.secretStoreComponent : undefined;
             resourceInputs["secrets"] = args ? args.secrets : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -116,13 +122,14 @@ export class DaprComponent extends pulumi.CustomResource {
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;
+            resourceInputs["secretStoreComponent"] = undefined /*out*/;
             resourceInputs["secrets"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:DaprComponent" }, { type: "azure-native:app/v20220301:DaprComponent" }, { type: "azure-native:app/v20220601preview:DaprComponent" }, { type: "azure-native:app/v20221001:DaprComponent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:DaprComponent" }, { type: "azure-native:app/v20220301:DaprComponent" }, { type: "azure-native:app/v20220601preview:DaprComponent" }, { type: "azure-native:app/v20221001:DaprComponent" }, { type: "azure-native:app/v20221101preview:DaprComponent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DaprComponent.__pulumiType, name, resourceInputs, opts);
     }
@@ -164,6 +171,10 @@ export interface DaprComponentArgs {
      * Names of container apps that can use this Dapr component
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of a Dapr component to retrieve component secrets from
+     */
+    secretStoreComponent?: pulumi.Input<string>;
     /**
      * Collection of secrets used by a Dapr component
      */
