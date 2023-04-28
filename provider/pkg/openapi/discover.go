@@ -4,6 +4,7 @@ package openapi
 
 import (
 	"fmt"
+	"log"
 	"path/filepath"
 	"regexp"
 	"sort"
@@ -80,8 +81,96 @@ func ApplyProvidersTransformations(providers AzureProviders, defaultVersion Defa
 	ApplyRemovals(providers, removed)
 	AddDefaultVersion(providers, defaultVersion, previousVersion)
 	ApplyDeprecations(providers, deprecated)
+	CheckPathChanges(providers, defaultVersion, previousVersion)
 
 	return providers
+}
+
+func CheckPathChanges(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) {
+	changes := findPathChanges(providers, defaultVersion, previousVersion)
+	printPathChanges(changes)
+}
+
+type specChange struct {
+	current      *ResourceSpec
+	previous     *ResourceSpec
+	resourceName string
+}
+
+func findPathChanges(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) []specChange {
+	result := []specChange{}
+
+	for providerName, resources := range defaultVersion {
+		previousResources, ok := previousVersion[providerName]
+		if !ok {
+			continue
+		}
+		providerVersions := providers[providerName]
+
+		for resourceName, version := range resources {
+			previousVersion, ok := previousResources[resourceName]
+			if !ok {
+				continue
+			}
+
+			cur := providerVersions[ApiToSdkVersion(version)]
+			prev := providerVersions[ApiToSdkVersion(previousVersion)]
+
+			spec, ok := cur.Resources[resourceName]
+			if !ok {
+				spec, ok = cur.Invokes[resourceName]
+			}
+			if !ok {
+				log.Printf("Warning: could not find current default resource %s/%s in OpenAPI spec.\n", resourceName, version)
+				continue
+			}
+
+			prevSpec, ok := prev.Resources[resourceName]
+			if !ok {
+				prevSpec, ok = prev.Invokes[resourceName]
+			}
+			if !ok {
+				log.Printf("Warning: could not find previous default resource %s/%s in OpenAPI spec.\n", resourceName, version)
+				continue
+			}
+
+			if spec.Path != prevSpec.Path {
+				result = append(result, specChange{
+					current:      spec,
+					previous:     prevSpec,
+					resourceName: resourceName,
+				})
+			}
+		}
+	}
+	return result
+}
+
+func printPathChanges(changes []specChange) {
+	for _, change := range changes {
+		cur := change.current
+		prev := change.previous
+
+		lowerPath := strings.ToLower(cur.Path)
+		lowerPrevPath := strings.ToLower(prev.Path)
+
+		msg := `[V1->V2 path change]`
+		if lowerPath == lowerPrevPath {
+			if lowerPath[:2] == "/s" && lowerPrevPath[:2] == "/s" && cur.Path[1] != prev.Path[1] && cur.Path[2:] == prev.Path[2:] {
+				fmt.Printf("%s %s: '/subscription' case only\n", msg, change.resourceName)
+				continue
+			}
+			msg += `[case only]`
+		}
+
+		// Find the first index where the paths differ so we can print the common prefix only once.
+		idx := 0
+		for idx < len(cur.Path) && idx < len(prev.Path) && cur.Path[idx] == prev.Path[idx] {
+			idx++
+		}
+		fmt.Printf("%s %s: %s...\n    ...%s\n    ...%s\n",
+			msg, change.resourceName, prev.Path[:idx], cur.Path[idx:], prev.Path[idx:])
+	}
 }
 
 func ApplyRemovals(providers map[string]map[string]VersionResources, removed map[string][]string) {
