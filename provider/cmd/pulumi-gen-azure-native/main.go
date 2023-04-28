@@ -109,15 +109,20 @@ func main() {
 
 		versions2 = openapi.RemoveResources(versions2, openapi.RemovableResources(versionMetadata.V2ResourcesToRemove))
 
-		pkgSpec2, _, _, err := gen.PulumiSchema(versions2)
+		pkgSpec2, meta, _, err := gen.PulumiSchema(versions2)
 		if err != nil {
 			panic(err)
 		}
 
-		if err = emitSchema(*pkgSpec2, version, path.Join("bin", "v2"), "v2"); err != nil {
+		if err = emitSchema(*pkgSpec2, version, "bin", "v2"); err != nil {
 			panic(err)
 		}
-		fmt.Println("Emitted `bin/v2/schema-full.json`")
+		fmt.Println("Emitted `bin/schema-full.json`")
+
+		if err = emitMetadata(meta, "bin", "main"); err != nil {
+			panic(err)
+		}
+		fmt.Println("Emitted `bin/metadata-compact.json`.")
 	}
 	if languageSet.Has("schema") {
 		providers, err := openapi.ReadAzureProviders(specsDir, namespaces, apiVersions)
