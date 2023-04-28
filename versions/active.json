@@ -13670,52 +13670,62 @@
       "2015-03-01-preview",
       "2018-06-01-preview",
       "2021-06-01",
-      "2021-09-15-preview"
+      "2021-09-15-preview",
+      "2023-04-15-preview"
     ],
     "clusters": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "clusters/applications": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "clusters/operationresults": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "locations": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "locations/azureasyncoperations": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "locations/billingspecs": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "locations/capabilities": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "locations/checknameavailability": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "locations/operationresults": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "locations/operationstatuses": [
       "2021-09-15-preview"
@@ -13723,17 +13733,20 @@
     "locations/usages": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "locations/validatecreaterequest": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "operations": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ]
   },
   "healthbot": {

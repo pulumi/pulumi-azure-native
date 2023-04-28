@@ -17159,6 +17159,7 @@
       {
         "resourceType": "clusters",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17167,6 +17168,7 @@
       {
         "resourceType": "clusters/applications",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17175,6 +17177,7 @@
       {
         "resourceType": "clusters/operationresults",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17183,6 +17186,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17191,6 +17195,7 @@
       {
         "resourceType": "locations/azureasyncoperations",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17199,6 +17204,7 @@
       {
         "resourceType": "locations/billingSpecs",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17207,6 +17213,7 @@
       {
         "resourceType": "locations/capabilities",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17215,6 +17222,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17229,6 +17237,7 @@
       {
         "resourceType": "locations/operationresults",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17237,6 +17246,7 @@
       {
         "resourceType": "locations/usages",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17245,6 +17255,7 @@
       {
         "resourceType": "locations/validateCreateRequest",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
@@ -17253,6 +17264,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-04-15-preview",
           "2021-06-01",
           "2018-06-01-preview",
           "2015-03-01-preview"
