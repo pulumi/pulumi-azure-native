@@ -66,7 +66,8 @@ schema: bin/schema-full.json
 generate_schema: bin/schema-full.json
 generate_docs: provider/cmd/pulumi-resource-azure-native/schema.json
 
-.PHONY: generate_java generate_nodejs generate_python generate_dotnet generate_go
+.PHONY: generate generate_java generate_nodejs generate_python generate_dotnet generate_go
+generate: generate_java generate_nodejs generate_python generate_dotnet generate_go
 generate_java: .make/generate_java
 generate_nodejs: .make/generate_nodejs
 generate_python: .make/generate_python
