@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"regexp"
 	"strings"
 	"text/template"
 	"time"
@@ -234,6 +235,23 @@ type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error
 
 func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body, languages []string,
 	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
+	switch example.Location {
+	case
+		"azure-rest-api-specs/specification/chaos/resource-manager/Microsoft.Chaos/preview/2021-09-15-preview/examples/CreateOrUpdateAExperiment.json":
+		return nil, nil
+	}
+	if match, _ := regexp.MatchString(".*/Microsoft.CostManagement/.*", example.Location); match {
+		return nil, nil
+	}
+	// if match, _ := regexp.MatchString(".*/Microsoft.CostManagement/.*/ReportCreateOrUpdate.json", example.Location); match {
+	// 	return nil, nil
+	// }
+	// if match, _ := regexp.MatchString(".*/Microsoft.CostManagement/.*/ReportCreateOrUpdateByBillingAccount.json", example.Location); match {
+	// 	return nil, nil
+	// }
+	if match, _ := regexp.MatchString(".*/Microsoft.DataFactory/.*/Pipelines.*", example.Location); match {
+		return nil, nil
+	}
 	programBody := fmt.Sprintf("%v", body)
 	debug.Log(programBody)
 	parser := syntax.NewParser()
@@ -265,19 +283,21 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 	for _, lang := range languages {
 		var files map[string][]byte
 
+		programName := fmt.Sprintf("%s-%s\n%s", example.Location, lang, programBody)
+
 		switch lang {
 		case "dotnet":
-			files, err = recoverableProgramGen(programBody, program, dotnet.GenerateProgram)
+			files, err = recoverableProgramGen(programName, program, dotnet.GenerateProgram)
 		case "go":
-			files, err = recoverableProgramGen(programBody, program, gogen.GenerateProgram)
+			files, err = recoverableProgramGen(programName, program, gogen.GenerateProgram)
 		case "nodejs":
-			files, err = recoverableProgramGen(programBody, program, nodejs.GenerateProgram)
+			files, err = recoverableProgramGen(programName, program, nodejs.GenerateProgram)
 		case "python":
-			files, err = recoverableProgramGen(programBody, program, python.GenerateProgram)
+			files, err = recoverableProgramGen(programName, program, python.GenerateProgram)
 		case "yaml":
-			files, err = recoverableProgramGen(programBody, program, yaml.GenerateProgram)
+			files, err = recoverableProgramGen(programName, program, yaml.GenerateProgram)
 		case "java":
-			files, err = recoverableProgramGen(programBody, program, java.GenerateProgram)
+			files, err = recoverableProgramGen(programName, program, java.GenerateProgram)
 		default:
 			continue
 		}

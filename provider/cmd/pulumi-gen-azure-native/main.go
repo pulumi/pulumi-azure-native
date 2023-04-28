@@ -109,10 +109,25 @@ func main() {
 
 		versions2 = openapi.RemoveResources(versions2, openapi.RemovableResources(versionMetadata.V2ResourcesToRemove))
 
-		pkgSpec2, meta, _, err := gen.PulumiSchema(versions2)
+		pkgSpec2, meta, resExamples, err := gen.PulumiSchema(versions2)
 		if err != nil {
 			panic(err)
 		}
+		// Ensure the spec is stamped with a version - Go gen needs it.
+		pkgSpec2.Version = version
+		err = gen.Examples(pkgSpec2, meta, resExamples, []string{
+			"nodejs",
+			"dotnet",
+			"python",
+			"go",
+			"java",
+			"yaml",
+		})
+		if err != nil {
+			panic(err)
+		}
+		// Remove the version again.
+		pkgSpec2.Version = ""
 
 		if err = emitSchema(*pkgSpec2, version, "bin", "v2"); err != nil {
 			panic(err)
