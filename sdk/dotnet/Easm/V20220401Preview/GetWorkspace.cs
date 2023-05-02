@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.Easm.V20220401Preview
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// Data plane endpoint.
+        /// </summary>
+        public readonly string DataPlaneEndpoint;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNative.Easm.V20220401Preview
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string dataPlaneEndpoint,
+
             string id,
 
             string location,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.Easm.V20220401Preview
 
             string type)
         {
+            DataPlaneEndpoint = dataPlaneEndpoint;
             Id = id;
             Location = location;
             Name = name;

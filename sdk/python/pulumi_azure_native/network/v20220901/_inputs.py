@@ -11225,7 +11225,7 @@ class ManagedRuleOverrideArgs:
         """
         Defines a managed rule group override setting.
         :param pulumi.Input[str] rule_id: Identifier for the managed rule.
-        :param pulumi.Input[Union[str, 'ActionType']] action: Describes the override action to be applied when rule matches.
+        :param pulumi.Input[Union[str, 'ActionType']] action: Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
         :param pulumi.Input[Union[str, 'ManagedRuleEnabledState']] state: The state of the managed rule. Defaults to Disabled if not specified.
         """
         pulumi.set(__self__, "rule_id", rule_id)
@@ -11250,7 +11250,7 @@ class ManagedRuleOverrideArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[Union[str, 'ActionType']]]:
         """
-        Describes the override action to be applied when rule matches.
+        Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
         """
         return pulumi.get(self, "action")
 

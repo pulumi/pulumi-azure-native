@@ -33,6 +33,7 @@ import * as avs from "./avs";
 import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurearcdata from "./azurearcdata";
 import * as azuredata from "./azuredata";
+import * as azuresphere from "./azuresphere";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
 import * as batch from "./batch";
@@ -236,6 +237,7 @@ export {
     azureactivedirectory,
     azurearcdata,
     azuredata,
+    azuresphere,
     azurestack,
     azurestackhci,
     batch,

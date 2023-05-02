@@ -38,6 +38,10 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * Data plane endpoint.
+     */
+    public /*out*/ readonly dataPlaneEndpoint!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -80,11 +84,13 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["dataPlaneEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["dataPlaneEndpoint"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

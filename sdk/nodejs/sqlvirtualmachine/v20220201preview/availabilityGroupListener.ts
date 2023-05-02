@@ -121,7 +121,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilityGroupListener.__pulumiType, name, resourceInputs, opts);
     }

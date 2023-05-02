@@ -167,7 +167,7 @@ class Access(str, Enum):
 
 class ActionType(str, Enum):
     """
-    Describes the override action to be applied when rule matches.
+    Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
     """
     ANOMALY_SCORING = "AnomalyScoring"
     ALLOW = "Allow"

@@ -51,6 +51,8 @@ if typing.TYPE_CHECKING:
     azurearcdata = __azurearcdata
     import pulumi_azure_native.azuredata as __azuredata
     azuredata = __azuredata
+    import pulumi_azure_native.azuresphere as __azuresphere
+    azuresphere = __azuresphere
     import pulumi_azure_native.azurestack as __azurestack
     azurestack = __azurestack
     import pulumi_azure_native.azurestackhci as __azurestackhci
@@ -431,6 +433,7 @@ else:
     azureactivedirectory = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory')
     azurearcdata = _utilities.lazy_import('pulumi_azure_native.azurearcdata')
     azuredata = _utilities.lazy_import('pulumi_azure_native.azuredata')
+    azuresphere = _utilities.lazy_import('pulumi_azure_native.azuresphere')
     azurestack = _utilities.lazy_import('pulumi_azure_native.azurestack')
     azurestackhci = _utilities.lazy_import('pulumi_azure_native.azurestackhci')
     batch = _utilities.lazy_import('pulumi_azure_native.batch')
@@ -3187,6 +3190,32 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azuresphere",
+  "fqn": "pulumi_azure_native.azuresphere",
+  "classes": {
+   "azure-native:azuresphere:Catalog": "Catalog",
+   "azure-native:azuresphere:Deployment": "Deployment",
+   "azure-native:azuresphere:Device": "Device",
+   "azure-native:azuresphere:DeviceGroup": "DeviceGroup",
+   "azure-native:azuresphere:Image": "Image",
+   "azure-native:azuresphere:Product": "Product"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azuresphere/v20220901preview",
+  "fqn": "pulumi_azure_native.azuresphere.v20220901preview",
+  "classes": {
+   "azure-native:azuresphere/v20220901preview:Catalog": "Catalog",
+   "azure-native:azuresphere/v20220901preview:Deployment": "Deployment",
+   "azure-native:azuresphere/v20220901preview:Device": "Device",
+   "azure-native:azuresphere/v20220901preview:DeviceGroup": "DeviceGroup",
+   "azure-native:azuresphere/v20220901preview:Image": "Image",
+   "azure-native:azuresphere/v20220901preview:Product": "Product"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azurestack",
   "fqn": "pulumi_azure_native.azurestack",
   "classes": {
@@ -4361,6 +4390,16 @@ _utilities.register(
    "azure-native:chaos/v20230401preview:Capability": "Capability",
    "azure-native:chaos/v20230401preview:Experiment": "Experiment",
    "azure-native:chaos/v20230401preview:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "chaos/v20230415preview",
+  "fqn": "pulumi_azure_native.chaos.v20230415preview",
+  "classes": {
+   "azure-native:chaos/v20230415preview:Capability": "Capability",
+   "azure-native:chaos/v20230415preview:Experiment": "Experiment",
+   "azure-native:chaos/v20230415preview:Target": "Target"
   }
  },
  {
@@ -10197,6 +10236,35 @@ _utilities.register(
    "azure-native:documentdb/v20230315:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb/v20230315:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb/v20230315:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20230415",
+  "fqn": "pulumi_azure_native.documentdb.v20230415",
+  "classes": {
+   "azure-native:documentdb/v20230415:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20230415:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20230415:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20230415:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20230415:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20230415:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20230415:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20230415:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20230415:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20230415:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb/v20230415:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
+   "azure-native:documentdb/v20230415:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20230415:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20230415:Service": "Service",
+   "azure-native:documentdb/v20230415:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20230415:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20230415:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20230415:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20230415:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20230415:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20230415:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20230415:TableResourceTable": "TableResourceTable"
   }
  },
  {
@@ -23153,6 +23221,16 @@ _utilities.register(
    "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener": "AvailabilityGroupListener",
    "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine": "SqlVirtualMachine",
    "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "sqlvirtualmachine/v20230101preview",
+  "fqn": "pulumi_azure_native.sqlvirtualmachine.v20230101preview",
+  "classes": {
+   "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener": "AvailabilityGroupListener",
+   "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine": "SqlVirtualMachine",
+   "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
   }
  },
  {

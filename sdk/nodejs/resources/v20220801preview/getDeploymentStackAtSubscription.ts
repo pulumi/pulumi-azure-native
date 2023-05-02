@@ -44,7 +44,7 @@ export interface GetDeploymentStackAtSubscriptionResult {
     /**
      * Defines how resources deployed by the stack are locked.
      */
-    readonly denySettings?: outputs.resources.v20220801preview.DenySettingsResponse;
+    readonly denySettings: outputs.resources.v20220801preview.DenySettingsResponse;
     /**
      * The resourceId of the deployment resource created by the deployment stack.
      */

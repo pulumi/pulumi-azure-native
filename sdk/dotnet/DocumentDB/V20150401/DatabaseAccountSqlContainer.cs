@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:DatabaseAccountSqlContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:DatabaseAccountSqlContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:DatabaseAccountSqlContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:DatabaseAccountSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

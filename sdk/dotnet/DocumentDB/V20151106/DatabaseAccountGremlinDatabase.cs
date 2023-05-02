@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:DatabaseAccountGremlinDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:DatabaseAccountGremlinDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:DatabaseAccountGremlinDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:DatabaseAccountGremlinDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

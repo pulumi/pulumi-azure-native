@@ -184,6 +184,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220701Preview
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

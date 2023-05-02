@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Network.V20220901
     }
 
     /// <summary>
-    /// Describes the override action to be applied when rule matches.
+    /// Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
     /// </summary>
     [EnumType]
     public readonly struct ActionType : IEquatable<ActionType>

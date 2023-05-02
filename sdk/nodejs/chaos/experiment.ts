@@ -103,7 +103,7 @@ export class Experiment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Experiment" }, { type: "azure-native:chaos/v20220701preview:Experiment" }, { type: "azure-native:chaos/v20221001preview:Experiment" }, { type: "azure-native:chaos/v20230401preview:Experiment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Experiment" }, { type: "azure-native:chaos/v20220701preview:Experiment" }, { type: "azure-native:chaos/v20221001preview:Experiment" }, { type: "azure-native:chaos/v20230401preview:Experiment" }, { type: "azure-native:chaos/v20230415preview:Experiment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Experiment.__pulumiType, name, resourceInputs, opts);
     }
