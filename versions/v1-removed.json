@@ -6,6 +6,7 @@
   "AppPlatform": ["2023-03-01-preview"],
   "AzureArcData": ["2023-01-15-preview", "2023-03-15-preview"],
   "AzureStackHCI": ["2023-03-01"],
+  "Chaos": ["2023-04-15-preview"],
   "Communication": ["2023-03-01-preview"],
   "Consumption": ["2023-03-01"],
   "ContainerInstance": ["2023-02-01-preview"],
@@ -14,7 +15,7 @@
   "DBforPostgreSQL": ["2022-05-01-preview"],
   "DevCenter": ["2023-01-01-preview"],
   "Devices": ["2022-11-15-preview"],
-  "DocumentDB": ["2022-11-15-preview", "2023-03-01-preview"],
+  "DocumentDB": ["2022-11-15-preview", "2023-03-01-preview", "2023-04-15"],
   "Easm": ["2023-04-01-preview"],
   "Elastic": ["2023-02-01-preview"],
   "GraphServices": ["2022-09-22-preview"],
@@ -35,6 +36,7 @@
   "SecurityFabric": ["2023-02-01-preview"],
   "SecurityInsights": ["2023-03-01-preview"],
   "SignalRService": ["2023-03-01-preview"],
+  "SqlVirtualMachine": ["2023-01-01-preview"],
   "StorageCache": ["2023-05-01"],
   "WebPubSub": ["2023-03-01-preview"]
 }

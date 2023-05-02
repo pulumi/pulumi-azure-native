@@ -4394,16 +4394,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "chaos/v20230415preview",
-  "fqn": "pulumi_azure_native.chaos.v20230415preview",
-  "classes": {
-   "azure-native:chaos/v20230415preview:Capability": "Capability",
-   "azure-native:chaos/v20230415preview:Experiment": "Experiment",
-   "azure-native:chaos/v20230415preview:Target": "Target"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "cognitiveservices",
   "fqn": "pulumi_azure_native.cognitiveservices",
   "classes": {
@@ -10236,35 +10226,6 @@ _utilities.register(
    "azure-native:documentdb/v20230315:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb/v20230315:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb/v20230315:TableResourceTable": "TableResourceTable"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "documentdb/v20230415",
-  "fqn": "pulumi_azure_native.documentdb.v20230415",
-  "classes": {
-   "azure-native:documentdb/v20230415:CassandraCluster": "CassandraCluster",
-   "azure-native:documentdb/v20230415:CassandraDataCenter": "CassandraDataCenter",
-   "azure-native:documentdb/v20230415:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
-   "azure-native:documentdb/v20230415:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
-   "azure-native:documentdb/v20230415:DatabaseAccount": "DatabaseAccount",
-   "azure-native:documentdb/v20230415:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
-   "azure-native:documentdb/v20230415:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
-   "azure-native:documentdb/v20230415:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
-   "azure-native:documentdb/v20230415:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
-   "azure-native:documentdb/v20230415:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
-   "azure-native:documentdb/v20230415:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
-   "azure-native:documentdb/v20230415:NotebookWorkspace": "NotebookWorkspace",
-   "azure-native:documentdb/v20230415:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:documentdb/v20230415:Service": "Service",
-   "azure-native:documentdb/v20230415:SqlResourceSqlContainer": "SqlResourceSqlContainer",
-   "azure-native:documentdb/v20230415:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
-   "azure-native:documentdb/v20230415:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
-   "azure-native:documentdb/v20230415:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
-   "azure-native:documentdb/v20230415:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
-   "azure-native:documentdb/v20230415:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
-   "azure-native:documentdb/v20230415:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
-   "azure-native:documentdb/v20230415:TableResourceTable": "TableResourceTable"
   }
  },
  {
@@ -23221,16 +23182,6 @@ _utilities.register(
    "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener": "AvailabilityGroupListener",
    "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine": "SqlVirtualMachine",
    "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "sqlvirtualmachine/v20230101preview",
-  "fqn": "pulumi_azure_native.sqlvirtualmachine.v20230101preview",
-  "classes": {
-   "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener": "AvailabilityGroupListener",
-   "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine": "SqlVirtualMachine",
-   "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
   }
  },
  {

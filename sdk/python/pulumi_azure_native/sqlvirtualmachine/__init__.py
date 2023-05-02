@@ -29,8 +29,6 @@ if typing.TYPE_CHECKING:
     v20220701preview = __v20220701preview
     import pulumi_azure_native.sqlvirtualmachine.v20220801preview as __v20220801preview
     v20220801preview = __v20220801preview
-    import pulumi_azure_native.sqlvirtualmachine.v20230101preview as __v20230101preview
-    v20230101preview = __v20230101preview
 else:
     v20170301preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20170301preview')
     v20211101preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20211101preview')
@@ -38,5 +36,4 @@ else:
     v20220201preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20220201preview')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20220701preview')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20220801preview')
-    v20230101preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20230101preview')
 
