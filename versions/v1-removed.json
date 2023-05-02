@@ -1,6 +1,7 @@
 {
   "Advisor": ["2023-01-01"],
   "AlertsManagement": ["2023-04-01-preview"],
+  "ApiManagement": ["2022-09-01-preview"],
   "App": ["2022-11-01-preview"],
   "AppPlatform": ["2023-03-01-preview"],
   "AzureArcData": ["2023-01-15-preview", "2023-03-15-preview"],
