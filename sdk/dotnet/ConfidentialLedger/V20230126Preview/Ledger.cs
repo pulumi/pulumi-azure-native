@@ -34,19 +34,13 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230126Preview
         public Output<Outputs.LedgerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Object representing RunningState for Ledger.
-        /// </summary>
-        [Output("runningState")]
-        public Output<string?> RunningState { get; private set; } = null!;
-
-        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Additional tags for Confidential Ledger
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -134,17 +128,11 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230126Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Object representing RunningState for Ledger.
-        /// </summary>
-        [Input("runningState")]
-        public InputUnion<string, Pulumi.AzureNative.ConfidentialLedger.V20230126Preview.RunningState>? RunningState { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Additional tags for Confidential Ledger
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

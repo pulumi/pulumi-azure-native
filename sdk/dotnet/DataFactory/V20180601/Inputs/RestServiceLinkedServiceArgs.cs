@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class RestServiceLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource you are requesting authorization to use.
+        /// The resource you are requesting authorization to use. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("aadResourceId")]
         public Input<object>? AadResourceId { get; set; }
@@ -88,10 +88,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? EnableServerCertificateValidation { get; set; }
 
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
         [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
+        public Input<string>? EncryptedCredential { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? Scope { get; set; }
 
         /// <summary>
-        /// The application's client ID used in AadServicePrincipal authentication type.
+        /// The application's client ID used in AadServicePrincipal authentication type. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<object>? ServicePrincipalId { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
 
         /// <summary>
-        /// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
+        /// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("tenant")]
         public Input<object>? Tenant { get; set; }
@@ -155,13 +155,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The base URL of the REST service.
+        /// The base URL of the REST service. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("url", required: true)]
         public Input<object> Url { get; set; } = null!;
 
         /// <summary>
-        /// The user name used in Basic authentication type.
+        /// The user name used in Basic authentication type. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("userName")]
         public Input<object>? UserName { get; set; }

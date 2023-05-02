@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? DisableMetricsCollection { get; set; }
 
         /// <summary>
-        /// Indicates whether to enable partition discovery.
+        /// Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("enablePartitionDiscovery")]
-        public Input<bool>? EnablePartitionDiscovery { get; set; }
+        public Input<object>? EnablePartitionDiscovery { get; set; }
 
         /// <summary>
         /// Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).

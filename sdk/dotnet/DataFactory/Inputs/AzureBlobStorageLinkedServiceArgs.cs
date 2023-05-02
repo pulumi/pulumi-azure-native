@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("accountKind")]
-        public Input<string>? AccountKind { get; set; }
+        public Input<object>? AccountKind { get; set; }
 
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
         [Input("encryptedCredential")]
         public Input<string>? EncryptedCredential { get; set; }
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Blob service endpoint of the Azure Blob Storage resource. It is mutually exclusive with connectionString, sasUri property.
         /// </summary>
         [Input("serviceEndpoint")]
-        public Input<string>? ServiceEndpoint { get; set; }
+        public Input<object>? ServiceEndpoint { get; set; }
 
         /// <summary>
         /// The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).

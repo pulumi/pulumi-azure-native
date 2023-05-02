@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? DisableMetricsCollection;
         /// <summary>
-        /// Indicates whether to enable partition discovery.
+        /// Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly bool? EnablePartitionDiscovery;
+        public readonly object? EnablePartitionDiscovery;
         /// <summary>
         /// Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? disableMetricsCollection,
 
-            bool? enablePartitionDiscovery,
+            object? enablePartitionDiscovery,
 
             object? fileListPath,
 

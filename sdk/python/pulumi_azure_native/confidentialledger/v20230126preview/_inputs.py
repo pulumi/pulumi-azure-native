@@ -185,12 +185,14 @@ class LedgerPropertiesArgs:
     def __init__(__self__, *,
                  aad_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
                  cert_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]] = None,
-                 ledger_type: Optional[pulumi.Input[Union[str, 'LedgerType']]] = None):
+                 ledger_type: Optional[pulumi.Input[Union[str, 'LedgerType']]] = None,
+                 running_state: Optional[pulumi.Input[Union[str, 'RunningState']]] = None):
         """
         Additional Confidential Ledger properties.
         :param pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]] aad_based_security_principals: Array of all AAD based Security Principals.
         :param pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]] cert_based_security_principals: Array of all cert based Security Principals.
         :param pulumi.Input[Union[str, 'LedgerType']] ledger_type: Type of Confidential Ledger
+        :param pulumi.Input[Union[str, 'RunningState']] running_state: Object representing RunningState for Ledger.
         """
         if aad_based_security_principals is not None:
             pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
@@ -198,6 +200,8 @@ class LedgerPropertiesArgs:
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
+        if running_state is not None:
+            pulumi.set(__self__, "running_state", running_state)
 
     @property
     @pulumi.getter(name="aadBasedSecurityPrincipals")
@@ -234,6 +238,18 @@ class LedgerPropertiesArgs:
     @ledger_type.setter
     def ledger_type(self, value: Optional[pulumi.Input[Union[str, 'LedgerType']]]):
         pulumi.set(self, "ledger_type", value)
+
+    @property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> Optional[pulumi.Input[Union[str, 'RunningState']]]:
+        """
+        Object representing RunningState for Ledger.
+        """
+        return pulumi.get(self, "running_state")
+
+    @running_state.setter
+    def running_state(self, value: Optional[pulumi.Input[Union[str, 'RunningState']]]):
+        pulumi.set(self, "running_state", value)
 
 
 @pulumi.input_type

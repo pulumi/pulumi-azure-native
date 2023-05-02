@@ -51,15 +51,11 @@ export interface GetLedgerResult {
      */
     readonly properties: outputs.confidentialledger.v20230126preview.LedgerPropertiesResponse;
     /**
-     * Object representing RunningState for Ledger.
-     */
-    readonly runningState?: string;
-    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.confidentialledger.v20230126preview.SystemDataResponse;
     /**
-     * Additional tags for Confidential Ledger
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**

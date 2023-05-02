@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? DisableMetricsCollection;
         /// <summary>
-        /// Indicates whether to enable partition discovery.
+        /// Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly bool? EnablePartitionDiscovery;
+        public readonly object? EnablePartitionDiscovery;
         /// <summary>
         /// Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? disableMetricsCollection,
 
-            bool? enablePartitionDiscovery,
+            object? enablePartitionDiscovery,
 
             object? fileFilter,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     public sealed class SqlAlwaysEncryptedPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        /// Sql always encrypted AKV authentication type. Type: string.
         /// </summary>
         [Input("alwaysEncryptedAkvAuthType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DataFactory.SqlAlwaysEncryptedAkvAuthType> AlwaysEncryptedAkvAuthType { get; set; } = null!;

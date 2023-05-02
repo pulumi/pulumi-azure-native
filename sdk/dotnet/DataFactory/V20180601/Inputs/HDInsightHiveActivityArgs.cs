@@ -131,14 +131,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         [Input("variables")]
-        private InputList<object>? _variables;
+        private InputMap<object>? _variables;
 
         /// <summary>
         /// User specified arguments under hivevar namespace.
         /// </summary>
-        public InputList<object> Variables
+        public InputMap<object> Variables
         {
-            get => _variables ?? (_variables = new InputList<object>());
+            get => _variables ?? (_variables = new InputMap<object>());
             set => _variables = value;
         }
 

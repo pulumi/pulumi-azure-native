@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230101.Outputs
         /// <summary>
         /// Gets or sets actions required
         /// </summary>
-        public readonly string? ActionRequired;
+        public readonly string? ActionsRequired;
         /// <summary>
         /// Gets or sets description
         /// </summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230101.Outputs
 
         [OutputConstructor]
         private PrivateLinkServiceConnectionStateResponse(
-            string? actionRequired,
+            string? actionsRequired,
 
             string? description,
 
             string? status)
         {
-            ActionRequired = actionRequired;
+            ActionsRequired = actionsRequired;
             Description = description;
             Status = status;
         }

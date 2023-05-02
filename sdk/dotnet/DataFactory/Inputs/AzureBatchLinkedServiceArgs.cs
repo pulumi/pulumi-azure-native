@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
         [Input("encryptedCredential")]
-        public Input<object>? EncryptedCredential { get; set; }
+        public Input<string>? EncryptedCredential { get; set; }
 
         /// <summary>
         /// The Azure Storage linked service reference.

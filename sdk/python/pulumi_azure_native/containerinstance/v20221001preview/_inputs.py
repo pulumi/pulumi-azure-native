@@ -36,6 +36,8 @@ __all__ = [
     'ResourceLimitsArgs',
     'ResourceRequestsArgs',
     'ResourceRequirementsArgs',
+    'SecurityContextCapabilitiesDefinitionArgs',
+    'SecurityContextDefinitionArgs',
     'VolumeMountArgs',
     'VolumeArgs',
 ]
@@ -502,6 +504,7 @@ class ContainerArgs:
                  liveness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
                  readiness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
+                 security_context: Optional[pulumi.Input['SecurityContextDefinitionArgs']] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
         A container instance.
@@ -513,6 +516,7 @@ class ContainerArgs:
         :param pulumi.Input['ContainerProbeArgs'] liveness_probe: The liveness probe.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]] ports: The exposed ports on the container instance.
         :param pulumi.Input['ContainerProbeArgs'] readiness_probe: The readiness probe.
+        :param pulumi.Input['SecurityContextDefinitionArgs'] security_context: The container security properties.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
         """
         pulumi.set(__self__, "image", image)
@@ -528,6 +532,8 @@ class ContainerArgs:
             pulumi.set(__self__, "ports", ports)
         if readiness_probe is not None:
             pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
 
@@ -626,6 +632,18 @@ class ContainerArgs:
     @readiness_probe.setter
     def readiness_probe(self, value: Optional[pulumi.Input['ContainerProbeArgs']]):
         pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional[pulumi.Input['SecurityContextDefinitionArgs']]:
+        """
+        The container security properties.
+        """
+        return pulumi.get(self, "security_context")
+
+    @security_context.setter
+    def security_context(self, value: Optional[pulumi.Input['SecurityContextDefinitionArgs']]):
+        pulumi.set(self, "security_context", value)
 
     @property
     @pulumi.getter(name="volumeMounts")
@@ -1131,6 +1149,7 @@ class InitContainerDefinitionArgs:
                  command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
+                 security_context: Optional[pulumi.Input['SecurityContextDefinitionArgs']] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
         The init container definition.
@@ -1138,6 +1157,7 @@ class InitContainerDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The command to execute within the init container in exec form.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the init container.
         :param pulumi.Input[str] image: The image of the init container.
+        :param pulumi.Input['SecurityContextDefinitionArgs'] security_context: The container security properties.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the init container.
         """
         pulumi.set(__self__, "name", name)
@@ -1147,6 +1167,8 @@ class InitContainerDefinitionArgs:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if image is not None:
             pulumi.set(__self__, "image", image)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
 
@@ -1197,6 +1219,18 @@ class InitContainerDefinitionArgs:
     @image.setter
     def image(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional[pulumi.Input['SecurityContextDefinitionArgs']]:
+        """
+        The container security properties.
+        """
+        return pulumi.get(self, "security_context")
+
+    @security_context.setter
+    def security_context(self, value: Optional[pulumi.Input['SecurityContextDefinitionArgs']]):
+        pulumi.set(self, "security_context", value)
 
     @property
     @pulumi.getter(name="volumeMounts")
@@ -1571,6 +1605,150 @@ class ResourceRequirementsArgs:
     @limits.setter
     def limits(self, value: Optional[pulumi.Input['ResourceLimitsArgs']]):
         pulumi.set(self, "limits", value)
+
+
+@pulumi.input_type
+class SecurityContextCapabilitiesDefinitionArgs:
+    def __init__(__self__, *,
+                 add: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 drop: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The capabilities to add or drop from a container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] add: The capabilities to add to the container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] drop: The capabilities to drop from the container.
+        """
+        if add is not None:
+            pulumi.set(__self__, "add", add)
+        if drop is not None:
+            pulumi.set(__self__, "drop", drop)
+
+    @property
+    @pulumi.getter
+    def add(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The capabilities to add to the container.
+        """
+        return pulumi.get(self, "add")
+
+    @add.setter
+    def add(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "add", value)
+
+    @property
+    @pulumi.getter
+    def drop(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The capabilities to drop from the container.
+        """
+        return pulumi.get(self, "drop")
+
+    @drop.setter
+    def drop(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "drop", value)
+
+
+@pulumi.input_type
+class SecurityContextDefinitionArgs:
+    def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[pulumi.Input[bool]] = None,
+                 capabilities: Optional[pulumi.Input['SecurityContextCapabilitiesDefinitionArgs']] = None,
+                 privileged: Optional[pulumi.Input[bool]] = None,
+                 run_as_group: Optional[pulumi.Input[int]] = None,
+                 run_as_user: Optional[pulumi.Input[int]] = None,
+                 seccomp_profile: Optional[pulumi.Input[str]] = None):
+        """
+        The security context for the container.
+        :param pulumi.Input[bool] allow_privilege_escalation: A boolean value indicating whether the init process can elevate its privileges
+        :param pulumi.Input['SecurityContextCapabilitiesDefinitionArgs'] capabilities: The capabilities to add or drop from a container.
+        :param pulumi.Input[bool] privileged: The flag to determine if the container permissions is elevated to Privileged.
+        :param pulumi.Input[int] run_as_group: Sets the User GID for the container.
+        :param pulumi.Input[int] run_as_user: Sets the User UID for the container.
+        :param pulumi.Input[str] seccomp_profile: a base64 encoded string containing the contents of the JSON in the seccomp profile
+        """
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+        if seccomp_profile is not None:
+            pulumi.set(__self__, "seccomp_profile", seccomp_profile)
+
+    @property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean value indicating whether the init process can elevate its privileges
+        """
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @allow_privilege_escalation.setter
+    def allow_privilege_escalation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_privilege_escalation", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input['SecurityContextCapabilitiesDefinitionArgs']]:
+        """
+        The capabilities to add or drop from a container.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input['SecurityContextCapabilitiesDefinitionArgs']]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag to determine if the container permissions is elevated to Privileged.
+        """
+        return pulumi.get(self, "privileged")
+
+    @privileged.setter
+    def privileged(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "privileged", value)
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the User GID for the container.
+        """
+        return pulumi.get(self, "run_as_group")
+
+    @run_as_group.setter
+    def run_as_group(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "run_as_group", value)
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the User UID for the container.
+        """
+        return pulumi.get(self, "run_as_user")
+
+    @run_as_user.setter
+    def run_as_user(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "run_as_user", value)
+
+    @property
+    @pulumi.getter(name="seccompProfile")
+    def seccomp_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        a base64 encoded string containing the contents of the JSON in the seccomp profile
+        """
+        return pulumi.get(self, "seccomp_profile")
+
+    @seccomp_profile.setter
+    def seccomp_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "seccomp_profile", value)
 
 
 @pulumi.input_type

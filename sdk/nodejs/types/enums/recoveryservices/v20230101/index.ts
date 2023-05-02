@@ -529,6 +529,17 @@ export const TieringMode = {
  */
 export type TieringMode = (typeof TieringMode)[keyof typeof TieringMode];
 
+export const VaultSubResourceType = {
+    AzureBackup: "AzureBackup",
+    AzureBackup_secondary: "AzureBackup_secondary",
+    AzureSiteRecovery: "AzureSiteRecovery",
+} as const;
+
+/**
+ * GroupId for the PrivateEndpointConnection - AzureBackup, AzureBackup_secondary or AzureSiteRecovery
+ */
+export type VaultSubResourceType = (typeof VaultSubResourceType)[keyof typeof VaultSubResourceType];
+
 export const WeekOfMonth = {
     First: "First",
     Second: "Second",

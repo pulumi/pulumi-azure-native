@@ -25301,7 +25301,9 @@ class PrivateEndpointConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateEndpoint":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
             suggest = "private_endpoint"
         elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
@@ -25320,21 +25322,33 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Optional[Sequence[str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
                  provisioning_state: Optional[str] = None):
         """
         Private Endpoint Connection Response Properties
+        :param Sequence[str] group_ids: Group Ids for the Private Endpoint
         :param 'PrivateEndpointResponse' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection
         """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Group Ids for the Private Endpoint
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -25457,8 +25471,8 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "actionRequired":
-            suggest = "action_required"
+        if key == "actionsRequired":
+            suggest = "actions_required"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
@@ -25472,29 +25486,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_required: Optional[str] = None,
+                 actions_required: Optional[str] = None,
                  description: Optional[str] = None,
                  status: Optional[str] = None):
         """
         Private Link Service Connection State
-        :param str action_required: Gets or sets actions required
+        :param str actions_required: Gets or sets actions required
         :param str description: Gets or sets description
         :param str status: Gets or sets the status
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[str]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
         """
         Gets or sets actions required
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
     @property
     @pulumi.getter

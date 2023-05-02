@@ -50,15 +50,11 @@ export class Ledger extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.confidentialledger.v20230126preview.LedgerPropertiesResponse>;
     /**
-     * Object representing RunningState for Ledger.
-     */
-    public readonly runningState!: pulumi.Output<string | undefined>;
-    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.confidentialledger.v20230126preview.SystemDataResponse>;
     /**
-     * Additional tags for Confidential Ledger
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -84,7 +80,6 @@ export class Ledger extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runningState"] = args ? args.runningState : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -93,7 +88,6 @@ export class Ledger extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
-            resourceInputs["runningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -126,11 +120,7 @@ export interface LedgerArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Object representing RunningState for Ledger.
-     */
-    runningState?: pulumi.Input<string | enums.confidentialledger.v20230126preview.RunningState>;
-    /**
-     * Additional tags for Confidential Ledger
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

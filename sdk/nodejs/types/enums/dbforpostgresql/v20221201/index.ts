@@ -59,7 +59,6 @@ export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof Hi
 
 export const IdentityType = {
     None: "None",
-    SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
 } as const;
 

@@ -368,6 +368,8 @@ NetApp:
 Network:
   explicit: true
   notes: Large surface area that's likely to conflict as versions evolve
+  exclusions:
+    VirtualWAN: "2018-07-01"
 NetworkCloud:
   expectTracking: preview
   notes: Only single preview version

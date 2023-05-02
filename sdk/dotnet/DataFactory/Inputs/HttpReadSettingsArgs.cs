@@ -11,10 +11,16 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
-    /// Sftp read settings.
+    /// Http read settings.
     /// </summary>
     public sealed class HttpReadSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        /// </summary>
+        [Input("additionalColumns")]
+        public Input<object>? AdditionalColumns { get; set; }
+
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         /// </summary>
@@ -28,22 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? DisableMetricsCollection { get; set; }
 
         /// <summary>
-        /// Indicates whether to enable partition discovery.
-        /// </summary>
-        [Input("enablePartitionDiscovery")]
-        public Input<bool>? EnablePartitionDiscovery { get; set; }
-
-        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("maxConcurrentConnections")]
         public Input<object>? MaxConcurrentConnections { get; set; }
-
-        /// <summary>
-        /// Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("partitionRootPath")]
-        public Input<object>? PartitionRootPath { get; set; }
 
         /// <summary>
         /// The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
@@ -58,7 +52,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? RequestMethod { get; set; }
 
         /// <summary>
-        /// Specifies the timeout for a HTTP client to get HTTP response from HTTP server.
+        /// Specifies the timeout for a HTTP client to get HTTP response from HTTP server. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("requestTimeout")]
         public Input<object>? RequestTimeout { get; set; }

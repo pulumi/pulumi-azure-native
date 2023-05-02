@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Duration in seconds.
+        /// Duration in seconds. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("waitTimeInSeconds", required: true)]
         public Input<object> WaitTimeInSeconds { get; set; } = null!;

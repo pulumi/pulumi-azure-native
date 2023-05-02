@@ -243,6 +243,8 @@ class LedgerPropertiesResponse(dict):
             suggest = "cert_based_security_principals"
         elif key == "ledgerType":
             suggest = "ledger_type"
+        elif key == "runningState":
+            suggest = "running_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LedgerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -263,7 +265,8 @@ class LedgerPropertiesResponse(dict):
                  provisioning_state: str,
                  aad_based_security_principals: Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']] = None,
                  cert_based_security_principals: Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']] = None,
-                 ledger_type: Optional[str] = None):
+                 ledger_type: Optional[str] = None,
+                 running_state: Optional[str] = None):
         """
         Additional Confidential Ledger properties.
         :param str identity_service_uri: Endpoint for accessing network identity.
@@ -274,6 +277,7 @@ class LedgerPropertiesResponse(dict):
         :param Sequence['AADBasedSecurityPrincipalResponse'] aad_based_security_principals: Array of all AAD based Security Principals.
         :param Sequence['CertBasedSecurityPrincipalResponse'] cert_based_security_principals: Array of all cert based Security Principals.
         :param str ledger_type: Type of Confidential Ledger
+        :param str running_state: Object representing RunningState for Ledger.
         """
         pulumi.set(__self__, "identity_service_uri", identity_service_uri)
         pulumi.set(__self__, "ledger_internal_namespace", ledger_internal_namespace)
@@ -286,6 +290,8 @@ class LedgerPropertiesResponse(dict):
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
+        if running_state is not None:
+            pulumi.set(__self__, "running_state", running_state)
 
     @property
     @pulumi.getter(name="identityServiceUri")
@@ -350,6 +356,14 @@ class LedgerPropertiesResponse(dict):
         Type of Confidential Ledger
         """
         return pulumi.get(self, "ledger_type")
+
+    @property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> Optional[str]:
+        """
+        Object representing RunningState for Ledger.
+        """
+        return pulumi.get(self, "running_state")
 
 
 @pulumi.output_type

@@ -17,9 +17,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class RestResourceDatasetResponse
     {
         /// <summary>
-        /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        /// The additional HTTP headers in the request to the RESTful API.
         /// </summary>
-        public readonly object? AdditionalHeaders;
+        public readonly ImmutableDictionary<string, object>? AdditionalHeaders;
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
@@ -37,9 +37,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
         /// <summary>
-        /// The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
+        /// The pagination rules to compose next page requests.
         /// </summary>
-        public readonly object? PaginationRules;
+        public readonly ImmutableDictionary<string, object>? PaginationRules;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private RestResourceDatasetResponse(
-            object? additionalHeaders,
+            ImmutableDictionary<string, object>? additionalHeaders,
 
             ImmutableArray<object> annotations,
 
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            object? paginationRules,
+            ImmutableDictionary<string, object>? paginationRules,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 

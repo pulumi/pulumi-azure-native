@@ -21,7 +21,6 @@ class LedgerArgs:
                  ledger_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['LedgerPropertiesArgs']] = None,
-                 running_state: Optional[pulumi.Input[Union[str, 'RunningState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Ledger resource.
@@ -29,8 +28,7 @@ class LedgerArgs:
         :param pulumi.Input[str] ledger_name: Name of the Confidential Ledger
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['LedgerPropertiesArgs'] properties: Properties of Confidential Ledger Resource.
-        :param pulumi.Input[Union[str, 'RunningState']] running_state: Object representing RunningState for Ledger.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Additional tags for Confidential Ledger
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if ledger_name is not None:
@@ -39,8 +37,6 @@ class LedgerArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if running_state is not None:
-            pulumi.set(__self__, "running_state", running_state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,22 +89,10 @@ class LedgerArgs:
         pulumi.set(self, "properties", value)
 
     @property
-    @pulumi.getter(name="runningState")
-    def running_state(self) -> Optional[pulumi.Input[Union[str, 'RunningState']]]:
-        """
-        Object representing RunningState for Ledger.
-        """
-        return pulumi.get(self, "running_state")
-
-    @running_state.setter
-    def running_state(self, value: Optional[pulumi.Input[Union[str, 'RunningState']]]):
-        pulumi.set(self, "running_state", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Additional tags for Confidential Ledger
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -126,7 +110,6 @@ class Ledger(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['LedgerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 running_state: Optional[pulumi.Input[Union[str, 'RunningState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -138,8 +121,7 @@ class Ledger(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['LedgerPropertiesArgs']] properties: Properties of Confidential Ledger Resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'RunningState']] running_state: Object representing RunningState for Ledger.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Additional tags for Confidential Ledger
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -169,7 +151,6 @@ class Ledger(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['LedgerPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 running_state: Optional[pulumi.Input[Union[str, 'RunningState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -186,7 +167,6 @@ class Ledger(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["running_state"] = running_state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -218,7 +198,6 @@ class Ledger(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["running_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -249,14 +228,6 @@ class Ledger(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="runningState")
-    def running_state(self) -> pulumi.Output[Optional[str]]:
-        """
-        Object representing RunningState for Ledger.
-        """
-        return pulumi.get(self, "running_state")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
@@ -268,7 +239,7 @@ class Ledger(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Additional tags for Confidential Ledger
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 

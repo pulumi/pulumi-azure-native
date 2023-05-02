@@ -197,6 +197,8 @@ if typing.TYPE_CHECKING:
     healthbot = __healthbot
     import pulumi_azure_native.healthcareapis as __healthcareapis
     healthcareapis = __healthcareapis
+    import pulumi_azure_native.hybridcloud as __hybridcloud
+    hybridcloud = __hybridcloud
     import pulumi_azure_native.hybridcompute as __hybridcompute
     hybridcompute = __hybridcompute
     import pulumi_azure_native.hybridconnectivity as __hybridconnectivity
@@ -502,6 +504,7 @@ else:
     hdinsight = _utilities.lazy_import('pulumi_azure_native.hdinsight')
     healthbot = _utilities.lazy_import('pulumi_azure_native.healthbot')
     healthcareapis = _utilities.lazy_import('pulumi_azure_native.healthcareapis')
+    hybridcloud = _utilities.lazy_import('pulumi_azure_native.hybridcloud')
     hybridcompute = _utilities.lazy_import('pulumi_azure_native.hybridcompute')
     hybridconnectivity = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity')
     hybridcontainerservice = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice')
@@ -11441,6 +11444,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridcloud",
+  "fqn": "pulumi_azure_native.hybridcloud",
+  "classes": {
+   "azure-native:hybridcloud:CloudConnection": "CloudConnection",
+   "azure-native:hybridcloud:CloudConnector": "CloudConnector"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcloud/v20230101preview",
+  "fqn": "pulumi_azure_native.hybridcloud.v20230101preview",
+  "classes": {
+   "azure-native:hybridcloud/v20230101preview:CloudConnection": "CloudConnection",
+   "azure-native:hybridcloud/v20230101preview:CloudConnector": "CloudConnector"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybridcompute",
   "fqn": "pulumi_azure_native.hybridcompute",
   "classes": {
@@ -11626,6 +11647,17 @@ _utilities.register(
    "azure-native:hybridcompute/v20221110:MachineExtension": "MachineExtension",
    "azure-native:hybridcompute/v20221110:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute/v20221110:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcompute/v20221227",
+  "fqn": "pulumi_azure_native.hybridcompute.v20221227",
+  "classes": {
+   "azure-native:hybridcompute/v20221227:Machine": "Machine",
+   "azure-native:hybridcompute/v20221227:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20221227:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20221227:PrivateLinkScope": "PrivateLinkScope"
   }
  },
  {
@@ -14707,6 +14739,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.monitor.v20210603preview",
   "classes": {
    "azure-native:monitor/v20210603preview:AzureMonitorWorkspace": "AzureMonitorWorkspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20230403",
+  "fqn": "pulumi_azure_native.monitor.v20230403",
+  "classes": {
+   "azure-native:monitor/v20230403:AzureMonitorWorkspace": "AzureMonitorWorkspace"
   }
  },
  {

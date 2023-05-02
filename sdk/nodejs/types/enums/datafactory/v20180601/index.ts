@@ -91,19 +91,9 @@ export const CosmosDbConnectionMode = {
 } as const;
 
 /**
- * The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+ * The connection mode used to access CosmosDB account. Type: string.
  */
 export type CosmosDbConnectionMode = (typeof CosmosDbConnectionMode)[keyof typeof CosmosDbConnectionMode];
-
-export const CosmosDbServicePrincipalCredentialType = {
-    ServicePrincipalKey: "ServicePrincipalKey",
-    ServicePrincipalCert: "ServicePrincipalCert",
-} as const;
-
-/**
- * The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
- */
-export type CosmosDbServicePrincipalCredentialType = (typeof CosmosDbServicePrincipalCredentialType)[keyof typeof CosmosDbServicePrincipalCredentialType];
 
 export const CredentialReferenceType = {
     CredentialReference: "CredentialReference",
@@ -692,7 +682,7 @@ export const SqlAlwaysEncryptedAkvAuthType = {
 } as const;
 
 /**
- * Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+ * Sql always encrypted AKV authentication type. Type: string.
  */
 export type SqlAlwaysEncryptedAkvAuthType = (typeof SqlAlwaysEncryptedAkvAuthType)[keyof typeof SqlAlwaysEncryptedAkvAuthType];
 

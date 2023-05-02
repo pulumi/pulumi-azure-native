@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? DisableMetricsCollection { get; set; }
 
         /// <summary>
-        /// Indicates whether to enable partition discovery.
+        /// Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("enablePartitionDiscovery")]
-        public Input<bool>? EnablePartitionDiscovery { get; set; }
+        public Input<object>? EnablePartitionDiscovery { get; set; }
 
         /// <summary>
         /// Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
@@ -71,10 +71,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specify whether to use binary transfer mode for FTP stores.
+        /// Specify whether to use binary transfer mode for FTP stores. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("useBinaryTransfer")]
-        public Input<bool>? UseBinaryTransfer { get; set; }
+        public Input<object>? UseBinaryTransfer { get; set; }
 
         /// <summary>
         /// Ftp wildcardFileName. Type: string (or Expression with resultType string).
