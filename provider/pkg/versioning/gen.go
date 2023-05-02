@@ -27,22 +27,15 @@ type VersionMetadata struct {
 	V2ResourcesToRemove           Squeeze
 }
 
-type MajorVersion int
-
-const (
-	V1 MajorVersion = 1
-	V2 MajorVersion = 2
-)
-
-func GenerateVersionMetadata(rootDir string, majorVersion MajorVersion, providers openapi.AzureProviders) (VersionMetadata, error) {
+func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders) (VersionMetadata, error) {
 	versionSources, err := ReadVersionSources(rootDir)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	return calculateVersionMetadata(majorVersion, versionSources, providers)
+	return calculateVersionMetadata(versionSources, providers)
 }
 
-func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionSources, providers map[string]map[string]openapi.VersionResources) (VersionMetadata, error) {
+func calculateVersionMetadata(versionSources VersionSources, providers map[string]map[string]openapi.VersionResources) (VersionMetadata, error) {
 	// map[LoweredProviderName]map[ResourcePath]ApiVersions
 	activePathVersions := versionSources.activePathVersions
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)

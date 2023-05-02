@@ -92,7 +92,7 @@ func main() {
 			panic(err)
 		}
 
-		versionMetadata, err := versioning.GenerateVersionMetadata(wd, versioning.V2, providers)
+		versionMetadata, err := versioning.GenerateVersionMetadata(wd, providers)
 		if err != nil {
 			panic(err)
 		}
@@ -125,7 +125,7 @@ func main() {
 			panic(err)
 		}
 
-		versionMetadata, err := versioning.GenerateVersionMetadata(wd, versioning.V1, providers)
+		versionMetadata, err := versioning.GenerateVersionMetadata(wd, providers)
 		if err != nil {
 			panic(err)
 		}
