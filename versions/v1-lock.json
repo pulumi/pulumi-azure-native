@@ -235,6 +235,18 @@
     "SqlServer": "2019-07-24-preview",
     "SqlServerRegistration": "2019-07-24-preview"
   },
+  "AzureSphere": {
+    "Catalog": "2022-09-01-preview",
+    "Deployment": "2022-09-01-preview",
+    "Device": "2022-09-01-preview",
+    "DeviceGroup": "2022-09-01-preview",
+    "Image": "2022-09-01-preview",
+    "Product": "2022-09-01-preview",
+    "listCatalogDeployments": "2022-09-01-preview",
+    "listCatalogDeviceGroups": "2022-09-01-preview",
+    "listCatalogDeviceInsights": "2022-09-01-preview",
+    "listCatalogDevices": "2022-09-01-preview"
+  },
   "AzureStack": {
     "CustomerSubscription": "2017-06-01",
     "LinkedSubscription": "2020-06-01-preview",

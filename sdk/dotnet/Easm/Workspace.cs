@@ -17,6 +17,12 @@ namespace Pulumi.AzureNative.Easm
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Data plane endpoint.
+        /// </summary>
+        [Output("dataPlaneEndpoint")]
+        public Output<string> DataPlaneEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Network.V20220901.Outputs
     public sealed class ManagedRuleOverrideResponse
     {
         /// <summary>
-        /// Describes the override action to be applied when rule matches.
+        /// Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
         /// </summary>
         public readonly string? Action;
         /// <summary>

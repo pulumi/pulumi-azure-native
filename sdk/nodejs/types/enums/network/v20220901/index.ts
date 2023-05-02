@@ -20,7 +20,7 @@ export const ActionType = {
 } as const;
 
 /**
- * Describes the override action to be applied when rule matches.
+ * Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 

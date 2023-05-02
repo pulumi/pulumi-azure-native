@@ -16608,7 +16608,7 @@ class ManagedRuleOverrideResponse(dict):
         """
         Defines a managed rule group override setting.
         :param str rule_id: Identifier for the managed rule.
-        :param str action: Describes the override action to be applied when rule matches.
+        :param str action: Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
         :param str state: The state of the managed rule. Defaults to Disabled if not specified.
         """
         pulumi.set(__self__, "rule_id", rule_id)
@@ -16629,7 +16629,7 @@ class ManagedRuleOverrideResponse(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        Describes the override action to be applied when rule matches.
+        Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
         """
         return pulumi.get(self, "action")
 

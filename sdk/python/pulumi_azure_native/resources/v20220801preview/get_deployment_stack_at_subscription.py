@@ -116,7 +116,7 @@ class GetDeploymentStackAtSubscriptionResult:
 
     @property
     @pulumi.getter(name="denySettings")
-    def deny_settings(self) -> Optional['outputs.DenySettingsResponse']:
+    def deny_settings(self) -> 'outputs.DenySettingsResponse':
         """
         Defines how resources deployed by the stack are locked.
         """
