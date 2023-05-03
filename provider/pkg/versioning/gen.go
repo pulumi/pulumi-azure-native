@@ -32,10 +32,10 @@ func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders) (
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	return calculateVersionMetadata(versionSources, providers)
+	return CalculateVersionMetadata(versionSources, providers)
 }
 
-func calculateVersionMetadata(versionSources VersionSources, providers map[string]map[string]openapi.VersionResources) (VersionMetadata, error) {
+func CalculateVersionMetadata(versionSources VersionSources, providers map[string]map[string]openapi.VersionResources) (VersionMetadata, error) {
 	// map[LoweredProviderName]map[ResourcePath]ApiVersions
 	activePathVersions := versionSources.activePathVersions
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
