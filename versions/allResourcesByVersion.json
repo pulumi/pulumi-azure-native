@@ -14913,6 +14913,11 @@
       "AssociationsInterface",
       "FrontendsInterface",
       "TrafficControllerInterface"
+    ],
+    "2023-05-01-preview": [
+      "AssociationsInterface",
+      "FrontendsInterface",
+      "TrafficControllerInterface"
     ]
   },
   "SignalRService": {

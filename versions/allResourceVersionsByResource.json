@@ -15533,13 +15533,16 @@
   },
   "ServiceNetworking": {
     "AssociationsInterface": [
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-05-01-preview"
     ],
     "FrontendsInterface": [
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-05-01-preview"
     ],
     "TrafficControllerInterface": [
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-05-01-preview"
     ]
   },
   "SignalRService": {

@@ -4366,12 +4366,14 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "canmigrate": [
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "cdnwebapplicationfirewallmanagedrulesets": [
       "2019-06-15-preview",
@@ -4380,7 +4382,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "cdnwebapplicationfirewallpolicies": [
       "2019-06-15-preview",
@@ -4389,13 +4392,15 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "checkendpointnameavailability": [
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "checknameavailability": [
       "2015-06-01",
@@ -4413,7 +4418,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "checkresourceusage": [
       "2016-10-02",
@@ -4429,7 +4435,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "edgenodes": [
       "2015-06-01",
@@ -4447,12 +4454,14 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "migrate": [
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults": [
       "2015-06-01",
@@ -4470,7 +4479,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults": [
       "2015-06-01",
@@ -4488,28 +4498,32 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/afdendpointresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/afdendpointresults/routeresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/customdomainresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/endpointresults": [
       "2015-06-01",
@@ -4527,7 +4541,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/endpointresults/customdomainresults": [
       "2015-06-01",
@@ -4545,7 +4560,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/endpointresults/origingroupresults": [
       "2019-12-31",
@@ -4555,7 +4571,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/endpointresults/originresults": [
       "2015-06-01",
@@ -4573,49 +4590,56 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/origingroupresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/origingroupresults/originresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/rulesetresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/rulesetresults/ruleresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/secretresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operationresults/profileresults/securitypoliciesresults": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "operations": [
       "2015-06-01",
@@ -4633,7 +4657,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles": [
       "2015-06-01",
@@ -4651,28 +4676,32 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/afdendpoints": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/afdendpoints/routes": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/customdomains": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/endpoints": [
       "2015-06-01",
@@ -4690,7 +4719,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/endpoints/customdomains": [
       "2015-06-01",
@@ -4708,7 +4738,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/endpoints/origingroups": [
       "2019-12-31",
@@ -4718,7 +4749,8 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/endpoints/origins": [
       "2015-06-01",
@@ -4736,49 +4768,56 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/origingroups": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/origingroups/origins": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/rulesets": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/rulesets/rules": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/secrets": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "profiles/securitypolicies": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "validateprobe": [
       "2017-04-02",
@@ -4793,14 +4832,16 @@
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ],
     "validatesecret": [
       "2020-09-01",
       "2021-06-01",
       "2022-05-01-preview",
       "2022-11-01-preview",
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-05-01"
     ]
   },
   "certificateregistration": {
@@ -15177,14 +15218,6 @@
     "workbooktemplates": [
       "2019-10-17-preview",
       "2020-11-20"
-    ]
-  },
-  "intelligentitdigitaltwin": {
-    "": [
-      "2020-12-01-privatepreview"
-    ],
-    "operations": [
-      "2020-12-01-privatepreview"
     ]
   },
   "iotcentral": {

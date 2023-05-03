@@ -1193,7 +1193,9 @@
     "2022-05-01",
     "2022-11-01-preview"
   ],
-  "ServiceNetworking": [],
+  "ServiceNetworking": [
+    "2023-05-01-preview"
+  ],
   "SignalRService": [
     "2020-07-01-preview",
     "2021-04-01-preview",
