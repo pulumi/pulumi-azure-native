@@ -216,8 +216,8 @@ bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN
 bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v1-spec.yaml
 	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
-bin/v2/schema-full.json: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v2-config.yaml versions/v1-spec.yaml versions/v2-spec.yaml
-	bin/$(CODEGEN) schema-v2 $(VERSION_GENERIC)
+bin/v2/schema-full.json bin/v2/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v2-config.yaml versions/v1-spec.yaml versions/v2-spec.yaml
+	CODEGEN_VERSION=v2 CODEGEN_SCHEMA_OUTPUT_PATH=bin/v2/schema-full.json CODEGEN_METADATA_OUTPUT_PATH=bin/v2/metadata-compact.json bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 # Docs schema
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json
