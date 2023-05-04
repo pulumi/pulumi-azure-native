@@ -7457,40 +7457,48 @@
     "Application": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "Cluster": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "Extension": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "ExtensionAzureMonitorStatus": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "ExtensionMonitoringStatus": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "PrivateEndpointConnection": [
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "getClusterGatewaySettings": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ],
     "listVirtualMachineHosts": [
       "2015-03-01-preview",
       "2018-06-01-preview",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-15-preview"
     ]
   },
   "HanaOnAzure": {
@@ -15533,13 +15541,16 @@
   },
   "ServiceNetworking": {
     "AssociationsInterface": [
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-05-01-preview"
     ],
     "FrontendsInterface": [
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-05-01-preview"
     ],
     "TrafficControllerInterface": [
-      "2022-10-01-preview"
+      "2022-10-01-preview",
+      "2023-05-01-preview"
     ]
   },
   "SignalRService": {

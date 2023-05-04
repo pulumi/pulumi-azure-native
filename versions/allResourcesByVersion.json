@@ -7291,6 +7291,16 @@
       "PrivateEndpointConnection",
       "getClusterGatewaySettings",
       "listVirtualMachineHosts"
+    ],
+    "2023-04-15-preview": [
+      "Application",
+      "Cluster",
+      "Extension",
+      "ExtensionAzureMonitorStatus",
+      "ExtensionMonitoringStatus",
+      "PrivateEndpointConnection",
+      "getClusterGatewaySettings",
+      "listVirtualMachineHosts"
     ]
   },
   "HanaOnAzure": {
@@ -14910,6 +14920,11 @@
   },
   "ServiceNetworking": {
     "2022-10-01-preview": [
+      "AssociationsInterface",
+      "FrontendsInterface",
+      "TrafficControllerInterface"
+    ],
+    "2023-05-01-preview": [
       "AssociationsInterface",
       "FrontendsInterface",
       "TrafficControllerInterface"
