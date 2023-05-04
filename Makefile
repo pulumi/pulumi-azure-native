@@ -225,7 +225,7 @@ bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
 bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v1-lock.json versions/v2-config.yaml versions/v2-removed-resources.yaml
-	bin/$(CODEGEN) schema-v2 $(VERSION_GENERIC)
+	CODEGEN_VERSION=v2 bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 bin/v2/schema-full.json bin/v2/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v2-config.yaml versions/v1-spec.yaml versions/v2-spec.yaml
 	CODEGEN_VERSION=v2 CODEGEN_SCHEMA_OUTPUT_PATH=bin/v2/schema-full.json CODEGEN_METADATA_OUTPUT_PATH=bin/v2/metadata-compact.json bin/$(CODEGEN) schema $(VERSION_GENERIC)
