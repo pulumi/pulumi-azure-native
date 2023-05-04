@@ -384,10 +384,11 @@ export FAKE_MODULE
 	@touch $@
 
 .make/build_java: bin/pulumictl .make/generate_java
+	# Temp hack: reset changes to keep our custom memory & packaging settings
+	git checkout sdk/java
 	cd sdk/java/ && \
 		gradle --console=plain -Pversion=$(VERSION_GENERIC) build
 	@touch $@
-
 
 .make/build_go: .make/generate_go_local
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go build" \;
