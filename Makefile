@@ -160,6 +160,17 @@ explode_schema_v2: bin/v2/schema-full.json
 	mkdir -p bin/schema_v2
 	yarn && yarn explode --schema bin/v2/schema-full.json --outDir bin/schema_v2
 
+.PHONY: upgrade_tools upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
+upgrade_tools: upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
+upgrade_java:
+	gh release list --repo pulumi/pulumi-java --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 > .pulumi-java-gen.version
+upgrade_pulumi:
+	gh release list --repo pulumi/pulumi --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .pulumi.version
+upgrade_pulumictl:
+	gh release list --repo pulumi/pulumictl --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .pulumictl.version
+upgrade_schematools:
+	gh release list --repo pulumi/schema-tools --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .schema-tools.version
+
 # --------- File-based targets --------- #
 
 .pulumi/bin/pulumi: PULUMI_VERSION := $(shell cat .pulumi.version)
