@@ -29,7 +29,7 @@ java {
 
 compileJava {
     options.fork = true
-    options.forkOptions.jvmArgs.addAll(["-Xmx4g"])
+    options.forkOptions.jvmArgs.addAll(["-Xmx16g"])
 }
 
 repositories {
@@ -49,6 +49,7 @@ dependencies {
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
     archiveClassifier.set('sources')
+    zip64 = true
 }
 
 task javadocJar(type: Jar) {
@@ -75,6 +76,10 @@ def genPulumiResources = tasks.register('genPulumiResources') {
 
 jar.configure {
     dependsOn genPulumiResources
+}
+
+jar {
+    zip64 = true
 }
 
 publishing {
