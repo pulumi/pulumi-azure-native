@@ -29,6 +29,14 @@ var azureApiResources string
 //go:embed schema-full.json
 var pulumiSchema string
 
+func stringKeys(m map[string]interface{}) string {
+	var keys []string
+	for k := range m {
+		keys = append(keys, k)
+	}
+	return strings.Join(keys, ",")
+}
+
 func main() {
 	var readFrom io.Reader
 	var langs string
@@ -36,7 +44,7 @@ func main() {
 	if len(os.Args) < 2 {
 		fmt.Printf("Usage: %s [arm-template path] lang\n", os.Args[0])
 		fmt.Print("arm-template   Path to arm-template or assumed to be stdin if omitted\n")
-		fmt.Print("lang           Comma separated list of languages - e.g. nodejs,python,dotnet,go\n")
+		fmt.Printf("lang           Comma separated list of languages. Any combination of: %s\n", stringKeys(arm2pulumi.SupportedLanguages))
 		fmt.Println()
 		return
 	}
@@ -75,6 +83,11 @@ func main() {
 	fmt.Printf("%v\n", body)
 
 	languages := strings.Split(langs, ",")
+	for _, lang := range languages {
+		if !arm2pulumi.IsSupportedLanguage(lang) {
+			log.Fatalf("Unsupported language: %s - please use any combination of: %s", lang, stringKeys(arm2pulumi.SupportedLanguages))
+		}
+	}
 	dpro := time.Now()
 	programsMap, _, err := renderer.RenderPrograms(body, languages)
 	if err != nil {
