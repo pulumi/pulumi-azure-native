@@ -30,6 +30,20 @@ import (
 	"github.com/sourcegraph/jsonx"
 )
 
+var SupportedLanguages = map[string]interface{}{
+	"nodejs": true,
+	"python": true,
+	"dotnet": true,
+	"go":     true,
+	"java":   true,
+	"yaml":   true,
+}
+
+func IsSupportedLanguage(lang string) bool {
+	_, ok := SupportedLanguages[lang]
+	return ok
+}
+
 type Renderer struct {
 	pkgSpec  *schema.PackageSpec
 	metadata *resources.AzureAPIMetadata
