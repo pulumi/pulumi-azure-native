@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The Get VirtualNetwork operation retrieves information about the specified virtual network.
  */
-/** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
-    pulumi.log.warn("getVirtualNetwork is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20150501preview:getVirtualNetwork", {
@@ -84,7 +82,6 @@ export interface GetVirtualNetworkResult {
 /**
  * The Get VirtualNetwork operation retrieves information about the specified virtual network.
  */
-/** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
 }

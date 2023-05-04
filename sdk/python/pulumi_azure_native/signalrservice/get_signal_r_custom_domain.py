@@ -123,7 +123,7 @@ def get_signal_r_custom_domain(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRCustomDomainResult:
     """
     Get a custom domain.
-    API Version: 2022-02-01.
+    API Version: 2023-02-01.
 
 
     :param str name: Custom domain name.
@@ -154,7 +154,7 @@ def get_signal_r_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRCustomDomainResult]:
     """
     Get a custom domain.
-    API Version: 2022-02-01.
+    API Version: 2023-02-01.
 
 
     :param str name: Custom domain name.

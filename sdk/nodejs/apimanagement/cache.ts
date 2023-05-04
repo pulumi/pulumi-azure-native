@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Cache details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -44,7 +45,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -52,7 +53,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly resourceId!: pulumi.Output<string | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -101,7 +102,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["useFromLocation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20180601preview:Cache" }, { type: "azure-native:apimanagement/v20190101:Cache" }, { type: "azure-native:apimanagement/v20191201:Cache" }, { type: "azure-native:apimanagement/v20191201preview:Cache" }, { type: "azure-native:apimanagement/v20200601preview:Cache" }, { type: "azure-native:apimanagement/v20201201:Cache" }, { type: "azure-native:apimanagement/v20210101preview:Cache" }, { type: "azure-native:apimanagement/v20210401preview:Cache" }, { type: "azure-native:apimanagement/v20210801:Cache" }, { type: "azure-native:apimanagement/v20211201preview:Cache" }, { type: "azure-native:apimanagement/v20220401preview:Cache" }, { type: "azure-native:apimanagement/v20220801:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20180601preview:Cache" }, { type: "azure-native:apimanagement/v20190101:Cache" }, { type: "azure-native:apimanagement/v20191201:Cache" }, { type: "azure-native:apimanagement/v20191201preview:Cache" }, { type: "azure-native:apimanagement/v20200601preview:Cache" }, { type: "azure-native:apimanagement/v20201201:Cache" }, { type: "azure-native:apimanagement/v20210101preview:Cache" }, { type: "azure-native:apimanagement/v20210401preview:Cache" }, { type: "azure-native:apimanagement/v20210801:Cache" }, { type: "azure-native:apimanagement/v20211201preview:Cache" }, { type: "azure-native:apimanagement/v20220401preview:Cache" }, { type: "azure-native:apimanagement/v20220801:Cache" }, { type: "azure-native:apimanagement/v20220901preview:Cache" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cache.__pulumiType, name, resourceInputs, opts);
     }
@@ -124,7 +125,7 @@ export interface CacheArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

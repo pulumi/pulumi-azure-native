@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list operation.
- * API Version: 2021-03-01.
+ * API Version: 2022-06-01.
  */
 export function listMonitorLinkedResources(args: ListMonitorLinkedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorLinkedResourcesResult> {
 
@@ -46,7 +46,7 @@ export interface ListMonitorLinkedResourcesResult {
 }
 /**
  * Response of a list operation.
- * API Version: 2021-03-01.
+ * API Version: 2022-06-01.
  */
 export function listMonitorLinkedResourcesOutput(args: ListMonitorLinkedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorLinkedResourcesResult> {
     return pulumi.output(args).apply((a: any) => listMonitorLinkedResources(a, opts))

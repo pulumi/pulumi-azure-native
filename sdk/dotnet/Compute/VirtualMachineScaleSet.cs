@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-11-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSet")]
     public partial class VirtualMachineScaleSet : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("automaticRepairsPolicy")]
         public Output<Outputs.AutomaticRepairsPolicyResponse?> AutomaticRepairsPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional property which must either be set to True or omitted.
+        /// </summary>
+        [Output("constrainedMaximumCapacity")]
+        public Output<bool?> ConstrainedMaximumCapacity { get; private set; } = null!;
 
         /// <summary>
         /// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
@@ -89,6 +96,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<int?> PlatformFaultDomainCount { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
+        /// </summary>
+        [Output("priorityMixPolicy")]
+        public Output<Outputs.PriorityMixPolicyResponse?> PriorityMixPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         [Output("provisioningState")]
@@ -101,7 +114,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.SubResourceResponse?> ProximityPlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+        /// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         /// </summary>
         [Output("scaleInPolicy")]
         public Output<Outputs.ScaleInPolicyResponse?> ScaleInPolicy { get; private set; } = null!;
@@ -119,10 +132,22 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Spot Restore properties for the virtual machine scale set.
+        /// </summary>
+        [Output("spotRestorePolicy")]
+        public Output<Outputs.SpotRestorePolicyResponse?> SpotRestorePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the time at which the Virtual Machine Scale Set resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// </summary>
+        [Output("timeCreated")]
+        public Output<string> TimeCreated { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -149,7 +174,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.VirtualMachineScaleSetVMProfileResponse?> VirtualMachineProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         /// </summary>
         [Output("zoneBalance")]
         public Output<bool?> ZoneBalance { get; private set; } = null!;
@@ -242,6 +267,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.AutomaticRepairsPolicyArgs>? AutomaticRepairsPolicy { get; set; }
 
         /// <summary>
+        /// Optional property which must either be set to True or omitted.
+        /// </summary>
+        [Input("constrainedMaximumCapacity")]
+        public Input<bool>? ConstrainedMaximumCapacity { get; set; }
+
+        /// <summary>
         /// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         /// </summary>
         [Input("doNotRunExtensionsOnOverprovisionedVMs")]
@@ -296,6 +327,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<int>? PlatformFaultDomainCount { get; set; }
 
         /// <summary>
+        /// Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
+        /// </summary>
+        [Input("priorityMixPolicy")]
+        public Input<Inputs.PriorityMixPolicyArgs>? PriorityMixPolicy { get; set; }
+
+        /// <summary>
         /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
         /// </summary>
         [Input("proximityPlacementGroup")]
@@ -308,7 +345,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+        /// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         /// </summary>
         [Input("scaleInPolicy")]
         public Input<Inputs.ScaleInPolicyArgs>? ScaleInPolicy { get; set; }
@@ -324,6 +361,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Specifies the Spot Restore properties for the virtual machine scale set.
+        /// </summary>
+        [Input("spotRestorePolicy")]
+        public Input<Inputs.SpotRestorePolicyArgs>? SpotRestorePolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -356,7 +399,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string>? VmScaleSetName { get; set; }
 
         /// <summary>
-        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }

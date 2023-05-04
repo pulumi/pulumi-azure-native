@@ -34,16 +34,6 @@ export const DnsServiceLogLevelEnum = {
  */
 export type DnsServiceLogLevelEnum = (typeof DnsServiceLogLevelEnum)[keyof typeof DnsServiceLogLevelEnum];
 
-export const InternetEnum = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Connectivity to internet is enabled or disabled
- */
-export type InternetEnum = (typeof InternetEnum)[keyof typeof InternetEnum];
-
 export const PortMirroringDirectionEnum = {
     INGRESS_EGRESS_BIDIRECTIONAL: "INGRESS, EGRESS, BIDIRECTIONAL",
 } as const;
@@ -52,13 +42,3 @@ export const PortMirroringDirectionEnum = {
  * Direction of port mirroring profile.
  */
 export type PortMirroringDirectionEnum = (typeof PortMirroringDirectionEnum)[keyof typeof PortMirroringDirectionEnum];
-
-export const SslEnum = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Protect LDAP communication using SSL certificate (LDAPS)
- */
-export type SslEnum = (typeof SslEnum)[keyof typeof SslEnum];

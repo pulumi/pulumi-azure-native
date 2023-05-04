@@ -24,7 +24,7 @@ class GatewayApiEntityTagArgs:
         """
         The set of arguments for constructing a GatewayApiEntityTag resource.
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input['ProvisioningState'] provisioning_state: Provisioning state.
@@ -53,7 +53,7 @@ class GatewayApiEntityTagArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -110,15 +110,16 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Api details.
-        API Version: 2020-12-01.
+        API details.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input['ProvisioningState'] provisioning_state: Provisioning state.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
         ...
@@ -128,8 +129,9 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                  args: GatewayApiEntityTagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Api details.
-        API Version: 2020-12-01.
+        API details.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param GatewayApiEntityTagArgs args: The arguments to use to populate this resource's properties.
@@ -179,10 +181,12 @@ class GatewayApiEntityTag(pulumi.CustomResource):
             __props__.__dict__["api_version_set"] = None
             __props__.__dict__["api_version_set_id"] = None
             __props__.__dict__["authentication_settings"] = None
+            __props__.__dict__["contact"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["display_name"] = None
             __props__.__dict__["is_current"] = None
             __props__.__dict__["is_online"] = None
+            __props__.__dict__["license"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["path"] = None
             __props__.__dict__["protocols"] = None
@@ -190,8 +194,9 @@ class GatewayApiEntityTag(pulumi.CustomResource):
             __props__.__dict__["source_api_id"] = None
             __props__.__dict__["subscription_key_parameter_names"] = None
             __props__.__dict__["subscription_required"] = None
+            __props__.__dict__["terms_of_service_url"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayApiEntityTag")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GatewayApiEntityTag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayApiEntityTag, __self__).__init__(
             'azure-native:apimanagement:GatewayApiEntityTag',
@@ -223,10 +228,12 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         __props__.__dict__["api_version_set"] = None
         __props__.__dict__["api_version_set_id"] = None
         __props__.__dict__["authentication_settings"] = None
+        __props__.__dict__["contact"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["is_current"] = None
         __props__.__dict__["is_online"] = None
+        __props__.__dict__["license"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["path"] = None
         __props__.__dict__["protocols"] = None
@@ -234,6 +241,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         __props__.__dict__["source_api_id"] = None
         __props__.__dict__["subscription_key_parameter_names"] = None
         __props__.__dict__["subscription_required"] = None
+        __props__.__dict__["terms_of_service_url"] = None
         __props__.__dict__["type"] = None
         return GatewayApiEntityTag(resource_name, opts=opts, __props__=__props__)
 
@@ -241,7 +249,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> pulumi.Output[Optional[str]]:
         """
-        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        Describes the revision of the API. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -249,7 +257,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Api Revision.
+        Description of the API Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -265,7 +273,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates the Version identifier of the API if the API is versioned
+        Indicates the version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -273,7 +281,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Api Version.
+        Description of the API Version.
         """
         return pulumi.get(self, "api_version_description")
 
@@ -300,6 +308,14 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         Collection of authentication settings included into this API.
         """
         return pulumi.get(self, "authentication_settings")
+
+    @property
+    @pulumi.getter
+    def contact(self) -> pulumi.Output[Optional['outputs.ApiContactInformationResponse']]:
+        """
+        Contact information for the API.
+        """
+        return pulumi.get(self, "contact")
 
     @property
     @pulumi.getter
@@ -335,9 +351,17 @@ class GatewayApiEntityTag(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def license(self) -> pulumi.Output[Optional['outputs.ApiLicenseInformationResponse']]:
+        """
+        License information for the API.
+        """
+        return pulumi.get(self, "license")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -390,10 +414,18 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         return pulumi.get(self, "subscription_required")
 
     @property
+    @pulumi.getter(name="termsOfServiceUrl")
+    def terms_of_service_url(self) -> pulumi.Output[Optional[str]]:
+        """
+         A URL to the Terms of Service for the API. MUST be in the format of a URL.
+        """
+        return pulumi.get(self, "terms_of_service_url")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

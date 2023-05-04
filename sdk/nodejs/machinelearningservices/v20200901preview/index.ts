@@ -45,25 +45,10 @@ export const getLinkedService: typeof import("./getLinkedService").getLinkedServ
 export const getLinkedServiceOutput: typeof import("./getLinkedService").getLinkedServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getLinkedService","getLinkedServiceOutput"], () => require("./getLinkedService"));
 
-export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
-export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
-export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
-
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-
-export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
-export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
-export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
 
 export { LabelingJobArgs } from "./labelingJob";
 export type LabelingJob = import("./labelingJob").LabelingJob;
@@ -95,25 +80,10 @@ export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspa
 export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
 
-export { MachineLearningComputeArgs } from "./machineLearningCompute";
-export type MachineLearningCompute = import("./machineLearningCompute").MachineLearningCompute;
-export const MachineLearningCompute: typeof import("./machineLearningCompute").MachineLearningCompute = null as any;
-utilities.lazyLoad(exports, ["MachineLearningCompute"], () => require("./machineLearningCompute"));
-
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
-
-export { WorkspaceConnectionArgs } from "./workspaceConnection";
-export type WorkspaceConnection = import("./workspaceConnection").WorkspaceConnection;
-export const WorkspaceConnection: typeof import("./workspaceConnection").WorkspaceConnection = null as any;
-utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceConnection"));
 
 
 // Export enums:
@@ -133,14 +103,8 @@ const _module = {
                 return new LabelingJob(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200901preview:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200901preview:MachineLearningCompute":
-                return new MachineLearningCompute(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200901preview:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection":
-                return new WorkspaceConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

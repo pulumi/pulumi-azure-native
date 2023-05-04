@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Volume resource
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+     */
+    public readonly avsDataStore!: pulumi.Output<string | undefined>;
+    /**
      * UUID v4 or resource identifier used to identify the Backup.
      */
     public readonly backupId!: pulumi.Output<string | undefined>;
@@ -46,6 +51,22 @@ export class Volume extends pulumi.CustomResource {
      * Unique Baremetal Tenant Identifier.
      */
     public /*out*/ readonly baremetalTenantId!: pulumi.Output<string>;
+    /**
+     * Pool Resource Id used in case of creating a volume through volume group
+     */
+    public readonly capacityPoolResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
+     */
+    public /*out*/ readonly cloneProgress!: pulumi.Output<number>;
+    /**
+     * Specifies whether Cool Access(tiering) is enabled for the volume.
+     */
+    public readonly coolAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the number of days after which data that is not accessed by clients will be tiered.
+     */
+    public readonly coolnessPeriod!: pulumi.Output<number | undefined>;
     /**
      * A unique file path for the volume. Used when creating mount targets
      */
@@ -55,17 +76,57 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly dataProtection!: pulumi.Output<outputs.netapp.VolumePropertiesResponseDataProtection | undefined>;
     /**
-     * Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+     * Data store resource unique identifier
+     */
+    public /*out*/ readonly dataStoreResourceId!: pulumi.Output<string[]>;
+    /**
+     * Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+     */
+    public readonly defaultGroupQuotaInKiBs!: pulumi.Output<number | undefined>;
+    /**
+     * Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+     */
+    public readonly defaultUserQuotaInKiBs!: pulumi.Output<number | undefined>;
+    /**
+     * If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+     */
+    public readonly deleteBaseSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
+     * Flag indicating whether subvolume operations are enabled on the volume
+     */
+    public readonly enableSubvolumes!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+     */
+    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
+    /**
+     * Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
      */
     public readonly encryptionKeySource!: pulumi.Output<string | undefined>;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Set of export policy rules
      */
     public readonly exportPolicy!: pulumi.Output<outputs.netapp.VolumePropertiesResponseExportPolicy | undefined>;
     /**
+     * Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume.
+     */
+    public /*out*/ readonly fileAccessLogs!: pulumi.Output<string>;
+    /**
      * Unique FileSystem Identifier.
      */
     public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
+    /**
+     * Specifies if default quota is enabled for the volume.
+     */
+    public readonly isDefaultQuotaEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether volume is a Large Volume or Regular Volume.
+     */
+    public readonly isLargeVolume!: pulumi.Output<boolean | undefined>;
     /**
      * Restoring
      */
@@ -75,29 +136,57 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly kerberosEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+     */
+    public readonly keyVaultPrivateEndpointResourceId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether LDAP is enabled or not for a given NFS volume.
      */
     public readonly ldapEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
+     */
+    public /*out*/ readonly maximumNumberOfFiles!: pulumi.Output<number>;
     /**
      * List of mount targets
      */
     public /*out*/ readonly mountTargets!: pulumi.Output<outputs.netapp.MountTargetPropertiesResponse[]>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Basic network, or Standard features available to the volume.
+     */
+    public readonly networkFeatures!: pulumi.Output<string | undefined>;
+    /**
+     * Network Sibling Set ID for the the group of volumes sharing networking resources.
+     */
+    public /*out*/ readonly networkSiblingSetId!: pulumi.Output<string>;
+    /**
+     * Application specific placement rules for the particular volume
+     */
+    public readonly placementRules!: pulumi.Output<outputs.netapp.PlacementKeyValuePairsResponse[] | undefined>;
     /**
      * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
     /**
+     * The availability zone where the volume is provisioned. This refers to the logical availability zone where the volume resides.
+     */
+    public /*out*/ readonly provisionedAvailabilityZone!: pulumi.Output<string>;
+    /**
      * Azure lifecycle management
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Proximity placement group associated with the volume
+     */
+    public readonly proximityPlacementGroup!: pulumi.Output<string | undefined>;
     /**
      * The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
      */
@@ -107,6 +196,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly serviceLevel!: pulumi.Output<string | undefined>;
     /**
+     * Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+     */
+    public readonly smbAccessBasedEnumeration!: pulumi.Output<string | undefined>;
+    /**
      * Enables continuously available share property for smb volume. Only applicable for SMB volume
      */
     public readonly smbContinuouslyAvailable!: pulumi.Output<boolean | undefined>;
@@ -114,6 +207,10 @@ export class Volume extends pulumi.CustomResource {
      * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
      */
     public readonly smbEncryption!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+     */
+    public readonly smbNonBrowsable!: pulumi.Output<string | undefined>;
     /**
      * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
@@ -123,26 +220,54 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
     /**
+     * Provides storage to network proximity information for the volume.
+     */
+    public /*out*/ readonly storageToNetworkProximity!: pulumi.Output<string>;
+    /**
      * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    /**
+     * T2 network information
+     */
+    public /*out*/ readonly t2Network!: pulumi.Output<string>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly throughputMibps!: pulumi.Output<number | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+     * UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+     */
+    public readonly unixPermissions!: pulumi.Output<string | undefined>;
+    /**
+     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
      */
     public readonly usageThreshold!: pulumi.Output<number>;
     /**
-     * What type of volume is this
+     * Volume Group Name
+     */
+    public /*out*/ readonly volumeGroupName!: pulumi.Output<string>;
+    /**
+     * Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+     */
+    public readonly volumeSpecName!: pulumi.Output<string | undefined>;
+    /**
+     * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
     public readonly volumeType!: pulumi.Output<string | undefined>;
+    /**
+     * Availability Zone
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -174,64 +299,126 @@ export class Volume extends pulumi.CustomResource {
                 throw new Error("Missing required property 'usageThreshold'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["avsDataStore"] = (args ? args.avsDataStore : undefined) ?? "Disabled";
             resourceInputs["backupId"] = args ? args.backupId : undefined;
+            resourceInputs["capacityPoolResourceId"] = args ? args.capacityPoolResourceId : undefined;
+            resourceInputs["coolAccess"] = (args ? args.coolAccess : undefined) ?? false;
+            resourceInputs["coolnessPeriod"] = args ? args.coolnessPeriod : undefined;
             resourceInputs["creationToken"] = args ? args.creationToken : undefined;
             resourceInputs["dataProtection"] = args ? args.dataProtection : undefined;
-            resourceInputs["encryptionKeySource"] = args ? args.encryptionKeySource : undefined;
+            resourceInputs["defaultGroupQuotaInKiBs"] = (args ? args.defaultGroupQuotaInKiBs : undefined) ?? 0;
+            resourceInputs["defaultUserQuotaInKiBs"] = (args ? args.defaultUserQuotaInKiBs : undefined) ?? 0;
+            resourceInputs["deleteBaseSnapshot"] = args ? args.deleteBaseSnapshot : undefined;
+            resourceInputs["enableSubvolumes"] = (args ? args.enableSubvolumes : undefined) ?? "Disabled";
+            resourceInputs["encryptionKeySource"] = (args ? args.encryptionKeySource : undefined) ?? "Microsoft.NetApp";
             resourceInputs["exportPolicy"] = args ? args.exportPolicy : undefined;
+            resourceInputs["isDefaultQuotaEnabled"] = (args ? args.isDefaultQuotaEnabled : undefined) ?? false;
+            resourceInputs["isLargeVolume"] = (args ? args.isLargeVolume : undefined) ?? false;
             resourceInputs["isRestoring"] = args ? args.isRestoring : undefined;
             resourceInputs["kerberosEnabled"] = (args ? args.kerberosEnabled : undefined) ?? false;
+            resourceInputs["keyVaultPrivateEndpointResourceId"] = args ? args.keyVaultPrivateEndpointResourceId : undefined;
             resourceInputs["ldapEnabled"] = (args ? args.ldapEnabled : undefined) ?? false;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkFeatures"] = (args ? args.networkFeatures : undefined) ?? "Basic";
+            resourceInputs["placementRules"] = args ? args.placementRules : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["protocolTypes"] = args ? args.protocolTypes : undefined;
+            resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityStyle"] = (args ? args.securityStyle : undefined) ?? "unix";
-            resourceInputs["serviceLevel"] = (args ? args.serviceLevel : undefined) ?? "Premium";
+            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
+            resourceInputs["smbAccessBasedEnumeration"] = args ? args.smbAccessBasedEnumeration : undefined;
             resourceInputs["smbContinuouslyAvailable"] = (args ? args.smbContinuouslyAvailable : undefined) ?? false;
             resourceInputs["smbEncryption"] = (args ? args.smbEncryption : undefined) ?? false;
+            resourceInputs["smbNonBrowsable"] = args ? args.smbNonBrowsable : undefined;
             resourceInputs["snapshotDirectoryVisible"] = (args ? args.snapshotDirectoryVisible : undefined) ?? true;
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputMibps"] = (args ? args.throughputMibps : undefined) ?? 0;
+            resourceInputs["throughputMibps"] = args ? args.throughputMibps : undefined;
+            resourceInputs["unixPermissions"] = (args ? args.unixPermissions : undefined) ?? "0770";
             resourceInputs["usageThreshold"] = (args ? args.usageThreshold : undefined) ?? 107374182400;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["volumeSpecName"] = args ? args.volumeSpecName : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["baremetalTenantId"] = undefined /*out*/;
+            resourceInputs["cloneProgress"] = undefined /*out*/;
+            resourceInputs["dataStoreResourceId"] = undefined /*out*/;
+            resourceInputs["encrypted"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fileAccessLogs"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["maximumNumberOfFiles"] = undefined /*out*/;
             resourceInputs["mountTargets"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkSiblingSetId"] = undefined /*out*/;
+            resourceInputs["provisionedAvailabilityZone"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageToNetworkProximity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["t2Network"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeGroupName"] = undefined /*out*/;
         } else {
+            resourceInputs["avsDataStore"] = undefined /*out*/;
             resourceInputs["backupId"] = undefined /*out*/;
             resourceInputs["baremetalTenantId"] = undefined /*out*/;
+            resourceInputs["capacityPoolResourceId"] = undefined /*out*/;
+            resourceInputs["cloneProgress"] = undefined /*out*/;
+            resourceInputs["coolAccess"] = undefined /*out*/;
+            resourceInputs["coolnessPeriod"] = undefined /*out*/;
             resourceInputs["creationToken"] = undefined /*out*/;
             resourceInputs["dataProtection"] = undefined /*out*/;
+            resourceInputs["dataStoreResourceId"] = undefined /*out*/;
+            resourceInputs["defaultGroupQuotaInKiBs"] = undefined /*out*/;
+            resourceInputs["defaultUserQuotaInKiBs"] = undefined /*out*/;
+            resourceInputs["deleteBaseSnapshot"] = undefined /*out*/;
+            resourceInputs["enableSubvolumes"] = undefined /*out*/;
+            resourceInputs["encrypted"] = undefined /*out*/;
             resourceInputs["encryptionKeySource"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["exportPolicy"] = undefined /*out*/;
+            resourceInputs["fileAccessLogs"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["isDefaultQuotaEnabled"] = undefined /*out*/;
+            resourceInputs["isLargeVolume"] = undefined /*out*/;
             resourceInputs["isRestoring"] = undefined /*out*/;
             resourceInputs["kerberosEnabled"] = undefined /*out*/;
+            resourceInputs["keyVaultPrivateEndpointResourceId"] = undefined /*out*/;
             resourceInputs["ldapEnabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maximumNumberOfFiles"] = undefined /*out*/;
             resourceInputs["mountTargets"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkFeatures"] = undefined /*out*/;
+            resourceInputs["networkSiblingSetId"] = undefined /*out*/;
+            resourceInputs["placementRules"] = undefined /*out*/;
             resourceInputs["protocolTypes"] = undefined /*out*/;
+            resourceInputs["provisionedAvailabilityZone"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
             resourceInputs["securityStyle"] = undefined /*out*/;
             resourceInputs["serviceLevel"] = undefined /*out*/;
+            resourceInputs["smbAccessBasedEnumeration"] = undefined /*out*/;
             resourceInputs["smbContinuouslyAvailable"] = undefined /*out*/;
             resourceInputs["smbEncryption"] = undefined /*out*/;
+            resourceInputs["smbNonBrowsable"] = undefined /*out*/;
             resourceInputs["snapshotDirectoryVisible"] = undefined /*out*/;
             resourceInputs["snapshotId"] = undefined /*out*/;
+            resourceInputs["storageToNetworkProximity"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["t2Network"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["throughputMibps"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["unixPermissions"] = undefined /*out*/;
             resourceInputs["usageThreshold"] = undefined /*out*/;
+            resourceInputs["volumeGroupName"] = undefined /*out*/;
+            resourceInputs["volumeSpecName"] = undefined /*out*/;
             resourceInputs["volumeType"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }, { type: "azure-native:netapp/v20211001:Volume" }, { type: "azure-native:netapp/v20220101:Volume" }, { type: "azure-native:netapp/v20220301:Volume" }, { type: "azure-native:netapp/v20220501:Volume" }, { type: "azure-native:netapp/v20220901:Volume" }] };
@@ -249,9 +436,25 @@ export interface VolumeArgs {
      */
     accountName: pulumi.Input<string>;
     /**
+     * Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+     */
+    avsDataStore?: pulumi.Input<string | enums.netapp.AvsDataStore>;
+    /**
      * UUID v4 or resource identifier used to identify the Backup.
      */
     backupId?: pulumi.Input<string>;
+    /**
+     * Pool Resource Id used in case of creating a volume through volume group
+     */
+    capacityPoolResourceId?: pulumi.Input<string>;
+    /**
+     * Specifies whether Cool Access(tiering) is enabled for the volume.
+     */
+    coolAccess?: pulumi.Input<boolean>;
+    /**
+     * Specifies the number of days after which data that is not accessed by clients will be tiered.
+     */
+    coolnessPeriod?: pulumi.Input<number>;
     /**
      * A unique file path for the volume. Used when creating mount targets
      */
@@ -261,13 +464,37 @@ export interface VolumeArgs {
      */
     dataProtection?: pulumi.Input<inputs.netapp.VolumePropertiesDataProtectionArgs>;
     /**
-     * Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+     * Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
      */
-    encryptionKeySource?: pulumi.Input<string>;
+    defaultGroupQuotaInKiBs?: pulumi.Input<number>;
+    /**
+     * Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+     */
+    defaultUserQuotaInKiBs?: pulumi.Input<number>;
+    /**
+     * If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+     */
+    deleteBaseSnapshot?: pulumi.Input<boolean>;
+    /**
+     * Flag indicating whether subvolume operations are enabled on the volume
+     */
+    enableSubvolumes?: pulumi.Input<string | enums.netapp.EnableSubvolumes>;
+    /**
+     * Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+     */
+    encryptionKeySource?: pulumi.Input<string | enums.netapp.EncryptionKeySource>;
     /**
      * Set of export policy rules
      */
     exportPolicy?: pulumi.Input<inputs.netapp.VolumePropertiesExportPolicyArgs>;
+    /**
+     * Specifies if default quota is enabled for the volume.
+     */
+    isDefaultQuotaEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether volume is a Large Volume or Regular Volume.
+     */
+    isLargeVolume?: pulumi.Input<boolean>;
     /**
      * Restoring
      */
@@ -277,13 +504,25 @@ export interface VolumeArgs {
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**
+     * The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+     */
+    keyVaultPrivateEndpointResourceId?: pulumi.Input<string>;
+    /**
      * Specifies whether LDAP is enabled or not for a given NFS volume.
      */
     ldapEnabled?: pulumi.Input<boolean>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Basic network, or Standard features available to the volume.
+     */
+    networkFeatures?: pulumi.Input<string | enums.netapp.NetworkFeatures>;
+    /**
+     * Application specific placement rules for the particular volume
+     */
+    placementRules?: pulumi.Input<pulumi.Input<inputs.netapp.PlacementKeyValuePairsArgs>[]>;
     /**
      * The name of the capacity pool
      */
@@ -293,7 +532,11 @@ export interface VolumeArgs {
      */
     protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the resource group.
+     * Proximity placement group associated with the volume
+     */
+    proximityPlacementGroup?: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -305,6 +548,10 @@ export interface VolumeArgs {
      */
     serviceLevel?: pulumi.Input<string | enums.netapp.ServiceLevel>;
     /**
+     * Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+     */
+    smbAccessBasedEnumeration?: pulumi.Input<string | enums.netapp.SmbAccessBasedEnumeration>;
+    /**
      * Enables continuously available share property for smb volume. Only applicable for SMB volume
      */
     smbContinuouslyAvailable?: pulumi.Input<boolean>;
@@ -312,6 +559,10 @@ export interface VolumeArgs {
      * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
      */
     smbEncryption?: pulumi.Input<boolean>;
+    /**
+     * Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+     */
+    smbNonBrowsable?: pulumi.Input<string | enums.netapp.SmbNonBrowsable>;
     /**
      * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
@@ -325,12 +576,16 @@ export interface VolumeArgs {
      */
     subnetId: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     throughputMibps?: pulumi.Input<number>;
     /**
-     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+     * UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+     */
+    unixPermissions?: pulumi.Input<string>;
+    /**
+     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
      */
     usageThreshold: pulumi.Input<number>;
     /**
@@ -338,7 +593,15 @@ export interface VolumeArgs {
      */
     volumeName?: pulumi.Input<string>;
     /**
-     * What type of volume is this
+     * Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+     */
+    volumeSpecName?: pulumi.Input<string>;
+    /**
+     * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
     volumeType?: pulumi.Input<string>;
+    /**
+     * Availability Zone
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

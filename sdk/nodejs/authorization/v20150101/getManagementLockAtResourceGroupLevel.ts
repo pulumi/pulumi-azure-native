@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a management lock at the resource group level.
  */
-/** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
-    pulumi.log.warn("getManagementLockAtResourceGroupLevel is deprecated: Version 2015-01-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20150101:getManagementLockAtResourceGroupLevel", {
@@ -57,7 +55,6 @@ export interface GetManagementLockAtResourceGroupLevelResult {
 /**
  * Gets a management lock at the resource group level.
  */
-/** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
 export function getManagementLockAtResourceGroupLevelOutput(args: GetManagementLockAtResourceGroupLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceGroupLevelResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockAtResourceGroupLevel(a, opts))
 }

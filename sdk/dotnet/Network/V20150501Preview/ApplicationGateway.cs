@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     /// <summary>
     /// ApplicationGateways resource
     /// </summary>
-    [Obsolete(@"Version 2015-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20150501preview:ApplicationGateway")]
     public partial class ApplicationGateway : global::Pulumi.CustomResource
     {
@@ -187,6 +186,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ApplicationGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ApplicationGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ApplicationGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ApplicationGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

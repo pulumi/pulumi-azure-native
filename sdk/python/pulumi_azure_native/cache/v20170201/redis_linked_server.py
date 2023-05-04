@@ -111,12 +111,7 @@ class RedisLinkedServerArgs:
         pulumi.set(self, "linked_server_name", value)
 
 
-warnings.warn("""Version 2017-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class RedisLinkedServer(pulumi.CustomResource):
-    warnings.warn("""Version 2017-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -171,7 +166,6 @@ class RedisLinkedServer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None):
-        pulumi.log.warn("""RedisLinkedServer is deprecated: Version 2017-02-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

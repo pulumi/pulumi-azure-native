@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified file server name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServerResult> {
-    pulumi.log.warn("getFileServer is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getFileServer", {
@@ -75,7 +73,6 @@ export interface GetFileServerResult {
 /**
  * Returns the properties of the specified file server name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileServerOutput(args: GetFileServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServerResult> {
     return pulumi.output(args).apply((a: any) => getFileServer(a, opts))
 }

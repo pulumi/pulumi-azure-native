@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// LoadBalancer resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
@@ -41,7 +42,7 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.FrontendIPConfigurationResponse>> FrontendIPConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound NAT rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         /// </summary>
         [Output("inboundNatPools")]
         public Output<ImmutableArray<Outputs.InboundNatPoolResponse>> InboundNatPools { get; private set; } = null!;
@@ -181,6 +182,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:LoadBalancer"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:LoadBalancer"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:LoadBalancer"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:LoadBalancer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -244,7 +246,7 @@ namespace Pulumi.AzureNative.Network
         private InputList<Inputs.InboundNatPoolArgs>? _inboundNatPools;
 
         /// <summary>
-        /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound NAT rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         /// </summary>
         public InputList<Inputs.InboundNatPoolArgs> InboundNatPools
         {

@@ -174,7 +174,7 @@ class RegistryModelVersion(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryModelVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryModelVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:RegistryModelVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryModelVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryModelVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryModelVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryModelVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistryModelVersion, __self__).__init__(
             'azure-native:machinelearningservices/v20230401preview:RegistryModelVersion',

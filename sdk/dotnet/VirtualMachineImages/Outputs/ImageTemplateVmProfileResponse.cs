@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
     /// <summary>
-    /// Describes the virtual machine used to build, customize and capture images
+    /// Describes the virtual machines used to build and validate images
     /// </summary>
     [OutputType]
     public sealed class ImageTemplateVmProfileResponse
@@ -21,11 +21,15 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
         /// </summary>
         public readonly int? OsDiskSizeGB;
         /// <summary>
+        /// Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
+        /// </summary>
+        public readonly ImmutableArray<string> UserAssignedIdentities;
+        /// <summary>
         /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         /// </summary>
         public readonly string? VmSize;
         /// <summary>
-        /// Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+        /// Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
         /// </summary>
         public readonly Outputs.VirtualNetworkConfigResponse? VnetConfig;
 
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
         private ImageTemplateVmProfileResponse(
             int? osDiskSizeGB,
 
+            ImmutableArray<string> userAssignedIdentities,
+
             string? vmSize,
 
             Outputs.VirtualNetworkConfigResponse? vnetConfig)
         {
             OsDiskSizeGB = osDiskSizeGB;
+            UserAssignedIdentities = userAssignedIdentities;
             VmSize = vmSize;
             VnetConfig = vnetConfig;
         }

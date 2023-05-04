@@ -20,6 +20,10 @@ namespace Pulumi.AzureNative.Elastic.Outputs
         /// Elastic cloud properties.
         /// </summary>
         public readonly Outputs.ElasticPropertiesResponse? ElasticProperties;
+        /// <summary>
+        /// Flag to determine if User API Key has to be generated and shared.
+        /// </summary>
+        public readonly bool? GenerateApiKey;
         public readonly string LiftrResourceCategory;
         /// <summary>
         /// The priority of the resource.
@@ -33,10 +37,16 @@ namespace Pulumi.AzureNative.Elastic.Outputs
         /// Provisioning state of the monitor resource.
         /// </summary>
         public readonly string? ProvisioningState;
+        /// <summary>
+        /// Version of elastic of the monitor resource
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private MonitorPropertiesResponse(
             Outputs.ElasticPropertiesResponse? elasticProperties,
+
+            bool? generateApiKey,
 
             string liftrResourceCategory,
 
@@ -44,13 +54,17 @@ namespace Pulumi.AzureNative.Elastic.Outputs
 
             string? monitoringStatus,
 
-            string? provisioningState)
+            string? provisioningState,
+
+            string? version)
         {
             ElasticProperties = elasticProperties;
+            GenerateApiKey = generateApiKey;
             LiftrResourceCategory = liftrResourceCategory;
             LiftrResourcePreference = liftrResourcePreference;
             MonitoringStatus = monitoringStatus;
             ProvisioningState = provisioningState;
+            Version = version;
         }
     }
 }

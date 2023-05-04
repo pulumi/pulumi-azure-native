@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getModelContainer(args: GetModelContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetModelContainerResult> {
 
@@ -23,7 +23,7 @@ export function getModelContainer(args: GetModelContainerArgs, opts?: pulumi.Inv
 
 export interface GetModelContainerArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: string;
     /**
@@ -45,15 +45,15 @@ export interface GetModelContainerResult {
      */
     readonly id: string;
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly modelContainerProperties: outputs.machinelearningservices.ModelContainerResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.ModelContainerResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -63,7 +63,7 @@ export interface GetModelContainerResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getModelContainerOutput(args: GetModelContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelContainerResult> {
     return pulumi.output(args).apply((a: any) => getModelContainer(a, opts))
@@ -71,7 +71,7 @@ export function getModelContainerOutput(args: GetModelContainerOutputArgs, opts?
 
 export interface GetModelContainerOutputArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: pulumi.Input<string>;
     /**

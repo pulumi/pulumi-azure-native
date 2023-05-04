@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// API Version: 2020-09-30.
+        /// API Version: 2022-03-03.
         /// </summary>
         public static Task<GetGalleryImageVersionResult> InvokeAsync(GetGalleryImageVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageVersionResult>("azure-native:compute:getGalleryImageVersion", args ?? new GetGalleryImageVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// API Version: 2020-09-30.
+        /// API Version: 2022-03-03.
         /// </summary>
         public static Output<GetGalleryImageVersionResult> Invoke(GetGalleryImageVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageVersionResult>("azure-native:compute:getGalleryImageVersion", args ?? new GetGalleryImageVersionInvokeArgs(), options.WithDefaults());
@@ -132,6 +132,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.ReplicationStatusResponse ReplicationStatus;
         /// <summary>
+        /// This is the safety profile of the Gallery Image Version.
+        /// </summary>
+        public readonly Outputs.GalleryImageVersionSafetyProfileResponse? SafetyProfile;
+        /// <summary>
         /// This is the storage profile of a Gallery Image Version.
         /// </summary>
         public readonly Outputs.GalleryImageVersionStorageProfileResponse StorageProfile;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.ReplicationStatusResponse replicationStatus,
 
+            Outputs.GalleryImageVersionSafetyProfileResponse? safetyProfile,
+
             Outputs.GalleryImageVersionStorageProfileResponse storageProfile,
 
             ImmutableDictionary<string, string>? tags,
@@ -170,6 +176,7 @@ namespace Pulumi.AzureNative.Compute
             ProvisioningState = provisioningState;
             PublishingProfile = publishingProfile;
             ReplicationStatus = replicationStatus;
+            SafetyProfile = safetyProfile;
             StorageProfile = storageProfile;
             Tags = tags;
             Type = type;

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The Clouds resource definition.
  * API Version: 2020-06-05-preview.
+ * Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Cloud extends pulumi.CustomResource {
     /**
@@ -138,7 +139,7 @@ export class Cloud extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:Cloud" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:Cloud" }, { type: "azure-native:scvmm/v20220521preview:Cloud" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cloud.__pulumiType, name, resourceInputs, opts);
     }

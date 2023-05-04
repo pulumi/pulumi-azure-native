@@ -95,6 +95,7 @@ class DefenderSetting(pulumi.CustomResource):
         """
         IoT Defender settings
         API Version: 2021-02-01-preview.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,6 +113,7 @@ class DefenderSetting(pulumi.CustomResource):
         """
         IoT Defender settings
         API Version: 2021-02-01-preview.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DefenderSettingArgs args: The arguments to use to populate this resource's properties.

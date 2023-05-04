@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly bool? AllowPublicAccessWhenBehindVnet;
         /// <summary>
-        /// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        /// ARM id of the application insights associated with this workspace.
         /// </summary>
         public readonly string? ApplicationInsights;
         /// <summary>
-        /// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        /// ARM id of the container registry associated with this workspace.
         /// </summary>
         public readonly string? ContainerRegistry;
         /// <summary>
@@ -104,13 +104,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly bool? HbiWorkspace;
         /// <summary>
-        /// Specifies the resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The compute name for image build
         /// </summary>
@@ -124,7 +124,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Specifies the name of the resource.
+        /// The URI associated with this workspace that machine learning flow must point at to set up tracking.
+        /// </summary>
+        public readonly string MlFlowTrackingUri;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -148,6 +152,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Whether requests from Public Network are allowed.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// The service managed resource settings.
         /// </summary>
         public readonly Outputs.ServiceManagedResourcesSettingsResponse? ServiceManagedResourcesSettings;
@@ -168,7 +176,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string? StorageAccount;
         /// <summary>
-        /// Read only system data
+        /// If the storage associated with the workspace has hierarchical namespace(HNS) enabled.
+        /// </summary>
+        public readonly bool StorageHnsEnabled;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -176,9 +188,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Specifies the type of the resource.
+        /// The tenant id associated with this workspace.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
+        /// </summary>
+        public readonly bool? V1LegacyMode;
         /// <summary>
         /// The immutable id associated with this workspace.
         /// </summary>
@@ -204,13 +224,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? imageBuildCompute,
 
             string? keyVault,
 
             string? location,
+
+            string mlFlowTrackingUri,
 
             string name,
 
@@ -224,6 +246,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             Outputs.ServiceManagedResourcesSettingsResponse? serviceManagedResourcesSettings,
 
             string serviceProvisionedResourceGroup,
@@ -234,11 +258,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string? storageAccount,
 
+            bool storageHnsEnabled,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
+            string tenantId,
+
             string type,
+
+            bool? v1LegacyMode,
 
             string workspaceId)
         {
@@ -255,20 +285,25 @@ namespace Pulumi.AzureNative.MachineLearningServices
             ImageBuildCompute = imageBuildCompute;
             KeyVault = keyVault;
             Location = location;
+            MlFlowTrackingUri = mlFlowTrackingUri;
             Name = name;
             NotebookInfo = notebookInfo;
             PrimaryUserAssignedIdentity = primaryUserAssignedIdentity;
             PrivateEndpointConnections = privateEndpointConnections;
             PrivateLinkCount = privateLinkCount;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ServiceManagedResourcesSettings = serviceManagedResourcesSettings;
             ServiceProvisionedResourceGroup = serviceProvisionedResourceGroup;
             SharedPrivateLinkResources = sharedPrivateLinkResources;
             Sku = sku;
             StorageAccount = storageAccount;
+            StorageHnsEnabled = storageHnsEnabled;
             SystemData = systemData;
             Tags = tags;
+            TenantId = tenantId;
             Type = type;
+            V1LegacyMode = v1LegacyMode;
             WorkspaceId = workspaceId;
         }
     }

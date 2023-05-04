@@ -41,6 +41,8 @@ from .get_kusto_cluster_data_set import *
 from .get_kusto_cluster_data_set_mapping import *
 from .get_kusto_database_data_set import *
 from .get_kusto_database_data_set_mapping import *
+from .get_kusto_table_data_set import *
+from .get_kusto_table_data_set_mapping import *
 from .get_scheduled_synchronization_setting import *
 from .get_scheduled_trigger import *
 from .get_share import *
@@ -56,6 +58,8 @@ from .kusto_cluster_data_set import *
 from .kusto_cluster_data_set_mapping import *
 from .kusto_database_data_set import *
 from .kusto_database_data_set_mapping import *
+from .kusto_table_data_set import *
+from .kusto_table_data_set_mapping import *
 from .list_share_subscription_source_share_synchronization_settings import *
 from .list_share_subscription_synchronization_details import *
 from .list_share_subscription_synchronizations import *

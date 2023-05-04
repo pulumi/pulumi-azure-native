@@ -25,6 +25,14 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PreferredDataCenterRegion;
         /// <summary>
+        /// Optional Preferences related to the reverse shipment logistics of the sku.
+        /// </summary>
+        public readonly Outputs.TransportPreferencesResponse? ReverseTransportPreferences;
+        /// <summary>
+        /// Preferences related to the Access Tier of storage accounts.
+        /// </summary>
+        public readonly ImmutableArray<string> StorageAccountAccessTierPreferences;
+        /// <summary>
         /// Preferences related to the shipment logistics of the sku.
         /// </summary>
         public readonly Outputs.TransportPreferencesResponse? TransportPreferences;
@@ -35,10 +43,16 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             ImmutableArray<string> preferredDataCenterRegion,
 
+            Outputs.TransportPreferencesResponse? reverseTransportPreferences,
+
+            ImmutableArray<string> storageAccountAccessTierPreferences,
+
             Outputs.TransportPreferencesResponse? transportPreferences)
         {
             EncryptionPreferences = encryptionPreferences;
             PreferredDataCenterRegion = preferredDataCenterRegion;
+            ReverseTransportPreferences = reverseTransportPreferences;
+            StorageAccountAccessTierPreferences = storageAccountAccessTierPreferences;
             TransportPreferences = transportPreferences;
         }
     }

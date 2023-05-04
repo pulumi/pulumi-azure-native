@@ -22,10 +22,13 @@ class GetElasticPoolResult:
     """
     An elastic pool.
     """
-    def __init__(__self__, creation_date=None, id=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, max_size_bytes=None, name=None, per_database_settings=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, creation_date=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, max_size_bytes=None, min_capacity=None, name=None, per_database_settings=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if high_availability_replica_count and not isinstance(high_availability_replica_count, int):
+            raise TypeError("Expected argument 'high_availability_replica_count' to be a int")
+        pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,6 +47,9 @@ class GetElasticPoolResult:
         if max_size_bytes and not isinstance(max_size_bytes, float):
             raise TypeError("Expected argument 'max_size_bytes' to be a float")
         pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+        if min_capacity and not isinstance(min_capacity, float):
+            raise TypeError("Expected argument 'min_capacity' to be a float")
+        pulumi.set(__self__, "min_capacity", min_capacity)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -73,6 +79,14 @@ class GetElasticPoolResult:
         The creation date of the elastic pool (ISO8601 format).
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="highAvailabilityReplicaCount")
+    def high_availability_replica_count(self) -> Optional[int]:
+        """
+        The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        """
+        return pulumi.get(self, "high_availability_replica_count")
 
     @property
     @pulumi.getter
@@ -121,6 +135,14 @@ class GetElasticPoolResult:
         The storage limit for the database elastic pool in bytes.
         """
         return pulumi.get(self, "max_size_bytes")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> Optional[float]:
+        """
+        Minimal capacity that serverless pool will not shrink below, if not paused
+        """
+        return pulumi.get(self, "min_capacity")
 
     @property
     @pulumi.getter
@@ -192,12 +214,14 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             yield self
         return GetElasticPoolResult(
             creation_date=self.creation_date,
+            high_availability_replica_count=self.high_availability_replica_count,
             id=self.id,
             kind=self.kind,
             license_type=self.license_type,
             location=self.location,
             maintenance_configuration_id=self.maintenance_configuration_id,
             max_size_bytes=self.max_size_bytes,
+            min_capacity=self.min_capacity,
             name=self.name,
             per_database_settings=self.per_database_settings,
             sku=self.sku,
@@ -213,7 +237,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticPoolResult:
     """
     Gets an elastic pool.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str elastic_pool_name: The name of the elastic pool.
@@ -229,12 +253,14 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
 
     return AwaitableGetElasticPoolResult(
         creation_date=__ret__.creation_date,
+        high_availability_replica_count=__ret__.high_availability_replica_count,
         id=__ret__.id,
         kind=__ret__.kind,
         license_type=__ret__.license_type,
         location=__ret__.location,
         maintenance_configuration_id=__ret__.maintenance_configuration_id,
         max_size_bytes=__ret__.max_size_bytes,
+        min_capacity=__ret__.min_capacity,
         name=__ret__.name,
         per_database_settings=__ret__.per_database_settings,
         sku=__ret__.sku,
@@ -251,7 +277,7 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticPoolResult]:
     """
     Gets an elastic pool.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str elastic_pool_name: The name of the elastic pool.

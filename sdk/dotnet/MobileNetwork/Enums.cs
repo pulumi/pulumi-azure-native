@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
+    /// How to authenticate users who access local diagnostics APIs.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationType : IEquatable<AuthenticationType>
+    {
+        private readonly string _value;
+
+        private AuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Use AAD SSO to authenticate the user (this requires internet access).
+        /// </summary>
+        public static AuthenticationType AAD { get; } = new AuthenticationType("AAD");
+        /// <summary>
+        /// Use locally stored passwords to authenticate the user.
+        /// </summary>
+        public static AuthenticationType Password { get; } = new AuthenticationType("Password");
+
+        public static bool operator ==(AuthenticationType left, AuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AuthenticationType left, AuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationType other && Equals(other);
+        public bool Equals(AuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
     /// </summary>
     [EnumType]
@@ -21,33 +58,25 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
 
         /// <summary>
-        /// Evaluation package plan
+        /// 100 Mbps, 20 active SIMs plan, 2 RANs
         /// </summary>
-        public static BillingSku EvaluationPackage { get; } = new BillingSku("EvaluationPackage");
+        public static BillingSku G0 { get; } = new BillingSku("G0");
         /// <summary>
-        /// Flagship starter package plan
+        /// 1 Gbps, 100 active SIMs plan, 5 RANs
         /// </summary>
-        public static BillingSku FlagshipStarterPackage { get; } = new BillingSku("FlagshipStarterPackage");
+        public static BillingSku G1 { get; } = new BillingSku("G1");
         /// <summary>
-        /// Edge site 2Gbps plan
+        /// 2 Gbps, 200 active SIMs plan, 10 RANs
         /// </summary>
-        public static BillingSku EdgeSite2GBPS { get; } = new BillingSku("EdgeSite2GBPS");
+        public static BillingSku G2 { get; } = new BillingSku("G2");
         /// <summary>
-        /// Edge site 3Gbps plan
+        /// 5 Gbps, 500 active SIMs plan
         /// </summary>
-        public static BillingSku EdgeSite3GBPS { get; } = new BillingSku("EdgeSite3GBPS");
+        public static BillingSku G5 { get; } = new BillingSku("G5");
         /// <summary>
-        /// Edge site 4Gbps plan
+        /// 10 Gbps, 1000 active SIMs plan
         /// </summary>
-        public static BillingSku EdgeSite4GBPS { get; } = new BillingSku("EdgeSite4GBPS");
-        /// <summary>
-        /// Medium package plan
-        /// </summary>
-        public static BillingSku MediumPackage { get; } = new BillingSku("MediumPackage");
-        /// <summary>
-        /// Large package plan
-        /// </summary>
-        public static BillingSku LargePackage { get; } = new BillingSku("LargePackage");
+        public static BillingSku G10 { get; } = new BillingSku("G10");
 
         public static bool operator ==(BillingSku left, BillingSku right) => left.Equals(right);
         public static bool operator !=(BillingSku left, BillingSku right) => !left.Equals(right);
@@ -94,39 +123,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CoreNetworkType other && Equals(other);
         public bool Equals(CoreNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of identity that last modified the resource.
-    /// </summary>
-    [EnumType]
-    public readonly struct CreatedByType : IEquatable<CreatedByType>
-    {
-        private readonly string _value;
-
-        private CreatedByType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CreatedByType User { get; } = new CreatedByType("User");
-        public static CreatedByType Application { get; } = new CreatedByType("Application");
-        public static CreatedByType ManagedIdentity { get; } = new CreatedByType("ManagedIdentity");
-        public static CreatedByType Key { get; } = new CreatedByType("Key");
-
-        public static bool operator ==(CreatedByType left, CreatedByType right) => left.Equals(right);
-        public static bool operator !=(CreatedByType left, CreatedByType right) => !left.Equals(right);
-
-        public static explicit operator string(CreatedByType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CreatedByType other && Equals(other);
-        public bool Equals(CreatedByType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -249,13 +245,13 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
 
         /// <summary>
-        /// If this option is chosen, you must set one of "azureStackEdgeDevice", "connectedCluster" or "customLocation". If multiple are set then "customLocation" will take precedence over "connectedCluster" which takes precedence over "azureStackEdgeDevice".
+        /// If this option is chosen, you must set one of "azureStackEdgeDevice", "connectedCluster" or "customLocation". If multiple are set, they must be consistent with each other.
         /// </summary>
         public static PlatformType AKS_HCI { get; } = new PlatformType("AKS-HCI");
         /// <summary>
-        /// If this option is chosen, you must set one of "connectedCluster" or "customLocation". If multiple are set then "customLocation" will take precedence over "connectedCluster".
+        /// If this option is chosen, you must set one of "azureStackHciCluster", "connectedCluster" or "customLocation". If multiple are set, they must be consistent with each other.
         /// </summary>
-        public static PlatformType BaseVM { get; } = new PlatformType("BaseVM");
+        public static PlatformType PlatformType_3P_AZURE_STACK_HCI { get; } = new PlatformType("3P-AZURE-STACK-HCI");
 
         public static bool operator ==(PlatformType left, PlatformType right) => left.Equals(right);
         public static bool operator !=(PlatformType left, PlatformType right) => !left.Equals(right);

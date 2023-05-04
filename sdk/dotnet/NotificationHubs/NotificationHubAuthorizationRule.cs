@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// API Version: 2017-04-01.
+    /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHubAuthorizationRule")]
     public partial class NotificationHubAuthorizationRule : global::Pulumi.CustomResource

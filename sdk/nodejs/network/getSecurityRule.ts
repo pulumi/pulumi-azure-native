@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified network security rule.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
 
@@ -87,7 +87,7 @@ export interface GetSecurityRuleResult {
     /**
      * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    readonly priority?: number;
+    readonly priority: number;
     /**
      * Network protocol this rule applies to.
      */
@@ -123,7 +123,7 @@ export interface GetSecurityRuleResult {
 }
 /**
  * Get the specified network security rule.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
     return pulumi.output(args).apply((a: any) => getSecurityRule(a, opts))

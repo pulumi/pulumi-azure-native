@@ -22,7 +22,7 @@ class GetRuleResult:
     """
     Description of Rule Resource.
     """
-    def __init__(__self__, action=None, correlation_filter=None, filter_type=None, id=None, name=None, sql_filter=None, type=None):
+    def __init__(__self__, action=None, correlation_filter=None, filter_type=None, id=None, location=None, name=None, sql_filter=None, system_data=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
@@ -35,12 +35,18 @@ class GetRuleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if sql_filter and not isinstance(sql_filter, dict):
             raise TypeError("Expected argument 'sql_filter' to be a dict")
         pulumi.set(__self__, "sql_filter", sql_filter)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -73,15 +79,23 @@ class GetRuleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -94,10 +108,18 @@ class GetRuleResult:
         return pulumi.get(self, "sql_filter")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 
@@ -112,8 +134,10 @@ class AwaitableGetRuleResult(GetRuleResult):
             correlation_filter=self.correlation_filter,
             filter_type=self.filter_type,
             id=self.id,
+            location=self.location,
             name=self.name,
             sql_filter=self.sql_filter,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -125,7 +149,7 @@ def get_rule(namespace_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Retrieves the description for the specified rule.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name
@@ -148,8 +172,10 @@ def get_rule(namespace_name: Optional[str] = None,
         correlation_filter=__ret__.correlation_filter,
         filter_type=__ret__.filter_type,
         id=__ret__.id,
+        location=__ret__.location,
         name=__ret__.name,
         sql_filter=__ret__.sql_filter,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -162,7 +188,7 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
     Retrieves the description for the specified rule.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name

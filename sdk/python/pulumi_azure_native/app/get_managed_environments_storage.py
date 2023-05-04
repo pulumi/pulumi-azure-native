@@ -99,7 +99,7 @@ def get_managed_environments_storage(environment_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentsStorageResult:
     """
     Get storage for a managedEnvironment.
-    API Version: 2022-03-01.
+    API Version: 2022-10-01.
 
 
     :param str environment_name: Name of the Environment.
@@ -128,7 +128,7 @@ def get_managed_environments_storage_output(environment_name: Optional[pulumi.In
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentsStorageResult]:
     """
     Get storage for a managedEnvironment.
-    API Version: 2022-03-01.
+    API Version: 2022-10-01.
 
 
     :param str environment_name: Name of the Environment.

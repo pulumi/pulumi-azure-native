@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the description for the specified namespace.
  */
-/** @deprecated Version 2016-03-01 will be removed in v2 of the provider. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-    pulumi.log.warn("getNamespace is deprecated: Version 2016-03-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20160301:getNamespace", {
@@ -104,7 +102,6 @@ export interface GetNamespaceResult {
 /**
  * Returns the description for the specified namespace.
  */
-/** @deprecated Version 2016-03-01 will be removed in v2 of the provider. */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }

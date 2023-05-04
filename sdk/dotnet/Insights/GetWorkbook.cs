@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a single workbook by its resourceName.
-        /// API Version: 2020-10-20.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Task<GetWorkbookResult> InvokeAsync(GetWorkbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azure-native:insights:getWorkbook", args ?? new GetWorkbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single workbook by its resourceName.
-        /// API Version: 2020-10-20.
+        /// API Version: 2022-04-01.
         /// </summary>
         public static Output<GetWorkbookResult> Invoke(GetWorkbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkbookResult>("azure-native:insights:getWorkbook", args ?? new GetWorkbookInvokeArgs(), options.WithDefaults());
@@ -30,13 +30,19 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetWorkbookArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+        /// </summary>
+        [Input("canFetchContent")]
+        public bool? CanFetchContent { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Application Insights component resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -50,13 +56,19 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetWorkbookInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+        /// </summary>
+        [Input("canFetchContent")]
+        public Input<bool>? CanFetchContent { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Application Insights component resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
@@ -76,33 +88,41 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Category;
         /// <summary>
+        /// The description of the workbook.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The user-defined name (display name) of the workbook.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
         /// Resource etag
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Etag;
+        public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Identity used for BYOS
         /// </summary>
-        public readonly Outputs.WorkbookManagedIdentityResponse? Identity;
+        public readonly Outputs.WorkbookResourceResponseIdentity? Identity;
         /// <summary>
-        /// The kind of workbook. Choices are user and shared.
+        /// The kind of workbook. Only valid value is shared.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
+        /// <summary>
+        /// The unique revision id for this workbook definition
+        /// </summary>
+        public readonly string Revision;
         /// <summary>
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
         /// </summary>
@@ -112,11 +132,15 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? SourceId;
         /// <summary>
-        /// BYOS Storage Account URI
+        /// The resourceId to the storage account when bring your own storage is used
         /// </summary>
         public readonly string? StorageUri;
         /// <summary>
-        /// Resource tags
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -124,15 +148,15 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string TimeModified;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
         /// <summary>
         /// Unique user id of the specific user that owns this workbook.
         /// </summary>
         public readonly string UserId;
         /// <summary>
-        /// Workbook version
+        /// Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         /// </summary>
         public readonly string? Version;
 
@@ -140,19 +164,23 @@ namespace Pulumi.AzureNative.Insights
         private GetWorkbookResult(
             string category,
 
+            string? description,
+
             string displayName,
 
-            ImmutableDictionary<string, string>? etag,
+            string? etag,
 
-            string? id,
+            string id,
 
-            Outputs.WorkbookManagedIdentityResponse? identity,
+            Outputs.WorkbookResourceResponseIdentity? identity,
 
             string? kind,
 
-            string? location,
+            string location,
 
-            string? name,
+            string name,
+
+            string revision,
 
             string serializedData,
 
@@ -160,17 +188,20 @@ namespace Pulumi.AzureNative.Insights
 
             string? storageUri,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string timeModified,
 
-            string? type,
+            string type,
 
             string userId,
 
             string? version)
         {
             Category = category;
+            Description = description;
             DisplayName = displayName;
             Etag = etag;
             Id = id;
@@ -178,9 +209,11 @@ namespace Pulumi.AzureNative.Insights
             Kind = kind;
             Location = location;
             Name = name;
+            Revision = revision;
             SerializedData = serializedData;
             SourceId = sourceId;
             StorageUri = storageUri;
+            SystemData = systemData;
             Tags = tags;
             TimeModified = timeModified;
             Type = type;

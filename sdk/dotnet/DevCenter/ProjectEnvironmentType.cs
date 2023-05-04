@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents an environment type.
-    /// API Version: 2022-09-01-preview.
+    /// API Version: 2022-11-11-preview.
+    /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectEnvironmentType")]
     public partial class ProjectEnvironmentType : global::Pulumi.CustomResource
@@ -111,6 +112,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:ProjectEnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:ProjectEnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:ProjectEnvironmentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:ProjectEnvironmentType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,7 +173,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

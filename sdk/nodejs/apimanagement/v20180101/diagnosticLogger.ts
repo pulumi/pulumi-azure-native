@@ -99,7 +99,7 @@ export class DiagnosticLogger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:DiagnosticLogger" }, { type: "azure-native:apimanagement/v20170301:DiagnosticLogger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:DiagnosticLogger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticLogger.__pulumiType, name, resourceInputs, opts);
     }

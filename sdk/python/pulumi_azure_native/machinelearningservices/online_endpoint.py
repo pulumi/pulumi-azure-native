@@ -17,26 +17,28 @@ __all__ = ['OnlineEndpointInitArgs', 'OnlineEndpoint']
 @pulumi.input_type
 class OnlineEndpointInitArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['OnlineEndpointArgs'],
+                 online_endpoint_properties: pulumi.Input['OnlineEndpointArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OnlineEndpoint resource.
-        :param pulumi.Input['OnlineEndpointArgs'] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['OnlineEndpointArgs'] online_endpoint_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] endpoint_name: Online Endpoint name.
-        :param pulumi.Input['ResourceIdentityArgs'] identity: Service identity associated with a resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "online_endpoint_properties", online_endpoint_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if endpoint_name is not None:
@@ -47,20 +49,22 @@ class OnlineEndpointInitArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['OnlineEndpointArgs']:
+    @pulumi.getter(name="onlineEndpointProperties")
+    def online_endpoint_properties(self) -> pulumi.Input['OnlineEndpointArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "online_endpoint_properties")
 
-    @properties.setter
-    def properties(self, value: pulumi.Input['OnlineEndpointArgs']):
-        pulumi.set(self, "properties", value)
+    @online_endpoint_properties.setter
+    def online_endpoint_properties(self, value: pulumi.Input['OnlineEndpointArgs']):
+        pulumi.set(self, "online_endpoint_properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -100,14 +104,14 @@ class OnlineEndpointInitArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        Service identity associated with a resource.
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -136,6 +140,18 @@ class OnlineEndpointInitArgs:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        Sku details required for ARM contract for Autoscaling.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -153,25 +169,28 @@ class OnlineEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['OnlineEndpointArgs']]] = None,
+                 online_endpoint_properties: Optional[pulumi.Input[pulumi.InputType['OnlineEndpointArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        API Version: 2021-03-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Online Endpoint name.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Service identity associated with a resource.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['OnlineEndpointArgs']] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['OnlineEndpointArgs']] online_endpoint_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -182,7 +201,8 @@ class OnlineEndpoint(pulumi.CustomResource):
                  args: OnlineEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2021-03-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param OnlineEndpointInitArgs args: The arguments to use to populate this resource's properties.
@@ -200,11 +220,12 @@ class OnlineEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['OnlineEndpointArgs']]] = None,
+                 online_endpoint_properties: Optional[pulumi.Input[pulumi.InputType['OnlineEndpointArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -220,12 +241,13 @@ class OnlineEndpoint(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
+            if online_endpoint_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'online_endpoint_properties'")
+            __props__.__dict__["online_endpoint_properties"] = online_endpoint_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -233,7 +255,7 @@ class OnlineEndpoint(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:OnlineEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:OnlineEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:OnlineEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OnlineEndpoint, __self__).__init__(
             'azure-native:machinelearningservices:OnlineEndpoint',
@@ -261,7 +283,8 @@ class OnlineEndpoint(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["online_endpoint_properties"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -269,9 +292,9 @@ class OnlineEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        Service identity associated with a resource.
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -300,18 +323,26 @@ class OnlineEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.OnlineEndpointResponse']:
+    @pulumi.getter(name="onlineEndpointProperties")
+    def online_endpoint_properties(self) -> pulumi.Output['outputs.OnlineEndpointResponse']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "online_endpoint_properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        Sku details required for ARM contract for Autoscaling.
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

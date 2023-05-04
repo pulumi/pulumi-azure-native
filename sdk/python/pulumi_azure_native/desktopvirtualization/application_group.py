@@ -27,7 +27,6 @@ class ApplicationGroupArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 migration_request: Optional[pulumi.Input['MigrationRequestPropertiesArgs']] = None,
                  plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
                  sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -42,7 +41,6 @@ class ApplicationGroupArgs:
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input['MigrationRequestPropertiesArgs'] migration_request: The registration info of HostPool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "application_group_type", application_group_type)
@@ -62,8 +60,6 @@ class ApplicationGroupArgs:
             pulumi.set(__self__, "location", location)
         if managed_by is not None:
             pulumi.set(__self__, "managed_by", managed_by)
-        if migration_request is not None:
-            pulumi.set(__self__, "migration_request", migration_request)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
         if sku is not None:
@@ -189,18 +185,6 @@ class ApplicationGroupArgs:
         pulumi.set(self, "managed_by", value)
 
     @property
-    @pulumi.getter(name="migrationRequest")
-    def migration_request(self) -> Optional[pulumi.Input['MigrationRequestPropertiesArgs']]:
-        """
-        The registration info of HostPool.
-        """
-        return pulumi.get(self, "migration_request")
-
-    @migration_request.setter
-    def migration_request(self, value: Optional[pulumi.Input['MigrationRequestPropertiesArgs']]):
-        pulumi.set(self, "migration_request", value)
-
-    @property
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]:
         return pulumi.get(self, "plan")
@@ -245,7 +229,6 @@ class ApplicationGroup(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 migration_request: Optional[pulumi.Input[pulumi.InputType['MigrationRequestPropertiesArgs']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
@@ -253,7 +236,8 @@ class ApplicationGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a ApplicationGroup definition.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-09.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,7 +249,6 @@ class ApplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        :param pulumi.Input[pulumi.InputType['MigrationRequestPropertiesArgs']] migration_request: The registration info of HostPool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -277,7 +260,8 @@ class ApplicationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a ApplicationGroup definition.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-09.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApplicationGroupArgs args: The arguments to use to populate this resource's properties.
@@ -303,7 +287,6 @@ class ApplicationGroup(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
-                 migration_request: Optional[pulumi.Input[pulumi.InputType['MigrationRequestPropertiesArgs']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
@@ -330,7 +313,6 @@ class ApplicationGroup(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
-            __props__.__dict__["migration_request"] = migration_request
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -341,6 +323,7 @@ class ApplicationGroup(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["object_id"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workspace_arm_path"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ApplicationGroup"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ApplicationGroup")])
@@ -377,11 +360,11 @@ class ApplicationGroup(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_by"] = None
-        __props__.__dict__["migration_request"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
         __props__.__dict__["plan"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["workspace_arm_path"] = None
@@ -465,14 +448,6 @@ class ApplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "managed_by")
 
     @property
-    @pulumi.getter(name="migrationRequest")
-    def migration_request(self) -> pulumi.Output[Optional['outputs.MigrationRequestPropertiesResponse']]:
-        """
-        The registration info of HostPool.
-        """
-        return pulumi.get(self, "migration_request")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -497,6 +472,14 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']]:
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

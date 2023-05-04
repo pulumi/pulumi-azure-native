@@ -349,8 +349,8 @@ def get_certificate(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Get a certificate.
-    API Version: 2020-12-01.
+    Description for Get a certificate.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the certificate.
@@ -396,8 +396,8 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Get a certificate.
-    API Version: 2020-12-01.
+    Description for Get a certificate.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the certificate.

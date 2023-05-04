@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get Information about Virtual Machine Image Template
  */
-/** @deprecated Version 2018-02-01-preview will be removed in v2 of the provider. */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
-    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: Version 2018-02-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:virtualmachineimages/v20180201preview:getVirtualMachineImageTemplate", {
@@ -81,7 +79,6 @@ export interface GetVirtualMachineImageTemplateResult {
 /**
  * Get Information about Virtual Machine Image Template
  */
-/** @deprecated Version 2018-02-01-preview will be removed in v2 of the provider. */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))
 }

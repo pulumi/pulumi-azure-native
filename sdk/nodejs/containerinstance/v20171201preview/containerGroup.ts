@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A container group.
- *
- * @deprecated Version 2017-12-01-preview will be removed in v2 of the provider.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContainerGroup {
-        pulumi.log.warn("ContainerGroup is deprecated: Version 2017-12-01-preview will be removed in v2 of the provider.")
         return new ContainerGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -99,9 +96,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-12-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ContainerGroup is deprecated: Version 2017-12-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -143,7 +138,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance:ContainerGroup" }, { type: "azure-native:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180401:ContainerGroup" }, { type: "azure-native:containerinstance/v20180601:ContainerGroup" }, { type: "azure-native:containerinstance/v20180901:ContainerGroup" }, { type: "azure-native:containerinstance/v20181001:ContainerGroup" }, { type: "azure-native:containerinstance/v20191201:ContainerGroup" }, { type: "azure-native:containerinstance/v20201101:ContainerGroup" }, { type: "azure-native:containerinstance/v20210301:ContainerGroup" }, { type: "azure-native:containerinstance/v20210701:ContainerGroup" }, { type: "azure-native:containerinstance/v20210901:ContainerGroup" }, { type: "azure-native:containerinstance/v20211001:ContainerGroup" }, { type: "azure-native:containerinstance/v20220901:ContainerGroup" }, { type: "azure-native:containerinstance/v20221001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20230501:ContainerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance:ContainerGroup" }, { type: "azure-native:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180401:ContainerGroup" }, { type: "azure-native:containerinstance/v20180601:ContainerGroup" }, { type: "azure-native:containerinstance/v20180901:ContainerGroup" }, { type: "azure-native:containerinstance/v20181001:ContainerGroup" }, { type: "azure-native:containerinstance/v20191201:ContainerGroup" }, { type: "azure-native:containerinstance/v20201101:ContainerGroup" }, { type: "azure-native:containerinstance/v20210301:ContainerGroup" }, { type: "azure-native:containerinstance/v20210701:ContainerGroup" }, { type: "azure-native:containerinstance/v20210901:ContainerGroup" }, { type: "azure-native:containerinstance/v20211001:ContainerGroup" }, { type: "azure-native:containerinstance/v20220901:ContainerGroup" }, { type: "azure-native:containerinstance/v20221001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20230201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20230501:ContainerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerGroup.__pulumiType, name, resourceInputs, opts);
     }

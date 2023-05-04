@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified chap setting name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getChapSetting(args: GetChapSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetChapSettingResult> {
-    pulumi.log.warn("getChapSetting is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getChapSetting", {
@@ -66,7 +64,6 @@ export interface GetChapSettingResult {
 /**
  * Returns the properties of the specified chap setting name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getChapSettingOutput(args: GetChapSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChapSettingResult> {
     return pulumi.output(args).apply((a: any) => getChapSetting(a, opts))
 }

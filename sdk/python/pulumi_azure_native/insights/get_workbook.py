@@ -20,17 +20,20 @@ __all__ = [
 @pulumi.output_type
 class GetWorkbookResult:
     """
-    An Application Insights workbook definition.
+    A workbook definition.
     """
-    def __init__(__self__, category=None, display_name=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
+    def __init__(__self__, category=None, description=None, display_name=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, revision=None, serialized_data=None, source_id=None, storage_uri=None, system_data=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
-        if etag and not isinstance(etag, dict):
-            raise TypeError("Expected argument 'etag' to be a dict")
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -47,6 +50,9 @@ class GetWorkbookResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if revision and not isinstance(revision, str):
+            raise TypeError("Expected argument 'revision' to be a str")
+        pulumi.set(__self__, "revision", revision)
         if serialized_data and not isinstance(serialized_data, str):
             raise TypeError("Expected argument 'serialized_data' to be a str")
         pulumi.set(__self__, "serialized_data", serialized_data)
@@ -56,6 +62,9 @@ class GetWorkbookResult:
         if storage_uri and not isinstance(storage_uri, str):
             raise TypeError("Expected argument 'storage_uri' to be a str")
         pulumi.set(__self__, "storage_uri", storage_uri)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -81,6 +90,14 @@ class GetWorkbookResult:
         return pulumi.get(self, "category")
 
     @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the workbook.
+        """
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
@@ -90,7 +107,7 @@ class GetWorkbookResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[Mapping[str, str]]:
+    def etag(self) -> Optional[str]:
         """
         Resource etag
         """
@@ -98,15 +115,15 @@ class GetWorkbookResult:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.WorkbookManagedIdentityResponse']:
+    def identity(self) -> Optional['outputs.WorkbookResourceResponseIdentity']:
         """
         Identity used for BYOS
         """
@@ -116,25 +133,33 @@ class GetWorkbookResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        The kind of workbook. Choices are user and shared.
+        The kind of workbook. Only valid value is shared.
         """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> str:
+        """
+        The unique revision id for this workbook definition
+        """
+        return pulumi.get(self, "revision")
 
     @property
     @pulumi.getter(name="serializedData")
@@ -156,15 +181,23 @@ class GetWorkbookResult:
     @pulumi.getter(name="storageUri")
     def storage_uri(self) -> Optional[str]:
         """
-        BYOS Storage Account URI
+        The resourceId to the storage account when bring your own storage is used
         """
         return pulumi.get(self, "storage_uri")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -178,9 +211,9 @@ class GetWorkbookResult:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -196,7 +229,7 @@ class GetWorkbookResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Workbook version
+        Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         """
         return pulumi.get(self, "version")
 
@@ -208,6 +241,7 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
             yield self
         return GetWorkbookResult(
             category=self.category,
+            description=self.description,
             display_name=self.display_name,
             etag=self.etag,
             id=self.id,
@@ -215,9 +249,11 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
+            revision=self.revision,
             serialized_data=self.serialized_data,
             source_id=self.source_id,
             storage_uri=self.storage_uri,
+            system_data=self.system_data,
             tags=self.tags,
             time_modified=self.time_modified,
             type=self.type,
@@ -225,18 +261,21 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
             version=self.version)
 
 
-def get_workbook(resource_group_name: Optional[str] = None,
+def get_workbook(can_fetch_content: Optional[bool] = None,
+                 resource_group_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
     Get a single workbook by its resourceName.
-    API Version: 2020-10-20.
+    API Version: 2022-04-01.
 
 
+    :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str resource_name: The name of the Application Insights component resource.
+    :param str resource_name: The name of the resource.
     """
     __args__ = dict()
+    __args__['canFetchContent'] = can_fetch_content
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -244,6 +283,7 @@ def get_workbook(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkbookResult(
         category=__ret__.category,
+        description=__ret__.description,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
         id=__ret__.id,
@@ -251,9 +291,11 @@ def get_workbook(resource_group_name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
+        revision=__ret__.revision,
         serialized_data=__ret__.serialized_data,
         source_id=__ret__.source_id,
         storage_uri=__ret__.storage_uri,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         time_modified=__ret__.time_modified,
         type=__ret__.type,
@@ -262,15 +304,17 @@ def get_workbook(resource_group_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_workbook)
-def get_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
     """
     Get a single workbook by its resourceName.
-    API Version: 2020-10-20.
+    API Version: 2022-04-01.
 
 
+    :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str resource_name: The name of the Application Insights component resource.
+    :param str resource_name: The name of the resource.
     """
     ...

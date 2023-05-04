@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents user credentials used for publishing activity
- *
- * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class SiteInstanceDeployment extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteInstanceDeployment {
-        pulumi.log.warn("SiteInstanceDeployment is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
         return new SiteInstanceDeployment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -101,9 +98,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: SiteInstanceDeploymentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SiteInstanceDeployment is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get FarmBeats resource.
- * API Version: 2020-05-12-preview.
+ * API Version: 2021-09-01-preview.
  */
 export function getFarmBeatsModel(args: GetFarmBeatsModelArgs, opts?: pulumi.InvokeOptions): Promise<GetFarmBeatsModelResult> {
 
@@ -36,9 +36,13 @@ export interface GetFarmBeatsModelArgs {
  */
 export interface GetFarmBeatsModelResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Identity for the resource.
+     */
+    readonly identity?: outputs.agfoodplatform.IdentityResponse;
     /**
      * Uri of the FarmBeats instance.
      */
@@ -52,15 +56,23 @@ export interface GetFarmBeatsModelResult {
      */
     readonly name: string;
     /**
+     * The private endpoint connection resource.
+     */
+    readonly privateEndpointConnections: outputs.agfoodplatform.PrivateEndpointConnectionResponse;
+    /**
      * FarmBeats instance provisioning state.
      */
     readonly provisioningState: string;
     /**
-     * The resource model definition representing SKU
+     * Property to allow or block public traffic for an Azure FarmBeats resource.
      */
-    readonly sku?: outputs.agfoodplatform.SkuResponse;
+    readonly publicNetworkAccess?: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Sensor integration request model.
+     */
+    readonly sensorIntegration?: outputs.agfoodplatform.SensorIntegrationResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.agfoodplatform.SystemDataResponse;
     /**
@@ -74,7 +86,7 @@ export interface GetFarmBeatsModelResult {
 }
 /**
  * Get FarmBeats resource.
- * API Version: 2020-05-12-preview.
+ * API Version: 2021-09-01-preview.
  */
 export function getFarmBeatsModelOutput(args: GetFarmBeatsModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFarmBeatsModelResult> {
     return pulumi.output(args).apply((a: any) => getFarmBeatsModel(a, opts))

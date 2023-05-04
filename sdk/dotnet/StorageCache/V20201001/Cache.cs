@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.StorageCache.V20201001
     /// <summary>
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// </summary>
-    [Obsolete(@"Version 2020-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagecache/v20201001:Cache")]
     public partial class Cache : global::Pulumi.CustomResource
     {
@@ -154,6 +153,7 @@ namespace Pulumi.AzureNative.StorageCache.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220501:Cache"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230101:Cache"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

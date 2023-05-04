@@ -20,8 +20,9 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// Optional, integer. The unit count of the resource. 1 by default.
         /// 
         /// If present, following values are allowed:
-        ///     Free: 1
-        ///     Standard: 1,2,5,10,20,50,100
+        ///     Free: 1;
+        ///     Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+        ///     Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
         /// </summary>
         public readonly int? Capacity;
         /// <summary>
@@ -31,7 +32,7 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// <summary>
         /// The name of the SKU. Required.
         /// 
-        /// Allowed values: Standard_S1, Free_F1
+        /// Allowed values: Standard_S1, Free_F1, Premium_P1
         /// </summary>
         public readonly string Name;
         /// <summary>

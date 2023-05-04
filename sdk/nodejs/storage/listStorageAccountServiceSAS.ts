@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List service SAS credentials of a specific resource.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function listStorageAccountServiceSAS(args: ListStorageAccountServiceSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountServiceSASResult> {
 
@@ -132,7 +132,7 @@ export interface ListStorageAccountServiceSASResult {
 }
 /**
  * List service SAS credentials of a specific resource.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function listStorageAccountServiceSASOutput(args: ListStorageAccountServiceSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountServiceSASResult> {
     return pulumi.output(args).apply((a: any) => listStorageAccountServiceSAS(a, opts))

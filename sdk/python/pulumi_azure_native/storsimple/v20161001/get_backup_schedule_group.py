@@ -17,8 +17,6 @@ __all__ = [
     'get_backup_schedule_group_output',
 ]
 
-warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetBackupScheduleGroupResult:
     """
@@ -97,7 +95,6 @@ def get_backup_schedule_group(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name
     :param str schedule_group_name: The name of the schedule group.
     """
-    pulumi.log.warn("""get_backup_schedule_group is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['managerName'] = manager_name
@@ -128,5 +125,4 @@ def get_backup_schedule_group_output(device_name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The resource group name
     :param str schedule_group_name: The name of the schedule group.
     """
-    pulumi.log.warn("""get_backup_schedule_group is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     ...

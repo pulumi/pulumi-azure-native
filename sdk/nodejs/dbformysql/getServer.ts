@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a server.
- * API Version: 2017-12-01.
+ * API Version: 2021-05-01.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -40,59 +40,55 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * Status showing whether the server data encryption is enabled with customer-managed keys.
+     * availability Zone information of the server.
      */
-    readonly byokEnforcement: string;
+    readonly availabilityZone?: string;
     /**
-     * Earliest restore point creation time (ISO8601 format)
+     * Backup related properties of a server.
      */
-    readonly earliestRestoreDate?: string;
+    readonly backup?: outputs.dbformysql.BackupResponse;
+    /**
+     * The Data Encryption for CMK.
+     */
+    readonly dataEncryption?: outputs.dbformysql.DataEncryptionResponse;
     /**
      * The fully qualified domain name of a server.
      */
-    readonly fullyQualifiedDomainName?: string;
+    readonly fullyQualifiedDomainName: string;
+    /**
+     * High availability related properties of a server.
+     */
+    readonly highAvailability?: outputs.dbformysql.HighAvailabilityResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The Azure Active Directory identity of the server.
+     * The cmk identity for the server.
      */
-    readonly identity?: outputs.dbformysql.ResourceIdentityResponse;
-    /**
-     * Status showing whether the server enabled infrastructure encryption.
-     */
-    readonly infrastructureEncryption?: string;
+    readonly identity?: outputs.dbformysql.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The master server id of a replica server.
+     * Maintenance window of a server.
      */
-    readonly masterServerId?: string;
-    /**
-     * Enforce a minimal Tls version for the server.
-     */
-    readonly minimalTlsVersion?: string;
+    readonly maintenanceWindow?: outputs.dbformysql.MaintenanceWindowResponse;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * List of private endpoint connections on a server
+     * Network related properties of a server.
      */
-    readonly privateEndpointConnections: outputs.dbformysql.ServerPrivateEndpointConnectionResponse[];
+    readonly network?: outputs.dbformysql.NetworkResponse;
     /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * The maximum number of replicas that a primary server can have.
      */
-    readonly publicNetworkAccess?: string;
+    readonly replicaCapacity: number;
     /**
-     * The maximum number of replicas that a master server can have.
-     */
-    readonly replicaCapacity?: number;
-    /**
-     * The replication role of the server.
+     * The replication role.
      */
     readonly replicationRole?: string;
     /**
@@ -100,13 +96,21 @@ export interface GetServerResult {
      */
     readonly sku?: outputs.dbformysql.SkuResponse;
     /**
-     * Enable ssl enforcement or not when connect to server.
+     * The source MySQL server id.
      */
-    readonly sslEnforcement?: string;
+    readonly sourceServerResourceId?: string;
     /**
-     * Storage profile of a server.
+     * The state of a server.
      */
-    readonly storageProfile?: outputs.dbformysql.StorageProfileResponse;
+    readonly state: string;
+    /**
+     * Storage related properties of a server.
+     */
+    readonly storage?: outputs.dbformysql.StorageResponse;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.dbformysql.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -116,17 +120,13 @@ export interface GetServerResult {
      */
     readonly type: string;
     /**
-     * A state of a server that is visible to user.
-     */
-    readonly userVisibleState?: string;
-    /**
      * Server version.
      */
     readonly version?: string;
 }
 /**
  * Gets information about a server.
- * API Version: 2017-12-01.
+ * API Version: 2021-05-01.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

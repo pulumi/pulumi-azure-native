@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse? PublicIPPrefix;
         /// <summary>
-        /// Describes the public IP Sku
+        /// Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
         /// </summary>
         public readonly Outputs.PublicIPAddressSkuResponse? Sku;
 

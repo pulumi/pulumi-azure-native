@@ -14,6 +14,8 @@ __all__ = [
     'AzureFileFilterDetailsArgs',
     'BlobFilterDetailsArgs',
     'ContactDetailsArgs',
+    'ContactInfoArgs',
+    'DataBoxCustomerDiskJobDetailsArgs',
     'DataBoxDiskJobDetailsArgs',
     'DataBoxHeavyJobDetailsArgs',
     'DataBoxJobDetailsArgs',
@@ -22,12 +24,15 @@ __all__ = [
     'EncryptionPreferencesArgs',
     'FilterFileDetailsArgs',
     'IdentityPropertiesArgs',
+    'ImportDiskDetailsArgs',
     'JobDeliveryInfoArgs',
     'KeyEncryptionKeyArgs',
     'ManagedDiskDetailsArgs',
     'NotificationPreferenceArgs',
+    'PackageCarrierDetailsArgs',
     'PreferencesArgs',
     'ResourceIdentityArgs',
+    'ReverseShippingDetailsArgs',
     'ShippingAddressArgs',
     'SkuArgs',
     'StorageAccountDetailsArgs',
@@ -254,6 +259,277 @@ class ContactDetailsArgs:
 
 
 @pulumi.input_type
+class ContactInfoArgs:
+    def __init__(__self__, *,
+                 contact_name: pulumi.Input[str],
+                 phone: pulumi.Input[str],
+                 mobile: Optional[pulumi.Input[str]] = None,
+                 phone_extension: Optional[pulumi.Input[str]] = None):
+        """
+        Contact Info.
+        :param pulumi.Input[str] contact_name: Contact name of the person.
+        :param pulumi.Input[str] phone: Phone number of the contact person.
+        :param pulumi.Input[str] mobile: Mobile number of the contact person.
+        :param pulumi.Input[str] phone_extension: Phone extension number of the contact person.
+        """
+        pulumi.set(__self__, "contact_name", contact_name)
+        pulumi.set(__self__, "phone", phone)
+        if mobile is not None:
+            pulumi.set(__self__, "mobile", mobile)
+        if phone_extension is not None:
+            pulumi.set(__self__, "phone_extension", phone_extension)
+
+    @property
+    @pulumi.getter(name="contactName")
+    def contact_name(self) -> pulumi.Input[str]:
+        """
+        Contact name of the person.
+        """
+        return pulumi.get(self, "contact_name")
+
+    @contact_name.setter
+    def contact_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "contact_name", value)
+
+    @property
+    @pulumi.getter
+    def phone(self) -> pulumi.Input[str]:
+        """
+        Phone number of the contact person.
+        """
+        return pulumi.get(self, "phone")
+
+    @phone.setter
+    def phone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "phone", value)
+
+    @property
+    @pulumi.getter
+    def mobile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mobile number of the contact person.
+        """
+        return pulumi.get(self, "mobile")
+
+    @mobile.setter
+    def mobile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mobile", value)
+
+    @property
+    @pulumi.getter(name="phoneExtension")
+    def phone_extension(self) -> Optional[pulumi.Input[str]]:
+        """
+        Phone extension number of the contact person.
+        """
+        return pulumi.get(self, "phone_extension")
+
+    @phone_extension.setter
+    def phone_extension(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "phone_extension", value)
+
+
+@pulumi.input_type
+class DataBoxCustomerDiskJobDetailsArgs:
+    def __init__(__self__, *,
+                 contact_details: pulumi.Input['ContactDetailsArgs'],
+                 job_details_type: pulumi.Input[str],
+                 return_to_customer_package_details: pulumi.Input['PackageCarrierDetailsArgs'],
+                 data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 enable_manifest_backup: Optional[pulumi.Input[bool]] = None,
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
+                 import_disk_details_collection: Optional[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]] = None,
+                 key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
+                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+                 reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
+                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+        """
+        Customer disk job details.
+        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
+        :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxCustomerDisk'.
+        :param pulumi.Input['PackageCarrierDetailsArgs'] return_to_customer_package_details: Return package shipping details.
+        :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
+        :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
+        :param pulumi.Input[bool] enable_manifest_backup: Flag to indicate if disk manifest should be backed-up in the Storage Account.
+        :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]] import_disk_details_collection: Contains the map of disk serial number to the disk details for import jobs.
+        :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
+        :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
+        :param pulumi.Input['ReverseShippingDetailsArgs'] reverse_shipping_details: Optional Reverse Shipping details for order.
+        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
+        """
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "job_details_type", 'DataBoxCustomerDisk')
+        pulumi.set(__self__, "return_to_customer_package_details", return_to_customer_package_details)
+        if data_export_details is not None:
+            pulumi.set(__self__, "data_export_details", data_export_details)
+        if data_import_details is not None:
+            pulumi.set(__self__, "data_import_details", data_import_details)
+        if enable_manifest_backup is None:
+            enable_manifest_backup = False
+        if enable_manifest_backup is not None:
+            pulumi.set(__self__, "enable_manifest_backup", enable_manifest_backup)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+        if import_disk_details_collection is not None:
+            pulumi.set(__self__, "import_disk_details_collection", import_disk_details_collection)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if reverse_shipping_details is not None:
+            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @contact_details.setter
+    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
+        pulumi.set(self, "contact_details", value)
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of job details.
+        Expected value is 'DataBoxCustomerDisk'.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @job_details_type.setter
+    def job_details_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_details_type", value)
+
+    @property
+    @pulumi.getter(name="returnToCustomerPackageDetails")
+    def return_to_customer_package_details(self) -> pulumi.Input['PackageCarrierDetailsArgs']:
+        """
+        Return package shipping details.
+        """
+        return pulumi.get(self, "return_to_customer_package_details")
+
+    @return_to_customer_package_details.setter
+    def return_to_customer_package_details(self, value: pulumi.Input['PackageCarrierDetailsArgs']):
+        pulumi.set(self, "return_to_customer_package_details", value)
+
+    @property
+    @pulumi.getter(name="dataExportDetails")
+    def data_export_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]:
+        """
+        Details of the data to be exported from azure.
+        """
+        return pulumi.get(self, "data_export_details")
+
+    @data_export_details.setter
+    def data_export_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]]):
+        pulumi.set(self, "data_export_details", value)
+
+    @property
+    @pulumi.getter(name="dataImportDetails")
+    def data_import_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]:
+        """
+        Details of the data to be imported into azure.
+        """
+        return pulumi.get(self, "data_import_details")
+
+    @data_import_details.setter
+    def data_import_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]]):
+        pulumi.set(self, "data_import_details", value)
+
+    @property
+    @pulumi.getter(name="enableManifestBackup")
+    def enable_manifest_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate if disk manifest should be backed-up in the Storage Account.
+        """
+        return pulumi.get(self, "enable_manifest_backup")
+
+    @enable_manifest_backup.setter
+    def enable_manifest_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_manifest_backup", value)
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
+
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
+
+    @property
+    @pulumi.getter(name="importDiskDetailsCollection")
+    def import_disk_details_collection(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]]:
+        """
+        Contains the map of disk serial number to the disk details for import jobs.
+        """
+        return pulumi.get(self, "import_disk_details_collection")
+
+    @import_disk_details_collection.setter
+    def import_disk_details_collection(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgs']]]]):
+        pulumi.set(self, "import_disk_details_collection", value)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional[pulumi.Input['KeyEncryptionKeyArgs']]:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @key_encryption_key.setter
+    def key_encryption_key(self, value: Optional[pulumi.Input['KeyEncryptionKeyArgs']]):
+        pulumi.set(self, "key_encryption_key", value)
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @preferences.setter
+    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+        pulumi.set(self, "preferences", value)
+
+    @property
+    @pulumi.getter(name="reverseShippingDetails")
+    def reverse_shipping_details(self) -> Optional[pulumi.Input['ReverseShippingDetailsArgs']]:
+        """
+        Optional Reverse Shipping details for order.
+        """
+        return pulumi.get(self, "reverse_shipping_details")
+
+    @reverse_shipping_details.setter
+    def reverse_shipping_details(self, value: Optional[pulumi.Input['ReverseShippingDetailsArgs']]):
+        pulumi.set(self, "reverse_shipping_details", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @shipping_address.setter
+    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+        pulumi.set(self, "shipping_address", value)
+
+
+@pulumi.input_type
 class DataBoxDiskJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
@@ -265,6 +541,7 @@ class DataBoxDiskJobDetailsArgs:
                  passkey: Optional[pulumi.Input[str]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None,
+                 reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         DataBox Disk Job Details.
@@ -278,6 +555,7 @@ class DataBoxDiskJobDetailsArgs:
         :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input[Mapping[str, pulumi.Input[int]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        :param pulumi.Input['ReverseShippingDetailsArgs'] reverse_shipping_details: Optional Reverse Shipping details for order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
         pulumi.set(__self__, "contact_details", contact_details)
@@ -296,6 +574,8 @@ class DataBoxDiskJobDetailsArgs:
             pulumi.set(__self__, "preferences", preferences)
         if preferred_disks is not None:
             pulumi.set(__self__, "preferred_disks", preferred_disks)
+        if reverse_shipping_details is not None:
+            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
 
@@ -409,6 +689,18 @@ class DataBoxDiskJobDetailsArgs:
         pulumi.set(self, "preferred_disks", value)
 
     @property
+    @pulumi.getter(name="reverseShippingDetails")
+    def reverse_shipping_details(self) -> Optional[pulumi.Input['ReverseShippingDetailsArgs']]:
+        """
+        Optional Reverse Shipping details for order.
+        """
+        return pulumi.get(self, "reverse_shipping_details")
+
+    @reverse_shipping_details.setter
+    def reverse_shipping_details(self, value: Optional[pulumi.Input['ReverseShippingDetailsArgs']]):
+        pulumi.set(self, "reverse_shipping_details", value)
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
         """
@@ -432,6 +724,7 @@ class DataBoxHeavyJobDetailsArgs:
                  expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
                  key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+                 reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Databox Heavy Device Job Details
@@ -444,6 +737,7 @@ class DataBoxHeavyJobDetailsArgs:
         :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
+        :param pulumi.Input['ReverseShippingDetailsArgs'] reverse_shipping_details: Optional Reverse Shipping details for order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
         pulumi.set(__self__, "contact_details", contact_details)
@@ -460,6 +754,8 @@ class DataBoxHeavyJobDetailsArgs:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
+        if reverse_shipping_details is not None:
+            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
 
@@ -561,6 +857,18 @@ class DataBoxHeavyJobDetailsArgs:
         pulumi.set(self, "preferences", value)
 
     @property
+    @pulumi.getter(name="reverseShippingDetails")
+    def reverse_shipping_details(self) -> Optional[pulumi.Input['ReverseShippingDetailsArgs']]:
+        """
+        Optional Reverse Shipping details for order.
+        """
+        return pulumi.get(self, "reverse_shipping_details")
+
+    @reverse_shipping_details.setter
+    def reverse_shipping_details(self, value: Optional[pulumi.Input['ReverseShippingDetailsArgs']]):
+        pulumi.set(self, "reverse_shipping_details", value)
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
         """
@@ -584,6 +892,7 @@ class DataBoxJobDetailsArgs:
                  expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
                  key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+                 reverse_shipping_details: Optional[pulumi.Input['ReverseShippingDetailsArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Databox Job Details
@@ -596,6 +905,7 @@ class DataBoxJobDetailsArgs:
         :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
+        :param pulumi.Input['ReverseShippingDetailsArgs'] reverse_shipping_details: Optional Reverse Shipping details for order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
         pulumi.set(__self__, "contact_details", contact_details)
@@ -612,6 +922,8 @@ class DataBoxJobDetailsArgs:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
+        if reverse_shipping_details is not None:
+            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
 
@@ -713,6 +1025,18 @@ class DataBoxJobDetailsArgs:
         pulumi.set(self, "preferences", value)
 
     @property
+    @pulumi.getter(name="reverseShippingDetails")
+    def reverse_shipping_details(self) -> Optional[pulumi.Input['ReverseShippingDetailsArgs']]:
+        """
+        Optional Reverse Shipping details for order.
+        """
+        return pulumi.get(self, "reverse_shipping_details")
+
+    @reverse_shipping_details.setter
+    def reverse_shipping_details(self, value: Optional[pulumi.Input['ReverseShippingDetailsArgs']]):
+        pulumi.set(self, "reverse_shipping_details", value)
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
         """
@@ -784,12 +1108,18 @@ class DataExportDetailsArgs:
 @pulumi.input_type
 class DataImportDetailsArgs:
     def __init__(__self__, *,
-                 account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]):
+                 account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']],
+                 log_collection_level: Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]] = None):
         """
         Details of the data to be used for importing data to azure.
         :param pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']] account_details: Account details of the data to be transferred
+        :param pulumi.Input[Union[str, 'LogCollectionLevel']] log_collection_level: Level of the logs to be collected.
         """
         pulumi.set(__self__, "account_details", account_details)
+        if log_collection_level is None:
+            log_collection_level = 'Error'
+        if log_collection_level is not None:
+            pulumi.set(__self__, "log_collection_level", log_collection_level)
 
     @property
     @pulumi.getter(name="accountDetails")
@@ -803,19 +1133,35 @@ class DataImportDetailsArgs:
     def account_details(self, value: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]):
         pulumi.set(self, "account_details", value)
 
+    @property
+    @pulumi.getter(name="logCollectionLevel")
+    def log_collection_level(self) -> Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]]:
+        """
+        Level of the logs to be collected.
+        """
+        return pulumi.get(self, "log_collection_level")
+
+    @log_collection_level.setter
+    def log_collection_level(self, value: Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]]):
+        pulumi.set(self, "log_collection_level", value)
+
 
 @pulumi.input_type
 class EncryptionPreferencesArgs:
     def __init__(__self__, *,
-                 double_encryption: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]] = None):
+                 double_encryption: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]] = None,
+                 hardware_encryption: Optional[pulumi.Input[Union[str, 'HardwareEncryption']]] = None):
         """
         Preferences related to the Encryption.
         :param pulumi.Input[Union[str, 'DoubleEncryption']] double_encryption: Defines secondary layer of software-based encryption enablement.
+        :param pulumi.Input[Union[str, 'HardwareEncryption']] hardware_encryption: Defines Hardware level encryption (Only for disk)
         """
         if double_encryption is None:
             double_encryption = 'Disabled'
         if double_encryption is not None:
             pulumi.set(__self__, "double_encryption", double_encryption)
+        if hardware_encryption is not None:
+            pulumi.set(__self__, "hardware_encryption", hardware_encryption)
 
     @property
     @pulumi.getter(name="doubleEncryption")
@@ -828,6 +1174,18 @@ class EncryptionPreferencesArgs:
     @double_encryption.setter
     def double_encryption(self, value: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]]):
         pulumi.set(self, "double_encryption", value)
+
+    @property
+    @pulumi.getter(name="hardwareEncryption")
+    def hardware_encryption(self) -> Optional[pulumi.Input[Union[str, 'HardwareEncryption']]]:
+        """
+        Defines Hardware level encryption (Only for disk)
+        """
+        return pulumi.get(self, "hardware_encryption")
+
+    @hardware_encryption.setter
+    def hardware_encryption(self, value: Optional[pulumi.Input[Union[str, 'HardwareEncryption']]]):
+        pulumi.set(self, "hardware_encryption", value)
 
 
 @pulumi.input_type
@@ -906,6 +1264,59 @@ class IdentityPropertiesArgs:
     @user_assigned.setter
     def user_assigned(self, value: Optional[pulumi.Input['UserAssignedPropertiesArgs']]):
         pulumi.set(self, "user_assigned", value)
+
+
+@pulumi.input_type
+class ImportDiskDetailsArgs:
+    def __init__(__self__, *,
+                 bit_locker_key: pulumi.Input[str],
+                 manifest_file: pulumi.Input[str],
+                 manifest_hash: pulumi.Input[str]):
+        """
+        Import disk details
+        :param pulumi.Input[str] bit_locker_key: BitLocker key used to encrypt the disk.
+        :param pulumi.Input[str] manifest_file: The relative path of the manifest file on the disk.
+        :param pulumi.Input[str] manifest_hash: The Base16-encoded MD5 hash of the manifest file on the disk.
+        """
+        pulumi.set(__self__, "bit_locker_key", bit_locker_key)
+        pulumi.set(__self__, "manifest_file", manifest_file)
+        pulumi.set(__self__, "manifest_hash", manifest_hash)
+
+    @property
+    @pulumi.getter(name="bitLockerKey")
+    def bit_locker_key(self) -> pulumi.Input[str]:
+        """
+        BitLocker key used to encrypt the disk.
+        """
+        return pulumi.get(self, "bit_locker_key")
+
+    @bit_locker_key.setter
+    def bit_locker_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bit_locker_key", value)
+
+    @property
+    @pulumi.getter(name="manifestFile")
+    def manifest_file(self) -> pulumi.Input[str]:
+        """
+        The relative path of the manifest file on the disk.
+        """
+        return pulumi.get(self, "manifest_file")
+
+    @manifest_file.setter
+    def manifest_file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manifest_file", value)
+
+    @property
+    @pulumi.getter(name="manifestHash")
+    def manifest_hash(self) -> pulumi.Input[str]:
+        """
+        The Base16-encoded MD5 hash of the manifest file on the disk.
+        """
+        return pulumi.get(self, "manifest_hash")
+
+    @manifest_hash.setter
+    def manifest_hash(self, value: pulumi.Input[str]):
+        pulumi.set(self, "manifest_hash", value)
 
 
 @pulumi.input_type
@@ -1119,21 +1530,85 @@ class NotificationPreferenceArgs:
 
 
 @pulumi.input_type
+class PackageCarrierDetailsArgs:
+    def __init__(__self__, *,
+                 carrier_account_number: Optional[pulumi.Input[str]] = None,
+                 carrier_name: Optional[pulumi.Input[str]] = None,
+                 tracking_id: Optional[pulumi.Input[str]] = None):
+        """
+        Package carrier details.
+        :param pulumi.Input[str] carrier_account_number: Carrier Account Number of customer for customer disk.
+        :param pulumi.Input[str] carrier_name: Name of the carrier.
+        :param pulumi.Input[str] tracking_id: Tracking Id of shipment.
+        """
+        if carrier_account_number is not None:
+            pulumi.set(__self__, "carrier_account_number", carrier_account_number)
+        if carrier_name is not None:
+            pulumi.set(__self__, "carrier_name", carrier_name)
+        if tracking_id is not None:
+            pulumi.set(__self__, "tracking_id", tracking_id)
+
+    @property
+    @pulumi.getter(name="carrierAccountNumber")
+    def carrier_account_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        Carrier Account Number of customer for customer disk.
+        """
+        return pulumi.get(self, "carrier_account_number")
+
+    @carrier_account_number.setter
+    def carrier_account_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "carrier_account_number", value)
+
+    @property
+    @pulumi.getter(name="carrierName")
+    def carrier_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the carrier.
+        """
+        return pulumi.get(self, "carrier_name")
+
+    @carrier_name.setter
+    def carrier_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "carrier_name", value)
+
+    @property
+    @pulumi.getter(name="trackingId")
+    def tracking_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tracking Id of shipment.
+        """
+        return pulumi.get(self, "tracking_id")
+
+    @tracking_id.setter
+    def tracking_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tracking_id", value)
+
+
+@pulumi.input_type
 class PreferencesArgs:
     def __init__(__self__, *,
                  encryption_preferences: Optional[pulumi.Input['EncryptionPreferencesArgs']] = None,
                  preferred_data_center_region: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reverse_transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None,
+                 storage_account_access_tier_preferences: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StorageAccountAccessTier']]]]] = None,
                  transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None):
         """
         Preferences related to the order
         :param pulumi.Input['EncryptionPreferencesArgs'] encryption_preferences: Preferences related to the Encryption.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_data_center_region: Preferred data center region.
+        :param pulumi.Input['TransportPreferencesArgs'] reverse_transport_preferences: Optional Preferences related to the reverse shipment logistics of the sku.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'StorageAccountAccessTier']]]] storage_account_access_tier_preferences: Preferences related to the Access Tier of storage accounts.
         :param pulumi.Input['TransportPreferencesArgs'] transport_preferences: Preferences related to the shipment logistics of the sku.
         """
         if encryption_preferences is not None:
             pulumi.set(__self__, "encryption_preferences", encryption_preferences)
         if preferred_data_center_region is not None:
             pulumi.set(__self__, "preferred_data_center_region", preferred_data_center_region)
+        if reverse_transport_preferences is not None:
+            pulumi.set(__self__, "reverse_transport_preferences", reverse_transport_preferences)
+        if storage_account_access_tier_preferences is not None:
+            pulumi.set(__self__, "storage_account_access_tier_preferences", storage_account_access_tier_preferences)
         if transport_preferences is not None:
             pulumi.set(__self__, "transport_preferences", transport_preferences)
 
@@ -1160,6 +1635,30 @@ class PreferencesArgs:
     @preferred_data_center_region.setter
     def preferred_data_center_region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "preferred_data_center_region", value)
+
+    @property
+    @pulumi.getter(name="reverseTransportPreferences")
+    def reverse_transport_preferences(self) -> Optional[pulumi.Input['TransportPreferencesArgs']]:
+        """
+        Optional Preferences related to the reverse shipment logistics of the sku.
+        """
+        return pulumi.get(self, "reverse_transport_preferences")
+
+    @reverse_transport_preferences.setter
+    def reverse_transport_preferences(self, value: Optional[pulumi.Input['TransportPreferencesArgs']]):
+        pulumi.set(self, "reverse_transport_preferences", value)
+
+    @property
+    @pulumi.getter(name="storageAccountAccessTierPreferences")
+    def storage_account_access_tier_preferences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StorageAccountAccessTier']]]]]:
+        """
+        Preferences related to the Access Tier of storage accounts.
+        """
+        return pulumi.get(self, "storage_account_access_tier_preferences")
+
+    @storage_account_access_tier_preferences.setter
+    def storage_account_access_tier_preferences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StorageAccountAccessTier']]]]]):
+        pulumi.set(self, "storage_account_access_tier_preferences", value)
 
     @property
     @pulumi.getter(name="transportPreferences")
@@ -1217,6 +1716,46 @@ class ResourceIdentityArgs:
 
 
 @pulumi.input_type
+class ReverseShippingDetailsArgs:
+    def __init__(__self__, *,
+                 contact_details: Optional[pulumi.Input['ContactInfoArgs']] = None,
+                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+        """
+        Reverse Shipping Address and contact details for a job.
+        :param pulumi.Input['ContactInfoArgs'] contact_details: Contact Info.
+        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address where customer wishes to receive the device.
+        """
+        if contact_details is not None:
+            pulumi.set(__self__, "contact_details", contact_details)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> Optional[pulumi.Input['ContactInfoArgs']]:
+        """
+        Contact Info.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @contact_details.setter
+    def contact_details(self, value: Optional[pulumi.Input['ContactInfoArgs']]):
+        pulumi.set(self, "contact_details", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+        """
+        Shipping address where customer wishes to receive the device.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @shipping_address.setter
+    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+        pulumi.set(self, "shipping_address", value)
+
+
+@pulumi.input_type
 class ShippingAddressArgs:
     def __init__(__self__, *,
                  country: pulumi.Input[str],
@@ -1225,9 +1764,11 @@ class ShippingAddressArgs:
                  city: Optional[pulumi.Input[str]] = None,
                  company_name: Optional[pulumi.Input[str]] = None,
                  postal_code: Optional[pulumi.Input[str]] = None,
+                 skip_address_validation: Optional[pulumi.Input[bool]] = None,
                  state_or_province: Optional[pulumi.Input[str]] = None,
                  street_address2: Optional[pulumi.Input[str]] = None,
                  street_address3: Optional[pulumi.Input[str]] = None,
+                 tax_identification_number: Optional[pulumi.Input[str]] = None,
                  zip_extended_code: Optional[pulumi.Input[str]] = None):
         """
         Shipping address where customer wishes to receive the device.
@@ -1237,9 +1778,11 @@ class ShippingAddressArgs:
         :param pulumi.Input[str] city: Name of the City.
         :param pulumi.Input[str] company_name: Name of the company.
         :param pulumi.Input[str] postal_code: Postal code.
+        :param pulumi.Input[bool] skip_address_validation: Flag to indicate if customer has chosen to skip default address validation
         :param pulumi.Input[str] state_or_province: Name of the State or Province.
         :param pulumi.Input[str] street_address2: Street Address line 2.
         :param pulumi.Input[str] street_address3: Street Address line 3.
+        :param pulumi.Input[str] tax_identification_number: Tax Identification Number
         :param pulumi.Input[str] zip_extended_code: Extended Zip Code.
         """
         pulumi.set(__self__, "country", country)
@@ -1254,12 +1797,16 @@ class ShippingAddressArgs:
             pulumi.set(__self__, "company_name", company_name)
         if postal_code is not None:
             pulumi.set(__self__, "postal_code", postal_code)
+        if skip_address_validation is not None:
+            pulumi.set(__self__, "skip_address_validation", skip_address_validation)
         if state_or_province is not None:
             pulumi.set(__self__, "state_or_province", state_or_province)
         if street_address2 is not None:
             pulumi.set(__self__, "street_address2", street_address2)
         if street_address3 is not None:
             pulumi.set(__self__, "street_address3", street_address3)
+        if tax_identification_number is not None:
+            pulumi.set(__self__, "tax_identification_number", tax_identification_number)
         if zip_extended_code is not None:
             pulumi.set(__self__, "zip_extended_code", zip_extended_code)
 
@@ -1336,6 +1883,18 @@ class ShippingAddressArgs:
         pulumi.set(self, "postal_code", value)
 
     @property
+    @pulumi.getter(name="skipAddressValidation")
+    def skip_address_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate if customer has chosen to skip default address validation
+        """
+        return pulumi.get(self, "skip_address_validation")
+
+    @skip_address_validation.setter
+    def skip_address_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_address_validation", value)
+
+    @property
     @pulumi.getter(name="stateOrProvince")
     def state_or_province(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1370,6 +1929,18 @@ class ShippingAddressArgs:
     @street_address3.setter
     def street_address3(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "street_address3", value)
+
+    @property
+    @pulumi.getter(name="taxIdentificationNumber")
+    def tax_identification_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tax Identification Number
+        """
+        return pulumi.get(self, "tax_identification_number")
+
+    @tax_identification_number.setter
+    def tax_identification_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tax_identification_number", value)
 
     @property
     @pulumi.getter(name="zipExtendedCode")

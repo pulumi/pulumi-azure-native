@@ -13,8 +13,11 @@ from ._enums import *
 
 __all__ = [
     'EventHandlerResponse',
-    'EventHandlerSettingsResponse',
-    'EventHandlerTemplateResponse',
+    'EventHubEndpointResponse',
+    'EventListenerResponse',
+    'EventNameFilterResponse',
+    'LiveTraceCategoryResponse',
+    'LiveTraceConfigurationResponse',
     'ManagedIdentityResponse',
     'ManagedIdentitySettingsResponse',
     'NetworkACLResponse',
@@ -22,12 +25,14 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ResourceLogCategoryResponse',
+    'ResourceLogConfigurationResponse',
+    'ResourceReferenceResponse',
     'ResourceSkuResponse',
     'SharedPrivateLinkResourceResponse',
     'SystemDataResponse',
     'UpstreamAuthSettingsResponse',
     'UserAssignedIdentityPropertyResponse',
-    'WebPubSubFeatureResponse',
     'WebPubSubHubPropertiesResponse',
     'WebPubSubNetworkACLsResponse',
     'WebPubSubTlsSettingsResponse',
@@ -69,12 +74,12 @@ class EventHandlerResponse(dict):
         :param str url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
                For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
         :param 'UpstreamAuthSettingsResponse' auth: Upstream auth settings. If not set, no auth is used for upstream messages.
-        :param Sequence[str] system_events: Gets ot sets the list of system events.
+        :param Sequence[str] system_events: Gets or sets the list of system events.
         :param str user_event_pattern: Gets or sets the matching pattern for event names.
-               There are 3 kind of patterns supported:
-                   1. "*", it to matches any event name
+               There are 3 kinds of patterns supported:
+                   1. "*", it matches any event name
                    2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-                   3. The single event name, for example, "event1", it matches "event1"
+                   3. A single event name, for example, "event1", it matches "event1"
         """
         pulumi.set(__self__, "url_template", url_template)
         if auth is not None:
@@ -105,7 +110,7 @@ class EventHandlerResponse(dict):
     @pulumi.getter(name="systemEvents")
     def system_events(self) -> Optional[Sequence[str]]:
         """
-        Gets ot sets the list of system events.
+        Gets or sets the list of system events.
         """
         return pulumi.get(self, "system_events")
 
@@ -114,130 +119,275 @@ class EventHandlerResponse(dict):
     def user_event_pattern(self) -> Optional[str]:
         """
         Gets or sets the matching pattern for event names.
-        There are 3 kind of patterns supported:
-            1. "*", it to matches any event name
+        There are 3 kinds of patterns supported:
+            1. "*", it matches any event name
             2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-            3. The single event name, for example, "event1", it matches "event1"
+            3. A single event name, for example, "event1", it matches "event1"
         """
         return pulumi.get(self, "user_event_pattern")
 
 
 @pulumi.output_type
-class EventHandlerSettingsResponse(dict):
+class EventHubEndpointResponse(dict):
     """
-    The settings for event handler in webpubsub service
-    """
-    def __init__(__self__, *,
-                 items: Optional[Mapping[str, Sequence['outputs.EventHandlerTemplateResponse']]] = None):
-        """
-        The settings for event handler in webpubsub service
-        :param Mapping[str, Sequence['EventHandlerTemplateResponse']] items: Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-        """
-        if items is not None:
-            pulumi.set(__self__, "items", items)
-
-    @property
-    @pulumi.getter
-    def items(self) -> Optional[Mapping[str, Sequence['outputs.EventHandlerTemplateResponse']]]:
-        """
-        Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
-        """
-        return pulumi.get(self, "items")
-
-
-@pulumi.output_type
-class EventHandlerTemplateResponse(dict):
-    """
-    EventHandler template item settings.
+    An Event Hub endpoint. 
+    The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "urlTemplate":
-            suggest = "url_template"
-        elif key == "systemEventPattern":
-            suggest = "system_event_pattern"
+        if key == "eventHubName":
+            suggest = "event_hub_name"
+        elif key == "fullyQualifiedNamespace":
+            suggest = "fully_qualified_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_hub_name: str,
+                 fully_qualified_namespace: str,
+                 type: str):
+        """
+        An Event Hub endpoint. 
+        The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
+        :param str event_hub_name: The name of the Event Hub.
+        :param str fully_qualified_namespace: The fully qualified namespace name of the Event Hub resource. For example, "example.servicebus.windows.net".
+        :param str type: 
+               Expected value is 'EventHub'.
+        """
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "fully_qualified_namespace", fully_qualified_namespace)
+        pulumi.set(__self__, "type", 'EventHub')
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> str:
+        """
+        The name of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedNamespace")
+    def fully_qualified_namespace(self) -> str:
+        """
+        The fully qualified namespace name of the Event Hub resource. For example, "example.servicebus.windows.net".
+        """
+        return pulumi.get(self, "fully_qualified_namespace")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+
+        Expected value is 'EventHub'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class EventListenerResponse(dict):
+    """
+    A setting defines which kinds of events should be sent to which endpoint.
+    """
+    def __init__(__self__, *,
+                 endpoint: 'outputs.EventHubEndpointResponse',
+                 filter: 'outputs.EventNameFilterResponse'):
+        """
+        A setting defines which kinds of events should be sent to which endpoint.
+        :param 'EventHubEndpointResponse' endpoint: An endpoint specifying where Web PubSub should send events to.
+        :param 'EventNameFilterResponse' filter: A base class for event filter which determines whether an event should be sent to an event listener.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> 'outputs.EventHubEndpointResponse':
+        """
+        An endpoint specifying where Web PubSub should send events to.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> 'outputs.EventNameFilterResponse':
+        """
+        A base class for event filter which determines whether an event should be sent to an event listener.
+        """
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class EventNameFilterResponse(dict):
+    """
+    Filter events by their name.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemEvents":
+            suggest = "system_events"
         elif key == "userEventPattern":
             suggest = "user_event_pattern"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventHandlerTemplateResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EventNameFilterResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EventHandlerTemplateResponse.__key_warning(key)
+        EventNameFilterResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EventHandlerTemplateResponse.__key_warning(key)
+        EventNameFilterResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 url_template: str,
-                 auth: Optional['outputs.UpstreamAuthSettingsResponse'] = None,
-                 system_event_pattern: Optional[str] = None,
+                 type: str,
+                 system_events: Optional[Sequence[str]] = None,
                  user_event_pattern: Optional[str] = None):
         """
-        EventHandler template item settings.
-        :param str url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-               For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-        :param 'UpstreamAuthSettingsResponse' auth: Gets or sets the auth settings for an event handler. If not set, no auth is used.
-        :param str system_event_pattern: Gets ot sets the system event pattern.
-               There are 2 kind of patterns supported:
-                   1. The single event name, for example, "connect", it matches "connect"
-                   2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
-        :param str user_event_pattern: Gets or sets the matching pattern for event names.
-               There are 3 kind of patterns supported:
-                   1. "*", it to matches any event name
-                   2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-                   3. The single event name, for example, "event1", it matches "event1"
+        Filter events by their name.
+        :param str type: 
+               Expected value is 'EventName'.
+        :param Sequence[str] system_events: Gets or sets a list of system events. Supported events: "connected" and "disconnected". Blocking event "connect" is not supported because it requires a response.
+        :param str user_event_pattern: Gets or sets a matching pattern for event names.
+               There are 3 kinds of patterns supported:
+                   1. "*", it matches any event name
+                   2. Combine multiple events with ",", for example "event1,event2", it matches events "event1" and "event2"
+                   3. A single event name, for example, "event1", it matches "event1"
         """
-        pulumi.set(__self__, "url_template", url_template)
-        if auth is not None:
-            pulumi.set(__self__, "auth", auth)
-        if system_event_pattern is not None:
-            pulumi.set(__self__, "system_event_pattern", system_event_pattern)
+        pulumi.set(__self__, "type", 'EventName')
+        if system_events is not None:
+            pulumi.set(__self__, "system_events", system_events)
         if user_event_pattern is not None:
             pulumi.set(__self__, "user_event_pattern", user_event_pattern)
 
     @property
-    @pulumi.getter(name="urlTemplate")
-    def url_template(self) -> str:
-        """
-        Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-        For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-        """
-        return pulumi.get(self, "url_template")
-
-    @property
     @pulumi.getter
-    def auth(self) -> Optional['outputs.UpstreamAuthSettingsResponse']:
+    def type(self) -> str:
         """
-        Gets or sets the auth settings for an event handler. If not set, no auth is used.
+
+        Expected value is 'EventName'.
         """
-        return pulumi.get(self, "auth")
+        return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="systemEventPattern")
-    def system_event_pattern(self) -> Optional[str]:
+    @pulumi.getter(name="systemEvents")
+    def system_events(self) -> Optional[Sequence[str]]:
         """
-        Gets ot sets the system event pattern.
-        There are 2 kind of patterns supported:
-            1. The single event name, for example, "connect", it matches "connect"
-            2. Combine multiple events with ",", for example "connect,disconnected", it matches event "connect" and "disconnected"
+        Gets or sets a list of system events. Supported events: "connected" and "disconnected". Blocking event "connect" is not supported because it requires a response.
         """
-        return pulumi.get(self, "system_event_pattern")
+        return pulumi.get(self, "system_events")
 
     @property
     @pulumi.getter(name="userEventPattern")
     def user_event_pattern(self) -> Optional[str]:
         """
-        Gets or sets the matching pattern for event names.
-        There are 3 kind of patterns supported:
-            1. "*", it to matches any event name
-            2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-            3. The single event name, for example, "event1", it matches "event1"
+        Gets or sets a matching pattern for event names.
+        There are 3 kinds of patterns supported:
+            1. "*", it matches any event name
+            2. Combine multiple events with ",", for example "event1,event2", it matches events "event1" and "event2"
+            3. A single event name, for example, "event1", it matches "event1"
         """
         return pulumi.get(self, "user_event_pattern")
+
+
+@pulumi.output_type
+class LiveTraceCategoryResponse(dict):
+    """
+    Live trace category configuration of a Microsoft.SignalRService resource.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Live trace category configuration of a Microsoft.SignalRService resource.
+        :param str enabled: Indicates whether or the live trace category is enabled.
+               Available values: true, false.
+               Case insensitive.
+        :param str name: Gets or sets the live trace category's name.
+               Available values: ConnectivityLogs, MessagingLogs.
+               Case insensitive.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
+        """
+        Indicates whether or the live trace category is enabled.
+        Available values: true, false.
+        Case insensitive.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the live trace category's name.
+        Available values: ConnectivityLogs, MessagingLogs.
+        Case insensitive.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LiveTraceConfigurationResponse(dict):
+    """
+    Live trace configuration of a Microsoft.SignalRService resource.
+    """
+    def __init__(__self__, *,
+                 categories: Optional[Sequence['outputs.LiveTraceCategoryResponse']] = None,
+                 enabled: Optional[str] = None):
+        """
+        Live trace configuration of a Microsoft.SignalRService resource.
+        :param Sequence['LiveTraceCategoryResponse'] categories: Gets or sets the list of category configurations.
+        :param str enabled: Indicates whether or not enable live trace.
+               When it's set to true, live trace client can connect to the service.
+               Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+               Available values: true, false.
+               Case insensitive.
+        """
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+        if enabled is None:
+            enabled = 'false'
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[Sequence['outputs.LiveTraceCategoryResponse']]:
+        """
+        Gets or sets the list of category configurations.
+        """
+        return pulumi.get(self, "categories")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
+        """
+        Indicates whether or not enable live trace.
+        When it's set to true, live trace client can connect to the service.
+        Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+        Available values: true, false.
+        Case insensitive.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -277,7 +427,7 @@ class ManagedIdentityResponse(dict):
                Only be used in response.
         :param str tenant_id: Get the tenant id for the system assigned identity.
                Only be used in response
-        :param str type: Represent the identity type: systemAssigned, userAssigned, None
+        :param str type: Represents the identity type: systemAssigned, userAssigned, None
         :param Mapping[str, 'UserAssignedIdentityPropertyResponse'] user_assigned_identities: Get or set the user assigned identities
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -309,7 +459,7 @@ class ManagedIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Represent the identity type: systemAssigned, userAssigned, None
+        Represents the identity type: systemAssigned, userAssigned, None
         """
         return pulumi.get(self, "type")
 
@@ -436,7 +586,9 @@ class PrivateEndpointConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "systemData":
             suggest = "system_data"
@@ -457,6 +609,7 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Sequence[str],
                  id: str,
                  name: str,
                  provisioning_state: str,
@@ -466,14 +619,16 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         A private endpoint connection to an azure resource
+        :param Sequence[str] group_ids: Group IDs
         :param str id: Fully qualified resource Id for the resource.
         :param str name: The name of the resource.
-        :param str provisioning_state: Provisioning state of the private endpoint connection
+        :param str provisioning_state: Provisioning state of the resource.
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection
         """
+        pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -483,6 +638,14 @@ class PrivateEndpointConnectionResponse(dict):
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        Group IDs
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
@@ -504,7 +667,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the private endpoint connection
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -528,7 +691,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        Private endpoint associated with the private endpoint connection
+        Private endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -536,7 +699,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
-        Connection state
+        Connection state of the private endpoint connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -629,6 +792,95 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ResourceLogCategoryResponse(dict):
+    """
+    Resource log category configuration of a Microsoft.SignalRService resource.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Resource log category configuration of a Microsoft.SignalRService resource.
+        :param str enabled: Indicates whether or the resource log category is enabled.
+               Available values: true, false.
+               Case insensitive.
+        :param str name: Gets or sets the resource log category's name.
+               Available values: ConnectivityLogs, MessagingLogs.
+               Case insensitive.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[str]:
+        """
+        Indicates whether or the resource log category is enabled.
+        Available values: true, false.
+        Case insensitive.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the resource log category's name.
+        Available values: ConnectivityLogs, MessagingLogs.
+        Case insensitive.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ResourceLogConfigurationResponse(dict):
+    """
+    Resource log configuration of a Microsoft.SignalRService resource.
+    """
+    def __init__(__self__, *,
+                 categories: Optional[Sequence['outputs.ResourceLogCategoryResponse']] = None):
+        """
+        Resource log configuration of a Microsoft.SignalRService resource.
+        :param Sequence['ResourceLogCategoryResponse'] categories: Gets or sets the list of category configurations.
+        """
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[Sequence['outputs.ResourceLogCategoryResponse']]:
+        """
+        Gets or sets the list of category configurations.
+        """
+        return pulumi.get(self, "categories")
+
+
+@pulumi.output_type
+class ResourceReferenceResponse(dict):
+    """
+    Reference to a resource.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Reference to a resource.
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ResourceSkuResponse(dict):
     """
     The billing information of the resource.
@@ -644,13 +896,14 @@ class ResourceSkuResponse(dict):
         :param str family: Not used. Retained for future use.
         :param str name: The name of the SKU. Required.
                
-               Allowed values: Standard_S1, Free_F1
+               Allowed values: Standard_S1, Free_F1, Premium_P1
         :param str size: Not used. Retained for future use.
         :param int capacity: Optional, integer. The unit count of the resource. 1 by default.
                
                If present, following values are allowed:
-                   Free: 1
-                   Standard: 1,2,5,10,20,50,100
+                   Free: 1;
+                   Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
         :param str tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
@@ -677,7 +930,7 @@ class ResourceSkuResponse(dict):
         """
         The name of the SKU. Required.
         
-        Allowed values: Standard_S1, Free_F1
+        Allowed values: Standard_S1, Free_F1, Premium_P1
         """
         return pulumi.get(self, "name")
 
@@ -696,8 +949,9 @@ class ResourceSkuResponse(dict):
         Optional, integer. The unit count of the resource. 1 by default.
         
         If present, following values are allowed:
-            Free: 1
-            Standard: 1,2,5,10,20,50,100
+            Free: 1;
+            Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
         """
         return pulumi.get(self, "capacity")
 
@@ -758,7 +1012,7 @@ class SharedPrivateLinkResourceResponse(dict):
         :param str id: Fully qualified resource Id for the resource.
         :param str name: The name of the resource.
         :param str private_link_resource_id: The resource id of the resource the shared private link resource is for
-        :param str provisioning_state: Provisioning state of the shared private link resource
+        :param str provisioning_state: Provisioning state of the resource.
         :param str status: Status of the shared private link resource
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
@@ -811,7 +1065,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the shared private link resource
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -1063,59 +1317,6 @@ class UserAssignedIdentityPropertyResponse(dict):
 
 
 @pulumi.output_type
-class WebPubSubFeatureResponse(dict):
-    """
-    Feature of a resource, which controls the runtime behavior.
-    """
-    def __init__(__self__, *,
-                 flag: str,
-                 value: str,
-                 properties: Optional[Mapping[str, str]] = None):
-        """
-        Feature of a resource, which controls the runtime behavior.
-        :param str flag: FeatureFlags is the supported features of Azure SignalR service.
-                - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-                - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-                - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-                
-        :param str value: Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-        :param Mapping[str, str] properties: Optional properties related to this feature.
-        """
-        pulumi.set(__self__, "flag", flag)
-        pulumi.set(__self__, "value", value)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def flag(self) -> str:
-        """
-        FeatureFlags is the supported features of Azure SignalR service.
-         - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-         - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-         - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
-         
-        """
-        return pulumi.get(self, "flag")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-        """
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, str]]:
-        """
-        Optional properties related to this feature.
-        """
-        return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
 class WebPubSubHubPropertiesResponse(dict):
     """
     Properties of a hub.
@@ -1127,6 +1328,8 @@ class WebPubSubHubPropertiesResponse(dict):
             suggest = "anonymous_connect_policy"
         elif key == "eventHandlers":
             suggest = "event_handlers"
+        elif key == "eventListeners":
+            suggest = "event_listeners"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebPubSubHubPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1141,11 +1344,16 @@ class WebPubSubHubPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  anonymous_connect_policy: Optional[str] = None,
-                 event_handlers: Optional[Sequence['outputs.EventHandlerResponse']] = None):
+                 event_handlers: Optional[Sequence['outputs.EventHandlerResponse']] = None,
+                 event_listeners: Optional[Sequence['outputs.EventListenerResponse']] = None):
         """
         Properties of a hub.
         :param str anonymous_connect_policy: The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
         :param Sequence['EventHandlerResponse'] event_handlers: Event handler of a hub.
+        :param Sequence['EventListenerResponse'] event_listeners: Event listener settings for forwarding your client events to listeners.
+               Event listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.
+               One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
+               Maximum count of event listeners among all hubs is 10.
         """
         if anonymous_connect_policy is None:
             anonymous_connect_policy = 'deny'
@@ -1153,6 +1361,8 @@ class WebPubSubHubPropertiesResponse(dict):
             pulumi.set(__self__, "anonymous_connect_policy", anonymous_connect_policy)
         if event_handlers is not None:
             pulumi.set(__self__, "event_handlers", event_handlers)
+        if event_listeners is not None:
+            pulumi.set(__self__, "event_listeners", event_listeners)
 
     @property
     @pulumi.getter(name="anonymousConnectPolicy")
@@ -1169,6 +1379,17 @@ class WebPubSubHubPropertiesResponse(dict):
         Event handler of a hub.
         """
         return pulumi.get(self, "event_handlers")
+
+    @property
+    @pulumi.getter(name="eventListeners")
+    def event_listeners(self) -> Optional[Sequence['outputs.EventListenerResponse']]:
+        """
+        Event listener settings for forwarding your client events to listeners.
+        Event listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.
+        One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
+        Maximum count of event listeners among all hubs is 10.
+        """
+        return pulumi.get(self, "event_listeners")
 
 
 @pulumi.output_type
@@ -1203,12 +1424,10 @@ class WebPubSubNetworkACLsResponse(dict):
                  public_network: Optional['outputs.NetworkACLResponse'] = None):
         """
         Network ACLs for the resource
-        :param str default_action: Default action when no other rule matches
+        :param str default_action: Azure Networking ACL Action.
         :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
-        :param 'NetworkACLResponse' public_network: ACL for requests from public network
+        :param 'NetworkACLResponse' public_network: Network ACL
         """
-        if default_action is None:
-            default_action = 'Deny'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if private_endpoints is not None:
@@ -1220,7 +1439,7 @@ class WebPubSubNetworkACLsResponse(dict):
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[str]:
         """
-        Default action when no other rule matches
+        Azure Networking ACL Action.
         """
         return pulumi.get(self, "default_action")
 
@@ -1236,7 +1455,7 @@ class WebPubSubNetworkACLsResponse(dict):
     @pulumi.getter(name="publicNetwork")
     def public_network(self) -> Optional['outputs.NetworkACLResponse']:
         """
-        ACL for requests from public network
+        Network ACL
         """
         return pulumi.get(self, "public_network")
 

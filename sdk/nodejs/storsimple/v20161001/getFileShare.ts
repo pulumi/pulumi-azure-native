@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified file share name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
-    pulumi.log.warn("getFileShare is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getFileShare", {
@@ -96,7 +94,6 @@ export interface GetFileShareResult {
 /**
  * Returns the properties of the specified file share name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
     return pulumi.output(args).apply((a: any) => getFileShare(a, opts))
 }

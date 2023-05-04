@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of an event subscription
  */
-/** @deprecated Version 2017-06-15-preview will be removed in v2 of the provider. */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
-    pulumi.log.warn("getEventSubscription is deprecated: Version 2017-06-15-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20170615preview:getEventSubscription", {
@@ -72,7 +70,6 @@ export interface GetEventSubscriptionResult {
 /**
  * Get properties of an event subscription
  */
-/** @deprecated Version 2017-06-15-preview will be removed in v2 of the provider. */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getEventSubscription(a, opts))
 }

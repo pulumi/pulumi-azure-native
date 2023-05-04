@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Migrate.V20171111Preview
 {
-    [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
     public static class GetAssessment
     {
         /// <summary>

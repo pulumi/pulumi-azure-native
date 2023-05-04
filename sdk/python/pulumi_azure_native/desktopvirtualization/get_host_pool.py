@@ -22,7 +22,10 @@ class GetHostPoolResult:
     """
     Represents a HostPool definition.
     """
-    def __init__(__self__, application_group_references=None, cloud_pc_resource=None, custom_rdp_property=None, description=None, etag=None, friendly_name=None, host_pool_type=None, id=None, identity=None, kind=None, load_balancer_type=None, location=None, managed_by=None, max_session_limit=None, migration_request=None, name=None, object_id=None, personal_desktop_assignment_type=None, plan=None, preferred_app_group_type=None, registration_info=None, ring=None, sku=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, tags=None, type=None, validation_environment=None, vm_template=None):
+    def __init__(__self__, agent_update=None, application_group_references=None, cloud_pc_resource=None, custom_rdp_property=None, description=None, etag=None, friendly_name=None, host_pool_type=None, id=None, identity=None, kind=None, load_balancer_type=None, location=None, managed_by=None, max_session_limit=None, name=None, object_id=None, personal_desktop_assignment_type=None, plan=None, preferred_app_group_type=None, registration_info=None, ring=None, sku=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, system_data=None, tags=None, type=None, validation_environment=None, vm_template=None):
+        if agent_update and not isinstance(agent_update, dict):
+            raise TypeError("Expected argument 'agent_update' to be a dict")
+        pulumi.set(__self__, "agent_update", agent_update)
         if application_group_references and not isinstance(application_group_references, list):
             raise TypeError("Expected argument 'application_group_references' to be a list")
         pulumi.set(__self__, "application_group_references", application_group_references)
@@ -65,9 +68,6 @@ class GetHostPoolResult:
         if max_session_limit and not isinstance(max_session_limit, int):
             raise TypeError("Expected argument 'max_session_limit' to be a int")
         pulumi.set(__self__, "max_session_limit", max_session_limit)
-        if migration_request and not isinstance(migration_request, dict):
-            raise TypeError("Expected argument 'migration_request' to be a dict")
-        pulumi.set(__self__, "migration_request", migration_request)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -107,6 +107,9 @@ class GetHostPoolResult:
         if start_vm_on_connect and not isinstance(start_vm_on_connect, bool):
             raise TypeError("Expected argument 'start_vm_on_connect' to be a bool")
         pulumi.set(__self__, "start_vm_on_connect", start_vm_on_connect)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -119,6 +122,14 @@ class GetHostPoolResult:
         if vm_template and not isinstance(vm_template, str):
             raise TypeError("Expected argument 'vm_template' to be a str")
         pulumi.set(__self__, "vm_template", vm_template)
+
+    @property
+    @pulumi.getter(name="agentUpdate")
+    def agent_update(self) -> Optional['outputs.AgentUpdatePropertiesResponse']:
+        """
+        The session host configuration for updating agent, monitoring agent, and stack component.
+        """
+        return pulumi.get(self, "agent_update")
 
     @property
     @pulumi.getter(name="applicationGroupReferences")
@@ -230,14 +241,6 @@ class GetHostPoolResult:
         return pulumi.get(self, "max_session_limit")
 
     @property
-    @pulumi.getter(name="migrationRequest")
-    def migration_request(self) -> Optional['outputs.MigrationRequestPropertiesResponse']:
-        """
-        The registration info of HostPool.
-        """
-        return pulumi.get(self, "migration_request")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -336,6 +339,14 @@ class GetHostPoolResult:
         return pulumi.get(self, "start_vm_on_connect")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -374,6 +385,7 @@ class AwaitableGetHostPoolResult(GetHostPoolResult):
         if False:
             yield self
         return GetHostPoolResult(
+            agent_update=self.agent_update,
             application_group_references=self.application_group_references,
             cloud_pc_resource=self.cloud_pc_resource,
             custom_rdp_property=self.custom_rdp_property,
@@ -388,7 +400,6 @@ class AwaitableGetHostPoolResult(GetHostPoolResult):
             location=self.location,
             managed_by=self.managed_by,
             max_session_limit=self.max_session_limit,
-            migration_request=self.migration_request,
             name=self.name,
             object_id=self.object_id,
             personal_desktop_assignment_type=self.personal_desktop_assignment_type,
@@ -402,6 +413,7 @@ class AwaitableGetHostPoolResult(GetHostPoolResult):
             sso_secret_type=self.sso_secret_type,
             ssoadfs_authority=self.ssoadfs_authority,
             start_vm_on_connect=self.start_vm_on_connect,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             validation_environment=self.validation_environment,
@@ -413,7 +425,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostPoolResult:
     """
     Get a host pool.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-09.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -426,6 +438,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization:getHostPool', __args__, opts=opts, typ=GetHostPoolResult).value
 
     return AwaitableGetHostPoolResult(
+        agent_update=__ret__.agent_update,
         application_group_references=__ret__.application_group_references,
         cloud_pc_resource=__ret__.cloud_pc_resource,
         custom_rdp_property=__ret__.custom_rdp_property,
@@ -440,7 +453,6 @@ def get_host_pool(host_pool_name: Optional[str] = None,
         location=__ret__.location,
         managed_by=__ret__.managed_by,
         max_session_limit=__ret__.max_session_limit,
-        migration_request=__ret__.migration_request,
         name=__ret__.name,
         object_id=__ret__.object_id,
         personal_desktop_assignment_type=__ret__.personal_desktop_assignment_type,
@@ -454,6 +466,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
         sso_secret_type=__ret__.sso_secret_type,
         ssoadfs_authority=__ret__.ssoadfs_authority,
         start_vm_on_connect=__ret__.start_vm_on_connect,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         validation_environment=__ret__.validation_environment,
@@ -466,7 +479,7 @@ def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
     """
     Get a host pool.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-09.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

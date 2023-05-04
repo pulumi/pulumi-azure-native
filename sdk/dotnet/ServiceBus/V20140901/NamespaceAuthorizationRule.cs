@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
-    [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicebus/v20140901:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {

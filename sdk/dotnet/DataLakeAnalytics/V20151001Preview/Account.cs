@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
     /// <summary>
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     /// </summary>
-    [Obsolete(@"Version 2015-10-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datalakeanalytics/v20151001preview:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {

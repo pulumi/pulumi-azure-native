@@ -23,6 +23,7 @@ class DatabaseArgs:
                  clustering_policy: Optional[pulumi.Input[Union[str, 'ClusteringPolicy']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicy']]] = None,
+                 geo_replication: Optional[pulumi.Input['DatabasePropertiesGeoReplicationArgs']] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleArgs']]]] = None,
                  persistence: Optional[pulumi.Input['PersistenceArgs']] = None,
                  port: Optional[pulumi.Input[int]] = None):
@@ -34,6 +35,7 @@ class DatabaseArgs:
         :param pulumi.Input[Union[str, 'ClusteringPolicy']] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time.
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[Union[str, 'EvictionPolicy']] eviction_policy: Redis eviction policy - default is VolatileLRU
+        :param pulumi.Input['DatabasePropertiesGeoReplicationArgs'] geo_replication: Optional set of properties to configure geo replication for this database.
         :param pulumi.Input[Sequence[pulumi.Input['ModuleArgs']]] modules: Optional set of redis modules to enable in this database - modules can only be added at creation time.
         :param pulumi.Input['PersistenceArgs'] persistence: Persistence settings
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port.
@@ -48,6 +50,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "database_name", database_name)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if geo_replication is not None:
+            pulumi.set(__self__, "geo_replication", geo_replication)
         if modules is not None:
             pulumi.set(__self__, "modules", modules)
         if persistence is not None:
@@ -128,6 +132,18 @@ class DatabaseArgs:
         pulumi.set(self, "eviction_policy", value)
 
     @property
+    @pulumi.getter(name="geoReplication")
+    def geo_replication(self) -> Optional[pulumi.Input['DatabasePropertiesGeoReplicationArgs']]:
+        """
+        Optional set of properties to configure geo replication for this database.
+        """
+        return pulumi.get(self, "geo_replication")
+
+    @geo_replication.setter
+    def geo_replication(self, value: Optional[pulumi.Input['DatabasePropertiesGeoReplicationArgs']]):
+        pulumi.set(self, "geo_replication", value)
+
+    @property
     @pulumi.getter
     def modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModuleArgs']]]]:
         """
@@ -174,6 +190,7 @@ class Database(pulumi.CustomResource):
                  clustering_policy: Optional[pulumi.Input[Union[str, 'ClusteringPolicy']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicy']]] = None,
+                 geo_replication: Optional[pulumi.Input[pulumi.InputType['DatabasePropertiesGeoReplicationArgs']]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]]] = None,
                  persistence: Optional[pulumi.Input[pulumi.InputType['PersistenceArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -181,7 +198,8 @@ class Database(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a database on the RedisEnterprise cluster
-        API Version: 2021-03-01.
+        API Version: 2022-01-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,6 +208,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ClusteringPolicy']] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time.
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[Union[str, 'EvictionPolicy']] eviction_policy: Redis eviction policy - default is VolatileLRU
+        :param pulumi.Input[pulumi.InputType['DatabasePropertiesGeoReplicationArgs']] geo_replication: Optional set of properties to configure geo replication for this database.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]] modules: Optional set of redis modules to enable in this database - modules can only be added at creation time.
         :param pulumi.Input[pulumi.InputType['PersistenceArgs']] persistence: Persistence settings
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port.
@@ -203,7 +222,8 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a database on the RedisEnterprise cluster
-        API Version: 2021-03-01.
+        API Version: 2022-01-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -225,6 +245,7 @@ class Database(pulumi.CustomResource):
                  clustering_policy: Optional[pulumi.Input[Union[str, 'ClusteringPolicy']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicy']]] = None,
+                 geo_replication: Optional[pulumi.Input[pulumi.InputType['DatabasePropertiesGeoReplicationArgs']]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]]] = None,
                  persistence: Optional[pulumi.Input[pulumi.InputType['PersistenceArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -245,6 +266,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["clustering_policy"] = clustering_policy
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["eviction_policy"] = eviction_policy
+            __props__.__dict__["geo_replication"] = geo_replication
             __props__.__dict__["modules"] = modules
             __props__.__dict__["persistence"] = persistence
             __props__.__dict__["port"] = port
@@ -282,6 +304,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["client_protocol"] = None
         __props__.__dict__["clustering_policy"] = None
         __props__.__dict__["eviction_policy"] = None
+        __props__.__dict__["geo_replication"] = None
         __props__.__dict__["modules"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["persistence"] = None
@@ -314,6 +337,14 @@ class Database(pulumi.CustomResource):
         Redis eviction policy - default is VolatileLRU
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter(name="geoReplication")
+    def geo_replication(self) -> pulumi.Output[Optional['outputs.DatabasePropertiesResponseGeoReplication']]:
+        """
+        Optional set of properties to configure geo replication for this database.
+        """
+        return pulumi.get(self, "geo_replication")
 
     @property
     @pulumi.getter

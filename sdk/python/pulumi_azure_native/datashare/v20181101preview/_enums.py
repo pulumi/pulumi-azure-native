@@ -9,11 +9,9 @@ __all__ = [
     'DataSetMappingKind',
     'OutputType',
     'RecurrenceInterval',
-    'ShareKind',
     'SynchronizationMode',
     'SynchronizationSettingKind',
     'TriggerKind',
-    'Type',
 ]
 
 
@@ -67,14 +65,6 @@ class RecurrenceInterval(str, Enum):
     DAY = "Day"
 
 
-class ShareKind(str, Enum):
-    """
-    Share kind.
-    """
-    COPY_BASED = "CopyBased"
-    IN_PLACE = "InPlace"
-
-
 class SynchronizationMode(str, Enum):
     """
     Synchronization mode
@@ -95,10 +85,3 @@ class TriggerKind(str, Enum):
     Kind of synchronization on trigger.
     """
     SCHEDULE_BASED = "ScheduleBased"
-
-
-class Type(str, Enum):
-    """
-    Identity Type
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"

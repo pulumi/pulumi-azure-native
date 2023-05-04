@@ -16,8 +16,6 @@ __all__ = [
     'get_wcf_relay_output',
 ]
 
-warnings.warn("""Version 2016-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetWCFRelayResult:
     """
@@ -178,7 +176,6 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
     :param str relay_name: The relay name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_wcf_relay is deprecated: Version 2016-07-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['relayName'] = relay_name
@@ -213,5 +210,4 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str relay_name: The relay name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_wcf_relay is deprecated: Version 2016-07-01 will be removed in v2 of the provider.""")
     ...

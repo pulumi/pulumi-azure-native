@@ -40,16 +40,6 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
-export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
-export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
-utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
-
-export { GetReplicationArgs, GetReplicationResult, GetReplicationOutputArgs } from "./getReplication";
-export const getReplication: typeof import("./getReplication").getReplication = null as any;
-export const getReplicationOutput: typeof import("./getReplication").getReplicationOutput = null as any;
-utilities.lazyLoad(exports, ["getReplication","getReplicationOutput"], () => require("./getReplication"));
-
 export { GetScopeMapArgs, GetScopeMapResult, GetScopeMapOutputArgs } from "./getScopeMap";
 export const getScopeMap: typeof import("./getScopeMap").getScopeMap = null as any;
 export const getScopeMapOutput: typeof import("./getScopeMap").getScopeMapOutput = null as any;
@@ -59,11 +49,6 @@ export { GetTokenArgs, GetTokenResult, GetTokenOutputArgs } from "./getToken";
 export const getToken: typeof import("./getToken").getToken = null as any;
 export const getTokenOutput: typeof import("./getToken").getTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getToken","getTokenOutput"], () => require("./getToken"));
-
-export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
-export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
-export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
-utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
 
 export { GetWebhookCallbackConfigArgs, GetWebhookCallbackConfigResult, GetWebhookCallbackConfigOutputArgs } from "./getWebhookCallbackConfig";
 export const getWebhookCallbackConfig: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfig = null as any;
@@ -95,16 +80,6 @@ export type PrivateEndpointConnection = import("./privateEndpointConnection").Pr
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
-export { RegistryArgs } from "./registry";
-export type Registry = import("./registry").Registry;
-export const Registry: typeof import("./registry").Registry = null as any;
-utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
-
-export { ReplicationArgs } from "./replication";
-export type Replication = import("./replication").Replication;
-export const Replication: typeof import("./replication").Replication = null as any;
-utilities.lazyLoad(exports, ["Replication"], () => require("./replication"));
-
 export { ScopeMapArgs } from "./scopeMap";
 export type ScopeMap = import("./scopeMap").ScopeMap;
 export const ScopeMap: typeof import("./scopeMap").ScopeMap = null as any;
@@ -114,11 +89,6 @@ export { TokenArgs } from "./token";
 export type Token = import("./token").Token;
 export const Token: typeof import("./token").Token = null as any;
 utilities.lazyLoad(exports, ["Token"], () => require("./token"));
-
-export { WebhookArgs } from "./webhook";
-export type Webhook = import("./webhook").Webhook;
-export const Webhook: typeof import("./webhook").Webhook = null as any;
-utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
 
 // Export enums:
@@ -138,16 +108,10 @@ const _module = {
                 return new PipelineRun(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:containerregistry/v20201101preview:Registry":
-                return new Registry(name, <any>undefined, { urn })
-            case "azure-native:containerregistry/v20201101preview:Replication":
-                return new Replication(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20201101preview:ScopeMap":
                 return new ScopeMap(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20201101preview:Token":
                 return new Token(name, <any>undefined, { urn })
-            case "azure-native:containerregistry/v20201101preview:Webhook":
-                return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

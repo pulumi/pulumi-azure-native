@@ -14,7 +14,6 @@ __all__ = [
     'LocalTimestampTimeZoneOffsetArgs',
     'LocalTimestampArgs',
     'LongTermStorageConfigurationInputArgs',
-    'ReferenceDataSetKeyPropertyArgs',
     'SkuArgs',
     'TimeSeriesIdPropertyArgs',
     'WarmStoreConfigurationPropertiesArgs',
@@ -120,46 +119,6 @@ class LongTermStorageConfigurationInputArgs:
     @management_key.setter
     def management_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "management_key", value)
-
-
-@pulumi.input_type
-class ReferenceDataSetKeyPropertyArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]] = None):
-        """
-        A key property for the reference data set. A reference data set can have multiple key properties.
-        :param pulumi.Input[str] name: The name of the key property.
-        :param pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']] type: The type of the key property.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the key property.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]]:
-        """
-        The type of the key property.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

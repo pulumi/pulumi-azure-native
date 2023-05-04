@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine.
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-11-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -21,6 +22,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.AdditionalCapabilitiesResponse?> AdditionalCapabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the gallery applications that should be made available to the VM/VMSS
+        /// </summary>
+        [Output("applicationProfile")]
+        public Output<Outputs.ApplicationProfileResponse?> ApplicationProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. &lt;br&gt;&lt;br&gt;This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
@@ -33,6 +40,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("billingProfile")]
         public Output<Outputs.BillingProfileResponse?> BillingProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies information about the capacity reservation that is used to allocate virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-04-01.
+        /// </summary>
+        [Output("capacityReservation")]
+        public Output<Outputs.CapacityReservationProfileResponse?> CapacityReservation { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
@@ -179,6 +192,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the time at which the Virtual Machine resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// </summary>
+        [Output("timeCreated")]
+        public Output<string> TimeCreated { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
@@ -284,6 +303,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.AdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
 
         /// <summary>
+        /// Specifies the gallery applications that should be made available to the VM/VMSS
+        /// </summary>
+        [Input("applicationProfile")]
+        public Input<Inputs.ApplicationProfileArgs>? ApplicationProfile { get; set; }
+
+        /// <summary>
         /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. &lt;br&gt;&lt;br&gt;This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         /// </summary>
         [Input("availabilitySet")]
@@ -294,6 +319,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("billingProfile")]
         public Input<Inputs.BillingProfileArgs>? BillingProfile { get; set; }
+
+        /// <summary>
+        /// Specifies information about the capacity reservation that is used to allocate virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-04-01.
+        /// </summary>
+        [Input("capacityReservation")]
+        public Input<Inputs.CapacityReservationProfileArgs>? CapacityReservation { get; set; }
 
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.

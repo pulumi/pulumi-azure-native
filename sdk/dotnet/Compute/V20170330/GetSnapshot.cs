@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20170330
 {
-    [Obsolete(@"Version 2017-03-30 will be removed in v2 of the provider.")]
     public static class GetSnapshot
     {
         /// <summary>

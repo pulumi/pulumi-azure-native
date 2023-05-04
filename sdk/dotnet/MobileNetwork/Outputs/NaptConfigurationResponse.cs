@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
         /// </summary>
         public readonly Outputs.PortRangeResponse? PortRange;
         /// <summary>
-        /// The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
+        /// The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be at least 1 second.
         /// </summary>
         public readonly Outputs.PortReuseHoldTimesResponse? PortReuseHoldTime;
 

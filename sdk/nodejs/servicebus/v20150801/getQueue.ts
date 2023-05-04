@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns a description for the specified queue.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-    pulumi.log.warn("getQueue is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20150801:getQueue", {
@@ -149,7 +147,6 @@ export interface GetQueueResult {
 /**
  * Returns a description for the specified queue.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }

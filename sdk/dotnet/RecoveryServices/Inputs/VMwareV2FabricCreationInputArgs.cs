@@ -19,8 +19,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// Gets the class type.
         /// Expected value is 'VMwareV2'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// The ARM Id of the migration solution.
@@ -29,10 +29,16 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string> MigrationSolutionId { get; set; } = null!;
 
         /// <summary>
+        /// The ARM Id of the physical site.
+        /// </summary>
+        [Input("physicalSiteId")]
+        public Input<string>? PhysicalSiteId { get; set; }
+
+        /// <summary>
         /// The ARM Id of the VMware site.
         /// </summary>
-        [Input("vmwareSiteId", required: true)]
-        public Input<string> VmwareSiteId { get; set; } = null!;
+        [Input("vmwareSiteId")]
+        public Input<string>? VmwareSiteId { get; set; }
 
         public VMwareV2FabricCreationInputArgs()
         {

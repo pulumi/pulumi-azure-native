@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX VM Group
- * API Version: 2020-07-17-preview.
+ * API Version: 2022-05-01.
  */
 export function getWorkloadNetworkVMGroup(args: GetWorkloadNetworkVMGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkVMGroupResult> {
 
@@ -72,7 +72,7 @@ export interface GetWorkloadNetworkVMGroupResult {
 }
 /**
  * NSX VM Group
- * API Version: 2020-07-17-preview.
+ * API Version: 2022-05-01.
  */
 export function getWorkloadNetworkVMGroupOutput(args: GetWorkloadNetworkVMGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkVMGroupResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkVMGroup(a, opts))

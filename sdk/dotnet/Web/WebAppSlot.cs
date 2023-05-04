@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlot")]
     public partial class WebAppSlot : global::Pulumi.CustomResource
@@ -85,6 +86,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("enabledHostNames")]
         public Output<ImmutableArray<string>> EnabledHostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// Extended Location.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
@@ -173,6 +180,12 @@ namespace Pulumi.AzureNative.Web
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+        /// </summary>
+        [Output("managedEnvironmentId")]
+        public Output<string?> ManagedEnvironmentId { get; private set; } = null!;
+
+        /// <summary>
         /// Maximum number of workers.
         /// This only applies to Functions container.
         /// </summary>
@@ -196,6 +209,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Site redundancy mode
@@ -299,6 +318,24 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// To enable accessing content over virtual network
+        /// </summary>
+        [Output("vnetContentShareEnabled")]
+        public Output<bool?> VnetContentShareEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// To enable pulling image over Virtual Network
+        /// </summary>
+        [Output("vnetImagePullEnabled")]
+        public Output<bool?> VnetImagePullEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// </summary>
+        [Output("vnetRouteAllEnabled")]
+        public Output<bool?> VnetRouteAllEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -420,6 +457,12 @@ namespace Pulumi.AzureNative.Web
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Extended Location.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
         [Input("hostNameSslStates")]
         private InputList<Inputs.HostNameSslStateArgs>? _hostNameSslStates;
 
@@ -489,10 +532,22 @@ namespace Pulumi.AzureNative.Web
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+        /// </summary>
+        [Input("managedEnvironmentId")]
+        public Input<string>? ManagedEnvironmentId { get; set; }
+
+        /// <summary>
         /// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Site redundancy mode
@@ -531,7 +586,7 @@ namespace Pulumi.AzureNative.Web
         public Input<Inputs.SiteConfigArgs>? SiteConfig { get; set; }
 
         /// <summary>
-        /// Name of the deployment slot to create or update. The name 'production' is reserved.
+        /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         /// </summary>
         [Input("slot")]
         public Input<string>? Slot { get; set; }
@@ -560,6 +615,24 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// To enable accessing content over virtual network
+        /// </summary>
+        [Input("vnetContentShareEnabled")]
+        public Input<bool>? VnetContentShareEnabled { get; set; }
+
+        /// <summary>
+        /// To enable pulling image over Virtual Network
+        /// </summary>
+        [Input("vnetImagePullEnabled")]
+        public Input<bool>? VnetImagePullEnabled { get; set; }
+
+        /// <summary>
+        /// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// </summary>
+        [Input("vnetRouteAllEnabled")]
+        public Input<bool>? VnetRouteAllEnabled { get; set; }
 
         public WebAppSlotArgs()
         {

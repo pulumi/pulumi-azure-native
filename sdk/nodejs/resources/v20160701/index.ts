@@ -15,26 +15,6 @@ export const getDeployment: typeof import("./getDeployment").getDeployment = nul
 export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
 utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
 
-export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
-export const getResource: typeof import("./getResource").getResource = null as any;
-export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
-utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
-
-export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
-export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
-export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
-
-export { ResourceArgs } from "./resource";
-export type Resource = import("./resource").Resource;
-export const Resource: typeof import("./resource").Resource = null as any;
-utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
-
-export { ResourceGroupArgs } from "./resourceGroup";
-export type ResourceGroup = import("./resourceGroup").ResourceGroup;
-export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
-utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
-
 
 // Export enums:
 export * from "../../types/enums/resources/v20160701";
@@ -45,10 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:resources/v20160701:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
-            case "azure-native:resources/v20160701:Resource":
-                return new Resource(name, <any>undefined, { urn })
-            case "azure-native:resources/v20160701:ResourceGroup":
-                return new ResourceGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

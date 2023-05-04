@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a web app
- *
- * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class Site extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Site extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Site {
-        pulumi.log.warn("Site is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
         return new Site(name, undefined as any, { ...opts, id: id });
     }
 
@@ -180,9 +177,7 @@ export class Site extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: SiteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Site is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

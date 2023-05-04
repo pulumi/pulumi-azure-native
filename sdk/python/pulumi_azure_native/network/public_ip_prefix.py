@@ -250,7 +250,8 @@ class PublicIPPrefix(pulumi.CustomResource):
                  __props__=None):
         """
         Public IP prefix resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,7 +277,8 @@ class PublicIPPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Public IP prefix resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PublicIPPrefixArgs args: The arguments to use to populate this resource's properties.
@@ -338,7 +340,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__.__dict__["public_ip_addresses"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210301:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220901:PublicIPPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210301:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220901:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20221101:PublicIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PublicIPPrefix, __self__).__init__(
             'azure-native:network:PublicIPPrefix',

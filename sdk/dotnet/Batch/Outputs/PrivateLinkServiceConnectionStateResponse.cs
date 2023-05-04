@@ -16,19 +16,19 @@ namespace Pulumi.AzureNative.Batch.Outputs
     [OutputType]
     public sealed class PrivateLinkServiceConnectionStateResponse
     {
-        public readonly string ActionRequired;
+        public readonly string ActionsRequired;
         public readonly string? Description;
         public readonly string Status;
 
         [OutputConstructor]
         private PrivateLinkServiceConnectionStateResponse(
-            string actionRequired,
+            string actionsRequired,
 
             string? description,
 
             string status)
         {
-            ActionRequired = actionRequired;
+            ActionsRequired = actionsRequired;
             Description = description;
             Status = status;
         }

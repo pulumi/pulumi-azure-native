@@ -3,43 +3,29 @@
 
 // Export sub-modules:
 import * as v20150501preview from "./v20150501preview";
-import * as v20150615 from "./v20150615";
 import * as v20160330 from "./v20160330";
 import * as v20160401 from "./v20160401";
 import * as v20160601 from "./v20160601";
 import * as v20160901 from "./v20160901";
-import * as v20161201 from "./v20161201";
 import * as v20170301 from "./v20170301";
-import * as v20170501 from "./v20170501";
-import * as v20170601 from "./v20170601";
-import * as v20170801 from "./v20170801";
 import * as v20170901 from "./v20170901";
 import * as v20171001 from "./v20171001";
-import * as v20171101 from "./v20171101";
 import * as v20180101 from "./v20180101";
 import * as v20180201 from "./v20180201";
-import * as v20180301 from "./v20180301";
-import * as v20180301preview from "./v20180301preview";
 import * as v20180401 from "./v20180401";
 import * as v20180501 from "./v20180501";
 import * as v20180601 from "./v20180601";
 import * as v20180701 from "./v20180701";
 import * as v20180801 from "./v20180801";
-import * as v20181001 from "./v20181001";
-import * as v20181101 from "./v20181101";
 import * as v20181201 from "./v20181201";
 import * as v20190201 from "./v20190201";
-import * as v20190301 from "./v20190301";
 import * as v20190401 from "./v20190401";
-import * as v20190501 from "./v20190501";
 import * as v20190601 from "./v20190601";
 import * as v20190701 from "./v20190701";
 import * as v20190801 from "./v20190801";
 import * as v20190901 from "./v20190901";
-import * as v20191001 from "./v20191001";
 import * as v20191101 from "./v20191101";
 import * as v20191201 from "./v20191201";
-import * as v20200101 from "./v20200101";
 import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
 import * as v20200401preview from "./v20200401preview";
@@ -61,46 +47,33 @@ import * as v20220401preview from "./v20220401preview";
 import * as v20220501 from "./v20220501";
 import * as v20220701 from "./v20220701";
 import * as v20220901 from "./v20220901";
+import * as v20221101 from "./v20221101";
 
 export {
     v20150501preview,
-    v20150615,
     v20160330,
     v20160401,
     v20160601,
     v20160901,
-    v20161201,
     v20170301,
-    v20170501,
-    v20170601,
-    v20170801,
     v20170901,
     v20171001,
-    v20171101,
     v20180101,
     v20180201,
-    v20180301,
-    v20180301preview,
     v20180401,
     v20180501,
     v20180601,
     v20180701,
     v20180801,
-    v20181001,
-    v20181101,
     v20181201,
     v20190201,
-    v20190301,
     v20190401,
-    v20190501,
     v20190601,
     v20190701,
     v20190801,
     v20190901,
-    v20191001,
     v20191101,
     v20191201,
-    v20200101,
     v20200301,
     v20200401,
     v20200401preview,
@@ -122,6 +95,7 @@ export {
     v20220501,
     v20220701,
     v20220901,
+    v20221101,
 };
 
 export const Access = {
@@ -134,25 +108,15 @@ export const Access = {
  */
 export type Access = (typeof Access)[keyof typeof Access];
 
-export const AccessRuleDirection = {
-    Inbound: "Inbound",
-    Outbound: "Outbound",
-} as const;
-
-/**
- * Direction that specifies whether the access rules is inbound/outbound.
- */
-export type AccessRuleDirection = (typeof AccessRuleDirection)[keyof typeof AccessRuleDirection];
-
 export const ActionType = {
+    AnomalyScoring: "AnomalyScoring",
     Allow: "Allow",
     Block: "Block",
     Log: "Log",
-    Redirect: "Redirect",
 } as const;
 
 /**
- * Describes the override action to be applied when rule matches.
+ * Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
@@ -188,6 +152,16 @@ export const AllowedEndpointRecordType = {
  */
 export type AllowedEndpointRecordType = (typeof AllowedEndpointRecordType)[keyof typeof AllowedEndpointRecordType];
 
+export const ApplicationGatewayClientRevocationOptions = {
+    None: "None",
+    OCSP: "OCSP",
+} as const;
+
+/**
+ * Verify client certificate revocation status.
+ */
+export type ApplicationGatewayClientRevocationOptions = (typeof ApplicationGatewayClientRevocationOptions)[keyof typeof ApplicationGatewayClientRevocationOptions];
+
 export const ApplicationGatewayCookieBasedAffinity = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -199,12 +173,20 @@ export const ApplicationGatewayCookieBasedAffinity = {
 export type ApplicationGatewayCookieBasedAffinity = (typeof ApplicationGatewayCookieBasedAffinity)[keyof typeof ApplicationGatewayCookieBasedAffinity];
 
 export const ApplicationGatewayCustomErrorStatusCode = {
+    HttpStatus400: "HttpStatus400",
     HttpStatus403: "HttpStatus403",
+    HttpStatus404: "HttpStatus404",
+    HttpStatus405: "HttpStatus405",
+    HttpStatus408: "HttpStatus408",
+    HttpStatus499: "HttpStatus499",
+    HttpStatus500: "HttpStatus500",
     HttpStatus502: "HttpStatus502",
+    HttpStatus503: "HttpStatus503",
+    HttpStatus504: "HttpStatus504",
 } as const;
 
 /**
- * Status code of the application gateway customer error.
+ * Status code of the application gateway custom error.
  */
 export type ApplicationGatewayCustomErrorStatusCode = (typeof ApplicationGatewayCustomErrorStatusCode)[keyof typeof ApplicationGatewayCustomErrorStatusCode];
 
@@ -218,9 +200,22 @@ export const ApplicationGatewayFirewallMode = {
  */
 export type ApplicationGatewayFirewallMode = (typeof ApplicationGatewayFirewallMode)[keyof typeof ApplicationGatewayFirewallMode];
 
+export const ApplicationGatewayLoadDistributionAlgorithm = {
+    RoundRobin: "RoundRobin",
+    LeastConnections: "LeastConnections",
+    IpHash: "IpHash",
+} as const;
+
+/**
+ * Load Distribution Targets resource of an application gateway.
+ */
+export type ApplicationGatewayLoadDistributionAlgorithm = (typeof ApplicationGatewayLoadDistributionAlgorithm)[keyof typeof ApplicationGatewayLoadDistributionAlgorithm];
+
 export const ApplicationGatewayProtocol = {
     Http: "Http",
     Https: "Https",
+    Tcp: "Tcp",
+    Tls: "Tls",
 } as const;
 
 /**
@@ -305,6 +300,8 @@ export const ApplicationGatewaySslPolicyName = {
     AppGwSslPolicy20150501: "AppGwSslPolicy20150501",
     AppGwSslPolicy20170401: "AppGwSslPolicy20170401",
     AppGwSslPolicy20170401S: "AppGwSslPolicy20170401S",
+    AppGwSslPolicy20220101: "AppGwSslPolicy20220101",
+    AppGwSslPolicy20220101S: "AppGwSslPolicy20220101S",
 } as const;
 
 /**
@@ -315,6 +312,7 @@ export type ApplicationGatewaySslPolicyName = (typeof ApplicationGatewaySslPolic
 export const ApplicationGatewaySslPolicyType = {
     Predefined: "Predefined",
     Custom: "Custom",
+    CustomV2: "CustomV2",
 } as const;
 
 /**
@@ -326,6 +324,7 @@ export const ApplicationGatewaySslProtocol = {
     TLSv1_0: "TLSv1_0",
     TLSv1_1: "TLSv1_1",
     TLSv1_2: "TLSv1_2",
+    TLSv1_3: "TLSv1_3",
 } as const;
 
 /**
@@ -345,17 +344,6 @@ export const ApplicationGatewayTier = {
  */
 export type ApplicationGatewayTier = (typeof ApplicationGatewayTier)[keyof typeof ApplicationGatewayTier];
 
-export const AssociationAccessMode = {
-    Learning: "Learning",
-    Enforced: "Enforced",
-    Audit: "Audit",
-} as const;
-
-/**
- * Access mode on the association.
- */
-export type AssociationAccessMode = (typeof AssociationAccessMode)[keyof typeof AssociationAccessMode];
-
 export const AuthorizationUseStatus = {
     Available: "Available",
     InUse: "InUse",
@@ -365,6 +353,16 @@ export const AuthorizationUseStatus = {
  * The authorization use status.
  */
 export type AuthorizationUseStatus = (typeof AuthorizationUseStatus)[keyof typeof AuthorizationUseStatus];
+
+export const AutoLearnPrivateRangesMode = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The operation mode for automatically learning private ranges to not be SNAT
+ */
+export type AutoLearnPrivateRangesMode = (typeof AutoLearnPrivateRangesMode)[keyof typeof AutoLearnPrivateRangesMode];
 
 export const AzureFirewallApplicationRuleProtocolType = {
     Http: "Http",
@@ -422,6 +420,7 @@ export type AzureFirewallSkuName = (typeof AzureFirewallSkuName)[keyof typeof Az
 export const AzureFirewallSkuTier = {
     Standard: "Standard",
     Premium: "Premium",
+    Basic: "Basic",
 } as const;
 
 /**
@@ -450,13 +449,25 @@ export const BackendEnabledState = {
  */
 export type BackendEnabledState = (typeof BackendEnabledState)[keyof typeof BackendEnabledState];
 
+export const BastionHostSkuName = {
+    Basic: "Basic",
+    Standard: "Standard",
+} as const;
+
+/**
+ * The name of this Bastion Host.
+ */
+export type BastionHostSkuName = (typeof BastionHostSkuName)[keyof typeof BastionHostSkuName];
+
 export const CommissionedState = {
     Provisioning: "Provisioning",
     Provisioned: "Provisioned",
     Commissioning: "Commissioning",
+    CommissionedNoInternetAdvertise: "CommissionedNoInternetAdvertise",
     Commissioned: "Commissioned",
     Decommissioning: "Decommissioning",
     Deprovisioning: "Deprovisioning",
+    Deprovisioned: "Deprovisioned",
 } as const;
 
 /**
@@ -466,7 +477,6 @@ export type CommissionedState = (typeof CommissionedState)[keyof typeof Commissi
 
 export const ConfigurationType = {
     SecurityAdmin: "SecurityAdmin",
-    SecurityUser: "SecurityUser",
     Connectivity: "Connectivity",
 } as const;
 
@@ -528,6 +538,17 @@ export const CoverageLevel = {
  */
 export type CoverageLevel = (typeof CoverageLevel)[keyof typeof CoverageLevel];
 
+export const CustomIpPrefixType = {
+    Singular: "Singular",
+    Parent: "Parent",
+    Child: "Child",
+} as const;
+
+/**
+ * Type of custom IP prefix. Should be Singular, Parent, or Child.
+ */
+export type CustomIpPrefixType = (typeof CustomIpPrefixType)[keyof typeof CustomIpPrefixType];
+
 export const CustomRuleEnabledState = {
     Disabled: "Disabled",
     Enabled: "Enabled",
@@ -538,48 +559,16 @@ export const CustomRuleEnabledState = {
  */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
 
-export const DdosCustomPolicyProtocol = {
-    Tcp: "Tcp",
-    Udp: "Udp",
-    Syn: "Syn",
+export const DdosSettingsProtectionMode = {
+    VirtualNetworkInherited: "VirtualNetworkInherited",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
 } as const;
 
 /**
- * The protocol for which the DDoS protection policy is being customized.
+ * The DDoS protection mode of the public IP
  */
-export type DdosCustomPolicyProtocol = (typeof DdosCustomPolicyProtocol)[keyof typeof DdosCustomPolicyProtocol];
-
-export const DdosCustomPolicyTriggerSensitivityOverride = {
-    Relaxed: "Relaxed",
-    Low: "Low",
-    Default: "Default",
-    High: "High",
-} as const;
-
-/**
- * The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
- */
-export type DdosCustomPolicyTriggerSensitivityOverride = (typeof DdosCustomPolicyTriggerSensitivityOverride)[keyof typeof DdosCustomPolicyTriggerSensitivityOverride];
-
-export const DdosSettingsProtectionCoverage = {
-    Basic: "Basic",
-    Standard: "Standard",
-} as const;
-
-/**
- * The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
- */
-export type DdosSettingsProtectionCoverage = (typeof DdosSettingsProtectionCoverage)[keyof typeof DdosSettingsProtectionCoverage];
-
-export const DeleteExistingNSGs = {
-    False: "False",
-    True: "True",
-} as const;
-
-/**
- * Flag if need to delete existing network security groups.
- */
-export type DeleteExistingNSGs = (typeof DeleteExistingNSGs)[keyof typeof DeleteExistingNSGs];
+export type DdosSettingsProtectionMode = (typeof DdosSettingsProtectionMode)[keyof typeof DdosSettingsProtectionMode];
 
 export const DeleteExistingPeering = {
     False: "False",
@@ -590,6 +579,16 @@ export const DeleteExistingPeering = {
  * Flag if need to remove current existing peerings.
  */
 export type DeleteExistingPeering = (typeof DeleteExistingPeering)[keyof typeof DeleteExistingPeering];
+
+export const DeleteOptions = {
+    Delete: "Delete",
+    Detach: "Detach",
+} as const;
+
+/**
+ * Specify what happens to the public IP address when the VM using it is deleted
+ */
+export type DeleteOptions = (typeof DeleteOptions)[keyof typeof DeleteOptions];
 
 export const DestinationPortBehavior = {
     None: "None",
@@ -658,6 +657,8 @@ export const EndpointType = {
     ExternalAddress: "ExternalAddress",
     MMAWorkspaceMachine: "MMAWorkspaceMachine",
     MMAWorkspaceNetwork: "MMAWorkspaceNetwork",
+    AzureArcVM: "AzureArcVM",
+    AzureVMSS: "AzureVMSS",
 } as const;
 
 /**
@@ -759,6 +760,16 @@ export const ExpressRoutePeeringType = {
  * The peering type.
  */
 export type ExpressRoutePeeringType = (typeof ExpressRoutePeeringType)[keyof typeof ExpressRoutePeeringType];
+
+export const ExpressRoutePortsBillingType = {
+    MeteredData: "MeteredData",
+    UnlimitedData: "UnlimitedData",
+} as const;
+
+/**
+ * The billing type of the ExpressRoutePort resource.
+ */
+export type ExpressRoutePortsBillingType = (typeof ExpressRoutePortsBillingType)[keyof typeof ExpressRoutePortsBillingType];
 
 export const ExpressRoutePortsEncapsulation = {
     Dot1Q: "Dot1Q",
@@ -928,6 +939,7 @@ export type FirewallPolicyRuleType = (typeof FirewallPolicyRuleType)[keyof typeo
 export const FirewallPolicySkuTier = {
     Standard: "Standard",
     Premium: "Premium",
+    Basic: "Basic",
 } as const;
 
 /**
@@ -1047,6 +1059,45 @@ export const FrontDoorRedirectType = {
  */
 export type FrontDoorRedirectType = (typeof FrontDoorRedirectType)[keyof typeof FrontDoorRedirectType];
 
+export const GatewayLoadBalancerTunnelInterfaceType = {
+    None: "None",
+    Internal: "Internal",
+    External: "External",
+} as const;
+
+/**
+ * Traffic type of gateway load balancer tunnel interface.
+ */
+export type GatewayLoadBalancerTunnelInterfaceType = (typeof GatewayLoadBalancerTunnelInterfaceType)[keyof typeof GatewayLoadBalancerTunnelInterfaceType];
+
+export const GatewayLoadBalancerTunnelProtocol = {
+    None: "None",
+    Native: "Native",
+    VXLAN: "VXLAN",
+} as const;
+
+/**
+ * Protocol of gateway load balancer tunnel interface.
+ */
+export type GatewayLoadBalancerTunnelProtocol = (typeof GatewayLoadBalancerTunnelProtocol)[keyof typeof GatewayLoadBalancerTunnelProtocol];
+
+export const Geo = {
+    GLOBAL: "GLOBAL",
+    AFRI: "AFRI",
+    APAC: "APAC",
+    EURO: "EURO",
+    LATAM: "LATAM",
+    NAM: "NAM",
+    ME: "ME",
+    OCEANIA: "OCEANIA",
+    AQ: "AQ",
+} as const;
+
+/**
+ * The Geo for CIDR advertising. Should be an Geo code.
+ */
+export type Geo = (typeof Geo)[keyof typeof Geo];
+
 export const GroupConnectivity = {
     None: "None",
     DirectlyConnected: "DirectlyConnected",
@@ -1087,6 +1138,17 @@ export const HealthProbeEnabled = {
  * Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
  */
 export type HealthProbeEnabled = (typeof HealthProbeEnabled)[keyof typeof HealthProbeEnabled];
+
+export const HubRoutingPreference = {
+    ExpressRoute: "ExpressRoute",
+    VpnGateway: "VpnGateway",
+    ASPath: "ASPath",
+} as const;
+
+/**
+ * The hubRoutingPreference of this VirtualHub.
+ */
+export type HubRoutingPreference = (typeof HubRoutingPreference)[keyof typeof HubRoutingPreference];
 
 export const IPAllocationMethod = {
     Static: "Static",
@@ -1198,6 +1260,18 @@ export const IsGlobal = {
  */
 export type IsGlobal = (typeof IsGlobal)[keyof typeof IsGlobal];
 
+export const LoadBalancerBackendAddressAdminState = {
+    None: "None",
+    Up: "Up",
+    Down: "Down",
+    Drain: "Drain",
+} as const;
+
+/**
+ * A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
+ */
+export type LoadBalancerBackendAddressAdminState = (typeof LoadBalancerBackendAddressAdminState)[keyof typeof LoadBalancerBackendAddressAdminState];
+
 export const LoadBalancerOutboundRuleProtocol = {
     Tcp: "Tcp",
     Udp: "Udp",
@@ -1212,6 +1286,7 @@ export type LoadBalancerOutboundRuleProtocol = (typeof LoadBalancerOutboundRuleP
 export const LoadBalancerSkuName = {
     Basic: "Basic",
     Standard: "Standard",
+    Gateway: "Gateway",
 } as const;
 
 /**
@@ -1242,6 +1317,7 @@ export type LoadDistribution = (typeof LoadDistribution)[keyof typeof LoadDistri
 
 export const ManagedRuleEnabledState = {
     Disabled: "Disabled",
+    Enabled: "Enabled",
 } as const;
 
 /**
@@ -1282,7 +1358,7 @@ export const ManagedRuleSetActionType = {
 } as const;
 
 /**
- * Defines the action to take when a managed rule set score threshold is met.
+ * Defines the rule set action.
  */
 export type ManagedRuleSetActionType = (typeof ManagedRuleSetActionType)[keyof typeof ManagedRuleSetActionType];
 
@@ -1316,6 +1392,28 @@ export const NatGatewaySkuName = {
  */
 export type NatGatewaySkuName = (typeof NatGatewaySkuName)[keyof typeof NatGatewaySkuName];
 
+export const NetworkIntentPolicyBasedService = {
+    None: "None",
+    All: "All",
+    AllowRulesOnly: "AllowRulesOnly",
+} as const;
+
+/**
+ * Network intent policy based services.
+ */
+export type NetworkIntentPolicyBasedService = (typeof NetworkIntentPolicyBasedService)[keyof typeof NetworkIntentPolicyBasedService];
+
+export const NetworkInterfaceAuxiliaryMode = {
+    None: "None",
+    MaxConnections: "MaxConnections",
+    Floating: "Floating",
+} as const;
+
+/**
+ * Auxiliary mode of Network Interface resource.
+ */
+export type NetworkInterfaceAuxiliaryMode = (typeof NetworkInterfaceAuxiliaryMode)[keyof typeof NetworkInterfaceAuxiliaryMode];
+
 export const NetworkInterfaceMigrationPhase = {
     None: "None",
     Prepare: "Prepare",
@@ -1338,6 +1436,17 @@ export const NetworkInterfaceNicType = {
  * Type of Network Interface resource.
  */
 export type NetworkInterfaceNicType = (typeof NetworkInterfaceNicType)[keyof typeof NetworkInterfaceNicType];
+
+export const NextStep = {
+    Unknown: "Unknown",
+    Continue: "Continue",
+    Terminate: "Terminate",
+} as const;
+
+/**
+ * Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'.
+ */
+export type NextStep = (typeof NextStep)[keyof typeof NextStep];
 
 export const Operator = {
     Any: "Any",
@@ -1372,6 +1481,12 @@ export const OwaspCrsExclusionEntryMatchVariable = {
     RequestHeaderNames: "RequestHeaderNames",
     RequestCookieNames: "RequestCookieNames",
     RequestArgNames: "RequestArgNames",
+    RequestHeaderKeys: "RequestHeaderKeys",
+    RequestHeaderValues: "RequestHeaderValues",
+    RequestCookieKeys: "RequestCookieKeys",
+    RequestCookieValues: "RequestCookieValues",
+    RequestArgKeys: "RequestArgKeys",
+    RequestArgValues: "RequestArgValues",
 } as const;
 
 /**
@@ -1391,6 +1506,16 @@ export const OwaspCrsExclusionEntrySelectorMatchOperator = {
  * When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
  */
 export type OwaspCrsExclusionEntrySelectorMatchOperator = (typeof OwaspCrsExclusionEntrySelectorMatchOperator)[keyof typeof OwaspCrsExclusionEntrySelectorMatchOperator];
+
+export const PacketCaptureTargetType = {
+    AzureVM: "AzureVM",
+    AzureVMSS: "AzureVMSS",
+} as const;
+
+/**
+ * Target type of the resource provided.
+ */
+export type PacketCaptureTargetType = (typeof PacketCaptureTargetType)[keyof typeof PacketCaptureTargetType];
 
 export const PcProtocol = {
     TCP: "TCP",
@@ -1459,6 +1584,17 @@ export const PreferredIPVersion = {
  * The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
  */
 export type PreferredIPVersion = (typeof PreferredIPVersion)[keyof typeof PreferredIPVersion];
+
+export const PreferredRoutingGateway = {
+    ExpressRoute: "ExpressRoute",
+    VpnGateway: "VpnGateway",
+    None: "None",
+} as const;
+
+/**
+ * The preferred gateway to route on-prem traffic
+ */
+export type PreferredRoutingGateway = (typeof PreferredRoutingGateway)[keyof typeof PreferredRoutingGateway];
 
 export const ProbeProtocol = {
     Http: "Http",
@@ -1583,6 +1719,32 @@ export const RouteFilterRuleType = {
  * The rule type of the rule.
  */
 export type RouteFilterRuleType = (typeof RouteFilterRuleType)[keyof typeof RouteFilterRuleType];
+
+export const RouteMapActionType = {
+    Unknown: "Unknown",
+    Remove: "Remove",
+    Add: "Add",
+    Replace: "Replace",
+    Drop: "Drop",
+} as const;
+
+/**
+ * Type of action to be taken. Supported types are 'Remove', 'Add', 'Replace', and 'Drop.'
+ */
+export type RouteMapActionType = (typeof RouteMapActionType)[keyof typeof RouteMapActionType];
+
+export const RouteMapMatchCondition = {
+    Unknown: "Unknown",
+    Contains: "Contains",
+    Equals: "Equals",
+    NotContains: "NotContains",
+    NotEquals: "NotEquals",
+} as const;
+
+/**
+ * Match condition to apply RouteMap rules.
+ */
+export type RouteMapMatchCondition = (typeof RouteMapMatchCondition)[keyof typeof RouteMapMatchCondition];
 
 export const RouteNextHopType = {
     VirtualNetworkGateway: "VirtualNetworkGateway",
@@ -1736,16 +1898,6 @@ export const SecurityRuleProtocol = {
  */
 export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
 
-export const SecurityType = {
-    AdminPolicy: "AdminPolicy",
-    UserPolicy: "UserPolicy",
-} as const;
-
-/**
- * Security Type.
- */
-export type SecurityType = (typeof SecurityType)[keyof typeof SecurityType];
-
 export const ServiceProviderProvisioningState = {
     NotProvisioned: "NotProvisioned",
     Provisioning: "Provisioning",
@@ -1862,15 +2014,15 @@ export const UseHubGateway = {
  */
 export type UseHubGateway = (typeof UseHubGateway)[keyof typeof UseHubGateway];
 
-export const UserRuleKind = {
-    Custom: "Custom",
-    Default: "Default",
+export const VirtualNetworkEncryptionEnforcement = {
+    DropUnencrypted: "DropUnencrypted",
+    AllowUnencrypted: "AllowUnencrypted",
 } as const;
 
 /**
- * Whether the rule is custom or default.
+ * If the encrypted VNet allows VM that does not support encryption
  */
-export type UserRuleKind = (typeof UserRuleKind)[keyof typeof UserRuleKind];
+export type VirtualNetworkEncryptionEnforcement = (typeof VirtualNetworkEncryptionEnforcement)[keyof typeof VirtualNetworkEncryptionEnforcement];
 
 export const VirtualNetworkGatewayConnectionMode = {
     Default: "Default",
@@ -1966,6 +2118,18 @@ export const VirtualNetworkGatewayType = {
  */
 export type VirtualNetworkGatewayType = (typeof VirtualNetworkGatewayType)[keyof typeof VirtualNetworkGatewayType];
 
+export const VirtualNetworkPeeringLevel = {
+    FullyInSync: "FullyInSync",
+    RemoteNotInSync: "RemoteNotInSync",
+    LocalNotInSync: "LocalNotInSync",
+    LocalAndRemoteNotInSync: "LocalAndRemoteNotInSync",
+} as const;
+
+/**
+ * The peering sync status of the virtual network peering.
+ */
+export type VirtualNetworkPeeringLevel = (typeof VirtualNetworkPeeringLevel)[keyof typeof VirtualNetworkPeeringLevel];
+
 export const VirtualNetworkPeeringState = {
     Initiated: "Initiated",
     Connected: "Connected",
@@ -1996,6 +2160,16 @@ export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
  * Enable or Disable apply network policies on private link service in the subnet.
  */
 export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];
+
+export const VnetLocalRouteOverrideCriteria = {
+    Contains: "Contains",
+    Equal: "Equal",
+} as const;
+
+/**
+ * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
+ */
+export type VnetLocalRouteOverrideCriteria = (typeof VnetLocalRouteOverrideCriteria)[keyof typeof VnetLocalRouteOverrideCriteria];
 
 export const VpnAuthenticationType = {
     Certificate: "Certificate",
@@ -2151,6 +2325,7 @@ export const WebApplicationFirewallOperator = {
     EndsWith: "EndsWith",
     Regex: "Regex",
     GeoMatch: "GeoMatch",
+    Any: "Any",
 } as const;
 
 /**
@@ -2168,7 +2343,18 @@ export const WebApplicationFirewallRuleType = {
  */
 export type WebApplicationFirewallRuleType = (typeof WebApplicationFirewallRuleType)[keyof typeof WebApplicationFirewallRuleType];
 
+export const WebApplicationFirewallState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+ */
+export type WebApplicationFirewallState = (typeof WebApplicationFirewallState)[keyof typeof WebApplicationFirewallState];
+
 export const WebApplicationFirewallTransform = {
+    Uppercase: "Uppercase",
     Lowercase: "Lowercase",
     Trim: "Trim",
     UrlDecode: "UrlDecode",

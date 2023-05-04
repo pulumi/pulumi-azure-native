@@ -17,8 +17,6 @@ __all__ = [
     'get_namespace_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetNamespaceResult:
     """
@@ -201,7 +199,6 @@ def get_namespace(namespace_name: Optional[str] = None,
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_namespace is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -235,5 +232,4 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_namespace is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

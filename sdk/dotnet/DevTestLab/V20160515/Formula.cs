@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// <summary>
     /// A formula for creating a VM, specifying an image base and other parameters
     /// </summary>
-    [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:Formula")]
     public partial class Formula : global::Pulumi.CustomResource
     {

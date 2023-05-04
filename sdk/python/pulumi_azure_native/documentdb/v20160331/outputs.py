@@ -12,51 +12,23 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CapabilityResponse',
     'CassandraPartitionKeyResponse',
     'CassandraSchemaResponse',
     'ClusterKeyResponse',
     'ColumnResponse',
     'ConflictResolutionPolicyResponse',
-    'ConsistencyPolicyResponse',
     'ContainerPartitionKeyResponse',
     'DatabaseAccountConnectionStringResponse',
     'ExcludedPathResponse',
-    'FailoverPolicyResponse',
     'IncludedPathResponse',
     'IndexesResponse',
     'IndexingPolicyResponse',
-    'LocationResponse',
     'MongoIndexKeysResponse',
     'MongoIndexOptionsResponse',
     'MongoIndexResponse',
     'UniqueKeyPolicyResponse',
     'UniqueKeyResponse',
-    'VirtualNetworkRuleResponse',
 ]
-
-@pulumi.output_type
-class CapabilityResponse(dict):
-    """
-    Cosmos DB capability object
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None):
-        """
-        Cosmos DB capability object
-        :param str name: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
-        """
-        return pulumi.get(self, "name")
-
 
 @pulumi.output_type
 class CassandraPartitionKeyResponse(dict):
@@ -303,73 +275,6 @@ class ConflictResolutionPolicyResponse(dict):
 
 
 @pulumi.output_type
-class ConsistencyPolicyResponse(dict):
-    """
-    The consistency policy for the Cosmos DB database account.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "defaultConsistencyLevel":
-            suggest = "default_consistency_level"
-        elif key == "maxIntervalInSeconds":
-            suggest = "max_interval_in_seconds"
-        elif key == "maxStalenessPrefix":
-            suggest = "max_staleness_prefix"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConsistencyPolicyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConsistencyPolicyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConsistencyPolicyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 default_consistency_level: str,
-                 max_interval_in_seconds: Optional[int] = None,
-                 max_staleness_prefix: Optional[float] = None):
-        """
-        The consistency policy for the Cosmos DB database account.
-        :param str default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
-        :param int max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        :param float max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        """
-        pulumi.set(__self__, "default_consistency_level", default_consistency_level)
-        if max_interval_in_seconds is not None:
-            pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
-        if max_staleness_prefix is not None:
-            pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
-
-    @property
-    @pulumi.getter(name="defaultConsistencyLevel")
-    def default_consistency_level(self) -> str:
-        """
-        The default consistency level and configuration settings of the Cosmos DB account.
-        """
-        return pulumi.get(self, "default_consistency_level")
-
-    @property
-    @pulumi.getter(name="maxIntervalInSeconds")
-    def max_interval_in_seconds(self) -> Optional[int]:
-        """
-        When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        """
-        return pulumi.get(self, "max_interval_in_seconds")
-
-    @property
-    @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[float]:
-        """
-        When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-        """
-        return pulumi.get(self, "max_staleness_prefix")
-
-
-@pulumi.output_type
 class ContainerPartitionKeyResponse(dict):
     """
     The configuration of the partition key to be used for partitioning data into multiple partitions
@@ -456,71 +361,6 @@ class ExcludedPathResponse(dict):
         The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
         return pulumi.get(self, "path")
-
-
-@pulumi.output_type
-class FailoverPolicyResponse(dict):
-    """
-    The failover policy for a given region of a database account.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "failoverPriority":
-            suggest = "failover_priority"
-        elif key == "locationName":
-            suggest = "location_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FailoverPolicyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FailoverPolicyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FailoverPolicyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: str,
-                 failover_priority: Optional[int] = None,
-                 location_name: Optional[str] = None):
-        """
-        The failover policy for a given region of a database account.
-        :param str id: The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-        :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-        :param str location_name: The name of the region in which the database account exists.
-        """
-        pulumi.set(__self__, "id", id)
-        if failover_priority is not None:
-            pulumi.set(__self__, "failover_priority", failover_priority)
-        if location_name is not None:
-            pulumi.set(__self__, "location_name", location_name)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="failoverPriority")
-    def failover_priority(self) -> Optional[int]:
-        """
-        The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-        """
-        return pulumi.get(self, "failover_priority")
-
-    @property
-    @pulumi.getter(name="locationName")
-    def location_name(self) -> Optional[str]:
-        """
-        The name of the region in which the database account exists.
-        """
-        return pulumi.get(self, "location_name")
 
 
 @pulumi.output_type
@@ -709,111 +549,6 @@ class IndexingPolicyResponse(dict):
 
 
 @pulumi.output_type
-class LocationResponse(dict):
-    """
-    A region in which the Azure Cosmos DB database account is deployed.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "documentEndpoint":
-            suggest = "document_endpoint"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "failoverPriority":
-            suggest = "failover_priority"
-        elif key == "isZoneRedundant":
-            suggest = "is_zone_redundant"
-        elif key == "locationName":
-            suggest = "location_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LocationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LocationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 document_endpoint: str,
-                 id: str,
-                 provisioning_state: str,
-                 failover_priority: Optional[int] = None,
-                 is_zone_redundant: Optional[bool] = None,
-                 location_name: Optional[str] = None):
-        """
-        A region in which the Azure Cosmos DB database account is deployed.
-        :param str document_endpoint: The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
-        :param str id: The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-        :param str provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
-        :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-        :param bool is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
-        :param str location_name: The name of the region.
-        """
-        pulumi.set(__self__, "document_endpoint", document_endpoint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if failover_priority is not None:
-            pulumi.set(__self__, "failover_priority", failover_priority)
-        if is_zone_redundant is not None:
-            pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
-        if location_name is not None:
-            pulumi.set(__self__, "location_name", location_name)
-
-    @property
-    @pulumi.getter(name="documentEndpoint")
-    def document_endpoint(self) -> str:
-        """
-        The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
-        """
-        return pulumi.get(self, "document_endpoint")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="failoverPriority")
-    def failover_priority(self) -> Optional[int]:
-        """
-        The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-        """
-        return pulumi.get(self, "failover_priority")
-
-    @property
-    @pulumi.getter(name="isZoneRedundant")
-    def is_zone_redundant(self) -> Optional[bool]:
-        """
-        Flag to indicate whether or not this region is an AvailabilityZone region
-        """
-        return pulumi.get(self, "is_zone_redundant")
-
-    @property
-    @pulumi.getter(name="locationName")
-    def location_name(self) -> Optional[str]:
-        """
-        The name of the region.
-        """
-        return pulumi.get(self, "location_name")
-
-
-@pulumi.output_type
 class MongoIndexKeysResponse(dict):
     """
     Cosmos DB MongoDB collection resource object
@@ -984,57 +719,5 @@ class UniqueKeyResponse(dict):
         List of paths must be unique for each document in the Azure Cosmos DB service
         """
         return pulumi.get(self, "paths")
-
-
-@pulumi.output_type
-class VirtualNetworkRuleResponse(dict):
-    """
-    Virtual Network ACL Rule object
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ignoreMissingVNetServiceEndpoint":
-            suggest = "ignore_missing_v_net_service_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkRuleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNetworkRuleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNetworkRuleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 ignore_missing_v_net_service_endpoint: Optional[bool] = None):
-        """
-        Virtual Network ACL Rule object
-        :param str id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-        :param bool ignore_missing_v_net_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if ignore_missing_v_net_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="ignoreMissingVNetServiceEndpoint")
-    def ignore_missing_v_net_service_endpoint(self) -> Optional[bool]:
-        """
-        Create firewall rule before the virtual network has vnet service endpoint enabled.
-        """
-        return pulumi.get(self, "ignore_missing_v_net_service_endpoint")
 
 

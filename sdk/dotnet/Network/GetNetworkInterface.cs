@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets information about the specified network interface.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified network interface.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:network:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,14 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkInterfaceResult
     {
         /// <summary>
+        /// Auxiliary mode of Network Interface resource.
+        /// </summary>
+        public readonly string? AuxiliaryMode;
+        /// <summary>
+        /// Indicates whether to disable tcp state tracking.
+        /// </summary>
+        public readonly bool? DisableTcpStateTracking;
+        /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
         public readonly Outputs.NetworkInterfaceDnsSettingsResponse? DnsSettings;
@@ -92,7 +100,7 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.SubResourceResponse DscpConfiguration;
         /// <summary>
-        /// If the network interface is accelerated networking enabled.
+        /// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
         /// <summary>
@@ -179,9 +187,21 @@ namespace Pulumi.AzureNative.Network
         /// The reference to a virtual machine.
         /// </summary>
         public readonly Outputs.SubResourceResponse VirtualMachine;
+        /// <summary>
+        /// Whether the virtual machine this nic is attached to supports encryption.
+        /// </summary>
+        public readonly bool VnetEncryptionSupported;
+        /// <summary>
+        /// WorkloadType of the NetworkInterface for BareMetal resources
+        /// </summary>
+        public readonly string? WorkloadType;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
+            string? auxiliaryMode,
+
+            bool? disableTcpStateTracking,
+
             Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
 
             Outputs.SubResourceResponse dscpConfiguration,
@@ -228,8 +248,14 @@ namespace Pulumi.AzureNative.Network
 
             string type,
 
-            Outputs.SubResourceResponse virtualMachine)
+            Outputs.SubResourceResponse virtualMachine,
+
+            bool vnetEncryptionSupported,
+
+            string? workloadType)
         {
+            AuxiliaryMode = auxiliaryMode;
+            DisableTcpStateTracking = disableTcpStateTracking;
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
@@ -254,6 +280,8 @@ namespace Pulumi.AzureNative.Network
             TapConfigurations = tapConfigurations;
             Type = type;
             VirtualMachine = virtualMachine;
+            VnetEncryptionSupported = vnetEncryptionSupported;
+            WorkloadType = workloadType;
         }
     }
 }

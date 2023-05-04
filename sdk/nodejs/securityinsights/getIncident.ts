@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets an incident.
- * API Version: 2020-01-01.
+ * Gets a given incident.
+ * API Version: 2023-02-01.
  */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
 
@@ -27,7 +27,7 @@ export interface GetIncidentArgs {
      */
     incidentId: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -73,7 +73,7 @@ export interface GetIncidentResult {
      */
     readonly firstActivityTimeUtc?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -97,13 +97,21 @@ export interface GetIncidentResult {
      */
     readonly lastModifiedTimeUtc: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
      * Describes a user that the incident is assigned to
      */
     readonly owner?: outputs.securityinsights.IncidentOwnerInfoResponse;
+    /**
+     * The incident ID assigned by the incident provider
+     */
+    readonly providerIncidentId: string;
+    /**
+     * The name of the source provider that generated the incident
+     */
+    readonly providerName: string;
     /**
      * List of resource ids of Analytic rules related to the incident
      */
@@ -117,17 +125,21 @@ export interface GetIncidentResult {
      */
     readonly status: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
      * The title of the incident
      */
     readonly title: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * Gets an incident.
- * API Version: 2020-01-01.
+ * Gets a given incident.
+ * API Version: 2023-02-01.
  */
 export function getIncidentOutput(args: GetIncidentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentResult> {
     return pulumi.output(args).apply((a: any) => getIncident(a, opts))
@@ -139,7 +151,7 @@ export interface GetIncidentOutputArgs {
      */
     incidentId: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

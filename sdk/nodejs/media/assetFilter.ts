@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An Asset Filter.
- * API Version: 2020-05-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AssetFilter extends pulumi.CustomResource {
     /**

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the developer portal's content item specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
 
@@ -29,7 +29,7 @@ export interface GetContentItemArgs {
      */
     contentTypeId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -43,11 +43,11 @@ export interface GetContentItemArgs {
  */
 export interface GetContentItemResult {
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -55,13 +55,13 @@ export interface GetContentItemResult {
      */
     readonly properties: any;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Returns the developer portal's content item specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentItemResult> {
     return pulumi.output(args).apply((a: any) => getContentItem(a, opts))
@@ -77,7 +77,7 @@ export interface GetContentItemOutputArgs {
      */
     contentTypeId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -24,15 +24,11 @@ __all__ = [
     'CacheUpgradeStatusResponse',
     'CacheUsernameDownloadSettingsResponse',
     'CacheUsernameDownloadSettingsResponseCredentials',
-    'ClfsTargetResponse',
     'KeyVaultKeyReferenceResponse',
     'KeyVaultKeyReferenceResponseSourceVault',
-    'NamespaceJunctionResponse',
-    'Nfs3TargetResponse',
     'NfsAccessPolicyResponse',
     'NfsAccessRuleResponse',
     'SystemDataResponse',
-    'UnknownTargetResponse',
 ]
 
 @pulumi.output_type
@@ -850,29 +846,6 @@ class CacheUsernameDownloadSettingsResponseCredentials(dict):
 
 
 @pulumi.output_type
-class ClfsTargetResponse(dict):
-    """
-    Properties pertaining to the ClfsTarget
-    """
-    def __init__(__self__, *,
-                 target: Optional[str] = None):
-        """
-        Properties pertaining to the ClfsTarget
-        :param str target: Resource ID of storage container.
-        """
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        Resource ID of storage container.
-        """
-        return pulumi.get(self, "target")
-
-
-@pulumi.output_type
 class KeyVaultKeyReferenceResponse(dict):
     """
     Describes a reference to Key Vault Key.
@@ -945,140 +918,6 @@ class KeyVaultKeyReferenceResponseSourceVault(dict):
         Resource Id.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class NamespaceJunctionResponse(dict):
-    """
-    A namespace junction.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "namespacePath":
-            suggest = "namespace_path"
-        elif key == "nfsAccessPolicy":
-            suggest = "nfs_access_policy"
-        elif key == "nfsExport":
-            suggest = "nfs_export"
-        elif key == "targetPath":
-            suggest = "target_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NamespaceJunctionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NamespaceJunctionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NamespaceJunctionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 namespace_path: Optional[str] = None,
-                 nfs_access_policy: Optional[str] = None,
-                 nfs_export: Optional[str] = None,
-                 target_path: Optional[str] = None):
-        """
-        A namespace junction.
-        :param str namespace_path: Namespace path on a Cache for a Storage Target.
-        :param str nfs_access_policy: Name of the access policy applied to this junction.
-        :param str nfs_export: NFS export where targetPath exists.
-        :param str target_path: Path in Storage Target to which namespacePath points.
-        """
-        if namespace_path is not None:
-            pulumi.set(__self__, "namespace_path", namespace_path)
-        if nfs_access_policy is not None:
-            pulumi.set(__self__, "nfs_access_policy", nfs_access_policy)
-        if nfs_export is not None:
-            pulumi.set(__self__, "nfs_export", nfs_export)
-        if target_path is not None:
-            pulumi.set(__self__, "target_path", target_path)
-
-    @property
-    @pulumi.getter(name="namespacePath")
-    def namespace_path(self) -> Optional[str]:
-        """
-        Namespace path on a Cache for a Storage Target.
-        """
-        return pulumi.get(self, "namespace_path")
-
-    @property
-    @pulumi.getter(name="nfsAccessPolicy")
-    def nfs_access_policy(self) -> Optional[str]:
-        """
-        Name of the access policy applied to this junction.
-        """
-        return pulumi.get(self, "nfs_access_policy")
-
-    @property
-    @pulumi.getter(name="nfsExport")
-    def nfs_export(self) -> Optional[str]:
-        """
-        NFS export where targetPath exists.
-        """
-        return pulumi.get(self, "nfs_export")
-
-    @property
-    @pulumi.getter(name="targetPath")
-    def target_path(self) -> Optional[str]:
-        """
-        Path in Storage Target to which namespacePath points.
-        """
-        return pulumi.get(self, "target_path")
-
-
-@pulumi.output_type
-class Nfs3TargetResponse(dict):
-    """
-    Properties pertaining to the Nfs3Target
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "usageModel":
-            suggest = "usage_model"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Nfs3TargetResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Nfs3TargetResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Nfs3TargetResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 target: Optional[str] = None,
-                 usage_model: Optional[str] = None):
-        """
-        Properties pertaining to the Nfs3Target
-        :param str target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        :param str usage_model: Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
-        """
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-        if usage_model is not None:
-            pulumi.set(__self__, "usage_model", usage_model)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        """
-        return pulumi.get(self, "target")
-
-    @property
-    @pulumi.getter(name="usageModel")
-    def usage_model(self) -> Optional[str]:
-        """
-        Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
-        """
-        return pulumi.get(self, "usage_model")
 
 
 @pulumi.output_type
@@ -1371,45 +1210,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class UnknownTargetResponse(dict):
-    """
-    Properties pertaining to the UnknownTarget
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "unknownMap":
-            suggest = "unknown_map"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UnknownTargetResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UnknownTargetResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UnknownTargetResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 unknown_map: Optional[Mapping[str, str]] = None):
-        """
-        Properties pertaining to the UnknownTarget
-        :param Mapping[str, str] unknown_map: Dictionary of string->string pairs containing information about the Storage Target.
-        """
-        if unknown_map is not None:
-            pulumi.set(__self__, "unknown_map", unknown_map)
-
-    @property
-    @pulumi.getter(name="unknownMap")
-    def unknown_map(self) -> Optional[Mapping[str, str]]:
-        """
-        Dictionary of string->string pairs containing information about the Storage Target.
-        """
-        return pulumi.get(self, "unknown_map")
 
 

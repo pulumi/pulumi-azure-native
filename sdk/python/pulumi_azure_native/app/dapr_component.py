@@ -24,6 +24,7 @@ class DaprComponentArgs:
                  init_timeout: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secret_store_component: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -36,6 +37,7 @@ class DaprComponentArgs:
         :param pulumi.Input[str] init_timeout: Initialization timeout
         :param pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]] metadata: Component metadata
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Names of container apps that can use this Dapr component
+        :param pulumi.Input[str] secret_store_component: Name of a Dapr component to retrieve component secrets from
         :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Dapr component
         :param pulumi.Input[str] version: Component version
         """
@@ -55,6 +57,8 @@ class DaprComponentArgs:
             pulumi.set(__self__, "metadata", metadata)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
+        if secret_store_component is not None:
+            pulumi.set(__self__, "secret_store_component", secret_store_component)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if version is not None:
@@ -157,6 +161,18 @@ class DaprComponentArgs:
         pulumi.set(self, "scopes", value)
 
     @property
+    @pulumi.getter(name="secretStoreComponent")
+    def secret_store_component(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a Dapr component to retrieve component secrets from
+        """
+        return pulumi.get(self, "secret_store_component")
+
+    @secret_store_component.setter
+    def secret_store_component(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_store_component", value)
+
+    @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]]:
         """
@@ -194,12 +210,14 @@ class DaprComponent(pulumi.CustomResource):
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secret_store_component: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Dapr Component.
-        API Version: 2022-03-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,6 +229,7 @@ class DaprComponent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]] metadata: Component metadata
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Names of container apps that can use this Dapr component
+        :param pulumi.Input[str] secret_store_component: Name of a Dapr component to retrieve component secrets from
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]] secrets: Collection of secrets used by a Dapr component
         :param pulumi.Input[str] version: Component version
         """
@@ -222,7 +241,8 @@ class DaprComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Dapr Component.
-        API Version: 2022-03-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DaprComponentArgs args: The arguments to use to populate this resource's properties.
@@ -247,6 +267,7 @@ class DaprComponent(pulumi.CustomResource):
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secret_store_component: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -272,12 +293,13 @@ class DaprComponent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scopes"] = scopes
+            __props__.__dict__["secret_store_component"] = secret_store_component
             __props__.__dict__["secrets"] = secrets
             __props__.__dict__["version"] = version
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220301:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220601preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20221001:DaprComponent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220301:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220601preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20221001:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20221101preview:DaprComponent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DaprComponent, __self__).__init__(
             'azure-native:app:DaprComponent',
@@ -307,6 +329,7 @@ class DaprComponent(pulumi.CustomResource):
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["scopes"] = None
+        __props__.__dict__["secret_store_component"] = None
         __props__.__dict__["secrets"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -360,6 +383,14 @@ class DaprComponent(pulumi.CustomResource):
         Names of container apps that can use this Dapr component
         """
         return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="secretStoreComponent")
+    def secret_store_component(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of a Dapr component to retrieve component secrets from
+        """
+        return pulumi.get(self, "secret_store_component")
 
     @property
     @pulumi.getter

@@ -11,10 +11,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'MigrationRequestPropertiesArgs',
+    'AgentUpdatePropertiesArgs',
+    'MaintenanceWindowPropertiesArgs',
     'MsixPackageApplicationsArgs',
     'MsixPackageDependenciesArgs',
-    'PrivateLinkServiceConnectionStateArgs',
     'RegistrationInfoArgs',
     'ResourceModelWithAllowedPropertySetIdentityArgs',
     'ResourceModelWithAllowedPropertySetPlanArgs',
@@ -25,43 +25,115 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class MigrationRequestPropertiesArgs:
+class AgentUpdatePropertiesArgs:
     def __init__(__self__, *,
-                 migration_path: Optional[pulumi.Input[str]] = None,
-                 operation: Optional[pulumi.Input[Union[str, 'Operation']]] = None):
+                 maintenance_window_time_zone: Optional[pulumi.Input[str]] = None,
+                 maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'SessionHostComponentUpdateType']]] = None,
+                 use_session_host_local_time: Optional[pulumi.Input[bool]] = None):
         """
-        Properties for arm migration.
-        :param pulumi.Input[str] migration_path: The path to the legacy object to migrate.
-        :param pulumi.Input[Union[str, 'Operation']] operation: The type of operation for migration.
+        The session host configuration for updating agent, monitoring agent, and stack component.
+        :param pulumi.Input[str] maintenance_window_time_zone: Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]] maintenance_windows: List of maintenance windows. Maintenance windows are 2 hours long.
+        :param pulumi.Input[Union[str, 'SessionHostComponentUpdateType']] type: The type of maintenance for session host components.
+        :param pulumi.Input[bool] use_session_host_local_time: Whether to use localTime of the virtual machine.
         """
-        if migration_path is not None:
-            pulumi.set(__self__, "migration_path", migration_path)
-        if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+        if maintenance_window_time_zone is not None:
+            pulumi.set(__self__, "maintenance_window_time_zone", maintenance_window_time_zone)
+        if maintenance_windows is not None:
+            pulumi.set(__self__, "maintenance_windows", maintenance_windows)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_session_host_local_time is not None:
+            pulumi.set(__self__, "use_session_host_local_time", use_session_host_local_time)
 
     @property
-    @pulumi.getter(name="migrationPath")
-    def migration_path(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="maintenanceWindowTimeZone")
+    def maintenance_window_time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The path to the legacy object to migrate.
+        Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
         """
-        return pulumi.get(self, "migration_path")
+        return pulumi.get(self, "maintenance_window_time_zone")
 
-    @migration_path.setter
-    def migration_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "migration_path", value)
+    @maintenance_window_time_zone.setter
+    def maintenance_window_time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_window_time_zone", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindows")
+    def maintenance_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]]:
+        """
+        List of maintenance windows. Maintenance windows are 2 hours long.
+        """
+        return pulumi.get(self, "maintenance_windows")
+
+    @maintenance_windows.setter
+    def maintenance_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]]):
+        pulumi.set(self, "maintenance_windows", value)
 
     @property
     @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[Union[str, 'Operation']]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'SessionHostComponentUpdateType']]]:
         """
-        The type of operation for migration.
+        The type of maintenance for session host components.
         """
-        return pulumi.get(self, "operation")
+        return pulumi.get(self, "type")
 
-    @operation.setter
-    def operation(self, value: Optional[pulumi.Input[Union[str, 'Operation']]]):
-        pulumi.set(self, "operation", value)
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'SessionHostComponentUpdateType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="useSessionHostLocalTime")
+    def use_session_host_local_time(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use localTime of the virtual machine.
+        """
+        return pulumi.get(self, "use_session_host_local_time")
+
+    @use_session_host_local_time.setter
+    def use_session_host_local_time(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_session_host_local_time", value)
+
+
+@pulumi.input_type
+class MaintenanceWindowPropertiesArgs:
+    def __init__(__self__, *,
+                 day_of_week: Optional[pulumi.Input['DayOfWeek']] = None,
+                 hour: Optional[pulumi.Input[int]] = None):
+        """
+        Maintenance window starting hour and day of week.
+        :param pulumi.Input['DayOfWeek'] day_of_week: Day of the week.
+        :param pulumi.Input[int] hour: The update start hour of the day. (0 - 23)
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input['DayOfWeek']]:
+        """
+        Day of the week.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input['DayOfWeek']]):
+        pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[pulumi.Input[int]]:
+        """
+        The update start hour of the day. (0 - 23)
+        """
+        return pulumi.get(self, "hour")
+
+    @hour.setter
+    def hour(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hour", value)
 
 
 @pulumi.input_type
@@ -238,62 +310,6 @@ class MsixPackageDependenciesArgs:
     @publisher.setter
     def publisher(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "publisher", value)
-
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[str]]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "actions_required", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reason for approval/rejection of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -591,41 +607,41 @@ class ScalingScheduleArgs:
                  days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  off_peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 off_peak_start_time: Optional[pulumi.Input[str]] = None,
+                 off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
                  peak_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
-                 peak_start_time: Optional[pulumi.Input[str]] = None,
+                 peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
                  ramp_down_capacity_threshold_pct: Optional[pulumi.Input[int]] = None,
                  ramp_down_force_logoff_users: Optional[pulumi.Input[bool]] = None,
                  ramp_down_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
                  ramp_down_minimum_hosts_pct: Optional[pulumi.Input[int]] = None,
                  ramp_down_notification_message: Optional[pulumi.Input[str]] = None,
-                 ramp_down_start_time: Optional[pulumi.Input[str]] = None,
+                 ramp_down_start_time: Optional[pulumi.Input['TimeArgs']] = None,
                  ramp_down_stop_hosts_when: Optional[pulumi.Input[Union[str, 'StopHostsWhen']]] = None,
                  ramp_down_wait_time_minutes: Optional[pulumi.Input[int]] = None,
                  ramp_up_capacity_threshold_pct: Optional[pulumi.Input[int]] = None,
                  ramp_up_load_balancing_algorithm: Optional[pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']]] = None,
                  ramp_up_minimum_hosts_pct: Optional[pulumi.Input[int]] = None,
-                 ramp_up_start_time: Optional[pulumi.Input[str]] = None):
+                 ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None):
         """
-        Scaling plan schedule.
+        A ScalingPlanPooledSchedule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_week: Set of days of the week on which this schedule is active.
-        :param pulumi.Input[str] name: Name of the scaling schedule.
+        :param pulumi.Input[str] name: Name of the ScalingPlanPooledSchedule.
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] off_peak_load_balancing_algorithm: Load balancing algorithm for off-peak period.
-        :param pulumi.Input[str] off_peak_start_time: Starting time for off-peak period.
+        :param pulumi.Input['TimeArgs'] off_peak_start_time: Starting time for off-peak period.
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] peak_load_balancing_algorithm: Load balancing algorithm for peak period.
-        :param pulumi.Input[str] peak_start_time: Starting time for peak period.
+        :param pulumi.Input['TimeArgs'] peak_start_time: Starting time for peak period.
         :param pulumi.Input[int] ramp_down_capacity_threshold_pct: Capacity threshold for ramp down period.
         :param pulumi.Input[bool] ramp_down_force_logoff_users: Should users be logged off forcefully from hosts.
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] ramp_down_load_balancing_algorithm: Load balancing algorithm for ramp down period.
         :param pulumi.Input[int] ramp_down_minimum_hosts_pct: Minimum host percentage for ramp down period.
         :param pulumi.Input[str] ramp_down_notification_message: Notification message for users during ramp down period.
-        :param pulumi.Input[str] ramp_down_start_time: Starting time for ramp down period.
+        :param pulumi.Input['TimeArgs'] ramp_down_start_time: Starting time for ramp down period.
         :param pulumi.Input[Union[str, 'StopHostsWhen']] ramp_down_stop_hosts_when: Specifies when to stop hosts during ramp down period.
         :param pulumi.Input[int] ramp_down_wait_time_minutes: Number of minutes to wait to stop hosts during ramp down period.
         :param pulumi.Input[int] ramp_up_capacity_threshold_pct: Capacity threshold for ramp up period.
         :param pulumi.Input[Union[str, 'SessionHostLoadBalancingAlgorithm']] ramp_up_load_balancing_algorithm: Load balancing algorithm for ramp up period.
         :param pulumi.Input[int] ramp_up_minimum_hosts_pct: Minimum host percentage for ramp up period.
-        :param pulumi.Input[str] ramp_up_start_time: Starting time for ramp up period.
+        :param pulumi.Input['TimeArgs'] ramp_up_start_time: Starting time for ramp up period.
         """
         if days_of_week is not None:
             pulumi.set(__self__, "days_of_week", days_of_week)
@@ -680,7 +696,7 @@ class ScalingScheduleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the scaling schedule.
+        Name of the ScalingPlanPooledSchedule.
         """
         return pulumi.get(self, "name")
 
@@ -702,14 +718,14 @@ class ScalingScheduleArgs:
 
     @property
     @pulumi.getter(name="offPeakStartTime")
-    def off_peak_start_time(self) -> Optional[pulumi.Input[str]]:
+    def off_peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
         """
         Starting time for off-peak period.
         """
         return pulumi.get(self, "off_peak_start_time")
 
     @off_peak_start_time.setter
-    def off_peak_start_time(self, value: Optional[pulumi.Input[str]]):
+    def off_peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
         pulumi.set(self, "off_peak_start_time", value)
 
     @property
@@ -726,14 +742,14 @@ class ScalingScheduleArgs:
 
     @property
     @pulumi.getter(name="peakStartTime")
-    def peak_start_time(self) -> Optional[pulumi.Input[str]]:
+    def peak_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
         """
         Starting time for peak period.
         """
         return pulumi.get(self, "peak_start_time")
 
     @peak_start_time.setter
-    def peak_start_time(self, value: Optional[pulumi.Input[str]]):
+    def peak_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
         pulumi.set(self, "peak_start_time", value)
 
     @property
@@ -798,14 +814,14 @@ class ScalingScheduleArgs:
 
     @property
     @pulumi.getter(name="rampDownStartTime")
-    def ramp_down_start_time(self) -> Optional[pulumi.Input[str]]:
+    def ramp_down_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
         """
         Starting time for ramp down period.
         """
         return pulumi.get(self, "ramp_down_start_time")
 
     @ramp_down_start_time.setter
-    def ramp_down_start_time(self, value: Optional[pulumi.Input[str]]):
+    def ramp_down_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
         pulumi.set(self, "ramp_down_start_time", value)
 
     @property
@@ -870,14 +886,14 @@ class ScalingScheduleArgs:
 
     @property
     @pulumi.getter(name="rampUpStartTime")
-    def ramp_up_start_time(self) -> Optional[pulumi.Input[str]]:
+    def ramp_up_start_time(self) -> Optional[pulumi.Input['TimeArgs']]:
         """
         Starting time for ramp up period.
         """
         return pulumi.get(self, "ramp_up_start_time")
 
     @ramp_up_start_time.setter
-    def ramp_up_start_time(self, value: Optional[pulumi.Input[str]]):
+    def ramp_up_start_time(self, value: Optional[pulumi.Input['TimeArgs']]):
         pulumi.set(self, "ramp_up_start_time", value)
 
 

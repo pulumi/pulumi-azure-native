@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
     public sealed class PolicyParametersResponse
     {
         /// <summary>
+        /// Gets or sets the Backup Data Source Parameters
+        /// </summary>
+        public readonly ImmutableArray<Union<Outputs.BlobBackupDatasourceParametersResponse, Outputs.KubernetesClusterBackupDatasourceParametersResponse>> BackupDatasourceParametersList;
+        /// <summary>
         /// Gets or sets the DataStore Parameters
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureOperationalStoreParametersResponse> DataStoreParametersList;
 
         [OutputConstructor]
-        private PolicyParametersResponse(ImmutableArray<Outputs.AzureOperationalStoreParametersResponse> dataStoreParametersList)
+        private PolicyParametersResponse(
+            ImmutableArray<Union<Outputs.BlobBackupDatasourceParametersResponse, Outputs.KubernetesClusterBackupDatasourceParametersResponse>> backupDatasourceParametersList,
+
+            ImmutableArray<Outputs.AzureOperationalStoreParametersResponse> dataStoreParametersList)
         {
+            BackupDatasourceParametersList = backupDatasourceParametersList;
             DataStoreParametersList = dataStoreParametersList;
         }
     }

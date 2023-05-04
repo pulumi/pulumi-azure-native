@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VpnConnectionInitArgs', 'VpnConnection']
+__all__ = ['VpnConnectionArgs', 'VpnConnection']
 
 @pulumi.input_type
-class VpnConnectionInitArgs:
+class VpnConnectionArgs:
     def __init__(__self__, *,
                  gateway_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -180,12 +180,7 @@ class VpnConnectionInitArgs:
         pulumi.set(self, "shared_key", value)
 
 
-warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class VpnConnection(pulumi.CustomResource):
-    warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -221,18 +216,18 @@ class VpnConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpnConnectionInitArgs,
+                 args: VpnConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnConnection Resource.
 
         :param str resource_name: The name of the resource.
-        :param VpnConnectionInitArgs args: The arguments to use to populate this resource's properties.
+        :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpnConnectionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -252,14 +247,13 @@ class VpnConnection(pulumi.CustomResource):
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VpnConnection is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpnConnectionInitArgs.__new__(VpnConnectionInitArgs)
+            __props__ = VpnConnectionArgs.__new__(VpnConnectionArgs)
 
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["enable_bgp"] = enable_bgp
@@ -281,7 +275,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["ingress_bytes_transferred"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20201101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20210201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20210301:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20210501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20210801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20220101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20220501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20220701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20220901:VpnConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20201101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20210201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20210301:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20210501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20210801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20220101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20220501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20220701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20220901:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20221101:VpnConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnConnection, __self__).__init__(
             'azure-native:network/v20180401:VpnConnection',
@@ -303,7 +297,7 @@ class VpnConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VpnConnectionInitArgs.__new__(VpnConnectionInitArgs)
+        __props__ = VpnConnectionArgs.__new__(VpnConnectionArgs)
 
         __props__.__dict__["connection_bandwidth"] = None
         __props__.__dict__["connection_status"] = None

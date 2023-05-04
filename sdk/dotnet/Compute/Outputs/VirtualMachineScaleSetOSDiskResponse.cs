@@ -25,11 +25,15 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string CreateOption;
         /// <summary>
+        /// Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only). &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS disk is deleted when VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the OS disk is retained after VMSS Flex VM is deleted. &lt;br&gt;&lt;br&gt; The default value is set to **Delete**. For an Ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for Ephemeral OS Disk.
+        /// </summary>
+        public readonly string? DeleteOption;
+        /// <summary>
         /// Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
         /// </summary>
         public readonly Outputs.DiffDiskSettingsResponse? DiffDiskSettings;
         /// <summary>
-        /// Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB
+        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023
         /// </summary>
         public readonly int? DiskSizeGB;
         /// <summary>
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string createOption,
 
+            string? deleteOption,
+
             Outputs.DiffDiskSettingsResponse? diffDiskSettings,
 
             int? diskSizeGB,
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         {
             Caching = caching;
             CreateOption = createOption;
+            DeleteOption = deleteOption;
             DiffDiskSettings = diffDiskSettings;
             DiskSizeGB = diskSizeGB;
             Image = image;

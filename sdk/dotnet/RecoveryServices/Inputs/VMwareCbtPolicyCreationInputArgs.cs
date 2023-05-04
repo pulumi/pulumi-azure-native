@@ -31,8 +31,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The class type.
         /// Expected value is 'VMwareCbt'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// The duration in minutes until which the recovery points need to be stored.

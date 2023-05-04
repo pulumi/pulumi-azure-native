@@ -46,7 +46,6 @@ from .get_web_app_slot import *
 from .get_web_app_slot_configuration_names import *
 from .get_web_app_source_control import *
 from .get_web_app_source_control_slot import *
-from .get_web_app_swift_virtual_network_connection import *
 from .get_web_app_vnet_connection import *
 from .get_web_app_vnet_connection_slot import *
 from .list_app_service_plan_hybrid_connection_keys import *
@@ -133,7 +132,6 @@ from .web_app_slot import *
 from .web_app_slot_configuration_names import *
 from .web_app_source_control import *
 from .web_app_source_control_slot import *
-from .web_app_swift_virtual_network_connection import *
 from .web_app_vnet_connection import *
 from .web_app_vnet_connection_slot import *
 from ._inputs import *

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
     /// <summary>
     /// Description of an API Management service resource.
     /// </summary>
-    [Obsolete(@"Version 2016-07-07 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20160707:ApiManagementService")]
     public partial class ApiManagementService : global::Pulumi.CustomResource
     {
@@ -189,6 +188,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiManagementService"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ApiManagementService"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:ApiManagementService"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ApiManagementService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

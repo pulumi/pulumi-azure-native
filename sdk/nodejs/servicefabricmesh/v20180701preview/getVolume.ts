@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the information about the volume resource with a given name. This information includes the volume description and other runtime information.
  */
-/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-    pulumi.log.warn("getVolume is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180701preview:getVolume", {
@@ -76,7 +74,6 @@ export interface GetVolumeResult {
 /**
  * Gets the information about the volume resource with a given name. This information includes the volume description and other runtime information.
  */
-/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }

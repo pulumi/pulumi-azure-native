@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a partner topic.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getPartnerTopic(args: GetPartnerTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicResult> {
 
@@ -100,7 +100,7 @@ export interface GetPartnerTopicResult {
 }
 /**
  * Get properties of a partner topic.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getPartnerTopicOutput(args: GetPartnerTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicResult> {
     return pulumi.output(args).apply((a: any) => getPartnerTopic(a, opts))

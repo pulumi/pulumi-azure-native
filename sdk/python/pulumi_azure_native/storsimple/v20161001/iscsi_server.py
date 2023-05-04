@@ -158,12 +158,7 @@ class IscsiServerArgs:
         pulumi.set(self, "reverse_chap_id", value)
 
 
-warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class IscsiServer(pulumi.CustomResource):
-    warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,7 +222,6 @@ class IscsiServer(pulumi.CustomResource):
                  reverse_chap_id: Optional[pulumi.Input[str]] = None,
                  storage_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""IscsiServer is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

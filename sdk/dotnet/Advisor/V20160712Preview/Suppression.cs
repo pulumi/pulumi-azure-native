@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Advisor.V20160712Preview
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     /// </summary>
-    [Obsolete(@"Version 2016-07-12-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:advisor/v20160712preview:Suppression")]
     public partial class Suppression : global::Pulumi.CustomResource
     {
@@ -83,6 +82,7 @@ namespace Pulumi.AzureNative.Advisor.V20160712Preview
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20220901:Suppression"},
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20221001:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20230101:Suppression"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

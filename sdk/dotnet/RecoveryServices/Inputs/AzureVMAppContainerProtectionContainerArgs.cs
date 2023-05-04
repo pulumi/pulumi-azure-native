@@ -62,6 +62,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.OperationType>? OperationType { get; set; }
 
         /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        [Input("protectableObjectType")]
+        public Input<string>? ProtectableObjectType { get; set; }
+
+        /// <summary>
         /// Status of registration of the container with the Recovery Services Vault.
         /// </summary>
         [Input("registrationStatus")]

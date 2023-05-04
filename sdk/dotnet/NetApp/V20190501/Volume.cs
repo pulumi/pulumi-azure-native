@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.NetApp.V20190501
     /// <summary>
     /// Volume resource
     /// </summary>
-    [Obsolete(@"Version 2019-05-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20190501:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {

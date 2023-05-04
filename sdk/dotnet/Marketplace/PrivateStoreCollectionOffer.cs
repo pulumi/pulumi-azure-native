@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Marketplace
 {
     /// <summary>
     /// The privateStore offer data structure.
-    /// API Version: 2021-12-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollectionOffer")]
     public partial class PrivateStoreCollectionOffer : global::Pulumi.CustomResource

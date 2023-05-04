@@ -22,7 +22,7 @@ class GetASCDataConnectorResult:
     """
     Represents ASC (Azure Security Center) data connector.
     """
-    def __init__(__self__, data_types=None, etag=None, id=None, kind=None, name=None, subscription_id=None, type=None):
+    def __init__(__self__, data_types=None, etag=None, id=None, kind=None, name=None, subscription_id=None, system_data=None, type=None):
         if data_types and not isinstance(data_types, dict):
             raise TypeError("Expected argument 'data_types' to be a dict")
         pulumi.set(__self__, "data_types", data_types)
@@ -41,6 +41,9 @@ class GetASCDataConnectorResult:
         if subscription_id and not isinstance(subscription_id, str):
             raise TypeError("Expected argument 'subscription_id' to be a str")
         pulumi.set(__self__, "subscription_id", subscription_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -65,7 +68,7 @@ class GetASCDataConnectorResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -82,7 +85,7 @@ class GetASCDataConnectorResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -95,10 +98,18 @@ class GetASCDataConnectorResult:
         return pulumi.get(self, "subscription_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -115,6 +126,7 @@ class AwaitableGetASCDataConnectorResult(GetASCDataConnectorResult):
             kind=self.kind,
             name=self.name,
             subscription_id=self.subscription_id,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -124,11 +136,11 @@ def get_asc_data_connector(data_connector_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetASCDataConnectorResult:
     """
     Gets a data connector.
-    API Version: 2020-01-01.
+    API Version: 2023-02-01.
 
 
     :param str data_connector_id: Connector ID
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
@@ -145,6 +157,7 @@ def get_asc_data_connector(data_connector_id: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         subscription_id=__ret__.subscription_id,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -155,11 +168,11 @@ def get_asc_data_connector_output(data_connector_id: Optional[pulumi.Input[str]]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetASCDataConnectorResult]:
     """
     Gets a data connector.
-    API Version: 2020-01-01.
+    API Version: 2023-02-01.
 
 
     :param str data_connector_id: Connector ID
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     ...

@@ -161,7 +161,7 @@ export class AccessReviewHistoryDefinitionById extends pulumi.CustomResource {
             resourceInputs["userPrincipalName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization:AccessReviewHistoryDefinitionById" }, { type: "azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessReviewHistoryDefinitionById.__pulumiType, name, resourceInputs, opts);
     }

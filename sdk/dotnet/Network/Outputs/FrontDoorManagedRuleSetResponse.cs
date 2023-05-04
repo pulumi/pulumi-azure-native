@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontDoorManagedRuleGroupOverrideResponse> RuleGroupOverrides;
         /// <summary>
-        /// Defines the action to take when a managed rule set score threshold is met.
+        /// Defines the rule set action.
         /// </summary>
         public readonly string? RuleSetAction;
         /// <summary>

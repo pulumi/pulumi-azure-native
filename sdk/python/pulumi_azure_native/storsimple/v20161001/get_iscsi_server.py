@@ -16,8 +16,6 @@ __all__ = [
     'get_iscsi_server_output',
 ]
 
-warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetIscsiServerResult:
     """
@@ -144,7 +142,6 @@ def get_iscsi_server(device_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_iscsi_server is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['iscsiServerName'] = iscsi_server_name
@@ -179,5 +176,4 @@ def get_iscsi_server_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_iscsi_server is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     ...

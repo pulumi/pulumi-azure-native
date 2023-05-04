@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get installed extension details by extension id.
- * API Version: 2020-05-12-preview.
+ * API Version: 2021-09-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
@@ -41,6 +41,10 @@ export interface GetExtensionArgs {
  */
 export interface GetExtensionResult {
     /**
+     * Additional api properties.
+     */
+    readonly additionalApiProperties: {[key: string]: outputs.agfoodplatform.ApiPropertiesResponse};
+    /**
      * The ETag value to implement optimistic concurrency.
      */
     readonly eTag: string;
@@ -61,7 +65,7 @@ export interface GetExtensionResult {
      */
     readonly extensionId: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -73,7 +77,7 @@ export interface GetExtensionResult {
      */
     readonly name: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.agfoodplatform.SystemDataResponse;
     /**
@@ -83,7 +87,7 @@ export interface GetExtensionResult {
 }
 /**
  * Get installed extension details by extension id.
- * API Version: 2020-05-12-preview.
+ * API Version: 2021-09-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))

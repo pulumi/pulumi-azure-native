@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Batch.V20200501
     /// <summary>
     /// Contains information about a pool.
     /// </summary>
-    [Obsolete(@"Version 2020-05-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:batch/v20200501:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
     {

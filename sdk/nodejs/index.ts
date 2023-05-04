@@ -101,6 +101,7 @@ import * as eventhub from "./eventhub";
 import * as extendedlocation from "./extendedlocation";
 import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
+import * as graphservices from "./graphservices";
 import * as guestconfiguration from "./guestconfiguration";
 import * as hanaonazure from "./hanaonazure";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
@@ -134,6 +135,7 @@ import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
 import * as managedidentity from "./managedidentity";
 import * as managednetwork from "./managednetwork";
+import * as managednetworkfabric from "./managednetworkfabric";
 import * as managedservices from "./managedservices";
 import * as management from "./management";
 import * as managementpartner from "./managementpartner";
@@ -160,6 +162,7 @@ import * as portal from "./portal";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as professionalservice from "./professionalservice";
 import * as providerhub from "./providerhub";
 import * as purview from "./purview";
 import * as quantum from "./quantum";
@@ -305,6 +308,7 @@ export {
     extendedlocation,
     features,
     fluidrelay,
+    graphservices,
     guestconfiguration,
     hanaonazure,
     hardwaresecuritymodules,
@@ -338,6 +342,7 @@ export {
     maintenance,
     managedidentity,
     managednetwork,
+    managednetworkfabric,
     managedservices,
     management,
     managementpartner,
@@ -364,6 +369,7 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    professionalservice,
     providerhub,
     purview,
     quantum,

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get schedule.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getGlobalSchedule(args: GetGlobalScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalScheduleResult> {
-    pulumi.log.warn("getGlobalSchedule is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getGlobalSchedule", {
@@ -109,7 +107,6 @@ export interface GetGlobalScheduleResult {
 /**
  * Get schedule.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getGlobalScheduleOutput(args: GetGlobalScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalScheduleResult> {
     return pulumi.output(args).apply((a: any) => getGlobalSchedule(a, opts))
 }

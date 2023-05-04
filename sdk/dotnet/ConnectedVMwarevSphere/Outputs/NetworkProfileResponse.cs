@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the network interfaces of the virtual machine.
     /// </summary>
     [OutputType]
     public sealed class NetworkProfileResponse

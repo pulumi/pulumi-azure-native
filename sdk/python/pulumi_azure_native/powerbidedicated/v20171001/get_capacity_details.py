@@ -17,8 +17,6 @@ __all__ = [
     'get_capacity_details_output',
 ]
 
-warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetCapacityDetailsResult:
     """
@@ -189,7 +187,6 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
     :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
     """
-    pulumi.log.warn("""get_capacity_details is deprecated: Version 2017-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['dedicatedCapacityName'] = dedicated_capacity_name
     __args__['resourceGroupName'] = resource_group_name
@@ -222,5 +219,4 @@ def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[s
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
     :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
     """
-    pulumi.log.warn("""get_capacity_details is deprecated: Version 2017-10-01 will be removed in v2 of the provider.""")
     ...

@@ -56,7 +56,7 @@ class GetAzureTrafficCollectorResult:
 
     @property
     @pulumi.getter(name="collectorPolicies")
-    def collector_policies(self) -> Optional[Sequence['outputs.CollectorPolicyResponse']]:
+    def collector_policies(self) -> Sequence['outputs.ResourceReferenceResponse']:
         """
         Collector Policies for Azure Traffic Collector.
         """
@@ -80,7 +80,7 @@ class GetAzureTrafficCollectorResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
         Resource location.
         """
@@ -158,7 +158,7 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureTrafficCollectorResult:
     """
     Gets the specified Azure Traffic Collector in a specified resource group
-    API Version: 2022-05-01.
+    API Version: 2022-11-01.
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
@@ -189,7 +189,7 @@ def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureTrafficCollectorResult]:
     """
     Gets the specified Azure Traffic Collector in a specified resource group
-    API Version: 2022-05-01.
+    API Version: 2022-11-01.
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name

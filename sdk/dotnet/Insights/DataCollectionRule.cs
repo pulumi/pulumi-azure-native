@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
-    /// API Version: 2019-11-01-preview.
+    /// API Version: 2022-06-01.
+    /// Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionRule")]
     public partial class DataCollectionRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource ID of the data collection endpoint that this rule can be used with.
+        /// </summary>
+        [Output("dataCollectionEndpointId")]
+        public Output<string?> DataCollectionEndpointId { get; private set; } = null!;
+
         /// <summary>
         /// The specification of data flows.
         /// </summary>
@@ -48,6 +55,12 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Managed service identity of the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.DataCollectionRuleResourceResponseIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The immutable ID of this data collection rule. This property is READ-ONLY.
         /// </summary>
         [Output("immutableId")]
@@ -66,6 +79,12 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata about the resource
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.DataCollectionRuleResponseMetadata> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
@@ -76,6 +95,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Declaration of custom streams used in this rule.
+        /// </summary>
+        [Output("streamDeclarations")]
+        public Output<ImmutableDictionary<string, Outputs.StreamDeclarationResponse>?> StreamDeclarations { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.DataCollectionRuleResourceResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -142,6 +173,12 @@ namespace Pulumi.AzureNative.Insights
     public sealed class DataCollectionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The resource ID of the data collection endpoint that this rule can be used with.
+        /// </summary>
+        [Input("dataCollectionEndpointId")]
+        public Input<string>? DataCollectionEndpointId { get; set; }
+
+        /// <summary>
         /// The name of the data collection rule. The name is case insensitive.
         /// </summary>
         [Input("dataCollectionRuleName")]
@@ -179,6 +216,12 @@ namespace Pulumi.AzureNative.Insights
         public Input<Inputs.DataCollectionRuleDestinationsArgs>? Destinations { get; set; }
 
         /// <summary>
+        /// Managed service identity of the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DataCollectionRuleResourceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The kind of the resource.
         /// </summary>
         [Input("kind")]
@@ -195,6 +238,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("streamDeclarations")]
+        private InputMap<Inputs.StreamDeclarationArgs>? _streamDeclarations;
+
+        /// <summary>
+        /// Declaration of custom streams used in this rule.
+        /// </summary>
+        public InputMap<Inputs.StreamDeclarationArgs> StreamDeclarations
+        {
+            get => _streamDeclarations ?? (_streamDeclarations = new InputMap<Inputs.StreamDeclarationArgs>());
+            set => _streamDeclarations = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VpnConnection Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnConnection")]
     public partial class VpnConnection : global::Pulumi.CustomResource
@@ -197,6 +198,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VpnConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VpnConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VpnConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VpnConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

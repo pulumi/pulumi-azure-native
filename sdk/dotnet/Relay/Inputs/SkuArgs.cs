@@ -19,13 +19,13 @@ namespace Pulumi.AzureNative.Relay.Inputs
         /// Name of this SKU.
         /// </summary>
         [Input("name", required: true)]
-        public Input<Pulumi.AzureNative.Relay.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Relay.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The tier of this SKU.
         /// </summary>
         [Input("tier")]
-        public Input<Pulumi.AzureNative.Relay.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Relay.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

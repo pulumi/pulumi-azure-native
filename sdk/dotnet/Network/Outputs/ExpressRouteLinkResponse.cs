@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? AdminState;
         /// <summary>
+        /// Cololocation for ExpressRoute Hybrid Direct.
+        /// </summary>
+        public readonly string ColoLocation;
+        /// <summary>
         /// Physical fiber port type.
         /// </summary>
         public readonly string ConnectorType;
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNative.Network.Outputs
         private ExpressRouteLinkResponse(
             string? adminState,
 
+            string coloLocation,
+
             string connectorType,
 
             string etag,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             string routerName)
         {
             AdminState = adminState;
+            ColoLocation = coloLocation;
             ConnectorType = connectorType;
             Etag = etag;
             Id = id;

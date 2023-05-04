@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation that retrieves information about a capacity reservation group.
- * API Version: 2021-04-01.
+ * API Version: 2022-11-01.
  */
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
 
@@ -79,7 +79,7 @@ export interface GetCapacityReservationGroupResult {
 }
 /**
  * The operation that retrieves information about a capacity reservation group.
- * API Version: 2021-04-01.
+ * API Version: 2022-11-01.
  */
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationGroupResult> {
     return pulumi.output(args).apply((a: any) => getCapacityReservationGroup(a, opts))

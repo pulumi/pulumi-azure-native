@@ -10,30 +10,10 @@ export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
 
-export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
-export const getService: typeof import("./getService").getService = null as any;
-export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-
-export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
-export const getTask: typeof import("./getTask").getTask = null as any;
-export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
-utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
-
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
 utilities.lazyLoad(exports, ["Project"], () => require("./project"));
-
-export { ServiceArgs } from "./service";
-export type Service = import("./service").Service;
-export const Service: typeof import("./service").Service = null as any;
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
-
-export { TaskArgs } from "./task";
-export type Task = import("./task").Task;
-export const Task: typeof import("./task").Task = null as any;
-utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 
 
 // Export enums:
@@ -45,10 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:datamigration/v20171115preview:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "azure-native:datamigration/v20171115preview:Service":
-                return new Service(name, <any>undefined, { urn })
-            case "azure-native:datamigration/v20171115preview:Task":
-                return new Task(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

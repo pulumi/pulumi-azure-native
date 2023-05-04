@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.Kusto.Outputs
         /// <summary>
         /// The name of the key vault key.
         /// </summary>
-        public readonly string KeyName;
+        public readonly string? KeyName;
         /// <summary>
         /// The Uri of the key vault.
         /// </summary>
-        public readonly string KeyVaultUri;
+        public readonly string? KeyVaultUri;
         /// <summary>
         /// The version of the key vault key.
         /// </summary>
@@ -35,9 +35,9 @@ namespace Pulumi.AzureNative.Kusto.Outputs
 
         [OutputConstructor]
         private KeyVaultPropertiesResponse(
-            string keyName,
+            string? keyName,
 
-            string keyVaultUri,
+            string? keyVaultUri,
 
             string? keyVersion,
 

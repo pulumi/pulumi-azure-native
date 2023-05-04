@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns a description for the specified topic.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    pulumi.log.warn("getTopic is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20150801:getTopic", {
@@ -138,7 +136,6 @@ export interface GetTopicResult {
 /**
  * Returns a description for the specified topic.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
     return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }

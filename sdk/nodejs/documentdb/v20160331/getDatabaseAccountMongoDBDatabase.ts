@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountMongoDBDatabase(args: GetDatabaseAccountMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountMongoDBDatabaseResult> {
-    pulumi.log.warn("getDatabaseAccountMongoDBDatabase is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20160331:getDatabaseAccountMongoDBDatabase", {
@@ -62,7 +60,6 @@ export interface GetDatabaseAccountMongoDBDatabaseResult {
 /**
  * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountMongoDBDatabaseOutput(args: GetDatabaseAccountMongoDBDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountMongoDBDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountMongoDBDatabase(a, opts))
 }

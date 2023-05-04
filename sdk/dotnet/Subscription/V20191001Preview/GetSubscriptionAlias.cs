@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Subscription.V20191001Preview
 {
-    [Obsolete(@"Version 2019-10-01-preview will be removed in v2 of the provider.")]
     public static class GetSubscriptionAlias
     {
         /// <summary>

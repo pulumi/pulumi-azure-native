@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a read write database.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-12-29.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ReadWriteDatabase")]
     public partial class ReadWriteDatabase : global::Pulumi.CustomResource
@@ -141,6 +142,12 @@ namespace Pulumi.AzureNative.Kusto
 
     public sealed class ReadWriteDatabaseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
+        /// </summary>
+        [Input("callerRole")]
+        public Input<string>? CallerRole { get; set; }
+
         /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>

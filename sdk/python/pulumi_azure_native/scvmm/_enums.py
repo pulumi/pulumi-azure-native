@@ -10,6 +10,7 @@ __all__ = [
     'DynamicMemoryEnabled',
     'InventoryType',
     'LimitCpuForMigration',
+    'ProvisioningAction',
 ]
 
 
@@ -53,3 +54,12 @@ class LimitCpuForMigration(str, Enum):
     """
     FALSE = "false"
     TRUE = "true"
+
+
+class ProvisioningAction(str, Enum):
+    """
+    Gets or sets the guest agent provisioning action.
+    """
+    INSTALL = "install"
+    UNINSTALL = "uninstall"
+    REPAIR = "repair"

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The description of the service.
  * API Version: 2021-03-08.
+ * Previous API Version: 2021-03-08. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.CustomResource {
     /**

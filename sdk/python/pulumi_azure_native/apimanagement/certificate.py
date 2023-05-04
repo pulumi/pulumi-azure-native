@@ -24,7 +24,7 @@ class CertificateArgs:
                  password: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] data: Base 64 encoded certificate using the application/x-pkcs12 representation.
@@ -46,7 +46,7 @@ class CertificateArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -129,7 +129,8 @@ class Certificate(pulumi.CustomResource):
                  __props__=None):
         """
         Certificate details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +138,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] data: Base 64 encoded certificate using the application/x-pkcs12 representation.
         :param pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']] key_vault: KeyVault location details of the certificate.
         :param pulumi.Input[str] password: Password for the Certificate
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
         ...
@@ -148,7 +149,8 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Certificate details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +197,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["subject"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:apimanagement:Certificate',
@@ -247,7 +249,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -271,7 +273,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

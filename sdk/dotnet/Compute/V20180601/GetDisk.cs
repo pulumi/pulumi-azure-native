@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20180601
 {
-    [Obsolete(@"Version 2018-06-01 will be removed in v2 of the provider.")]
     public static class GetDisk
     {
         /// <summary>

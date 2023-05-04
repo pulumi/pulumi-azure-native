@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get lab.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
-    pulumi.log.warn("getLab is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getLab", {
@@ -104,7 +102,6 @@ export interface GetLabResult {
 /**
  * Get lab.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
     return pulumi.output(args).apply((a: any) => getLab(a, opts))
 }

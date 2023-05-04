@@ -16,7 +16,6 @@ __all__ = [
     'DailyRetentionFormatArgs',
     'DailyRetentionScheduleArgs',
     'DayArgs',
-    'IdentityDataArgs',
     'LongTermRetentionPolicyArgs',
     'LongTermSchedulePolicyArgs',
     'MabProtectionPolicyArgs',
@@ -24,7 +23,6 @@ __all__ = [
     'RetentionDurationArgs',
     'SimpleRetentionPolicyArgs',
     'SimpleSchedulePolicyArgs',
-    'SkuArgs',
     'WeeklyRetentionFormatArgs',
     'WeeklyRetentionScheduleArgs',
     'YearlyRetentionScheduleArgs',
@@ -256,29 +254,6 @@ class DayArgs:
     @is_last.setter
     def is_last(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_last", value)
-
-
-@pulumi.input_type
-class IdentityDataArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[str, 'ResourceIdentityType']]):
-        """
-        Identity for the resource.
-        :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The identity type.
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ResourceIdentityType']]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ResourceIdentityType']]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -731,29 +706,6 @@ class SimpleSchedulePolicyArgs:
     @schedule_weekly_frequency.setter
     def schedule_weekly_frequency(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "schedule_weekly_frequency", value)
-
-
-@pulumi.input_type
-class SkuArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'SkuName']]):
-        """
-        Identifies the unique system identifier for each Azure resource.
-        :param pulumi.Input[Union[str, 'SkuName']] name: The Sku name.
-        """
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
-        """
-        The Sku name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

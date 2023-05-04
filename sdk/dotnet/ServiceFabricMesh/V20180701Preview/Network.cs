@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
     /// <summary>
     /// This type describes a network resource.
     /// </summary>
-    [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180701preview:Network")]
     public partial class Network : global::Pulumi.CustomResource
     {

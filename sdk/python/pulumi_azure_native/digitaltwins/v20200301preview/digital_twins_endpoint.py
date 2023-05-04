@@ -83,12 +83,7 @@ class DigitalTwinsEndpointArgs:
         pulumi.set(self, "properties", value)
 
 
-warnings.warn("""Version 2020-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class DigitalTwinsEndpoint(pulumi.CustomResource):
-    warnings.warn("""Version 2020-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -137,7 +132,6 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DigitalTwinsEndpoint is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -17,8 +17,6 @@ __all__ = [
     'get_action_rule_by_name_output',
 ]
 
-warnings.warn("""Version 2018-11-02-privatepreview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetActionRuleByNameResult:
     """
@@ -117,7 +115,6 @@ def get_action_rule_by_name(action_rule_name: Optional[str] = None,
     :param str action_rule_name: The name of action rule that needs to be fetched
     :param str resource_group: Resource group name where the resource is created.
     """
-    pulumi.log.warn("""get_action_rule_by_name is deprecated: Version 2018-11-02-privatepreview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['actionRuleName'] = action_rule_name
     __args__['resourceGroup'] = resource_group
@@ -144,5 +141,4 @@ def get_action_rule_by_name_output(action_rule_name: Optional[pulumi.Input[str]]
     :param str action_rule_name: The name of action rule that needs to be fetched
     :param str resource_group: Resource group name where the resource is created.
     """
-    pulumi.log.warn("""get_action_rule_by_name is deprecated: Version 2018-11-02-privatepreview will be removed in v2 of the provider.""")
     ...

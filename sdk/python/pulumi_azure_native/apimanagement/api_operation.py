@@ -33,7 +33,7 @@ class ApiOperationArgs:
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[str] display_name: Operation Name.
         :param pulumi.Input[str] method: A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         :param pulumi.Input[str] description: Description of the operation. May include HTML formatting tags.
@@ -102,7 +102,7 @@ class ApiOperationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -226,8 +226,9 @@ class ApiOperation(pulumi.CustomResource):
                  url_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Api Operation details.
-        API Version: 2020-12-01.
+        API Operation details.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,7 +239,7 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] policies: Operation Policies
         :param pulumi.Input[pulumi.InputType['RequestContractArgs']] request: An entity containing request details.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponseContractArgs']]]] responses: Array of Operation responses.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]] template_parameters: Collection of URL template parameters.
@@ -251,8 +252,9 @@ class ApiOperation(pulumi.CustomResource):
                  args: ApiOperationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Api Operation details.
-        API Version: 2020-12-01.
+        API Operation details.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApiOperationArgs args: The arguments to use to populate this resource's properties.
@@ -316,7 +318,7 @@ class ApiOperation(pulumi.CustomResource):
             __props__.__dict__["url_template"] = url_template
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiOperation, __self__).__init__(
             'azure-native:apimanagement:ApiOperation',
@@ -380,7 +382,7 @@ class ApiOperation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -420,7 +422,7 @@ class ApiOperation(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

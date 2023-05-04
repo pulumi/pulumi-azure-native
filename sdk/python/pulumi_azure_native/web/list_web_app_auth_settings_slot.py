@@ -170,7 +170,7 @@ class ListWebAppAuthSettingsSlotResult:
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Allowed audience values to consider when validating JWTs issued by 
+        Allowed audience values to consider when validating JSON Web Tokens issued by 
         Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
         allowed audience, regardless of this setting.
         """
@@ -593,8 +593,8 @@ def list_web_app_auth_settings_slot(name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsSlotResult:
     """
-    Gets the Authentication/Authorization settings of an app.
-    API Version: 2020-12-01.
+    Description for Gets the Authentication/Authorization settings of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -659,8 +659,8 @@ def list_web_app_auth_settings_slot_output(name: Optional[pulumi.Input[str]] = N
                                            slot: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAuthSettingsSlotResult]:
     """
-    Gets the Authentication/Authorization settings of an app.
-    API Version: 2020-12-01.
+    Description for Gets the Authentication/Authorization settings of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.

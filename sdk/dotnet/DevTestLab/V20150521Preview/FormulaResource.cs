@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// <summary>
     /// A formula.
     /// </summary>
-    [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:FormulaResource")]
     public partial class FormulaResource : global::Pulumi.CustomResource
     {

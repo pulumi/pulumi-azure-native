@@ -160,8 +160,16 @@ class KubernetesRole(pulumi.CustomResource):
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
                  __props__=None):
         """
-        Kubernetes role.
-        API Version: 2020-12-01.
+        The limited preview of Kubernetes Cluster Management from the Azure supports:
+        1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+        2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+            Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+        3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+            For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+            Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+            By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+           API Version: 2022-03-01.
+           Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,8 +190,16 @@ class KubernetesRole(pulumi.CustomResource):
                  args: KubernetesRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Kubernetes role.
-        API Version: 2020-12-01.
+        The limited preview of Kubernetes Cluster Management from the Azure supports:
+        1. Using a simple turn-key option in Azure Portal, deploy a Kubernetes cluster on your Azure Stack Edge device.
+        2. Configure Kubernetes cluster running on your device with Arc enabled Kubernetes with a click of a button in the Azure Portal.
+            Azure Arc enables organizations to view, manage, and govern their on-premises Kubernetes clusters using the Azure Portal, command line tools, and APIs.
+        3. Easily configure Persistent Volumes using SMB and NFS shares for storing container data.
+            For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
+            Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
+            By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
+           API Version: 2022-03-01.
+           Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param KubernetesRoleArgs args: The arguments to use to populate this resource's properties.
@@ -348,7 +364,7 @@ class KubernetesRole(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Role configured on ASE resource
+        Metadata pertaining to creation and last modification of Role
         """
         return pulumi.get(self, "system_data")
 

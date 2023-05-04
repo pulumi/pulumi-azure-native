@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a virtual machine from a VM scale set.
- * API Version: 2021-03-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMResult> {
 
@@ -65,6 +65,10 @@ export interface GetVirtualMachineScaleSetVMResult {
      * Resource Id
      */
     readonly id: string;
+    /**
+     * The identity of the virtual machine, if configured.
+     */
+    readonly identity?: outputs.compute.VirtualMachineIdentityResponse;
     /**
      * The virtual machine instance ID.
      */
@@ -156,7 +160,7 @@ export interface GetVirtualMachineScaleSetVMResult {
 }
 /**
  * Gets a virtual machine from a VM scale set.
- * API Version: 2021-03-01.
+ * API Version: 2022-11-01.
  */
 export function getVirtualMachineScaleSetVMOutput(args: GetVirtualMachineScaleSetVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVM(a, opts))

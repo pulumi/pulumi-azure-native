@@ -20,6 +20,7 @@ class DataCollectionEndpointArgs:
                  resource_group_name: pulumi.Input[str],
                  data_collection_endpoint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['DataCollectionEndpointResourceIdentityArgs']] = None,
                  immutable_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class DataCollectionEndpointArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
         :param pulumi.Input[str] description: Description of the data collection endpoint.
+        :param pulumi.Input['DataCollectionEndpointResourceIdentityArgs'] identity: Managed service identity of the resource.
         :param pulumi.Input[str] immutable_id: The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
         :param pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']] kind: The kind of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
@@ -41,6 +43,8 @@ class DataCollectionEndpointArgs:
             pulumi.set(__self__, "data_collection_endpoint_name", data_collection_endpoint_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if immutable_id is not None:
             pulumi.set(__self__, "immutable_id", immutable_id)
         if kind is not None:
@@ -87,6 +91,18 @@ class DataCollectionEndpointArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['DataCollectionEndpointResourceIdentityArgs']]:
+        """
+        Managed service identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['DataCollectionEndpointResourceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="immutableId")
@@ -156,6 +172,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_collection_endpoint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionEndpointResourceIdentityArgs']]] = None,
                  immutable_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -165,12 +182,14 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of ARM tracked top level resource.
-        API Version: 2021-09-01-preview.
+        API Version: 2022-06-01.
+        Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
         :param pulumi.Input[str] description: Description of the data collection endpoint.
+        :param pulumi.Input[pulumi.InputType['DataCollectionEndpointResourceIdentityArgs']] identity: Managed service identity of the resource.
         :param pulumi.Input[str] immutable_id: The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
         :param pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']] kind: The kind of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
@@ -186,7 +205,8 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of ARM tracked top level resource.
-        API Version: 2021-09-01-preview.
+        API Version: 2022-06-01.
+        Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DataCollectionEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -205,6 +225,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_collection_endpoint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionEndpointResourceIdentityArgs']]] = None,
                  immutable_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -222,6 +243,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
 
             __props__.__dict__["data_collection_endpoint_name"] = data_collection_endpoint_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["immutable_id"] = immutable_id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -232,8 +254,12 @@ class DataCollectionEndpoint(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["configuration_access"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["failover_configuration"] = None
             __props__.__dict__["logs_ingestion"] = None
+            __props__.__dict__["metadata"] = None
+            __props__.__dict__["metrics_ingestion"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_link_scoped_resources"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -264,12 +290,17 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         __props__.__dict__["configuration_access"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["failover_configuration"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["immutable_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["logs_ingestion"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["metrics_ingestion"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_acls"] = None
+        __props__.__dict__["private_link_scoped_resources"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -299,6 +330,22 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         Resource entity tag (ETag).
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="failoverConfiguration")
+    def failover_configuration(self) -> pulumi.Output['outputs.DataCollectionEndpointResponseFailoverConfiguration']:
+        """
+        Failover configuration on this endpoint. This property is READ-ONLY.
+        """
+        return pulumi.get(self, "failover_configuration")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.DataCollectionEndpointResourceResponseIdentity']]:
+        """
+        Managed service identity of the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="immutableId")
@@ -334,6 +381,22 @@ class DataCollectionEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def metadata(self) -> pulumi.Output['outputs.DataCollectionEndpointResponseMetadata']:
+        """
+        Metadata for the resource. This property is READ-ONLY.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="metricsIngestion")
+    def metrics_ingestion(self) -> pulumi.Output[Optional['outputs.DataCollectionEndpointResponseMetricsIngestion']]:
+        """
+        The endpoint used by clients to ingest metrics.
+        """
+        return pulumi.get(self, "metrics_ingestion")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
@@ -347,6 +410,14 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         Network access control rules for the endpoints.
         """
         return pulumi.get(self, "network_acls")
+
+    @property
+    @pulumi.getter(name="privateLinkScopedResources")
+    def private_link_scoped_resources(self) -> pulumi.Output[Sequence['outputs.PrivateLinkScopedResourceResponse']]:
+        """
+        List of Azure Monitor Private Link Scope Resources to which this data collection endpoint resource is associated. This property is READ-ONLY.
+        """
+        return pulumi.get(self, "private_link_scoped_resources")
 
     @property
     @pulumi.getter(name="provisioningState")

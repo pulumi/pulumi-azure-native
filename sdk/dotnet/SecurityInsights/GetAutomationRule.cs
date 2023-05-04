@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets the automation rule.
-        /// API Version: 2019-01-01-preview.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetAutomationRuleResult> InvokeAsync(GetAutomationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("azure-native:securityinsights:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the automation rule.
-        /// API Version: 2019-01-01-preview.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
@@ -36,13 +36,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string AutomationRuleId { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,13 +62,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> AutomationRuleId { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -96,19 +84,19 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetAutomationRuleResult
     {
         /// <summary>
-        /// The actions to execute when the automation rule is triggered
+        /// The actions to execute when the automation rule is triggered.
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.AutomationRuleModifyPropertiesActionResponse, Outputs.AutomationRuleRunPlaybookActionResponse>> Actions;
         /// <summary>
-        /// Describes the client that created the automation rule
+        /// Information on the client (user or application) that made some action
         /// </summary>
         public readonly Outputs.ClientInfoResponse CreatedBy;
         /// <summary>
-        /// The time the automation rule was created
+        /// The time the automation rule was created.
         /// </summary>
         public readonly string CreatedTimeUtc;
         /// <summary>
-        /// The display name of the automation  rule
+        /// The display name of the automation rule.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
@@ -116,31 +104,35 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Describes the client that last updated the automation rule
+        /// Information on the client (user or application) that made some action
         /// </summary>
         public readonly Outputs.ClientInfoResponse LastModifiedBy;
         /// <summary>
-        /// The last time the automation rule was updated
+        /// The last time the automation rule was updated.
         /// </summary>
         public readonly string LastModifiedTimeUtc;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The order of execution of the automation rule
+        /// The order of execution of the automation rule.
         /// </summary>
         public readonly int Order;
         /// <summary>
-        /// The triggering logic of the automation rule
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Describes automation rule triggering logic.
         /// </summary>
         public readonly Outputs.AutomationRuleTriggeringLogicResponse TriggeringLogic;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -166,6 +158,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             int order,
 
+            Outputs.SystemDataResponse systemData,
+
             Outputs.AutomationRuleTriggeringLogicResponse triggeringLogic,
 
             string type)
@@ -180,6 +174,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             LastModifiedTimeUtc = lastModifiedTimeUtc;
             Name = name;
             Order = order;
+            SystemData = systemData;
             TriggeringLogic = triggeringLogic;
             Type = type;
         }

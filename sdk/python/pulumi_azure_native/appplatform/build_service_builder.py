@@ -111,7 +111,8 @@ class BuildServiceBuilder(pulumi.CustomResource):
                  __props__=None):
         """
         KPack Builder resource
-        API Version: 2022-01-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +130,8 @@ class BuildServiceBuilder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         KPack Builder resource
-        API Version: 2022-01-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param BuildServiceBuilderArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +176,7 @@ class BuildServiceBuilder(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20220101preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220401:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20221201:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:BuildServiceBuilder")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20220101preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220401:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20221201:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:BuildServiceBuilder"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:BuildServiceBuilder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BuildServiceBuilder, __self__).__init__(
             'azure-native:appplatform:BuildServiceBuilder',

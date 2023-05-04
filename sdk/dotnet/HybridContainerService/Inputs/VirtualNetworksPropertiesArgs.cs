@@ -15,8 +15,32 @@ namespace Pulumi.AzureNative.HybridContainerService.Inputs
     /// </summary>
     public sealed class VirtualNetworksPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dnsServers")]
+        private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// Address of the DNS servers associated with the network
+        /// </summary>
+        public InputList<string> DnsServers
+        {
+            get => _dnsServers ?? (_dnsServers = new InputList<string>());
+            set => _dnsServers = value;
+        }
+
+        /// <summary>
+        /// Address of the Gateway associated with the network
+        /// </summary>
+        [Input("gateway")]
+        public Input<string>? Gateway { get; set; }
+
         [Input("infraVnetProfile")]
         public Input<Inputs.VirtualNetworksPropertiesInfraVnetProfileArgs>? InfraVnetProfile { get; set; }
+
+        /// <summary>
+        /// IP Address Prefix of the network
+        /// </summary>
+        [Input("ipAddressPrefix")]
+        public Input<string>? IpAddressPrefix { get; set; }
 
         [Input("vipPool")]
         private InputList<Inputs.VirtualNetworksPropertiesVipPoolArgs>? _vipPool;

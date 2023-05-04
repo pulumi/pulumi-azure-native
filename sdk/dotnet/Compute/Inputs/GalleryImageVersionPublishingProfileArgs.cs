@@ -34,10 +34,28 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<int>? ReplicaCount { get; set; }
 
         /// <summary>
+        /// Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        /// </summary>
+        [Input("replicationMode")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.ReplicationMode>? ReplicationMode { get; set; }
+
+        /// <summary>
         /// Specifies the storage account type to be used to store the image. This property is not updatable.
         /// </summary>
         [Input("storageAccountType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.StorageAccountType>? StorageAccountType { get; set; }
+
+        [Input("targetExtendedLocations")]
+        private InputList<Inputs.GalleryTargetExtendedLocationArgs>? _targetExtendedLocations;
+
+        /// <summary>
+        /// The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        /// </summary>
+        public InputList<Inputs.GalleryTargetExtendedLocationArgs> TargetExtendedLocations
+        {
+            get => _targetExtendedLocations ?? (_targetExtendedLocations = new InputList<Inputs.GalleryTargetExtendedLocationArgs>());
+            set => _targetExtendedLocations = value;
+        }
 
         [Input("targetRegions")]
         private InputList<Inputs.TargetRegionArgs>? _targetRegions;

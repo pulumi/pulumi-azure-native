@@ -33,16 +33,16 @@ namespace Pulumi.AzureNative.Network.Inputs
             set => _addressPrefixes = value;
         }
 
-        [Input("applicationGatewayIpConfigurations")]
-        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIpConfigurations;
+        [Input("applicationGatewayIPConfigurations")]
+        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIPConfigurations;
 
         /// <summary>
         /// Application gateway IP configurations of virtual network resource.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIpConfigurations
+        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIPConfigurations
         {
-            get => _applicationGatewayIpConfigurations ?? (_applicationGatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
-            set => _applicationGatewayIpConfigurations = value;
+            get => _applicationGatewayIPConfigurations ?? (_applicationGatewayIPConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
+            set => _applicationGatewayIPConfigurations = value;
         }
 
         [Input("delegations")]
@@ -56,6 +56,12 @@ namespace Pulumi.AzureNative.Network.Inputs
             get => _delegations ?? (_delegations = new InputList<Inputs.DelegationArgs>());
             set => _delegations = value;
         }
+
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -106,10 +112,40 @@ namespace Pulumi.AzureNative.Network.Inputs
         public InputUnion<string, Pulumi.AzureNative.Network.VirtualNetworkPrivateLinkServiceNetworkPolicies>? PrivateLinkServiceNetworkPolicies { get; set; }
 
         /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        [Input("resourceNavigationLinks")]
+        private InputList<Inputs.ResourceNavigationLinkArgs>? _resourceNavigationLinks;
+
+        /// <summary>
+        /// Gets an array of references to the external resources using subnet.
+        /// </summary>
+        public InputList<Inputs.ResourceNavigationLinkArgs> ResourceNavigationLinks
+        {
+            get => _resourceNavigationLinks ?? (_resourceNavigationLinks = new InputList<Inputs.ResourceNavigationLinkArgs>());
+            set => _resourceNavigationLinks = value;
+        }
+
+        /// <summary>
         /// The reference to the RouteTable resource.
         /// </summary>
         [Input("routeTable")]
         public Input<Inputs.RouteTableArgs>? RouteTable { get; set; }
+
+        [Input("serviceAssociationLinks")]
+        private InputList<Inputs.ServiceAssociationLinkArgs>? _serviceAssociationLinks;
+
+        /// <summary>
+        /// Gets an array of references to services injecting into this subnet.
+        /// </summary>
+        public InputList<Inputs.ServiceAssociationLinkArgs> ServiceAssociationLinks
+        {
+            get => _serviceAssociationLinks ?? (_serviceAssociationLinks = new InputList<Inputs.ServiceAssociationLinkArgs>());
+            set => _serviceAssociationLinks = value;
+        }
 
         [Input("serviceEndpointPolicies")]
         private InputList<Inputs.ServiceEndpointPolicyArgs>? _serviceEndpointPolicies;
@@ -143,7 +179,7 @@ namespace Pulumi.AzureNative.Network.Inputs
 
         public SubnetArgs()
         {
-            PrivateEndpointNetworkPolicies = "Enabled";
+            PrivateEndpointNetworkPolicies = "Disabled";
             PrivateLinkServiceNetworkPolicies = "Enabled";
         }
         public static new SubnetArgs Empty => new SubnetArgs();

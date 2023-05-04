@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the variable identified by variable name.
- * API Version: 2019-06-01.
+ * API Version: 2022-08-08.
  */
 export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
 
@@ -72,7 +72,7 @@ export interface GetVariableResult {
 }
 /**
  * Retrieve the variable identified by variable name.
- * API Version: 2019-06-01.
+ * API Version: 2022-08-08.
  */
 export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
     return pulumi.output(args).apply((a: any) => getVariable(a, opts))

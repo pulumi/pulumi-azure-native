@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
     /// <summary>
     /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
     /// API Version: 2020-04-01-preview.
+    /// Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:changeanalysis:ConfigurationProfile")]
     public partial class ConfigurationProfile : global::Pulumi.CustomResource

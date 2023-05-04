@@ -16,20 +16,20 @@ namespace Pulumi.AzureNative.Cdn.Outputs
     [OutputType]
     public sealed class OriginGroupOverrideActionParametersResponse
     {
-        public readonly string OdataType;
         /// <summary>
         /// defines the OriginGroup that would override the DefaultOriginGroup.
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse OriginGroup;
+        public readonly string TypeName;
 
         [OutputConstructor]
         private OriginGroupOverrideActionParametersResponse(
-            string odataType,
+            Outputs.ResourceReferenceResponse originGroup,
 
-            Outputs.ResourceReferenceResponse originGroup)
+            string typeName)
         {
-            OdataType = odataType;
             OriginGroup = originGroup;
+            TypeName = typeName;
         }
     }
 }

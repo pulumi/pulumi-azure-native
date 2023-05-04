@@ -19,13 +19,9 @@ __all__ = [
     'DeploymentPropertiesExtendedResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorResponseResponse',
-    'IdentityResponse',
     'ParametersLinkResponse',
-    'PlanResponse',
     'ProviderResourceTypeResponse',
     'ProviderResponse',
-    'ResourceGroupPropertiesResponse',
-    'SkuResponse',
     'TemplateLinkResponse',
     'ZoneMappingResponse',
 ]
@@ -557,70 +553,6 @@ class ErrorResponseResponse(dict):
 
 
 @pulumi.output_type
-class IdentityResponse(dict):
-    """
-    Identity for the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None):
-        """
-        Identity for the resource.
-        :param str principal_id: The principal id of resource identity.
-        :param str tenant_id: The tenant id of resource.
-        :param str type: The identity type.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant id of resource.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class ParametersLinkResponse(dict):
     """
     Entity representing the reference to the deployment parameters.
@@ -669,82 +601,6 @@ class ParametersLinkResponse(dict):
         If included it must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
-
-
-@pulumi.output_type
-class PlanResponse(dict):
-    """
-    Plan for the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "promotionCode":
-            suggest = "promotion_code"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlanResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PlanResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PlanResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 product: Optional[str] = None,
-                 promotion_code: Optional[str] = None,
-                 publisher: Optional[str] = None):
-        """
-        Plan for the resource.
-        :param str name: The plan ID.
-        :param str product: The offer ID.
-        :param str promotion_code: The promotion code.
-        :param str publisher: The publisher ID.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if product is not None:
-            pulumi.set(__self__, "product", product)
-        if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
-        if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The plan ID.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def product(self) -> Optional[str]:
-        """
-        The offer ID.
-        """
-        return pulumi.get(self, "product")
-
-    @property
-    @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[str]:
-        """
-        The promotion code.
-        """
-        return pulumi.get(self, "promotion_code")
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> Optional[str]:
-        """
-        The publisher ID.
-        """
-        return pulumi.get(self, "publisher")
 
 
 @pulumi.output_type
@@ -923,128 +779,6 @@ class ProviderResponse(dict):
         The collection of provider resource types.
         """
         return pulumi.get(self, "resource_types")
-
-
-@pulumi.output_type
-class ResourceGroupPropertiesResponse(dict):
-    """
-    The resource group properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceGroupPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceGroupPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: str):
-        """
-        The resource group properties.
-        :param str provisioning_state: The provisioning state. 
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state. 
-        """
-        return pulumi.get(self, "provisioning_state")
-
-
-@pulumi.output_type
-class SkuResponse(dict):
-    """
-    Sku for the resource.
-    """
-    def __init__(__self__, *,
-                 capacity: Optional[int] = None,
-                 family: Optional[str] = None,
-                 model: Optional[str] = None,
-                 name: Optional[str] = None,
-                 size: Optional[str] = None,
-                 tier: Optional[str] = None):
-        """
-        Sku for the resource.
-        :param int capacity: The sku capacity.
-        :param str family: The sku family.
-        :param str model: The sku model.
-        :param str name: The sku name.
-        :param str size: The sku size.
-        :param str tier: The sku tier.
-        """
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if model is not None:
-            pulumi.set(__self__, "model", model)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[int]:
-        """
-        The sku capacity.
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[str]:
-        """
-        The sku family.
-        """
-        return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter
-    def model(self) -> Optional[str]:
-        """
-        The sku model.
-        """
-        return pulumi.get(self, "model")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The sku name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[str]:
-        """
-        The sku size.
-        """
-        return pulumi.get(self, "size")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        The sku tier.
-        """
-        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

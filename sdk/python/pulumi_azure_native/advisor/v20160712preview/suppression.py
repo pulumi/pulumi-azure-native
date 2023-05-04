@@ -129,12 +129,7 @@ class SuppressionArgs:
         pulumi.set(self, "ttl", value)
 
 
-warnings.warn("""Version 2016-07-12-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Suppression(pulumi.CustomResource):
-    warnings.warn("""Version 2016-07-12-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -192,7 +187,6 @@ class Suppression(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Suppression is deprecated: Version 2016-07-12-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -213,7 +207,7 @@ class Suppression(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20200101:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20220901:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20221001:Suppression")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:advisor:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20200101:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20220901:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20221001:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20230101:Suppression")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Suppression, __self__).__init__(
             'azure-native:advisor/v20160712preview:Suppression',

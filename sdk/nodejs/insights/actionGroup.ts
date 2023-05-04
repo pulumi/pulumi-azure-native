@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An action group resource.
- * API Version: 2019-06-01.
+ * API Version: 2023-01-01.
+ * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ActionGroup extends pulumi.CustomResource {
     /**
@@ -62,6 +63,10 @@ export class ActionGroup extends pulumi.CustomResource {
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * The list of event hub receivers that are part of this action group.
+     */
+    public readonly eventHubReceivers!: pulumi.Output<outputs.insights.EventHubReceiverResponse[] | undefined>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
@@ -130,6 +135,7 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
             resourceInputs["emailReceivers"] = args ? args.emailReceivers : undefined;
             resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
+            resourceInputs["eventHubReceivers"] = args ? args.eventHubReceivers : undefined;
             resourceInputs["groupShortName"] = args ? args.groupShortName : undefined;
             resourceInputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -148,6 +154,7 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["azureFunctionReceivers"] = undefined /*out*/;
             resourceInputs["emailReceivers"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["eventHubReceivers"] = undefined /*out*/;
             resourceInputs["groupShortName"] = undefined /*out*/;
             resourceInputs["itsmReceivers"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -198,6 +205,10 @@ export interface ActionGroupArgs {
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
     enabled: pulumi.Input<boolean>;
+    /**
+     * The list of event hub receivers that are part of this action group.
+     */
+    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.insights.EventHubReceiverArgs>[]>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */

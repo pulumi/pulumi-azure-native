@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets information about a snapshot.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-07-02.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a snapshot.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-07-02.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Compute
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
         /// </summary>
         [Input("snapshotName", required: true)]
         public string SnapshotName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
         /// </summary>
         [Input("snapshotName", required: true)]
         public Input<string> SnapshotName { get; set; } = null!;
@@ -72,9 +72,21 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetSnapshotResult
     {
         /// <summary>
+        /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        /// </summary>
+        public readonly double? CompletionPercent;
+        /// <summary>
+        /// Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
+        /// </summary>
+        public readonly Outputs.CopyCompletionErrorResponse? CopyCompletionError;
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         public readonly Outputs.CreationDataResponse CreationData;
+        /// <summary>
+        /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        /// </summary>
+        public readonly string? DataAccessAuthMode;
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
         /// </summary>
@@ -116,6 +128,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly bool? Incremental;
         /// <summary>
+        /// Incremental snapshots for a disk share an incremental snapshot family id. The Get Page Range Diff API can only be called on incremental snapshots with the same family id.
+        /// </summary>
+        public readonly string IncrementalSnapshotFamilyId;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -140,13 +156,25 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Policy for controlling export on the disk.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Purchase plan information for the image from which the source disk for the snapshot was originally created.
         /// </summary>
         public readonly Outputs.PurchasePlanResponse? PurchasePlan;
         /// <summary>
+        /// Contains the security related information for the resource.
+        /// </summary>
+        public readonly Outputs.DiskSecurityProfileResponse? SecurityProfile;
+        /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         /// </summary>
         public readonly Outputs.SnapshotSkuResponse? Sku;
+        /// <summary>
+        /// List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+        /// </summary>
+        public readonly Outputs.SupportedCapabilitiesResponse? SupportedCapabilities;
         /// <summary>
         /// Indicates the OS on a snapshot supports hibernation.
         /// </summary>
@@ -170,7 +198,13 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetSnapshotResult(
+            double? completionPercent,
+
+            Outputs.CopyCompletionErrorResponse? copyCompletionError,
+
             Outputs.CreationDataResponse creationData,
+
+            string? dataAccessAuthMode,
 
             string? diskAccessId,
 
@@ -192,6 +226,8 @@ namespace Pulumi.AzureNative.Compute
 
             bool? incremental,
 
+            string incrementalSnapshotFamilyId,
+
             string location,
 
             string managedBy,
@@ -204,9 +240,15 @@ namespace Pulumi.AzureNative.Compute
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             Outputs.PurchasePlanResponse? purchasePlan,
 
+            Outputs.DiskSecurityProfileResponse? securityProfile,
+
             Outputs.SnapshotSkuResponse? sku,
+
+            Outputs.SupportedCapabilitiesResponse? supportedCapabilities,
 
             bool? supportsHibernation,
 
@@ -218,7 +260,10 @@ namespace Pulumi.AzureNative.Compute
 
             string uniqueId)
         {
+            CompletionPercent = completionPercent;
+            CopyCompletionError = copyCompletionError;
             CreationData = creationData;
+            DataAccessAuthMode = dataAccessAuthMode;
             DiskAccessId = diskAccessId;
             DiskSizeBytes = diskSizeBytes;
             DiskSizeGB = diskSizeGB;
@@ -229,14 +274,18 @@ namespace Pulumi.AzureNative.Compute
             HyperVGeneration = hyperVGeneration;
             Id = id;
             Incremental = incremental;
+            IncrementalSnapshotFamilyId = incrementalSnapshotFamilyId;
             Location = location;
             ManagedBy = managedBy;
             Name = name;
             NetworkAccessPolicy = networkAccessPolicy;
             OsType = osType;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             PurchasePlan = purchasePlan;
+            SecurityProfile = securityProfile;
             Sku = sku;
+            SupportedCapabilities = supportedCapabilities;
             SupportsHibernation = supportsHibernation;
             Tags = tags;
             TimeCreated = timeCreated;

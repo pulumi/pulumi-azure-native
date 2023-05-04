@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HybridContainerService
 {
     /// <summary>
     /// Defines the hybridIdentityMetadata.
-    /// API Version: 2022-05-01-preview.
+    /// API Version: 2022-09-01-preview.
+    /// Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:HybridIdentityMetadatum")]
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource
@@ -84,6 +85,7 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:HybridIdentityMetadatum"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,12 +122,6 @@ namespace Pulumi.AzureNative.HybridContainerService
         public Input<Inputs.ProvisionedClusterIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Parameter for the name of the provisioned cluster
-        /// </summary>
-        [Input("provisionedClustersName", required: true)]
-        public Input<string> ProvisionedClustersName { get; set; } = null!;
-
-        /// <summary>
         /// Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
         /// </summary>
         [Input("publicKey")]
@@ -136,6 +132,12 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parameter for the name of the provisioned cluster
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Unique id of the parent provisioned cluster resource.

@@ -17,8 +17,6 @@ __all__ = [
     'get_order_output',
 ]
 
-warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetOrderResult:
     """
@@ -165,7 +163,6 @@ def get_order(device_name: Optional[str] = None,
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_order is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
@@ -196,5 +193,4 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_order is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.""")
     ...

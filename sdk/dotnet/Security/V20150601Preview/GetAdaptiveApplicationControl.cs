@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20150601Preview
 {
-    [Obsolete(@"Version 2015-06-01-preview will be removed in v2 of the provider.")]
     public static class GetAdaptiveApplicationControl
     {
         /// <summary>

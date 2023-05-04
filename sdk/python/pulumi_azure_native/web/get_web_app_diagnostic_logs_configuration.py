@@ -133,8 +133,8 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
                                               resource_group_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDiagnosticLogsConfigurationResult:
     """
-    Gets the logging configuration of an app.
-    API Version: 2020-12-01.
+    Description for Gets the logging configuration of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -162,8 +162,8 @@ def get_web_app_diagnostic_logs_configuration_output(name: Optional[pulumi.Input
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDiagnosticLogsConfigurationResult]:
     """
-    Gets the logging configuration of an app.
-    API Version: 2020-12-01.
+    Description for Gets the logging configuration of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NotificationHubs.V20160301
 {
-    [Obsolete(@"Version 2016-03-01 will be removed in v2 of the provider.")]
     public static class GetNotificationHubAuthorizationRule
     {
         /// <summary>

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the extension.
  */
-/** @deprecated Version 2019-08-02-preview will be removed in v2 of the provider. */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
-    pulumi.log.warn("getMachineExtension is deprecated: Version 2019-08-02-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20190802preview:getMachineExtension", {
@@ -105,7 +103,6 @@ export interface GetMachineExtensionResult {
 /**
  * The operation to get the extension.
  */
-/** @deprecated Version 2019-08-02-preview will be removed in v2 of the provider. */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
     return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
 }

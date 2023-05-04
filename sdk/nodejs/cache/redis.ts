@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A single Redis item in List or Get Operation.
- * API Version: 2020-06-01.
+ * API Version: 2022-06-01.
+ * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Redis extends pulumi.CustomResource {
     /**
@@ -51,6 +52,10 @@ export class Redis extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
+     * The identity of the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.cache.ManagedServiceIdentityResponse | undefined>;
+    /**
      * List of the Redis instances associated with the cache
      */
     public /*out*/ readonly instances!: pulumi.Output<outputs.cache.RedisInstanceDetailsResponse[]>;
@@ -67,7 +72,7 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -91,13 +96,17 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly redisConfiguration!: pulumi.Output<outputs.cache.RedisCommonPropertiesResponseRedisConfiguration | undefined>;
     /**
-     * Redis version.
+     * Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
      */
-    public /*out*/ readonly redisVersion!: pulumi.Output<string>;
+    public readonly redisVersion!: pulumi.Output<string | undefined>;
     /**
-     * The number of replicas to be created per master.
+     * The number of replicas to be created per primary.
      */
     public readonly replicasPerMaster!: pulumi.Output<number | undefined>;
+    /**
+     * The number of replicas to be created per primary.
+     */
+    public readonly replicasPerPrimary!: pulumi.Output<number | undefined>;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
@@ -127,7 +136,7 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -153,12 +162,15 @@ export class Redis extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["enableNonSslPort"] = (args ? args.enableNonSslPort : undefined) ?? false;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
+            resourceInputs["redisVersion"] = args ? args.redisVersion : undefined;
             resourceInputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
+            resourceInputs["replicasPerPrimary"] = args ? args.replicasPerPrimary : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shardCount"] = args ? args.shardCount : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -174,13 +186,13 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["redisVersion"] = undefined /*out*/;
             resourceInputs["sslPort"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessKeys"] = undefined /*out*/;
             resourceInputs["enableNonSslPort"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["linkedServers"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -193,6 +205,7 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["redisConfiguration"] = undefined /*out*/;
             resourceInputs["redisVersion"] = undefined /*out*/;
             resourceInputs["replicasPerMaster"] = undefined /*out*/;
+            resourceInputs["replicasPerPrimary"] = undefined /*out*/;
             resourceInputs["shardCount"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["sslPort"] = undefined /*out*/;
@@ -219,6 +232,10 @@ export interface RedisArgs {
      */
     enableNonSslPort?: pulumi.Input<boolean>;
     /**
+     * The identity of the resource.
+     */
+    identity?: pulumi.Input<inputs.cache.ManagedServiceIdentityArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -239,9 +256,17 @@ export interface RedisArgs {
      */
     redisConfiguration?: pulumi.Input<inputs.cache.RedisCommonPropertiesRedisConfigurationArgs>;
     /**
-     * The number of replicas to be created per master.
+     * Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
+     */
+    redisVersion?: pulumi.Input<string>;
+    /**
+     * The number of replicas to be created per primary.
      */
     replicasPerMaster?: pulumi.Input<number>;
+    /**
+     * The number of replicas to be created per primary.
+     */
+    replicasPerPrimary?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */

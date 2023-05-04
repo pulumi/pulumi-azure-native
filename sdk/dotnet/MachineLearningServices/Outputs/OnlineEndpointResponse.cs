@@ -17,9 +17,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class OnlineEndpointResponse
     {
         /// <summary>
-        /// [Required] Inference endpoint authentication mode type
+        /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
         /// </summary>
         public readonly string AuthMode;
+        /// <summary>
+        /// ARM resource ID of the compute if it exists.
+        /// optional
+        /// </summary>
+        public readonly string? Compute;
         /// <summary>
         /// Description of the inference endpoint.
         /// </summary>
@@ -29,9 +34,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
-        /// State of endpoint provisioning.
+        /// Provisioning state for the endpoint.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Endpoint URI.
         /// </summary>
@@ -41,12 +50,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string SwaggerUri;
         /// <summary>
-        /// ARM resource ID of the compute if it exists.
-        /// optional
-        /// </summary>
-        public readonly string? Target;
-        /// <summary>
-        /// Traffic rules on how the traffic will be routed across deployments.
+        /// Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
         /// </summary>
         public readonly ImmutableDictionary<string, int>? Traffic;
 
@@ -54,27 +58,30 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private OnlineEndpointResponse(
             string authMode,
 
+            string? compute,
+
             string? description,
 
             ImmutableDictionary<string, string>? properties,
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             string scoringUri,
 
             string swaggerUri,
 
-            string? target,
-
             ImmutableDictionary<string, int>? traffic)
         {
             AuthMode = authMode;
+            Compute = compute;
             Description = description;
             Properties = properties;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ScoringUri = scoringUri;
             SwaggerUri = swaggerUri;
-            Target = target;
             Traffic = traffic;
         }
     }

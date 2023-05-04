@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class BatchEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Required] Inference endpoint authentication mode type
+        /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
         /// </summary>
-        [Input("authMode")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EndpointAuthMode>? AuthMode { get; set; }
+        [Input("authMode", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EndpointAuthMode> AuthMode { get; set; } = null!;
+
+        /// <summary>
+        /// Default values for Batch Endpoint
+        /// </summary>
+        [Input("defaults")]
+        public Input<Inputs.BatchEndpointDefaultsArgs>? Defaults { get; set; }
 
         /// <summary>
         /// Description of the inference endpoint.
@@ -44,18 +50,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         {
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
-        }
-
-        [Input("traffic")]
-        private InputMap<int>? _traffic;
-
-        /// <summary>
-        /// Traffic rules on how the traffic will be routed across deployments.
-        /// </summary>
-        public InputMap<int> Traffic
-        {
-            get => _traffic ?? (_traffic = new InputMap<int>());
-            set => _traffic = value;
         }
 
         public BatchEndpointArgs()

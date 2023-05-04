@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an Application Insights component.
- * API Version: 2015-05-01.
+ * API Version: 2020-02-02.
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
 
@@ -60,9 +60,21 @@ export interface GetComponentResult {
      */
     readonly disableIpMasking?: boolean;
     /**
+     * Disable Non-AAD based Auth.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
+     * Resource etag
+     */
+    readonly etag?: string;
+    /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
     readonly flowType?: string;
+    /**
+     * Force users to create their own storage account for profiler and debugger.
+     */
+    readonly forceCustomerStorageForProfiler?: boolean;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
@@ -92,6 +104,10 @@ export interface GetComponentResult {
      */
     readonly kind: string;
     /**
+     * The date which the component got migrated to LA, in ISO 8601 format.
+     */
+    readonly laMigrationDate: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -107,6 +123,14 @@ export interface GetComponentResult {
      * Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
     readonly provisioningState: string;
+    /**
+     * The network access type for accessing Application Insights ingestion.
+     */
+    readonly publicNetworkAccessForIngestion?: string;
+    /**
+     * The network access type for accessing Application Insights query.
+     */
+    readonly publicNetworkAccessForQuery?: string;
     /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
@@ -131,10 +155,14 @@ export interface GetComponentResult {
      * Azure resource type
      */
     readonly type: string;
+    /**
+     * Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+     */
+    readonly workspaceResourceId?: string;
 }
 /**
  * Returns an Application Insights component.
- * API Version: 2015-05-01.
+ * API Version: 2020-02-02.
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
     return pulumi.output(args).apply((a: any) => getComponent(a, opts))

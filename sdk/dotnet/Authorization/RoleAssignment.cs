@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Role Assignments
-    /// API Version: 2020-10-01-preview.
+    /// API Version: 2022-04-01.
+    /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleAssignment")]
     public partial class RoleAssignment : global::Pulumi.CustomResource
@@ -23,7 +24,7 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string?> Condition { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the condition. Currently accepted value is '2.0'
+        /// Version of the condition. Currently the only accepted value is '2.0'
         /// </summary>
         [Output("conditionVersion")]
         public Output<string?> ConditionVersion { get; private set; } = null!;
@@ -164,7 +165,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// Version of the condition. Currently accepted value is '2.0'
+        /// Version of the condition. Currently the only accepted value is '2.0'
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }

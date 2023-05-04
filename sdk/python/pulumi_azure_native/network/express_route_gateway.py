@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ExpressRouteGatewayArgs', 'ExpressRouteGateway']
@@ -18,7 +19,9 @@ class ExpressRouteGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  virtual_hub: pulumi.Input['VirtualHubIdArgs'],
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  auto_scale_configuration: Optional[pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] = None,
+                 express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -27,7 +30,9 @@ class ExpressRouteGatewayArgs:
         The set of arguments for constructing a ExpressRouteGateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['VirtualHubIdArgs'] virtual_hub: The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+        :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Configures this gateway to accept traffic from non Virtual WAN networks.
         :param pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs'] auto_scale_configuration: Configuration for auto scaling.
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]] express_route_connections: List of ExpressRoute connections to the ExpressRoute gateway.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -35,8 +40,12 @@ class ExpressRouteGatewayArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_hub", virtual_hub)
+        if allow_non_virtual_wan_traffic is not None:
+            pulumi.set(__self__, "allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
         if auto_scale_configuration is not None:
             pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
+        if express_route_connections is not None:
+            pulumi.set(__self__, "express_route_connections", express_route_connections)
         if express_route_gateway_name is not None:
             pulumi.set(__self__, "express_route_gateway_name", express_route_gateway_name)
         if id is not None:
@@ -71,6 +80,18 @@ class ExpressRouteGatewayArgs:
         pulumi.set(self, "virtual_hub", value)
 
     @property
+    @pulumi.getter(name="allowNonVirtualWanTraffic")
+    def allow_non_virtual_wan_traffic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Configures this gateway to accept traffic from non Virtual WAN networks.
+        """
+        return pulumi.get(self, "allow_non_virtual_wan_traffic")
+
+    @allow_non_virtual_wan_traffic.setter
+    def allow_non_virtual_wan_traffic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_non_virtual_wan_traffic", value)
+
+    @property
     @pulumi.getter(name="autoScaleConfiguration")
     def auto_scale_configuration(self) -> Optional[pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]:
         """
@@ -81,6 +102,18 @@ class ExpressRouteGatewayArgs:
     @auto_scale_configuration.setter
     def auto_scale_configuration(self, value: Optional[pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]):
         pulumi.set(self, "auto_scale_configuration", value)
+
+    @property
+    @pulumi.getter(name="expressRouteConnections")
+    def express_route_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]]]:
+        """
+        List of ExpressRoute connections to the ExpressRoute gateway.
+        """
+        return pulumi.get(self, "express_route_connections")
+
+    @express_route_connections.setter
+    def express_route_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]]]):
+        pulumi.set(self, "express_route_connections", value)
 
     @property
     @pulumi.getter(name="expressRouteGatewayName")
@@ -136,7 +169,9 @@ class ExpressRouteGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  auto_scale_configuration: Optional[pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]] = None,
+                 express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionArgs']]]]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -146,11 +181,14 @@ class ExpressRouteGateway(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRoute gateway resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Configures this gateway to accept traffic from non Virtual WAN networks.
         :param pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] auto_scale_configuration: Configuration for auto scaling.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionArgs']]]] express_route_connections: List of ExpressRoute connections to the ExpressRoute gateway.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -166,7 +204,8 @@ class ExpressRouteGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoute gateway resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +222,9 @@ class ExpressRouteGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  auto_scale_configuration: Optional[pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]] = None,
+                 express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionArgs']]]]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -199,7 +240,9 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExpressRouteGatewayArgs.__new__(ExpressRouteGatewayArgs)
 
+            __props__.__dict__["allow_non_virtual_wan_traffic"] = allow_non_virtual_wan_traffic
             __props__.__dict__["auto_scale_configuration"] = auto_scale_configuration
+            __props__.__dict__["express_route_connections"] = express_route_connections
             __props__.__dict__["express_route_gateway_name"] = express_route_gateway_name
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
@@ -211,11 +254,10 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_hub'")
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["etag"] = None
-            __props__.__dict__["express_route_connections"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20220101:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20220501:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20220701:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20220901:ExpressRouteGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20220101:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20220501:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20220701:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20220901:ExpressRouteGateway"), pulumi.Alias(type_="azure-native:network/v20221101:ExpressRouteGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteGateway, __self__).__init__(
             'azure-native:network:ExpressRouteGateway',
@@ -239,6 +281,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
         __props__ = ExpressRouteGatewayArgs.__new__(ExpressRouteGatewayArgs)
 
+        __props__.__dict__["allow_non_virtual_wan_traffic"] = None
         __props__.__dict__["auto_scale_configuration"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["express_route_connections"] = None
@@ -249,6 +292,14 @@ class ExpressRouteGateway(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_hub"] = None
         return ExpressRouteGateway(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowNonVirtualWanTraffic")
+    def allow_non_virtual_wan_traffic(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Configures this gateway to accept traffic from non Virtual WAN networks.
+        """
+        return pulumi.get(self, "allow_non_virtual_wan_traffic")
 
     @property
     @pulumi.getter(name="autoScaleConfiguration")
@@ -268,7 +319,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteConnections")
-    def express_route_connections(self) -> pulumi.Output[Sequence['outputs.ExpressRouteConnectionResponse']]:
+    def express_route_connections(self) -> pulumi.Output[Optional[Sequence['outputs.ExpressRouteConnectionResponse']]]:
         """
         List of ExpressRoute connections to the ExpressRoute gateway.
         """

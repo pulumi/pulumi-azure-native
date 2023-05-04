@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster database script.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
 
@@ -66,9 +66,9 @@ export interface GetScriptResult {
      */
     readonly provisioningState: string;
     /**
-     * The url to the KQL script blob file.
+     * The url to the KQL script blob file. Must not be used together with scriptContent property
      */
-    readonly scriptUrl: string;
+    readonly scriptUrl?: string;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -80,7 +80,7 @@ export interface GetScriptResult {
 }
 /**
  * Gets a Kusto cluster database script.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
     return pulumi.output(args).apply((a: any) => getScript(a, opts))

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a link in the hub.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
-    pulumi.log.warn("getLink is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getLink", {
@@ -101,7 +99,6 @@ export interface GetLinkResult {
 /**
  * Gets a link in the hub.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
     return pulumi.output(args).apply((a: any) => getLink(a, opts))
 }

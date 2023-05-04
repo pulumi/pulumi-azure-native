@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetApp.V20170815
 {
-    [Obsolete(@"Version 2017-08-15 will be removed in v2 of the provider.")]
     public static class GetVolume
     {
         /// <summary>

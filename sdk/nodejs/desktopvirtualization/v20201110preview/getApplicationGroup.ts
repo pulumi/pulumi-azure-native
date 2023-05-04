@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get an application group.
  */
-/** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
-    pulumi.log.warn("getApplicationGroup is deprecated: Version 2020-11-10-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20201110preview:getApplicationGroup", {
@@ -77,7 +75,6 @@ export interface GetApplicationGroupResult {
 /**
  * Get an application group.
  */
-/** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGroup(a, opts))
 }

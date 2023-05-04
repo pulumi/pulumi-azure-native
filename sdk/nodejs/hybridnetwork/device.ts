@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Device resource.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
+ * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -63,6 +64,10 @@ export class Device extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -97,6 +102,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["networkFunctions"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["deviceType"] = undefined /*out*/;
@@ -105,6 +111,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["networkFunctions"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

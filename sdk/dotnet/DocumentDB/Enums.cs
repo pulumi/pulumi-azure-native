@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
+    /// Describes the types of schema for analytical storage.
+    /// </summary>
+    [EnumType]
+    public readonly struct AnalyticalStorageSchemaType : IEquatable<AnalyticalStorageSchemaType>
+    {
+        private readonly string _value;
+
+        private AnalyticalStorageSchemaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalyticalStorageSchemaType WellDefined { get; } = new AnalyticalStorageSchemaType("WellDefined");
+        public static AnalyticalStorageSchemaType FullFidelity { get; } = new AnalyticalStorageSchemaType("FullFidelity");
+
+        public static bool operator ==(AnalyticalStorageSchemaType left, AnalyticalStorageSchemaType right) => left.Equals(right);
+        public static bool operator !=(AnalyticalStorageSchemaType left, AnalyticalStorageSchemaType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalyticalStorageSchemaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalyticalStorageSchemaType other && Equals(other);
+        public bool Equals(AnalyticalStorageSchemaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
     /// </summary>
     [EnumType]
@@ -39,6 +70,39 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
+    /// Describes the status of migration between backup policy types.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupPolicyMigrationStatus : IEquatable<BackupPolicyMigrationStatus>
+    {
+        private readonly string _value;
+
+        private BackupPolicyMigrationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupPolicyMigrationStatus Invalid { get; } = new BackupPolicyMigrationStatus("Invalid");
+        public static BackupPolicyMigrationStatus InProgress { get; } = new BackupPolicyMigrationStatus("InProgress");
+        public static BackupPolicyMigrationStatus Completed { get; } = new BackupPolicyMigrationStatus("Completed");
+        public static BackupPolicyMigrationStatus Failed { get; } = new BackupPolicyMigrationStatus("Failed");
+
+        public static bool operator ==(BackupPolicyMigrationStatus left, BackupPolicyMigrationStatus right) => left.Equals(right);
+        public static bool operator !=(BackupPolicyMigrationStatus left, BackupPolicyMigrationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(BackupPolicyMigrationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupPolicyMigrationStatus other && Equals(other);
+        public bool Equals(BackupPolicyMigrationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the mode of backups.
     /// </summary>
     [EnumType]
@@ -62,6 +126,38 @@ namespace Pulumi.AzureNative.DocumentDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BackupPolicyType other && Equals(other);
         public bool Equals(BackupPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum to indicate type of backup residency
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupStorageRedundancy : IEquatable<BackupStorageRedundancy>
+    {
+        private readonly string _value;
+
+        private BackupStorageRedundancy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupStorageRedundancy Geo { get; } = new BackupStorageRedundancy("Geo");
+        public static BackupStorageRedundancy Local { get; } = new BackupStorageRedundancy("Local");
+        public static BackupStorageRedundancy Zone { get; } = new BackupStorageRedundancy("Zone");
+
+        public static bool operator ==(BackupStorageRedundancy left, BackupStorageRedundancy right) => left.Equals(right);
+        public static bool operator !=(BackupStorageRedundancy left, BackupStorageRedundancy right) => !left.Equals(right);
+
+        public static explicit operator string(BackupStorageRedundancy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupStorageRedundancy other && Equals(other);
+        public bool Equals(BackupStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -154,6 +250,37 @@ namespace Pulumi.AzureNative.DocumentDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectorOffer other && Equals(other);
         public bool Equals(ConnectorOffer other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum to indicate the mode of account creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreateMode : IEquatable<CreateMode>
+    {
+        private readonly string _value;
+
+        private CreateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreateMode Default { get; } = new CreateMode("Default");
+        public static CreateMode Restore { get; } = new CreateMode("Restore");
+
+        public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
+        public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);
+
+        public static explicit operator string(CreateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreateMode other && Equals(other);
+        public bool Equals(CreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -392,6 +519,69 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
+    /// The type of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedCassandraResourceIdentityType : IEquatable<ManagedCassandraResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedCassandraResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedCassandraResourceIdentityType SystemAssigned { get; } = new ManagedCassandraResourceIdentityType("SystemAssigned");
+        public static ManagedCassandraResourceIdentityType None { get; } = new ManagedCassandraResourceIdentityType("None");
+
+        public static bool operator ==(ManagedCassandraResourceIdentityType left, ManagedCassandraResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedCassandraResourceIdentityType left, ManagedCassandraResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedCassandraResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedCassandraResourceIdentityType other && Equals(other);
+        public bool Equals(ManagedCassandraResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
+    /// </summary>
+    [EnumType]
+    public readonly struct MinimalTlsVersion : IEquatable<MinimalTlsVersion>
+    {
+        private readonly string _value;
+
+        private MinimalTlsVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MinimalTlsVersion Tls { get; } = new MinimalTlsVersion("Tls");
+        public static MinimalTlsVersion Tls11 { get; } = new MinimalTlsVersion("Tls11");
+        public static MinimalTlsVersion Tls12 { get; } = new MinimalTlsVersion("Tls12");
+
+        public static bool operator ==(MinimalTlsVersion left, MinimalTlsVersion right) => left.Equals(right);
+        public static bool operator !=(MinimalTlsVersion left, MinimalTlsVersion right) => !left.Equals(right);
+
+        public static explicit operator string(MinimalTlsVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MinimalTlsVersion other && Equals(other);
+        public bool Equals(MinimalTlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the Role Definition was built-in or user created.
     /// </summary>
     [EnumType]
@@ -550,6 +740,36 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
+    /// Describes the mode of the restore.
+    /// </summary>
+    [EnumType]
+    public readonly struct RestoreMode : IEquatable<RestoreMode>
+    {
+        private readonly string _value;
+
+        private RestoreMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RestoreMode PointInTime { get; } = new RestoreMode("PointInTime");
+
+        public static bool operator ==(RestoreMode left, RestoreMode right) => left.Equals(right);
+        public static bool operator !=(RestoreMode left, RestoreMode right) => !left.Equals(right);
+
+        public static explicit operator string(RestoreMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RestoreMode other && Equals(other);
+        public bool Equals(RestoreMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the Role Definition was built-in or user created.
     /// </summary>
     [EnumType]
@@ -596,6 +816,7 @@ namespace Pulumi.AzureNative.DocumentDB
         public static ServerVersion ServerVersion_3_2 { get; } = new ServerVersion("3.2");
         public static ServerVersion ServerVersion_3_6 { get; } = new ServerVersion("3.6");
         public static ServerVersion ServerVersion_4_0 { get; } = new ServerVersion("4.0");
+        public static ServerVersion ServerVersion_4_2 { get; } = new ServerVersion("4.2");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);
@@ -659,6 +880,8 @@ namespace Pulumi.AzureNative.DocumentDB
 
         public static ServiceType SqlDedicatedGateway { get; } = new ServiceType("SqlDedicatedGateway");
         public static ServiceType DataTransfer { get; } = new ServiceType("DataTransfer");
+        public static ServiceType GraphAPICompute { get; } = new ServiceType("GraphAPICompute");
+        public static ServiceType MaterializedViewsBuilder { get; } = new ServiceType("MaterializedViewsBuilder");
 
         public static bool operator ==(ServiceType left, ServiceType right) => left.Equals(right);
         public static bool operator !=(ServiceType left, ServiceType right) => !left.Equals(right);

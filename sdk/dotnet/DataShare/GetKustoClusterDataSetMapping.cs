@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetKustoClusterDataSetMappingResult> InvokeAsync(GetKustoClusterDataSetMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoClusterDataSetMappingResult>("azure-native:datashare:getKustoClusterDataSetMapping", args ?? new GetKustoClusterDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSetMapping in a shareSubscription
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetKustoClusterDataSetMappingResult> Invoke(GetKustoClusterDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoClusterDataSetMappingResult>("azure-native:datashare:getKustoClusterDataSetMapping", args ?? new GetKustoClusterDataSetMappingInvokeArgs(), options.WithDefaults());

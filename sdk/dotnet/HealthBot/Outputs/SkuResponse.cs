@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.HealthBot.Outputs
     public sealed class SkuResponse
     {
         /// <summary>
-        /// The name of the HealthBot SKU
+        /// The name of the Azure Health Bot SKU
         /// </summary>
         public readonly string Name;
 

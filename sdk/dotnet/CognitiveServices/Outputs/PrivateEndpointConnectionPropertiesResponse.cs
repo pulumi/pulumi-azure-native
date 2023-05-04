@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private PrivateEndpointConnectionPropertiesResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState)
+            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+
+            string provisioningState)
         {
             GroupIds = groupIds;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
         }
     }
 }

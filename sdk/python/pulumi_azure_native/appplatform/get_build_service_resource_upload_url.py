@@ -62,7 +62,7 @@ def get_build_service_resource_upload_url(build_service_name: Optional[str] = No
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceResourceUploadUrlResult:
     """
     Get an resource upload URL for build service, which may be artifacts or source archive.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-12-01.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -88,7 +88,7 @@ def get_build_service_resource_upload_url_output(build_service_name: Optional[pu
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceResourceUploadUrlResult]:
     """
     Get an resource upload URL for build service, which may be artifacts or source archive.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-12-01.
 
 
     :param str build_service_name: The name of the build service resource.

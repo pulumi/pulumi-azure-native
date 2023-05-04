@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A common class for general resource information.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : global::Pulumi.CustomResource
@@ -59,10 +60,22 @@ namespace Pulumi.AzureNative.Network
         public Output<double> EgressBytesTransferred { get; private set; } = null!;
 
         /// <summary>
+        /// List of egress NatRules.
+        /// </summary>
+        [Output("egressNatRules")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> EgressNatRules { get; private set; } = null!;
+
+        /// <summary>
         /// EnableBgp flag.
         /// </summary>
         [Output("enableBgp")]
         public Output<bool?> EnableBgp { get; private set; } = null!;
+
+        /// <summary>
+        /// Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        /// </summary>
+        [Output("enablePrivateLinkFastPath")]
+        public Output<bool?> EnablePrivateLinkFastPath { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -77,10 +90,22 @@ namespace Pulumi.AzureNative.Network
         public Output<bool?> ExpressRouteGatewayBypass { get; private set; } = null!;
 
         /// <summary>
+        /// GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+        /// </summary>
+        [Output("gatewayCustomBgpIpAddresses")]
+        public Output<ImmutableArray<Outputs.GatewayCustomBgpIpAddressIpConfigurationResponse>> GatewayCustomBgpIpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// The ingress bytes transferred in this connection.
         /// </summary>
         [Output("ingressBytesTransferred")]
         public Output<double> IngressBytesTransferred { get; private set; } = null!;
+
+        /// <summary>
+        /// List of ingress NatRules.
+        /// </summary>
+        [Output("ingressNatRules")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> IngressNatRules { get; private set; } = null!;
 
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
@@ -252,6 +277,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualNetworkGatewayConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetworkGatewayConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualNetworkGatewayConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -305,6 +331,18 @@ namespace Pulumi.AzureNative.Network
         [Input("dpdTimeoutSeconds")]
         public Input<int>? DpdTimeoutSeconds { get; set; }
 
+        [Input("egressNatRules")]
+        private InputList<Inputs.SubResourceArgs>? _egressNatRules;
+
+        /// <summary>
+        /// List of egress NatRules.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> EgressNatRules
+        {
+            get => _egressNatRules ?? (_egressNatRules = new InputList<Inputs.SubResourceArgs>());
+            set => _egressNatRules = value;
+        }
+
         /// <summary>
         /// EnableBgp flag.
         /// </summary>
@@ -312,16 +350,46 @@ namespace Pulumi.AzureNative.Network
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
+        /// Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        /// </summary>
+        [Input("enablePrivateLinkFastPath")]
+        public Input<bool>? EnablePrivateLinkFastPath { get; set; }
+
+        /// <summary>
         /// Bypass ExpressRoute Gateway for data forwarding.
         /// </summary>
         [Input("expressRouteGatewayBypass")]
         public Input<bool>? ExpressRouteGatewayBypass { get; set; }
+
+        [Input("gatewayCustomBgpIpAddresses")]
+        private InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs>? _gatewayCustomBgpIpAddresses;
+
+        /// <summary>
+        /// GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+        /// </summary>
+        public InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs> GatewayCustomBgpIpAddresses
+        {
+            get => _gatewayCustomBgpIpAddresses ?? (_gatewayCustomBgpIpAddresses = new InputList<Inputs.GatewayCustomBgpIpAddressIpConfigurationArgs>());
+            set => _gatewayCustomBgpIpAddresses = value;
+        }
 
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ingressNatRules")]
+        private InputList<Inputs.SubResourceArgs>? _ingressNatRules;
+
+        /// <summary>
+        /// List of ingress NatRules.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> IngressNatRules
+        {
+            get => _ingressNatRules ?? (_ingressNatRules = new InputList<Inputs.SubResourceArgs>());
+            set => _ingressNatRules = value;
+        }
 
         [Input("ipsecPolicies")]
         private InputList<Inputs.IpsecPolicyArgs>? _ipsecPolicies;

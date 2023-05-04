@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DataBox.V20190901
     /// <summary>
     /// Job Resource.
     /// </summary>
-    [Obsolete(@"Version 2019-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databox/v20190901:Job")]
     public partial class Job : global::Pulumi.CustomResource
     {

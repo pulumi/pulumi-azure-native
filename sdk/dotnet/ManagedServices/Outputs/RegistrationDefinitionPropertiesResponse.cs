@@ -11,33 +11,45 @@ namespace Pulumi.AzureNative.ManagedServices.Outputs
 {
 
     /// <summary>
-    /// Properties of a registration definition.
+    /// The properties of a registration definition.
     /// </summary>
     [OutputType]
     public sealed class RegistrationDefinitionPropertiesResponse
     {
         /// <summary>
-        /// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        /// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         /// </summary>
         public readonly ImmutableArray<Outputs.AuthorizationResponse> Authorizations;
         /// <summary>
-        /// Description of the registration definition.
+        /// The description of the registration definition.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Id of the managedBy tenant.
+        /// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EligibleAuthorizationResponse> EligibleAuthorizations;
+        /// <summary>
+        /// The identifier of the managedBy tenant.
         /// </summary>
         public readonly string ManagedByTenantId;
         /// <summary>
-        /// Name of the managedBy tenant.
+        /// The name of the managedBy tenant.
         /// </summary>
         public readonly string ManagedByTenantName;
         /// <summary>
-        /// Current state of the registration definition.
+        /// The identifier of the managed tenant.
+        /// </summary>
+        public readonly string ManageeTenantId;
+        /// <summary>
+        /// The name of the managed tenant.
+        /// </summary>
+        public readonly string ManageeTenantName;
+        /// <summary>
+        /// The current provisioning state of the registration definition.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Name of the registration definition.
+        /// The name of the registration definition.
         /// </summary>
         public readonly string? RegistrationDefinitionName;
 
@@ -47,9 +59,15 @@ namespace Pulumi.AzureNative.ManagedServices.Outputs
 
             string? description,
 
+            ImmutableArray<Outputs.EligibleAuthorizationResponse> eligibleAuthorizations,
+
             string managedByTenantId,
 
             string managedByTenantName,
+
+            string manageeTenantId,
+
+            string manageeTenantName,
 
             string provisioningState,
 
@@ -57,8 +75,11 @@ namespace Pulumi.AzureNative.ManagedServices.Outputs
         {
             Authorizations = authorizations;
             Description = description;
+            EligibleAuthorizations = eligibleAuthorizations;
             ManagedByTenantId = managedByTenantId;
             ManagedByTenantName = managedByTenantName;
+            ManageeTenantId = manageeTenantId;
+            ManageeTenantName = manageeTenantName;
             ProvisioningState = provisioningState;
             RegistrationDefinitionName = registrationDefinitionName;
         }

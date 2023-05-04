@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.SignalRService
 {
     /// <summary>
-    /// Default action when no other rule matches
+    /// Azure Networking ACL Action.
     /// </summary>
     [EnumType]
     public readonly struct ACLAction : IEquatable<ACLAction>
@@ -42,6 +42,8 @@ namespace Pulumi.AzureNative.SignalRService
     /// FeatureFlags is the supported features of Azure SignalR service.
     /// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
     /// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+    /// - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+    /// - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
     /// </summary>
     [EnumType]
     public readonly struct FeatureFlags : IEquatable<FeatureFlags>
@@ -56,6 +58,7 @@ namespace Pulumi.AzureNative.SignalRService
         public static FeatureFlags ServiceMode { get; } = new FeatureFlags("ServiceMode");
         public static FeatureFlags EnableConnectivityLogs { get; } = new FeatureFlags("EnableConnectivityLogs");
         public static FeatureFlags EnableMessagingLogs { get; } = new FeatureFlags("EnableMessagingLogs");
+        public static FeatureFlags EnableLiveTrace { get; } = new FeatureFlags("EnableLiveTrace");
 
         public static bool operator ==(FeatureFlags left, FeatureFlags right) => left.Equals(right);
         public static bool operator !=(FeatureFlags left, FeatureFlags right) => !left.Equals(right);
@@ -65,6 +68,38 @@ namespace Pulumi.AzureNative.SignalRService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FeatureFlags other && Equals(other);
         public bool Equals(FeatureFlags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Represents the identity type: systemAssigned, userAssigned, None
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedIdentityType : IEquatable<ManagedIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedIdentityType None { get; } = new ManagedIdentityType("None");
+        public static ManagedIdentityType SystemAssigned { get; } = new ManagedIdentityType("SystemAssigned");
+        public static ManagedIdentityType UserAssigned { get; } = new ManagedIdentityType("UserAssigned");
+
+        public static bool operator ==(ManagedIdentityType left, ManagedIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedIdentityType left, ManagedIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedIdentityType other && Equals(other);
+        public bool Equals(ManagedIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -106,7 +141,7 @@ namespace Pulumi.AzureNative.SignalRService
     }
 
     /// <summary>
-    /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+    /// The kind of the service, it can be SignalR or RawWebSockets
     /// </summary>
     [EnumType]
     public readonly struct ServiceKind : IEquatable<ServiceKind>
@@ -137,7 +172,7 @@ namespace Pulumi.AzureNative.SignalRService
     }
 
     /// <summary>
-    /// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    /// The incoming request type to the service
     /// </summary>
     [EnumType]
     public readonly struct SignalRRequestType : IEquatable<SignalRRequestType>
@@ -197,6 +232,37 @@ namespace Pulumi.AzureNative.SignalRService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SignalRSkuTier other && Equals(other);
         public bool Equals(SignalRSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Upstream auth type enum.
+    /// </summary>
+    [EnumType]
+    public readonly struct UpstreamAuthType : IEquatable<UpstreamAuthType>
+    {
+        private readonly string _value;
+
+        private UpstreamAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UpstreamAuthType None { get; } = new UpstreamAuthType("None");
+        public static UpstreamAuthType ManagedIdentity { get; } = new UpstreamAuthType("ManagedIdentity");
+
+        public static bool operator ==(UpstreamAuthType left, UpstreamAuthType right) => left.Equals(right);
+        public static bool operator !=(UpstreamAuthType left, UpstreamAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(UpstreamAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpstreamAuthType other && Equals(other);
+        public bool Equals(UpstreamAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the non-security related metadata of an IoT hub.
  */
-/** @deprecated Version 2017-07-01 will be removed in v2 of the provider. */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
-    pulumi.log.warn("getIotHubResource is deprecated: Version 2017-07-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20170701:getIotHubResource", {
@@ -80,7 +78,6 @@ export interface GetIotHubResourceResult {
 /**
  * Get the non-security related metadata of an IoT hub.
  */
-/** @deprecated Version 2017-07-01 will be removed in v2 of the provider. */
 export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceResult> {
     return pulumi.output(args).apply((a: any) => getIotHubResource(a, opts))
 }

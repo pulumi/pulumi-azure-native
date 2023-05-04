@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetExtensionResult> InvokeAsync(GetVirtualMachineScaleSetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetExtensionResult>("azure-native:compute:getVirtualMachineScaleSetExtension", args ?? new GetVirtualMachineScaleSetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetExtensionResult> Invoke(GetVirtualMachineScaleSetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetExtensionResult>("azure-native:compute:getVirtualMachineScaleSetExtension", args ?? new GetVirtualMachineScaleSetExtensionInvokeArgs(), options.WithDefaults());
@@ -120,6 +120,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly object? ProtectedSettings;
         /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        public readonly Outputs.KeyVaultSecretReferenceResponse? ProtectedSettingsFromKeyVault;
+        /// <summary>
         /// Collection of extension names after which this extension needs to be provisioned.
         /// </summary>
         public readonly ImmutableArray<string> ProvisionAfterExtensions;
@@ -135,6 +139,10 @@ namespace Pulumi.AzureNative.Compute
         /// Json formatted public settings for the extension.
         /// </summary>
         public readonly object? Settings;
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        public readonly bool? SuppressFailures;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -158,6 +166,8 @@ namespace Pulumi.AzureNative.Compute
 
             object? protectedSettings,
 
+            Outputs.KeyVaultSecretReferenceResponse? protectedSettingsFromKeyVault,
+
             ImmutableArray<string> provisionAfterExtensions,
 
             string provisioningState,
@@ -165,6 +175,8 @@ namespace Pulumi.AzureNative.Compute
             string? publisher,
 
             object? settings,
+
+            bool? suppressFailures,
 
             string type,
 
@@ -176,10 +188,12 @@ namespace Pulumi.AzureNative.Compute
             Id = id;
             Name = name;
             ProtectedSettings = protectedSettings;
+            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             ProvisionAfterExtensions = provisionAfterExtensions;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SuppressFailures = suppressFailures;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;
         }

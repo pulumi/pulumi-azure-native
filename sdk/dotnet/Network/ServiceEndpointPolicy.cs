@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Service End point policy resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ServiceEndpointPolicy")]
     public partial class ServiceEndpointPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A collection of contextual service endpoint policy.
+        /// </summary>
+        [Output("contextualServiceEndpointPolicies")]
+        public Output<ImmutableArray<string>> ContextualServiceEndpointPolicies { get; private set; } = null!;
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -51,6 +58,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("resourceGuid")]
         public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The alias indicating if the policy belongs to a service
+        /// </summary>
+        [Output("serviceAlias")]
+        public Output<string?> ServiceAlias { get; private set; } = null!;
 
         /// <summary>
         /// A collection of service endpoint policy definitions of the service endpoint policy.
@@ -129,6 +142,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ServiceEndpointPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ServiceEndpointPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ServiceEndpointPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ServiceEndpointPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,6 +166,18 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class ServiceEndpointPolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("contextualServiceEndpointPolicies")]
+        private InputList<string>? _contextualServiceEndpointPolicies;
+
+        /// <summary>
+        /// A collection of contextual service endpoint policy.
+        /// </summary>
+        public InputList<string> ContextualServiceEndpointPolicies
+        {
+            get => _contextualServiceEndpointPolicies ?? (_contextualServiceEndpointPolicies = new InputList<string>());
+            set => _contextualServiceEndpointPolicies = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -169,6 +195,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The alias indicating if the policy belongs to a service
+        /// </summary>
+        [Input("serviceAlias")]
+        public Input<string>? ServiceAlias { get; set; }
 
         [Input("serviceEndpointPolicyDefinitions")]
         private InputList<Inputs.ServiceEndpointPolicyDefinitionArgs>? _serviceEndpointPolicyDefinitions;

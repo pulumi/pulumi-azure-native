@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-10-01-preview.
+ * API Version: 2023-01-01.
+ * Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ResourceGuard extends pulumi.CustomResource {
     /**
@@ -42,10 +43,6 @@ export class ResourceGuard extends pulumi.CustomResource {
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
     /**
-     * Input Managed Identity Details
-     */
-    public readonly identity!: pulumi.Output<outputs.dataprotection.DppIdentityDetailsResponse | undefined>;
-    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -56,7 +53,7 @@ export class ResourceGuard extends pulumi.CustomResource {
     /**
      * ResourceGuardResource properties
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.dataprotection.ResourceGuardResponse>;
+    public readonly properties!: pulumi.Output<outputs.dataprotection.ResourceGuardResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -85,18 +82,16 @@ export class ResourceGuard extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceGuardsName"] = args ? args.resourceGuardsName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["eTag"] = undefined /*out*/;
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -120,15 +115,15 @@ export interface ResourceGuardArgs {
      */
     eTag?: pulumi.Input<string>;
     /**
-     * Input Managed Identity Details
-     */
-    identity?: pulumi.Input<inputs.dataprotection.DppIdentityDetailsArgs>;
-    /**
      * Resource location.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group where the backup vault is present.
+     * ResourceGuardResource properties
+     */
+    properties?: pulumi.Input<inputs.dataprotection.ResourceGuardArgs>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

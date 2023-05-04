@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-11-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Enables or disables a capability on the dedicated host group.&lt;br&gt;&lt;br&gt;Minimum api-version: 2022-03-01.
+        /// </summary>
+        [Output("additionalCapabilities")]
+        public Output<Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
+
         /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.
         /// </summary>
@@ -131,6 +138,12 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class DedicatedHostGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables or disables a capability on the dedicated host group.&lt;br&gt;&lt;br&gt;Minimum api-version: 2022-03-01.
+        /// </summary>
+        [Input("additionalCapabilities")]
+        public Input<Inputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
+
         /// <summary>
         /// The name of the dedicated host group.
         /// </summary>

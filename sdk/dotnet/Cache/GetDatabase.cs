@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets information about a database in a RedisEnterprise cluster.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:cache:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a database in a RedisEnterprise cluster.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:cache:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string? EvictionPolicy;
         /// <summary>
+        /// Optional set of properties to configure geo replication for this database.
+        /// </summary>
+        public readonly Outputs.DatabasePropertiesResponseGeoReplication? GeoReplication;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Cache
 
             string? evictionPolicy,
 
+            Outputs.DatabasePropertiesResponseGeoReplication? geoReplication,
+
             string id,
 
             ImmutableArray<Outputs.ModuleResponse> modules,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNative.Cache
             ClientProtocol = clientProtocol;
             ClusteringPolicy = clusteringPolicy;
             EvictionPolicy = evictionPolicy;
+            GeoReplication = geoReplication;
             Id = id;
             Modules = modules;
             Name = name;

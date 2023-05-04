@@ -21,6 +21,30 @@ namespace Pulumi.AzureNative.Insights.Inputs
         [Input("azureMonitorMetrics")]
         public Input<Inputs.DestinationsSpecAzureMonitorMetricsArgs>? AzureMonitorMetrics { get; set; }
 
+        [Input("eventHubs")]
+        private InputList<Inputs.EventHubDestinationArgs>? _eventHubs;
+
+        /// <summary>
+        /// List of Event Hubs destinations.
+        /// </summary>
+        public InputList<Inputs.EventHubDestinationArgs> EventHubs
+        {
+            get => _eventHubs ?? (_eventHubs = new InputList<Inputs.EventHubDestinationArgs>());
+            set => _eventHubs = value;
+        }
+
+        [Input("eventHubsDirect")]
+        private InputList<Inputs.EventHubDirectDestinationArgs>? _eventHubsDirect;
+
+        /// <summary>
+        /// List of Event Hubs Direct destinations.
+        /// </summary>
+        public InputList<Inputs.EventHubDirectDestinationArgs> EventHubsDirect
+        {
+            get => _eventHubsDirect ?? (_eventHubsDirect = new InputList<Inputs.EventHubDirectDestinationArgs>());
+            set => _eventHubsDirect = value;
+        }
+
         [Input("logAnalytics")]
         private InputList<Inputs.LogAnalyticsDestinationArgs>? _logAnalytics;
 
@@ -31,6 +55,54 @@ namespace Pulumi.AzureNative.Insights.Inputs
         {
             get => _logAnalytics ?? (_logAnalytics = new InputList<Inputs.LogAnalyticsDestinationArgs>());
             set => _logAnalytics = value;
+        }
+
+        [Input("monitoringAccounts")]
+        private InputList<Inputs.MonitoringAccountDestinationArgs>? _monitoringAccounts;
+
+        /// <summary>
+        /// List of monitoring account destinations.
+        /// </summary>
+        public InputList<Inputs.MonitoringAccountDestinationArgs> MonitoringAccounts
+        {
+            get => _monitoringAccounts ?? (_monitoringAccounts = new InputList<Inputs.MonitoringAccountDestinationArgs>());
+            set => _monitoringAccounts = value;
+        }
+
+        [Input("storageAccounts")]
+        private InputList<Inputs.StorageBlobDestinationArgs>? _storageAccounts;
+
+        /// <summary>
+        /// List of storage accounts destinations.
+        /// </summary>
+        public InputList<Inputs.StorageBlobDestinationArgs> StorageAccounts
+        {
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.StorageBlobDestinationArgs>());
+            set => _storageAccounts = value;
+        }
+
+        [Input("storageBlobsDirect")]
+        private InputList<Inputs.StorageBlobDestinationArgs>? _storageBlobsDirect;
+
+        /// <summary>
+        /// List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.
+        /// </summary>
+        public InputList<Inputs.StorageBlobDestinationArgs> StorageBlobsDirect
+        {
+            get => _storageBlobsDirect ?? (_storageBlobsDirect = new InputList<Inputs.StorageBlobDestinationArgs>());
+            set => _storageBlobsDirect = value;
+        }
+
+        [Input("storageTablesDirect")]
+        private InputList<Inputs.StorageTableDestinationArgs>? _storageTablesDirect;
+
+        /// <summary>
+        /// List of Storage Table Direct destinations.
+        /// </summary>
+        public InputList<Inputs.StorageTableDestinationArgs> StorageTablesDirect
+        {
+            get => _storageTablesDirect ?? (_storageTablesDirect = new InputList<Inputs.StorageTableDestinationArgs>());
+            set => _storageTablesDirect = value;
         }
 
         public DataCollectionRuleDestinationsArgs()

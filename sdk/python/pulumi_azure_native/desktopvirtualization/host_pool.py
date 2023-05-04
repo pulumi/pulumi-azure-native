@@ -21,6 +21,7 @@ class HostPoolArgs:
                  load_balancer_type: pulumi.Input[Union[str, 'LoadBalancerType']],
                  preferred_app_group_type: pulumi.Input[Union[str, 'PreferredAppGroupType']],
                  resource_group_name: pulumi.Input[str],
+                 agent_update: Optional[pulumi.Input['AgentUpdatePropertiesArgs']] = None,
                  custom_rdp_property: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,6 @@ class HostPoolArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  max_session_limit: Optional[pulumi.Input[int]] = None,
-                 migration_request: Optional[pulumi.Input['MigrationRequestPropertiesArgs']] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
                  registration_info: Optional[pulumi.Input['RegistrationInfoArgs']] = None,
@@ -50,6 +50,7 @@ class HostPoolArgs:
         :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
         :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['AgentUpdatePropertiesArgs'] agent_update: The session host configuration for updating agent, monitoring agent, and stack component.
         :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.
         :param pulumi.Input[str] description: Description of HostPool.
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
@@ -58,7 +59,6 @@ class HostPoolArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
-        :param pulumi.Input['MigrationRequestPropertiesArgs'] migration_request: The registration info of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
         :param pulumi.Input['RegistrationInfoArgs'] registration_info: The registration info of HostPool.
         :param pulumi.Input[int] ring: The ring number of HostPool.
@@ -75,6 +75,8 @@ class HostPoolArgs:
         pulumi.set(__self__, "load_balancer_type", load_balancer_type)
         pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if agent_update is not None:
+            pulumi.set(__self__, "agent_update", agent_update)
         if custom_rdp_property is not None:
             pulumi.set(__self__, "custom_rdp_property", custom_rdp_property)
         if description is not None:
@@ -93,8 +95,6 @@ class HostPoolArgs:
             pulumi.set(__self__, "managed_by", managed_by)
         if max_session_limit is not None:
             pulumi.set(__self__, "max_session_limit", max_session_limit)
-        if migration_request is not None:
-            pulumi.set(__self__, "migration_request", migration_request)
         if personal_desktop_assignment_type is not None:
             pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
         if plan is not None:
@@ -169,6 +169,18 @@ class HostPoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="agentUpdate")
+    def agent_update(self) -> Optional[pulumi.Input['AgentUpdatePropertiesArgs']]:
+        """
+        The session host configuration for updating agent, monitoring agent, and stack component.
+        """
+        return pulumi.get(self, "agent_update")
+
+    @agent_update.setter
+    def agent_update(self, value: Optional[pulumi.Input['AgentUpdatePropertiesArgs']]):
+        pulumi.set(self, "agent_update", value)
 
     @property
     @pulumi.getter(name="customRdpProperty")
@@ -274,18 +286,6 @@ class HostPoolArgs:
     @max_session_limit.setter
     def max_session_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_session_limit", value)
-
-    @property
-    @pulumi.getter(name="migrationRequest")
-    def migration_request(self) -> Optional[pulumi.Input['MigrationRequestPropertiesArgs']]:
-        """
-        The registration info of HostPool.
-        """
-        return pulumi.get(self, "migration_request")
-
-    @migration_request.setter
-    def migration_request(self, value: Optional[pulumi.Input['MigrationRequestPropertiesArgs']]):
-        pulumi.set(self, "migration_request", value)
 
     @property
     @pulumi.getter(name="personalDesktopAssignmentType")
@@ -443,6 +443,7 @@ class HostPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_update: Optional[pulumi.Input[pulumi.InputType['AgentUpdatePropertiesArgs']]] = None,
                  custom_rdp_property: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
@@ -454,7 +455,6 @@ class HostPool(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  max_session_limit: Optional[pulumi.Input[int]] = None,
-                 migration_request: Optional[pulumi.Input[pulumi.InputType['MigrationRequestPropertiesArgs']]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
@@ -473,10 +473,12 @@ class HostPool(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a HostPool definition.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-09.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AgentUpdatePropertiesArgs']] agent_update: The session host configuration for updating agent, monitoring agent, and stack component.
         :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.
         :param pulumi.Input[str] description: Description of HostPool.
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
@@ -487,7 +489,6 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
-        :param pulumi.Input[pulumi.InputType['MigrationRequestPropertiesArgs']] migration_request: The registration info of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
         :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
         :param pulumi.Input[pulumi.InputType['RegistrationInfoArgs']] registration_info: The registration info of HostPool.
@@ -510,7 +511,8 @@ class HostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a HostPool definition.
-        API Version: 2021-02-01-preview.
+        API Version: 2022-09-09.
+        Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param HostPoolArgs args: The arguments to use to populate this resource's properties.
@@ -527,6 +529,7 @@ class HostPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_update: Optional[pulumi.Input[pulumi.InputType['AgentUpdatePropertiesArgs']]] = None,
                  custom_rdp_property: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
@@ -538,7 +541,6 @@ class HostPool(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  max_session_limit: Optional[pulumi.Input[int]] = None,
-                 migration_request: Optional[pulumi.Input[pulumi.InputType['MigrationRequestPropertiesArgs']]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
@@ -563,6 +565,7 @@ class HostPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HostPoolArgs.__new__(HostPoolArgs)
 
+            __props__.__dict__["agent_update"] = agent_update
             __props__.__dict__["custom_rdp_property"] = custom_rdp_property
             __props__.__dict__["description"] = description
             __props__.__dict__["friendly_name"] = friendly_name
@@ -578,7 +581,6 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["max_session_limit"] = max_session_limit
-            __props__.__dict__["migration_request"] = migration_request
             __props__.__dict__["personal_desktop_assignment_type"] = personal_desktop_assignment_type
             __props__.__dict__["plan"] = plan
             if preferred_app_group_type is None and not opts.urn:
@@ -603,6 +605,7 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["object_id"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:HostPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -628,6 +631,7 @@ class HostPool(pulumi.CustomResource):
 
         __props__ = HostPoolArgs.__new__(HostPoolArgs)
 
+        __props__.__dict__["agent_update"] = None
         __props__.__dict__["application_group_references"] = None
         __props__.__dict__["cloud_pc_resource"] = None
         __props__.__dict__["custom_rdp_property"] = None
@@ -641,7 +645,6 @@ class HostPool(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_by"] = None
         __props__.__dict__["max_session_limit"] = None
-        __props__.__dict__["migration_request"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
         __props__.__dict__["personal_desktop_assignment_type"] = None
@@ -655,11 +658,20 @@ class HostPool(pulumi.CustomResource):
         __props__.__dict__["sso_secret_type"] = None
         __props__.__dict__["ssoadfs_authority"] = None
         __props__.__dict__["start_vm_on_connect"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["validation_environment"] = None
         __props__.__dict__["vm_template"] = None
         return HostPool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="agentUpdate")
+    def agent_update(self) -> pulumi.Output[Optional['outputs.AgentUpdatePropertiesResponse']]:
+        """
+        The session host configuration for updating agent, monitoring agent, and stack component.
+        """
+        return pulumi.get(self, "agent_update")
 
     @property
     @pulumi.getter(name="applicationGroupReferences")
@@ -763,14 +775,6 @@ class HostPool(pulumi.CustomResource):
         return pulumi.get(self, "max_session_limit")
 
     @property
-    @pulumi.getter(name="migrationRequest")
-    def migration_request(self) -> pulumi.Output[Optional['outputs.MigrationRequestPropertiesResponse']]:
-        """
-        The registration info of HostPool.
-        """
-        return pulumi.get(self, "migration_request")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -867,6 +871,14 @@ class HostPool(pulumi.CustomResource):
         The flag to turn on/off StartVMOnConnect feature.
         """
         return pulumi.get(self, "start_vm_on_connect")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

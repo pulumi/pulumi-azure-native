@@ -179,12 +179,7 @@ class ContainerGroupArgs:
         pulumi.set(self, "volumes", value)
 
 
-warnings.warn("""Version 2017-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class ContainerGroup(pulumi.CustomResource):
-    warnings.warn("""Version 2017-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -251,7 +246,6 @@ class ContainerGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ContainerGroup is deprecated: Version 2017-08-01-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -280,7 +274,7 @@ class ContainerGroup(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerinstance:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20171001preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20171201preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20180201preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20180401:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20180601:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20180901:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20181001:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20191201:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20201101:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20210301:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20210701:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20210901:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20211001:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20220901:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20221001preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20230501:ContainerGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerinstance:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20171001preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20171201preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20180201preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20180401:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20180601:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20180901:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20181001:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20191201:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20201101:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20210301:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20210701:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20210901:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20211001:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20220901:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20221001preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20230201preview:ContainerGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20230501:ContainerGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerGroup, __self__).__init__(
             'azure-native:containerinstance/v20170801preview:ContainerGroup',

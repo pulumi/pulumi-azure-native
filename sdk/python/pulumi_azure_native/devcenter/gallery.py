@@ -23,7 +23,7 @@ class GalleryArgs:
         The set of arguments for constructing a Gallery resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[str] gallery_resource_id: The resource ID of the backing Azure Compute Gallery.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] gallery_name: The name of the gallery.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
@@ -60,7 +60,7 @@ class GalleryArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -93,14 +93,15 @@ class Gallery(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a gallery.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[str] gallery_name: The name of the gallery.
         :param pulumi.Input[str] gallery_resource_id: The resource ID of the backing Azure Compute Gallery.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -110,7 +111,8 @@ class Gallery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a gallery.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param GalleryArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +156,7 @@ class Gallery(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Gallery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Gallery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gallery, __self__).__init__(
             'azure-native:devcenter:Gallery',

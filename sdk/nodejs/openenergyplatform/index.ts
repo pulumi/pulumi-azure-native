@@ -22,11 +22,9 @@ utilities.lazyLoad(exports, ["listEnergyServicePartitions","listEnergyServicePar
 
 
 // Export sub-modules:
-import * as v20210601preview from "./v20210601preview";
 import * as v20220404preview from "./v20220404preview";
 
 export {
-    v20210601preview,
     v20220404preview,
 };
 

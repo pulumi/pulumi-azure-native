@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Aad.V20170601
     /// <summary>
     /// Domain service.
     /// </summary>
-    [Obsolete(@"Version 2017-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:aad/v20170601:DomainService")]
     public partial class DomainService : global::Pulumi.CustomResource
     {

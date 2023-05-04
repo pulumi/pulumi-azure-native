@@ -180,7 +180,8 @@ class VirtualWan(pulumi.CustomResource):
                  __props__=None):
         """
         VirtualWAN Resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +203,8 @@ class VirtualWan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VirtualWAN Resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param VirtualWanArgs args: The arguments to use to populate this resource's properties.
@@ -254,7 +256,7 @@ class VirtualWan(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["virtual_hubs"] = None
             __props__.__dict__["vpn_sites"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualWan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualWan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualWan, __self__).__init__(
             'azure-native:network:VirtualWan',

@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.VoiceServices.Outputs
     public sealed class PrimaryRegionPropertiesResponse
     {
         /// <summary>
+        /// The allowed source IP address or CIDR ranges for media
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedMediaSourceAddressPrefixes;
+        /// <summary>
+        /// The allowed source IP address or CIDR ranges for signaling
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedSignalingSourceAddressPrefixes;
+        /// <summary>
         /// IP address to use to contact the ESRP from this region
         /// </summary>
         public readonly ImmutableArray<string> EsrpAddresses;
@@ -27,10 +35,16 @@ namespace Pulumi.AzureNative.VoiceServices.Outputs
 
         [OutputConstructor]
         private PrimaryRegionPropertiesResponse(
+            ImmutableArray<string> allowedMediaSourceAddressPrefixes,
+
+            ImmutableArray<string> allowedSignalingSourceAddressPrefixes,
+
             ImmutableArray<string> esrpAddresses,
 
             ImmutableArray<string> operatorAddresses)
         {
+            AllowedMediaSourceAddressPrefixes = allowedMediaSourceAddressPrefixes;
+            AllowedSignalingSourceAddressPrefixes = allowedSignalingSourceAddressPrefixes;
             EsrpAddresses = esrpAddresses;
             OperatorAddresses = operatorAddresses;
         }

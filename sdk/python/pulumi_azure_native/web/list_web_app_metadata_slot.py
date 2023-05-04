@@ -97,8 +97,8 @@ def list_web_app_metadata_slot(name: Optional[str] = None,
                                slot: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppMetadataSlotResult:
     """
-    Gets the metadata of an app.
-    API Version: 2020-12-01.
+    Description for Gets the metadata of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -126,8 +126,8 @@ def list_web_app_metadata_slot_output(name: Optional[pulumi.Input[str]] = None,
                                       slot: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppMetadataSlotResult]:
     """
-    Gets the metadata of an app.
-    API Version: 2020-12-01.
+    Description for Gets the metadata of an app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.

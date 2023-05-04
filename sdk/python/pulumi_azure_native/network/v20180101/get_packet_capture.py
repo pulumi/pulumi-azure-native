@@ -17,8 +17,6 @@ __all__ = [
     'get_packet_capture_output',
 ]
 
-warnings.warn("""Version 2018-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetPacketCaptureResult:
     """
@@ -173,7 +171,6 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
     :param str packet_capture_name: The name of the packet capture session.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_packet_capture is deprecated: Version 2018-01-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['networkWatcherName'] = network_watcher_name
     __args__['packetCaptureName'] = packet_capture_name
@@ -208,5 +205,4 @@ def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[str]] 
     :param str packet_capture_name: The name of the packet capture session.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_packet_capture is deprecated: Version 2018-01-01 will be removed in v2 of the provider.""")
     ...

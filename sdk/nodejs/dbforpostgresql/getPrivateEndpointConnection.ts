@@ -8,40 +8,44 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a private endpoint connection.
- * API Version: 2018-06-01.
+ * Gets private endpoint connection.
+ * API Version: 2022-11-08.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql:getPrivateEndpointConnection", {
+        "clusterName": args.clusterName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
     }, opts);
 }
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * The name of the private endpoint connection.
+     * The name of the cluster.
+     */
+    clusterName: string;
+    /**
+     * The name of the private endpoint connection associated with the cluster.
      */
     privateEndpointConnectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
-    /**
-     * The name of the server.
-     */
-    serverName: string;
 }
 
 /**
- * A private endpoint connection
+ * The private endpoint connection resource.
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The group ids for the private endpoint resource.
+     */
+    readonly groupIds: string[];
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -49,25 +53,29 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Private endpoint which the connection belongs to.
+     * The private endpoint resource.
      */
-    readonly privateEndpoint?: outputs.dbforpostgresql.PrivateEndpointPropertyResponse;
+    readonly privateEndpoint?: outputs.dbforpostgresql.PrivateEndpointResponse;
     /**
-     * Connection state of the private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState?: outputs.dbforpostgresql.PrivateLinkServiceConnectionStatePropertyResponse;
+    readonly privateLinkServiceConnectionState: outputs.dbforpostgresql.PrivateLinkServiceConnectionStateResponse;
     /**
-     * State of the private endpoint connection.
+     * The provisioning state of the private endpoint connection resource.
      */
     readonly provisioningState: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * Gets a private endpoint connection.
- * API Version: 2018-06-01.
+ * Gets private endpoint connection.
+ * API Version: 2022-11-08.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
@@ -75,15 +83,15 @@ export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConne
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the private endpoint connection.
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the private endpoint connection associated with the cluster.
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the server.
-     */
-    serverName: pulumi.Input<string>;
 }

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The Get NetworkSecurityGroups operation retrieves information about the specified network security group.
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
-    pulumi.log.warn("getNetworkSecurityGroup is deprecated: Version 2016-03-30 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160330:getNetworkSecurityGroup", {
@@ -93,7 +91,6 @@ export interface GetNetworkSecurityGroupResult {
 /**
  * The Get NetworkSecurityGroups operation retrieves information about the specified network security group.
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSecurityGroup(a, opts))
 }

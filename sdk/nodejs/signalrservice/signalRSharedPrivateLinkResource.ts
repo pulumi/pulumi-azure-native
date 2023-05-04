@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Shared Private Link Resource
- * API Version: 2021-04-01-preview.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -51,7 +52,7 @@ export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
      */
     public readonly privateLinkResourceId!: pulumi.Output<string>;
     /**
-     * Provisioning state of the shared private link resource
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -116,7 +117,7 @@ export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20230301preview:SignalRSharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRSharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }

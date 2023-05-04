@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// <summary>
     /// Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
     /// API Version: 2021-11-01-preview.
+    /// Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:PipelineJob")]
     public partial class PipelineJob : global::Pulumi.CustomResource

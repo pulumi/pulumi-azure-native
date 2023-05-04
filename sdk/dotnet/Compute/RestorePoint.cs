@@ -11,22 +11,29 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Restore Point details.
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-11-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:RestorePoint")]
     public partial class RestorePoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
+        /// ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
         /// </summary>
         [Output("consistencyMode")]
-        public Output<string> ConsistencyMode { get; private set; } = null!;
+        public Output<string?> ConsistencyMode { get; private set; } = null!;
 
         /// <summary>
         /// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         /// </summary>
         [Output("excludeDisks")]
         public Output<ImmutableArray<Outputs.ApiEntityReferenceResponse>> ExcludeDisks { get; private set; } = null!;
+
+        /// <summary>
+        /// The restore point instance view.
+        /// </summary>
+        [Output("instanceView")]
+        public Output<Outputs.RestorePointInstanceViewResponse> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -45,6 +52,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("sourceMetadata")]
         public Output<Outputs.RestorePointSourceMetadataResponse> SourceMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Id of the source restore point from which a copy needs to be created.
+        /// </summary>
+        [Output("sourceRestorePoint")]
+        public Output<Outputs.ApiEntityReferenceResponse?> SourceRestorePoint { get; private set; } = null!;
 
         /// <summary>
         /// Gets the creation time of the restore point.
@@ -114,6 +127,12 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class RestorePointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
+        /// </summary>
+        [Input("consistencyMode")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.ConsistencyModeTypes>? ConsistencyMode { get; set; }
+
         [Input("excludeDisks")]
         private InputList<Inputs.ApiEntityReferenceArgs>? _excludeDisks;
 
@@ -143,6 +162,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("restorePointName")]
         public Input<string>? RestorePointName { get; set; }
+
+        /// <summary>
+        /// Resource Id of the source restore point from which a copy needs to be created.
+        /// </summary>
+        [Input("sourceRestorePoint")]
+        public Input<Inputs.ApiEntityReferenceArgs>? SourceRestorePoint { get; set; }
 
         /// <summary>
         /// Gets the creation time of the restore point.

@@ -22,7 +22,7 @@ class GetLabPlanResult:
     """
     Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
     """
-    def __init__(__self__, allowed_regions=None, default_auto_shutdown_profile=None, default_connection_profile=None, default_network_profile=None, id=None, linked_lms_instance=None, location=None, name=None, provisioning_state=None, shared_gallery_id=None, support_info=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, allowed_regions=None, default_auto_shutdown_profile=None, default_connection_profile=None, default_network_profile=None, id=None, identity=None, linked_lms_instance=None, location=None, name=None, provisioning_state=None, shared_gallery_id=None, support_info=None, system_data=None, tags=None, type=None):
         if allowed_regions and not isinstance(allowed_regions, list):
             raise TypeError("Expected argument 'allowed_regions' to be a list")
         pulumi.set(__self__, "allowed_regions", allowed_regions)
@@ -38,6 +38,9 @@ class GetLabPlanResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if linked_lms_instance and not isinstance(linked_lms_instance, str):
             raise TypeError("Expected argument 'linked_lms_instance' to be a str")
         pulumi.set(__self__, "linked_lms_instance", linked_lms_instance)
@@ -105,6 +108,14 @@ class GetLabPlanResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        Managed Identity Information
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="linkedLmsInstance")
@@ -190,6 +201,7 @@ class AwaitableGetLabPlanResult(GetLabPlanResult):
             default_connection_profile=self.default_connection_profile,
             default_network_profile=self.default_network_profile,
             id=self.id,
+            identity=self.identity,
             linked_lms_instance=self.linked_lms_instance,
             location=self.location,
             name=self.name,
@@ -206,7 +218,7 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabPlanResult:
     """
     Retrieves the properties of a Lab Plan.
-    API Version: 2021-10-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
@@ -224,6 +236,7 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
         default_connection_profile=__ret__.default_connection_profile,
         default_network_profile=__ret__.default_network_profile,
         id=__ret__.id,
+        identity=__ret__.identity,
         linked_lms_instance=__ret__.linked_lms_instance,
         location=__ret__.location,
         name=__ret__.name,
@@ -241,7 +254,7 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabPlanResult]:
     """
     Retrieves the properties of a Lab Plan.
-    API Version: 2021-10-01-preview.
+    API Version: 2022-08-01.
 
 
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.

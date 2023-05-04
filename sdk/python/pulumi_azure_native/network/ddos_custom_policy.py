@@ -8,9 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._enums import *
-from ._inputs import *
 
 __all__ = ['DdosCustomPolicyArgs', 'DdosCustomPolicy']
 
@@ -21,7 +18,6 @@ class DdosCustomPolicyArgs:
                  ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 protocol_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DdosCustomPolicy resource.
@@ -29,7 +25,6 @@ class DdosCustomPolicyArgs:
         :param pulumi.Input[str] ddos_custom_policy_name: The name of the DDoS custom policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]] protocol_custom_settings: The protocol-specific DDoS policy customization parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -39,8 +34,6 @@ class DdosCustomPolicyArgs:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if protocol_custom_settings is not None:
-            pulumi.set(__self__, "protocol_custom_settings", protocol_custom_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,18 +86,6 @@ class DdosCustomPolicyArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="protocolCustomSettings")
-    def protocol_custom_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]]]:
-        """
-        The protocol-specific DDoS policy customization parameters.
-        """
-        return pulumi.get(self, "protocol_custom_settings")
-
-    @protocol_custom_settings.setter
-    def protocol_custom_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]]]):
-        pulumi.set(self, "protocol_custom_settings", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -125,20 +106,19 @@ class DdosCustomPolicy(pulumi.CustomResource):
                  ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 protocol_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtocolCustomSettingsFormatArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A DDoS custom policy in a resource group.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ddos_custom_policy_name: The name of the DDoS custom policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtocolCustomSettingsFormatArgs']]]] protocol_custom_settings: The protocol-specific DDoS policy customization parameters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -150,7 +130,8 @@ class DdosCustomPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A DDoS custom policy in a resource group.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DdosCustomPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -170,7 +151,6 @@ class DdosCustomPolicy(pulumi.CustomResource):
                  ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 protocol_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtocolCustomSettingsFormatArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -185,7 +165,6 @@ class DdosCustomPolicy(pulumi.CustomResource):
             __props__.__dict__["ddos_custom_policy_name"] = ddos_custom_policy_name
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
-            __props__.__dict__["protocol_custom_settings"] = protocol_custom_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -193,10 +172,9 @@ class DdosCustomPolicy(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["public_ip_addresses"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20181101:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20181201:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190201:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190401:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190601:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190701:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190801:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190901:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20191101:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20191201:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200301:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200401:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200501:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200601:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200701:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200801:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20201101:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20210201:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20210301:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20210501:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20210801:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20220101:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20220501:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20220701:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20220901:DdosCustomPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20181101:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20181201:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190201:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190401:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190601:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190701:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190801:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20190901:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20191101:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20191201:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200301:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200401:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200501:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200601:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200701:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20200801:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20201101:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20210201:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20210301:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20210501:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20210801:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20220101:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20220501:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20220701:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20220901:DdosCustomPolicy"), pulumi.Alias(type_="azure-native:network/v20221101:DdosCustomPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DdosCustomPolicy, __self__).__init__(
             'azure-native:network:DdosCustomPolicy',
@@ -223,9 +201,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["protocol_custom_settings"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["public_ip_addresses"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -256,28 +232,12 @@ class DdosCustomPolicy(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="protocolCustomSettings")
-    def protocol_custom_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ProtocolCustomSettingsFormatResponse']]]:
-        """
-        The protocol-specific DDoS policy customization parameters.
-        """
-        return pulumi.get(self, "protocol_custom_settings")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the DDoS custom policy resource.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-        """
-        return pulumi.get(self, "public_ip_addresses")
 
     @property
     @pulumi.getter(name="resourceGuid")

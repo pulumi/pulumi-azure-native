@@ -28,13 +28,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.JpgLayer'.
-        /// </summary>
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
-
-        /// <summary>
         /// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
         /// </summary>
         [Input("quality")]

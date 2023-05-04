@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets a named add-on of an app.
- * API Version: 2020-12-01.
+ * Description for Gets a named add-on of an app.
+ * API Version: 2022-09-01.
  */
 export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnResult> {
 
@@ -83,8 +83,8 @@ export interface GetWebAppPremierAddOnResult {
     readonly vendor?: string;
 }
 /**
- * Gets a named add-on of an app.
- * API Version: 2020-12-01.
+ * Description for Gets a named add-on of an app.
+ * API Version: 2022-09-01.
  */
 export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPremierAddOn(a, opts))

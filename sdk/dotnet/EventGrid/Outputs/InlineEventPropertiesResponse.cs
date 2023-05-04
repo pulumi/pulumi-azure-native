@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The displayName for the inline event.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The documentationUrl for the inline event.
         /// </summary>
         public readonly string? DocumentationUrl;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
             string? description,
 
+            string? displayName,
+
             string? documentationUrl)
         {
             DataSchemaUrl = dataSchemaUrl;
             Description = description;
+            DisplayName = displayName;
             DocumentationUrl = documentationUrl;
         }
     }

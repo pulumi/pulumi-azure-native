@@ -12,10 +12,8 @@ __all__ = [
     'DataSourceKind',
     'IdentityType',
     'LinkedServiceEntityStatus',
-    'MachineGroupType',
     'PublicNetworkAccessType',
     'TablePlanEnum',
-    'WorkspaceEntityStatus',
     'WorkspaceSkuNameEnum',
 ]
 
@@ -129,17 +127,6 @@ class LinkedServiceEntityStatus(str, Enum):
     UPDATING = "Updating"
 
 
-class MachineGroupType(str, Enum):
-    """
-    Type of the machine group
-    """
-    UNKNOWN = "unknown"
-    AZURE_CS = "azure-cs"
-    AZURE_SF = "azure-sf"
-    AZURE_VMSS = "azure-vmss"
-    USER_STATIC = "user-static"
-
-
 class PublicNetworkAccessType(str, Enum):
     """
     The network access type for accessing Log Analytics query.
@@ -166,19 +153,6 @@ class TablePlanEnum(str, Enum):
     """
     Logs  that allow monitoring and analytics.
     """
-
-
-class WorkspaceEntityStatus(str, Enum):
-    """
-    The provisioning state of the workspace.
-    """
-    CREATING = "Creating"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-    DELETING = "Deleting"
-    PROVISIONING_ACCOUNT = "ProvisioningAccount"
-    UPDATING = "Updating"
 
 
 class WorkspaceSkuNameEnum(str, Enum):

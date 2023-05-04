@@ -6,9 +6,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .azure_ad_administrator import *
 from .configuration import *
 from .database import *
 from .firewall_rule import *
+from .get_azure_ad_administrator import *
 from .get_configuration import *
 from .get_database import *
 from .get_firewall_rule import *
@@ -34,10 +36,10 @@ if typing.TYPE_CHECKING:
     v20171201preview = __v20171201preview
     import pulumi_azure_native.dbformysql.v20180601 as __v20180601
     v20180601 = __v20180601
+    import pulumi_azure_native.dbformysql.v20180601privatepreview as __v20180601privatepreview
+    v20180601privatepreview = __v20180601privatepreview
     import pulumi_azure_native.dbformysql.v20200101 as __v20200101
     v20200101 = __v20200101
-    import pulumi_azure_native.dbformysql.v20200101privatepreview as __v20200101privatepreview
-    v20200101privatepreview = __v20200101privatepreview
     import pulumi_azure_native.dbformysql.v20200701preview as __v20200701preview
     v20200701preview = __v20200701preview
     import pulumi_azure_native.dbformysql.v20200701privatepreview as __v20200701privatepreview
@@ -56,8 +58,8 @@ else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20171201')
     v20171201preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20171201preview')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20180601')
+    v20180601privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20180601privatepreview')
     v20200101 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200101')
-    v20200101privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200101privatepreview')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200701preview')
     v20200701privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200701privatepreview')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20210501')

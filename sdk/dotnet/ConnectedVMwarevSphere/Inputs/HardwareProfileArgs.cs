@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the hardware settings for the virtual machine.
     /// </summary>
     public sealed class HardwareProfileArgs : global::Pulumi.ResourceArgs
     {

@@ -8,9 +8,7 @@ __all__ = [
     'AddonType',
     'DhcpTypeEnum',
     'DnsServiceLogLevelEnum',
-    'InternetEnum',
     'PortMirroringDirectionEnum',
-    'SslEnum',
 ]
 
 
@@ -40,24 +38,8 @@ class DnsServiceLogLevelEnum(str, Enum):
     FATAL = "FATAL"
 
 
-class InternetEnum(str, Enum):
-    """
-    Connectivity to internet is enabled or disabled
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class PortMirroringDirectionEnum(str, Enum):
     """
     Direction of port mirroring profile.
     """
     INGRES_S_EGRES_S_BIDIRECTIONAL = "INGRESS, EGRESS, BIDIRECTIONAL"
-
-
-class SslEnum(str, Enum):
-    """
-    Protect LDAP communication using SSL certificate (LDAPS)
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"

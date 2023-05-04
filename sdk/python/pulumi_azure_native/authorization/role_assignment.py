@@ -30,7 +30,7 @@ class RoleAssignmentArgs:
         :param pulumi.Input[str] role_definition_id: The role definition ID.
         :param pulumi.Input[str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-        :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
+        :param pulumi.Input[str] condition_version: Version of the condition. Currently the only accepted value is '2.0'
         :param pulumi.Input[str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
         :param pulumi.Input[str] description: Description of role assignment
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
@@ -106,7 +106,7 @@ class RoleAssignmentArgs:
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of the condition. Currently accepted value is '2.0'
+        Version of the condition. Currently the only accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
 
@@ -180,12 +180,13 @@ class RoleAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Role Assignments
-        API Version: 2020-10-01-preview.
+        API Version: 2022-04-01.
+        Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-        :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
+        :param pulumi.Input[str] condition_version: Version of the condition. Currently the only accepted value is '2.0'
         :param pulumi.Input[str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
         :param pulumi.Input[str] description: Description of role assignment
         :param pulumi.Input[str] principal_id: The principal ID.
@@ -202,7 +203,8 @@ class RoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Role Assignments
-        API Version: 2020-10-01-preview.
+        API Version: 2022-04-01.
+        Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -312,7 +314,7 @@ class RoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Version of the condition. Currently accepted value is '2.0'
+        Version of the condition. Currently the only accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
 

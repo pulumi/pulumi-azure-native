@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource Id for private endpoint
+        /// The resource ID of the private endpoint
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

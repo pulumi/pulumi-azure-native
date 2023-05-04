@@ -160,12 +160,7 @@ class SqlResourceSqlTriggerArgs:
         pulumi.set(self, "trigger_name", value)
 
 
-warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class SqlResourceSqlTrigger(pulumi.CustomResource):
-    warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -229,7 +224,6 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trigger_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlResourceSqlTrigger is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -261,7 +255,7 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
             __props__.__dict__["trigger_name"] = trigger_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20191212:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20200301:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20200401:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20200901:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210115:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210315:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210415:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210515:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210615:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20211015:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220515:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220815:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20221115:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20230315:SqlResourceSqlTrigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20191212:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20200301:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20200401:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20200901:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210115:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210315:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210415:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210515:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210615:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20211015:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220515:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220815:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20221115:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20230315:SqlResourceSqlTrigger"), pulumi.Alias(type_="azure-native:documentdb/v20230415:SqlResourceSqlTrigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlTrigger, __self__).__init__(
             'azure-native:documentdb/v20190801:SqlResourceSqlTrigger',

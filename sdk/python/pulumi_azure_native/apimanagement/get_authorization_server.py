@@ -22,7 +22,7 @@ class GetAuthorizationServerResult:
     """
     External OAuth authorization server settings.
     """
-    def __init__(__self__, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, id=None, name=None, resource_owner_password=None, resource_owner_username=None, support_state=None, token_body_parameters=None, token_endpoint=None, type=None):
+    def __init__(__self__, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, id=None, name=None, resource_owner_password=None, resource_owner_username=None, support_state=None, token_body_parameters=None, token_endpoint=None, type=None, use_in_api_documentation=None, use_in_test_console=None):
         if authorization_endpoint and not isinstance(authorization_endpoint, str):
             raise TypeError("Expected argument 'authorization_endpoint' to be a str")
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -80,6 +80,12 @@ class GetAuthorizationServerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if use_in_api_documentation and not isinstance(use_in_api_documentation, bool):
+            raise TypeError("Expected argument 'use_in_api_documentation' to be a bool")
+        pulumi.set(__self__, "use_in_api_documentation", use_in_api_documentation)
+        if use_in_test_console and not isinstance(use_in_test_console, bool):
+            raise TypeError("Expected argument 'use_in_test_console' to be a bool")
+        pulumi.set(__self__, "use_in_test_console", use_in_test_console)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -173,7 +179,7 @@ class GetAuthorizationServerResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -181,7 +187,7 @@ class GetAuthorizationServerResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -229,9 +235,25 @@ class GetAuthorizationServerResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useInApiDocumentation")
+    def use_in_api_documentation(self) -> Optional[bool]:
+        """
+        If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_api_documentation")
+
+    @property
+    @pulumi.getter(name="useInTestConsole")
+    def use_in_test_console(self) -> Optional[bool]:
+        """
+        If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_test_console")
 
 
 class AwaitableGetAuthorizationServerResult(GetAuthorizationServerResult):
@@ -258,7 +280,9 @@ class AwaitableGetAuthorizationServerResult(GetAuthorizationServerResult):
             support_state=self.support_state,
             token_body_parameters=self.token_body_parameters,
             token_endpoint=self.token_endpoint,
-            type=self.type)
+            type=self.type,
+            use_in_api_documentation=self.use_in_api_documentation,
+            use_in_test_console=self.use_in_test_console)
 
 
 def get_authorization_server(authsid: Optional[str] = None,
@@ -267,11 +291,11 @@ def get_authorization_server(authsid: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
     Gets the details of the authorization server specified by its identifier.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str authsid: Identifier of the authorization server.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -300,7 +324,9 @@ def get_authorization_server(authsid: Optional[str] = None,
         support_state=__ret__.support_state,
         token_body_parameters=__ret__.token_body_parameters,
         token_endpoint=__ret__.token_endpoint,
-        type=__ret__.type)
+        type=__ret__.type,
+        use_in_api_documentation=__ret__.use_in_api_documentation,
+        use_in_test_console=__ret__.use_in_test_console)
 
 
 @_utilities.lift_output_func(get_authorization_server)
@@ -310,11 +336,11 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationServerResult]:
     """
     Gets the details of the authorization server specified by its identifier.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str authsid: Identifier of the authorization server.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

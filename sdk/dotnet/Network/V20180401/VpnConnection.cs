@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20180401
     /// <summary>
     /// VpnConnection Resource.
     /// </summary>
-    [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180401:VpnConnection")]
     public partial class VpnConnection : global::Pulumi.CustomResource
     {
@@ -143,6 +142,7 @@ namespace Pulumi.AzureNative.Network.V20180401
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VpnConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VpnConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VpnConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VpnConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

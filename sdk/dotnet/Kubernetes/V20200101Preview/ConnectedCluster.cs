@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
     /// <summary>
     /// Represents a connected cluster.
     /// </summary>
-    [Obsolete(@"Version 2020-01-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:kubernetes/v20200101preview:ConnectedCluster")]
     public partial class ConnectedCluster : global::Pulumi.CustomResource
     {

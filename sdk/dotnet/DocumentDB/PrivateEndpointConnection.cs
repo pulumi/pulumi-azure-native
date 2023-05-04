@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2021-03-15.
+    /// API Version: 2022-11-15.
+    /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -95,7 +96,10 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

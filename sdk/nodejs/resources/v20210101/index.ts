@@ -55,36 +55,6 @@ export const getDeploymentAtTenantScope: typeof import("./getDeploymentAtTenantS
 export const getDeploymentAtTenantScopeOutput: typeof import("./getDeploymentAtTenantScope").getDeploymentAtTenantScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getDeploymentAtTenantScope","getDeploymentAtTenantScopeOutput"], () => require("./getDeploymentAtTenantScope"));
 
-export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
-export const getResource: typeof import("./getResource").getResource = null as any;
-export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
-utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
-
-export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
-export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
-export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
-
-export { GetTagAtScopeArgs, GetTagAtScopeResult, GetTagAtScopeOutputArgs } from "./getTagAtScope";
-export const getTagAtScope: typeof import("./getTagAtScope").getTagAtScope = null as any;
-export const getTagAtScopeOutput: typeof import("./getTagAtScope").getTagAtScopeOutput = null as any;
-utilities.lazyLoad(exports, ["getTagAtScope","getTagAtScopeOutput"], () => require("./getTagAtScope"));
-
-export { ResourceArgs } from "./resource";
-export type Resource = import("./resource").Resource;
-export const Resource: typeof import("./resource").Resource = null as any;
-utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
-
-export { ResourceGroupArgs } from "./resourceGroup";
-export type ResourceGroup = import("./resourceGroup").ResourceGroup;
-export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
-utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
-
-export { TagAtScopeArgs } from "./tagAtScope";
-export type TagAtScope = import("./tagAtScope").TagAtScope;
-export const TagAtScope: typeof import("./tagAtScope").TagAtScope = null as any;
-utilities.lazyLoad(exports, ["TagAtScope"], () => require("./tagAtScope"));
-
 
 // Export enums:
 export * from "../../types/enums/resources/v20210101";
@@ -103,12 +73,6 @@ const _module = {
                 return new DeploymentAtSubscriptionScope(name, <any>undefined, { urn })
             case "azure-native:resources/v20210101:DeploymentAtTenantScope":
                 return new DeploymentAtTenantScope(name, <any>undefined, { urn })
-            case "azure-native:resources/v20210101:Resource":
-                return new Resource(name, <any>undefined, { urn })
-            case "azure-native:resources/v20210101:ResourceGroup":
-                return new ResourceGroup(name, <any>undefined, { urn })
-            case "azure-native:resources/v20210101:TagAtScope":
-                return new TagAtScope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

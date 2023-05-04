@@ -165,12 +165,7 @@ class VirtualMachineScaleSetArgs:
         pulumi.set(self, "virtual_machine_profile", value)
 
 
-warnings.warn("""Version 2015-06-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class VirtualMachineScaleSet(pulumi.CustomResource):
-    warnings.warn("""Version 2015-06-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -234,7 +229,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  upgrade_policy: Optional[pulumi.Input[pulumi.InputType['UpgradePolicyArgs']]] = None,
                  virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachineScaleSet is deprecated: Version 2015-06-15 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

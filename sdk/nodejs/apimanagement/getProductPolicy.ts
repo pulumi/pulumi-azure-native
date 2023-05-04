@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the policy configuration at the Product level.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProductPolicyResult> {
 
@@ -34,7 +34,7 @@ export interface GetProductPolicyArgs {
      */
     productId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -52,15 +52,15 @@ export interface GetProductPolicyResult {
      */
     readonly format?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -70,7 +70,7 @@ export interface GetProductPolicyResult {
 }
 /**
  * Get the policy configuration at the Product level.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getProductPolicyOutput(args: GetProductPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductPolicyResult> {
     return pulumi.output(args).apply((a: any) => getProductPolicy(a, opts))
@@ -90,7 +90,7 @@ export interface GetProductPolicyOutputArgs {
      */
     productId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

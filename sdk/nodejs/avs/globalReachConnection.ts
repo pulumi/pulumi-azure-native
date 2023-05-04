@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * A global reach connection resource
- * API Version: 2020-07-17-preview.
+ * API Version: 2022-05-01.
+ * Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class GlobalReachConnection extends pulumi.CustomResource {
     /**
@@ -48,6 +49,10 @@ export class GlobalReachConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly circuitConnectionStatus!: pulumi.Output<string>;
     /**
+     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+     */
+    public readonly expressRouteId!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -82,6 +87,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["expressRouteId"] = args ? args.expressRouteId : undefined;
             resourceInputs["globalReachConnectionName"] = args ? args.globalReachConnectionName : undefined;
             resourceInputs["peerExpressRouteCircuit"] = args ? args.peerExpressRouteCircuit : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
@@ -95,6 +101,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["authorizationKey"] = undefined /*out*/;
             resourceInputs["circuitConnectionStatus"] = undefined /*out*/;
+            resourceInputs["expressRouteId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["peerExpressRouteCircuit"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -115,6 +122,10 @@ export interface GlobalReachConnectionArgs {
      * Authorization key from the peer express route used for the global reach connection
      */
     authorizationKey?: pulumi.Input<string>;
+    /**
+     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+     */
+    expressRouteId?: pulumi.Input<string>;
     /**
      * Name of the global reach connection in the private cloud
      */

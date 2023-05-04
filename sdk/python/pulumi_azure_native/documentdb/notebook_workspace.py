@@ -76,7 +76,8 @@ class NotebookWorkspace(pulumi.CustomResource):
                  __props__=None):
         """
         A notebook workspace resource
-        API Version: 2021-03-15.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,7 +93,8 @@ class NotebookWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A notebook workspace resource
-        API Version: 2021-03-15.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param NotebookWorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -132,7 +134,7 @@ class NotebookWorkspace(pulumi.CustomResource):
             __props__.__dict__["notebook_server_endpoint"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20190801:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20191212:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20200301:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20200401:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20200901:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210115:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210315:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210415:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210515:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210615:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20211015:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220515:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220815:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20221115:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20230315:NotebookWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20190801:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20191212:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20200301:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20200401:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20200901:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210115:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210315:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210415:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210515:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210615:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20211015:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220515:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220815:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20221115:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20230315:NotebookWorkspace"), pulumi.Alias(type_="azure-native:documentdb/v20230415:NotebookWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotebookWorkspace, __self__).__init__(
             'azure-native:documentdb:NotebookWorkspace',

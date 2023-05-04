@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20170901Preview
 {
-    [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
     public static class GetTrafficManagerUserMetricsKey
     {
         /// <summary>

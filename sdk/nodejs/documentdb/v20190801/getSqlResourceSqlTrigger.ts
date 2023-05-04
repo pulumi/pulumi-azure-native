@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SQL trigger under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlTriggerResult> {
-    pulumi.log.warn("getSqlResourceSqlTrigger is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20190801:getSqlResourceSqlTrigger", {
@@ -76,7 +74,6 @@ export interface GetSqlResourceSqlTriggerResult {
 /**
  * Gets the SQL trigger under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getSqlResourceSqlTriggerOutput(args: GetSqlResourceSqlTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlTriggerResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlTrigger(a, opts))
 }

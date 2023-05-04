@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The Get subnet operation retrieves information about the specified subnet.
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
-    pulumi.log.warn("getSubnet is deprecated: Version 2016-03-30 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160330:getSubnet", {
@@ -82,7 +80,6 @@ export interface GetSubnetResult {
 /**
  * The Get subnet operation retrieves information about the specified subnet.
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
     return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
 }

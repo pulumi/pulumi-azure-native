@@ -20,16 +20,6 @@ export type Action = import("./action").Action;
 export const Action: typeof import("./action").Action = null as any;
 utilities.lazyLoad(exports, ["Action"], () => require("./action"));
 
-export { ActivityCustomEntityQueryArgs } from "./activityCustomEntityQuery";
-export type ActivityCustomEntityQuery = import("./activityCustomEntityQuery").ActivityCustomEntityQuery;
-export const ActivityCustomEntityQuery: typeof import("./activityCustomEntityQuery").ActivityCustomEntityQuery = null as any;
-utilities.lazyLoad(exports, ["ActivityCustomEntityQuery"], () => require("./activityCustomEntityQuery"));
-
-export { AnomaliesArgs } from "./anomalies";
-export type Anomalies = import("./anomalies").Anomalies;
-export const Anomalies: typeof import("./anomalies").Anomalies = null as any;
-utilities.lazyLoad(exports, ["Anomalies"], () => require("./anomalies"));
-
 export { AnomalySecurityMLAnalyticsSettingsArgs } from "./anomalySecurityMLAnalyticsSettings";
 export type AnomalySecurityMLAnalyticsSettings = import("./anomalySecurityMLAnalyticsSettings").AnomalySecurityMLAnalyticsSettings;
 export const AnomalySecurityMLAnalyticsSettings: typeof import("./anomalySecurityMLAnalyticsSettings").AnomalySecurityMLAnalyticsSettings = null as any;
@@ -54,21 +44,6 @@ export { BookmarkArgs } from "./bookmark";
 export type Bookmark = import("./bookmark").Bookmark;
 export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
 utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
-
-export { BookmarkRelationArgs } from "./bookmarkRelation";
-export type BookmarkRelation = import("./bookmarkRelation").BookmarkRelation;
-export const BookmarkRelation: typeof import("./bookmarkRelation").BookmarkRelation = null as any;
-utilities.lazyLoad(exports, ["BookmarkRelation"], () => require("./bookmarkRelation"));
-
-export { EntityAnalyticsArgs } from "./entityAnalytics";
-export type EntityAnalytics = import("./entityAnalytics").EntityAnalytics;
-export const EntityAnalytics: typeof import("./entityAnalytics").EntityAnalytics = null as any;
-utilities.lazyLoad(exports, ["EntityAnalytics"], () => require("./entityAnalytics"));
-
-export { EyesOnArgs } from "./eyesOn";
-export type EyesOn = import("./eyesOn").EyesOn;
-export const EyesOn: typeof import("./eyesOn").EyesOn = null as any;
-utilities.lazyLoad(exports, ["EyesOn"], () => require("./eyesOn"));
 
 export { FusionAlertRuleArgs } from "./fusionAlertRule";
 export type FusionAlertRule = import("./fusionAlertRule").FusionAlertRule;
@@ -95,16 +70,6 @@ export const getAction: typeof import("./getAction").getAction = null as any;
 export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
 utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
 
-export { GetActivityCustomEntityQueryArgs, GetActivityCustomEntityQueryResult, GetActivityCustomEntityQueryOutputArgs } from "./getActivityCustomEntityQuery";
-export const getActivityCustomEntityQuery: typeof import("./getActivityCustomEntityQuery").getActivityCustomEntityQuery = null as any;
-export const getActivityCustomEntityQueryOutput: typeof import("./getActivityCustomEntityQuery").getActivityCustomEntityQueryOutput = null as any;
-utilities.lazyLoad(exports, ["getActivityCustomEntityQuery","getActivityCustomEntityQueryOutput"], () => require("./getActivityCustomEntityQuery"));
-
-export { GetAnomaliesArgs, GetAnomaliesResult, GetAnomaliesOutputArgs } from "./getAnomalies";
-export const getAnomalies: typeof import("./getAnomalies").getAnomalies = null as any;
-export const getAnomaliesOutput: typeof import("./getAnomalies").getAnomaliesOutput = null as any;
-utilities.lazyLoad(exports, ["getAnomalies","getAnomaliesOutput"], () => require("./getAnomalies"));
-
 export { GetAnomalySecurityMLAnalyticsSettingsArgs, GetAnomalySecurityMLAnalyticsSettingsResult, GetAnomalySecurityMLAnalyticsSettingsOutputArgs } from "./getAnomalySecurityMLAnalyticsSettings";
 export const getAnomalySecurityMLAnalyticsSettings: typeof import("./getAnomalySecurityMLAnalyticsSettings").getAnomalySecurityMLAnalyticsSettings = null as any;
 export const getAnomalySecurityMLAnalyticsSettingsOutput: typeof import("./getAnomalySecurityMLAnalyticsSettings").getAnomalySecurityMLAnalyticsSettingsOutput = null as any;
@@ -124,31 +89,6 @@ export { GetBookmarkArgs, GetBookmarkResult, GetBookmarkOutputArgs } from "./get
 export const getBookmark: typeof import("./getBookmark").getBookmark = null as any;
 export const getBookmarkOutput: typeof import("./getBookmark").getBookmarkOutput = null as any;
 utilities.lazyLoad(exports, ["getBookmark","getBookmarkOutput"], () => require("./getBookmark"));
-
-export { GetBookmarkRelationArgs, GetBookmarkRelationResult, GetBookmarkRelationOutputArgs } from "./getBookmarkRelation";
-export const getBookmarkRelation: typeof import("./getBookmarkRelation").getBookmarkRelation = null as any;
-export const getBookmarkRelationOutput: typeof import("./getBookmarkRelation").getBookmarkRelationOutput = null as any;
-utilities.lazyLoad(exports, ["getBookmarkRelation","getBookmarkRelationOutput"], () => require("./getBookmarkRelation"));
-
-export { GetEntitiesGetTimelineArgs, GetEntitiesGetTimelineResult, GetEntitiesGetTimelineOutputArgs } from "./getEntitiesGetTimeline";
-export const getEntitiesGetTimeline: typeof import("./getEntitiesGetTimeline").getEntitiesGetTimeline = null as any;
-export const getEntitiesGetTimelineOutput: typeof import("./getEntitiesGetTimeline").getEntitiesGetTimelineOutput = null as any;
-utilities.lazyLoad(exports, ["getEntitiesGetTimeline","getEntitiesGetTimelineOutput"], () => require("./getEntitiesGetTimeline"));
-
-export { GetEntityAnalyticsArgs, GetEntityAnalyticsResult, GetEntityAnalyticsOutputArgs } from "./getEntityAnalytics";
-export const getEntityAnalytics: typeof import("./getEntityAnalytics").getEntityAnalytics = null as any;
-export const getEntityAnalyticsOutput: typeof import("./getEntityAnalytics").getEntityAnalyticsOutput = null as any;
-utilities.lazyLoad(exports, ["getEntityAnalytics","getEntityAnalyticsOutput"], () => require("./getEntityAnalytics"));
-
-export { GetEntityInsightsArgs, GetEntityInsightsResult, GetEntityInsightsOutputArgs } from "./getEntityInsights";
-export const getEntityInsights: typeof import("./getEntityInsights").getEntityInsights = null as any;
-export const getEntityInsightsOutput: typeof import("./getEntityInsights").getEntityInsightsOutput = null as any;
-utilities.lazyLoad(exports, ["getEntityInsights","getEntityInsightsOutput"], () => require("./getEntityInsights"));
-
-export { GetEyesOnArgs, GetEyesOnResult, GetEyesOnOutputArgs } from "./getEyesOn";
-export const getEyesOn: typeof import("./getEyesOn").getEyesOn = null as any;
-export const getEyesOnOutput: typeof import("./getEyesOn").getEyesOnOutput = null as any;
-utilities.lazyLoad(exports, ["getEyesOn","getEyesOnOutput"], () => require("./getEyesOn"));
 
 export { GetFusionAlertRuleArgs, GetFusionAlertRuleResult, GetFusionAlertRuleOutputArgs } from "./getFusionAlertRule";
 export const getFusionAlertRule: typeof import("./getFusionAlertRule").getFusionAlertRule = null as any;
@@ -205,11 +145,6 @@ export const getSentinelOnboardingState: typeof import("./getSentinelOnboardingS
 export const getSentinelOnboardingStateOutput: typeof import("./getSentinelOnboardingState").getSentinelOnboardingStateOutput = null as any;
 utilities.lazyLoad(exports, ["getSentinelOnboardingState","getSentinelOnboardingStateOutput"], () => require("./getSentinelOnboardingState"));
 
-export { GetSourceControlArgs, GetSourceControlResult, GetSourceControlOutputArgs } from "./getSourceControl";
-export const getSourceControl: typeof import("./getSourceControl").getSourceControl = null as any;
-export const getSourceControlOutput: typeof import("./getSourceControl").getSourceControlOutput = null as any;
-utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
-
 export { GetTIDataConnectorArgs, GetTIDataConnectorResult, GetTIDataConnectorOutputArgs } from "./getTIDataConnector";
 export const getTIDataConnector: typeof import("./getTIDataConnector").getTIDataConnector = null as any;
 export const getTIDataConnectorOutput: typeof import("./getTIDataConnector").getTIDataConnectorOutput = null as any;
@@ -219,11 +154,6 @@ export { GetThreatIntelligenceIndicatorArgs, GetThreatIntelligenceIndicatorResul
 export const getThreatIntelligenceIndicator: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicator = null as any;
 export const getThreatIntelligenceIndicatorOutput: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicatorOutput = null as any;
 utilities.lazyLoad(exports, ["getThreatIntelligenceIndicator","getThreatIntelligenceIndicatorOutput"], () => require("./getThreatIntelligenceIndicator"));
-
-export { GetUebaArgs, GetUebaResult, GetUebaOutputArgs } from "./getUeba";
-export const getUeba: typeof import("./getUeba").getUeba = null as any;
-export const getUebaOutput: typeof import("./getUeba").getUebaOutput = null as any;
-utilities.lazyLoad(exports, ["getUeba","getUebaOutput"], () => require("./getUeba"));
 
 export { GetWatchlistArgs, GetWatchlistResult, GetWatchlistOutputArgs } from "./getWatchlist";
 export const getWatchlist: typeof import("./getWatchlist").getWatchlist = null as any;
@@ -249,11 +179,6 @@ export { IncidentRelationArgs } from "./incidentRelation";
 export type IncidentRelation = import("./incidentRelation").IncidentRelation;
 export const IncidentRelation: typeof import("./incidentRelation").IncidentRelation = null as any;
 utilities.lazyLoad(exports, ["IncidentRelation"], () => require("./incidentRelation"));
-
-export { ListSourceControlRepositoriesArgs, ListSourceControlRepositoriesResult, ListSourceControlRepositoriesOutputArgs } from "./listSourceControlRepositories";
-export const listSourceControlRepositories: typeof import("./listSourceControlRepositories").listSourceControlRepositories = null as any;
-export const listSourceControlRepositoriesOutput: typeof import("./listSourceControlRepositories").listSourceControlRepositoriesOutput = null as any;
-utilities.lazyLoad(exports, ["listSourceControlRepositories","listSourceControlRepositoriesOutput"], () => require("./listSourceControlRepositories"));
 
 export { MCASDataConnectorArgs } from "./mcasdataConnector";
 export type MCASDataConnector = import("./mcasdataConnector").MCASDataConnector;
@@ -290,11 +215,6 @@ export type SentinelOnboardingState = import("./sentinelOnboardingState").Sentin
 export const SentinelOnboardingState: typeof import("./sentinelOnboardingState").SentinelOnboardingState = null as any;
 utilities.lazyLoad(exports, ["SentinelOnboardingState"], () => require("./sentinelOnboardingState"));
 
-export { SourceControlArgs } from "./sourceControl";
-export type SourceControl = import("./sourceControl").SourceControl;
-export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
-utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
-
 export { ThreatIntelligenceIndicatorArgs } from "./threatIntelligenceIndicator";
 export type ThreatIntelligenceIndicator = import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator;
 export const ThreatIntelligenceIndicator: typeof import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator = null as any;
@@ -304,11 +224,6 @@ export { TIDataConnectorArgs } from "./tidataConnector";
 export type TIDataConnector = import("./tidataConnector").TIDataConnector;
 export const TIDataConnector: typeof import("./tidataConnector").TIDataConnector = null as any;
 utilities.lazyLoad(exports, ["TIDataConnector"], () => require("./tidataConnector"));
-
-export { UebaArgs } from "./ueba";
-export type Ueba = import("./ueba").Ueba;
-export const Ueba: typeof import("./ueba").Ueba = null as any;
-utilities.lazyLoad(exports, ["Ueba"], () => require("./ueba"));
 
 export { WatchlistArgs } from "./watchlist";
 export type Watchlist = import("./watchlist").Watchlist;
@@ -346,6 +261,7 @@ import * as v20221101preview from "./v20221101preview";
 import * as v20221201preview from "./v20221201preview";
 import * as v20230201 from "./v20230201";
 import * as v20230201preview from "./v20230201preview";
+import * as v20230301preview from "./v20230301preview";
 import * as v20230401preview from "./v20230401preview";
 
 export {
@@ -370,6 +286,7 @@ export {
     v20221201preview,
     v20230201,
     v20230201preview,
+    v20230301preview,
     v20230401preview,
 };
 
@@ -385,10 +302,6 @@ const _module = {
                 return new ASCDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Action":
                 return new Action(name, <any>undefined, { urn })
-            case "azure-native:securityinsights:ActivityCustomEntityQuery":
-                return new ActivityCustomEntityQuery(name, <any>undefined, { urn })
-            case "azure-native:securityinsights:Anomalies":
-                return new Anomalies(name, <any>undefined, { urn })
             case "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings":
                 return new AnomalySecurityMLAnalyticsSettings(name, <any>undefined, { urn })
             case "azure-native:securityinsights:AutomationRule":
@@ -397,12 +310,6 @@ const _module = {
                 return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
-            case "azure-native:securityinsights:BookmarkRelation":
-                return new BookmarkRelation(name, <any>undefined, { urn })
-            case "azure-native:securityinsights:EntityAnalytics":
-                return new EntityAnalytics(name, <any>undefined, { urn })
-            case "azure-native:securityinsights:EyesOn":
-                return new EyesOn(name, <any>undefined, { urn })
             case "azure-native:securityinsights:FusionAlertRule":
                 return new FusionAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Incident":
@@ -425,14 +332,10 @@ const _module = {
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:SentinelOnboardingState":
                 return new SentinelOnboardingState(name, <any>undefined, { urn })
-            case "azure-native:securityinsights:SourceControl":
-                return new SourceControl(name, <any>undefined, { urn })
             case "azure-native:securityinsights:TIDataConnector":
                 return new TIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ThreatIntelligenceIndicator":
                 return new ThreatIntelligenceIndicator(name, <any>undefined, { urn })
-            case "azure-native:securityinsights:Ueba":
-                return new Ueba(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             case "azure-native:securityinsights:WatchlistItem":

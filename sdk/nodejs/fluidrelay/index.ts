@@ -15,11 +15,6 @@ export const getFluidRelayServer: typeof import("./getFluidRelayServer").getFlui
 export const getFluidRelayServerOutput: typeof import("./getFluidRelayServer").getFluidRelayServerOutput = null as any;
 utilities.lazyLoad(exports, ["getFluidRelayServer","getFluidRelayServerOutput"], () => require("./getFluidRelayServer"));
 
-export { GetFluidRelayServerKeysArgs, GetFluidRelayServerKeysResult, GetFluidRelayServerKeysOutputArgs } from "./getFluidRelayServerKeys";
-export const getFluidRelayServerKeys: typeof import("./getFluidRelayServerKeys").getFluidRelayServerKeys = null as any;
-export const getFluidRelayServerKeysOutput: typeof import("./getFluidRelayServerKeys").getFluidRelayServerKeysOutput = null as any;
-utilities.lazyLoad(exports, ["getFluidRelayServerKeys","getFluidRelayServerKeysOutput"], () => require("./getFluidRelayServerKeys"));
-
 export { ListFluidRelayServerKeysArgs, ListFluidRelayServerKeysResult, ListFluidRelayServerKeysOutputArgs } from "./listFluidRelayServerKeys";
 export const listFluidRelayServerKeys: typeof import("./listFluidRelayServerKeys").listFluidRelayServerKeys = null as any;
 export const listFluidRelayServerKeysOutput: typeof import("./listFluidRelayServerKeys").listFluidRelayServerKeysOutput = null as any;

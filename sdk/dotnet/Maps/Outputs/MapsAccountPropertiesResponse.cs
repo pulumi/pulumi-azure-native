@@ -17,14 +17,29 @@ namespace Pulumi.AzureNative.Maps.Outputs
     public sealed class MapsAccountPropertiesResponse
     {
         /// <summary>
+        /// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// the state of the provisioning.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// A unique identifier for the maps account
         /// </summary>
-        public readonly string? XMsClientId;
+        public readonly string UniqueId;
 
         [OutputConstructor]
-        private MapsAccountPropertiesResponse(string? xMsClientId)
+        private MapsAccountPropertiesResponse(
+            bool? disableLocalAuth,
+
+            string provisioningState,
+
+            string uniqueId)
         {
-            XMsClientId = xMsClientId;
+            DisableLocalAuth = disableLocalAuth;
+            ProvisioningState = provisioningState;
+            UniqueId = uniqueId;
         }
     }
 }

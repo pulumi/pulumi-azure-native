@@ -103,35 +103,4 @@ namespace Pulumi.AzureNative.DataMigration.V20180331Preview
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// Permission group for validations
-    /// </summary>
-    [EnumType]
-    public readonly struct ServerLevelPermissionsGroup : IEquatable<ServerLevelPermissionsGroup>
-    {
-        private readonly string _value;
-
-        private ServerLevelPermissionsGroup(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServerLevelPermissionsGroup Default { get; } = new ServerLevelPermissionsGroup("Default");
-        public static ServerLevelPermissionsGroup MigrationFromSqlServerToAzureDB { get; } = new ServerLevelPermissionsGroup("MigrationFromSqlServerToAzureDB");
-
-        public static bool operator ==(ServerLevelPermissionsGroup left, ServerLevelPermissionsGroup right) => left.Equals(right);
-        public static bool operator !=(ServerLevelPermissionsGroup left, ServerLevelPermissionsGroup right) => !left.Equals(right);
-
-        public static explicit operator string(ServerLevelPermissionsGroup value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerLevelPermissionsGroup other && Equals(other);
-        public bool Equals(ServerLevelPermissionsGroup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

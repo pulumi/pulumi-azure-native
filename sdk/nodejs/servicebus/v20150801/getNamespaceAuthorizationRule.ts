@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets an authorization rule for a namespace by rule name.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
-    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20150801:getNamespaceAuthorizationRule", {
@@ -62,7 +60,6 @@ export interface GetNamespaceAuthorizationRuleResult {
 /**
  * Gets an authorization rule for a namespace by rule name.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }

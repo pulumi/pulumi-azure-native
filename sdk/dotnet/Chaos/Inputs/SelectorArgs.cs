@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Chaos.Inputs
     public sealed class SelectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Model that represents available filter types that can be applied to a targets list.
+        /// </summary>
+        [Input("filter")]
+        public Input<Inputs.SimpleFilterArgs>? Filter { get; set; }
+
+        /// <summary>
         /// String of the selector ID.
         /// </summary>
         [Input("id", required: true)]

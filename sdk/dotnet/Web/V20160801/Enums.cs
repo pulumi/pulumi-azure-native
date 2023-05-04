@@ -40,37 +40,6 @@ namespace Pulumi.AzureNative.Web.V20160801
     }
 
     /// <summary>
-    /// Azure resource type.
-    /// </summary>
-    [EnumType]
-    public readonly struct AzureResourceType : IEquatable<AzureResourceType>
-    {
-        private readonly string _value;
-
-        private AzureResourceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AzureResourceType Website { get; } = new AzureResourceType("Website");
-        public static AzureResourceType TrafficManager { get; } = new AzureResourceType("TrafficManager");
-
-        public static bool operator ==(AzureResourceType left, AzureResourceType right) => left.Equals(right);
-        public static bool operator !=(AzureResourceType left, AzureResourceType right) => !left.Equals(right);
-
-        public static explicit operator string(AzureResourceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AzureResourceType other && Equals(other);
-        public bool Equals(AzureResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Type of the backup.
     /// </summary>
     [EnumType]
@@ -96,42 +65,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BackupRestoreOperationType other && Equals(other);
         public bool Equals(BackupRestoreOperationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The default authentication provider to use when multiple providers are configured.
-    /// This setting is only needed if multiple providers are configured and the unauthenticated client
-    /// action is set to "RedirectToLoginPage".
-    /// </summary>
-    [EnumType]
-    public readonly struct BuiltInAuthenticationProvider : IEquatable<BuiltInAuthenticationProvider>
-    {
-        private readonly string _value;
-
-        private BuiltInAuthenticationProvider(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static BuiltInAuthenticationProvider AzureActiveDirectory { get; } = new BuiltInAuthenticationProvider("AzureActiveDirectory");
-        public static BuiltInAuthenticationProvider Facebook { get; } = new BuiltInAuthenticationProvider("Facebook");
-        public static BuiltInAuthenticationProvider Google { get; } = new BuiltInAuthenticationProvider("Google");
-        public static BuiltInAuthenticationProvider MicrosoftAccount { get; } = new BuiltInAuthenticationProvider("MicrosoftAccount");
-        public static BuiltInAuthenticationProvider Twitter { get; } = new BuiltInAuthenticationProvider("Twitter");
-
-        public static bool operator ==(BuiltInAuthenticationProvider left, BuiltInAuthenticationProvider right) => left.Equals(right);
-        public static bool operator !=(BuiltInAuthenticationProvider left, BuiltInAuthenticationProvider right) => !left.Equals(right);
-
-        public static explicit operator string(BuiltInAuthenticationProvider value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is BuiltInAuthenticationProvider other && Equals(other);
-        public bool Equals(BuiltInAuthenticationProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -172,37 +105,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectionStringType other && Equals(other);
         public bool Equals(ConnectionStringType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Custom DNS record type.
-    /// </summary>
-    [EnumType]
-    public readonly struct CustomHostNameDnsRecordType : IEquatable<CustomHostNameDnsRecordType>
-    {
-        private readonly string _value;
-
-        private CustomHostNameDnsRecordType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CustomHostNameDnsRecordType CName { get; } = new CustomHostNameDnsRecordType("CName");
-        public static CustomHostNameDnsRecordType A { get; } = new CustomHostNameDnsRecordType("A");
-
-        public static bool operator ==(CustomHostNameDnsRecordType left, CustomHostNameDnsRecordType right) => left.Equals(right);
-        public static bool operator !=(CustomHostNameDnsRecordType left, CustomHostNameDnsRecordType right) => !left.Equals(right);
-
-        public static explicit operator string(CustomHostNameDnsRecordType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CustomHostNameDnsRecordType other && Equals(other);
-        public bool Equals(CustomHostNameDnsRecordType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -275,37 +177,6 @@ namespace Pulumi.AzureNative.Web.V20160801
     }
 
     /// <summary>
-    /// Hostname type.
-    /// </summary>
-    [EnumType]
-    public readonly struct HostNameType : IEquatable<HostNameType>
-    {
-        private readonly string _value;
-
-        private HostNameType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static HostNameType Verified { get; } = new HostNameType("Verified");
-        public static HostNameType Managed { get; } = new HostNameType("Managed");
-
-        public static bool operator ==(HostNameType left, HostNameType right) => left.Equals(right);
-        public static bool operator !=(HostNameType left, HostNameType right) => !left.Equals(right);
-
-        public static explicit operator string(HostNameType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is HostNameType other && Equals(other);
-        public bool Equals(HostNameType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates whether the hostname is a standard or repository hostname.
     /// </summary>
     [EnumType]
@@ -329,40 +200,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HostType other && Equals(other);
         public bool Equals(HostType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Log level.
-    /// </summary>
-    [EnumType]
-    public readonly struct LogLevel : IEquatable<LogLevel>
-    {
-        private readonly string _value;
-
-        private LogLevel(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static LogLevel Off { get; } = new LogLevel("Off");
-        public static LogLevel Verbose { get; } = new LogLevel("Verbose");
-        public static LogLevel Information { get; } = new LogLevel("Information");
-        public static LogLevel Warning { get; } = new LogLevel("Warning");
-        public static LogLevel Error { get; } = new LogLevel("Error");
-
-        public static bool operator ==(LogLevel left, LogLevel right) => left.Equals(right);
-        public static bool operator !=(LogLevel left, LogLevel right) => !left.Equals(right);
-
-        public static explicit operator string(LogLevel value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LogLevel other && Equals(other);
-        public bool Equals(LogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -424,38 +261,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Public Certificate Location
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicCertificateLocation : IEquatable<PublicCertificateLocation>
-    {
-        private readonly string _value;
-
-        private PublicCertificateLocation(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PublicCertificateLocation CurrentUserMy { get; } = new PublicCertificateLocation("CurrentUserMy");
-        public static PublicCertificateLocation LocalMachineMy { get; } = new PublicCertificateLocation("LocalMachineMy");
-        public static PublicCertificateLocation Unknown { get; } = new PublicCertificateLocation("Unknown");
-
-        public static bool operator ==(PublicCertificateLocation left, PublicCertificateLocation right) => left.Equals(right);
-        public static bool operator !=(PublicCertificateLocation left, PublicCertificateLocation right) => !left.Equals(right);
-
-        public static explicit operator string(PublicCertificateLocation value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicCertificateLocation other && Equals(other);
-        public bool Equals(PublicCertificateLocation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -596,37 +401,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SupportedTlsVersions other && Equals(other);
         public bool Equals(SupportedTlsVersions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The action to take when an unauthenticated client attempts to access the app.
-    /// </summary>
-    [EnumType]
-    public readonly struct UnauthenticatedClientAction : IEquatable<UnauthenticatedClientAction>
-    {
-        private readonly string _value;
-
-        private UnauthenticatedClientAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static UnauthenticatedClientAction RedirectToLoginPage { get; } = new UnauthenticatedClientAction("RedirectToLoginPage");
-        public static UnauthenticatedClientAction AllowAnonymous { get; } = new UnauthenticatedClientAction("AllowAnonymous");
-
-        public static bool operator ==(UnauthenticatedClientAction left, UnauthenticatedClientAction right) => left.Equals(right);
-        public static bool operator !=(UnauthenticatedClientAction left, UnauthenticatedClientAction right) => !left.Equals(right);
-
-        public static explicit operator string(UnauthenticatedClientAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UnauthenticatedClientAction other && Equals(other);
-        public bool Equals(UnauthenticatedClientAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkVirtualAppliance Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualAppliance")]
     public partial class NetworkVirtualAppliance : global::Pulumi.CustomResource
@@ -39,6 +40,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("cloudInitConfigurationBlobs")]
         public Output<ImmutableArray<string>> CloudInitConfigurationBlobs { get; private set; } = null!;
+
+        /// <summary>
+        /// The delegation for the Virtual Appliance
+        /// </summary>
+        [Output("delegation")]
+        public Output<Outputs.DelegationPropertiesResponse?> Delegation { get; private set; } = null!;
+
+        /// <summary>
+        /// The deployment type. PartnerManaged for the SaaS NVA
+        /// </summary>
+        [Output("deploymentType")]
+        public Output<string> DeploymentType { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -77,10 +90,22 @@ namespace Pulumi.AzureNative.Network
         public Output<Outputs.VirtualApplianceSkuPropertiesResponse?> NvaSku { get; private set; } = null!;
 
         /// <summary>
+        /// The delegation for the Virtual Appliance
+        /// </summary>
+        [Output("partnerManagedResource")]
+        public Output<Outputs.PartnerManagedResourcePropertiesResponse?> PartnerManagedResource { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Public key for SSH login.
+        /// </summary>
+        [Output("sshPublicKey")]
+        public Output<string?> SshPublicKey { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -95,7 +120,7 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// VirtualAppliance ASN.
+        /// VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         /// </summary>
         [Output("virtualApplianceAsn")]
         public Output<double?> VirtualApplianceAsn { get; private set; } = null!;
@@ -159,6 +184,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:NetworkVirtualAppliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkVirtualAppliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -213,6 +239,12 @@ namespace Pulumi.AzureNative.Network
         }
 
         /// <summary>
+        /// The delegation for the Virtual Appliance
+        /// </summary>
+        [Input("delegation")]
+        public Input<Inputs.DelegationPropertiesArgs>? Delegation { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -248,6 +280,12 @@ namespace Pulumi.AzureNative.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Public key for SSH login.
+        /// </summary>
+        [Input("sshPublicKey")]
+        public Input<string>? SshPublicKey { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -261,7 +299,7 @@ namespace Pulumi.AzureNative.Network
         }
 
         /// <summary>
-        /// VirtualAppliance ASN.
+        /// VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         /// </summary>
         [Input("virtualApplianceAsn")]
         public Input<double>? VirtualApplianceAsn { get; set; }

@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    pulumi.log.warn("getAssessment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20171111preview:getAssessment", {
@@ -139,7 +137,6 @@ export interface GetAssessmentResult {
 /**
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
     return pulumi.output(args).apply((a: any) => getAssessment(a, opts))
 }

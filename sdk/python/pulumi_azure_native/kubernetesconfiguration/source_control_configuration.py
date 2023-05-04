@@ -35,9 +35,9 @@ class SourceControlConfigurationArgs:
         """
         The set of arguments for constructing a SourceControlConfiguration resource.
         :param pulumi.Input[str] cluster_name: The name of the kubernetes cluster.
-        :param pulumi.Input[str] cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
-        :param pulumi.Input[str] cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
+        :param pulumi.Input[str] cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_protected_settings: Name-value pairs of protected configuration settings for the configuration
         :param pulumi.Input[bool] enable_helm_operator: Option to enable Helm Operator for this git configuration.
         :param pulumi.Input['HelmOperatorPropertiesArgs'] helm_operator_properties: Properties for Helm operator.
@@ -95,7 +95,7 @@ class SourceControlConfigurationArgs:
     @pulumi.getter(name="clusterResourceName")
     def cluster_resource_name(self) -> pulumi.Input[str]:
         """
-        The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         """
         return pulumi.get(self, "cluster_resource_name")
 
@@ -107,7 +107,7 @@ class SourceControlConfigurationArgs:
     @pulumi.getter(name="clusterRp")
     def cluster_rp(self) -> pulumi.Input[str]:
         """
-        The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         """
         return pulumi.get(self, "cluster_rp")
 
@@ -119,7 +119,7 @@ class SourceControlConfigurationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -283,13 +283,14 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         The SourceControl Configuration object returned in Get & Put response.
-        API Version: 2021-03-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the kubernetes cluster.
-        :param pulumi.Input[str] cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
-        :param pulumi.Input[str] cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        :param pulumi.Input[str] cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
+        :param pulumi.Input[str] cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_protected_settings: Name-value pairs of protected configuration settings for the configuration
         :param pulumi.Input[bool] enable_helm_operator: Option to enable Helm Operator for this git configuration.
         :param pulumi.Input[pulumi.InputType['HelmOperatorPropertiesArgs']] helm_operator_properties: Properties for Helm operator.
@@ -299,7 +300,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'OperatorScopeType']] operator_scope: Scope at which the operator will be installed.
         :param pulumi.Input[Union[str, 'OperatorType']] operator_type: Type of the operator
         :param pulumi.Input[str] repository_url: Url of the SourceControl Repository.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] source_control_configuration_name: Name of the Source Control Configuration.
         :param pulumi.Input[str] ssh_known_hosts_contents: Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
         """
@@ -311,7 +312,8 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The SourceControl Configuration object returned in Get & Put response.
-        API Version: 2021-03-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SourceControlConfigurationArgs args: The arguments to use to populate this resource's properties.

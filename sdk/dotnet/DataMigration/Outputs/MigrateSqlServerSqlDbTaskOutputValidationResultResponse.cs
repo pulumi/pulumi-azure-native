@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Validation result for Sql Server to Azure Sql DB migration.
-    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlDbTaskOutputValidationResultResponse
     {
         /// <summary>
-        /// Result identifier
+        /// Migration validation result identifier
         /// </summary>
         public readonly string Id;
         /// <summary>

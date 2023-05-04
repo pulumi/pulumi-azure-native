@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-11-15.
  */
 export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleAssignmentResult> {
 
@@ -64,7 +64,7 @@ export interface GetSqlResourceSqlRoleAssignmentResult {
 }
 /**
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-11-15.
  */
 export function getSqlResourceSqlRoleAssignmentOutput(args: GetSqlResourceSqlRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlRoleAssignment(a, opts))

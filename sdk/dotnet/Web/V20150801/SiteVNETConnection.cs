@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
     /// </summary>
-    [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteVNETConnection")]
     public partial class SiteVNETConnection : global::Pulumi.CustomResource
     {

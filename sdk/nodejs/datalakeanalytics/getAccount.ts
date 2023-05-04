@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details of the specified Data Lake Analytics account.
- * API Version: 2016-11-01.
+ * API Version: 2019-11-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -63,6 +63,10 @@ export interface GetAccountResult {
      * The default Data Lake Store account associated with this account.
      */
     readonly defaultDataLakeStoreAccount: string;
+    /**
+     * The type of the default Data Lake Store account associated with this account.
+     */
+    readonly defaultDataLakeStoreAccountType: string;
     /**
      * The full CName endpoint for this account.
      */
@@ -174,7 +178,7 @@ export interface GetAccountResult {
 }
 /**
  * Gets details of the specified Data Lake Analytics account.
- * API Version: 2016-11-01.
+ * API Version: 2019-11-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

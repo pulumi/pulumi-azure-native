@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetHanaInstanceArgs, GetHanaInstanceResult, GetHanaInstanceOutputArgs } from "./getHanaInstance";
-export const getHanaInstance: typeof import("./getHanaInstance").getHanaInstance = null as any;
-export const getHanaInstanceOutput: typeof import("./getHanaInstance").getHanaInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getHanaInstance","getHanaInstanceOutput"], () => require("./getHanaInstance"));
-
 export { GetProviderInstanceArgs, GetProviderInstanceResult, GetProviderInstanceOutputArgs } from "./getProviderInstance";
 export const getProviderInstance: typeof import("./getProviderInstance").getProviderInstance = null as any;
 export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
@@ -19,11 +14,6 @@ export { GetSapMonitorArgs, GetSapMonitorResult, GetSapMonitorOutputArgs } from 
 export const getSapMonitor: typeof import("./getSapMonitor").getSapMonitor = null as any;
 export const getSapMonitorOutput: typeof import("./getSapMonitor").getSapMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getSapMonitor","getSapMonitorOutput"], () => require("./getSapMonitor"));
-
-export { HanaInstanceArgs } from "./hanaInstance";
-export type HanaInstance = import("./hanaInstance").HanaInstance;
-export const HanaInstance: typeof import("./hanaInstance").HanaInstance = null as any;
-utilities.lazyLoad(exports, ["HanaInstance"], () => require("./hanaInstance"));
 
 export { ProviderInstanceArgs } from "./providerInstance";
 export type ProviderInstance = import("./providerInstance").ProviderInstance;
@@ -49,8 +39,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:hanaonazure:HanaInstance":
-                return new HanaInstance(name, <any>undefined, { urn })
             case "azure-native:hanaonazure:ProviderInstance":
                 return new ProviderInstance(name, <any>undefined, { urn })
             case "azure-native:hanaonazure:SapMonitor":

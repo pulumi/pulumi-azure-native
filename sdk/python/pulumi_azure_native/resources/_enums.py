@@ -8,6 +8,7 @@ __all__ = [
     'CleanupOptions',
     'DeploymentMode',
     'ExpressionEvaluationOptionsScopeType',
+    'ExtendedLocationType',
     'ManagedServiceIdentityType',
     'OnErrorDeploymentType',
     'ResourceIdentityType',
@@ -39,6 +40,13 @@ class ExpressionEvaluationOptionsScopeType(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     OUTER = "Outer"
     INNER = "Inner"
+
+
+class ExtendedLocationType(str, Enum):
+    """
+    The extended location type.
+    """
+    EDGE_ZONE = "EdgeZone"
 
 
 class ManagedServiceIdentityType(str, Enum):

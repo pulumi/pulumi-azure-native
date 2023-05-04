@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
-    /// A database geo backup policy.
-    /// API Version: 2014-04-01.
+    /// A Geo backup policy.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:GeoBackupPolicy")]
     public partial class GeoBackupPolicy : global::Pulumi.CustomResource
@@ -112,7 +113,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the geo backup policy.
+        /// The name of the Geo backup policy. This should always be 'Default'.
         /// </summary>
         [Input("geoBackupPolicyName")]
         public Input<string>? GeoBackupPolicyName { get; set; }

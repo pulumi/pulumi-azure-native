@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteVNETConnection(args: GetSiteVNETConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteVNETConnectionResult> {
-    pulumi.log.warn("getSiteVNETConnection is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteVNETConnection", {
@@ -94,7 +92,6 @@ export interface GetSiteVNETConnectionResult {
 /**
  * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteVNETConnectionOutput(args: GetSiteVNETConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteVNETConnectionResult> {
     return pulumi.output(args).apply((a: any) => getSiteVNETConnection(a, opts))
 }

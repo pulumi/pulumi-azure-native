@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class BlobInventoryPolicySchemaResponse
     {
         /// <summary>
-        /// Container name where blob inventory files are stored. Must be pre-created.
+        /// Deprecated Property from API version 2021-04-01 onwards, the required destination container name must be specified at the rule level 'policy.rule.destination'
         /// </summary>
         public readonly string Destination;
         /// <summary>

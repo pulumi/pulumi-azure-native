@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.Authorization.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization:PolicyExemption"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220701preview:PolicyExemption"},
                 },
             };

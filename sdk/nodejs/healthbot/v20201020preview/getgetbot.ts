@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a Healthcare Bot.
  */
-/** @deprecated Version 2020-10-20-preview will be removed in v2 of the provider. */
 export function getgetbot(args: GetgetbotArgs, opts?: pulumi.InvokeOptions): Promise<GetgetbotResult> {
-    pulumi.log.warn("getgetbot is deprecated: Version 2020-10-20-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthbot/v20201020preview:getgetbot", {
@@ -72,7 +70,6 @@ export interface GetgetbotResult {
 /**
  * Get a Healthcare Bot.
  */
-/** @deprecated Version 2020-10-20-preview will be removed in v2 of the provider. */
 export function getgetbotOutput(args: GetgetbotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgetbotResult> {
     return pulumi.output(args).apply((a: any) => getgetbot(a, opts))
 }

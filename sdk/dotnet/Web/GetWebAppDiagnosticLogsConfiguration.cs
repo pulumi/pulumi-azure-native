@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppDiagnosticLogsConfiguration
     {
         /// <summary>
-        /// Gets the logging configuration of an app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the logging configuration of an app.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetWebAppDiagnosticLogsConfigurationResult> InvokeAsync(GetWebAppDiagnosticLogsConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the logging configuration of an app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the logging configuration of an app.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetWebAppDiagnosticLogsConfigurationResult> Invoke(GetWebAppDiagnosticLogsConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationInvokeArgs(), options.WithDefaults());

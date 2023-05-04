@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets the alert rule.
-        /// API Version: 2020-01-01.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetScheduledAlertRuleResult> InvokeAsync(GetScheduledAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledAlertRuleResult>("azure-native:securityinsights:getScheduledAlertRule", args ?? new GetScheduledAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the alert rule.
-        /// API Version: 2020-01-01.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetScheduledAlertRuleResult> Invoke(GetScheduledAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledAlertRuleResult>("azure-native:securityinsights:getScheduledAlertRule", args ?? new GetScheduledAlertRuleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetScheduledAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetScheduledAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -84,9 +84,17 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetScheduledAlertRuleResult
     {
         /// <summary>
+        /// The alert details override settings
+        /// </summary>
+        public readonly Outputs.AlertDetailsOverrideResponse? AlertDetailsOverride;
+        /// <summary>
         /// The Name of the alert rule template used to create this rule.
         /// </summary>
         public readonly string? AlertRuleTemplateName;
+        /// <summary>
+        /// Dictionary of string key-value pairs of columns to be attached to the alert
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? CustomDetails;
         /// <summary>
         /// The description of the alert rule.
         /// </summary>
@@ -100,13 +108,25 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// Array of the entity mappings of the alert rule
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EntityMappingResponse> EntityMappings;
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// The event grouping settings.
+        /// </summary>
+        public readonly Outputs.EventGroupingSettingsResponse? EventGroupingSettings;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The settings of the incidents that created from alerts triggered by this analytics rule
+        /// </summary>
+        public readonly Outputs.IncidentConfigurationResponse? IncidentConfiguration;
         /// <summary>
         /// The kind of the alert rule
         /// Expected value is 'Scheduled'.
@@ -117,7 +137,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string LastModifiedUtc;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -145,9 +165,21 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly bool SuppressionEnabled;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tactics of the alert rule
         /// </summary>
         public readonly ImmutableArray<string> Tactics;
+        /// <summary>
+        /// The techniques of the alert rule
+        /// </summary>
+        public readonly ImmutableArray<string> Techniques;
+        /// <summary>
+        /// The version of the alert rule template used to create this rule - in format &lt;a.b.c&gt;, where all are numbers, for example 0 &lt;1.0.2&gt;
+        /// </summary>
+        public readonly string? TemplateVersion;
         /// <summary>
         /// The operation against the threshold that triggers alert rule.
         /// </summary>
@@ -157,13 +189,17 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly int TriggerThreshold;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetScheduledAlertRuleResult(
+            Outputs.AlertDetailsOverrideResponse? alertDetailsOverride,
+
             string? alertRuleTemplateName,
+
+            ImmutableDictionary<string, string>? customDetails,
 
             string? description,
 
@@ -171,9 +207,15 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             bool enabled,
 
+            ImmutableArray<Outputs.EntityMappingResponse> entityMappings,
+
             string? etag,
 
+            Outputs.EventGroupingSettingsResponse? eventGroupingSettings,
+
             string id,
+
+            Outputs.IncidentConfigurationResponse? incidentConfiguration,
 
             string kind,
 
@@ -193,7 +235,13 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             bool suppressionEnabled,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableArray<string> tactics,
+
+            ImmutableArray<string> techniques,
+
+            string? templateVersion,
 
             string triggerOperator,
 
@@ -201,12 +249,17 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            AlertDetailsOverride = alertDetailsOverride;
             AlertRuleTemplateName = alertRuleTemplateName;
+            CustomDetails = customDetails;
             Description = description;
             DisplayName = displayName;
             Enabled = enabled;
+            EntityMappings = entityMappings;
             Etag = etag;
+            EventGroupingSettings = eventGroupingSettings;
             Id = id;
+            IncidentConfiguration = incidentConfiguration;
             Kind = kind;
             LastModifiedUtc = lastModifiedUtc;
             Name = name;
@@ -216,7 +269,10 @@ namespace Pulumi.AzureNative.SecurityInsights
             Severity = severity;
             SuppressionDuration = suppressionDuration;
             SuppressionEnabled = suppressionEnabled;
+            SystemData = systemData;
             Tactics = tactics;
+            Techniques = techniques;
+            TemplateVersion = templateVersion;
             TriggerOperator = triggerOperator;
             TriggerThreshold = triggerThreshold;
             Type = type;

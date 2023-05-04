@@ -12,7 +12,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// <summary>
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
-    /// API Version: 2019-06-01-preview.
+    /// API Version: 2019-04-01.
+    /// Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Task")]
     public partial class Task : global::Pulumi.CustomResource
@@ -22,12 +23,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("agentConfiguration")]
         public Output<Outputs.AgentPropertiesResponse?> AgentConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// The dedicated agent pool for the task.
-        /// </summary>
-        [Output("agentPoolName")]
-        public Output<string?> AgentPoolName { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of task.
@@ -48,22 +43,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The value of this property indicates whether the task resource is system task or not.
-        /// </summary>
-        [Output("isSystemTask")]
-        public Output<bool?> IsSystemTask { get; private set; } = null!;
-
-        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The template that describes the repository and tag information for run log artifact.
-        /// </summary>
-        [Output("logTemplate")]
-        public Output<string?> LogTemplate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -75,7 +58,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// The platform properties against which the run has to happen.
         /// </summary>
         [Output("platform")]
-        public Output<Outputs.PlatformPropertiesResponse?> Platform { get; private set; } = null!;
+        public Output<Outputs.PlatformPropertiesResponse> Platform { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the task.
@@ -93,13 +76,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// The properties of a task step.
         /// </summary>
         [Output("step")]
-        public Output<object?> Step { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<object> Step { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -184,12 +161,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<Inputs.AgentPropertiesArgs>? AgentConfiguration { get; set; }
 
         /// <summary>
-        /// The dedicated agent pool for the task.
-        /// </summary>
-        [Input("agentPoolName")]
-        public Input<string>? AgentPoolName { get; set; }
-
-        /// <summary>
         /// The properties that describes a set of credentials that will be used when this run is invoked.
         /// </summary>
         [Input("credentials")]
@@ -202,28 +173,16 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The value of this property indicates whether the task resource is system task or not.
-        /// </summary>
-        [Input("isSystemTask")]
-        public Input<bool>? IsSystemTask { get; set; }
-
-        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The template that describes the repository and tag information for run log artifact.
-        /// </summary>
-        [Input("logTemplate")]
-        public Input<string>? LogTemplate { get; set; }
-
-        /// <summary>
         /// The platform properties against which the run has to happen.
         /// </summary>
-        [Input("platform")]
-        public Input<Inputs.PlatformPropertiesArgs>? Platform { get; set; }
+        [Input("platform", required: true)]
+        public Input<Inputs.PlatformPropertiesArgs> Platform { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.
@@ -246,8 +205,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The properties of a task step.
         /// </summary>
-        [Input("step")]
-        public object? Step { get; set; }
+        [Input("step", required: true)]
+        public object Step { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -281,7 +240,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
         public TaskArgs()
         {
-            IsSystemTask = false;
             Timeout = 3600;
         }
         public static new TaskArgs Empty => new TaskArgs();

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Resources.V20151101
 {
-    [Obsolete(@"Version 2015-11-01 will be removed in v2 of the provider.")]
     public static class GetResource
     {
         /// <summary>

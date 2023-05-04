@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get metadata information on an assessment type in a specific subscription
- * API Version: 2020-01-01.
+ * API Version: 2021-06-01.
  */
 export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
 
@@ -27,7 +27,7 @@ export interface GetAssessmentMetadataInSubscriptionArgs {
 }
 
 /**
- * Security assessment metadata
+ * Security assessment metadata response
  */
 export interface GetAssessmentMetadataInSubscriptionResult {
     /**
@@ -59,6 +59,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      * Describes the partner that created the assessment
      */
     readonly partnerData?: outputs.security.SecurityAssessmentMetadataPartnerDataResponse;
+    readonly plannedDeprecationDate?: string;
     /**
      * Azure resource ID of the policy definition that turns this assessment calculation on
      */
@@ -67,6 +68,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      * True if this assessment is in preview release status
      */
     readonly preview?: boolean;
+    readonly publishDates?: outputs.security.SecurityAssessmentMetadataPropertiesResponseResponsePublishDates;
     /**
      * Human readable description of what you should do to mitigate this security issue
      */
@@ -75,6 +77,8 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      * The severity level of the assessment
      */
     readonly severity: string;
+    readonly tactics?: string[];
+    readonly techniques?: string[];
     readonly threats?: string[];
     /**
      * Resource type
@@ -87,7 +91,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
 }
 /**
  * Get metadata information on an assessment type in a specific subscription
- * API Version: 2020-01-01.
+ * API Version: 2021-06-01.
  */
 export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getAssessmentMetadataInSubscription(a, opts))

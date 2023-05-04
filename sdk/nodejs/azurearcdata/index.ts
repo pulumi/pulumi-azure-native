@@ -15,6 +15,11 @@ export type DataController = import("./dataController").DataController;
 export const DataController: typeof import("./dataController").DataController = null as any;
 utilities.lazyLoad(exports, ["DataController"], () => require("./dataController"));
 
+export { FailoverGroupArgs } from "./failoverGroup";
+export type FailoverGroup = import("./failoverGroup").FailoverGroup;
+export const FailoverGroup: typeof import("./failoverGroup").FailoverGroup = null as any;
+utilities.lazyLoad(exports, ["FailoverGroup"], () => require("./failoverGroup"));
+
 export { GetActiveDirectoryConnectorArgs, GetActiveDirectoryConnectorResult, GetActiveDirectoryConnectorOutputArgs } from "./getActiveDirectoryConnector";
 export const getActiveDirectoryConnector: typeof import("./getActiveDirectoryConnector").getActiveDirectoryConnector = null as any;
 export const getActiveDirectoryConnectorOutput: typeof import("./getActiveDirectoryConnector").getActiveDirectoryConnectorOutput = null as any;
@@ -25,15 +30,45 @@ export const getDataController: typeof import("./getDataController").getDataCont
 export const getDataControllerOutput: typeof import("./getDataController").getDataControllerOutput = null as any;
 utilities.lazyLoad(exports, ["getDataController","getDataControllerOutput"], () => require("./getDataController"));
 
+export { GetFailoverGroupArgs, GetFailoverGroupResult, GetFailoverGroupOutputArgs } from "./getFailoverGroup";
+export const getFailoverGroup: typeof import("./getFailoverGroup").getFailoverGroup = null as any;
+export const getFailoverGroupOutput: typeof import("./getFailoverGroup").getFailoverGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getFailoverGroup","getFailoverGroupOutput"], () => require("./getFailoverGroup"));
+
 export { GetPostgresInstanceArgs, GetPostgresInstanceResult, GetPostgresInstanceOutputArgs } from "./getPostgresInstance";
 export const getPostgresInstance: typeof import("./getPostgresInstance").getPostgresInstance = null as any;
 export const getPostgresInstanceOutput: typeof import("./getPostgresInstance").getPostgresInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getPostgresInstance","getPostgresInstanceOutput"], () => require("./getPostgresInstance"));
 
+export { GetSqlAvailabilityGroupArgs, GetSqlAvailabilityGroupResult, GetSqlAvailabilityGroupOutputArgs } from "./getSqlAvailabilityGroup";
+export const getSqlAvailabilityGroup: typeof import("./getSqlAvailabilityGroup").getSqlAvailabilityGroup = null as any;
+export const getSqlAvailabilityGroupOutput: typeof import("./getSqlAvailabilityGroup").getSqlAvailabilityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlAvailabilityGroup","getSqlAvailabilityGroupOutput"], () => require("./getSqlAvailabilityGroup"));
+
+export { GetSqlAvailabilityGroupDatabaseArgs, GetSqlAvailabilityGroupDatabaseResult, GetSqlAvailabilityGroupDatabaseOutputArgs } from "./getSqlAvailabilityGroupDatabase";
+export const getSqlAvailabilityGroupDatabase: typeof import("./getSqlAvailabilityGroupDatabase").getSqlAvailabilityGroupDatabase = null as any;
+export const getSqlAvailabilityGroupDatabaseOutput: typeof import("./getSqlAvailabilityGroupDatabase").getSqlAvailabilityGroupDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlAvailabilityGroupDatabase","getSqlAvailabilityGroupDatabaseOutput"], () => require("./getSqlAvailabilityGroupDatabase"));
+
+export { GetSqlAvailabilityGroupReplicaArgs, GetSqlAvailabilityGroupReplicaResult, GetSqlAvailabilityGroupReplicaOutputArgs } from "./getSqlAvailabilityGroupReplica";
+export const getSqlAvailabilityGroupReplica: typeof import("./getSqlAvailabilityGroupReplica").getSqlAvailabilityGroupReplica = null as any;
+export const getSqlAvailabilityGroupReplicaOutput: typeof import("./getSqlAvailabilityGroupReplica").getSqlAvailabilityGroupReplicaOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlAvailabilityGroupReplica","getSqlAvailabilityGroupReplicaOutput"], () => require("./getSqlAvailabilityGroupReplica"));
+
 export { GetSqlManagedInstanceArgs, GetSqlManagedInstanceResult, GetSqlManagedInstanceOutputArgs } from "./getSqlManagedInstance";
 export const getSqlManagedInstance: typeof import("./getSqlManagedInstance").getSqlManagedInstance = null as any;
 export const getSqlManagedInstanceOutput: typeof import("./getSqlManagedInstance").getSqlManagedInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlManagedInstance","getSqlManagedInstanceOutput"], () => require("./getSqlManagedInstance"));
+
+export { GetSqlServerAvailabilityGroupArgs, GetSqlServerAvailabilityGroupResult, GetSqlServerAvailabilityGroupOutputArgs } from "./getSqlServerAvailabilityGroup";
+export const getSqlServerAvailabilityGroup: typeof import("./getSqlServerAvailabilityGroup").getSqlServerAvailabilityGroup = null as any;
+export const getSqlServerAvailabilityGroupOutput: typeof import("./getSqlServerAvailabilityGroup").getSqlServerAvailabilityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerAvailabilityGroup","getSqlServerAvailabilityGroupOutput"], () => require("./getSqlServerAvailabilityGroup"));
+
+export { GetSqlServerDatabaseArgs, GetSqlServerDatabaseResult, GetSqlServerDatabaseOutputArgs } from "./getSqlServerDatabase";
+export const getSqlServerDatabase: typeof import("./getSqlServerDatabase").getSqlServerDatabase = null as any;
+export const getSqlServerDatabaseOutput: typeof import("./getSqlServerDatabase").getSqlServerDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerDatabase","getSqlServerDatabaseOutput"], () => require("./getSqlServerDatabase"));
 
 export { GetSqlServerInstanceArgs, GetSqlServerInstanceResult, GetSqlServerInstanceOutputArgs } from "./getSqlServerInstance";
 export const getSqlServerInstance: typeof import("./getSqlServerInstance").getSqlServerInstance = null as any;
@@ -45,10 +80,35 @@ export type PostgresInstance = import("./postgresInstance").PostgresInstance;
 export const PostgresInstance: typeof import("./postgresInstance").PostgresInstance = null as any;
 utilities.lazyLoad(exports, ["PostgresInstance"], () => require("./postgresInstance"));
 
+export { SqlAvailabilityGroupArgs } from "./sqlAvailabilityGroup";
+export type SqlAvailabilityGroup = import("./sqlAvailabilityGroup").SqlAvailabilityGroup;
+export const SqlAvailabilityGroup: typeof import("./sqlAvailabilityGroup").SqlAvailabilityGroup = null as any;
+utilities.lazyLoad(exports, ["SqlAvailabilityGroup"], () => require("./sqlAvailabilityGroup"));
+
+export { SqlAvailabilityGroupDatabaseArgs } from "./sqlAvailabilityGroupDatabase";
+export type SqlAvailabilityGroupDatabase = import("./sqlAvailabilityGroupDatabase").SqlAvailabilityGroupDatabase;
+export const SqlAvailabilityGroupDatabase: typeof import("./sqlAvailabilityGroupDatabase").SqlAvailabilityGroupDatabase = null as any;
+utilities.lazyLoad(exports, ["SqlAvailabilityGroupDatabase"], () => require("./sqlAvailabilityGroupDatabase"));
+
+export { SqlAvailabilityGroupReplicaArgs } from "./sqlAvailabilityGroupReplica";
+export type SqlAvailabilityGroupReplica = import("./sqlAvailabilityGroupReplica").SqlAvailabilityGroupReplica;
+export const SqlAvailabilityGroupReplica: typeof import("./sqlAvailabilityGroupReplica").SqlAvailabilityGroupReplica = null as any;
+utilities.lazyLoad(exports, ["SqlAvailabilityGroupReplica"], () => require("./sqlAvailabilityGroupReplica"));
+
 export { SqlManagedInstanceArgs } from "./sqlManagedInstance";
 export type SqlManagedInstance = import("./sqlManagedInstance").SqlManagedInstance;
 export const SqlManagedInstance: typeof import("./sqlManagedInstance").SqlManagedInstance = null as any;
 utilities.lazyLoad(exports, ["SqlManagedInstance"], () => require("./sqlManagedInstance"));
+
+export { SqlServerAvailabilityGroupArgs } from "./sqlServerAvailabilityGroup";
+export type SqlServerAvailabilityGroup = import("./sqlServerAvailabilityGroup").SqlServerAvailabilityGroup;
+export const SqlServerAvailabilityGroup: typeof import("./sqlServerAvailabilityGroup").SqlServerAvailabilityGroup = null as any;
+utilities.lazyLoad(exports, ["SqlServerAvailabilityGroup"], () => require("./sqlServerAvailabilityGroup"));
+
+export { SqlServerDatabaseArgs } from "./sqlServerDatabase";
+export type SqlServerDatabase = import("./sqlServerDatabase").SqlServerDatabase;
+export const SqlServerDatabase: typeof import("./sqlServerDatabase").SqlServerDatabase = null as any;
+utilities.lazyLoad(exports, ["SqlServerDatabase"], () => require("./sqlServerDatabase"));
 
 export { SqlServerInstanceArgs } from "./sqlServerInstance";
 export type SqlServerInstance = import("./sqlServerInstance").SqlServerInstance;
@@ -61,19 +121,17 @@ export * from "../types/enums/azurearcdata";
 
 // Export sub-modules:
 import * as v20210601preview from "./v20210601preview";
-import * as v20210701preview from "./v20210701preview";
-import * as v20210801 from "./v20210801";
-import * as v20211101 from "./v20211101";
 import * as v20220301preview from "./v20220301preview";
 import * as v20220615preview from "./v20220615preview";
+import * as v20230115preview from "./v20230115preview";
+import * as v20230315preview from "./v20230315preview";
 
 export {
     v20210601preview,
-    v20210701preview,
-    v20210801,
-    v20211101,
     v20220301preview,
     v20220615preview,
+    v20230115preview,
+    v20230315preview,
 };
 
 const _module = {
@@ -84,10 +142,22 @@ const _module = {
                 return new ActiveDirectoryConnector(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:DataController":
                 return new DataController(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:FailoverGroup":
+                return new FailoverGroup(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:PostgresInstance":
                 return new PostgresInstance(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlAvailabilityGroup":
+                return new SqlAvailabilityGroup(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlAvailabilityGroupDatabase":
+                return new SqlAvailabilityGroupDatabase(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlAvailabilityGroupReplica":
+                return new SqlAvailabilityGroupReplica(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlManagedInstance":
                 return new SqlManagedInstance(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlServerAvailabilityGroup":
+                return new SqlServerAvailabilityGroup(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlServerDatabase":
+                return new SqlServerDatabase(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerInstance":
                 return new SqlServerInstance(name, <any>undefined, { urn })
             default:

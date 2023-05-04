@@ -21,9 +21,9 @@ class RegistrationAssignmentArgs:
                  registration_assignment_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RegistrationAssignment resource.
-        :param pulumi.Input[str] scope: Scope of the resource.
-        :param pulumi.Input['RegistrationAssignmentPropertiesArgs'] properties: Properties of a registration assignment.
-        :param pulumi.Input[str] registration_assignment_id: Guid of the registration assignment.
+        :param pulumi.Input[str] scope: The scope of the resource.
+        :param pulumi.Input['RegistrationAssignmentPropertiesArgs'] properties: The properties of a registration assignment.
+        :param pulumi.Input[str] registration_assignment_id: The GUID of the registration assignment.
         """
         pulumi.set(__self__, "scope", scope)
         if properties is not None:
@@ -35,7 +35,7 @@ class RegistrationAssignmentArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        Scope of the resource.
+        The scope of the resource.
         """
         return pulumi.get(self, "scope")
 
@@ -47,7 +47,7 @@ class RegistrationAssignmentArgs:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['RegistrationAssignmentPropertiesArgs']]:
         """
-        Properties of a registration assignment.
+        The properties of a registration assignment.
         """
         return pulumi.get(self, "properties")
 
@@ -59,7 +59,7 @@ class RegistrationAssignmentArgs:
     @pulumi.getter(name="registrationAssignmentId")
     def registration_assignment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Guid of the registration assignment.
+        The GUID of the registration assignment.
         """
         return pulumi.get(self, "registration_assignment_id")
 
@@ -78,14 +78,15 @@ class RegistrationAssignment(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Registration assignment.
-        API Version: 2019-09-01.
+        The registration assignment.
+        API Version: 2022-10-01.
+        Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']] properties: Properties of a registration assignment.
-        :param pulumi.Input[str] registration_assignment_id: Guid of the registration assignment.
-        :param pulumi.Input[str] scope: Scope of the resource.
+        :param pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']] properties: The properties of a registration assignment.
+        :param pulumi.Input[str] registration_assignment_id: The GUID of the registration assignment.
+        :param pulumi.Input[str] scope: The scope of the resource.
         """
         ...
     @overload
@@ -94,8 +95,9 @@ class RegistrationAssignment(pulumi.CustomResource):
                  args: RegistrationAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Registration assignment.
-        API Version: 2019-09-01.
+        The registration assignment.
+        API Version: 2022-10-01.
+        Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param RegistrationAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -130,6 +132,7 @@ class RegistrationAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedservices/v20180601preview:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20190401preview:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20190601:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20190901:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20200201preview:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20220101preview:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20221001:RegistrationAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -157,6 +160,7 @@ class RegistrationAssignment(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return RegistrationAssignment(resource_name, opts=opts, __props__=__props__)
 
@@ -164,7 +168,7 @@ class RegistrationAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the registration assignment.
+        The name of the registration assignment.
         """
         return pulumi.get(self, "name")
 
@@ -172,15 +176,23 @@ class RegistrationAssignment(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.RegistrationAssignmentPropertiesResponse']:
         """
-        Properties of a registration assignment.
+        The properties of a registration assignment.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The metadata for the registration assignment resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource.
+        The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
         """
         return pulumi.get(self, "type")
 

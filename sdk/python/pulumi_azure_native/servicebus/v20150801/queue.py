@@ -355,12 +355,7 @@ class QueueArgs:
         pulumi.set(self, "support_ordering", value)
 
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Queue(pulumi.CustomResource):
-    warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -460,7 +455,6 @@ class Queue(pulumi.CustomResource):
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""Queue is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

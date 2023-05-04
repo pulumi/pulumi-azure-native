@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly string? CertName;
         /// <summary>
+        /// Provisioning state of the Domain
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// The thumbprint of bound certificate.
         /// </summary>
         public readonly string? Thumbprint;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string? certName,
 
+            string provisioningState,
+
             string? thumbprint)
         {
             AppName = appName;
             CertName = certName;
+            ProvisioningState = provisioningState;
             Thumbprint = thumbprint;
         }
     }

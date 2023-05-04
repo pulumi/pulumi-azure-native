@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the subscription-level key used for Real User Metrics collection.
  */
-/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetricsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerUserMetricsKeyResult> {
-    pulumi.log.warn("getTrafficManagerUserMetricsKey is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.")
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
- * API Version: 2020-06-01.
+ * API Version: 2022-06-01.
  */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
 
@@ -38,7 +38,11 @@ export interface GetLinkedServerArgs {
  */
 export interface GetLinkedServerResult {
     /**
-     * Resource ID.
+     * The unchanging DNS name which will always point to current geo-primary cache among the linked redis caches for seamless Geo Failover experience.
+     */
+    readonly geoReplicatedPrimaryHostName: string;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -50,9 +54,13 @@ export interface GetLinkedServerResult {
      */
     readonly linkedRedisCacheLocation: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * The changing DNS name that resolves to the current geo-primary cache among the linked redis caches before or after the Geo Failover.
+     */
+    readonly primaryHostName: string;
     /**
      * Terminal state of the link between primary and secondary redis cache.
      */
@@ -62,13 +70,13 @@ export interface GetLinkedServerResult {
      */
     readonly serverRole: string;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
- * API Version: 2020-06-01.
+ * API Version: 2022-06-01.
  */
 export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServerResult> {
     return pulumi.output(args).apply((a: any) => getLinkedServer(a, opts))

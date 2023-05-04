@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class ImageReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specified the community gallery image unique id for vm deployment. This can be fetched from community gallery image GET call.
+        /// </summary>
+        [Input("communityGalleryImageId")]
+        public Input<string>? CommunityGalleryImageId { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
@@ -34,13 +40,19 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<string>? Publisher { get; set; }
 
         /// <summary>
+        /// Specified the shared gallery image unique id for vm deployment. This can be fetched from shared gallery image GET call.
+        /// </summary>
+        [Input("sharedGalleryImageId")]
+        public Input<string>? SharedGalleryImageId { get; set; }
+
+        /// <summary>
         /// The image SKU.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+        /// Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available. Please do not use field 'version' for gallery image deployment, gallery image should always use 'id' field for deployment, to use 'latest' version of gallery image, just set '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageName}' in the 'id' field without version input.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

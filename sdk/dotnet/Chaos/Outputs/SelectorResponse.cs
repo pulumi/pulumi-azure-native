@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Chaos.Outputs
     public sealed class SelectorResponse
     {
         /// <summary>
+        /// Model that represents available filter types that can be applied to a targets list.
+        /// </summary>
+        public readonly Outputs.SimpleFilterResponse? Filter;
+        /// <summary>
         /// String of the selector ID.
         /// </summary>
         public readonly string Id;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.Chaos.Outputs
 
         [OutputConstructor]
         private SelectorResponse(
+            Outputs.SimpleFilterResponse? filter,
+
             string id,
 
             ImmutableArray<Outputs.TargetReferenceResponse> targets,
 
             string type)
         {
+            Filter = filter;
             Id = id;
             Targets = targets;
             Type = type;

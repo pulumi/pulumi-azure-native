@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An assessment created for a group in the Migration project.
- *
- * @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
  */
 export class Assessment extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Assessment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Assessment {
-        pulumi.log.warn("Assessment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
         return new Assessment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -136,9 +133,7 @@ export class Assessment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Assessment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

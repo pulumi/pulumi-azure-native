@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Identity Provider details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class IdentityProvider extends pulumi.CustomResource {
     /**
@@ -51,11 +52,15 @@ export class IdentityProvider extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
+     * The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
+     */
+    public readonly clientLibrary!: pulumi.Output<string | undefined>;
+    /**
      * Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
     public readonly clientSecret!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -79,7 +84,7 @@ export class IdentityProvider extends pulumi.CustomResource {
      */
     public readonly signupPolicyName!: pulumi.Output<string | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -109,6 +114,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["allowedTenants"] = args ? args.allowedTenants : undefined;
             resourceInputs["authority"] = args ? args.authority : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientLibrary"] = args ? args.clientLibrary : undefined;
             resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
             resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
             resourceInputs["passwordResetPolicyName"] = args ? args.passwordResetPolicyName : undefined;
@@ -124,6 +130,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["allowedTenants"] = undefined /*out*/;
             resourceInputs["authority"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["clientLibrary"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["passwordResetPolicyName"] = undefined /*out*/;
@@ -134,7 +141,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:IdentityProvider" }, { type: "azure-native:apimanagement/v20161010:IdentityProvider" }, { type: "azure-native:apimanagement/v20170301:IdentityProvider" }, { type: "azure-native:apimanagement/v20180101:IdentityProvider" }, { type: "azure-native:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20190101:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20200601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20201201:IdentityProvider" }, { type: "azure-native:apimanagement/v20210101preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20210401preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20210801:IdentityProvider" }, { type: "azure-native:apimanagement/v20211201preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20220401preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20220801:IdentityProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:IdentityProvider" }, { type: "azure-native:apimanagement/v20161010:IdentityProvider" }, { type: "azure-native:apimanagement/v20170301:IdentityProvider" }, { type: "azure-native:apimanagement/v20180101:IdentityProvider" }, { type: "azure-native:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20190101:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20200601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20201201:IdentityProvider" }, { type: "azure-native:apimanagement/v20210101preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20210401preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20210801:IdentityProvider" }, { type: "azure-native:apimanagement/v20211201preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20220401preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20220801:IdentityProvider" }, { type: "azure-native:apimanagement/v20220901preview:IdentityProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IdentityProvider.__pulumiType, name, resourceInputs, opts);
     }
@@ -157,6 +164,10 @@ export interface IdentityProviderArgs {
      */
     clientId: pulumi.Input<string>;
     /**
+     * The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
+     */
+    clientLibrary?: pulumi.Input<string>;
+    /**
      * Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
     clientSecret: pulumi.Input<string>;
@@ -173,7 +184,7 @@ export interface IdentityProviderArgs {
      */
     profileEditingPolicyName?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

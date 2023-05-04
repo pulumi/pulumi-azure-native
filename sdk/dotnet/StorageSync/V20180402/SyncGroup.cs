@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.StorageSync.V20180402
     /// <summary>
     /// Sync Group object.
     /// </summary>
-    [Obsolete(@"Version 2018-04-02 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20180402:SyncGroup")]
     public partial class SyncGroup : global::Pulumi.CustomResource
     {

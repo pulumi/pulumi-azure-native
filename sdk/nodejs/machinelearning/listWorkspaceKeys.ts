@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List the authorization keys associated with this workspace.
- * API Version: 2016-04-01.
+ * API Version: 2019-10-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
 
@@ -43,7 +43,7 @@ export interface ListWorkspaceKeysResult {
 }
 /**
  * List the authorization keys associated with this workspace.
- * API Version: 2016-04-01.
+ * API Version: 2019-10-01.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))

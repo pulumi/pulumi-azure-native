@@ -6,14 +6,15 @@ from enum import Enum
 
 __all__ = [
     'Access',
-    'AccessRuleDirection',
     'ActionType',
     'AddressPrefixType',
     'AdminRuleKind',
     'AllowedEndpointRecordType',
+    'ApplicationGatewayClientRevocationOptions',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
     'ApplicationGatewayFirewallMode',
+    'ApplicationGatewayLoadDistributionAlgorithm',
     'ApplicationGatewayProtocol',
     'ApplicationGatewayRedirectType',
     'ApplicationGatewayRequestRoutingRuleType',
@@ -23,8 +24,8 @@ __all__ = [
     'ApplicationGatewaySslPolicyType',
     'ApplicationGatewaySslProtocol',
     'ApplicationGatewayTier',
-    'AssociationAccessMode',
     'AuthorizationUseStatus',
+    'AutoLearnPrivateRangesMode',
     'AzureFirewallApplicationRuleProtocolType',
     'AzureFirewallNatRCActionType',
     'AzureFirewallNetworkRuleProtocol',
@@ -33,6 +34,7 @@ __all__ = [
     'AzureFirewallSkuTier',
     'AzureFirewallThreatIntelMode',
     'BackendEnabledState',
+    'BastionHostSkuName',
     'CommissionedState',
     'ConfigurationType',
     'ConnectionMonitorEndpointFilterItemType',
@@ -40,12 +42,11 @@ __all__ = [
     'ConnectionMonitorTestConfigurationProtocol',
     'ConnectivityTopology',
     'CoverageLevel',
+    'CustomIpPrefixType',
     'CustomRuleEnabledState',
-    'DdosCustomPolicyProtocol',
-    'DdosCustomPolicyTriggerSensitivityOverride',
-    'DdosSettingsProtectionCoverage',
-    'DeleteExistingNSGs',
+    'DdosSettingsProtectionMode',
     'DeleteExistingPeering',
+    'DeleteOptions',
     'DestinationPortBehavior',
     'DhGroup',
     'DynamicCompressionEnabled',
@@ -61,6 +62,7 @@ __all__ = [
     'ExpressRouteLinkMacSecSciState',
     'ExpressRoutePeeringState',
     'ExpressRoutePeeringType',
+    'ExpressRoutePortsBillingType',
     'ExpressRoutePortsEncapsulation',
     'ExtendedLocationTypes',
     'FirewallPolicyFilterRuleActionType',
@@ -88,10 +90,14 @@ __all__ = [
     'FrontDoorQuery',
     'FrontDoorRedirectProtocol',
     'FrontDoorRedirectType',
+    'GatewayLoadBalancerTunnelInterfaceType',
+    'GatewayLoadBalancerTunnelProtocol',
+    'Geo',
     'GroupConnectivity',
     'HTTPConfigurationMethod',
     'HeaderActionType',
     'HealthProbeEnabled',
+    'HubRoutingPreference',
     'IPAllocationMethod',
     'IPVersion',
     'IkeEncryption',
@@ -101,6 +107,7 @@ __all__ = [
     'IpsecEncryption',
     'IpsecIntegrity',
     'IsGlobal',
+    'LoadBalancerBackendAddressAdminState',
     'LoadBalancerOutboundRuleProtocol',
     'LoadBalancerSkuName',
     'LoadBalancerSkuTier',
@@ -112,18 +119,23 @@ __all__ = [
     'MatchProcessingBehavior',
     'MonitorProtocol',
     'NatGatewaySkuName',
+    'NetworkIntentPolicyBasedService',
+    'NetworkInterfaceAuxiliaryMode',
     'NetworkInterfaceMigrationPhase',
     'NetworkInterfaceNicType',
+    'NextStep',
     'Operator',
     'OutputType',
     'OwaspCrsExclusionEntryMatchVariable',
     'OwaspCrsExclusionEntrySelectorMatchOperator',
+    'PacketCaptureTargetType',
     'PcProtocol',
     'PfsGroup',
     'PolicyEnabledState',
     'PolicyMode',
     'PolicyRequestBodyCheck',
     'PreferredIPVersion',
+    'PreferredRoutingGateway',
     'ProbeProtocol',
     'ProfileMonitorStatus',
     'ProfileStatus',
@@ -135,6 +147,8 @@ __all__ = [
     'PublicIPPrefixSkuTier',
     'ResourceIdentityType',
     'RouteFilterRuleType',
+    'RouteMapActionType',
+    'RouteMapMatchCondition',
     'RouteNextHopType',
     'RoutingRuleEnabledState',
     'RuleType',
@@ -147,7 +161,6 @@ __all__ = [
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
-    'SecurityType',
     'ServiceProviderProvisioningState',
     'SessionAffinityEnabledState',
     'SkuName',
@@ -158,16 +171,18 @@ __all__ = [
     'TransformType',
     'TransportProtocol',
     'UseHubGateway',
-    'UserRuleKind',
+    'VirtualNetworkEncryptionEnforcement',
     'VirtualNetworkGatewayConnectionMode',
     'VirtualNetworkGatewayConnectionProtocol',
     'VirtualNetworkGatewayConnectionType',
     'VirtualNetworkGatewaySkuName',
     'VirtualNetworkGatewaySkuTier',
     'VirtualNetworkGatewayType',
+    'VirtualNetworkPeeringLevel',
     'VirtualNetworkPeeringState',
     'VirtualNetworkPrivateEndpointNetworkPolicies',
     'VirtualNetworkPrivateLinkServiceNetworkPolicies',
+    'VnetLocalRouteOverrideCriteria',
     'VpnAuthenticationType',
     'VpnClientProtocol',
     'VpnGatewayGeneration',
@@ -183,6 +198,7 @@ __all__ = [
     'WebApplicationFirewallMode',
     'WebApplicationFirewallOperator',
     'WebApplicationFirewallRuleType',
+    'WebApplicationFirewallState',
     'WebApplicationFirewallTransform',
     'ZoneType',
 ]
@@ -196,22 +212,14 @@ class Access(str, Enum):
     DENY = "Deny"
 
 
-class AccessRuleDirection(str, Enum):
-    """
-    Direction that specifies whether the access rules is inbound/outbound.
-    """
-    INBOUND = "Inbound"
-    OUTBOUND = "Outbound"
-
-
 class ActionType(str, Enum):
     """
-    Describes the override action to be applied when rule matches.
+    Describes the override action to be applied when rule matches. 'Allow' action is not available for CRS 3.2
     """
+    ANOMALY_SCORING = "AnomalyScoring"
     ALLOW = "Allow"
     BLOCK = "Block"
     LOG = "Log"
-    REDIRECT = "Redirect"
 
 
 class AddressPrefixType(str, Enum):
@@ -240,6 +248,14 @@ class AllowedEndpointRecordType(str, Enum):
     ANY = "Any"
 
 
+class ApplicationGatewayClientRevocationOptions(str, Enum):
+    """
+    Verify client certificate revocation status.
+    """
+    NONE = "None"
+    OCSP = "OCSP"
+
+
 class ApplicationGatewayCookieBasedAffinity(str, Enum):
     """
     Cookie based affinity.
@@ -250,10 +266,18 @@ class ApplicationGatewayCookieBasedAffinity(str, Enum):
 
 class ApplicationGatewayCustomErrorStatusCode(str, Enum):
     """
-    Status code of the application gateway customer error.
+    Status code of the application gateway custom error.
     """
+    HTTP_STATUS400 = "HttpStatus400"
     HTTP_STATUS403 = "HttpStatus403"
+    HTTP_STATUS404 = "HttpStatus404"
+    HTTP_STATUS405 = "HttpStatus405"
+    HTTP_STATUS408 = "HttpStatus408"
+    HTTP_STATUS499 = "HttpStatus499"
+    HTTP_STATUS500 = "HttpStatus500"
     HTTP_STATUS502 = "HttpStatus502"
+    HTTP_STATUS503 = "HttpStatus503"
+    HTTP_STATUS504 = "HttpStatus504"
 
 
 class ApplicationGatewayFirewallMode(str, Enum):
@@ -264,12 +288,23 @@ class ApplicationGatewayFirewallMode(str, Enum):
     PREVENTION = "Prevention"
 
 
+class ApplicationGatewayLoadDistributionAlgorithm(str, Enum):
+    """
+    Load Distribution Targets resource of an application gateway.
+    """
+    ROUND_ROBIN = "RoundRobin"
+    LEAST_CONNECTIONS = "LeastConnections"
+    IP_HASH = "IpHash"
+
+
 class ApplicationGatewayProtocol(str, Enum):
     """
     The protocol used for the probe.
     """
     HTTP = "Http"
     HTTPS = "Https"
+    TCP = "Tcp"
+    TLS = "Tls"
 
 
 class ApplicationGatewayRedirectType(str, Enum):
@@ -344,6 +379,8 @@ class ApplicationGatewaySslPolicyName(str, Enum):
     APP_GW_SSL_POLICY20150501 = "AppGwSslPolicy20150501"
     APP_GW_SSL_POLICY20170401 = "AppGwSslPolicy20170401"
     APP_GW_SSL_POLICY20170401_S = "AppGwSslPolicy20170401S"
+    APP_GW_SSL_POLICY20220101 = "AppGwSslPolicy20220101"
+    APP_GW_SSL_POLICY20220101_S = "AppGwSslPolicy20220101S"
 
 
 class ApplicationGatewaySslPolicyType(str, Enum):
@@ -352,6 +389,7 @@ class ApplicationGatewaySslPolicyType(str, Enum):
     """
     PREDEFINED = "Predefined"
     CUSTOM = "Custom"
+    CUSTOM_V2 = "CustomV2"
 
 
 class ApplicationGatewaySslProtocol(str, Enum):
@@ -361,6 +399,7 @@ class ApplicationGatewaySslProtocol(str, Enum):
     TL_SV1_0 = "TLSv1_0"
     TL_SV1_1 = "TLSv1_1"
     TL_SV1_2 = "TLSv1_2"
+    TL_SV1_3 = "TLSv1_3"
 
 
 class ApplicationGatewayTier(str, Enum):
@@ -373,21 +412,20 @@ class ApplicationGatewayTier(str, Enum):
     WA_F_V2 = "WAF_v2"
 
 
-class AssociationAccessMode(str, Enum):
-    """
-    Access mode on the association.
-    """
-    LEARNING = "Learning"
-    ENFORCED = "Enforced"
-    AUDIT = "Audit"
-
-
 class AuthorizationUseStatus(str, Enum):
     """
     The authorization use status.
     """
     AVAILABLE = "Available"
     IN_USE = "InUse"
+
+
+class AutoLearnPrivateRangesMode(str, Enum):
+    """
+    The operation mode for automatically learning private ranges to not be SNAT
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class AzureFirewallApplicationRuleProtocolType(str, Enum):
@@ -439,6 +477,7 @@ class AzureFirewallSkuTier(str, Enum):
     """
     STANDARD = "Standard"
     PREMIUM = "Premium"
+    BASIC = "Basic"
 
 
 class AzureFirewallThreatIntelMode(str, Enum):
@@ -458,6 +497,14 @@ class BackendEnabledState(str, Enum):
     DISABLED = "Disabled"
 
 
+class BastionHostSkuName(str, Enum):
+    """
+    The name of this Bastion Host.
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+
+
 class CommissionedState(str, Enum):
     """
     The commissioned state of the Custom IP Prefix.
@@ -465,9 +512,11 @@ class CommissionedState(str, Enum):
     PROVISIONING = "Provisioning"
     PROVISIONED = "Provisioned"
     COMMISSIONING = "Commissioning"
+    COMMISSIONED_NO_INTERNET_ADVERTISE = "CommissionedNoInternetAdvertise"
     COMMISSIONED = "Commissioned"
     DECOMMISSIONING = "Decommissioning"
     DEPROVISIONING = "Deprovisioning"
+    DEPROVISIONED = "Deprovisioned"
 
 
 class ConfigurationType(str, Enum):
@@ -475,7 +524,6 @@ class ConfigurationType(str, Enum):
     Configuration Deployment Type.
     """
     SECURITY_ADMIN = "SecurityAdmin"
-    SECURITY_USER = "SecurityUser"
     CONNECTIVITY = "Connectivity"
 
 
@@ -522,6 +570,15 @@ class CoverageLevel(str, Enum):
     FULL = "Full"
 
 
+class CustomIpPrefixType(str, Enum):
+    """
+    Type of custom IP prefix. Should be Singular, Parent, or Child.
+    """
+    SINGULAR = "Singular"
+    PARENT = "Parent"
+    CHILD = "Child"
+
+
 class CustomRuleEnabledState(str, Enum):
     """
     Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -530,39 +587,13 @@ class CustomRuleEnabledState(str, Enum):
     ENABLED = "Enabled"
 
 
-class DdosCustomPolicyProtocol(str, Enum):
+class DdosSettingsProtectionMode(str, Enum):
     """
-    The protocol for which the DDoS protection policy is being customized.
+    The DDoS protection mode of the public IP
     """
-    TCP = "Tcp"
-    UDP = "Udp"
-    SYN = "Syn"
-
-
-class DdosCustomPolicyTriggerSensitivityOverride(str, Enum):
-    """
-    The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
-    """
-    RELAXED = "Relaxed"
-    LOW = "Low"
-    DEFAULT = "Default"
-    HIGH = "High"
-
-
-class DdosSettingsProtectionCoverage(str, Enum):
-    """
-    The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
-    """
-    BASIC = "Basic"
-    STANDARD = "Standard"
-
-
-class DeleteExistingNSGs(str, Enum):
-    """
-    Flag if need to delete existing network security groups.
-    """
-    FALSE = "False"
-    TRUE = "True"
+    VIRTUAL_NETWORK_INHERITED = "VirtualNetworkInherited"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class DeleteExistingPeering(str, Enum):
@@ -571,6 +602,14 @@ class DeleteExistingPeering(str, Enum):
     """
     FALSE = "False"
     TRUE = "True"
+
+
+class DeleteOptions(str, Enum):
+    """
+    Specify what happens to the public IP address when the VM using it is deleted
+    """
+    DELETE = "Delete"
+    DETACH = "Detach"
 
 
 class DestinationPortBehavior(str, Enum):
@@ -633,6 +672,8 @@ class EndpointType(str, Enum):
     EXTERNAL_ADDRESS = "ExternalAddress"
     MMA_WORKSPACE_MACHINE = "MMAWorkspaceMachine"
     MMA_WORKSPACE_NETWORK = "MMAWorkspaceNetwork"
+    AZURE_ARC_VM = "AzureArcVM"
+    AZURE_VMSS = "AzureVMSS"
 
 
 class EnforceCertificateNameCheckEnabledState(str, Enum):
@@ -710,6 +751,14 @@ class ExpressRoutePeeringType(str, Enum):
     AZURE_PUBLIC_PEERING = "AzurePublicPeering"
     AZURE_PRIVATE_PEERING = "AzurePrivatePeering"
     MICROSOFT_PEERING = "MicrosoftPeering"
+
+
+class ExpressRoutePortsBillingType(str, Enum):
+    """
+    The billing type of the ExpressRoutePort resource.
+    """
+    METERED_DATA = "MeteredData"
+    UNLIMITED_DATA = "UnlimitedData"
 
 
 class ExpressRoutePortsEncapsulation(str, Enum):
@@ -851,6 +900,7 @@ class FirewallPolicySkuTier(str, Enum):
     """
     STANDARD = "Standard"
     PREMIUM = "Premium"
+    BASIC = "Basic"
 
 
 class FlowLogFormatType(str, Enum):
@@ -945,6 +995,39 @@ class FrontDoorRedirectType(str, Enum):
     PERMANENT_REDIRECT = "PermanentRedirect"
 
 
+class GatewayLoadBalancerTunnelInterfaceType(str, Enum):
+    """
+    Traffic type of gateway load balancer tunnel interface.
+    """
+    NONE = "None"
+    INTERNAL = "Internal"
+    EXTERNAL = "External"
+
+
+class GatewayLoadBalancerTunnelProtocol(str, Enum):
+    """
+    Protocol of gateway load balancer tunnel interface.
+    """
+    NONE = "None"
+    NATIVE = "Native"
+    VXLAN = "VXLAN"
+
+
+class Geo(str, Enum):
+    """
+    The Geo for CIDR advertising. Should be an Geo code.
+    """
+    GLOBAL_ = "GLOBAL"
+    AFRI = "AFRI"
+    APAC = "APAC"
+    EURO = "EURO"
+    LATAM = "LATAM"
+    NAM = "NAM"
+    ME = "ME"
+    OCEANIA = "OCEANIA"
+    AQ = "AQ"
+
+
 class GroupConnectivity(str, Enum):
     """
     Group connectivity type.
@@ -976,6 +1059,15 @@ class HealthProbeEnabled(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class HubRoutingPreference(str, Enum):
+    """
+    The hubRoutingPreference of this VirtualHub.
+    """
+    EXPRESS_ROUTE = "ExpressRoute"
+    VPN_GATEWAY = "VpnGateway"
+    AS_PATH = "ASPath"
 
 
 class IPAllocationMethod(str, Enum):
@@ -1070,6 +1162,16 @@ class IsGlobal(str, Enum):
     TRUE = "True"
 
 
+class LoadBalancerBackendAddressAdminState(str, Enum):
+    """
+    A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
+    """
+    NONE = "None"
+    UP = "Up"
+    DOWN = "Down"
+    DRAIN = "Drain"
+
+
 class LoadBalancerOutboundRuleProtocol(str, Enum):
     """
     The protocol for the outbound rule in load balancer.
@@ -1085,6 +1187,7 @@ class LoadBalancerSkuName(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
+    GATEWAY = "Gateway"
 
 
 class LoadBalancerSkuTier(str, Enum):
@@ -1109,6 +1212,7 @@ class ManagedRuleEnabledState(str, Enum):
     The state of the managed rule. Defaults to Disabled if not specified.
     """
     DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class ManagedRuleExclusionMatchVariable(str, Enum):
@@ -1135,7 +1239,7 @@ class ManagedRuleExclusionSelectorMatchOperator(str, Enum):
 
 class ManagedRuleSetActionType(str, Enum):
     """
-    Defines the action to take when a managed rule set score threshold is met.
+    Defines the rule set action.
     """
     BLOCK = "Block"
     LOG = "Log"
@@ -1166,6 +1270,24 @@ class NatGatewaySkuName(str, Enum):
     STANDARD = "Standard"
 
 
+class NetworkIntentPolicyBasedService(str, Enum):
+    """
+    Network intent policy based services.
+    """
+    NONE = "None"
+    ALL = "All"
+    ALLOW_RULES_ONLY = "AllowRulesOnly"
+
+
+class NetworkInterfaceAuxiliaryMode(str, Enum):
+    """
+    Auxiliary mode of Network Interface resource.
+    """
+    NONE = "None"
+    MAX_CONNECTIONS = "MaxConnections"
+    FLOATING = "Floating"
+
+
 class NetworkInterfaceMigrationPhase(str, Enum):
     """
     Migration phase of Network Interface resource.
@@ -1183,6 +1305,15 @@ class NetworkInterfaceNicType(str, Enum):
     """
     STANDARD = "Standard"
     ELASTIC = "Elastic"
+
+
+class NextStep(str, Enum):
+    """
+    Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'.
+    """
+    UNKNOWN = "Unknown"
+    CONTINUE_ = "Continue"
+    TERMINATE = "Terminate"
 
 
 class Operator(str, Enum):
@@ -1217,6 +1348,12 @@ class OwaspCrsExclusionEntryMatchVariable(str, Enum):
     REQUEST_HEADER_NAMES = "RequestHeaderNames"
     REQUEST_COOKIE_NAMES = "RequestCookieNames"
     REQUEST_ARG_NAMES = "RequestArgNames"
+    REQUEST_HEADER_KEYS = "RequestHeaderKeys"
+    REQUEST_HEADER_VALUES = "RequestHeaderValues"
+    REQUEST_COOKIE_KEYS = "RequestCookieKeys"
+    REQUEST_COOKIE_VALUES = "RequestCookieValues"
+    REQUEST_ARG_KEYS = "RequestArgKeys"
+    REQUEST_ARG_VALUES = "RequestArgValues"
 
 
 class OwaspCrsExclusionEntrySelectorMatchOperator(str, Enum):
@@ -1228,6 +1365,14 @@ class OwaspCrsExclusionEntrySelectorMatchOperator(str, Enum):
     STARTS_WITH = "StartsWith"
     ENDS_WITH = "EndsWith"
     EQUALS_ANY = "EqualsAny"
+
+
+class PacketCaptureTargetType(str, Enum):
+    """
+    Target type of the resource provided.
+    """
+    AZURE_VM = "AzureVM"
+    AZURE_VMSS = "AzureVMSS"
 
 
 class PcProtocol(str, Enum):
@@ -1284,6 +1429,15 @@ class PreferredIPVersion(str, Enum):
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
+
+
+class PreferredRoutingGateway(str, Enum):
+    """
+    The preferred gateway to route on-prem traffic
+    """
+    EXPRESS_ROUTE = "ExpressRoute"
+    VPN_GATEWAY = "VpnGateway"
+    NONE = "None"
 
 
 class ProbeProtocol(str, Enum):
@@ -1386,6 +1540,28 @@ class RouteFilterRuleType(str, Enum):
     The rule type of the rule.
     """
     COMMUNITY = "Community"
+
+
+class RouteMapActionType(str, Enum):
+    """
+    Type of action to be taken. Supported types are 'Remove', 'Add', 'Replace', and 'Drop.'
+    """
+    UNKNOWN = "Unknown"
+    REMOVE = "Remove"
+    ADD = "Add"
+    REPLACE = "Replace"
+    DROP = "Drop"
+
+
+class RouteMapMatchCondition(str, Enum):
+    """
+    Match condition to apply RouteMap rules.
+    """
+    UNKNOWN = "Unknown"
+    CONTAINS = "Contains"
+    EQUALS = "Equals"
+    NOT_CONTAINS = "NotContains"
+    NOT_EQUALS = "NotEquals"
 
 
 class RouteNextHopType(str, Enum):
@@ -1516,14 +1692,6 @@ class SecurityRuleProtocol(str, Enum):
     AH = "Ah"
 
 
-class SecurityType(str, Enum):
-    """
-    Security Type.
-    """
-    ADMIN_POLICY = "AdminPolicy"
-    USER_POLICY = "UserPolicy"
-
-
 class ServiceProviderProvisioningState(str, Enum):
     """
     The ServiceProviderProvisioningState state of the resource.
@@ -1620,12 +1788,12 @@ class UseHubGateway(str, Enum):
     TRUE = "True"
 
 
-class UserRuleKind(str, Enum):
+class VirtualNetworkEncryptionEnforcement(str, Enum):
     """
-    Whether the rule is custom or default.
+    If the encrypted VNet allows VM that does not support encryption
     """
-    CUSTOM = "Custom"
-    DEFAULT = "Default"
+    DROP_UNENCRYPTED = "DropUnencrypted"
+    ALLOW_UNENCRYPTED = "AllowUnencrypted"
 
 
 class VirtualNetworkGatewayConnectionMode(str, Enum):
@@ -1710,6 +1878,16 @@ class VirtualNetworkGatewayType(str, Enum):
     LOCAL_GATEWAY = "LocalGateway"
 
 
+class VirtualNetworkPeeringLevel(str, Enum):
+    """
+    The peering sync status of the virtual network peering.
+    """
+    FULLY_IN_SYNC = "FullyInSync"
+    REMOTE_NOT_IN_SYNC = "RemoteNotInSync"
+    LOCAL_NOT_IN_SYNC = "LocalNotInSync"
+    LOCAL_AND_REMOTE_NOT_IN_SYNC = "LocalAndRemoteNotInSync"
+
+
 class VirtualNetworkPeeringState(str, Enum):
     """
     The status of the virtual network peering.
@@ -1733,6 +1911,14 @@ class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class VnetLocalRouteOverrideCriteria(str, Enum):
+    """
+    Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
+    """
+    CONTAINS = "Contains"
+    EQUAL = "Equal"
 
 
 class VpnAuthenticationType(str, Enum):
@@ -1866,6 +2052,7 @@ class WebApplicationFirewallOperator(str, Enum):
     ENDS_WITH = "EndsWith"
     REGEX = "Regex"
     GEO_MATCH = "GeoMatch"
+    ANY = "Any"
 
 
 class WebApplicationFirewallRuleType(str, Enum):
@@ -1876,10 +2063,19 @@ class WebApplicationFirewallRuleType(str, Enum):
     INVALID = "Invalid"
 
 
+class WebApplicationFirewallState(str, Enum):
+    """
+    Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
 class WebApplicationFirewallTransform(str, Enum):
     """
     Transforms applied before matching.
     """
+    UPPERCASE = "Uppercase"
     LOWERCASE = "Lowercase"
     TRIM = "Trim"
     URL_DECODE = "UrlDecode"

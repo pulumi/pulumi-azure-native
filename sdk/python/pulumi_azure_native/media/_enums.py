@@ -13,11 +13,13 @@ __all__ = [
     'AudioAnalysisMode',
     'BlurType',
     'ChannelMapping',
+    'Complexity',
     'ContentKeyPolicyFairPlayRentalAndLeaseKeyType',
     'ContentKeyPolicyPlayReadyContentType',
     'ContentKeyPolicyPlayReadyLicenseType',
     'ContentKeyPolicyPlayReadyUnknownOutputPassingOption',
     'ContentKeyPolicyRestrictionTokenType',
+    'DefaultAction',
     'DeinterlaceMode',
     'DeinterlaceParity',
     'EncoderNamedPreset',
@@ -26,18 +28,21 @@ __all__ = [
     'FilterTrackPropertyCompareOperation',
     'FilterTrackPropertyType',
     'H264Complexity',
+    'H264RateControlMode',
     'H264VideoProfile',
     'H265Complexity',
     'H265VideoProfile',
     'InsightsType',
+    'InterleaveOutput',
     'LiveEventEncodingType',
     'LiveEventInputProtocol',
-    'ManagedIdentityType',
-    'MediaGraphRtspTransport',
+    'MinimumTlsVersion',
     'OnErrorType',
     'Priority',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'Rotation',
+    'SecurityLevel',
     'StorageAccountType',
     'StorageAuthentication',
     'StreamOptionsFlag',
@@ -188,7 +193,7 @@ class ChannelMapping(str, Enum):
     """
     LOW_FREQUENCY_EFFECTS = "LowFrequencyEffects"
     """
-    Low Frequency Effects Channel.  Sometimes referred to as the Subwoofer.
+    Low Frequency Effects Channel.  Sometimes referred to as the subwoofer.
     """
     BACK_LEFT = "BackLeft"
     """
@@ -205,6 +210,24 @@ class ChannelMapping(str, Enum):
     STEREO_RIGHT = "StereoRight"
     """
     The Right Stereo channel.  Sometimes referred to as Down Mix Right.
+    """
+
+
+class Complexity(str, Enum):
+    """
+    Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+    """
+    SPEED = "Speed"
+    """
+    Configures the encoder to use settings optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+    """
+    BALANCED = "Balanced"
+    """
+    Configures the encoder to use settings that achieve a balance between speed and quality.
+    """
+    QUALITY = "Quality"
+    """
+    Configures the encoder to use settings optimized to produce higher quality output at the expense of slower overall encode time.
     """
 
 
@@ -314,6 +337,20 @@ class ContentKeyPolicyRestrictionTokenType(str, Enum):
     """
 
 
+class DefaultAction(str, Enum):
+    """
+    The behavior for IP access control in Key Delivery.
+    """
+    ALLOW = "Allow"
+    """
+    All public IP addresses are allowed.
+    """
+    DENY = "Deny"
+    """
+    Public IP addresses are blocked.
+    """
+
+
 class DeinterlaceMode(str, Enum):
     """
     The deinterlacing mode. Defaults to AutoPixelAdaptive.
@@ -368,7 +405,11 @@ class EncoderNamedPreset(str, Enum):
     """
     AAC_GOOD_QUALITY_AUDIO = "AACGoodQualityAudio"
     """
-    Produces a single MP4 file containing only stereo audio encoded at 192 kbps.
+    Produces a single MP4 file containing only AAC stereo audio encoded at 192 kbps.
+    """
+    DD_GOOD_QUALITY_AUDIO = "DDGoodQualityAudio"
+    """
+    Produces a single MP4 file containing only DD(Digital Dolby) stereo audio encoded at 192 kbps.
     """
     CONTENT_AWARE_ENCODING_EXPERIMENTAL = "ContentAwareEncodingExperimental"
     """
@@ -510,6 +551,24 @@ class H264Complexity(str, Enum):
     """
 
 
+class H264RateControlMode(str, Enum):
+    """
+    The video rate control mode
+    """
+    ABR = "ABR"
+    """
+    Average Bitrate (ABR) mode that hits the target bitrate: Default mode.
+    """
+    CBR = "CBR"
+    """
+    Constant Bitrate (CBR) mode that tightens bitrate variations around target bitrate.
+    """
+    CRF = "CRF"
+    """
+    Constant Rate Factor (CRF) mode that targets at constant subjective quality.
+    """
+
+
 class H264VideoProfile(str, Enum):
     """
     We currently support Baseline, Main, High, High422, High444. Default is Auto.
@@ -570,6 +629,10 @@ class H265VideoProfile(str, Enum):
     """
     Main profile (https://x265.readthedocs.io/en/default/cli.html?highlight=profile#profile-level-tier)
     """
+    MAIN10 = "Main10"
+    """
+    Main 10 profile (https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Main_10)
+    """
 
 
 class InsightsType(str, Enum):
@@ -590,13 +653,27 @@ class InsightsType(str, Enum):
     """
 
 
+class InterleaveOutput(str, Enum):
+    """
+    Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+    """
+    NON_INTERLEAVED_OUTPUT = "NonInterleavedOutput"
+    """
+    The output is video-only or audio-only.
+    """
+    INTERLEAVED_OUTPUT = "InterleavedOutput"
+    """
+    The output includes both audio and video.
+    """
+
+
 class LiveEventEncodingType(str, Enum):
     """
-    Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+    Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
     """
     NONE = "None"
     """
-    A contribution live encoder sends a multiple bitrate stream. The ingested stream passes through the live event without any further processing. It is also called the pass-through mode.
+    This is the same as PassthroughStandard, please see description below. This enumeration value is being deprecated.
     """
     STANDARD = "Standard"
     """
@@ -605,6 +682,14 @@ class LiveEventEncodingType(str, Enum):
     PREMIUM1080P = "Premium1080p"
     """
     A contribution live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The output cannot exceed 1080p in resolution.
+    """
+    PASSTHROUGH_BASIC = "PassthroughBasic"
+    """
+    The ingested stream passes through the live event from the contribution encoder without any further processing. In the PassthroughBasic mode, ingestion is limited to up to 5Mbps and only 1 concurrent live output is allowed. Live transcription is not available.
+    """
+    PASSTHROUGH_STANDARD = "PassthroughStandard"
+    """
+    The ingested stream passes through the live event from the contribution encoder without any further processing. Live transcription is available. Ingestion bitrate limits are much higher and up to 3 concurrent live outputs are allowed.
     """
 
 
@@ -622,31 +707,25 @@ class LiveEventInputProtocol(str, Enum):
     """
 
 
-class ManagedIdentityType(str, Enum):
+class MinimumTlsVersion(str, Enum):
     """
-    The identity type.
+    The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
     """
-    SYSTEM_ASSIGNED = "SystemAssigned"
+    TLS10 = "Tls10"
     """
-    A system-assigned managed identity.
+    Minimum TLS version is TLS 1.0.
     """
-    NONE = "None"
+    TLS11 = "Tls11"
     """
-    No managed identity.
+    Minimum TLS version is TLS 1.1.
     """
-
-
-class MediaGraphRtspTransport(str, Enum):
+    TLS12 = "Tls12"
     """
-    Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+    Minimum TLS version is TLS 1.2.
     """
-    HTTP = "Http"
+    TLS13 = "Tls13"
     """
-    HTTP/HTTPS transport. This should be used when HTTP tunneling is desired.
-    """
-    TCP = "Tcp"
-    """
-    TCP transport. This should be used when HTTP tunneling is not desired.
+    Minimum TLS version is TLS 1.3.
     """
 
 
@@ -691,6 +770,20 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     REJECTED = "Rejected"
 
 
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public network access is allowed for resources under the Media Services account.
+    """
+    ENABLED = "Enabled"
+    """
+    Public network access is enabled.
+    """
+    DISABLED = "Disabled"
+    """
+    Public network access is disabled.
+    """
+
+
 class Rotation(str, Enum):
     """
     The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
@@ -718,6 +811,28 @@ class Rotation(str, Enum):
     ROTATE270 = "Rotate270"
     """
     Rotate 270 degrees clockwise.
+    """
+
+
+class SecurityLevel(str, Enum):
+    """
+    The security level.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Represents a SecurityLevel that is unavailable in current API version.
+    """
+    SL150 = "SL150"
+    """
+    For clients under development or test. No protection against unauthorized use.
+    """
+    SL2000 = "SL2000"
+    """
+    For hardened devices and applications consuming commercial content. Software or hardware protection.
+    """
+    SL3000 = "SL3000"
+    """
+    For hardened devices only. Hardware protection.
     """
 
 
@@ -753,7 +868,11 @@ class StreamOptionsFlag(str, Enum):
     """
     LOW_LATENCY = "LowLatency"
     """
-    The live event provides lower end to end latency by reducing its internal buffers. This could result in more client buffering during playback if network bandwidth is low.
+    The live event provides lower end to end latency by reducing its internal buffers.
+    """
+    LOW_LATENCY_V2 = "LowLatencyV2"
+    """
+    The live event is optimized for end to end latency. This option is only available for encoding live events with RTMP input. The outputs can be streamed using HLS or DASH formats. The outputs' archive or DVR rewind length is limited to 6 hours. Use "LowLatency" stream option for all other scenarios.
     """
 
 

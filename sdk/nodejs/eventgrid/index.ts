@@ -30,11 +30,6 @@ export type DomainTopicEventSubscription = import("./domainTopicEventSubscriptio
 export const DomainTopicEventSubscription: typeof import("./domainTopicEventSubscription").DomainTopicEventSubscription = null as any;
 utilities.lazyLoad(exports, ["DomainTopicEventSubscription"], () => require("./domainTopicEventSubscription"));
 
-export { EventChannelArgs } from "./eventChannel";
-export type EventChannel = import("./eventChannel").EventChannel;
-export const EventChannel: typeof import("./eventChannel").EventChannel = null as any;
-utilities.lazyLoad(exports, ["EventChannel"], () => require("./eventChannel"));
-
 export { EventSubscriptionArgs } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
@@ -90,11 +85,6 @@ export const getDomainTopicEventSubscriptionFullUrl: typeof import("./getDomainT
 export const getDomainTopicEventSubscriptionFullUrlOutput: typeof import("./getDomainTopicEventSubscriptionFullUrl").getDomainTopicEventSubscriptionFullUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainTopicEventSubscriptionFullUrl","getDomainTopicEventSubscriptionFullUrlOutput"], () => require("./getDomainTopicEventSubscriptionFullUrl"));
 
-export { GetEventChannelArgs, GetEventChannelResult, GetEventChannelOutputArgs } from "./getEventChannel";
-export const getEventChannel: typeof import("./getEventChannel").getEventChannel = null as any;
-export const getEventChannelOutput: typeof import("./getEventChannel").getEventChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getEventChannel","getEventChannelOutput"], () => require("./getEventChannel"));
-
 export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
 export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
 export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
@@ -114,11 +104,6 @@ export { GetPartnerConfigurationArgs, GetPartnerConfigurationResult, GetPartnerC
 export const getPartnerConfiguration: typeof import("./getPartnerConfiguration").getPartnerConfiguration = null as any;
 export const getPartnerConfigurationOutput: typeof import("./getPartnerConfiguration").getPartnerConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getPartnerConfiguration","getPartnerConfigurationOutput"], () => require("./getPartnerConfiguration"));
-
-export { GetPartnerDestinationArgs, GetPartnerDestinationResult, GetPartnerDestinationOutputArgs } from "./getPartnerDestination";
-export const getPartnerDestination: typeof import("./getPartnerDestination").getPartnerDestination = null as any;
-export const getPartnerDestinationOutput: typeof import("./getPartnerDestination").getPartnerDestinationOutput = null as any;
-utilities.lazyLoad(exports, ["getPartnerDestination","getPartnerDestinationOutput"], () => require("./getPartnerDestination"));
 
 export { GetPartnerNamespaceArgs, GetPartnerNamespaceResult, GetPartnerNamespaceOutputArgs } from "./getPartnerNamespace";
 export const getPartnerNamespace: typeof import("./getPartnerNamespace").getPartnerNamespace = null as any;
@@ -214,11 +199,6 @@ export { PartnerConfigurationArgs } from "./partnerConfiguration";
 export type PartnerConfiguration = import("./partnerConfiguration").PartnerConfiguration;
 export const PartnerConfiguration: typeof import("./partnerConfiguration").PartnerConfiguration = null as any;
 utilities.lazyLoad(exports, ["PartnerConfiguration"], () => require("./partnerConfiguration"));
-
-export { PartnerDestinationArgs } from "./partnerDestination";
-export type PartnerDestination = import("./partnerDestination").PartnerDestination;
-export const PartnerDestination: typeof import("./partnerDestination").PartnerDestination = null as any;
-utilities.lazyLoad(exports, ["PartnerDestination"], () => require("./partnerDestination"));
 
 export { PartnerNamespaceArgs } from "./partnerNamespace";
 export type PartnerNamespace = import("./partnerNamespace").PartnerNamespace;
@@ -320,14 +300,10 @@ const _module = {
                 return new DomainTopic(name, <any>undefined, { urn })
             case "azure-native:eventgrid:DomainTopicEventSubscription":
                 return new DomainTopicEventSubscription(name, <any>undefined, { urn })
-            case "azure-native:eventgrid:EventChannel":
-                return new EventChannel(name, <any>undefined, { urn })
             case "azure-native:eventgrid:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerConfiguration":
                 return new PartnerConfiguration(name, <any>undefined, { urn })
-            case "azure-native:eventgrid:PartnerDestination":
-                return new PartnerDestination(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerNamespace":
                 return new PartnerNamespace(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerRegistration":

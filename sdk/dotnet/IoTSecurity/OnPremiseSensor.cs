@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     /// <summary>
     /// On-premise IoT sensor
     /// API Version: 2021-02-01-preview.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity:OnPremiseSensor")]
     public partial class OnPremiseSensor : global::Pulumi.CustomResource

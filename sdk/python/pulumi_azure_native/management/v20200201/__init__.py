@@ -6,9 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from .get_entity import *
-from .get_hierarchy_setting import *
 from .get_management_group import *
-from .hierarchy_setting import *
 from .management_group import *
 from ._inputs import *
 from . import outputs

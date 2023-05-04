@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents user credentials used for publishing activity
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteInstanceDeploymentSlot(args: GetSiteInstanceDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteInstanceDeploymentSlotResult> {
-    pulumi.log.warn("getSiteInstanceDeploymentSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteInstanceDeploymentSlot", {
@@ -112,7 +110,6 @@ export interface GetSiteInstanceDeploymentSlotResult {
 /**
  * Represents user credentials used for publishing activity
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteInstanceDeploymentSlotOutput(args: GetSiteInstanceDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteInstanceDeploymentSlotResult> {
     return pulumi.output(args).apply((a: any) => getSiteInstanceDeploymentSlot(a, opts))
 }

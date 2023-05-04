@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * NSX Segment
- * API Version: 2020-07-17-preview.
+ * API Version: 2022-05-01.
+ * Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class WorkloadNetworkSegment extends pulumi.CustomResource {
     /**

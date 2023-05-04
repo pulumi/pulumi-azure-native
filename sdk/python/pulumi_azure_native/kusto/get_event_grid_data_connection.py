@@ -21,7 +21,7 @@ class GetEventGridDataConnectionResult:
     """
     Class representing an Event Grid data connection.
     """
-    def __init__(__self__, blob_storage_event_type=None, consumer_group=None, data_format=None, event_hub_resource_id=None, id=None, ignore_first_record=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, storage_account_resource_id=None, table_name=None, type=None):
+    def __init__(__self__, blob_storage_event_type=None, consumer_group=None, data_format=None, database_routing=None, event_grid_resource_id=None, event_hub_resource_id=None, id=None, ignore_first_record=None, kind=None, location=None, managed_identity_object_id=None, managed_identity_resource_id=None, mapping_rule_name=None, name=None, provisioning_state=None, storage_account_resource_id=None, table_name=None, type=None):
         if blob_storage_event_type and not isinstance(blob_storage_event_type, str):
             raise TypeError("Expected argument 'blob_storage_event_type' to be a str")
         pulumi.set(__self__, "blob_storage_event_type", blob_storage_event_type)
@@ -31,6 +31,12 @@ class GetEventGridDataConnectionResult:
         if data_format and not isinstance(data_format, str):
             raise TypeError("Expected argument 'data_format' to be a str")
         pulumi.set(__self__, "data_format", data_format)
+        if database_routing and not isinstance(database_routing, str):
+            raise TypeError("Expected argument 'database_routing' to be a str")
+        pulumi.set(__self__, "database_routing", database_routing)
+        if event_grid_resource_id and not isinstance(event_grid_resource_id, str):
+            raise TypeError("Expected argument 'event_grid_resource_id' to be a str")
+        pulumi.set(__self__, "event_grid_resource_id", event_grid_resource_id)
         if event_hub_resource_id and not isinstance(event_hub_resource_id, str):
             raise TypeError("Expected argument 'event_hub_resource_id' to be a str")
         pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
@@ -46,6 +52,12 @@ class GetEventGridDataConnectionResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_identity_object_id and not isinstance(managed_identity_object_id, str):
+            raise TypeError("Expected argument 'managed_identity_object_id' to be a str")
+        pulumi.set(__self__, "managed_identity_object_id", managed_identity_object_id)
+        if managed_identity_resource_id and not isinstance(managed_identity_resource_id, str):
+            raise TypeError("Expected argument 'managed_identity_resource_id' to be a str")
+        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name and not isinstance(mapping_rule_name, str):
             raise TypeError("Expected argument 'mapping_rule_name' to be a str")
         pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
@@ -90,6 +102,22 @@ class GetEventGridDataConnectionResult:
         return pulumi.get(self, "data_format")
 
     @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> Optional[str]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
+
+    @property
+    @pulumi.getter(name="eventGridResourceId")
+    def event_grid_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of the event grid that is subscribed to the storage account events.
+        """
+        return pulumi.get(self, "event_grid_resource_id")
+
+    @property
     @pulumi.getter(name="eventHubResourceId")
     def event_hub_resource_id(self) -> str:
         """
@@ -129,6 +157,22 @@ class GetEventGridDataConnectionResult:
         Resource location.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedIdentityObjectId")
+    def managed_identity_object_id(self) -> str:
+        """
+        The object ID of managedIdentityResourceId
+        """
+        return pulumi.get(self, "managed_identity_object_id")
+
+    @property
+    @pulumi.getter(name="managedIdentityResourceId")
+    def managed_identity_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+        """
+        return pulumi.get(self, "managed_identity_resource_id")
 
     @property
     @pulumi.getter(name="mappingRuleName")
@@ -188,11 +232,15 @@ class AwaitableGetEventGridDataConnectionResult(GetEventGridDataConnectionResult
             blob_storage_event_type=self.blob_storage_event_type,
             consumer_group=self.consumer_group,
             data_format=self.data_format,
+            database_routing=self.database_routing,
+            event_grid_resource_id=self.event_grid_resource_id,
             event_hub_resource_id=self.event_hub_resource_id,
             id=self.id,
             ignore_first_record=self.ignore_first_record,
             kind=self.kind,
             location=self.location,
+            managed_identity_object_id=self.managed_identity_object_id,
+            managed_identity_resource_id=self.managed_identity_resource_id,
             mapping_rule_name=self.mapping_rule_name,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -208,7 +256,7 @@ def get_event_grid_data_connection(cluster_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventGridDataConnectionResult:
     """
     Returns a data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -228,11 +276,15 @@ def get_event_grid_data_connection(cluster_name: Optional[str] = None,
         blob_storage_event_type=__ret__.blob_storage_event_type,
         consumer_group=__ret__.consumer_group,
         data_format=__ret__.data_format,
+        database_routing=__ret__.database_routing,
+        event_grid_resource_id=__ret__.event_grid_resource_id,
         event_hub_resource_id=__ret__.event_hub_resource_id,
         id=__ret__.id,
         ignore_first_record=__ret__.ignore_first_record,
         kind=__ret__.kind,
         location=__ret__.location,
+        managed_identity_object_id=__ret__.managed_identity_object_id,
+        managed_identity_resource_id=__ret__.managed_identity_resource_id,
         mapping_rule_name=__ret__.mapping_rule_name,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
@@ -249,7 +301,7 @@ def get_event_grid_data_connection_output(cluster_name: Optional[pulumi.Input[st
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
     """
     Returns a data connection.
-    API Version: 2021-01-01.
+    API Version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

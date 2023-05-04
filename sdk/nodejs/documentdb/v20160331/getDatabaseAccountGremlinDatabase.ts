@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinDatabase(args: GetDatabaseAccountGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountGremlinDatabaseResult> {
-    pulumi.log.warn("getDatabaseAccountGremlinDatabase is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20160331:getDatabaseAccountGremlinDatabase", {
@@ -74,7 +72,6 @@ export interface GetDatabaseAccountGremlinDatabaseResult {
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinDatabaseOutput(args: GetDatabaseAccountGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountGremlinDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountGremlinDatabase(a, opts))
 }

@@ -21,6 +21,7 @@ class IdentityProviderArgs:
                  service_name: pulumi.Input[str],
                  allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
                  password_reset_policy_name: Optional[pulumi.Input[str]] = None,
                  profile_editing_policy_name: Optional[pulumi.Input[str]] = None,
@@ -32,10 +33,11 @@ class IdentityProviderArgs:
         The set of arguments for constructing a IdentityProvider resource.
         :param pulumi.Input[str] client_id: Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
         :param pulumi.Input[str] client_secret: Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.
         :param pulumi.Input[str] authority: OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
+        :param pulumi.Input[str] client_library: The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
         :param pulumi.Input[str] identity_provider_name: Identity Provider Type identifier.
         :param pulumi.Input[str] password_reset_policy_name: Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[str] profile_editing_policy_name: Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
@@ -52,6 +54,8 @@ class IdentityProviderArgs:
             pulumi.set(__self__, "allowed_tenants", allowed_tenants)
         if authority is not None:
             pulumi.set(__self__, "authority", authority)
+        if client_library is not None:
+            pulumi.set(__self__, "client_library", client_library)
         if identity_provider_name is not None:
             pulumi.set(__self__, "identity_provider_name", identity_provider_name)
         if password_reset_policy_name is not None:
@@ -95,7 +99,7 @@ class IdentityProviderArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -138,6 +142,18 @@ class IdentityProviderArgs:
     @authority.setter
     def authority(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authority", value)
+
+    @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
+
+    @client_library.setter
+    def client_library(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_library", value)
 
     @property
     @pulumi.getter(name="identityProviderName")
@@ -232,6 +248,7 @@ class IdentityProvider(pulumi.CustomResource):
                  allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
                  password_reset_policy_name: Optional[pulumi.Input[str]] = None,
@@ -245,18 +262,20 @@ class IdentityProvider(pulumi.CustomResource):
                  __props__=None):
         """
         Identity Provider details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.
         :param pulumi.Input[str] authority: OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
         :param pulumi.Input[str] client_id: Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+        :param pulumi.Input[str] client_library: The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         :param pulumi.Input[str] identity_provider_name: Identity Provider Type identifier.
         :param pulumi.Input[str] password_reset_policy_name: Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[str] profile_editing_policy_name: Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] signin_policy_name: Signin Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[str] signin_tenant: The TenantId to use instead of Common when logging into Active Directory
@@ -271,7 +290,8 @@ class IdentityProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Identity Provider details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.
@@ -291,6 +311,7 @@ class IdentityProvider(pulumi.CustomResource):
                  allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
                  password_reset_policy_name: Optional[pulumi.Input[str]] = None,
@@ -315,6 +336,7 @@ class IdentityProvider(pulumi.CustomResource):
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_library"] = client_library
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = client_secret
@@ -332,7 +354,7 @@ class IdentityProvider(pulumi.CustomResource):
             __props__.__dict__["signup_policy_name"] = signup_policy_name
             __props__.__dict__["type"] = type
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:IdentityProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:IdentityProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IdentityProvider, __self__).__init__(
             'azure-native:apimanagement:IdentityProvider',
@@ -359,6 +381,7 @@ class IdentityProvider(pulumi.CustomResource):
         __props__.__dict__["allowed_tenants"] = None
         __props__.__dict__["authority"] = None
         __props__.__dict__["client_id"] = None
+        __props__.__dict__["client_library"] = None
         __props__.__dict__["client_secret"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["password_reset_policy_name"] = None
@@ -394,6 +417,14 @@ class IdentityProvider(pulumi.CustomResource):
         return pulumi.get(self, "client_id")
 
     @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> pulumi.Output[Optional[str]]:
+        """
+        The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
+
+    @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[Optional[str]]:
         """
@@ -405,7 +436,7 @@ class IdentityProvider(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -453,7 +484,7 @@ class IdentityProvider(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

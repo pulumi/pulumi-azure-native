@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a capacity pool
  */
-/** @deprecated Version 2017-08-15 will be removed in v2 of the provider. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-    pulumi.log.warn("getPool is deprecated: Version 2017-08-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20170815:getPool", {
@@ -78,7 +76,6 @@ export interface GetPoolResult {
 /**
  * Get a capacity pool
  */
-/** @deprecated Version 2017-08-15 will be removed in v2 of the provider. */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }

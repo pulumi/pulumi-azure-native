@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
     /// </summary>
-    [Obsolete(@"Version 2016-02-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount")]
     public partial class CognitiveServicesAccount : global::Pulumi.CustomResource
     {

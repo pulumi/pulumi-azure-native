@@ -16,8 +16,6 @@ __all__ = [
     'get_artifact_source_output',
 ]
 
-warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetArtifactSourceResult:
     """
@@ -240,7 +238,6 @@ def get_artifact_source(expand: Optional[str] = None,
     :param str name: The name of the artifact source.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_artifact_source is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name
@@ -283,5 +280,4 @@ def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str name: The name of the artifact source.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_artifact_source is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
     ...

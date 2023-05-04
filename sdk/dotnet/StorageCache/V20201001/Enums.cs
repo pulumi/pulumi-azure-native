@@ -138,38 +138,6 @@ namespace Pulumi.AzureNative.StorageCache.V20201001
     }
 
     /// <summary>
-    /// Type of the Storage Target.
-    /// </summary>
-    [EnumType]
-    public readonly struct StorageTargetType : IEquatable<StorageTargetType>
-    {
-        private readonly string _value;
-
-        private StorageTargetType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StorageTargetType Nfs3 { get; } = new StorageTargetType("nfs3");
-        public static StorageTargetType Clfs { get; } = new StorageTargetType("clfs");
-        public static StorageTargetType Unknown { get; } = new StorageTargetType("unknown");
-
-        public static bool operator ==(StorageTargetType left, StorageTargetType right) => left.Equals(right);
-        public static bool operator !=(StorageTargetType left, StorageTargetType right) => !left.Equals(right);
-
-        public static explicit operator string(StorageTargetType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StorageTargetType other && Equals(other);
-        public bool Equals(StorageTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// This setting determines how the cache gets username and group names for clients.
     /// </summary>
     [EnumType]

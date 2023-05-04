@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
  */
-/** @deprecated Version 2020-05-01-preview will be removed in v2 of the provider. */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-    pulumi.log.warn("getDevice is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200501preview:getDevice", {
@@ -124,7 +122,6 @@ export interface GetDeviceResult {
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
  */
-/** @deprecated Version 2020-05-01-preview will be removed in v2 of the provider. */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))
 }

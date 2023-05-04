@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified saved search for a given workspace.
  */
-/** @deprecated Version 2015-03-20 will be removed in v2 of the provider. */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
-    pulumi.log.warn("getSavedSearch is deprecated: Version 2015-03-20 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20150320:getSavedSearch", {
@@ -81,7 +79,6 @@ export interface GetSavedSearchResult {
 /**
  * Gets the specified saved search for a given workspace.
  */
-/** @deprecated Version 2015-03-20 will be removed in v2 of the provider. */
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
     return pulumi.output(args).apply((a: any) => getSavedSearch(a, opts))
 }

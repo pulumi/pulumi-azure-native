@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The relationship link resource format.
- *
- * @deprecated Version 2017-01-01 will be removed in v2 of the provider.
  */
 export class RelationshipLink extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class RelationshipLink extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RelationshipLink {
-        pulumi.log.warn("RelationshipLink is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
         return new RelationshipLink(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,9 +97,7 @@ export class RelationshipLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
     constructor(name: string, args: RelationshipLinkArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RelationshipLink is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -11,13 +11,14 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Network Manager Connection resource
-    /// API Version: 2021-05-01-preview.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ManagementGroupNetworkManagerConnection")]
     public partial class ManagementGroupNetworkManagerConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A description of the scope connection.
+        /// A description of the network manager connection.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -77,7 +78,13 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ManagementGroupNetworkManagerConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,7 +109,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class ManagementGroupNetworkManagerConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the scope connection.
+        /// A description of the network manager connection.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetSnapshotResult',
@@ -21,7 +22,7 @@ class GetSnapshotResult:
     """
     Snapshot of a Volume
     """
-    def __init__(__self__, created=None, id=None, location=None, name=None, provisioning_state=None, snapshot_id=None, type=None):
+    def __init__(__self__, created=None, id=None, location=None, name=None, provisioning_state=None, snapshot_id=None, system_data=None, type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -40,6 +41,9 @@ class GetSnapshotResult:
         if snapshot_id and not isinstance(snapshot_id, str):
             raise TypeError("Expected argument 'snapshot_id' to be a str")
         pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -56,7 +60,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -72,7 +76,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -93,10 +97,18 @@ class GetSnapshotResult:
         return pulumi.get(self, "snapshot_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -113,6 +125,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             snapshot_id=self.snapshot_id,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -124,12 +137,12 @@ def get_snapshot(account_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Get details of the specified snapshot
-    API Version: 2020-12-01.
+    API Version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str snapshot_name: The name of the snapshot
     :param str volume_name: The name of the volume
     """
@@ -149,6 +162,7 @@ def get_snapshot(account_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         snapshot_id=__ret__.snapshot_id,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -161,12 +175,12 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Get details of the specified snapshot
-    API Version: 2020-12-01.
+    API Version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str snapshot_name: The name of the snapshot
     :param str volume_name: The name of the volume
     """

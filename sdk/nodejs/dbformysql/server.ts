@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a server.
- * API Version: 2017-12-01.
+ * API Version: 2021-05-01.
+ * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -41,71 +42,75 @@ export class Server extends pulumi.CustomResource {
     /**
      * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
      */
-    public /*out*/ readonly administratorLogin!: pulumi.Output<string | undefined>;
+    public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * Status showing whether the server data encryption is enabled with customer-managed keys.
+     * availability Zone information of the server.
      */
-    public /*out*/ readonly byokEnforcement!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
-     * Earliest restore point creation time (ISO8601 format)
+     * Backup related properties of a server.
      */
-    public /*out*/ readonly earliestRestoreDate!: pulumi.Output<string | undefined>;
+    public readonly backup!: pulumi.Output<outputs.dbformysql.BackupResponse | undefined>;
+    /**
+     * The Data Encryption for CMK.
+     */
+    public readonly dataEncryption!: pulumi.Output<outputs.dbformysql.DataEncryptionResponse | undefined>;
     /**
      * The fully qualified domain name of a server.
      */
-    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
     /**
-     * The Azure Active Directory identity of the server.
+     * High availability related properties of a server.
      */
-    public readonly identity!: pulumi.Output<outputs.dbformysql.ResourceIdentityResponse | undefined>;
+    public readonly highAvailability!: pulumi.Output<outputs.dbformysql.HighAvailabilityResponse | undefined>;
     /**
-     * Status showing whether the server enabled infrastructure encryption.
+     * The cmk identity for the server.
      */
-    public /*out*/ readonly infrastructureEncryption!: pulumi.Output<string | undefined>;
+    public readonly identity!: pulumi.Output<outputs.dbformysql.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The master server id of a replica server.
+     * Maintenance window of a server.
      */
-    public /*out*/ readonly masterServerId!: pulumi.Output<string | undefined>;
-    /**
-     * Enforce a minimal Tls version for the server.
-     */
-    public /*out*/ readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
+    public readonly maintenanceWindow!: pulumi.Output<outputs.dbformysql.MaintenanceWindowResponse | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of private endpoint connections on a server
+     * Network related properties of a server.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbformysql.ServerPrivateEndpointConnectionResponse[]>;
+    public readonly network!: pulumi.Output<outputs.dbformysql.NetworkResponse | undefined>;
     /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * The maximum number of replicas that a primary server can have.
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly replicaCapacity!: pulumi.Output<number>;
     /**
-     * The maximum number of replicas that a master server can have.
+     * The replication role.
      */
-    public /*out*/ readonly replicaCapacity!: pulumi.Output<number | undefined>;
-    /**
-     * The replication role of the server.
-     */
-    public /*out*/ readonly replicationRole!: pulumi.Output<string | undefined>;
+    public readonly replicationRole!: pulumi.Output<string | undefined>;
     /**
      * The SKU (pricing tier) of the server.
      */
     public readonly sku!: pulumi.Output<outputs.dbformysql.SkuResponse | undefined>;
     /**
-     * Enable ssl enforcement or not when connect to server.
+     * The source MySQL server id.
      */
-    public /*out*/ readonly sslEnforcement!: pulumi.Output<string | undefined>;
+    public readonly sourceServerResourceId!: pulumi.Output<string | undefined>;
     /**
-     * Storage profile of a server.
+     * The state of a server.
      */
-    public /*out*/ readonly storageProfile!: pulumi.Output<outputs.dbformysql.StorageProfileResponse | undefined>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Storage related properties of a server.
+     */
+    public readonly storage!: pulumi.Output<outputs.dbformysql.StorageResponse | undefined>;
+    /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -115,13 +120,9 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * A state of a server that is visible to user.
-     */
-    public /*out*/ readonly userVisibleState!: pulumi.Output<string | undefined>;
-    /**
      * Server version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -134,61 +135,60 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["backup"] = args ? args.backup : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
+            resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["replicationRole"] = args ? args.replicationRole : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sourceServerResourceId"] = args ? args.sourceServerResourceId : undefined;
+            resourceInputs["storage"] = args ? args.storage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["administratorLogin"] = undefined /*out*/;
-            resourceInputs["byokEnforcement"] = undefined /*out*/;
-            resourceInputs["earliestRestoreDate"] = undefined /*out*/;
+            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            resourceInputs["infrastructureEncryption"] = undefined /*out*/;
-            resourceInputs["masterServerId"] = undefined /*out*/;
-            resourceInputs["minimalTlsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["replicaCapacity"] = undefined /*out*/;
-            resourceInputs["replicationRole"] = undefined /*out*/;
-            resourceInputs["sslEnforcement"] = undefined /*out*/;
-            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userVisibleState"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["administratorLogin"] = undefined /*out*/;
-            resourceInputs["byokEnforcement"] = undefined /*out*/;
-            resourceInputs["earliestRestoreDate"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["backup"] = undefined /*out*/;
+            resourceInputs["dataEncryption"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["highAvailability"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["infrastructureEncryption"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["masterServerId"] = undefined /*out*/;
-            resourceInputs["minimalTlsVersion"] = undefined /*out*/;
+            resourceInputs["maintenanceWindow"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["network"] = undefined /*out*/;
             resourceInputs["replicaCapacity"] = undefined /*out*/;
             resourceInputs["replicationRole"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["sslEnforcement"] = undefined /*out*/;
-            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["sourceServerResourceId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storage"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userVisibleState"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:Server" }, { type: "azure-native:dbformysql/v20171201preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Server" }, { type: "azure-native:dbformysql/v20200701privatepreview:Server" }, { type: "azure-native:dbformysql/v20210501:Server" }, { type: "azure-native:dbformysql/v20210501preview:Server" }, { type: "azure-native:dbformysql/v20211201preview:Server" }, { type: "azure-native:dbformysql/v20220101:Server" }, { type: "azure-native:dbformysql/v20220930preview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
@@ -199,21 +199,61 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerArgs {
     /**
-     * The Azure Active Directory identity of the server.
+     * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
      */
-    identity?: pulumi.Input<inputs.dbformysql.ResourceIdentityArgs>;
+    administratorLogin?: pulumi.Input<string>;
     /**
-     * The location the resource resides in.
+     * The password of the administrator login (required for server creation).
+     */
+    administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * availability Zone information of the server.
+     */
+    availabilityZone?: pulumi.Input<string>;
+    /**
+     * Backup related properties of a server.
+     */
+    backup?: pulumi.Input<inputs.dbformysql.BackupArgs>;
+    /**
+     * The mode to create a new MySQL server.
+     */
+    createMode?: pulumi.Input<string | enums.dbformysql.CreateMode>;
+    /**
+     * The Data Encryption for CMK.
+     */
+    dataEncryption?: pulumi.Input<inputs.dbformysql.DataEncryptionArgs>;
+    /**
+     * High availability related properties of a server.
+     */
+    highAvailability?: pulumi.Input<inputs.dbformysql.HighAvailabilityArgs>;
+    /**
+     * The cmk identity for the server.
+     */
+    identity?: pulumi.Input<inputs.dbformysql.IdentityArgs>;
+    /**
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Properties of the server.
+     * Maintenance window of a server.
      */
-    properties: pulumi.Input<inputs.dbformysql.ServerPropertiesForDefaultCreateArgs | inputs.dbformysql.ServerPropertiesForGeoRestoreArgs | inputs.dbformysql.ServerPropertiesForReplicaArgs | inputs.dbformysql.ServerPropertiesForRestoreArgs>;
+    maintenanceWindow?: pulumi.Input<inputs.dbformysql.MaintenanceWindowArgs>;
+    /**
+     * Network related properties of a server.
+     */
+    network?: pulumi.Input<inputs.dbformysql.NetworkArgs>;
+    /**
+     * The replication role.
+     */
+    replicationRole?: pulumi.Input<string | enums.dbformysql.ReplicationRole>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Restore point creation time (ISO8601 format), specifying the time to restore from.
+     */
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The name of the server.
      */
@@ -223,7 +263,19 @@ export interface ServerArgs {
      */
     sku?: pulumi.Input<inputs.dbformysql.SkuArgs>;
     /**
-     * Application-specific metadata in the form of key-value pairs.
+     * The source MySQL server id.
+     */
+    sourceServerResourceId?: pulumi.Input<string>;
+    /**
+     * Storage related properties of a server.
+     */
+    storage?: pulumi.Input<inputs.dbformysql.StorageArgs>;
+    /**
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Server version.
+     */
+    version?: pulumi.Input<string | enums.dbformysql.ServerVersion>;
 }

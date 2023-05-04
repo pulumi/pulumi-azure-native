@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// The input protocol for the live event. This is specified at creation time and cannot be updated.
         /// </summary>
         public readonly string StreamingProtocol;
+        /// <summary>
+        /// The metadata endpoints for the live event.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LiveEventTimedMetadataEndpointResponse> TimedMetadataEndpoints;
 
         [OutputConstructor]
         private LiveEventInputResponse(
@@ -47,13 +51,16 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             string? keyFrameIntervalDuration,
 
-            string streamingProtocol)
+            string streamingProtocol,
+
+            ImmutableArray<Outputs.LiveEventTimedMetadataEndpointResponse> timedMetadataEndpoints)
         {
             AccessControl = accessControl;
             AccessToken = accessToken;
             Endpoints = endpoints;
             KeyFrameIntervalDuration = keyFrameIntervalDuration;
             StreamingProtocol = streamingProtocol;
+            TimedMetadataEndpoints = timedMetadataEndpoints;
         }
     }
 }

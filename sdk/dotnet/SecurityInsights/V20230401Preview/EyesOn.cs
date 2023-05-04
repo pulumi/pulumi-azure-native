@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EyesOn"},
@@ -100,6 +99,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:EyesOn"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:EyesOn"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:EyesOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

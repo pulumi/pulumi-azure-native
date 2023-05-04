@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2018-10-31-preview.
+ * API Version: 2021-11-30.
+ * Previous API Version: 2018-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DedicatedHsm extends pulumi.CustomResource {
     /**
@@ -43,6 +44,10 @@ export class DedicatedHsm extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Specifies the management network interfaces of the dedicated hsm.
+     */
+    public readonly managementNetworkProfile!: pulumi.Output<outputs.hardwaresecuritymodules.NetworkProfileResponse | undefined>;
+    /**
      * The name of the dedicated HSM.
      */
     public readonly name!: pulumi.Output<string>;
@@ -66,6 +71,10 @@ export class DedicatedHsm extends pulumi.CustomResource {
      * Resource Status Message.
      */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hardwaresecuritymodules.SystemDataResponse>;
     /**
      * Resource tags
      */
@@ -97,6 +106,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managementNetworkProfile"] = args ? args.managementNetworkProfile : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -106,15 +116,18 @@ export class DedicatedHsm extends pulumi.CustomResource {
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managementNetworkProfile"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["stampId"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
@@ -134,6 +147,10 @@ export interface DedicatedHsmArgs {
      * The supported Azure location where the dedicated HSM should be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies the management network interfaces of the dedicated hsm.
+     */
+    managementNetworkProfile?: pulumi.Input<inputs.hardwaresecuritymodules.NetworkProfileArgs>;
     /**
      * Name of the dedicated Hsm
      */

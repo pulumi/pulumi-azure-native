@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a DNS zone.
  */
-/** @deprecated Version 2015-05-04-preview will be removed in v2 of the provider. */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
-    pulumi.log.warn("getZone is deprecated: Version 2015-05-04-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20150504preview:getZone", {
@@ -68,7 +66,6 @@ export interface GetZoneResult {
 /**
  * Gets a DNS zone.
  */
-/** @deprecated Version 2015-05-04-preview will be removed in v2 of the provider. */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
     return pulumi.output(args).apply((a: any) => getZone(a, opts))
 }

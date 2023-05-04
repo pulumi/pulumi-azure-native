@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A budget resource.
- *
- * @deprecated Version 2019-06-01 will be removed in v2 of the provider.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Budget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Budget {
-        pulumi.log.warn("Budget is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
         return new Budget(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +85,7 @@ export class Budget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
     constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Budget is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -134,7 +129,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:consumption:Budget" }, { type: "azure-native:consumption/v20190101:Budget" }, { type: "azure-native:consumption/v20190401preview:Budget" }, { type: "azure-native:consumption/v20190501:Budget" }, { type: "azure-native:consumption/v20190501preview:Budget" }, { type: "azure-native:consumption/v20191001:Budget" }, { type: "azure-native:consumption/v20191101:Budget" }, { type: "azure-native:consumption/v20210501:Budget" }, { type: "azure-native:consumption/v20211001:Budget" }, { type: "azure-native:consumption/v20220901:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:consumption:Budget" }, { type: "azure-native:consumption/v20190101:Budget" }, { type: "azure-native:consumption/v20190401preview:Budget" }, { type: "azure-native:consumption/v20190501:Budget" }, { type: "azure-native:consumption/v20190501preview:Budget" }, { type: "azure-native:consumption/v20191001:Budget" }, { type: "azure-native:consumption/v20191101:Budget" }, { type: "azure-native:consumption/v20210501:Budget" }, { type: "azure-native:consumption/v20211001:Budget" }, { type: "azure-native:consumption/v20220901:Budget" }, { type: "azure-native:consumption/v20230301:Budget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Budget.__pulumiType, name, resourceInputs, opts);
     }

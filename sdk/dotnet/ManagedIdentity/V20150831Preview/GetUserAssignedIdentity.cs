@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
 {
-    [Obsolete(@"Version 2015-08-31-preview will be removed in v2 of the provider.")]
     public static class GetUserAssignedIdentity
     {
         /// <summary>

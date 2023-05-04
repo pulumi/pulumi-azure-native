@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Define the Virtual Instance for SAP solutions resource.
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
+ * Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SAPVirtualInstance extends pulumi.CustomResource {
     /**
@@ -55,7 +56,7 @@ export class SAPVirtualInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly health!: pulumi.Output<string>;
     /**
-     * Managed service identity (user assigned identities)
+     * A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
      */
     public readonly identity!: pulumi.Output<outputs.workloads.UserAssignedServiceIdentityResponse | undefined>;
     /**
@@ -176,7 +177,7 @@ export interface SAPVirtualInstanceArgs {
      */
     environment: pulumi.Input<string | enums.workloads.SAPEnvironmentType>;
     /**
-     * Managed service identity (user assigned identities)
+     * A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
      */
     identity?: pulumi.Input<inputs.workloads.UserAssignedServiceIdentityArgs>;
     /**

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the information about the network resource with a given name. This information includes the network description and other runtime information.
  */
-/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
-    pulumi.log.warn("getNetwork is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180701preview:getNetwork", {
@@ -76,7 +74,6 @@ export interface GetNetworkResult {
 /**
  * Gets the information about the network resource with a given name. This information includes the network description and other runtime information.
  */
-/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
     return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
 }

@@ -13,11 +13,9 @@ from ._enums import *
 __all__ = [
     'ApplicationPackageReferenceArgs',
     'AutoScaleSettingsArgs',
-    'AutoStorageBasePropertiesArgs',
     'AutoUserSpecificationArgs',
     'AzureBlobFileSystemConfigurationArgs',
     'AzureFileShareConfigurationArgs',
-    'BatchAccountIdentityArgs',
     'CIFSMountConfigurationArgs',
     'CertificateReferenceArgs',
     'CloudServiceConfigurationArgs',
@@ -26,13 +24,10 @@ __all__ = [
     'DataDiskArgs',
     'DeploymentConfigurationArgs',
     'DiskEncryptionConfigurationArgs',
-    'EncryptionPropertiesArgs',
     'EnvironmentSettingArgs',
     'FixedScaleSettingsArgs',
     'ImageReferenceArgs',
     'InboundNatPoolArgs',
-    'KeyVaultPropertiesArgs',
-    'KeyVaultReferenceArgs',
     'LinuxUserConfigurationArgs',
     'MetadataItemArgs',
     'MountConfigurationArgs',
@@ -119,29 +114,6 @@ class AutoScaleSettingsArgs:
     @evaluation_interval.setter
     def evaluation_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "evaluation_interval", value)
-
-
-@pulumi.input_type
-class AutoStorageBasePropertiesArgs:
-    def __init__(__self__, *,
-                 storage_account_id: pulumi.Input[str]):
-        """
-        The properties related to the auto-storage account.
-        :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to be used for auto-storage account.
-        """
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the storage account to be used for auto-storage account.
-        """
-        return pulumi.get(self, "storage_account_id")
-
-    @storage_account_id.setter
-    def storage_account_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_id", value)
 
 
 @pulumi.input_type
@@ -348,29 +320,6 @@ class AzureFileShareConfigurationArgs:
     @mount_options.setter
     def mount_options(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_options", value)
-
-
-@pulumi.input_type
-class BatchAccountIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input['ResourceIdentityType']):
-        """
-        The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
-        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the Batch account.
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['ResourceIdentityType']:
-        """
-        The type of identity used for the Batch account.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['ResourceIdentityType']):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -787,46 +736,6 @@ class DiskEncryptionConfigurationArgs:
 
 
 @pulumi.input_type
-class EncryptionPropertiesArgs:
-    def __init__(__self__, *,
-                 key_source: Optional[pulumi.Input['KeySource']] = None,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
-        """
-        Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-        :param pulumi.Input['KeySource'] key_source: Type of the key source.
-        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Additional details when using Microsoft.KeyVault
-        """
-        if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input['KeySource']]:
-        """
-        Type of the key source.
-        """
-        return pulumi.get(self, "key_source")
-
-    @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input['KeySource']]):
-        pulumi.set(self, "key_source", value)
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
-        """
-        Additional details when using Microsoft.KeyVault
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
-        pulumi.set(self, "key_vault_properties", value)
-
-
-@pulumi.input_type
 class EnvironmentSettingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -1104,76 +1013,6 @@ class InboundNatPoolArgs:
     @network_security_group_rules.setter
     def network_security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]]]):
         pulumi.set(self, "network_security_group_rules", value)
-
-
-@pulumi.input_type
-class KeyVaultPropertiesArgs:
-    def __init__(__self__, *,
-                 key_identifier: Optional[pulumi.Input[str]] = None):
-        """
-        KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
-        :param pulumi.Input[str] key_identifier: Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
-               
-                The Batch Account has a System Assigned identity
-                The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-                The KeyVault has soft-delete and purge protection enabled
-        """
-        if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
-
-    @property
-    @pulumi.getter(name="keyIdentifier")
-    def key_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
-
-         The Batch Account has a System Assigned identity
-         The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-         The KeyVault has soft-delete and purge protection enabled
-        """
-        return pulumi.get(self, "key_identifier")
-
-    @key_identifier.setter
-    def key_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_identifier", value)
-
-
-@pulumi.input_type
-class KeyVaultReferenceArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str],
-                 url: pulumi.Input[str]):
-        """
-        Identifies the Azure key vault associated with a Batch account.
-        :param pulumi.Input[str] id: The resource ID of the Azure key vault associated with the Batch account.
-        :param pulumi.Input[str] url: The URL of the Azure key vault associated with the Batch account.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "url", url)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the Azure key vault associated with the Batch account.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[str]:
-        """
-        The URL of the Azure key vault associated with the Batch account.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type

@@ -26,9 +26,9 @@ class ProviderInstanceArgs:
         The set of arguments for constructing a ProviderInstance resource.
         :param pulumi.Input[str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: [currently not in use] Managed service identity(user assigned identities)
         :param pulumi.Input[str] provider_instance_name: Name of the provider instance.
-        :param pulumi.Input[Union['DB2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOSProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']] provider_settings: Defines the provider instance errors.
+        :param pulumi.Input[Union['DB2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOSProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']] provider_settings: Defines the provider specific properties.
         """
         pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -67,7 +67,7 @@ class ProviderInstanceArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['UserAssignedServiceIdentityArgs']]:
         """
-        Managed service identity (user assigned identities)
+        [currently not in use] Managed service identity(user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -91,7 +91,7 @@ class ProviderInstanceArgs:
     @pulumi.getter(name="providerSettings")
     def provider_settings(self) -> Optional[pulumi.Input[Union['DB2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOSProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]]:
         """
-        Defines the provider instance errors.
+        Defines the provider specific properties.
         """
         return pulumi.get(self, "provider_settings")
 
@@ -113,14 +113,15 @@ class ProviderInstance(pulumi.CustomResource):
                  __props__=None):
         """
         A provider instance associated with SAP monitor.
-        API Version: 2021-12-01-preview.
+        API Version: 2023-04-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: [currently not in use] Managed service identity(user assigned identities)
         :param pulumi.Input[str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[str] provider_instance_name: Name of the provider instance.
-        :param pulumi.Input[Union[pulumi.InputType['DB2ProviderInstancePropertiesArgs'], pulumi.InputType['HanaDbProviderInstancePropertiesArgs'], pulumi.InputType['MsSqlServerProviderInstancePropertiesArgs'], pulumi.InputType['PrometheusHaClusterProviderInstancePropertiesArgs'], pulumi.InputType['PrometheusOSProviderInstancePropertiesArgs'], pulumi.InputType['SapNetWeaverProviderInstancePropertiesArgs']]] provider_settings: Defines the provider instance errors.
+        :param pulumi.Input[Union[pulumi.InputType['DB2ProviderInstancePropertiesArgs'], pulumi.InputType['HanaDbProviderInstancePropertiesArgs'], pulumi.InputType['MsSqlServerProviderInstancePropertiesArgs'], pulumi.InputType['PrometheusHaClusterProviderInstancePropertiesArgs'], pulumi.InputType['PrometheusOSProviderInstancePropertiesArgs'], pulumi.InputType['SapNetWeaverProviderInstancePropertiesArgs']]] provider_settings: Defines the provider specific properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -131,7 +132,8 @@ class ProviderInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A provider instance associated with SAP monitor.
-        API Version: 2021-12-01-preview.
+        API Version: 2023-04-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ProviderInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -221,7 +223,7 @@ class ProviderInstance(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.UserAssignedServiceIdentityResponse']]:
         """
-        Managed service identity (user assigned identities)
+        [currently not in use] Managed service identity(user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -237,7 +239,7 @@ class ProviderInstance(pulumi.CustomResource):
     @pulumi.getter(name="providerSettings")
     def provider_settings(self) -> pulumi.Output[Optional[Any]]:
         """
-        Defines the provider instance errors.
+        Defines the provider specific properties.
         """
         return pulumi.get(self, "provider_settings")
 

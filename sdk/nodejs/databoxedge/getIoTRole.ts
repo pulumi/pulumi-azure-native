@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific role by name.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getIoTRole(args: GetIoTRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTRoleResult> {
 
@@ -86,7 +86,7 @@ export interface GetIoTRoleResult {
      */
     readonly shareMappings?: outputs.databoxedge.MountPointMapResponse[];
     /**
-     * Role configured on ASE resource
+     * Metadata pertaining to creation and last modification of Role
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
@@ -96,7 +96,7 @@ export interface GetIoTRoleResult {
 }
 /**
  * Gets a specific role by name.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
     return pulumi.output(args).apply((a: any) => getIoTRole(a, opts))

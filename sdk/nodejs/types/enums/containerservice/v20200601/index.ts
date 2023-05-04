@@ -22,18 +22,6 @@ export const AgentPoolType = {
  */
 export type AgentPoolType = (typeof AgentPoolType)[keyof typeof AgentPoolType];
 
-export const ConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * The private link service connection status.
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
 export const ContainerServiceVMSizeTypes = {
     Standard_A1: "Standard_A1",
     Standard_A10: "Standard_A10",
@@ -216,65 +204,6 @@ export const ContainerServiceVMSizeTypes = {
  */
 export type ContainerServiceVMSizeTypes = (typeof ContainerServiceVMSizeTypes)[keyof typeof ContainerServiceVMSizeTypes];
 
-export const LoadBalancerSku = {
-    Standard: "standard",
-    Basic: "basic",
-} as const;
-
-/**
- * The load balancer sku for the managed cluster.
- */
-export type LoadBalancerSku = (typeof LoadBalancerSku)[keyof typeof LoadBalancerSku];
-
-export const ManagedClusterSKUName = {
-    Basic: "Basic",
-} as const;
-
-/**
- * Name of a managed cluster SKU.
- */
-export type ManagedClusterSKUName = (typeof ManagedClusterSKUName)[keyof typeof ManagedClusterSKUName];
-
-export const ManagedClusterSKUTier = {
-    Paid: "Paid",
-    Free: "Free",
-} as const;
-
-/**
- * Tier of a managed cluster SKU.
- */
-export type ManagedClusterSKUTier = (typeof ManagedClusterSKUTier)[keyof typeof ManagedClusterSKUTier];
-
-export const NetworkMode = {
-    Transparent: "transparent",
-    Bridge: "bridge",
-} as const;
-
-/**
- * Network mode used for building Kubernetes network.
- */
-export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
-
-export const NetworkPlugin = {
-    Azure: "azure",
-    Kubenet: "kubenet",
-} as const;
-
-/**
- * Network plugin used for building Kubernetes network.
- */
-export type NetworkPlugin = (typeof NetworkPlugin)[keyof typeof NetworkPlugin];
-
-export const NetworkPolicy = {
-    Calico: "calico",
-    Azure: "azure",
-} as const;
-
-/**
- * Network policy used for building Kubernetes network.
- */
-export type NetworkPolicy = (typeof NetworkPolicy)[keyof typeof NetworkPolicy];
-
 export const OSType = {
     Linux: "Linux",
     Windows: "Windows",
@@ -284,27 +213,6 @@ export const OSType = {
  * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
  */
 export type OSType = (typeof OSType)[keyof typeof OSType];
-
-export const OutboundType = {
-    LoadBalancer: "loadBalancer",
-    UserDefinedRouting: "userDefinedRouting",
-} as const;
-
-/**
- * The outbound (egress) routing method.
- */
-export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
-
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const ScaleSetEvictionPolicy = {
     Delete: "Delete",

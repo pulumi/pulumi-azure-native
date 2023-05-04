@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Scheduled action definition.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ScheduledActionByScope extends pulumi.CustomResource {
     /**
@@ -43,11 +44,11 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * Resource Etag.
+     * Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
     /**
-     * Destination format of the view data.
+     * Destination format of the view data. This is optional.
      */
     public readonly fileDestination!: pulumi.Output<outputs.costmanagement.FileDestinationResponse | undefined>;
     /**
@@ -55,13 +56,17 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * Notification properties based on scheduled action kind.
      */
     public readonly notification!: pulumi.Output<outputs.costmanagement.NotificationPropertiesResponse>;
+    /**
+     * Email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    public readonly notificationEmail!: pulumi.Output<string | undefined>;
     /**
      * Schedule of the scheduled action.
      */
@@ -75,11 +80,11 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * Kind of the scheduled action.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.costmanagement.SystemDataResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -121,6 +126,7 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notification"] = args ? args.notification : undefined;
+            resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -135,6 +141,7 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notification"] = undefined /*out*/;
+            resourceInputs["notificationEmail"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -158,7 +165,7 @@ export interface ScheduledActionByScopeArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * Destination format of the view data.
+     * Destination format of the view data. This is optional.
      */
     fileDestination?: pulumi.Input<inputs.costmanagement.FileDestinationArgs>;
     /**
@@ -173,6 +180,10 @@ export interface ScheduledActionByScopeArgs {
      * Notification properties based on scheduled action kind.
      */
     notification: pulumi.Input<inputs.costmanagement.NotificationPropertiesArgs>;
+    /**
+     * Email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    notificationEmail?: pulumi.Input<string>;
     /**
      * Schedule of the scheduled action.
      */

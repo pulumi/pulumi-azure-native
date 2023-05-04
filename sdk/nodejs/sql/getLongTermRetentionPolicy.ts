@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a database's long term retention policy.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getLongTermRetentionPolicy(args: GetLongTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetLongTermRetentionPolicyResult> {
 
@@ -73,7 +73,7 @@ export interface GetLongTermRetentionPolicyResult {
 }
 /**
  * Gets a database's long term retention policy.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getLongTermRetentionPolicyOutput(args: GetLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLongTermRetentionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getLongTermRetentionPolicy(a, opts))

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.PowerBIDedicated.V20171001
 {
-    [Obsolete(@"Version 2017-10-01 will be removed in v2 of the provider.")]
     public static class GetCapacityDetails
     {
         /// <summary>

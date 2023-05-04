@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate resource payload.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -45,7 +46,11 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Properties of the certificate resource payload.
      */
-    public readonly properties!: pulumi.Output<outputs.appplatform.CertificatePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.appplatform.ContentCertificatePropertiesResponse | outputs.appplatform.KeyVaultCertificatePropertiesResponse>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
     /**
      * The type of the resource.
      */
@@ -73,14 +78,16 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Certificate" }, { type: "azure-native:appplatform/v20201101preview:Certificate" }, { type: "azure-native:appplatform/v20210601preview:Certificate" }, { type: "azure-native:appplatform/v20210901preview:Certificate" }, { type: "azure-native:appplatform/v20220101preview:Certificate" }, { type: "azure-native:appplatform/v20220301preview:Certificate" }, { type: "azure-native:appplatform/v20220401:Certificate" }, { type: "azure-native:appplatform/v20220501preview:Certificate" }, { type: "azure-native:appplatform/v20220901preview:Certificate" }, { type: "azure-native:appplatform/v20221101preview:Certificate" }, { type: "azure-native:appplatform/v20221201:Certificate" }, { type: "azure-native:appplatform/v20230101preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Certificate" }, { type: "azure-native:appplatform/v20201101preview:Certificate" }, { type: "azure-native:appplatform/v20210601preview:Certificate" }, { type: "azure-native:appplatform/v20210901preview:Certificate" }, { type: "azure-native:appplatform/v20220101preview:Certificate" }, { type: "azure-native:appplatform/v20220301preview:Certificate" }, { type: "azure-native:appplatform/v20220401:Certificate" }, { type: "azure-native:appplatform/v20220501preview:Certificate" }, { type: "azure-native:appplatform/v20220901preview:Certificate" }, { type: "azure-native:appplatform/v20221101preview:Certificate" }, { type: "azure-native:appplatform/v20221201:Certificate" }, { type: "azure-native:appplatform/v20230101preview:Certificate" }, { type: "azure-native:appplatform/v20230301preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
@@ -97,7 +104,7 @@ export interface CertificateArgs {
     /**
      * Properties of the certificate resource payload.
      */
-    properties?: pulumi.Input<inputs.appplatform.CertificatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.ContentCertificatePropertiesArgs | inputs.appplatform.KeyVaultCertificatePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

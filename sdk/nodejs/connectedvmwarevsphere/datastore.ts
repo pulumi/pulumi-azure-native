@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Define the datastore.
- * API Version: 2020-10-01-preview.
+ * API Version: 2022-07-15-preview.
+ * Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Datastore extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class Datastore extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets Maximum capacity of this datastore in GBs.
+     */
+    public /*out*/ readonly capacityGB!: pulumi.Output<number>;
+    /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
     public /*out*/ readonly customResourceName!: pulumi.Output<string>;
@@ -46,6 +51,10 @@ export class Datastore extends pulumi.CustomResource {
      * Gets or sets the extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.ExtendedLocationResponse | undefined>;
+    /**
+     * Gets or sets Available space of this datastore in GBs.
+     */
+    public /*out*/ readonly freeSpaceGB!: pulumi.Output<number>;
     /**
      * Gets or sets the inventory Item ID for the datastore.
      */
@@ -122,7 +131,9 @@ export class Datastore extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
+            resourceInputs["capacityGB"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["freeSpaceGB"] = undefined /*out*/;
             resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -131,8 +142,10 @@ export class Datastore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["capacityGB"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["freeSpaceGB"] = undefined /*out*/;
             resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

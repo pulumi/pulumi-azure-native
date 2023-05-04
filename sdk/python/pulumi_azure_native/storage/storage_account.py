@@ -23,20 +23,28 @@ class StorageAccountArgs:
                  access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_cross_tenant_replication: Optional[pulumi.Input[bool]] = None,
                  allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
+                 allowed_copy_scope: Optional[pulumi.Input[Union[str, 'AllowedCopyScope']]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs']] = None,
                  custom_domain: Optional[pulumi.Input['CustomDomainArgs']] = None,
+                 default_to_o_auth_authentication: Optional[pulumi.Input[bool]] = None,
+                 dns_endpoint_type: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 immutable_storage_with_versioning: Optional[pulumi.Input['ImmutableStorageAccountArgs']] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_local_user_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_sftp_enabled: Optional[pulumi.Input[bool]] = None,
                  key_policy: Optional[pulumi.Input['KeyPolicyArgs']] = None,
                  large_file_shares_state: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
                  network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  routing_preference: Optional[pulumi.Input['RoutingPreferenceArgs']] = None,
                  sas_policy: Optional[pulumi.Input['SasPolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -45,23 +53,31 @@ class StorageAccountArgs:
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Indicates the type of storage account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: Required. Gets or sets the SKU name.
-        :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        :param pulumi.Input[bool] allow_cross_tenant_replication: Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
         :param pulumi.Input[bool] allow_shared_key_access: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+        :param pulumi.Input[Union[str, 'AllowedCopyScope']] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
         :param pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs'] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
         :param pulumi.Input['CustomDomainArgs'] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+        :param pulumi.Input[bool] default_to_o_auth_authentication: A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.
+        :param pulumi.Input[Union[str, 'DnsEndpointType']] dns_endpoint_type: Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
         :param pulumi.Input[bool] enable_nfs_v3: NFS 3.0 protocol support enabled if set to true.
-        :param pulumi.Input['EncryptionArgs'] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        :param pulumi.Input['EncryptionArgs'] encryption: Encryption settings to be used for server-side encryption for the storage account.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
+        :param pulumi.Input['ImmutableStorageAccountArgs'] immutable_storage_with_versioning: The property is immutable and can only be set to true at the account creation time. When set to true, it enables object level immutability for all the new containers in the account by default.
         :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
+        :param pulumi.Input[bool] is_local_user_enabled: Enables local users feature, if set to true
+        :param pulumi.Input[bool] is_sftp_enabled: Enables Secure File Transfer Protocol, if set to true
         :param pulumi.Input['KeyPolicyArgs'] key_policy: KeyPolicy assigned to the storage account.
         :param pulumi.Input[Union[str, 'LargeFileSharesState']] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[Union[str, 'MinimumTlsVersion']] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
         :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network rule set
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
         :param pulumi.Input['RoutingPreferenceArgs'] routing_preference: Maintains information about the network routing choice opted by the user for data transfer
         :param pulumi.Input['SasPolicyArgs'] sas_policy: SasPolicy assigned to the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
@@ -75,12 +91,20 @@ class StorageAccountArgs:
             pulumi.set(__self__, "account_name", account_name)
         if allow_blob_public_access is not None:
             pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+        if allow_cross_tenant_replication is not None:
+            pulumi.set(__self__, "allow_cross_tenant_replication", allow_cross_tenant_replication)
         if allow_shared_key_access is not None:
             pulumi.set(__self__, "allow_shared_key_access", allow_shared_key_access)
+        if allowed_copy_scope is not None:
+            pulumi.set(__self__, "allowed_copy_scope", allowed_copy_scope)
         if azure_files_identity_based_authentication is not None:
             pulumi.set(__self__, "azure_files_identity_based_authentication", azure_files_identity_based_authentication)
         if custom_domain is not None:
             pulumi.set(__self__, "custom_domain", custom_domain)
+        if default_to_o_auth_authentication is not None:
+            pulumi.set(__self__, "default_to_o_auth_authentication", default_to_o_auth_authentication)
+        if dns_endpoint_type is not None:
+            pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
         if enable_https_traffic_only is not None:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if enable_nfs_v3 is not None:
@@ -91,8 +115,14 @@ class StorageAccountArgs:
             pulumi.set(__self__, "extended_location", extended_location)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if immutable_storage_with_versioning is not None:
+            pulumi.set(__self__, "immutable_storage_with_versioning", immutable_storage_with_versioning)
         if is_hns_enabled is not None:
             pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
+        if is_local_user_enabled is not None:
+            pulumi.set(__self__, "is_local_user_enabled", is_local_user_enabled)
+        if is_sftp_enabled is not None:
+            pulumi.set(__self__, "is_sftp_enabled", is_sftp_enabled)
         if key_policy is not None:
             pulumi.set(__self__, "key_policy", key_policy)
         if large_file_shares_state is not None:
@@ -103,6 +133,8 @@ class StorageAccountArgs:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if network_rule_set is not None:
             pulumi.set(__self__, "network_rule_set", network_rule_set)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if routing_preference is not None:
             pulumi.set(__self__, "routing_preference", routing_preference)
         if sas_policy is not None:
@@ -150,7 +182,7 @@ class StorageAccountArgs:
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> Optional[pulumi.Input['AccessTier']]:
         """
-        Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
         """
         return pulumi.get(self, "access_tier")
 
@@ -183,6 +215,18 @@ class StorageAccountArgs:
         pulumi.set(self, "allow_blob_public_access", value)
 
     @property
+    @pulumi.getter(name="allowCrossTenantReplication")
+    def allow_cross_tenant_replication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+        """
+        return pulumi.get(self, "allow_cross_tenant_replication")
+
+    @allow_cross_tenant_replication.setter
+    def allow_cross_tenant_replication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_cross_tenant_replication", value)
+
+    @property
     @pulumi.getter(name="allowSharedKeyAccess")
     def allow_shared_key_access(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -193,6 +237,18 @@ class StorageAccountArgs:
     @allow_shared_key_access.setter
     def allow_shared_key_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_shared_key_access", value)
+
+    @property
+    @pulumi.getter(name="allowedCopyScope")
+    def allowed_copy_scope(self) -> Optional[pulumi.Input[Union[str, 'AllowedCopyScope']]]:
+        """
+        Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
+        """
+        return pulumi.get(self, "allowed_copy_scope")
+
+    @allowed_copy_scope.setter
+    def allowed_copy_scope(self, value: Optional[pulumi.Input[Union[str, 'AllowedCopyScope']]]):
+        pulumi.set(self, "allowed_copy_scope", value)
 
     @property
     @pulumi.getter(name="azureFilesIdentityBasedAuthentication")
@@ -217,6 +273,30 @@ class StorageAccountArgs:
     @custom_domain.setter
     def custom_domain(self, value: Optional[pulumi.Input['CustomDomainArgs']]):
         pulumi.set(self, "custom_domain", value)
+
+    @property
+    @pulumi.getter(name="defaultToOAuthAuthentication")
+    def default_to_o_auth_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.
+        """
+        return pulumi.get(self, "default_to_o_auth_authentication")
+
+    @default_to_o_auth_authentication.setter
+    def default_to_o_auth_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_to_o_auth_authentication", value)
+
+    @property
+    @pulumi.getter(name="dnsEndpointType")
+    def dns_endpoint_type(self) -> Optional[pulumi.Input[Union[str, 'DnsEndpointType']]]:
+        """
+        Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+        """
+        return pulumi.get(self, "dns_endpoint_type")
+
+    @dns_endpoint_type.setter
+    def dns_endpoint_type(self, value: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]]):
+        pulumi.set(self, "dns_endpoint_type", value)
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -246,7 +326,7 @@ class StorageAccountArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
         """
-        Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        Encryption settings to be used for server-side encryption for the storage account.
         """
         return pulumi.get(self, "encryption")
 
@@ -279,6 +359,18 @@ class StorageAccountArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="immutableStorageWithVersioning")
+    def immutable_storage_with_versioning(self) -> Optional[pulumi.Input['ImmutableStorageAccountArgs']]:
+        """
+        The property is immutable and can only be set to true at the account creation time. When set to true, it enables object level immutability for all the new containers in the account by default.
+        """
+        return pulumi.get(self, "immutable_storage_with_versioning")
+
+    @immutable_storage_with_versioning.setter
+    def immutable_storage_with_versioning(self, value: Optional[pulumi.Input['ImmutableStorageAccountArgs']]):
+        pulumi.set(self, "immutable_storage_with_versioning", value)
+
+    @property
     @pulumi.getter(name="isHnsEnabled")
     def is_hns_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -289,6 +381,30 @@ class StorageAccountArgs:
     @is_hns_enabled.setter
     def is_hns_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_hns_enabled", value)
+
+    @property
+    @pulumi.getter(name="isLocalUserEnabled")
+    def is_local_user_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables local users feature, if set to true
+        """
+        return pulumi.get(self, "is_local_user_enabled")
+
+    @is_local_user_enabled.setter
+    def is_local_user_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_local_user_enabled", value)
+
+    @property
+    @pulumi.getter(name="isSftpEnabled")
+    def is_sftp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables Secure File Transfer Protocol, if set to true
+        """
+        return pulumi.get(self, "is_sftp_enabled")
+
+    @is_sftp_enabled.setter
+    def is_sftp_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_sftp_enabled", value)
 
     @property
     @pulumi.getter(name="keyPolicy")
@@ -351,6 +467,18 @@ class StorageAccountArgs:
         pulumi.set(self, "network_rule_set", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="routingPreference")
     def routing_preference(self) -> Optional[pulumi.Input['RoutingPreferenceArgs']]:
         """
@@ -395,21 +523,29 @@ class StorageAccount(pulumi.CustomResource):
                  access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_cross_tenant_replication: Optional[pulumi.Input[bool]] = None,
                  allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
+                 allowed_copy_scope: Optional[pulumi.Input[Union[str, 'AllowedCopyScope']]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
+                 default_to_o_auth_authentication: Optional[pulumi.Input[bool]] = None,
+                 dns_endpoint_type: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 immutable_storage_with_versioning: Optional[pulumi.Input[pulumi.InputType['ImmutableStorageAccountArgs']]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_local_user_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_sftp_enabled: Optional[pulumi.Input[bool]] = None,
                  key_policy: Optional[pulumi.Input[pulumi.InputType['KeyPolicyArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  large_file_shares_state: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_preference: Optional[pulumi.Input[pulumi.InputType['RoutingPreferenceArgs']]] = None,
                  sas_policy: Optional[pulumi.Input[pulumi.InputType['SasPolicyArgs']]] = None,
@@ -418,28 +554,37 @@ class StorageAccount(pulumi.CustomResource):
                  __props__=None):
         """
         The storage account.
-        API Version: 2021-02-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        :param pulumi.Input[bool] allow_cross_tenant_replication: Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
         :param pulumi.Input[bool] allow_shared_key_access: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+        :param pulumi.Input[Union[str, 'AllowedCopyScope']] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
         :param pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
         :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+        :param pulumi.Input[bool] default_to_o_auth_authentication: A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.
+        :param pulumi.Input[Union[str, 'DnsEndpointType']] dns_endpoint_type: Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
         :param pulumi.Input[bool] enable_nfs_v3: NFS 3.0 protocol support enabled if set to true.
-        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption settings to be used for server-side encryption for the storage account.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
+        :param pulumi.Input[pulumi.InputType['ImmutableStorageAccountArgs']] immutable_storage_with_versioning: The property is immutable and can only be set to true at the account creation time. When set to true, it enables object level immutability for all the new containers in the account by default.
         :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
+        :param pulumi.Input[bool] is_local_user_enabled: Enables local users feature, if set to true
+        :param pulumi.Input[bool] is_sftp_enabled: Enables Secure File Transfer Protocol, if set to true
         :param pulumi.Input[pulumi.InputType['KeyPolicyArgs']] key_policy: KeyPolicy assigned to the storage account.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Indicates the type of storage account.
         :param pulumi.Input[Union[str, 'LargeFileSharesState']] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[Union[str, 'MinimumTlsVersion']] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: Network rule set
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['RoutingPreferenceArgs']] routing_preference: Maintains information about the network routing choice opted by the user for data transfer
         :param pulumi.Input[pulumi.InputType['SasPolicyArgs']] sas_policy: SasPolicy assigned to the storage account.
@@ -454,7 +599,8 @@ class StorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account.
-        API Version: 2021-02-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param StorageAccountArgs args: The arguments to use to populate this resource's properties.
@@ -474,21 +620,29 @@ class StorageAccount(pulumi.CustomResource):
                  access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_cross_tenant_replication: Optional[pulumi.Input[bool]] = None,
                  allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
+                 allowed_copy_scope: Optional[pulumi.Input[Union[str, 'AllowedCopyScope']]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
+                 default_to_o_auth_authentication: Optional[pulumi.Input[bool]] = None,
+                 dns_endpoint_type: Optional[pulumi.Input[Union[str, 'DnsEndpointType']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  enable_nfs_v3: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 immutable_storage_with_versioning: Optional[pulumi.Input[pulumi.InputType['ImmutableStorageAccountArgs']]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_local_user_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_sftp_enabled: Optional[pulumi.Input[bool]] = None,
                  key_policy: Optional[pulumi.Input[pulumi.InputType['KeyPolicyArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  large_file_shares_state: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_preference: Optional[pulumi.Input[pulumi.InputType['RoutingPreferenceArgs']]] = None,
                  sas_policy: Optional[pulumi.Input[pulumi.InputType['SasPolicyArgs']]] = None,
@@ -506,15 +660,22 @@ class StorageAccount(pulumi.CustomResource):
             __props__.__dict__["access_tier"] = access_tier
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
+            __props__.__dict__["allow_cross_tenant_replication"] = allow_cross_tenant_replication
             __props__.__dict__["allow_shared_key_access"] = allow_shared_key_access
+            __props__.__dict__["allowed_copy_scope"] = allowed_copy_scope
             __props__.__dict__["azure_files_identity_based_authentication"] = azure_files_identity_based_authentication
             __props__.__dict__["custom_domain"] = custom_domain
+            __props__.__dict__["default_to_o_auth_authentication"] = default_to_o_auth_authentication
+            __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
             __props__.__dict__["enable_nfs_v3"] = enable_nfs_v3
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["immutable_storage_with_versioning"] = immutable_storage_with_versioning
             __props__.__dict__["is_hns_enabled"] = is_hns_enabled
+            __props__.__dict__["is_local_user_enabled"] = is_local_user_enabled
+            __props__.__dict__["is_sftp_enabled"] = is_sftp_enabled
             __props__.__dict__["key_policy"] = key_policy
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -523,6 +684,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["network_rule_set"] = network_rule_set
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -547,6 +709,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__.__dict__["secondary_location"] = None
             __props__.__dict__["status_of_primary"] = None
             __props__.__dict__["status_of_secondary"] = None
+            __props__.__dict__["storage_account_sku_conversion_status"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210801:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210901:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20220501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20220901:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -574,11 +737,15 @@ class StorageAccount(pulumi.CustomResource):
 
         __props__.__dict__["access_tier"] = None
         __props__.__dict__["allow_blob_public_access"] = None
+        __props__.__dict__["allow_cross_tenant_replication"] = None
         __props__.__dict__["allow_shared_key_access"] = None
+        __props__.__dict__["allowed_copy_scope"] = None
         __props__.__dict__["azure_files_identity_based_authentication"] = None
         __props__.__dict__["blob_restore_status"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["custom_domain"] = None
+        __props__.__dict__["default_to_o_auth_authentication"] = None
+        __props__.__dict__["dns_endpoint_type"] = None
         __props__.__dict__["enable_https_traffic_only"] = None
         __props__.__dict__["enable_nfs_v3"] = None
         __props__.__dict__["encryption"] = None
@@ -586,7 +753,10 @@ class StorageAccount(pulumi.CustomResource):
         __props__.__dict__["failover_in_progress"] = None
         __props__.__dict__["geo_replication_stats"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["immutable_storage_with_versioning"] = None
         __props__.__dict__["is_hns_enabled"] = None
+        __props__.__dict__["is_local_user_enabled"] = None
+        __props__.__dict__["is_sftp_enabled"] = None
         __props__.__dict__["key_creation_time"] = None
         __props__.__dict__["key_policy"] = None
         __props__.__dict__["kind"] = None
@@ -600,6 +770,7 @@ class StorageAccount(pulumi.CustomResource):
         __props__.__dict__["primary_location"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["routing_preference"] = None
         __props__.__dict__["sas_policy"] = None
         __props__.__dict__["secondary_endpoints"] = None
@@ -607,6 +778,7 @@ class StorageAccount(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["status_of_primary"] = None
         __props__.__dict__["status_of_secondary"] = None
+        __props__.__dict__["storage_account_sku_conversion_status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
@@ -615,7 +787,7 @@ class StorageAccount(pulumi.CustomResource):
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Output[str]:
         """
-        Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
         """
         return pulumi.get(self, "access_tier")
 
@@ -628,12 +800,28 @@ class StorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "allow_blob_public_access")
 
     @property
+    @pulumi.getter(name="allowCrossTenantReplication")
+    def allow_cross_tenant_replication(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+        """
+        return pulumi.get(self, "allow_cross_tenant_replication")
+
+    @property
     @pulumi.getter(name="allowSharedKeyAccess")
     def allow_shared_key_access(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
         """
         return pulumi.get(self, "allow_shared_key_access")
+
+    @property
+    @pulumi.getter(name="allowedCopyScope")
+    def allowed_copy_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
+        """
+        return pulumi.get(self, "allowed_copy_scope")
 
     @property
     @pulumi.getter(name="azureFilesIdentityBasedAuthentication")
@@ -668,6 +856,22 @@ class StorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "custom_domain")
 
     @property
+    @pulumi.getter(name="defaultToOAuthAuthentication")
+    def default_to_o_auth_authentication(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.
+        """
+        return pulumi.get(self, "default_to_o_auth_authentication")
+
+    @property
+    @pulumi.getter(name="dnsEndpointType")
+    def dns_endpoint_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+        """
+        return pulumi.get(self, "dns_endpoint_type")
+
+    @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
     def enable_https_traffic_only(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -687,7 +891,7 @@ class StorageAccount(pulumi.CustomResource):
     @pulumi.getter
     def encryption(self) -> pulumi.Output['outputs.EncryptionResponse']:
         """
-        Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+        Encryption settings to be used for server-side encryption for the storage account.
         """
         return pulumi.get(self, "encryption")
 
@@ -724,12 +928,36 @@ class StorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="immutableStorageWithVersioning")
+    def immutable_storage_with_versioning(self) -> pulumi.Output[Optional['outputs.ImmutableStorageAccountResponse']]:
+        """
+        The property is immutable and can only be set to true at the account creation time. When set to true, it enables object level immutability for all the containers in the account by default.
+        """
+        return pulumi.get(self, "immutable_storage_with_versioning")
+
+    @property
     @pulumi.getter(name="isHnsEnabled")
     def is_hns_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Account HierarchicalNamespace enabled if sets to true.
         """
         return pulumi.get(self, "is_hns_enabled")
+
+    @property
+    @pulumi.getter(name="isLocalUserEnabled")
+    def is_local_user_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables local users feature, if set to true
+        """
+        return pulumi.get(self, "is_local_user_enabled")
+
+    @property
+    @pulumi.getter(name="isSftpEnabled")
+    def is_sftp_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables Secure File Transfer Protocol, if set to true
+        """
+        return pulumi.get(self, "is_sftp_enabled")
 
     @property
     @pulumi.getter(name="keyCreationTime")
@@ -836,6 +1064,14 @@ class StorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="routingPreference")
     def routing_preference(self) -> pulumi.Output[Optional['outputs.RoutingPreferenceResponse']]:
         """
@@ -890,6 +1126,14 @@ class StorageAccount(pulumi.CustomResource):
         Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
         """
         return pulumi.get(self, "status_of_secondary")
+
+    @property
+    @pulumi.getter(name="storageAccountSkuConversionStatus")
+    def storage_account_sku_conversion_status(self) -> pulumi.Output[Optional['outputs.StorageAccountSkuConversionStatusResponse']]:
+        """
+        This property is readOnly and is set by server during asynchronous storage account sku conversion operations.
+        """
+        return pulumi.get(self, "storage_account_sku_conversion_status")
 
     @property
     @pulumi.getter

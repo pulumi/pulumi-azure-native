@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of the provisioning service without SAS keys.
- * API Version: 2020-03-01.
+ * API Version: 2022-12-12.
  */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
 
@@ -56,9 +56,21 @@ export interface GetIotDpsResourceResult {
      */
     readonly properties: outputs.devices.IotDpsPropertiesDescriptionResponse;
     /**
+     * The resource group of the resource.
+     */
+    readonly resourcegroup?: string;
+    /**
      * Sku info for a provisioning Service.
      */
     readonly sku: outputs.devices.IotDpsSkuInfoResponse;
+    /**
+     * The subscription id of the resource.
+     */
+    readonly subscriptionid?: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.devices.SystemDataResponse;
     /**
      * The resource tags.
      */
@@ -70,7 +82,7 @@ export interface GetIotDpsResourceResult {
 }
 /**
  * Get the metadata of the provisioning service without SAS keys.
- * API Version: 2020-03-01.
+ * API Version: 2022-12-12.
  */
 export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {
     return pulumi.output(args).apply((a: any) => getIotDpsResource(a, opts))

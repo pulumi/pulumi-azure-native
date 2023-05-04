@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB container.
- *
- * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountSqlContainer {
-        pulumi.log.warn("DatabaseAccountSqlContainer is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         return new DatabaseAccountSqlContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +93,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
     constructor(name: string, args: DatabaseAccountSqlContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountSqlContainer is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -150,7 +145,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
             resourceInputs["uniqueKeyPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20221115preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20230301preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20230415:DatabaseAccountSqlContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountSqlContainer.__pulumiType, name, resourceInputs, opts);
     }

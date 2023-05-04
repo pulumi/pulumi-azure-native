@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VirtualNetworkGatewayNatRule Resource.
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGatewayNatRule")]
     public partial class VirtualNetworkGatewayNatRule : global::Pulumi.CustomResource
@@ -97,6 +98,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualNetworkGatewayNatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetworkGatewayNatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualNetworkGatewayNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualNetworkGatewayNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

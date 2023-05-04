@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class AzureVmWorkloadProtectedItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of backup management for the backed up item.
-        /// </summary>
-        [Input("backupManagementType")]
-        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.BackupManagementType>? BackupManagementType { get; set; }
-
-        /// <summary>
         /// Name of the backup set the backup item belongs to
         /// </summary>
         [Input("backupSetName")]
@@ -58,10 +52,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<Inputs.AzureVmWorkloadProtectedItemExtendedInfoArgs>? ExtendedInfo { get; set; }
 
         /// <summary>
-        /// Friendly name of the DB represented by this backup item.
+        /// Flag to identify whether datasource is protected in archive
         /// </summary>
-        [Input("friendlyName")]
-        public Input<string>? FriendlyName { get; set; }
+        [Input("isArchiveEnabled")]
+        public Input<bool>? IsArchiveEnabled { get; set; }
 
         /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
@@ -130,6 +124,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
+        /// Name of the policy used for protection
+        /// </summary>
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
+
+        /// <summary>
         /// Data ID of the protected item.
         /// </summary>
         [Input("protectedItemDataSourceId")]
@@ -154,11 +154,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("protectionState")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.ProtectionState>? ProtectionState { get; set; }
 
+        [Input("resourceGuardOperationRequests")]
+        private InputList<string>? _resourceGuardOperationRequests;
+
         /// <summary>
-        /// Backup status of this backup item.
+        /// ResourceGuardOperationRequests on which LAC check will be performed
         /// </summary>
-        [Input("protectionStatus")]
-        public Input<string>? ProtectionStatus { get; set; }
+        public InputList<string> ResourceGuardOperationRequests
+        {
+            get => _resourceGuardOperationRequests ?? (_resourceGuardOperationRequests = new InputList<string>());
+            set => _resourceGuardOperationRequests = value;
+        }
 
         /// <summary>
         /// Host/Cluster Name for instance or AG
@@ -167,16 +173,16 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
+        /// Soft delete retention period in days
+        /// </summary>
+        [Input("softDeleteRetentionPeriod")]
+        public Input<int>? SoftDeleteRetentionPeriod { get; set; }
+
+        /// <summary>
         /// ARM ID of the resource to be backed up.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
-
-        /// <summary>
-        /// Type of workload this item represents.
-        /// </summary>
-        [Input("workloadType")]
-        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DataSourceType>? WorkloadType { get; set; }
 
         public AzureVmWorkloadProtectedItemArgs()
         {

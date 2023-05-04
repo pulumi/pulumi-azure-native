@@ -314,7 +314,7 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static ChannelMapping Center { get; } = new ChannelMapping("Center");
         /// <summary>
-        /// Low Frequency Effects Channel.  Sometimes referred to as the Subwoofer.
+        /// Low Frequency Effects Channel.  Sometimes referred to as the subwoofer.
         /// </summary>
         public static ChannelMapping LowFrequencyEffects { get; } = new ChannelMapping("LowFrequencyEffects");
         /// <summary>
@@ -342,6 +342,47 @@ namespace Pulumi.AzureNative.Media
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ChannelMapping other && Equals(other);
         public bool Equals(ChannelMapping other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+    /// </summary>
+    [EnumType]
+    public readonly struct Complexity : IEquatable<Complexity>
+    {
+        private readonly string _value;
+
+        private Complexity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Configures the encoder to use settings optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+        /// </summary>
+        public static Complexity Speed { get; } = new Complexity("Speed");
+        /// <summary>
+        /// Configures the encoder to use settings that achieve a balance between speed and quality.
+        /// </summary>
+        public static Complexity Balanced { get; } = new Complexity("Balanced");
+        /// <summary>
+        /// Configures the encoder to use settings optimized to produce higher quality output at the expense of slower overall encode time.
+        /// </summary>
+        public static Complexity Quality { get; } = new Complexity("Quality");
+
+        public static bool operator ==(Complexity left, Complexity right) => left.Equals(right);
+        public static bool operator !=(Complexity left, Complexity right) => !left.Equals(right);
+
+        public static explicit operator string(Complexity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Complexity other && Equals(other);
+        public bool Equals(Complexity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -571,6 +612,43 @@ namespace Pulumi.AzureNative.Media
     }
 
     /// <summary>
+    /// The behavior for IP access control in Key Delivery.
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultAction : IEquatable<DefaultAction>
+    {
+        private readonly string _value;
+
+        private DefaultAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// All public IP addresses are allowed.
+        /// </summary>
+        public static DefaultAction Allow { get; } = new DefaultAction("Allow");
+        /// <summary>
+        /// Public IP addresses are blocked.
+        /// </summary>
+        public static DefaultAction Deny { get; } = new DefaultAction("Deny");
+
+        public static bool operator ==(DefaultAction left, DefaultAction right) => left.Equals(right);
+        public static bool operator !=(DefaultAction left, DefaultAction right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultAction other && Equals(other);
+        public bool Equals(DefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The deinterlacing mode. Defaults to AutoPixelAdaptive.
     /// </summary>
     [EnumType]
@@ -678,9 +756,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static EncoderNamedPreset AdaptiveStreaming { get; } = new EncoderNamedPreset("AdaptiveStreaming");
         /// <summary>
-        /// Produces a single MP4 file containing only stereo audio encoded at 192 kbps.
+        /// Produces a single MP4 file containing only AAC stereo audio encoded at 192 kbps.
         /// </summary>
         public static EncoderNamedPreset AACGoodQualityAudio { get; } = new EncoderNamedPreset("AACGoodQualityAudio");
+        /// <summary>
+        /// Produces a single MP4 file containing only DD(Digital Dolby) stereo audio encoded at 192 kbps.
+        /// </summary>
+        public static EncoderNamedPreset DDGoodQualityAudio { get; } = new EncoderNamedPreset("DDGoodQualityAudio");
         /// <summary>
         /// Exposes an experimental preset for content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved.
         /// </summary>
@@ -951,6 +1033,47 @@ namespace Pulumi.AzureNative.Media
     }
 
     /// <summary>
+    /// The video rate control mode
+    /// </summary>
+    [EnumType]
+    public readonly struct H264RateControlMode : IEquatable<H264RateControlMode>
+    {
+        private readonly string _value;
+
+        private H264RateControlMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Average Bitrate (ABR) mode that hits the target bitrate: Default mode.
+        /// </summary>
+        public static H264RateControlMode ABR { get; } = new H264RateControlMode("ABR");
+        /// <summary>
+        /// Constant Bitrate (CBR) mode that tightens bitrate variations around target bitrate.
+        /// </summary>
+        public static H264RateControlMode CBR { get; } = new H264RateControlMode("CBR");
+        /// <summary>
+        /// Constant Rate Factor (CRF) mode that targets at constant subjective quality.
+        /// </summary>
+        public static H264RateControlMode CRF { get; } = new H264RateControlMode("CRF");
+
+        public static bool operator ==(H264RateControlMode left, H264RateControlMode right) => left.Equals(right);
+        public static bool operator !=(H264RateControlMode left, H264RateControlMode right) => !left.Equals(right);
+
+        public static explicit operator string(H264RateControlMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is H264RateControlMode other && Equals(other);
+        public bool Equals(H264RateControlMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// We currently support Baseline, Main, High, High422, High444. Default is Auto.
     /// </summary>
     [EnumType]
@@ -1065,6 +1188,10 @@ namespace Pulumi.AzureNative.Media
         /// Main profile (https://x265.readthedocs.io/en/default/cli.html?highlight=profile#profile-level-tier)
         /// </summary>
         public static H265VideoProfile Main { get; } = new H265VideoProfile("Main");
+        /// <summary>
+        /// Main 10 profile (https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Main_10)
+        /// </summary>
+        public static H265VideoProfile Main10 { get; } = new H265VideoProfile("Main10");
 
         public static bool operator ==(H265VideoProfile left, H265VideoProfile right) => left.Equals(right);
         public static bool operator !=(H265VideoProfile left, H265VideoProfile right) => !left.Equals(right);
@@ -1123,7 +1250,44 @@ namespace Pulumi.AzureNative.Media
     }
 
     /// <summary>
-    /// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+    /// Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+    /// </summary>
+    [EnumType]
+    public readonly struct InterleaveOutput : IEquatable<InterleaveOutput>
+    {
+        private readonly string _value;
+
+        private InterleaveOutput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The output is video-only or audio-only.
+        /// </summary>
+        public static InterleaveOutput NonInterleavedOutput { get; } = new InterleaveOutput("NonInterleavedOutput");
+        /// <summary>
+        /// The output includes both audio and video.
+        /// </summary>
+        public static InterleaveOutput InterleavedOutput { get; } = new InterleaveOutput("InterleavedOutput");
+
+        public static bool operator ==(InterleaveOutput left, InterleaveOutput right) => left.Equals(right);
+        public static bool operator !=(InterleaveOutput left, InterleaveOutput right) => !left.Equals(right);
+
+        public static explicit operator string(InterleaveOutput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InterleaveOutput other && Equals(other);
+        public bool Equals(InterleaveOutput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
     /// </summary>
     [EnumType]
     public readonly struct LiveEventEncodingType : IEquatable<LiveEventEncodingType>
@@ -1136,7 +1300,7 @@ namespace Pulumi.AzureNative.Media
         }
 
         /// <summary>
-        /// A contribution live encoder sends a multiple bitrate stream. The ingested stream passes through the live event without any further processing. It is also called the pass-through mode.
+        /// This is the same as PassthroughStandard, please see description below. This enumeration value is being deprecated.
         /// </summary>
         public static LiveEventEncodingType None { get; } = new LiveEventEncodingType("None");
         /// <summary>
@@ -1147,6 +1311,14 @@ namespace Pulumi.AzureNative.Media
         /// A contribution live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The output cannot exceed 1080p in resolution.
         /// </summary>
         public static LiveEventEncodingType Premium1080p { get; } = new LiveEventEncodingType("Premium1080p");
+        /// <summary>
+        /// The ingested stream passes through the live event from the contribution encoder without any further processing. In the PassthroughBasic mode, ingestion is limited to up to 5Mbps and only 1 concurrent live output is allowed. Live transcription is not available.
+        /// </summary>
+        public static LiveEventEncodingType PassthroughBasic { get; } = new LiveEventEncodingType("PassthroughBasic");
+        /// <summary>
+        /// The ingested stream passes through the live event from the contribution encoder without any further processing. Live transcription is available. Ingestion bitrate limits are much higher and up to 3 concurrent live outputs are allowed.
+        /// </summary>
+        public static LiveEventEncodingType PassthroughStandard { get; } = new LiveEventEncodingType("PassthroughStandard");
 
         public static bool operator ==(LiveEventEncodingType left, LiveEventEncodingType right) => left.Equals(right);
         public static bool operator !=(LiveEventEncodingType left, LiveEventEncodingType right) => !left.Equals(right);
@@ -1201,72 +1373,43 @@ namespace Pulumi.AzureNative.Media
     }
 
     /// <summary>
-    /// The identity type.
+    /// The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
     /// </summary>
     [EnumType]
-    public readonly struct ManagedIdentityType : IEquatable<ManagedIdentityType>
+    public readonly struct MinimumTlsVersion : IEquatable<MinimumTlsVersion>
     {
         private readonly string _value;
 
-        private ManagedIdentityType(string value)
+        private MinimumTlsVersion(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// A system-assigned managed identity.
+        /// Minimum TLS version is TLS 1.0.
         /// </summary>
-        public static ManagedIdentityType SystemAssigned { get; } = new ManagedIdentityType("SystemAssigned");
+        public static MinimumTlsVersion Tls10 { get; } = new MinimumTlsVersion("Tls10");
         /// <summary>
-        /// No managed identity.
+        /// Minimum TLS version is TLS 1.1.
         /// </summary>
-        public static ManagedIdentityType None { get; } = new ManagedIdentityType("None");
+        public static MinimumTlsVersion Tls11 { get; } = new MinimumTlsVersion("Tls11");
+        /// <summary>
+        /// Minimum TLS version is TLS 1.2.
+        /// </summary>
+        public static MinimumTlsVersion Tls12 { get; } = new MinimumTlsVersion("Tls12");
+        /// <summary>
+        /// Minimum TLS version is TLS 1.3.
+        /// </summary>
+        public static MinimumTlsVersion Tls13 { get; } = new MinimumTlsVersion("Tls13");
 
-        public static bool operator ==(ManagedIdentityType left, ManagedIdentityType right) => left.Equals(right);
-        public static bool operator !=(ManagedIdentityType left, ManagedIdentityType right) => !left.Equals(right);
+        public static bool operator ==(MinimumTlsVersion left, MinimumTlsVersion right) => left.Equals(right);
+        public static bool operator !=(MinimumTlsVersion left, MinimumTlsVersion right) => !left.Equals(right);
 
-        public static explicit operator string(ManagedIdentityType value) => value._value;
+        public static explicit operator string(MinimumTlsVersion value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedIdentityType other && Equals(other);
-        public bool Equals(ManagedIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-    /// </summary>
-    [EnumType]
-    public readonly struct MediaGraphRtspTransport : IEquatable<MediaGraphRtspTransport>
-    {
-        private readonly string _value;
-
-        private MediaGraphRtspTransport(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// HTTP/HTTPS transport. This should be used when HTTP tunneling is desired.
-        /// </summary>
-        public static MediaGraphRtspTransport Http { get; } = new MediaGraphRtspTransport("Http");
-        /// <summary>
-        /// TCP transport. This should be used when HTTP tunneling is not desired.
-        /// </summary>
-        public static MediaGraphRtspTransport Tcp { get; } = new MediaGraphRtspTransport("Tcp");
-
-        public static bool operator ==(MediaGraphRtspTransport left, MediaGraphRtspTransport right) => left.Equals(right);
-        public static bool operator !=(MediaGraphRtspTransport left, MediaGraphRtspTransport right) => !left.Equals(right);
-
-        public static explicit operator string(MediaGraphRtspTransport value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MediaGraphRtspTransport other && Equals(other);
-        public bool Equals(MediaGraphRtspTransport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is MinimumTlsVersion other && Equals(other);
+        public bool Equals(MinimumTlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1385,6 +1528,43 @@ namespace Pulumi.AzureNative.Media
     }
 
     /// <summary>
+    /// Whether or not public network access is allowed for resources under the Media Services account.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Public network access is enabled.
+        /// </summary>
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// Public network access is disabled.
+        /// </summary>
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
     /// </summary>
     [EnumType]
@@ -1430,6 +1610,51 @@ namespace Pulumi.AzureNative.Media
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Rotation other && Equals(other);
         public bool Equals(Rotation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The security level.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityLevel : IEquatable<SecurityLevel>
+    {
+        private readonly string _value;
+
+        private SecurityLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Represents a SecurityLevel that is unavailable in current API version.
+        /// </summary>
+        public static SecurityLevel Unknown { get; } = new SecurityLevel("Unknown");
+        /// <summary>
+        /// For clients under development or test. No protection against unauthorized use.
+        /// </summary>
+        public static SecurityLevel SL150 { get; } = new SecurityLevel("SL150");
+        /// <summary>
+        /// For hardened devices and applications consuming commercial content. Software or hardware protection.
+        /// </summary>
+        public static SecurityLevel SL2000 { get; } = new SecurityLevel("SL2000");
+        /// <summary>
+        /// For hardened devices only. Hardware protection.
+        /// </summary>
+        public static SecurityLevel SL3000 { get; } = new SecurityLevel("SL3000");
+
+        public static bool operator ==(SecurityLevel left, SecurityLevel right) => left.Equals(right);
+        public static bool operator !=(SecurityLevel left, SecurityLevel right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityLevel other && Equals(other);
+        public bool Equals(SecurityLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1523,9 +1748,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static StreamOptionsFlag Default { get; } = new StreamOptionsFlag("Default");
         /// <summary>
-        /// The live event provides lower end to end latency by reducing its internal buffers. This could result in more client buffering during playback if network bandwidth is low.
+        /// The live event provides lower end to end latency by reducing its internal buffers.
         /// </summary>
         public static StreamOptionsFlag LowLatency { get; } = new StreamOptionsFlag("LowLatency");
+        /// <summary>
+        /// The live event is optimized for end to end latency. This option is only available for encoding live events with RTMP input. The outputs can be streamed using HLS or DASH formats. The outputs' archive or DVR rewind length is limited to 6 hours. Use "LowLatency" stream option for all other scenarios.
+        /// </summary>
+        public static StreamOptionsFlag LowLatencyV2 { get; } = new StreamOptionsFlag("LowLatencyV2");
 
         public static bool operator ==(StreamOptionsFlag left, StreamOptionsFlag right) => left.Equals(right);
         public static bool operator !=(StreamOptionsFlag left, StreamOptionsFlag right) => !left.Equals(right);

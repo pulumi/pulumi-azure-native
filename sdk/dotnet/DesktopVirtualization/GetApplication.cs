@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get an application.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-09.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:desktopvirtualization:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an application.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-09.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:desktopvirtualization:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -148,6 +148,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly bool? ShowInPortal;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             bool? showInPortal,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ApplicationType = applicationType;
@@ -204,6 +210,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Name = name;
             ObjectId = objectId;
             ShowInPortal = showInPortal;
+            SystemData = systemData;
             Type = type;
         }
     }

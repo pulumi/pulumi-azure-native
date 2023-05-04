@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified configuration store.
  */
-/** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider. */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
-    pulumi.log.warn("getConfigurationStore is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20190201preview:getConfigurationStore", {
@@ -69,7 +67,6 @@ export interface GetConfigurationStoreResult {
 /**
  * Gets the properties of the specified configuration store.
  */
-/** @deprecated Version 2019-02-01-preview will be removed in v2 of the provider. */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationStore(a, opts))
 }

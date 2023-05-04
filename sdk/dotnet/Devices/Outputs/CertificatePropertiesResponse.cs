@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// <summary>
         /// base-64 representation of X509 certificate .cer file or just .pem file content.
         /// </summary>
-        public readonly string Certificate;
+        public readonly string? Certificate;
         /// <summary>
         /// The certificate's creation date and time.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// <summary>
         /// Determines whether certificate has been verified.
         /// </summary>
-        public readonly bool IsVerified;
+        public readonly bool? IsVerified;
         /// <summary>
         /// The certificate's subject name.
         /// </summary>
@@ -47,13 +47,13 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
         [OutputConstructor]
         private CertificatePropertiesResponse(
-            string certificate,
+            string? certificate,
 
             string created,
 
             string expiry,
 
-            bool isVerified,
+            bool? isVerified,
 
             string subject,
 

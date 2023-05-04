@@ -51,6 +51,18 @@ namespace Pulumi.AzureNative.Media.Inputs
         [Input("streamingProtocol", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Media.LiveEventInputProtocol> StreamingProtocol { get; set; } = null!;
 
+        [Input("timedMetadataEndpoints")]
+        private InputList<Inputs.LiveEventTimedMetadataEndpointArgs>? _timedMetadataEndpoints;
+
+        /// <summary>
+        /// The metadata endpoints for the live event.
+        /// </summary>
+        public InputList<Inputs.LiveEventTimedMetadataEndpointArgs> TimedMetadataEndpoints
+        {
+            get => _timedMetadataEndpoints ?? (_timedMetadataEndpoints = new InputList<Inputs.LiveEventTimedMetadataEndpointArgs>());
+            set => _timedMetadataEndpoints = value;
+        }
+
         public LiveEventInputArgs()
         {
         }

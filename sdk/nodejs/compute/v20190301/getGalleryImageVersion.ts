@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a gallery Image Version.
  */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getGalleryImageVersion(args: GetGalleryImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageVersionResult> {
-    pulumi.log.warn("getGalleryImageVersion is deprecated: Version 2019-03-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20190301:getGalleryImageVersion", {
@@ -91,7 +89,6 @@ export interface GetGalleryImageVersionResult {
 /**
  * Retrieves information about a gallery Image Version.
  */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getGalleryImageVersionOutput(args: GetGalleryImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageVersionResult> {
     return pulumi.output(args).apply((a: any) => getGalleryImageVersion(a, opts))
 }

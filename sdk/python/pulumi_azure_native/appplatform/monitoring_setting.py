@@ -78,7 +78,8 @@ class MonitoringSetting(pulumi.CustomResource):
                  __props__=None):
         """
         Monitoring Setting resource
-        API Version: 2020-07-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,7 +95,8 @@ class MonitoringSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Monitoring Setting resource
-        API Version: 2020-07-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param MonitoringSettingArgs args: The arguments to use to populate this resource's properties.
@@ -131,8 +133,9 @@ class MonitoringSetting(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220401:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20221201:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:MonitoringSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220401:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20221201:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:MonitoringSetting"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:MonitoringSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MonitoringSetting, __self__).__init__(
             'azure-native:appplatform:MonitoringSetting',
@@ -158,6 +161,7 @@ class MonitoringSetting(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return MonitoringSetting(resource_name, opts=opts, __props__=__props__)
 
@@ -176,6 +180,14 @@ class MonitoringSetting(pulumi.CustomResource):
         Properties of the Monitoring Setting resource
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

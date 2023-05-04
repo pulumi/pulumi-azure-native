@@ -11,10 +11,10 @@ from ... import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LocalNetworkGatewayInitArgs', 'LocalNetworkGateway']
+__all__ = ['LocalNetworkGatewayArgs', 'LocalNetworkGateway']
 
 @pulumi.input_type
-class LocalNetworkGatewayInitArgs:
+class LocalNetworkGatewayArgs:
     def __init__(__self__, *,
                  local_network_address_space: pulumi.Input['AddressSpaceArgs'],
                  resource_group_name: pulumi.Input[str],
@@ -163,12 +163,7 @@ class LocalNetworkGatewayInitArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class LocalNetworkGateway(pulumi.CustomResource):
-    warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -202,18 +197,18 @@ class LocalNetworkGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalNetworkGatewayInitArgs,
+                 args: LocalNetworkGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information
 
         :param str resource_name: The name of the resource.
-        :param LocalNetworkGatewayInitArgs args: The arguments to use to populate this resource's properties.
+        :param LocalNetworkGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalNetworkGatewayInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalNetworkGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -232,14 +227,13 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""LocalNetworkGateway is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalNetworkGatewayInitArgs.__new__(LocalNetworkGatewayInitArgs)
+            __props__ = LocalNetworkGatewayArgs.__new__(LocalNetworkGatewayArgs)
 
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["gateway_ip_address"] = gateway_ip_address
@@ -258,7 +252,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20150615:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160330:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20161201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170901:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171001:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181001:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190901:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200501:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20201101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210501:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220501:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220901:LocalNetworkGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20150615:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160330:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20161201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170901:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171001:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181001:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190901:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200401:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200501:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200601:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20201101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210201:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210301:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210501:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210801:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220101:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220501:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220701:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220901:LocalNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20221101:LocalNetworkGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LocalNetworkGateway, __self__).__init__(
             'azure-native:network/v20160901:LocalNetworkGateway',
@@ -280,7 +274,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LocalNetworkGatewayInitArgs.__new__(LocalNetworkGatewayInitArgs)
+        __props__ = LocalNetworkGatewayArgs.__new__(LocalNetworkGatewayArgs)
 
         __props__.__dict__["bgp_settings"] = None
         __props__.__dict__["etag"] = None

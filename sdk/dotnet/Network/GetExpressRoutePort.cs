@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the requested ExpressRoutePort resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetExpressRoutePortResult> InvokeAsync(GetExpressRoutePortArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the requested ExpressRoutePort resource.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetExpressRoutePortResult> Invoke(GetExpressRoutePortInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithDefaults());
@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Network
         /// Bandwidth of procured ports in Gbps.
         /// </summary>
         public readonly int? BandwidthInGbps;
+        /// <summary>
+        /// The billing type of the ExpressRoutePort resource.
+        /// </summary>
+        public readonly string? BillingType;
         /// <summary>
         /// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
         /// </summary>
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.Network
 
             int? bandwidthInGbps,
 
+            string? billingType,
+
             ImmutableArray<Outputs.SubResourceResponse> circuits,
 
             string? encapsulation,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.Network
         {
             AllocationDate = allocationDate;
             BandwidthInGbps = bandwidthInGbps;
+            BillingType = billingType;
             Circuits = circuits;
             Encapsulation = encapsulation;
             Etag = etag;

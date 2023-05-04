@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20180101
     /// <summary>
     /// Network watcher in a resource group.
     /// </summary>
-    [Obsolete(@"Version 2018-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180101:NetworkWatcher")]
     public partial class NetworkWatcher : global::Pulumi.CustomResource
     {
@@ -114,6 +113,7 @@ namespace Pulumi.AzureNative.Network.V20180101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkWatcher"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkWatcher"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:NetworkWatcher"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkWatcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

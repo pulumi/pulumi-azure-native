@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation to get the restore point collection.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetRestorePointCollectionResult> InvokeAsync(GetRestorePointCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestorePointCollectionResult>("azure-native:compute:getRestorePointCollection", args ?? new GetRestorePointCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the restore point collection.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetRestorePointCollectionResult> Invoke(GetRestorePointCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestorePointCollectionResult>("azure-native:compute:getRestorePointCollection", args ?? new GetRestorePointCollectionInvokeArgs(), options.WithDefaults());

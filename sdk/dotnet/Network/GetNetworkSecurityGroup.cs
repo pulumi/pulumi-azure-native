@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified network security group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetNetworkSecurityGroupResult> InvokeAsync(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network security group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure-native:network:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowLogResponse> FlowLogs;
         /// <summary>
+        /// When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        /// </summary>
+        public readonly bool? FlushConnection;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.FlowLogResponse> flowLogs,
 
+            bool? flushConnection,
+
             string? id,
 
             string? location,
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNative.Network
             DefaultSecurityRules = defaultSecurityRules;
             Etag = etag;
             FlowLogs = flowLogs;
+            FlushConnection = flushConnection;
             Id = id;
             Location = location;
             Name = name;

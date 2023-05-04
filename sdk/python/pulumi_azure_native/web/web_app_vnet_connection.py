@@ -163,8 +163,9 @@ class WebAppVnetConnection(pulumi.CustomResource):
                  vnet_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Virtual Network information contract.
-        API Version: 2020-12-01.
+        Virtual Network information ARM resource.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,8 +186,9 @@ class WebAppVnetConnection(pulumi.CustomResource):
                  args: WebAppVnetConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Virtual Network information contract.
-        API Version: 2020-12-01.
+        Virtual Network information ARM resource.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WebAppVnetConnectionArgs args: The arguments to use to populate this resource's properties.

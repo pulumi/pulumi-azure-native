@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
     /// <summary>
     /// Represents a Blueprint definition.
     /// </summary>
-    [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:Blueprint")]
     public partial class Blueprint : global::Pulumi.CustomResource
     {

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
 {
-    [Obsolete(@"Version 2017-07-01-preview will be removed in v2 of the provider.")]
     public static class GetCluster
     {
         /// <summary>

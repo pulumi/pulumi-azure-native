@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Gets a private endpoint connection.
-        /// API Version: 2018-06-01.
+        /// Gets private endpoint connection.
+        /// API Version: 2022-11-08.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:dbforpostgresql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a private endpoint connection.
-        /// API Version: 2018-06-01.
+        /// Gets private endpoint connection.
+        /// API Version: 2022-11-08.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dbforpostgresql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection.
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public string ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private endpoint connection associated with the cluster.
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public string PrivateEndpointConnectionName { get; set; } = null!;
@@ -41,12 +47,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the server.
-        /// </summary>
-        [Input("serverName", required: true)]
-        public string ServerName { get; set; } = null!;
-
         public GetPrivateEndpointConnectionArgs()
         {
         }
@@ -56,7 +56,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection.
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private endpoint connection associated with the cluster.
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
@@ -66,12 +72,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the server.
-        /// </summary>
-        [Input("serverName", required: true)]
-        public Input<string> ServerName { get; set; } = null!;
 
         public GetPrivateEndpointConnectionInvokeArgs()
         {
@@ -84,7 +84,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -92,17 +96,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Private endpoint which the connection belongs to.
+        /// The private endpoint resource.
         /// </summary>
-        public readonly Outputs.PrivateEndpointPropertyResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
-        /// State of the private endpoint connection.
+        /// The provisioning state of the private endpoint connection resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -110,23 +118,29 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
 
-            Outputs.PrivateEndpointPropertyResponse? privateEndpoint,
+            Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

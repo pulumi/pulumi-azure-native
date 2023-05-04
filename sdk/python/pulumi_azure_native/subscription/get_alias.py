@@ -22,7 +22,7 @@ class GetAliasResult:
     """
     Subscription Information with the alias.
     """
-    def __init__(__self__, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +32,9 @@ class GetAliasResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -54,11 +57,19 @@ class GetAliasResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PutAliasResponsePropertiesResponse':
+    def properties(self) -> 'outputs.SubscriptionAliasResponsePropertiesResponse':
         """
-        Put Alias response properties.
+        Subscription Alias response properties.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -78,6 +89,7 @@ class AwaitableGetAliasResult(GetAliasResult):
             id=self.id,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -85,10 +97,10 @@ def get_alias(alias_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
     Get Alias Subscription.
-    API Version: 2020-09-01.
+    API Version: 2021-10-01.
 
 
-    :param str alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+    :param str alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
     """
     __args__ = dict()
     __args__['aliasName'] = alias_name
@@ -99,6 +111,7 @@ def get_alias(alias_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -107,9 +120,9 @@ def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     Get Alias Subscription.
-    API Version: 2020-09-01.
+    API Version: 2021-10-01.
 
 
-    :param str alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+    :param str alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
     """
     ...

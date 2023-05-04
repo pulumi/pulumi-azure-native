@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
     public sealed class AzureBlobFileSystemConfigurationResponse
     {
         /// <summary>
-        /// This property is mutually exclusive with sasKey and one must be specified.
+        /// This property is mutually exclusive with both sasKey and identity; exactly one must be specified.
         /// </summary>
         public readonly string? AccountKey;
         public readonly string AccountName;
@@ -24,11 +24,15 @@ namespace Pulumi.AzureNative.Batch.Outputs
         public readonly string? BlobfuseOptions;
         public readonly string ContainerName;
         /// <summary>
+        /// This property is mutually exclusive with both accountKey and sasKey; exactly one must be specified.
+        /// </summary>
+        public readonly Outputs.ComputeNodeIdentityReferenceResponse? IdentityReference;
+        /// <summary>
         /// All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         /// </summary>
         public readonly string RelativeMountPath;
         /// <summary>
-        /// This property is mutually exclusive with accountKey and one must be specified.
+        /// This property is mutually exclusive with both accountKey and identity; exactly one must be specified.
         /// </summary>
         public readonly string? SasKey;
 
@@ -42,6 +46,8 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             string containerName,
 
+            Outputs.ComputeNodeIdentityReferenceResponse? identityReference,
+
             string relativeMountPath,
 
             string? sasKey)
@@ -50,6 +56,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
             AccountName = accountName;
             BlobfuseOptions = blobfuseOptions;
             ContainerName = containerName;
+            IdentityReference = identityReference;
             RelativeMountPath = relativeMountPath;
             SasKey = sasKey;
         }

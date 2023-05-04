@@ -17,8 +17,6 @@ __all__ = [
     'get_spatial_anchors_account_output',
 ]
 
-warnings.warn("""Version 2019-02-28-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSpatialAnchorsAccountResult:
     """
@@ -141,7 +139,6 @@ def get_spatial_anchors_account(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure resource group.
     :param str spatial_anchors_account_name: Name of an Mixed Reality Spatial Anchors Account.
     """
-    pulumi.log.warn("""get_spatial_anchors_account is deprecated: Version 2019-02-28-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['spatialAnchorsAccountName'] = spatial_anchors_account_name
@@ -170,5 +167,4 @@ def get_spatial_anchors_account_output(resource_group_name: Optional[pulumi.Inpu
     :param str resource_group_name: Name of an Azure resource group.
     :param str spatial_anchors_account_name: Name of an Mixed Reality Spatial Anchors Account.
     """
-    pulumi.log.warn("""get_spatial_anchors_account is deprecated: Version 2019-02-28-preview will be removed in v2 of the provider.""")
     ...

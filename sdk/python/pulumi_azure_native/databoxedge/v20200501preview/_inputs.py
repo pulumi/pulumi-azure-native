@@ -14,8 +14,6 @@ __all__ = [
     'AddressArgs',
     'AsymmetricEncryptedSecretArgs',
     'AuthenticationArgs',
-    'AzureContainerInfoArgs',
-    'ClientAccessRightArgs',
     'ContactDetailsArgs',
     'FileSourceInfoArgs',
     'ImageRepositoryCredentialArgs',
@@ -24,11 +22,9 @@ __all__ = [
     'MountPointMapArgs',
     'OrderStatusArgs',
     'PeriodicTimerSourceInfoArgs',
-    'RefreshDetailsArgs',
     'RoleSinkInfoArgs',
     'SkuArgs',
     'SymmetricKeyArgs',
-    'UserAccessRightArgs',
 ]
 
 @pulumi.input_type
@@ -222,97 +218,6 @@ class AuthenticationArgs:
     @symmetric_key.setter
     def symmetric_key(self, value: Optional[pulumi.Input['SymmetricKeyArgs']]):
         pulumi.set(self, "symmetric_key", value)
-
-
-@pulumi.input_type
-class AzureContainerInfoArgs:
-    def __init__(__self__, *,
-                 container_name: pulumi.Input[str],
-                 data_format: pulumi.Input[Union[str, 'AzureContainerDataFormat']],
-                 storage_account_credential_id: pulumi.Input[str]):
-        """
-        Azure container mapping of the endpoint.
-        :param pulumi.Input[str] container_name: Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-        :param pulumi.Input[Union[str, 'AzureContainerDataFormat']] data_format: Storage format used for the file represented by the share.
-        :param pulumi.Input[str] storage_account_credential_id: ID of the storage account credential used to access storage.
-        """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "data_format", data_format)
-        pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[str]:
-        """
-        Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "container_name", value)
-
-    @property
-    @pulumi.getter(name="dataFormat")
-    def data_format(self) -> pulumi.Input[Union[str, 'AzureContainerDataFormat']]:
-        """
-        Storage format used for the file represented by the share.
-        """
-        return pulumi.get(self, "data_format")
-
-    @data_format.setter
-    def data_format(self, value: pulumi.Input[Union[str, 'AzureContainerDataFormat']]):
-        pulumi.set(self, "data_format", value)
-
-    @property
-    @pulumi.getter(name="storageAccountCredentialId")
-    def storage_account_credential_id(self) -> pulumi.Input[str]:
-        """
-        ID of the storage account credential used to access storage.
-        """
-        return pulumi.get(self, "storage_account_credential_id")
-
-    @storage_account_credential_id.setter
-    def storage_account_credential_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_credential_id", value)
-
-
-@pulumi.input_type
-class ClientAccessRightArgs:
-    def __init__(__self__, *,
-                 access_permission: pulumi.Input[Union[str, 'ClientPermissionType']],
-                 client: pulumi.Input[str]):
-        """
-        The mapping between a particular client IP and the type of access client has on the NFS share.
-        :param pulumi.Input[Union[str, 'ClientPermissionType']] access_permission: Type of access to be allowed for the client.
-        :param pulumi.Input[str] client: IP of the client.
-        """
-        pulumi.set(__self__, "access_permission", access_permission)
-        pulumi.set(__self__, "client", client)
-
-    @property
-    @pulumi.getter(name="accessPermission")
-    def access_permission(self) -> pulumi.Input[Union[str, 'ClientPermissionType']]:
-        """
-        Type of access to be allowed for the client.
-        """
-        return pulumi.get(self, "access_permission")
-
-    @access_permission.setter
-    def access_permission(self, value: pulumi.Input[Union[str, 'ClientPermissionType']]):
-        pulumi.set(self, "access_permission", value)
-
-    @property
-    @pulumi.getter
-    def client(self) -> pulumi.Input[str]:
-        """
-        IP of the client.
-        """
-        return pulumi.get(self, "client")
-
-    @client.setter
-    def client(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client", value)
 
 
 @pulumi.input_type
@@ -701,78 +606,6 @@ class PeriodicTimerSourceInfoArgs:
 
 
 @pulumi.input_type
-class RefreshDetailsArgs:
-    def __init__(__self__, *,
-                 error_manifest_file: Optional[pulumi.Input[str]] = None,
-                 in_progress_refresh_job_id: Optional[pulumi.Input[str]] = None,
-                 last_completed_refresh_job_time_in_utc: Optional[pulumi.Input[str]] = None,
-                 last_job: Optional[pulumi.Input[str]] = None):
-        """
-        Fields for tracking refresh job on the share or container.
-        :param pulumi.Input[str] error_manifest_file: Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-        :param pulumi.Input[str] in_progress_refresh_job_id: If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-        :param pulumi.Input[str] last_completed_refresh_job_time_in_utc: Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
-        :param pulumi.Input[str] last_job: Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-        """
-        if error_manifest_file is not None:
-            pulumi.set(__self__, "error_manifest_file", error_manifest_file)
-        if in_progress_refresh_job_id is not None:
-            pulumi.set(__self__, "in_progress_refresh_job_id", in_progress_refresh_job_id)
-        if last_completed_refresh_job_time_in_utc is not None:
-            pulumi.set(__self__, "last_completed_refresh_job_time_in_utc", last_completed_refresh_job_time_in_utc)
-        if last_job is not None:
-            pulumi.set(__self__, "last_job", last_job)
-
-    @property
-    @pulumi.getter(name="errorManifestFile")
-    def error_manifest_file(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-        """
-        return pulumi.get(self, "error_manifest_file")
-
-    @error_manifest_file.setter
-    def error_manifest_file(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "error_manifest_file", value)
-
-    @property
-    @pulumi.getter(name="inProgressRefreshJobId")
-    def in_progress_refresh_job_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-        """
-        return pulumi.get(self, "in_progress_refresh_job_id")
-
-    @in_progress_refresh_job_id.setter
-    def in_progress_refresh_job_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "in_progress_refresh_job_id", value)
-
-    @property
-    @pulumi.getter(name="lastCompletedRefreshJobTimeInUTC")
-    def last_completed_refresh_job_time_in_utc(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
-        """
-        return pulumi.get(self, "last_completed_refresh_job_time_in_utc")
-
-    @last_completed_refresh_job_time_in_utc.setter
-    def last_completed_refresh_job_time_in_utc(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_completed_refresh_job_time_in_utc", value)
-
-    @property
-    @pulumi.getter(name="lastJob")
-    def last_job(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-        """
-        return pulumi.get(self, "last_job")
-
-    @last_job.setter
-    def last_job(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_job", value)
-
-
-@pulumi.input_type
 class RoleSinkInfoArgs:
     def __init__(__self__, *,
                  role_id: pulumi.Input[str]):
@@ -857,43 +690,5 @@ class SymmetricKeyArgs:
     @connection_string.setter
     def connection_string(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "connection_string", value)
-
-
-@pulumi.input_type
-class UserAccessRightArgs:
-    def __init__(__self__, *,
-                 access_type: pulumi.Input[Union[str, 'ShareAccessType']],
-                 user_id: pulumi.Input[str]):
-        """
-        The mapping between a particular user and the access type on the SMB share.
-        :param pulumi.Input[Union[str, 'ShareAccessType']] access_type: Type of access to be allowed for the user.
-        :param pulumi.Input[str] user_id: User ID (already existing in the device).
-        """
-        pulumi.set(__self__, "access_type", access_type)
-        pulumi.set(__self__, "user_id", user_id)
-
-    @property
-    @pulumi.getter(name="accessType")
-    def access_type(self) -> pulumi.Input[Union[str, 'ShareAccessType']]:
-        """
-        Type of access to be allowed for the user.
-        """
-        return pulumi.get(self, "access_type")
-
-    @access_type.setter
-    def access_type(self, value: pulumi.Input[Union[str, 'ShareAccessType']]):
-        pulumi.set(self, "access_type", value)
-
-    @property
-    @pulumi.getter(name="userId")
-    def user_id(self) -> pulumi.Input[str]:
-        """
-        User ID (already existing in the device).
-        """
-        return pulumi.get(self, "user_id")
-
-    @user_id.setter
-    def user_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_id", value)
 
 

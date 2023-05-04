@@ -410,12 +410,7 @@ class ClusterArgs:
         pulumi.set(self, "vm_image", value)
 
 
-warnings.warn("""Version 2017-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Cluster(pulumi.CustomResource):
-    warnings.warn("""Version 2017-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -538,7 +533,6 @@ class Cluster(pulumi.CustomResource):
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Cluster is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -580,7 +574,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20200301:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20200301:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:servicefabric/v20170701preview:Cluster',

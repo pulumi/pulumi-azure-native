@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class KeyVaultPropertiesResponse
     {
         /// <summary>
+        /// This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
+        /// </summary>
+        public readonly string CurrentVersionedKeyExpirationTimestamp;
+        /// <summary>
         /// The object identifier of the current versioned Key Vault Key in use.
         /// </summary>
         public readonly string CurrentVersionedKeyIdentifier;
@@ -39,6 +43,8 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
         [OutputConstructor]
         private KeyVaultPropertiesResponse(
+            string currentVersionedKeyExpirationTimestamp,
+
             string currentVersionedKeyIdentifier,
 
             string? keyName,
@@ -49,6 +55,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
             string lastKeyRotationTimestamp)
         {
+            CurrentVersionedKeyExpirationTimestamp = currentVersionedKeyExpirationTimestamp;
             CurrentVersionedKeyIdentifier = currentVersionedKeyIdentifier;
             KeyName = keyName;
             KeyVaultUri = keyVaultUri;

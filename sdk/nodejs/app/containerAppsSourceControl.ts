@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Container App SourceControl.
- * API Version: 2022-03-01.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ContainerAppsSourceControl extends pulumi.CustomResource {
     /**
@@ -106,7 +107,7 @@ export class ContainerAppsSourceControl extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerAppsSourceControl" }, { type: "azure-native:app/v20220301:ContainerAppsSourceControl" }, { type: "azure-native:app/v20220601preview:ContainerAppsSourceControl" }, { type: "azure-native:app/v20221001:ContainerAppsSourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerAppsSourceControl" }, { type: "azure-native:app/v20220301:ContainerAppsSourceControl" }, { type: "azure-native:app/v20220601preview:ContainerAppsSourceControl" }, { type: "azure-native:app/v20221001:ContainerAppsSourceControl" }, { type: "azure-native:app/v20221101preview:ContainerAppsSourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerAppsSourceControl.__pulumiType, name, resourceInputs, opts);
     }

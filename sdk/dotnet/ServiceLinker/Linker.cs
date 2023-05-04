@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ServiceLinker
 {
     /// <summary>
     /// Linker of source and target resource
-    /// API Version: 2021-11-01-preview.
+    /// API Version: 2022-05-01.
+    /// Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:Linker")]
     public partial class Linker : global::Pulumi.CustomResource
@@ -41,6 +42,12 @@ namespace Pulumi.AzureNative.ServiceLinker
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// connection scope in source service.
+        /// </summary>
+        [Output("scope")]
+        public Output<string?> Scope { get; private set; } = null!;
+
+        /// <summary>
         /// An option to store secret value in secure place
         /// </summary>
         [Output("secretStore")]
@@ -53,10 +60,10 @@ namespace Pulumi.AzureNative.ServiceLinker
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The resource Id of target service.
+        /// The target service properties
         /// </summary>
-        [Output("targetId")]
-        public Output<string?> TargetId { get; private set; } = null!;
+        [Output("targetService")]
+        public Output<object?> TargetService { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -147,16 +154,22 @@ namespace Pulumi.AzureNative.ServiceLinker
         public Input<string> ResourceUri { get; set; } = null!;
 
         /// <summary>
+        /// connection scope in source service.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        /// <summary>
         /// An option to store secret value in secure place
         /// </summary>
         [Input("secretStore")]
         public Input<Inputs.SecretStoreArgs>? SecretStore { get; set; }
 
         /// <summary>
-        /// The resource Id of target service.
+        /// The target service properties
         /// </summary>
-        [Input("targetId")]
-        public Input<string>? TargetId { get; set; }
+        [Input("targetService")]
+        public object? TargetService { get; set; }
 
         /// <summary>
         /// The VNet solution.

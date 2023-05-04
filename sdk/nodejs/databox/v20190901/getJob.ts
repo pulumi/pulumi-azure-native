@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified job.
  */
-/** @deprecated Version 2019-09-01 will be removed in v2 of the provider. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: Version 2019-09-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databox/v20190901:getJob", {
@@ -113,7 +111,6 @@ export interface GetJobResult {
 /**
  * Gets information about the specified job.
  */
-/** @deprecated Version 2019-09-01 will be removed in v2 of the provider. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }

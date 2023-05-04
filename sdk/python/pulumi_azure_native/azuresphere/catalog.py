@@ -96,6 +96,7 @@ class Catalog(pulumi.CustomResource):
         """
         An Azure Sphere catalog
         API Version: 2022-09-01-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,6 +114,7 @@ class Catalog(pulumi.CustomResource):
         """
         An Azure Sphere catalog
         API Version: 2022-09-01-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Defines an Network Experiment Profile and lists of Experiments
  * API Version: 2019-11-01.
+ * Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**

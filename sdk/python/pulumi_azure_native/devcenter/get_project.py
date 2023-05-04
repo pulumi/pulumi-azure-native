@@ -22,13 +22,16 @@ class GetProjectResult:
     """
     Represents a project resource.
     """
-    def __init__(__self__, description=None, dev_center_id=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, description=None, dev_center_id=None, dev_center_uri=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if dev_center_id and not isinstance(dev_center_id, str):
             raise TypeError("Expected argument 'dev_center_id' to be a str")
         pulumi.set(__self__, "dev_center_id", dev_center_id)
+        if dev_center_uri and not isinstance(dev_center_uri, str):
+            raise TypeError("Expected argument 'dev_center_uri' to be a str")
+        pulumi.set(__self__, "dev_center_uri", dev_center_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -66,6 +69,14 @@ class GetProjectResult:
         Resource Id of an associated DevCenter
         """
         return pulumi.get(self, "dev_center_id")
+
+    @property
+    @pulumi.getter(name="devCenterUri")
+    def dev_center_uri(self) -> str:
+        """
+        The URI of the resource.
+        """
+        return pulumi.get(self, "dev_center_uri")
 
     @property
     @pulumi.getter
@@ -132,6 +143,7 @@ class AwaitableGetProjectResult(GetProjectResult):
         return GetProjectResult(
             description=self.description,
             dev_center_id=self.dev_center_id,
+            dev_center_uri=self.dev_center_uri,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -146,11 +158,11 @@ def get_project(project_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Gets a specific project.
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str project_name: The name of the project.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['projectName'] = project_name
@@ -161,6 +173,7 @@ def get_project(project_name: Optional[str] = None,
     return AwaitableGetProjectResult(
         description=__ret__.description,
         dev_center_id=__ret__.dev_center_id,
+        dev_center_uri=__ret__.dev_center_uri,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
@@ -176,10 +189,10 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     Gets a specific project.
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str project_name: The name of the project.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

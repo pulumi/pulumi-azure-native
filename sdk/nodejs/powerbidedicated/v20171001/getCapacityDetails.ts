@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets details about the specified dedicated capacity.
  */
-/** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
-    pulumi.log.warn("getCapacityDetails is deprecated: Version 2017-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:powerbidedicated/v20171001:getCapacityDetails", {
@@ -88,7 +86,6 @@ export interface GetCapacityDetailsResult {
 /**
  * Gets details about the specified dedicated capacity.
  */
-/** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getCapacityDetailsOutput(args: GetCapacityDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityDetailsResult> {
     return pulumi.output(args).apply((a: any) => getCapacityDetails(a, opts))
 }

@@ -11,11 +11,15 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
 {
 
     /// <summary>
-    /// A private endpoint connection to SignalR resource
+    /// A private endpoint connection to an azure resource
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {
+        /// <summary>
+        /// Group IDs
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
         /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
@@ -25,17 +29,21 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Private endpoint associated with the private endpoint connection
+        /// Private endpoint
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
-        /// Connection state
+        /// Connection state of the private endpoint connection
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Provisioning state of the private endpoint connection
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
         /// </summary>
@@ -43,6 +51,8 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -53,13 +63,17 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

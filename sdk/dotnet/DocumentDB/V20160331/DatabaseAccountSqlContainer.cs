@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
     /// <summary>
     /// An Azure Cosmos DB container.
     /// </summary>
-    [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20160331:DatabaseAccountSqlContainer")]
     public partial class DatabaseAccountSqlContainer : global::Pulumi.CustomResource
     {
@@ -141,7 +140,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:DatabaseAccountSqlContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:DatabaseAccountSqlContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:DatabaseAccountSqlContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:DatabaseAccountSqlContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:DatabaseAccountSqlContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:DatabaseAccountSqlContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:DatabaseAccountSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

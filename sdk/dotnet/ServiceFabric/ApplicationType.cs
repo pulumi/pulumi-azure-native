@@ -11,19 +11,14 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// The application type name resource
-    /// API Version: 2020-03-01.
+    /// API Version: 2023-02-01-preview.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ApplicationType")]
     public partial class ApplicationType : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Azure resource etag.
-        /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -39,6 +34,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.
@@ -77,14 +78,17 @@ namespace Pulumi.AzureNative.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:ApplicationType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:ApplicationType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:ApplicationType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:ApplicationType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:ApplicationType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:ApplicationType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:ApplicationType"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:ApplicationType"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:ApplicationType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +125,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

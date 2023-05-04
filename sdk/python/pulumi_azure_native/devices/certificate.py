@@ -95,7 +95,8 @@ class Certificate(pulumi.CustomResource):
                  __props__=None):
         """
         The X509 Certificate.
-        API Version: 2020-08-31.
+        API Version: 2021-07-02.
+        Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +113,8 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The X509 Certificate.
-        API Version: 2020-08-31.
+        API Version: 2021-07-02.
+        Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -153,7 +155,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20170701:Certificate"), pulumi.Alias(type_="azure-native:devices/v20180122:Certificate"), pulumi.Alias(type_="azure-native:devices/v20180401:Certificate"), pulumi.Alias(type_="azure-native:devices/v20181201preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20190322:Certificate"), pulumi.Alias(type_="azure-native:devices/v20190322preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20190701preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20191104:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200301:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200401:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200615:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200710preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200801:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200831:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200831preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210201preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210303preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210331:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210701:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210701preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210702:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210702preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20220430preview:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20170701:Certificate"), pulumi.Alias(type_="azure-native:devices/v20180122:Certificate"), pulumi.Alias(type_="azure-native:devices/v20180401:Certificate"), pulumi.Alias(type_="azure-native:devices/v20181201preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20190322:Certificate"), pulumi.Alias(type_="azure-native:devices/v20190322preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20190701preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20191104:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200301:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200401:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200615:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200710preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200801:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200831:Certificate"), pulumi.Alias(type_="azure-native:devices/v20200831preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210201preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210303preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210331:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210701:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210701preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210702:Certificate"), pulumi.Alias(type_="azure-native:devices/v20210702preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20220430preview:Certificate"), pulumi.Alias(type_="azure-native:devices/v20221115preview:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:devices:Certificate',

@@ -10,49 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
-    'PermissionArgs',
     'RoleAssignmentPropertiesArgs',
 ]
-
-@pulumi.input_type
-class PermissionArgs:
-    def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 not_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Role definition permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Allowed actions.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_actions: Denied actions.
-        """
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if not_actions is not None:
-            pulumi.set(__self__, "not_actions", not_actions)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Allowed actions.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "actions", value)
-
-    @property
-    @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Denied actions.
-        """
-        return pulumi.get(self, "not_actions")
-
-    @not_actions.setter
-    def not_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "not_actions", value)
-
 
 @pulumi.input_type
 class RoleAssignmentPropertiesArgs:

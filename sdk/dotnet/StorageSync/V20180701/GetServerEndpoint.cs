@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageSync.V20180701
 {
-    [Obsolete(@"Version 2018-07-01 will be removed in v2 of the provider.")]
     public static class GetServerEndpoint
     {
         /// <summary>

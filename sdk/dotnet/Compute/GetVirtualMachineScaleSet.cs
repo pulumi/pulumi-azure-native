@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Display information about a virtual machine scale set.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetResult> InvokeAsync(GetVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure-native:compute:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Display information about a virtual machine scale set.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetResult> Invoke(GetVirtualMachineScaleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure-native:compute:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.AutomaticRepairsPolicyResponse? AutomaticRepairsPolicy;
         /// <summary>
+        /// Optional property which must either be set to True or omitted.
+        /// </summary>
+        public readonly bool? ConstrainedMaximumCapacity;
+        /// <summary>
         /// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         /// </summary>
         public readonly bool? DoNotRunExtensionsOnOverprovisionedVMs;
@@ -136,6 +140,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly int? PlatformFaultDomainCount;
         /// <summary>
+        /// Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
+        /// </summary>
+        public readonly Outputs.PriorityMixPolicyResponse? PriorityMixPolicy;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -144,7 +152,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
         /// <summary>
-        /// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+        /// Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
         /// </summary>
         public readonly Outputs.ScaleInPolicyResponse? ScaleInPolicy;
         /// <summary>
@@ -156,9 +164,17 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
+        /// Specifies the Spot Restore properties for the virtual machine scale set.
+        /// </summary>
+        public readonly Outputs.SpotRestorePolicyResponse? SpotRestorePolicy;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Specifies the time at which the Virtual Machine Scale Set resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// </summary>
+        public readonly string TimeCreated;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -176,7 +192,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
         /// <summary>
-        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         /// </summary>
         public readonly bool? ZoneBalance;
         /// <summary>
@@ -189,6 +205,8 @@ namespace Pulumi.AzureNative.Compute
             Outputs.AdditionalCapabilitiesResponse? additionalCapabilities,
 
             Outputs.AutomaticRepairsPolicyResponse? automaticRepairsPolicy,
+
+            bool? constrainedMaximumCapacity,
 
             bool? doNotRunExtensionsOnOverprovisionedVMs,
 
@@ -212,6 +230,8 @@ namespace Pulumi.AzureNative.Compute
 
             int? platformFaultDomainCount,
 
+            Outputs.PriorityMixPolicyResponse? priorityMixPolicy,
+
             string provisioningState,
 
             Outputs.SubResourceResponse? proximityPlacementGroup,
@@ -222,7 +242,11 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.SkuResponse? sku,
 
+            Outputs.SpotRestorePolicyResponse? spotRestorePolicy,
+
             ImmutableDictionary<string, string>? tags,
+
+            string timeCreated,
 
             string type,
 
@@ -238,6 +262,7 @@ namespace Pulumi.AzureNative.Compute
         {
             AdditionalCapabilities = additionalCapabilities;
             AutomaticRepairsPolicy = automaticRepairsPolicy;
+            ConstrainedMaximumCapacity = constrainedMaximumCapacity;
             DoNotRunExtensionsOnOverprovisionedVMs = doNotRunExtensionsOnOverprovisionedVMs;
             ExtendedLocation = extendedLocation;
             HostGroup = hostGroup;
@@ -249,12 +274,15 @@ namespace Pulumi.AzureNative.Compute
             Overprovision = overprovision;
             Plan = plan;
             PlatformFaultDomainCount = platformFaultDomainCount;
+            PriorityMixPolicy = priorityMixPolicy;
             ProvisioningState = provisioningState;
             ProximityPlacementGroup = proximityPlacementGroup;
             ScaleInPolicy = scaleInPolicy;
             SinglePlacementGroup = singlePlacementGroup;
             Sku = sku;
+            SpotRestorePolicy = spotRestorePolicy;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
             UniqueId = uniqueId;
             UpgradePolicy = upgradePolicy;

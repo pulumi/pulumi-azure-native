@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a factory.
  */
-/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
-    pulumi.log.warn("getFactory is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20170901preview:getFactory", {
@@ -80,7 +78,6 @@ export interface GetFactoryResult {
 /**
  * Gets a factory.
  */
-/** @deprecated Version 2017-09-01-preview will be removed in v2 of the provider. */
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
     return pulumi.output(args).apply((a: any) => getFactory(a, opts))
 }

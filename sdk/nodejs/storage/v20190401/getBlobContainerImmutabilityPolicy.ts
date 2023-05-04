@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  */
-/** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
-    pulumi.log.warn("getBlobContainerImmutabilityPolicy is deprecated: Version 2019-04-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20190401:getBlobContainerImmutabilityPolicy", {
@@ -71,7 +69,6 @@ export interface GetBlobContainerImmutabilityPolicyResult {
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  */
-/** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainerImmutabilityPolicy(a, opts))
 }

@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly Outputs.CurrentScenarioDetailsResponse? CurrentScenario;
         /// <summary>
+        /// The correlation Id for events associated with this protected item.
+        /// </summary>
+        public readonly string? EventCorrelationId;
+        /// <summary>
         /// The consolidated failover health for the VM.
         /// </summary>
         public readonly string? FailoverHealth;
@@ -117,6 +121,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? ReplicationHealth;
         /// <summary>
+        /// The switch provider state.
+        /// </summary>
+        public readonly string? SwitchProviderState;
+        /// <summary>
+        /// The switch provider state description.
+        /// </summary>
+        public readonly string? SwitchProviderStateDescription;
+        /// <summary>
         /// The Test failover state.
         /// </summary>
         public readonly string? TestFailoverState;
@@ -132,6 +144,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ImmutableArray<string> allowedOperations,
 
             Outputs.CurrentScenarioDetailsResponse? currentScenario,
+
+            string? eventCorrelationId,
 
             string? failoverHealth,
 
@@ -177,6 +191,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? replicationHealth,
 
+            string? switchProviderState,
+
+            string? switchProviderStateDescription,
+
             string? testFailoverState,
 
             string? testFailoverStateDescription)
@@ -184,6 +202,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ActiveLocation = activeLocation;
             AllowedOperations = allowedOperations;
             CurrentScenario = currentScenario;
+            EventCorrelationId = eventCorrelationId;
             FailoverHealth = failoverHealth;
             FailoverRecoveryPointId = failoverRecoveryPointId;
             FriendlyName = friendlyName;
@@ -206,6 +225,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             RecoveryProtectionContainerFriendlyName = recoveryProtectionContainerFriendlyName;
             RecoveryServicesProviderId = recoveryServicesProviderId;
             ReplicationHealth = replicationHealth;
+            SwitchProviderState = switchProviderState;
+            SwitchProviderStateDescription = switchProviderStateDescription;
             TestFailoverState = testFailoverState;
             TestFailoverStateDescription = testFailoverStateDescription;
         }

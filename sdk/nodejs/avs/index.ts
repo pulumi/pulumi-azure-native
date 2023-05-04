@@ -130,6 +130,11 @@ export type HcxEnterpriseSite = import("./hcxEnterpriseSite").HcxEnterpriseSite;
 export const HcxEnterpriseSite: typeof import("./hcxEnterpriseSite").HcxEnterpriseSite = null as any;
 utilities.lazyLoad(exports, ["HcxEnterpriseSite"], () => require("./hcxEnterpriseSite"));
 
+export { ListClusterZonesArgs, ListClusterZonesResult, ListClusterZonesOutputArgs } from "./listClusterZones";
+export const listClusterZones: typeof import("./listClusterZones").listClusterZones = null as any;
+export const listClusterZonesOutput: typeof import("./listClusterZones").listClusterZonesOutput = null as any;
+utilities.lazyLoad(exports, ["listClusterZones","listClusterZonesOutput"], () => require("./listClusterZones"));
+
 export { ListPrivateCloudAdminCredentialsArgs, ListPrivateCloudAdminCredentialsResult, ListPrivateCloudAdminCredentialsOutputArgs } from "./listPrivateCloudAdminCredentials";
 export const listPrivateCloudAdminCredentials: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentials = null as any;
 export const listPrivateCloudAdminCredentialsOutput: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentialsOutput = null as any;

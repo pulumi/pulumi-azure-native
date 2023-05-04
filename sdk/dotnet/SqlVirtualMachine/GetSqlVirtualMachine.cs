@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     {
         /// <summary>
         /// Gets a SQL virtual machine.
-        /// API Version: 2017-03-01-preview.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetSqlVirtualMachineResult> InvokeAsync(GetSqlVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a SQL virtual machine.
-        /// API Version: 2017-03-01-preview.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetSqlVirtualMachineResult> Invoke(GetSqlVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     public sealed class GetSqlVirtualMachineResult
     {
         /// <summary>
+        /// Assessment Settings.
+        /// </summary>
+        public readonly Outputs.AssessmentSettingsResponse? AssessmentSettings;
+        /// <summary>
         /// Auto backup settings for SQL Server.
         /// </summary>
         public readonly Outputs.AutoBackupSettingsResponse? AutoBackupSettings;
@@ -144,6 +148,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly Outputs.StorageConfigurationSettingsResponse? StorageConfigurationSettings;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -159,9 +167,15 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         /// </summary>
         public readonly Outputs.WsfcDomainCredentialsResponse? WsfcDomainCredentials;
+        /// <summary>
+        /// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+        /// </summary>
+        public readonly string? WsfcStaticIp;
 
         [OutputConstructor]
         private GetSqlVirtualMachineResult(
+            Outputs.AssessmentSettingsResponse? assessmentSettings,
+
             Outputs.AutoBackupSettingsResponse? autoBackupSettings,
 
             Outputs.AutoPatchingSettingsResponse? autoPatchingSettings,
@@ -192,14 +206,19 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
             Outputs.StorageConfigurationSettingsResponse? storageConfigurationSettings,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
             string? virtualMachineResourceId,
 
-            Outputs.WsfcDomainCredentialsResponse? wsfcDomainCredentials)
+            Outputs.WsfcDomainCredentialsResponse? wsfcDomainCredentials,
+
+            string? wsfcStaticIp)
         {
+            AssessmentSettings = assessmentSettings;
             AutoBackupSettings = autoBackupSettings;
             AutoPatchingSettings = autoPatchingSettings;
             Id = id;
@@ -215,10 +234,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
             SqlServerLicenseType = sqlServerLicenseType;
             SqlVirtualMachineGroupResourceId = sqlVirtualMachineGroupResourceId;
             StorageConfigurationSettings = storageConfigurationSettings;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VirtualMachineResourceId = virtualMachineResourceId;
             WsfcDomainCredentials = wsfcDomainCredentials;
+            WsfcStaticIp = wsfcStaticIp;
         }
     }
 }

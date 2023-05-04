@@ -43,8 +43,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The class type.
         /// Expected value is 'HyperVReplica2012'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// A value indicating the offline IR export path.

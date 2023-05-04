@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  */
-/** @deprecated Version 2018-09-30-preview will be removed in v2 of the provider. */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
-    pulumi.log.warn("getOpenShiftManagedCluster is deprecated: Version 2018-09-30-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20180930preview:getOpenShiftManagedCluster", {
@@ -100,7 +98,6 @@ export interface GetOpenShiftManagedClusterResult {
 /**
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  */
-/** @deprecated Version 2018-09-30-preview will be removed in v2 of the provider. */
 export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getOpenShiftManagedCluster(a, opts))
 }

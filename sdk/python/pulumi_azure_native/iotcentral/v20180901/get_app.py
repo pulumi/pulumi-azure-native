@@ -17,8 +17,6 @@ __all__ = [
     'get_app_output',
 ]
 
-warnings.warn("""Version 2018-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetAppResult:
     """
@@ -213,7 +211,6 @@ def get_app(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
     :param str resource_name: The ARM resource name of the IoT Central application.
     """
-    pulumi.log.warn("""get_app is deprecated: Version 2018-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -248,5 +245,4 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
     :param str resource_name: The ARM resource name of the IoT Central application.
     """
-    pulumi.log.warn("""get_app is deprecated: Version 2018-09-01 will be removed in v2 of the provider.""")
     ...

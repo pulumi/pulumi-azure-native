@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.CertificateRegistration
 {
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
-    /// API Version: 2020-10-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrderCertificate")]
     public partial class AppServiceCertificateOrderCertificate : global::Pulumi.CustomResource
@@ -51,12 +52,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

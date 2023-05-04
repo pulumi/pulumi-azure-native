@@ -10,23 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network
 {
     /// <summary>
-    /// Describes a link to virtual network for a Private DNS zone.
-    /// API Version: 2020-06-01.
+    /// Describes a virtual network link.
+    /// API Version: 2022-07-01.
+    /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ETag of the virtual network link.
+        /// ETag of the virtual network link.
         /// </summary>
         [Output("etag")]
-        public Output<string?> Etag { get; private set; } = null!;
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// Metadata attached to the virtual network link.
         /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -35,40 +36,28 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+        /// The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        [Output("registrationEnabled")]
-        public Output<bool?> RegistrationEnabled { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The reference of the virtual network.
+        /// The reference to the virtual network. This cannot be changed after creation.
         /// </summary>
         [Output("virtualNetwork")]
-        public Output<Outputs.SubResourceResponse?> VirtualNetwork { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
-        /// </summary>
-        [Output("virtualNetworkLinkState")]
-        public Output<string> VirtualNetworkLinkState { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> VirtualNetwork { get; private set; } = null!;
 
 
         /// <summary>
@@ -95,9 +84,8 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:VirtualNetworkLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:VirtualNetworkLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:VirtualNetworkLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetworkLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,46 +110,34 @@ namespace Pulumi.AzureNative.Network
     public sealed class VirtualNetworkLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// The name of the DNS forwarding ruleset.
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
+        [Input("dnsForwardingRulesetName", required: true)]
+        public Input<string> DnsForwardingRulesetName { get; set; } = null!;
+
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
 
         /// <summary>
-        /// The name of the Private DNS zone (without a terminating dot).
+        /// Metadata attached to the virtual network link.
         /// </summary>
-        [Input("privateZoneName", required: true)]
-        public Input<string> PrivateZoneName { get; set; } = null!;
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
 
         /// <summary>
-        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
-        /// </summary>
-        [Input("registrationEnabled")]
-        public Input<bool>? RegistrationEnabled { get; set; }
-
-        /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
         /// <summary>
-        /// Resource tags.
+        /// The reference to the virtual network. This cannot be changed after creation.
         /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The reference of the virtual network.
-        /// </summary>
-        [Input("virtualNetwork")]
-        public Input<Inputs.SubResourceArgs>? VirtualNetwork { get; set; }
+        [Input("virtualNetwork", required: true)]
+        public Input<Inputs.SubResourceArgs> VirtualNetwork { get; set; } = null!;
 
         /// <summary>
         /// The name of the virtual network link.

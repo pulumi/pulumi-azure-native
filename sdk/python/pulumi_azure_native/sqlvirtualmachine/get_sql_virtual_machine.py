@@ -22,7 +22,10 @@ class GetSqlVirtualMachineResult:
     """
     A SQL virtual machine.
     """
-    def __init__(__self__, auto_backup_settings=None, auto_patching_settings=None, id=None, identity=None, key_vault_credential_settings=None, location=None, name=None, provisioning_state=None, server_configurations_management_settings=None, sql_image_offer=None, sql_image_sku=None, sql_management=None, sql_server_license_type=None, sql_virtual_machine_group_resource_id=None, storage_configuration_settings=None, tags=None, type=None, virtual_machine_resource_id=None, wsfc_domain_credentials=None):
+    def __init__(__self__, assessment_settings=None, auto_backup_settings=None, auto_patching_settings=None, id=None, identity=None, key_vault_credential_settings=None, location=None, name=None, provisioning_state=None, server_configurations_management_settings=None, sql_image_offer=None, sql_image_sku=None, sql_management=None, sql_server_license_type=None, sql_virtual_machine_group_resource_id=None, storage_configuration_settings=None, system_data=None, tags=None, type=None, virtual_machine_resource_id=None, wsfc_domain_credentials=None, wsfc_static_ip=None):
+        if assessment_settings and not isinstance(assessment_settings, dict):
+            raise TypeError("Expected argument 'assessment_settings' to be a dict")
+        pulumi.set(__self__, "assessment_settings", assessment_settings)
         if auto_backup_settings and not isinstance(auto_backup_settings, dict):
             raise TypeError("Expected argument 'auto_backup_settings' to be a dict")
         pulumi.set(__self__, "auto_backup_settings", auto_backup_settings)
@@ -68,6 +71,9 @@ class GetSqlVirtualMachineResult:
         if storage_configuration_settings and not isinstance(storage_configuration_settings, dict):
             raise TypeError("Expected argument 'storage_configuration_settings' to be a dict")
         pulumi.set(__self__, "storage_configuration_settings", storage_configuration_settings)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -80,6 +86,17 @@ class GetSqlVirtualMachineResult:
         if wsfc_domain_credentials and not isinstance(wsfc_domain_credentials, dict):
             raise TypeError("Expected argument 'wsfc_domain_credentials' to be a dict")
         pulumi.set(__self__, "wsfc_domain_credentials", wsfc_domain_credentials)
+        if wsfc_static_ip and not isinstance(wsfc_static_ip, str):
+            raise TypeError("Expected argument 'wsfc_static_ip' to be a str")
+        pulumi.set(__self__, "wsfc_static_ip", wsfc_static_ip)
+
+    @property
+    @pulumi.getter(name="assessmentSettings")
+    def assessment_settings(self) -> Optional['outputs.AssessmentSettingsResponse']:
+        """
+        Assessment Settings.
+        """
+        return pulumi.get(self, "assessment_settings")
 
     @property
     @pulumi.getter(name="autoBackupSettings")
@@ -202,6 +219,14 @@ class GetSqlVirtualMachineResult:
         return pulumi.get(self, "storage_configuration_settings")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -233,6 +258,14 @@ class GetSqlVirtualMachineResult:
         """
         return pulumi.get(self, "wsfc_domain_credentials")
 
+    @property
+    @pulumi.getter(name="wsfcStaticIp")
+    def wsfc_static_ip(self) -> Optional[str]:
+        """
+        Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+        """
+        return pulumi.get(self, "wsfc_static_ip")
+
 
 class AwaitableGetSqlVirtualMachineResult(GetSqlVirtualMachineResult):
     # pylint: disable=using-constant-test
@@ -240,6 +273,7 @@ class AwaitableGetSqlVirtualMachineResult(GetSqlVirtualMachineResult):
         if False:
             yield self
         return GetSqlVirtualMachineResult(
+            assessment_settings=self.assessment_settings,
             auto_backup_settings=self.auto_backup_settings,
             auto_patching_settings=self.auto_patching_settings,
             id=self.id,
@@ -255,10 +289,12 @@ class AwaitableGetSqlVirtualMachineResult(GetSqlVirtualMachineResult):
             sql_server_license_type=self.sql_server_license_type,
             sql_virtual_machine_group_resource_id=self.sql_virtual_machine_group_resource_id,
             storage_configuration_settings=self.storage_configuration_settings,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             virtual_machine_resource_id=self.virtual_machine_resource_id,
-            wsfc_domain_credentials=self.wsfc_domain_credentials)
+            wsfc_domain_credentials=self.wsfc_domain_credentials,
+            wsfc_static_ip=self.wsfc_static_ip)
 
 
 def get_sql_virtual_machine(expand: Optional[str] = None,
@@ -267,7 +303,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineResult:
     """
     Gets a SQL virtual machine.
-    API Version: 2017-03-01-preview.
+    API Version: 2022-02-01.
 
 
     :param str expand: The child resources to include in the response.
@@ -282,6 +318,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sqlvirtualmachine:getSqlVirtualMachine', __args__, opts=opts, typ=GetSqlVirtualMachineResult).value
 
     return AwaitableGetSqlVirtualMachineResult(
+        assessment_settings=__ret__.assessment_settings,
         auto_backup_settings=__ret__.auto_backup_settings,
         auto_patching_settings=__ret__.auto_patching_settings,
         id=__ret__.id,
@@ -297,10 +334,12 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
         sql_server_license_type=__ret__.sql_server_license_type,
         sql_virtual_machine_group_resource_id=__ret__.sql_virtual_machine_group_resource_id,
         storage_configuration_settings=__ret__.storage_configuration_settings,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_machine_resource_id=__ret__.virtual_machine_resource_id,
-        wsfc_domain_credentials=__ret__.wsfc_domain_credentials)
+        wsfc_domain_credentials=__ret__.wsfc_domain_credentials,
+        wsfc_static_ip=__ret__.wsfc_static_ip)
 
 
 @_utilities.lift_output_func(get_sql_virtual_machine)
@@ -310,7 +349,7 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
     """
     Gets a SQL virtual machine.
-    API Version: 2017-03-01-preview.
+    API Version: 2022-02-01.
 
 
     :param str expand: The child resources to include in the response.

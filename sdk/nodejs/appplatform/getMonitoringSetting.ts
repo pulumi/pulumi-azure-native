@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Monitoring Setting and its properties.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
  */
 export function getMonitoringSetting(args: GetMonitoringSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringSettingResult> {
 
@@ -48,13 +48,17 @@ export interface GetMonitoringSettingResult {
      */
     readonly properties: outputs.appplatform.MonitoringSettingPropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Get the Monitoring Setting and its properties.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
  */
 export function getMonitoringSettingOutput(args: GetMonitoringSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSettingResult> {
     return pulumi.output(args).apply((a: any) => getMonitoringSetting(a, opts))

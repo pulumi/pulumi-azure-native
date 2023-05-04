@@ -21,9 +21,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
-
         /// <summary>
         /// Whether to preserve unmatched path. Default value is true.
         /// </summary>
@@ -35,6 +32,9 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         /// </summary>
         [Input("sourcePattern", required: true)]
         public Input<string> SourcePattern { get; set; } = null!;
+
+        [Input("typeName", required: true)]
+        public Input<string> TypeName { get; set; } = null!;
 
         public UrlRewriteActionParametersArgs()
         {

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get cluster resource
  */
-/** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20170701preview:getCluster", {
@@ -165,7 +163,6 @@ export interface GetClusterResult {
 /**
  * Get cluster resource
  */
-/** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider. */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }

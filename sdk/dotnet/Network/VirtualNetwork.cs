@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Network resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource
@@ -53,6 +54,12 @@ namespace Pulumi.AzureNative.Network
         public Output<bool?> EnableVmProtection { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.VirtualNetworkEncryptionResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -63,6 +70,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of references to flow log resources.
+        /// </summary>
+        [Output("flowLogs")]
+        public Output<ImmutableArray<Outputs.FlowLogResponse>> FlowLogs { get; private set; } = null!;
+
+        /// <summary>
+        /// The FlowTimeout value (in minutes) for the Virtual Network
+        /// </summary>
+        [Output("flowTimeoutInMinutes")]
+        public Output<int?> FlowTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// Array of IpAllocation which reference this VNET.
@@ -187,6 +206,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -247,10 +267,22 @@ namespace Pulumi.AzureNative.Network
         public Input<bool>? EnableVmProtection { get; set; }
 
         /// <summary>
+        /// Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.VirtualNetworkEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The extended location of the virtual network.
         /// </summary>
         [Input("extendedLocation")]
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
+        /// The FlowTimeout value (in minutes) for the Virtual Network
+        /// </summary>
+        [Input("flowTimeoutInMinutes")]
+        public Input<int>? FlowTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// Resource ID.

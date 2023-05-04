@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of an EventHub schema group.
- * API Version: 2022-01-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
 
@@ -81,7 +81,7 @@ export interface GetSchemaRegistryResult {
 }
 /**
  * Gets the details of an EventHub schema group.
- * API Version: 2022-01-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
     return pulumi.output(args).apply((a: any) => getSchemaRegistry(a, opts))

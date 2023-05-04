@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<Inputs.IdentityProviderInputArgs> AuthenticationIdentityInput { get; set; } = null!;
 
         /// <summary>
+        /// The Bios Id of the machine.
+        /// </summary>
+        [Input("biosId")]
+        public Input<string>? BiosId { get; set; }
+
+        /// <summary>
         /// The identity provider input for data plane authentication.
         /// </summary>
         [Input("dataPlaneAuthenticationIdentityInput")]

@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly double DiskMBpsReadWrite;
         /// <summary>
-        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB
+        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023
         /// </summary>
         public readonly int? DiskSizeGB;
         /// <summary>

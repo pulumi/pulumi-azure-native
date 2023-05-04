@@ -134,7 +134,7 @@ def get_static_site_linked_backend(linked_backend_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteLinkedBackendResult:
     """
     Static Site Linked Backend ARM resource.
-    API Version: 2022-03-01.
+    API Version: 2022-09-01.
 
 
     :param str linked_backend_name: Name of the linked backend that should be retrieved
@@ -166,7 +166,7 @@ def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.I
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteLinkedBackendResult]:
     """
     Static Site Linked Backend ARM resource.
-    API Version: 2022-03-01.
+    API Version: 2022-09-01.
 
 
     :param str linked_backend_name: Name of the linked backend that should be retrieved

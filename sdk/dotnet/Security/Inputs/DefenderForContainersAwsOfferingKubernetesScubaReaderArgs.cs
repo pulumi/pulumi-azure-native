@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderForContainersAwsOfferingKubernetesScubaReaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cloud role ARN in AWS for this feature
+        /// The cloud role ARN in AWS for this feature used for reading data
         /// </summary>
         [Input("cloudRoleArn")]
         public Input<string>? CloudRoleArn { get; set; }

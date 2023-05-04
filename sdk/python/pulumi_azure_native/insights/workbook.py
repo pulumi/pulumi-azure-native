@@ -21,16 +21,14 @@ class WorkbookArgs:
                  display_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  serialized_data: pulumi.Input[str],
-                 id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['WorkbookManagedIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['WorkbookResourceIdentityArgs']] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'WorkbookSharedTypeKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  storage_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workbook resource.
@@ -38,32 +36,28 @@ class WorkbookArgs:
         :param pulumi.Input[str] display_name: The user-defined name (display name) of the workbook.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
-        :param pulumi.Input[str] id: Azure resource Id
-        :param pulumi.Input['WorkbookManagedIdentityArgs'] identity: Identity used for BYOS
-        :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Azure resource name
-        :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[str] description: The description of the workbook.
+        :param pulumi.Input['WorkbookResourceIdentityArgs'] identity: Identity used for BYOS
+        :param pulumi.Input[Union[str, 'WorkbookSharedTypeKind']] kind: The kind of workbook. Only valid value is shared.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] source_id: ResourceId for a source resource.
-        :param pulumi.Input[str] storage_uri: BYOS Storage Account URI
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] type: Azure resource type
-        :param pulumi.Input[str] version: Workbook version
+        :param pulumi.Input[str] storage_uri: The resourceId to the storage account when bring your own storage is used
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] version: Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serialized_data", serialized_data)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
         if source_id is not None:
@@ -72,8 +66,6 @@ class WorkbookArgs:
             pulumi.set(__self__, "storage_uri", storage_uri)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -127,45 +119,45 @@ class WorkbookArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Azure resource Id
+        The description of the workbook.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "description")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkbookManagedIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WorkbookResourceIdentityArgs']]:
         """
         Identity used for BYOS
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkbookManagedIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WorkbookResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[str, 'Kind']]]:
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'WorkbookSharedTypeKind']]]:
         """
-        The kind of workbook. Choices are user and shared.
+        The kind of workbook. Only valid value is shared.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[str, 'Kind']]]):
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'WorkbookSharedTypeKind']]]):
         pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -174,22 +166,10 @@ class WorkbookArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure resource name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Application Insights component resource.
+        The name of the resource.
         """
         return pulumi.get(self, "resource_name")
 
@@ -213,7 +193,7 @@ class WorkbookArgs:
     @pulumi.getter(name="storageUri")
     def storage_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        BYOS Storage Account URI
+        The resourceId to the storage account when bring your own storage is used
         """
         return pulumi.get(self, "storage_uri")
 
@@ -225,7 +205,7 @@ class WorkbookArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -235,21 +215,9 @@ class WorkbookArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure resource type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Workbook version
+        Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         """
         return pulumi.get(self, "version")
 
@@ -264,42 +232,39 @@ class Workbook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookManagedIdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookResourceIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'WorkbookSharedTypeKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  serialized_data: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  storage_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An Application Insights workbook definition.
-        API Version: 2020-10-20.
+        A workbook definition.
+        API Version: 2022-04-01.
+        Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
+        :param pulumi.Input[str] description: The description of the workbook.
         :param pulumi.Input[str] display_name: The user-defined name (display name) of the workbook.
-        :param pulumi.Input[str] id: Azure resource Id
-        :param pulumi.Input[pulumi.InputType['WorkbookManagedIdentityArgs']] identity: Identity used for BYOS
-        :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Azure resource name
+        :param pulumi.Input[pulumi.InputType['WorkbookResourceIdentityArgs']] identity: Identity used for BYOS
+        :param pulumi.Input[Union[str, 'WorkbookSharedTypeKind']] kind: The kind of workbook. Only valid value is shared.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
+        :param pulumi.Input[str] resource_name_: The name of the resource.
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] source_id: ResourceId for a source resource.
-        :param pulumi.Input[str] storage_uri: BYOS Storage Account URI
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] type: Azure resource type
-        :param pulumi.Input[str] version: Workbook version
+        :param pulumi.Input[str] storage_uri: The resourceId to the storage account when bring your own storage is used
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] version: Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         """
         ...
     @overload
@@ -308,8 +273,9 @@ class Workbook(pulumi.CustomResource):
                  args: WorkbookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An Application Insights workbook definition.
-        API Version: 2020-10-20.
+        A workbook definition.
+        API Version: 2022-04-01.
+        Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WorkbookArgs args: The arguments to use to populate this resource's properties.
@@ -327,19 +293,17 @@ class Workbook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookManagedIdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookResourceIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'WorkbookSharedTypeKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  serialized_data: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  storage_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -353,14 +317,13 @@ class Workbook(pulumi.CustomResource):
             if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")
             __props__.__dict__["category"] = category
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["id"] = id
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -371,10 +334,13 @@ class Workbook(pulumi.CustomResource):
             __props__.__dict__["source_id"] = source_id
             __props__.__dict__["storage_uri"] = storage_uri
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["type"] = type
             __props__.__dict__["version"] = version
             __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["revision"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_modified"] = None
+            __props__.__dict__["type"] = None
             __props__.__dict__["user_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20150501:Workbook"), pulumi.Alias(type_="azure-native:insights/v20180617preview:Workbook"), pulumi.Alias(type_="azure-native:insights/v20201020:Workbook"), pulumi.Alias(type_="azure-native:insights/v20210308:Workbook"), pulumi.Alias(type_="azure-native:insights/v20210801:Workbook"), pulumi.Alias(type_="azure-native:insights/v20220401:Workbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -401,15 +367,18 @@ class Workbook(pulumi.CustomResource):
         __props__ = WorkbookArgs.__new__(WorkbookArgs)
 
         __props__.__dict__["category"] = None
+        __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["revision"] = None
         __props__.__dict__["serialized_data"] = None
         __props__.__dict__["source_id"] = None
         __props__.__dict__["storage_uri"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_modified"] = None
         __props__.__dict__["type"] = None
@@ -426,6 +395,14 @@ class Workbook(pulumi.CustomResource):
         return pulumi.get(self, "category")
 
     @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the workbook.
+        """
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
@@ -435,7 +412,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Resource etag
         """
@@ -443,7 +420,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.WorkbookManagedIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.WorkbookResourceResponseIdentity']]:
         """
         Identity used for BYOS
         """
@@ -453,25 +430,33 @@ class Workbook(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The kind of workbook. Choices are user and shared.
+        The kind of workbook. Only valid value is shared.
         """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> pulumi.Output[str]:
+        """
+        The unique revision id for this workbook definition
+        """
+        return pulumi.get(self, "revision")
 
     @property
     @pulumi.getter(name="serializedData")
@@ -493,15 +478,23 @@ class Workbook(pulumi.CustomResource):
     @pulumi.getter(name="storageUri")
     def storage_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        BYOS Storage Account URI
+        The resourceId to the storage account when bring your own storage is used
         """
         return pulumi.get(self, "storage_uri")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -515,9 +508,9 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -533,7 +526,7 @@ class Workbook(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
         """
-        Workbook version
+        Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
         """
         return pulumi.get(self, "version")
 

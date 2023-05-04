@@ -22,7 +22,7 @@ class GetDaprComponentResult:
     """
     Dapr Component.
     """
-    def __init__(__self__, component_type=None, id=None, ignore_errors=None, init_timeout=None, metadata=None, name=None, scopes=None, secrets=None, system_data=None, type=None, version=None):
+    def __init__(__self__, component_type=None, id=None, ignore_errors=None, init_timeout=None, metadata=None, name=None, scopes=None, secret_store_component=None, secrets=None, system_data=None, type=None, version=None):
         if component_type and not isinstance(component_type, str):
             raise TypeError("Expected argument 'component_type' to be a str")
         pulumi.set(__self__, "component_type", component_type)
@@ -44,6 +44,9 @@ class GetDaprComponentResult:
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
+        if secret_store_component and not isinstance(secret_store_component, str):
+            raise TypeError("Expected argument 'secret_store_component' to be a str")
+        pulumi.set(__self__, "secret_store_component", secret_store_component)
         if secrets and not isinstance(secrets, list):
             raise TypeError("Expected argument 'secrets' to be a list")
         pulumi.set(__self__, "secrets", secrets)
@@ -114,6 +117,14 @@ class GetDaprComponentResult:
         return pulumi.get(self, "scopes")
 
     @property
+    @pulumi.getter(name="secretStoreComponent")
+    def secret_store_component(self) -> Optional[str]:
+        """
+        Name of a Dapr component to retrieve component secrets from
+        """
+        return pulumi.get(self, "secret_store_component")
+
+    @property
     @pulumi.getter
     def secrets(self) -> Optional[Sequence['outputs.SecretResponse']]:
         """
@@ -159,6 +170,7 @@ class AwaitableGetDaprComponentResult(GetDaprComponentResult):
             metadata=self.metadata,
             name=self.name,
             scopes=self.scopes,
+            secret_store_component=self.secret_store_component,
             secrets=self.secrets,
             system_data=self.system_data,
             type=self.type,
@@ -171,7 +183,7 @@ def get_dapr_component(component_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDaprComponentResult:
     """
     Dapr Component.
-    API Version: 2022-03-01.
+    API Version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -193,6 +205,7 @@ def get_dapr_component(component_name: Optional[str] = None,
         metadata=__ret__.metadata,
         name=__ret__.name,
         scopes=__ret__.scopes,
+        secret_store_component=__ret__.secret_store_component,
         secrets=__ret__.secrets,
         system_data=__ret__.system_data,
         type=__ret__.type,
@@ -206,7 +219,7 @@ def get_dapr_component_output(component_name: Optional[pulumi.Input[str]] = None
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDaprComponentResult]:
     """
     Dapr Component.
-    API Version: 2022-03-01.
+    API Version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.

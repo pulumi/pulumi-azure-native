@@ -233,7 +233,7 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMRunCommandResult:
     """
     The operation to get the VMSS VM run command.
-    API Version: 2021-03-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -279,7 +279,7 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMRunCommandResult]:
     """
     The operation to get the VMSS VM run command.
-    API Version: 2021-03-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: The expand expression to apply on the operation.

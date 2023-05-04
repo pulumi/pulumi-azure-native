@@ -67,7 +67,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -99,7 +99,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets a private endpoint connection.
-    API Version: 2021-03-25-preview.
+    API Version: 2022-11-10.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -128,7 +128,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets a private endpoint connection.
-    API Version: 2021-03-25-preview.
+    API Version: 2022-11-10.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

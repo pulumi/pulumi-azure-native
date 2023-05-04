@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse? SystemData;
+        /// <summary>
         /// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
         /// </summary>
         public readonly string Type;
@@ -47,12 +51,15 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
+            Outputs.SystemDataResponse? systemData,
+
             string type)
         {
             ETag = eTag;
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

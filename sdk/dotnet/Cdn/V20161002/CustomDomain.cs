@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Cdn.V20161002
     /// <summary>
     /// Customer provided domain for branding purposes, e.g. www.contoso.com.
     /// </summary>
-    [Obsolete(@"Version 2016-10-02 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cdn/v20161002:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource
     {

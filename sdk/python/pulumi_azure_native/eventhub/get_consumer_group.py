@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetConsumerGroupResult',
@@ -21,16 +22,22 @@ class GetConsumerGroupResult:
     """
     Single item in List or Get Consumer group operation
     """
-    def __init__(__self__, created_at=None, id=None, name=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, created_at=None, id=None, location=None, name=None, system_data=None, type=None, updated_at=None, user_metadata=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -59,6 +66,14 @@ class GetConsumerGroupResult:
 
     @property
     @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -66,10 +81,18 @@ class GetConsumerGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 
@@ -98,7 +121,9 @@ class AwaitableGetConsumerGroupResult(GetConsumerGroupResult):
         return GetConsumerGroupResult(
             created_at=self.created_at,
             id=self.id,
+            location=self.location,
             name=self.name,
+            system_data=self.system_data,
             type=self.type,
             updated_at=self.updated_at,
             user_metadata=self.user_metadata)
@@ -111,7 +136,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumerGroupResult:
     """
     Gets a description for the specified consumer group.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str consumer_group_name: The consumer group name
@@ -130,7 +155,9 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
     return AwaitableGetConsumerGroupResult(
         created_at=__ret__.created_at,
         id=__ret__.id,
+        location=__ret__.location,
         name=__ret__.name,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         updated_at=__ret__.updated_at,
         user_metadata=__ret__.user_metadata)
@@ -144,7 +171,7 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumerGroupResult]:
     """
     Gets a description for the specified consumer group.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str consumer_group_name: The consumer group name

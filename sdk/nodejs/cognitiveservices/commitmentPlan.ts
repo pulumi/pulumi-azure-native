@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services account commitment plan.
- * API Version: 2021-10-01.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class CommitmentPlan extends pulumi.CustomResource {
     /**
@@ -43,6 +44,14 @@ export class CommitmentPlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The Kind of the resource.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The geo-location where the resource lives
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -51,9 +60,17 @@ export class CommitmentPlan extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.cognitiveservices.CommitmentPlanPropertiesResponse>;
     /**
+     * The resource model definition representing SKU
+     */
+    public readonly sku!: pulumi.Output<outputs.cognitiveservices.SkuResponse | undefined>;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.cognitiveservices.SystemDataResponse>;
+    /**
+     * Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -70,29 +87,33 @@ export class CommitmentPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["commitmentPlanName"] = args ? args.commitmentPlanName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20220301:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221001:CommitmentPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20221201:CommitmentPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommitmentPlan.__pulumiType, name, resourceInputs, opts);
     }
@@ -103,13 +124,17 @@ export class CommitmentPlan extends pulumi.CustomResource {
  */
 export interface CommitmentPlanArgs {
     /**
-     * The name of Cognitive Services account.
-     */
-    accountName: pulumi.Input<string>;
-    /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
     commitmentPlanName?: pulumi.Input<string>;
+    /**
+     * The Kind of the resource.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * The geo-location where the resource lives
+     */
+    location?: pulumi.Input<string>;
     /**
      * Properties of Cognitive Services account commitment plan.
      */
@@ -118,4 +143,12 @@ export interface CommitmentPlanArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource model definition representing SKU
+     */
+    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

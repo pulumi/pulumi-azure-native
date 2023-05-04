@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
 
@@ -67,13 +67,17 @@ export interface GetPolicyDefinitionResult {
      */
     readonly policyType?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.authorization.SystemDataResponse;
+    /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
     readonly type: string;
 }
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getPolicyDefinition(a, opts))

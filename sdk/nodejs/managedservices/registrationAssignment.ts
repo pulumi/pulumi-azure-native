@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Registration assignment.
- * API Version: 2019-09-01.
+ * The registration assignment.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class RegistrationAssignment extends pulumi.CustomResource {
     /**
@@ -39,15 +40,19 @@ export class RegistrationAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the registration assignment.
+     * The name of the registration assignment.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Properties of a registration assignment.
+     * The properties of a registration assignment.
      */
     public readonly properties!: pulumi.Output<outputs.managedservices.RegistrationAssignmentPropertiesResponse>;
     /**
-     * Type of the resource.
+     * The metadata for the registration assignment resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.managedservices.SystemDataResponse>;
+    /**
+     * The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -69,10 +74,12 @@ export class RegistrationAssignment extends pulumi.CustomResource {
             resourceInputs["registrationAssignmentId"] = args ? args.registrationAssignmentId : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -87,15 +94,15 @@ export class RegistrationAssignment extends pulumi.CustomResource {
  */
 export interface RegistrationAssignmentArgs {
     /**
-     * Properties of a registration assignment.
+     * The properties of a registration assignment.
      */
     properties?: pulumi.Input<inputs.managedservices.RegistrationAssignmentPropertiesArgs>;
     /**
-     * Guid of the registration assignment.
+     * The GUID of the registration assignment.
      */
     registrationAssignmentId?: pulumi.Input<string>;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: pulumi.Input<string>;
 }

@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 {
 
     /// <summary>
-    /// Managed service identity.
+    /// Identity for the resource.
     /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {
         /// <summary>
-        /// Principal Id of managed service identity.
+        /// The principal ID of resource identity.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// Tenant of managed service identity.
+        /// The tenant ID of resource.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// Type of managed service identity.
+        /// The identity type.
         /// </summary>
         public readonly string? Type;
         /// <summary>

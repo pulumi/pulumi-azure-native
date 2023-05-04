@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the NetApp account
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20190701:getAccount", {
@@ -68,7 +66,6 @@ export interface GetAccountResult {
 /**
  * Get the NetApp account
  */
-/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }

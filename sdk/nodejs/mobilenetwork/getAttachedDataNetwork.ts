@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified attached data network.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-11-01.
  */
 export function getAttachedDataNetwork(args: GetAttachedDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDataNetworkResult> {
 
@@ -42,41 +42,17 @@ export interface GetAttachedDataNetworkArgs {
 }
 
 /**
- * Attached data network resource.
+ * Attached data network resource. Must be created in the same location as its parent packet core data plane.
  */
 export interface GetAttachedDataNetworkResult {
     /**
-     * The timestamp of resource creation (UTC).
+     * The DNS servers to signal to UEs to use for this attached data network. This configuration is mandatory - if you don't want DNS servers, you must provide an empty array.
      */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
-    /**
-     * The DNS servers to signal to UEs to use for this attached data network.
-     */
-    readonly dnsAddresses?: string[];
+    readonly dnsAddresses: string[];
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -125,7 +101,7 @@ export interface GetAttachedDataNetworkResult {
 }
 /**
  * Gets information about the specified attached data network.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-11-01.
  */
 export function getAttachedDataNetworkOutput(args: GetAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getAttachedDataNetwork(a, opts))

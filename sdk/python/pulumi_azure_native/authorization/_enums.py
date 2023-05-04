@@ -5,56 +5,16 @@
 from enum import Enum
 
 __all__ = [
-    'AccessReviewRecurrencePatternType',
-    'AccessReviewRecurrenceRangeType',
-    'AccessReviewResult',
-    'DefaultDecisionType',
     'EnforcementMode',
-    'ExemptionCategory',
     'LockLevel',
+    'OverrideKind',
     'ParameterType',
     'PolicyType',
     'PrincipalType',
     'PublicNetworkAccessOptions',
     'ResourceIdentityType',
+    'SelectorKind',
 ]
-
-
-class AccessReviewRecurrencePatternType(str, Enum):
-    """
-    The recurrence type : weekly, monthly, etc.
-    """
-    WEEKLY = "weekly"
-    ABSOLUTE_MONTHLY = "absoluteMonthly"
-
-
-class AccessReviewRecurrenceRangeType(str, Enum):
-    """
-    The recurrence range type. The possible values are: endDate, noEnd, numbered.
-    """
-    END_DATE = "endDate"
-    NO_END = "noEnd"
-    NUMBERED = "numbered"
-
-
-class AccessReviewResult(str, Enum):
-    """
-    Represents a reviewer's decision for a given review
-    """
-    APPROVE = "Approve"
-    DENY = "Deny"
-    NOT_REVIEWED = "NotReviewed"
-    DONT_KNOW = "DontKnow"
-    NOT_NOTIFIED = "NotNotified"
-
-
-class DefaultDecisionType(str, Enum):
-    """
-    This specifies the behavior for the autoReview feature when an access review completes.
-    """
-    APPROVE = "Approve"
-    DENY = "Deny"
-    RECOMMENDATION = "Recommendation"
 
 
 class EnforcementMode(str, Enum):
@@ -71,20 +31,6 @@ class EnforcementMode(str, Enum):
     """
 
 
-class ExemptionCategory(str, Enum):
-    """
-    The policy exemption category. Possible values are Waiver and Mitigated.
-    """
-    WAIVER = "Waiver"
-    """
-    This category of exemptions usually means the scope is not applicable for the policy.
-    """
-    MITIGATED = "Mitigated"
-    """
-    This category of exemptions usually means the mitigation actions have been applied to the scope.
-    """
-
-
 class LockLevel(str, Enum):
     """
     The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -92,6 +38,16 @@ class LockLevel(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     CAN_NOT_DELETE = "CanNotDelete"
     READ_ONLY = "ReadOnly"
+
+
+class OverrideKind(str, Enum):
+    """
+    The override kind.
+    """
+    POLICY_EFFECT = "policyEffect"
+    """
+    It will override the policy effect type.
+    """
 
 
 class ParameterType(str, Enum):
@@ -135,13 +91,39 @@ class PublicNetworkAccessOptions(str, Enum):
 
 class ResourceIdentityType(str, Enum):
     """
-    The identity type. This is the only required field when adding a system assigned identity to a resource.
+    The identity type. This is the only required field when adding a system or user assigned identity to a resource.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    Indicates that a system assigned identity is associated with the resource.
+    """
+    USER_ASSIGNED = "UserAssigned"
     """
     Indicates that a system assigned identity is associated with the resource.
     """
     NONE = "None"
     """
     Indicates that no identity is associated with the resource or that the existing identity should be removed.
+    """
+
+
+class SelectorKind(str, Enum):
+    """
+    The selector kind.
+    """
+    RESOURCE_LOCATION = "resourceLocation"
+    """
+    The selector kind to filter policies by the resource location.
+    """
+    RESOURCE_TYPE = "resourceType"
+    """
+    The selector kind to filter policies by the resource type.
+    """
+    RESOURCE_WITHOUT_LOCATION = "resourceWithoutLocation"
+    """
+    The selector kind to filter policies by the resource without location.
+    """
+    POLICY_DEFINITION_REFERENCE_ID = "policyDefinitionReferenceId"
+    """
+    The selector kind to filter policies by the policy definition reference ID.
     """

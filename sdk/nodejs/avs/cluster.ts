@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A cluster resource
- * API Version: 2020-03-20.
+ * API Version: 2022-05-01.
+ * Previous API Version: 2020-03-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -45,11 +46,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The cluster size
      */
-    public readonly clusterSize!: pulumi.Output<number>;
+    public readonly clusterSize!: pulumi.Output<number | undefined>;
     /**
      * The hosts
      */
-    public /*out*/ readonly hosts!: pulumi.Output<string[]>;
+    public readonly hosts!: pulumi.Output<string[] | undefined>;
     /**
      * Resource name.
      */
@@ -78,9 +79,6 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterSize === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterSize'");
-            }
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -92,11 +90,11 @@ export class Cluster extends pulumi.CustomResource {
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusterSize"] = args ? args.clusterSize : undefined;
+            resourceInputs["hosts"] = args ? args.hosts : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["clusterId"] = undefined /*out*/;
-            resourceInputs["hosts"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -127,7 +125,11 @@ export interface ClusterArgs {
     /**
      * The cluster size
      */
-    clusterSize: pulumi.Input<number>;
+    clusterSize?: pulumi.Input<number>;
+    /**
+     * The hosts
+     */
+    hosts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the private cloud.
      */

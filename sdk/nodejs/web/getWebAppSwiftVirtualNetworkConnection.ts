@@ -2,14 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a Swift Virtual Network connection.
- * API Version: 2020-10-01.
+ * Description for Gets a Swift Virtual Network connection.
+ * API Version: 2022-09-01.
  */
 export function getWebAppSwiftVirtualNetworkConnection(args: GetWebAppSwiftVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionResult> {
 
@@ -56,17 +53,13 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
      */
     readonly swiftSupported?: boolean;
     /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
-    /**
      * Resource type.
      */
     readonly type: string;
 }
 /**
- * Gets a Swift Virtual Network connection.
- * API Version: 2020-10-01.
+ * Description for Gets a Swift Virtual Network connection.
+ * API Version: 2022-09-01.
  */
 export function getWebAppSwiftVirtualNetworkConnectionOutput(args: GetWebAppSwiftVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSwiftVirtualNetworkConnection(a, opts))

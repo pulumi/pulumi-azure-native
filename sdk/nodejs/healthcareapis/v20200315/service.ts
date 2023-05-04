@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
- *
- * @deprecated Version 2020-03-15 will be removed in v2 of the provider.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Service extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Service {
-        pulumi.log.warn("Service is deprecated: Version 2020-03-15 will be removed in v2 of the provider.")
         return new Service(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-03-15 will be removed in v2 of the provider. */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Service is deprecated: Version 2020-03-15 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -113,7 +108,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:Service" }, { type: "azure-native:healthcareapis/v20180820preview:Service" }, { type: "azure-native:healthcareapis/v20190916:Service" }, { type: "azure-native:healthcareapis/v20200330:Service" }, { type: "azure-native:healthcareapis/v20210111:Service" }, { type: "azure-native:healthcareapis/v20210601preview:Service" }, { type: "azure-native:healthcareapis/v20211101:Service" }, { type: "azure-native:healthcareapis/v20220131preview:Service" }, { type: "azure-native:healthcareapis/v20220515:Service" }, { type: "azure-native:healthcareapis/v20220601:Service" }, { type: "azure-native:healthcareapis/v20221001preview:Service" }, { type: "azure-native:healthcareapis/v20221201:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:Service" }, { type: "azure-native:healthcareapis/v20180820preview:Service" }, { type: "azure-native:healthcareapis/v20190916:Service" }, { type: "azure-native:healthcareapis/v20200330:Service" }, { type: "azure-native:healthcareapis/v20210111:Service" }, { type: "azure-native:healthcareapis/v20210601preview:Service" }, { type: "azure-native:healthcareapis/v20211101:Service" }, { type: "azure-native:healthcareapis/v20220131preview:Service" }, { type: "azure-native:healthcareapis/v20220515:Service" }, { type: "azure-native:healthcareapis/v20220601:Service" }, { type: "azure-native:healthcareapis/v20221001preview:Service" }, { type: "azure-native:healthcareapis/v20221201:Service" }, { type: "azure-native:healthcareapis/v20230228:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

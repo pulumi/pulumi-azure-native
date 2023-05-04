@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a snapshot
  */
-/** @deprecated Version 2017-08-15 will be removed in v2 of the provider. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    pulumi.log.warn("getSnapshot is deprecated: Version 2017-08-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20170815:getSnapshot", {
@@ -84,7 +82,6 @@ export interface GetSnapshotResult {
 /**
  * Get a snapshot
  */
-/** @deprecated Version 2017-08-15 will be removed in v2 of the provider. */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }

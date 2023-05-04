@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about a proximity placement group .
  */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
-    pulumi.log.warn("getProximityPlacementGroup is deprecated: Version 2019-03-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20190301:getProximityPlacementGroup", {
@@ -76,7 +74,6 @@ export interface GetProximityPlacementGroupResult {
 /**
  * Retrieves information about a proximity placement group .
  */
-/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
     return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))
 }

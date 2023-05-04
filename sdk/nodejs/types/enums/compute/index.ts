@@ -3,36 +3,25 @@
 
 // Export sub-modules:
 import * as v20150615 from "./v20150615";
-import * as v20160330 from "./v20160330";
 import * as v20160430preview from "./v20160430preview";
 import * as v20170330 from "./v20170330";
 import * as v20171201 from "./v20171201";
 import * as v20180401 from "./v20180401";
 import * as v20180601 from "./v20180601";
-import * as v20180930 from "./v20180930";
 import * as v20181001 from "./v20181001";
 import * as v20190301 from "./v20190301";
 import * as v20190701 from "./v20190701";
-import * as v20191101 from "./v20191101";
 import * as v20191201 from "./v20191201";
-import * as v20200501 from "./v20200501";
 import * as v20200601 from "./v20200601";
 import * as v20200630 from "./v20200630";
 import * as v20200930 from "./v20200930";
-import * as v20201001preview from "./v20201001preview";
 import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
 import * as v20210401 from "./v20210401";
 import * as v20210701 from "./v20210701";
-import * as v20210801 from "./v20210801";
-import * as v20211001 from "./v20211001";
 import * as v20211101 from "./v20211101";
-import * as v20211201 from "./v20211201";
-import * as v20220103 from "./v20220103";
 import * as v20220301 from "./v20220301";
-import * as v20220302 from "./v20220302";
 import * as v20220303 from "./v20220303";
-import * as v20220404 from "./v20220404";
 import * as v20220702 from "./v20220702";
 import * as v20220801 from "./v20220801";
 import * as v20220904 from "./v20220904";
@@ -41,42 +30,41 @@ import * as v20230301 from "./v20230301";
 
 export {
     v20150615,
-    v20160330,
     v20160430preview,
     v20170330,
     v20171201,
     v20180401,
     v20180601,
-    v20180930,
     v20181001,
     v20190301,
     v20190701,
-    v20191101,
     v20191201,
-    v20200501,
     v20200601,
     v20200630,
     v20200930,
-    v20201001preview,
     v20201201,
     v20210301,
     v20210401,
     v20210701,
-    v20210801,
-    v20211001,
     v20211101,
-    v20211201,
-    v20220103,
     v20220301,
-    v20220302,
     v20220303,
-    v20220404,
     v20220702,
     v20220801,
     v20220904,
     v20221101,
     v20230301,
 };
+
+export const Architecture = {
+    X64: "x64",
+    Arm64: "Arm64",
+} as const;
+
+/**
+ * CPU architecture supported by an OS disk.
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 export const CachingTypes = {
     None: "None",
@@ -88,6 +76,18 @@ export const CachingTypes = {
  * Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
  */
 export type CachingTypes = (typeof CachingTypes)[keyof typeof CachingTypes];
+
+export const CloudServiceSlotType = {
+    Production: "Production",
+    Staging: "Staging",
+} as const;
+
+/**
+ * Slot type for the cloud service.
+ * Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
+ * If not specified, the default value is Production.
+ */
+export type CloudServiceSlotType = (typeof CloudServiceSlotType)[keyof typeof CloudServiceSlotType];
 
 export const CloudServiceUpgradeMode = {
     Auto: "Auto",
@@ -110,6 +110,56 @@ export const ComponentNames = {
  * The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
  */
 export type ComponentNames = (typeof ComponentNames)[keyof typeof ComponentNames];
+
+export const ConfidentialVMEncryptionType = {
+    EncryptedVMGuestStateOnlyWithPmk: "EncryptedVMGuestStateOnlyWithPmk",
+    EncryptedWithPmk: "EncryptedWithPmk",
+    EncryptedWithCmk: "EncryptedWithCmk",
+} as const;
+
+/**
+ * confidential VM encryption types
+ */
+export type ConfidentialVMEncryptionType = (typeof ConfidentialVMEncryptionType)[keyof typeof ConfidentialVMEncryptionType];
+
+export const ConsistencyModeTypes = {
+    CrashConsistent: "CrashConsistent",
+    FileSystemConsistent: "FileSystemConsistent",
+    ApplicationConsistent: "ApplicationConsistent",
+} as const;
+
+/**
+ * ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
+ */
+export type ConsistencyModeTypes = (typeof ConsistencyModeTypes)[keyof typeof ConsistencyModeTypes];
+
+export const CopyCompletionErrorReason = {
+    /**
+     * Indicates that the source snapshot was deleted while the background copy of the resource created via CopyStart operation was in progress.
+     */
+    CopySourceNotFound: "CopySourceNotFound",
+} as const;
+
+/**
+ * Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
+ */
+export type CopyCompletionErrorReason = (typeof CopyCompletionErrorReason)[keyof typeof CopyCompletionErrorReason];
+
+export const DataAccessAuthMode = {
+    /**
+     * When export/upload URL is used, the system checks if the user has an identity in Azure Active Directory and has necessary permissions to export/upload the data. Please refer to aka.ms/DisksAzureADAuth.
+     */
+    AzureActiveDirectory: "AzureActiveDirectory",
+    /**
+     * No additional authentication would be performed when accessing export/upload URL.
+     */
+    None: "None",
+} as const;
+
+/**
+ * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+ */
+export type DataAccessAuthMode = (typeof DataAccessAuthMode)[keyof typeof DataAccessAuthMode];
 
 export const DedicatedHostLicenseTypes = {
     None: "None",
@@ -151,6 +201,16 @@ export const DiffDiskPlacement = {
  */
 export type DiffDiskPlacement = (typeof DiffDiskPlacement)[keyof typeof DiffDiskPlacement];
 
+export const DiskControllerTypes = {
+    SCSI: "SCSI",
+    NVMe: "NVMe",
+} as const;
+
+/**
+ * Specifies the disk controller type configured for the VM. <br><br>NOTE: This property will be set to the default disk controller type if not specified provided virtual machine is being created as a hyperVGeneration: V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. <br>You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. <br><br> Minimum api-version: 2022-08-01
+ */
+export type DiskControllerTypes = (typeof DiskControllerTypes)[keyof typeof DiskControllerTypes];
+
 export const DiskCreateOption = {
     /**
      * Create an empty data disk of a size given by diskSizeGB.
@@ -180,6 +240,18 @@ export const DiskCreateOption = {
      * Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
      */
     Upload: "Upload",
+    /**
+     * Create a new disk by using a deep copy process, where the resource creation is considered complete only after all data has been copied from the source.
+     */
+    CopyStart: "CopyStart",
+    /**
+     * Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+     */
+    ImportSecure: "ImportSecure",
+    /**
+     * Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+     */
+    UploadPreparedSecure: "UploadPreparedSecure",
 } as const;
 
 /**
@@ -219,6 +291,8 @@ export type DiskDetachOptionTypes = (typeof DiskDetachOptionTypes)[keyof typeof 
 
 export const DiskEncryptionSetIdentityType = {
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
     None: "None",
 } as const;
 
@@ -236,6 +310,10 @@ export const DiskEncryptionSetType = {
      * Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
      */
     EncryptionAtRestWithPlatformAndCustomerKeys: "EncryptionAtRestWithPlatformAndCustomerKeys",
+    /**
+     * Confidential VM supported disk and VM guest state would be encrypted with customer managed key.
+     */
+    ConfidentialVmEncryptedWithCustomerKey: "ConfidentialVmEncryptedWithCustomerKey",
 } as const;
 
 /**
@@ -248,6 +326,18 @@ export const DiskSecurityTypes = {
      * Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
      */
     TrustedLaunch: "TrustedLaunch",
+    /**
+     * Indicates Confidential VM disk with only VM guest state encrypted
+     */
+    ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey: "ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey",
+    /**
+     * Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a platform managed key
+     */
+    ConfidentialVM_DiskEncryptedWithPlatformKey: "ConfidentialVM_DiskEncryptedWithPlatformKey",
+    /**
+     * Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a customer managed key
+     */
+    ConfidentialVM_DiskEncryptedWithCustomerKey: "ConfidentialVM_DiskEncryptedWithCustomerKey",
 } as const;
 
 /**
@@ -280,6 +370,10 @@ export const DiskStorageAccountTypes = {
      * Standard SSD zone redundant storage. Best for web servers, lightly used enterprise applications and dev/test that need storage resiliency against zone failures.
      */
     StandardSSD_ZRS: "StandardSSD_ZRS",
+    /**
+     * Premium SSD v2 locally redundant storage. Best for production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput.
+     */
+    PremiumV2_LRS: "PremiumV2_LRS",
 } as const;
 
 /**
@@ -316,13 +410,35 @@ export const ExtendedLocationTypes = {
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
-export const GallerySharingPermissionTypes = {
-    Private: "Private",
-    Groups: "Groups",
+export const GalleryApplicationCustomActionParameterType = {
+    String: "String",
+    ConfigurationDataBlob: "ConfigurationDataBlob",
+    LogOutputBlob: "LogOutputBlob",
 } as const;
 
 /**
- * This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+ * Specifies the type of the custom action parameter. Possible values are: String, ConfigurationDataBlob or LogOutputBlob
+ */
+export type GalleryApplicationCustomActionParameterType = (typeof GalleryApplicationCustomActionParameterType)[keyof typeof GalleryApplicationCustomActionParameterType];
+
+export const GalleryExtendedLocationType = {
+    EdgeZone: "EdgeZone",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * It is type of the extended location.
+ */
+export type GalleryExtendedLocationType = (typeof GalleryExtendedLocationType)[keyof typeof GalleryExtendedLocationType];
+
+export const GallerySharingPermissionTypes = {
+    Private: "Private",
+    Groups: "Groups",
+    Community: "Community",
+} as const;
+
+/**
+ * This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups** <br><br> **Community**
  */
 export type GallerySharingPermissionTypes = (typeof GallerySharingPermissionTypes)[keyof typeof GallerySharingPermissionTypes];
 
@@ -399,6 +515,18 @@ export const LinuxPatchAssessmentMode = {
  */
 export type LinuxPatchAssessmentMode = (typeof LinuxPatchAssessmentMode)[keyof typeof LinuxPatchAssessmentMode];
 
+export const LinuxVMGuestPatchAutomaticByPlatformRebootSetting = {
+    Unknown: "Unknown",
+    IfRequired: "IfRequired",
+    Never: "Never",
+    Always: "Always",
+} as const;
+
+/**
+ * Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+ */
+export type LinuxVMGuestPatchAutomaticByPlatformRebootSetting = (typeof LinuxVMGuestPatchAutomaticByPlatformRebootSetting)[keyof typeof LinuxVMGuestPatchAutomaticByPlatformRebootSetting];
+
 export const LinuxVMGuestPatchMode = {
     ImageDefault: "ImageDefault",
     AutomaticByPlatform: "AutomaticByPlatform",
@@ -450,7 +578,7 @@ export const OperatingSystemStateTypes = {
 } as const;
 
 /**
- * The OS State.
+ * The OS State. For managed images, use Generalized.
  */
 export type OperatingSystemStateTypes = (typeof OperatingSystemStateTypes)[keyof typeof OperatingSystemStateTypes];
 
@@ -544,6 +672,43 @@ export const PublicIPAllocationMethod = {
  */
 export type PublicIPAllocationMethod = (typeof PublicIPAllocationMethod)[keyof typeof PublicIPAllocationMethod];
 
+export const PublicNetworkAccess = {
+    /**
+     * You can generate a SAS URI to access the underlying data of the disk publicly on the internet when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+     */
+    Enabled: "Enabled",
+    /**
+     * You cannot access the underlying data of the disk publicly on the internet even when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Policy for controlling export on the disk.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const RepairAction = {
+    Replace: "Replace",
+    Restart: "Restart",
+    Reimage: "Reimage",
+} as const;
+
+/**
+ * Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+ */
+export type RepairAction = (typeof RepairAction)[keyof typeof RepairAction];
+
+export const ReplicationMode = {
+    Full: "Full",
+    Shallow: "Shallow",
+} as const;
+
+/**
+ * Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+ */
+export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -552,16 +717,27 @@ export const ResourceIdentityType = {
 } as const;
 
 /**
- * The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
+ * The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
-export const SecurityTypes = {
-    TrustedLaunch: "TrustedLaunch",
+export const SecurityEncryptionTypes = {
+    VMGuestStateOnly: "VMGuestStateOnly",
+    DiskWithVMGuestState: "DiskWithVMGuestState",
 } as const;
 
 /**
- * Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+ * Specifies the EncryptionType of the managed disk. <br> It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. <br><br> NOTE: It can be set for only Confidential VMs.
+ */
+export type SecurityEncryptionTypes = (typeof SecurityEncryptionTypes)[keyof typeof SecurityEncryptionTypes];
+
+export const SecurityTypes = {
+    TrustedLaunch: "TrustedLaunch",
+    ConfidentialVM: "ConfidentialVM",
+} as const;
+
+/**
+ * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set.
  */
 export type SecurityTypes = (typeof SecurityTypes)[keyof typeof SecurityTypes];
 
@@ -624,10 +800,11 @@ export const StorageAccountTypes = {
     UltraSSD_LRS: "UltraSSD_LRS",
     Premium_ZRS: "Premium_ZRS",
     StandardSSD_ZRS: "StandardSSD_ZRS",
+    PremiumV2_LRS: "PremiumV2_LRS",
 } as const;
 
 /**
- * Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+ * Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
  */
 export type StorageAccountTypes = (typeof StorageAccountTypes)[keyof typeof StorageAccountTypes];
 
@@ -854,6 +1031,18 @@ export const WindowsPatchAssessmentMode = {
  * Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
  */
 export type WindowsPatchAssessmentMode = (typeof WindowsPatchAssessmentMode)[keyof typeof WindowsPatchAssessmentMode];
+
+export const WindowsVMGuestPatchAutomaticByPlatformRebootSetting = {
+    Unknown: "Unknown",
+    IfRequired: "IfRequired",
+    Never: "Never",
+    Always: "Always",
+} as const;
+
+/**
+ * Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+ */
+export type WindowsVMGuestPatchAutomaticByPlatformRebootSetting = (typeof WindowsVMGuestPatchAutomaticByPlatformRebootSetting)[keyof typeof WindowsVMGuestPatchAutomaticByPlatformRebootSetting];
 
 export const WindowsVMGuestPatchMode = {
     Manual: "Manual",

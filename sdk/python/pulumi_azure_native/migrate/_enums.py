@@ -17,9 +17,9 @@ __all__ = [
     'Currency',
     'Percentile',
     'ProjectStatus',
-    'ProvisioningState',
     'ReservedInstance',
     'ResourceIdentityType',
+    'Status',
     'TargetAvailabilityZone',
     'TimeRange',
     'ZoneRedundant',
@@ -249,18 +249,6 @@ class ProjectStatus(str, Enum):
     INACTIVE = "Inactive"
 
 
-class ProvisioningState(str, Enum):
-    """
-    Provisioning state of the migrate project.
-    """
-    ACCEPTED = "Accepted"
-    CREATING = "Creating"
-    DELETING = "Deleting"
-    FAILED = "Failed"
-    MOVING = "Moving"
-    SUCCEEDED = "Succeeded"
-
-
 class ReservedInstance(str, Enum):
     """
     Azure reserved instance.
@@ -277,6 +265,16 @@ class ResourceIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+
+
+class Status(str, Enum):
+    """
+    Private link connection state.
+    """
+    APPROVED = "Approved"
+    PENDING = "Pending"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"
 
 
 class TargetAvailabilityZone(str, Enum):

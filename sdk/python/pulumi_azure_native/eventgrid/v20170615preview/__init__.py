@@ -9,8 +9,6 @@ from ._enums import *
 from .event_subscription import *
 from .get_event_subscription import *
 from .get_event_subscription_full_url import *
-from .get_topic import *
 from .list_topic_shared_access_keys import *
-from .topic import *
 from ._inputs import *
 from . import outputs

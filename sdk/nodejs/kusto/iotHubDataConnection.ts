@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an iot hub data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class IotHubDataConnection extends pulumi.CustomResource {
     /**
@@ -47,6 +48,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    public readonly databaseRouting!: pulumi.Output<string | undefined>;
+    /**
      * System properties of the iot hub
      */
     public readonly eventSystemProperties!: pulumi.Output<string[] | undefined>;
@@ -75,6 +80,10 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      * The provisioned state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+     */
+    public readonly retrievalStartDate!: pulumi.Output<string | undefined>;
     /**
      * The name of the share access policy
      */
@@ -125,12 +134,14 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseRouting"] = (args ? args.databaseRouting : undefined) ?? "Single";
             resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             resourceInputs["iotHubResourceId"] = args ? args.iotHubResourceId : undefined;
             resourceInputs["kind"] = "IotHub";
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retrievalStartDate"] = args ? args.retrievalStartDate : undefined;
             resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -139,6 +150,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
         } else {
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
+            resourceInputs["databaseRouting"] = undefined /*out*/;
             resourceInputs["eventSystemProperties"] = undefined /*out*/;
             resourceInputs["iotHubResourceId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -146,6 +158,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["mappingRuleName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["retrievalStartDate"] = undefined /*out*/;
             resourceInputs["sharedAccessPolicyName"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -182,6 +195,10 @@ export interface IotHubDataConnectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting>;
+    /**
      * System properties of the iot hub
      */
     eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
@@ -206,6 +223,10 @@ export interface IotHubDataConnectionArgs {
      * The name of the resource group containing the Kusto cluster.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+     */
+    retrievalStartDate?: pulumi.Input<string>;
     /**
      * The name of the share access policy
      */

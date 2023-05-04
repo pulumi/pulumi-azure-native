@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20160901
     /// <summary>
     /// A common class for general resource information
     /// </summary>
-    [Obsolete(@"Version 2016-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20160901:LocalNetworkGateway")]
     public partial class LocalNetworkGateway : global::Pulumi.CustomResource
     {
@@ -144,6 +143,7 @@ namespace Pulumi.AzureNative.Network.V20160901
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:LocalNetworkGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:LocalNetworkGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:LocalNetworkGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:LocalNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

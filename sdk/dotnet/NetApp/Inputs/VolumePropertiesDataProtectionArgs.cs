@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         [Input("snapshot")]
         public Input<Inputs.VolumeSnapshotPropertiesArgs>? Snapshot { get; set; }
 
+        /// <summary>
+        /// VolumeRelocation properties
+        /// </summary>
+        [Input("volumeRelocation")]
+        public Input<Inputs.VolumeRelocationPropertiesArgs>? VolumeRelocation { get; set; }
+
         public VolumePropertiesDataProtectionArgs()
         {
         }

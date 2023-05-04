@@ -25,8 +25,11 @@ class EventGridDataConnectionArgs:
                  blob_storage_event_type: Optional[pulumi.Input[Union[str, 'BlobStorageEventType']]] = None,
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'EventGridDataFormat']]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
+                 event_grid_resource_id: Optional[pulumi.Input[str]] = None,
                  ignore_first_record: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
@@ -42,8 +45,11 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[Union[str, 'BlobStorageEventType']] blob_storage_event_type: The name of blob storage event type to process.
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'EventGridDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
+        :param pulumi.Input[Union[str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
+        :param pulumi.Input[str] event_grid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[bool] ignore_first_record: A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
@@ -60,10 +66,18 @@ class EventGridDataConnectionArgs:
             pulumi.set(__self__, "data_connection_name", data_connection_name)
         if data_format is not None:
             pulumi.set(__self__, "data_format", data_format)
+        if database_routing is None:
+            database_routing = 'Single'
+        if database_routing is not None:
+            pulumi.set(__self__, "database_routing", database_routing)
+        if event_grid_resource_id is not None:
+            pulumi.set(__self__, "event_grid_resource_id", event_grid_resource_id)
         if ignore_first_record is not None:
             pulumi.set(__self__, "ignore_first_record", ignore_first_record)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_identity_resource_id is not None:
+            pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
             pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
         if table_name is not None:
@@ -191,6 +205,30 @@ class EventGridDataConnectionArgs:
         pulumi.set(self, "data_format", value)
 
     @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> Optional[pulumi.Input[Union[str, 'DatabaseRouting']]]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
+
+    @database_routing.setter
+    def database_routing(self, value: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]]):
+        pulumi.set(self, "database_routing", value)
+
+    @property
+    @pulumi.getter(name="eventGridResourceId")
+    def event_grid_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the event grid that is subscribed to the storage account events.
+        """
+        return pulumi.get(self, "event_grid_resource_id")
+
+    @event_grid_resource_id.setter
+    def event_grid_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_grid_resource_id", value)
+
+    @property
     @pulumi.getter(name="ignoreFirstRecord")
     def ignore_first_record(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -213,6 +251,18 @@ class EventGridDataConnectionArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedIdentityResourceId")
+    def managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+        """
+        return pulumi.get(self, "managed_identity_resource_id")
+
+    @managed_identity_resource_id.setter
+    def managed_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_identity_resource_id", value)
 
     @property
     @pulumi.getter(name="mappingRuleName")
@@ -250,10 +300,13 @@ class EventGridDataConnection(pulumi.CustomResource):
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'EventGridDataFormat']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
+                 event_grid_resource_id: Optional[pulumi.Input[str]] = None,
                  event_hub_resource_id: Optional[pulumi.Input[str]] = None,
                  ignore_first_record: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_id: Optional[pulumi.Input[str]] = None,
@@ -261,7 +314,8 @@ class EventGridDataConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an Event Grid data connection.
-        API Version: 2021-01-01.
+        API Version: 2022-12-29.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,11 +325,14 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'EventGridDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
+        :param pulumi.Input[Union[str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
+        :param pulumi.Input[str] event_grid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[str] event_hub_resource_id: The resource ID where the event grid is configured to send events.
         :param pulumi.Input[bool] ignore_first_record: A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
         :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
                Expected value is 'EventGrid'.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[str] storage_account_resource_id: The resource ID of the storage account where the data resides.
@@ -289,7 +346,8 @@ class EventGridDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an Event Grid data connection.
-        API Version: 2021-01-01.
+        API Version: 2022-12-29.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param EventGridDataConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -312,10 +370,13 @@ class EventGridDataConnection(pulumi.CustomResource):
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'EventGridDataFormat']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
+                 event_grid_resource_id: Optional[pulumi.Input[str]] = None,
                  event_hub_resource_id: Optional[pulumi.Input[str]] = None,
                  ignore_first_record: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_id: Optional[pulumi.Input[str]] = None,
@@ -341,6 +402,10 @@ class EventGridDataConnection(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            if database_routing is None:
+                database_routing = 'Single'
+            __props__.__dict__["database_routing"] = database_routing
+            __props__.__dict__["event_grid_resource_id"] = event_grid_resource_id
             if event_hub_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_resource_id'")
             __props__.__dict__["event_hub_resource_id"] = event_hub_resource_id
@@ -349,6 +414,7 @@ class EventGridDataConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'EventGrid'
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_identity_resource_id"] = managed_identity_resource_id
             __props__.__dict__["mapping_rule_name"] = mapping_rule_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -357,6 +423,7 @@ class EventGridDataConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_resource_id'")
             __props__.__dict__["storage_account_resource_id"] = storage_account_resource_id
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["managed_identity_object_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -387,10 +454,14 @@ class EventGridDataConnection(pulumi.CustomResource):
         __props__.__dict__["blob_storage_event_type"] = None
         __props__.__dict__["consumer_group"] = None
         __props__.__dict__["data_format"] = None
+        __props__.__dict__["database_routing"] = None
+        __props__.__dict__["event_grid_resource_id"] = None
         __props__.__dict__["event_hub_resource_id"] = None
         __props__.__dict__["ignore_first_record"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_identity_object_id"] = None
+        __props__.__dict__["managed_identity_resource_id"] = None
         __props__.__dict__["mapping_rule_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -424,6 +495,22 @@ class EventGridDataConnection(pulumi.CustomResource):
         return pulumi.get(self, "data_format")
 
     @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
+
+    @property
+    @pulumi.getter(name="eventGridResourceId")
+    def event_grid_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource ID of the event grid that is subscribed to the storage account events.
+        """
+        return pulumi.get(self, "event_grid_resource_id")
+
+    @property
     @pulumi.getter(name="eventHubResourceId")
     def event_hub_resource_id(self) -> pulumi.Output[str]:
         """
@@ -455,6 +542,22 @@ class EventGridDataConnection(pulumi.CustomResource):
         Resource location.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedIdentityObjectId")
+    def managed_identity_object_id(self) -> pulumi.Output[str]:
+        """
+        The object ID of managedIdentityResourceId
+        """
+        return pulumi.get(self, "managed_identity_object_id")
+
+    @property
+    @pulumi.getter(name="managedIdentityResourceId")
+    def managed_identity_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+        """
+        return pulumi.get(self, "managed_identity_resource_id")
 
     @property
     @pulumi.getter(name="mappingRuleName")

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * App Service Plan Model
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getServerFarm(args: GetServerFarmArgs, opts?: pulumi.InvokeOptions): Promise<GetServerFarmResult> {
-    pulumi.log.warn("getServerFarm is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getServerFarm", {
@@ -113,7 +111,6 @@ export interface GetServerFarmResult {
 /**
  * App Service Plan Model
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getServerFarmOutput(args: GetServerFarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerFarmResult> {
     return pulumi.output(args).apply((a: any) => getServerFarm(a, opts))
 }

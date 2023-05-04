@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an App and its properties.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
 
@@ -66,13 +66,17 @@ export interface GetAppResult {
      */
     readonly properties: outputs.appplatform.AppResourcePropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Get an App and its properties.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
  */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply((a: any) => getApp(a, opts))

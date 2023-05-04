@@ -22,7 +22,6 @@ from .get_notification_channel import *
 from .get_policy import *
 from .get_schedule import *
 from .get_secret import *
-from .get_service_runner import *
 from .get_user import *
 from .get_virtual_machine import *
 from .get_virtual_machine_schedule import *
@@ -36,7 +35,6 @@ from .notification_channel import *
 from .policy import *
 from .schedule import *
 from .secret import *
-from .service_runner import *
 from .user import *
 from .virtual_machine import *
 from .virtual_machine_schedule import *

@@ -21,7 +21,7 @@ class NotificationRecipientUserArgs:
         """
         The set of arguments for constructing a NotificationRecipientUser resource.
         :param pulumi.Input[str] notification_name: Notification Name Identifier.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
@@ -47,7 +47,7 @@ class NotificationRecipientUserArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -92,12 +92,13 @@ class NotificationRecipientUser(pulumi.CustomResource):
                  __props__=None):
         """
         Recipient User details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] notification_name: Notification Name Identifier.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
@@ -109,7 +110,8 @@ class NotificationRecipientUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Recipient User details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param NotificationRecipientUserArgs args: The arguments to use to populate this resource's properties.
@@ -151,7 +153,7 @@ class NotificationRecipientUser(pulumi.CustomResource):
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:NotificationRecipientUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:NotificationRecipientUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationRecipientUser, __self__).__init__(
             'azure-native:apimanagement:NotificationRecipientUser',
@@ -184,7 +186,7 @@ class NotificationRecipientUser(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -192,7 +194,7 @@ class NotificationRecipientUser(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

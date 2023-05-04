@@ -22,7 +22,7 @@ class GetMoveResourceResult:
     """
     Defines the move resource.
     """
-    def __init__(__self__, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +32,9 @@ class GetMoveResourceResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -61,6 +64,14 @@ class GetMoveResourceResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -78,6 +89,7 @@ class AwaitableGetMoveResourceResult(GetMoveResourceResult):
             id=self.id,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -87,7 +99,7 @@ def get_move_resource(move_collection_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMoveResourceResult:
     """
     Gets the Move Resource.
-    API Version: 2021-01-01.
+    API Version: 2022-08-01.
 
 
     :param str move_collection_name: The Move Collection Name.
@@ -105,6 +117,7 @@ def get_move_resource(move_collection_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -115,7 +128,7 @@ def get_move_resource_output(move_collection_name: Optional[pulumi.Input[str]] =
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMoveResourceResult]:
     """
     Gets the Move Resource.
-    API Version: 2021-01-01.
+    API Version: 2022-08-01.
 
 
     :param str move_collection_name: The Move Collection Name.

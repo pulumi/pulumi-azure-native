@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
- *
- * @deprecated Version 2016-07-12-preview will be removed in v2 of the provider.
  */
 export class Suppression extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Suppression extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Suppression {
-        pulumi.log.warn("Suppression is deprecated: Version 2016-07-12-preview will be removed in v2 of the provider.")
         return new Suppression(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +66,7 @@ export class Suppression extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-07-12-preview will be removed in v2 of the provider. */
     constructor(name: string, args: SuppressionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Suppression is deprecated: Version 2016-07-12-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -98,7 +93,7 @@ export class Suppression extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:advisor:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }, { type: "azure-native:advisor/v20220901:Suppression" }, { type: "azure-native:advisor/v20221001:Suppression" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:advisor:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }, { type: "azure-native:advisor/v20220901:Suppression" }, { type: "azure-native:advisor/v20221001:Suppression" }, { type: "azure-native:advisor/v20230101:Suppression" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Suppression.__pulumiType, name, resourceInputs, opts);
     }

@@ -152,6 +152,11 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache:amlFilesystem"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:amlFilesystem"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a single firewall rule in a specified redis cache.
  */
-/** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
 export function getRedisFirewallRule(args: GetRedisFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisFirewallRuleResult> {
-    pulumi.log.warn("getRedisFirewallRule is deprecated: Version 2016-04-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20160401:getRedisFirewallRule", {
@@ -62,7 +60,6 @@ export interface GetRedisFirewallRuleResult {
 /**
  * Gets a single firewall rule in a specified redis cache.
  */
-/** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
 export function getRedisFirewallRuleOutput(args: GetRedisFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getRedisFirewallRule(a, opts))
 }

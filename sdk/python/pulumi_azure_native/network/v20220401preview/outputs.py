@@ -20,7 +20,6 @@ __all__ = [
     'AddressPrefixItemResponse',
     'ConfigurationGroupResponse',
     'ConnectivityGroupItemResponse',
-    'CrossTenantScopesResponse',
     'DnsConfigResponse',
     'EffectiveConnectivityConfigurationResponse',
     'EffectiveDefaultSecurityAdminRuleResponse',
@@ -34,7 +33,6 @@ __all__ = [
     'MonitorConfigResponseCustomHeaders',
     'MonitorConfigResponseExpectedStatusCodeRanges',
     'NetworkManagerDeploymentStatusResponse',
-    'NetworkManagerPropertiesResponseNetworkManagerScopes',
     'NetworkManagerSecurityGroupItemResponse',
     'SystemDataResponse',
 ]
@@ -1157,29 +1155,6 @@ class ConnectivityGroupItemResponse(dict):
     """
     Connectivity group item.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupConnectivity":
-            suggest = "group_connectivity"
-        elif key == "networkGroupId":
-            suggest = "network_group_id"
-        elif key == "isGlobal":
-            suggest = "is_global"
-        elif key == "useHubGateway":
-            suggest = "use_hub_gateway"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectivityGroupItemResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectivityGroupItemResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectivityGroupItemResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  group_connectivity: str,
                  network_group_id: str,
@@ -1230,69 +1205,6 @@ class ConnectivityGroupItemResponse(dict):
         Flag if need to use hub gateway.
         """
         return pulumi.get(self, "use_hub_gateway")
-
-
-@pulumi.output_type
-class CrossTenantScopesResponse(dict):
-    """
-    Cross tenant scopes.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "managementGroups":
-            suggest = "management_groups"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CrossTenantScopesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CrossTenantScopesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CrossTenantScopesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 management_groups: Sequence[str],
-                 subscriptions: Sequence[str],
-                 tenant_id: str):
-        """
-        Cross tenant scopes.
-        :param Sequence[str] management_groups: List of management groups.
-        :param Sequence[str] subscriptions: List of subscriptions.
-        :param str tenant_id: Tenant ID.
-        """
-        pulumi.set(__self__, "management_groups", management_groups)
-        pulumi.set(__self__, "subscriptions", subscriptions)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Sequence[str]:
-        """
-        List of management groups.
-        """
-        return pulumi.get(self, "management_groups")
-
-    @property
-    @pulumi.getter
-    def subscriptions(self) -> Sequence[str]:
-        """
-        List of subscriptions.
-        """
-        return pulumi.get(self, "subscriptions")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        Tenant ID.
-        """
-        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -2263,25 +2175,6 @@ class HubResponse(dict):
     """
     Hub Item.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceId":
-            suggest = "resource_id"
-        elif key == "resourceType":
-            suggest = "resource_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HubResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HubResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HubResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  resource_id: Optional[str] = None,
                  resource_type: Optional[str] = None):
@@ -2609,71 +2502,6 @@ class NetworkManagerDeploymentStatusResponse(dict):
         Region Name.
         """
         return pulumi.get(self, "region")
-
-
-@pulumi.output_type
-class NetworkManagerPropertiesResponseNetworkManagerScopes(dict):
-    """
-    Scope of Network Manager.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "crossTenantScopes":
-            suggest = "cross_tenant_scopes"
-        elif key == "managementGroups":
-            suggest = "management_groups"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerPropertiesResponseNetworkManagerScopes. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkManagerPropertiesResponseNetworkManagerScopes.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkManagerPropertiesResponseNetworkManagerScopes.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cross_tenant_scopes: Sequence['outputs.CrossTenantScopesResponse'],
-                 management_groups: Optional[Sequence[str]] = None,
-                 subscriptions: Optional[Sequence[str]] = None):
-        """
-        Scope of Network Manager.
-        :param Sequence['CrossTenantScopesResponse'] cross_tenant_scopes: List of cross tenant scopes.
-        :param Sequence[str] management_groups: List of management groups.
-        :param Sequence[str] subscriptions: List of subscriptions.
-        """
-        pulumi.set(__self__, "cross_tenant_scopes", cross_tenant_scopes)
-        if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
-        if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
-
-    @property
-    @pulumi.getter(name="crossTenantScopes")
-    def cross_tenant_scopes(self) -> Sequence['outputs.CrossTenantScopesResponse']:
-        """
-        List of cross tenant scopes.
-        """
-        return pulumi.get(self, "cross_tenant_scopes")
-
-    @property
-    @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[Sequence[str]]:
-        """
-        List of management groups.
-        """
-        return pulumi.get(self, "management_groups")
-
-    @property
-    @pulumi.getter
-    def subscriptions(self) -> Optional[Sequence[str]]:
-        """
-        List of subscriptions.
-        """
-        return pulumi.get(self, "subscriptions")
 
 
 @pulumi.output_type

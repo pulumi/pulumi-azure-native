@@ -23,15 +23,6 @@ export const ExpressionEvaluationOptionsScopeType = {
  */
 export type ExpressionEvaluationOptionsScopeType = (typeof ExpressionEvaluationOptionsScopeType)[keyof typeof ExpressionEvaluationOptionsScopeType];
 
-export const ExtendedLocationType = {
-    EdgeZone: "EdgeZone",
-} as const;
-
-/**
- * The extended location type.
- */
-export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
-
 export const OnErrorDeploymentType = {
     LastSuccessful: "LastSuccessful",
     SpecificDeployment: "SpecificDeployment",
@@ -41,15 +32,3 @@ export const OnErrorDeploymentType = {
  * The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
  */
 export type OnErrorDeploymentType = (typeof OnErrorDeploymentType)[keyof typeof OnErrorDeploymentType];
-
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * The identity type.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

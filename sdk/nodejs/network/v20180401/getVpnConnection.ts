@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a vpn connection.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
-    pulumi.log.warn("getVpnConnection is deprecated: Version 2018-04-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180401:getVpnConnection", {
@@ -97,7 +95,6 @@ export interface GetVpnConnectionResult {
 /**
  * Retrieves the details of a vpn connection.
  */
-/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpnConnection(a, opts))
 }

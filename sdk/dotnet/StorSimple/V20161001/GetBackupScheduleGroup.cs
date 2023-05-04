@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
-    [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     public static class GetBackupScheduleGroup
     {
         /// <summary>

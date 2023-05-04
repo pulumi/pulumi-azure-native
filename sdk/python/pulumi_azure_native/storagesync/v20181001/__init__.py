@@ -7,12 +7,6 @@ import typing
 # Export this package's modules as members:
 from .cloud_endpoint import *
 from .get_cloud_endpoint import *
-from .get_registered_server import *
 from .get_server_endpoint import *
-from .get_storage_sync_service import *
-from .get_sync_group import *
-from .registered_server import *
 from .server_endpoint import *
-from .storage_sync_service import *
-from .sync_group import *
 from . import outputs

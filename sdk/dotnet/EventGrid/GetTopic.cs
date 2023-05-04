@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a topic.
-        /// API Version: 2020-06-01.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a topic.
-        /// API Version: 2020-06-01.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,14 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetTopicResult
     {
         /// <summary>
+        /// Data Residency Boundary of the resource.
+        /// </summary>
+        public readonly string? DataResidencyBoundary;
+        /// <summary>
+        /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
         /// Endpoint for the topic.
         /// </summary>
         public readonly string Endpoint;
@@ -79,6 +87,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// Fully qualified identifier of the resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Identity information for the resource.
+        /// </summary>
+        public readonly Outputs.IdentityInfoResponse? Identity;
         /// <summary>
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         /// </summary>
@@ -128,9 +140,15 @@ namespace Pulumi.AzureNative.EventGrid
 
         [OutputConstructor]
         private GetTopicResult(
+            string? dataResidencyBoundary,
+
+            bool? disableLocalAuth,
+
             string endpoint,
 
             string id,
+
+            Outputs.IdentityInfoResponse? identity,
 
             ImmutableArray<Outputs.InboundIpRuleResponse> inboundIpRules,
 
@@ -156,8 +174,11 @@ namespace Pulumi.AzureNative.EventGrid
 
             string type)
         {
+            DataResidencyBoundary = dataResidencyBoundary;
+            DisableLocalAuth = disableLocalAuth;
             Endpoint = endpoint;
             Id = id;
+            Identity = identity;
             InboundIpRules = inboundIpRules;
             InputSchema = inputSchema;
             InputSchemaMapping = inputSchemaMapping;

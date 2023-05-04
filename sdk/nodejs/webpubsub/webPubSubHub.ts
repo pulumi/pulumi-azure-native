@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A hub setting
- * API Version: 2021-10-01.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class WebPubSubHub extends pulumi.CustomResource {
     /**
@@ -89,7 +90,7 @@ export class WebPubSubHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20211001:WebPubSubHub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230201:WebPubSubHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20211001:WebPubSubHub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230201:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubHub.__pulumiType, name, resourceInputs, opts);
     }

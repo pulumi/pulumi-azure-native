@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a disk.
  */
-/** @deprecated Version 2018-06-01 will be removed in v2 of the provider. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    pulumi.log.warn("getDisk is deprecated: Version 2018-06-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20180601:getDisk", {
@@ -104,7 +102,6 @@ export interface GetDiskResult {
 /**
  * Gets information about a disk.
  */
-/** @deprecated Version 2018-06-01 will be removed in v2 of the provider. */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
     return pulumi.output(args).apply((a: any) => getDisk(a, opts))
 }

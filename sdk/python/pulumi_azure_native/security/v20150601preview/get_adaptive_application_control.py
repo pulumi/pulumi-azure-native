@@ -17,8 +17,6 @@ __all__ = [
     'get_adaptive_application_control_output',
 ]
 
-warnings.warn("""Version 2015-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetAdaptiveApplicationControlResult:
     def __init__(__self__, configuration_status=None, enforcement_mode=None, id=None, issues=None, location=None, name=None, path_recommendations=None, protection_mode=None, recommendation_status=None, source_system=None, type=None, vm_recommendations=None):
@@ -177,7 +175,6 @@ def get_adaptive_application_control(asc_location: Optional[str] = None,
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param str group_name: Name of an application control VM/server group
     """
-    pulumi.log.warn("""get_adaptive_application_control is deprecated: Version 2015-06-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['ascLocation'] = asc_location
     __args__['groupName'] = group_name
@@ -210,5 +207,4 @@ def get_adaptive_application_control_output(asc_location: Optional[pulumi.Input[
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param str group_name: Name of an application control VM/server group
     """
-    pulumi.log.warn("""get_adaptive_application_control is deprecated: Version 2015-06-01-preview will be removed in v2 of the provider.""")
     ...

@@ -24,15 +24,25 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// Event handler of a hub.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventHandlerResponse> EventHandlers;
+        /// <summary>
+        /// Event listener settings for forwarding your client events to listeners.
+        /// Event listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.
+        /// One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
+        /// Maximum count of event listeners among all hubs is 10.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventListenerResponse> EventListeners;
 
         [OutputConstructor]
         private WebPubSubHubPropertiesResponse(
             string? anonymousConnectPolicy,
 
-            ImmutableArray<Outputs.EventHandlerResponse> eventHandlers)
+            ImmutableArray<Outputs.EventHandlerResponse> eventHandlers,
+
+            ImmutableArray<Outputs.EventListenerResponse> eventListeners)
         {
             AnonymousConnectPolicy = anonymousConnectPolicy;
             EventHandlers = eventHandlers;
+            EventListeners = eventListeners;
         }
     }
 }

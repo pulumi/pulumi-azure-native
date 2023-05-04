@@ -62,10 +62,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateLinkScopedResource"},
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

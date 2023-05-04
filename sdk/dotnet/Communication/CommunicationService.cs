@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A class representing a CommunicationService resource.
-    /// API Version: 2020-08-20.
+    /// API Version: 2023-03-01-preview.
+    /// Previous API Version: 2020-08-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:CommunicationService")]
     public partial class CommunicationService : global::Pulumi.CustomResource
@@ -35,10 +36,16 @@ namespace Pulumi.AzureNative.Communication
         public Output<string> ImmutableResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure location where the CommunicationService is running.
+        /// List of email Domain resource Ids.
+        /// </summary>
+        [Output("linkedDomains")]
+        public Output<ImmutableArray<string>> LinkedDomains { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -59,13 +66,13 @@ namespace Pulumi.AzureNative.Communication
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -111,6 +118,7 @@ namespace Pulumi.AzureNative.Communication
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20200820preview:CommunicationService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:CommunicationService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:CommunicationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:CommunicationService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:CommunicationService"},
                 },
             };
@@ -147,8 +155,20 @@ namespace Pulumi.AzureNative.Communication
         [Input("dataLocation", required: true)]
         public Input<string> DataLocation { get; set; } = null!;
 
+        [Input("linkedDomains")]
+        private InputList<string>? _linkedDomains;
+
         /// <summary>
-        /// The Azure location where the CommunicationService is running.
+        /// List of email Domain resource Ids.
+        /// </summary>
+        public InputList<string> LinkedDomains
+        {
+            get => _linkedDomains ?? (_linkedDomains = new InputList<string>());
+            set => _linkedDomains = value;
+        }
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -163,7 +183,7 @@ namespace Pulumi.AzureNative.Communication
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

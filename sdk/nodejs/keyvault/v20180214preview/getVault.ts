@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Azure key vault.
  */
-/** @deprecated Version 2018-02-14-preview will be removed in v2 of the provider. */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
-    pulumi.log.warn("getVault is deprecated: Version 2018-02-14-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20180214preview:getVault", {
@@ -64,7 +62,6 @@ export interface GetVaultResult {
 /**
  * Gets the specified Azure key vault.
  */
-/** @deprecated Version 2018-02-14-preview will be removed in v2 of the provider. */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
     return pulumi.output(args).apply((a: any) => getVault(a, opts))
 }

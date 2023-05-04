@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
     /// </summary>
-    [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20190801:CassandraResourceCassandraTable")]
     public partial class CassandraResourceCassandraTable : global::Pulumi.CustomResource
     {
@@ -96,7 +95,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:CassandraResourceCassandraTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:CassandraResourceCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:CassandraResourceCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:CassandraResourceCassandraTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:CassandraResourceCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:CassandraResourceCassandraTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

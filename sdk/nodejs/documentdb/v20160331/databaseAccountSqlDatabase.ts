@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB SQL database.
- *
- * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountSqlDatabase {
-        pulumi.log.warn("DatabaseAccountSqlDatabase is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         return new DatabaseAccountSqlDatabase(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +81,7 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
     constructor(name: string, args: DatabaseAccountSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountSqlDatabase is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -128,7 +123,7 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
             resourceInputs["users"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountSqlDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20221115preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20230301preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20230415:DatabaseAccountSqlDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountSqlDatabase.__pulumiType, name, resourceInputs, opts);
     }

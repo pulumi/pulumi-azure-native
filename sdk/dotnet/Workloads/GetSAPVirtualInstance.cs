@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets a Virtual Instance for SAP solutions resource
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetSAPVirtualInstanceResult> InvokeAsync(GetSAPVirtualInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Virtual Instance for SAP solutions resource
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetSAPVirtualInstanceResult> Invoke(GetSAPVirtualInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceInvokeArgs(), options.WithDefaults());
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         /// </summary>
         public readonly Outputs.UserAssignedServiceIdentityResponse? Identity;
         /// <summary>

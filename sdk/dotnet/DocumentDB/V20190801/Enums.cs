@@ -70,36 +70,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
     }
 
     /// <summary>
-    /// The cassandra connector offer type for the Cosmos DB database C* account.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConnectorOffer : IEquatable<ConnectorOffer>
-    {
-        private readonly string _value;
-
-        private ConnectorOffer(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConnectorOffer Small { get; } = new ConnectorOffer("Small");
-
-        public static bool operator ==(ConnectorOffer left, ConnectorOffer right) => left.Equals(right);
-        public static bool operator !=(ConnectorOffer left, ConnectorOffer right) => !left.Equals(right);
-
-        public static explicit operator string(ConnectorOffer value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectorOffer other && Equals(other);
-        public bool Equals(ConnectorOffer other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The datatype for which the indexing behavior is applied to.
     /// </summary>
     [EnumType]
@@ -127,102 +97,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataType other && Equals(other);
         public bool Equals(DataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicates the type of database account. This can only be set at database account creation.
-    /// </summary>
-    [EnumType]
-    public readonly struct DatabaseAccountKind : IEquatable<DatabaseAccountKind>
-    {
-        private readonly string _value;
-
-        private DatabaseAccountKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DatabaseAccountKind GlobalDocumentDB { get; } = new DatabaseAccountKind("GlobalDocumentDB");
-        public static DatabaseAccountKind MongoDB { get; } = new DatabaseAccountKind("MongoDB");
-        public static DatabaseAccountKind Parse { get; } = new DatabaseAccountKind("Parse");
-
-        public static bool operator ==(DatabaseAccountKind left, DatabaseAccountKind right) => left.Equals(right);
-        public static bool operator !=(DatabaseAccountKind left, DatabaseAccountKind right) => !left.Equals(right);
-
-        public static explicit operator string(DatabaseAccountKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatabaseAccountKind other && Equals(other);
-        public bool Equals(DatabaseAccountKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The offer type for the database
-    /// </summary>
-    [EnumType]
-    public readonly struct DatabaseAccountOfferType : IEquatable<DatabaseAccountOfferType>
-    {
-        private readonly string _value;
-
-        private DatabaseAccountOfferType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DatabaseAccountOfferType Standard { get; } = new DatabaseAccountOfferType("Standard");
-
-        public static bool operator ==(DatabaseAccountOfferType left, DatabaseAccountOfferType right) => left.Equals(right);
-        public static bool operator !=(DatabaseAccountOfferType left, DatabaseAccountOfferType right) => !left.Equals(right);
-
-        public static explicit operator string(DatabaseAccountOfferType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatabaseAccountOfferType other && Equals(other);
-        public bool Equals(DatabaseAccountOfferType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The default consistency level and configuration settings of the Cosmos DB account.
-    /// </summary>
-    [EnumType]
-    public readonly struct DefaultConsistencyLevel : IEquatable<DefaultConsistencyLevel>
-    {
-        private readonly string _value;
-
-        private DefaultConsistencyLevel(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefaultConsistencyLevel Eventual { get; } = new DefaultConsistencyLevel("Eventual");
-        public static DefaultConsistencyLevel Session { get; } = new DefaultConsistencyLevel("Session");
-        public static DefaultConsistencyLevel BoundedStaleness { get; } = new DefaultConsistencyLevel("BoundedStaleness");
-        public static DefaultConsistencyLevel Strong { get; } = new DefaultConsistencyLevel("Strong");
-        public static DefaultConsistencyLevel ConsistentPrefix { get; } = new DefaultConsistencyLevel("ConsistentPrefix");
-
-        public static bool operator ==(DefaultConsistencyLevel left, DefaultConsistencyLevel right) => left.Equals(right);
-        public static bool operator !=(DefaultConsistencyLevel left, DefaultConsistencyLevel right) => !left.Equals(right);
-
-        public static explicit operator string(DefaultConsistencyLevel value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefaultConsistencyLevel other && Equals(other);
-        public bool Equals(DefaultConsistencyLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

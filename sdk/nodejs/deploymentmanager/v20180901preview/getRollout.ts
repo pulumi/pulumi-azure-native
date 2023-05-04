@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Defines the PUT rollout request body.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
 export function getRollout(args: GetRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetRolloutResult> {
-    pulumi.log.warn("getRollout is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20180901preview:getRollout", {
@@ -101,7 +99,6 @@ export interface GetRolloutResult {
 /**
  * Defines the PUT rollout request body.
  */
-/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
 export function getRolloutOutput(args: GetRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolloutResult> {
     return pulumi.output(args).apply((a: any) => getRollout(a, opts))
 }

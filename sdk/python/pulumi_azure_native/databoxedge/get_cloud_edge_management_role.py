@@ -20,7 +20,9 @@ __all__ = [
 @pulumi.output_type
 class GetCloudEdgeManagementRoleResult:
     """
-    CloudEdgeManagementRole role.
+    The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal. 
+    For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
+    By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
     """
     def __init__(__self__, edge_profile=None, id=None, kind=None, local_management_status=None, name=None, role_status=None, system_data=None, type=None):
         if edge_profile and not isinstance(edge_profile, dict):
@@ -101,7 +103,7 @@ class GetCloudEdgeManagementRoleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Role configured on ASE resource
+        Metadata pertaining to creation and last modification of Role
         """
         return pulumi.get(self, "system_data")
 
@@ -136,7 +138,7 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEdgeManagementRoleResult:
     """
     Gets a specific role by name.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -168,7 +170,7 @@ def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudEdgeManagementRoleResult]:
     """
     Gets a specific role by name.
-    API Version: 2020-12-01.
+    API Version: 2022-03-01.
 
 
     :param str device_name: The device name.

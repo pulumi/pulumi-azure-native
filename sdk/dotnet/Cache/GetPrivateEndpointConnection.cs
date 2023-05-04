@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Cache
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-        /// API Version: 2021-03-01.
+        /// Gets the specified private endpoint connection associated with the redis cache.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:cache:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-        /// API Version: 2021-03-01.
+        /// Gets the specified private endpoint connection associated with the redis cache.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:cache:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -30,10 +30,10 @@ namespace Pulumi.AzureNative.Cache
     public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the RedisEnterprise cluster.
+        /// The name of the Redis cache.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public string ClusterName { get; set; } = null!;
+        [Input("cacheName", required: true)]
+        public string CacheName { get; set; } = null!;
 
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Cache
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,10 +56,10 @@ namespace Pulumi.AzureNative.Cache
     public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the RedisEnterprise cluster.
+        /// The name of the Redis cache.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("cacheName", required: true)]
+        public Input<string> CacheName { get; set; } = null!;
 
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Cache
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

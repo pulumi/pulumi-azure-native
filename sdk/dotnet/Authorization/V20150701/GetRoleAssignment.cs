@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20150701
 {
-    [Obsolete(@"Version 2015-07-01 will be removed in v2 of the provider.")]
     public static class GetRoleAssignment
     {
         /// <summary>

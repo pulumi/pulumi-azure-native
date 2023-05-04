@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Threat intelligence information object.
-    /// API Version: 2019-01-01-preview.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ThreatIntelligenceIndicator")]
     public partial class ThreatIntelligenceIndicator : global::Pulumi.CustomResource
@@ -29,13 +30,19 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -49,13 +56,20 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThreatIntelligenceIndicator(string name, ThreatIntelligenceIndicatorArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:securityinsights:ThreatIntelligenceIndicator", name, args ?? new ThreatIntelligenceIndicatorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights:ThreatIntelligenceIndicator", name, MakeArgs(args), MakeResourceOptions(options, ""))
         {
         }
 
         private ThreatIntelligenceIndicator(string name, Input<string> id, CustomResourceOptions? options = null)
             : base("azure-native:securityinsights:ThreatIntelligenceIndicator", name, null, MakeResourceOptions(options, id))
         {
+        }
+
+        private static ThreatIntelligenceIndicatorArgs MakeArgs(ThreatIntelligenceIndicatorArgs args)
+        {
+            args ??= new ThreatIntelligenceIndicatorArgs();
+            args.Kind = "indicator";
+            return args;
         }
 
         private static CustomResourceOptions MakeResourceOptions(CustomResourceOptions? options, Input<string>? id)
@@ -84,6 +98,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator"},
                 },
             };
@@ -211,10 +226,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         }
 
         /// <summary>
-        /// The kind of the entity.
+        /// The kind of the threat intelligence entity
+        /// Expected value is 'indicator'.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.ThreatIntelligenceResourceKind> Kind { get; set; } = null!;
+        public Input<string> Kind { get; set; } = null!;
 
         [Input("labels")]
         private InputList<string>? _labels;
@@ -264,12 +280,6 @@ namespace Pulumi.AzureNative.SecurityInsights
             set => _objectMarkingRefs = value;
         }
 
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
         [Input("parsedPattern")]
         private InputList<Inputs.ThreatIntelligenceParsedPatternArgs>? _parsedPattern;
 
@@ -301,7 +311,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? PatternVersion { get; set; }
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

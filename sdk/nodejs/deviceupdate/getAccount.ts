@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns account details for the given account name.
- * API Version: 2020-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -52,6 +52,10 @@ export interface GetAccountResult {
      */
     readonly location: string;
     /**
+     * Device Update account primary and failover location details
+     */
+    readonly locations: outputs.deviceupdate.LocationResponse[];
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -68,6 +72,10 @@ export interface GetAccountResult {
      */
     readonly publicNetworkAccess?: string;
     /**
+     * Device Update Sku
+     */
+    readonly sku?: string;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.deviceupdate.SystemDataResponse;
@@ -82,7 +90,7 @@ export interface GetAccountResult {
 }
 /**
  * Returns account details for the given account name.
- * API Version: 2020-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

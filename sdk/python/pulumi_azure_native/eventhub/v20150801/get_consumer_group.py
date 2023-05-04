@@ -16,8 +16,6 @@ __all__ = [
     'get_consumer_group_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetConsumerGroupResult:
     """
@@ -144,7 +142,6 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_consumer_group is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['consumerGroupName'] = consumer_group_name
     __args__['eventHubName'] = event_hub_name
@@ -179,5 +176,4 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_consumer_group is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

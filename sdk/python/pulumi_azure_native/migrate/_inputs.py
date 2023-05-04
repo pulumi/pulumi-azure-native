@@ -16,6 +16,7 @@ __all__ = [
     'CollectorAgentPropertiesArgs',
     'CollectorBodyAgentSpnPropertiesArgs',
     'CollectorPropertiesArgs',
+    'ConnectionStateRequestBodyPropertiesArgs',
     'DiskEncryptionSetResourceSettingsArgs',
     'GroupPropertiesArgs',
     'IdentityArgs',
@@ -27,7 +28,6 @@ __all__ = [
     'LoadBalancerNatRuleReferenceArgs',
     'LoadBalancerResourceSettingsArgs',
     'MigrateProjectPropertiesArgs',
-    'MigrateProjectTagsArgs',
     'MoveCollectionPropertiesArgs',
     'MoveResourceDependencyOverrideArgs',
     'MoveResourcePropertiesArgs',
@@ -42,8 +42,6 @@ __all__ = [
     'PublicIPAddressResourceSettingsArgs',
     'PublicIpReferenceArgs',
     'ResourceGroupResourceSettingsArgs',
-    'SolutionDetailsArgs',
-    'SolutionPropertiesArgs',
     'SqlDatabaseResourceSettingsArgs',
     'SqlElasticPoolResourceSettingsArgs',
     'SqlServerResourceSettingsArgs',
@@ -308,6 +306,8 @@ class AvailabilitySetResourceSettingsArgs:
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
                  fault_domain: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None,
                  update_domain: Optional[pulumi.Input[int]] = None):
         """
         Gets or sets the availability set resource settings.
@@ -315,12 +315,18 @@ class AvailabilitySetResourceSettingsArgs:
                Expected value is 'Microsoft.Compute/availabilitySets'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[int] fault_domain: Gets or sets the target fault domain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         :param pulumi.Input[int] update_domain: Gets or sets the target update domain.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/availabilitySets')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
         if fault_domain is not None:
             pulumi.set(__self__, "fault_domain", fault_domain)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
         if update_domain is not None:
             pulumi.set(__self__, "update_domain", update_domain)
 
@@ -360,6 +366,30 @@ class AvailabilitySetResourceSettingsArgs:
     @fault_domain.setter
     def fault_domain(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "fault_domain", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
 
     @property
     @pulumi.getter(name="updateDomain")
@@ -514,18 +544,46 @@ class CollectorPropertiesArgs:
 
 
 @pulumi.input_type
+class ConnectionStateRequestBodyPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        Properties of Connection state request.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Private endpoint connection state.
+        """
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        Private endpoint connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
 class DiskEncryptionSetResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
-                 target_resource_name: pulumi.Input[str]):
+                 target_resource_name: pulumi.Input[str],
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Defines the disk encryption set resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/diskEncryptionSets'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/diskEncryptionSets')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -551,6 +609,18 @@ class DiskEncryptionSetResourceSettingsArgs:
     @target_resource_name.setter
     def target_resource_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_resource_name", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
 
 
 @pulumi.input_type
@@ -654,15 +724,19 @@ class ImportCollectorPropertiesArgs:
 class KeyVaultResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
-                 target_resource_name: pulumi.Input[str]):
+                 target_resource_name: pulumi.Input[str],
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Defines the key vault resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.KeyVault/vaults'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.KeyVault/vaults')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -688,6 +762,18 @@ class KeyVaultResourceSettingsArgs:
     @target_resource_name.setter
     def target_resource_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_resource_name", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
 
 
 @pulumi.input_type
@@ -890,6 +976,8 @@ class LoadBalancerResourceSettingsArgs:
                  backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None):
         """
         Defines the load balancer resource settings.
@@ -899,6 +987,8 @@ class LoadBalancerResourceSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]] backend_address_pools: Gets or sets the backend address pools of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
         :param pulumi.Input[str] sku: Gets or sets load balancer sku (Basic/Standard).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         :param pulumi.Input[str] zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
         """
@@ -910,6 +1000,10 @@ class LoadBalancerResourceSettingsArgs:
             pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -976,6 +1070,30 @@ class LoadBalancerResourceSettingsArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
+
+    @property
+    @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[str]]:
         """
         Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
@@ -991,75 +1109,75 @@ class LoadBalancerResourceSettingsArgs:
 @pulumi.input_type
 class MigrateProjectPropertiesArgs:
     def __init__(__self__, *,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
-                 registered_tools: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 service_endpoint: Optional[pulumi.Input[str]] = None,
+                 utility_storage_account_id: Optional[pulumi.Input[str]] = None):
         """
-        Class for migrate project properties.
-        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the migrate project.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_tools: Gets or sets the list of tools registered with the migrate project.
+        Properties of a migrate project.
+        :param pulumi.Input[str] public_network_access: Gets or sets the state of public network access.
+        :param pulumi.Input[str] service_endpoint: Service endpoint.
+        :param pulumi.Input[str] utility_storage_account_id: Utility storage account id.
         """
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if registered_tools is not None:
-            pulumi.set(__self__, "registered_tools", registered_tools)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if service_endpoint is not None:
+            pulumi.set(__self__, "service_endpoint", service_endpoint)
+        if utility_storage_account_id is not None:
+            pulumi.set(__self__, "utility_storage_account_id", utility_storage_account_id)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
         """
-        Provisioning state of the migrate project.
+        Gets or sets the state of public network access.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "public_network_access")
 
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
-    @pulumi.getter(name="registeredTools")
-    def registered_tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets the list of tools registered with the migrate project.
+        Service endpoint.
         """
-        return pulumi.get(self, "registered_tools")
+        return pulumi.get(self, "service_endpoint")
 
-    @registered_tools.setter
-    def registered_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "registered_tools", value)
-
-
-@pulumi.input_type
-class MigrateProjectTagsArgs:
-    def __init__(__self__, *,
-                 additional_properties: Optional[pulumi.Input[str]] = None):
-        """
-        Gets or sets the tags.
-        """
-        if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+    @service_endpoint.setter
+    def service_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint", value)
 
     @property
-    @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "additional_properties")
+    @pulumi.getter(name="utilityStorageAccountId")
+    def utility_storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Utility storage account id.
+        """
+        return pulumi.get(self, "utility_storage_account_id")
 
-    @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "additional_properties", value)
+    @utility_storage_account_id.setter
+    def utility_storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "utility_storage_account_id", value)
 
 
 @pulumi.input_type
 class MoveCollectionPropertiesArgs:
     def __init__(__self__, *,
                  source_region: pulumi.Input[str],
-                 target_region: pulumi.Input[str]):
+                 target_region: pulumi.Input[str],
+                 version: Optional[pulumi.Input[str]] = None):
         """
         Defines the move collection properties.
         :param pulumi.Input[str] source_region: Gets or sets the source region.
         :param pulumi.Input[str] target_region: Gets or sets the target region.
+        :param pulumi.Input[str] version: Gets or sets the version of move collection.
         """
         pulumi.set(__self__, "source_region", source_region)
         pulumi.set(__self__, "target_region", target_region)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="sourceRegion")
@@ -1084,6 +1202,18 @@ class MoveCollectionPropertiesArgs:
     @target_region.setter
     def target_region(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_region", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the version of move collection.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -1205,7 +1335,9 @@ class NetworkInterfaceResourceSettingsArgs:
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]] = None):
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Defines the network interface resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -1213,6 +1345,8 @@ class NetworkInterfaceResourceSettingsArgs:
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[bool] enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]] ip_configurations: Gets or sets the IP configurations of the NIC.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1220,6 +1354,10 @@ class NetworkInterfaceResourceSettingsArgs:
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -1270,24 +1408,56 @@ class NetworkInterfaceResourceSettingsArgs:
     def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
+
 
 @pulumi.input_type
 class NetworkSecurityGroupResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
-                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]]] = None):
+                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Defines the NSG resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkSecurityGroups'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]] security_rules: Gets or sets Security rules of network security group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
         if security_rules is not None:
             pulumi.set(__self__, "security_rules", security_rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -1325,6 +1495,30 @@ class NetworkSecurityGroupResourceSettingsArgs:
     @security_rules.setter
     def security_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]]]):
         pulumi.set(self, "security_rules", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
 
 
 @pulumi.input_type
@@ -1705,12 +1899,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'Status']]] = None):
         """
-        State of a private endpoint connection.
-        :param pulumi.Input[str] actions_required: Actions required on the private endpoint connection.
-        :param pulumi.Input[str] description: Description of the private endpoint connection.
-        :param pulumi.Input[str] status: Connection status of the private endpoint connection.
+        Private endpoint connection state.
+        :param pulumi.Input[str] actions_required: Action required.
+        :param pulumi.Input[str] description: Description of the object.
+        :param pulumi.Input[Union[str, 'Status']] status: Private link connection state.
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -1723,7 +1917,7 @@ class PrivateLinkServiceConnectionStateArgs:
     @pulumi.getter(name="actionsRequired")
     def actions_required(self) -> Optional[pulumi.Input[str]]:
         """
-        Actions required on the private endpoint connection.
+        Action required.
         """
         return pulumi.get(self, "actions_required")
 
@@ -1735,7 +1929,7 @@ class PrivateLinkServiceConnectionStateArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the private endpoint connection.
+        Description of the object.
         """
         return pulumi.get(self, "description")
 
@@ -1745,14 +1939,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'Status']]]:
         """
-        Connection status of the private endpoint connection.
+        Private link connection state.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'Status']]]):
         pulumi.set(self, "status", value)
 
 
@@ -1869,6 +2063,8 @@ class PublicIPAddressResourceSettingsArgs:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None):
         """
         Defines the public IP address resource settings.
@@ -1879,6 +2075,8 @@ class PublicIPAddressResourceSettingsArgs:
         :param pulumi.Input[str] fqdn: Gets or sets the fully qualified domain name.
         :param pulumi.Input[str] public_ip_allocation_method: Gets or sets public IP allocation method.
         :param pulumi.Input[str] sku: Gets or sets public IP sku.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         :param pulumi.Input[str] zones: Gets or sets public IP zones.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/publicIPAddresses')
@@ -1891,6 +2089,10 @@ class PublicIPAddressResourceSettingsArgs:
             pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -1969,6 +2171,30 @@ class PublicIPAddressResourceSettingsArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
+
+    @property
+    @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[str]]:
         """
         Gets or sets public IP zones.
@@ -2007,15 +2233,19 @@ class PublicIpReferenceArgs:
 class ResourceGroupResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
-                 target_resource_name: pulumi.Input[str]):
+                 target_resource_name: pulumi.Input[str],
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Defines the resource group resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'resourceGroups'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         """
         pulumi.set(__self__, "resource_type", 'resourceGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2042,165 +2272,17 @@ class ResourceGroupResourceSettingsArgs:
     def target_resource_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_resource_name", value)
 
-
-@pulumi.input_type
-class SolutionDetailsArgs:
-    def __init__(__self__, *,
-                 assessment_count: Optional[pulumi.Input[int]] = None,
-                 extended_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 group_count: Optional[pulumi.Input[int]] = None):
-        """
-        Class representing the details of the solution.
-        :param pulumi.Input[int] assessment_count: Gets or sets the count of assessments reported by the solution.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_details: Gets or sets the extended details reported by the solution.
-        :param pulumi.Input[int] group_count: Gets or sets the count of groups reported by the solution.
-        """
-        if assessment_count is not None:
-            pulumi.set(__self__, "assessment_count", assessment_count)
-        if extended_details is not None:
-            pulumi.set(__self__, "extended_details", extended_details)
-        if group_count is not None:
-            pulumi.set(__self__, "group_count", group_count)
-
     @property
-    @pulumi.getter(name="assessmentCount")
-    def assessment_count(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets the count of assessments reported by the solution.
+        Gets or sets the target resource group name.
         """
-        return pulumi.get(self, "assessment_count")
+        return pulumi.get(self, "target_resource_group_name")
 
-    @assessment_count.setter
-    def assessment_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "assessment_count", value)
-
-    @property
-    @pulumi.getter(name="extendedDetails")
-    def extended_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Gets or sets the extended details reported by the solution.
-        """
-        return pulumi.get(self, "extended_details")
-
-    @extended_details.setter
-    def extended_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "extended_details", value)
-
-    @property
-    @pulumi.getter(name="groupCount")
-    def group_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Gets or sets the count of groups reported by the solution.
-        """
-        return pulumi.get(self, "group_count")
-
-    @group_count.setter
-    def group_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "group_count", value)
-
-
-@pulumi.input_type
-class SolutionPropertiesArgs:
-    def __init__(__self__, *,
-                 cleanup_state: Optional[pulumi.Input[str]] = None,
-                 details: Optional[pulumi.Input['SolutionDetailsArgs']] = None,
-                 goal: Optional[pulumi.Input[str]] = None,
-                 purpose: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 tool: Optional[pulumi.Input[str]] = None):
-        """
-        Class for solution properties.
-        :param pulumi.Input[str] cleanup_state: Gets or sets the cleanup state of the solution.
-        :param pulumi.Input['SolutionDetailsArgs'] details: Gets or sets the details of the solution.
-        :param pulumi.Input[str] goal: Gets or sets the goal of the solution.
-        :param pulumi.Input[str] purpose: Gets or sets the purpose of the solution.
-        :param pulumi.Input[str] status: Gets or sets the current status of the solution.
-        :param pulumi.Input[str] tool: Gets or sets the tool being used in the solution.
-        """
-        if cleanup_state is not None:
-            pulumi.set(__self__, "cleanup_state", cleanup_state)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-        if goal is not None:
-            pulumi.set(__self__, "goal", goal)
-        if purpose is not None:
-            pulumi.set(__self__, "purpose", purpose)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if tool is not None:
-            pulumi.set(__self__, "tool", tool)
-
-    @property
-    @pulumi.getter(name="cleanupState")
-    def cleanup_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the cleanup state of the solution.
-        """
-        return pulumi.get(self, "cleanup_state")
-
-    @cleanup_state.setter
-    def cleanup_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cleanup_state", value)
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional[pulumi.Input['SolutionDetailsArgs']]:
-        """
-        Gets or sets the details of the solution.
-        """
-        return pulumi.get(self, "details")
-
-    @details.setter
-    def details(self, value: Optional[pulumi.Input['SolutionDetailsArgs']]):
-        pulumi.set(self, "details", value)
-
-    @property
-    @pulumi.getter
-    def goal(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the goal of the solution.
-        """
-        return pulumi.get(self, "goal")
-
-    @goal.setter
-    def goal(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "goal", value)
-
-    @property
-    @pulumi.getter
-    def purpose(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the purpose of the solution.
-        """
-        return pulumi.get(self, "purpose")
-
-    @purpose.setter
-    def purpose(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "purpose", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the current status of the solution.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter
-    def tool(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the tool being used in the solution.
-        """
-        return pulumi.get(self, "tool")
-
-    @tool.setter
-    def tool(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tool", value)
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
 
 
 @pulumi.input_type
@@ -2208,16 +2290,24 @@ class SqlDatabaseResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None,
                  zone_redundant: Optional[pulumi.Input[Union[str, 'ZoneRedundant']]] = None):
         """
         Defines the Sql Database resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/databases'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         :param pulumi.Input[Union[str, 'ZoneRedundant']] zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/databases')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -2247,6 +2337,30 @@ class SqlDatabaseResourceSettingsArgs:
         pulumi.set(self, "target_resource_name", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[Union[str, 'ZoneRedundant']]]:
         """
@@ -2264,16 +2378,24 @@ class SqlElasticPoolResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None,
                  zone_redundant: Optional[pulumi.Input[Union[str, 'ZoneRedundant']]] = None):
         """
         Defines the Sql ElasticPool resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/elasticPools'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         :param pulumi.Input[Union[str, 'ZoneRedundant']] zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/elasticPools')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -2303,6 +2425,30 @@ class SqlElasticPoolResourceSettingsArgs:
         pulumi.set(self, "target_resource_name", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[Union[str, 'ZoneRedundant']]]:
         """
@@ -2319,15 +2465,19 @@ class SqlElasticPoolResourceSettingsArgs:
 class SqlServerResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
-                 target_resource_name: pulumi.Input[str]):
+                 target_resource_name: pulumi.Input[str],
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Defines the SQL Server resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2353,6 +2503,18 @@ class SqlServerResourceSettingsArgs:
     @target_resource_name.setter
     def target_resource_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_resource_name", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
 
 
 @pulumi.input_type
@@ -2455,26 +2617,38 @@ class VirtualMachineResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_availability_set_id: Optional[pulumi.Input[str]] = None,
                  target_availability_zone: Optional[pulumi.Input[Union[str, 'TargetAvailabilityZone']]] = None,
-                 target_vm_size: Optional[pulumi.Input[str]] = None):
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 target_vm_size: Optional[pulumi.Input[str]] = None,
+                 user_managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Gets or sets the virtual machine resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/virtualMachines'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[str] target_availability_set_id: Gets or sets the target availability set id for virtual machines not in an availability set at source.
         :param pulumi.Input[Union[str, 'TargetAvailabilityZone']] target_availability_zone: Gets or sets the target availability zone.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         :param pulumi.Input[str] target_vm_size: Gets or sets the target virtual machine size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_managed_identities: Gets or sets user-managed identities
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/virtualMachines')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if target_availability_set_id is not None:
             pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
         if target_vm_size is not None:
             pulumi.set(__self__, "target_vm_size", target_vm_size)
+        if user_managed_identities is not None:
+            pulumi.set(__self__, "user_managed_identities", user_managed_identities)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2502,6 +2676,18 @@ class VirtualMachineResourceSettingsArgs:
         pulumi.set(self, "target_resource_name", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="targetAvailabilitySetId")
     def target_availability_set_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2526,6 +2712,18 @@ class VirtualMachineResourceSettingsArgs:
         pulumi.set(self, "target_availability_zone", value)
 
     @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
+
+    @property
     @pulumi.getter(name="targetVmSize")
     def target_vm_size(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2537,6 +2735,18 @@ class VirtualMachineResourceSettingsArgs:
     def target_vm_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_vm_size", value)
 
+    @property
+    @pulumi.getter(name="userManagedIdentities")
+    def user_managed_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets user-managed identities
+        """
+        return pulumi.get(self, "user_managed_identities")
+
+    @user_managed_identities.setter
+    def user_managed_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_managed_identities", value)
+
 
 @pulumi.input_type
 class VirtualNetworkResourceSettingsArgs:
@@ -2546,7 +2756,9 @@ class VirtualNetworkResourceSettingsArgs:
                  address_space: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgs']]]] = None):
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Defines the virtual network resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -2558,6 +2770,8 @@ class VirtualNetworkResourceSettingsArgs:
         :param pulumi.Input[bool] enable_ddos_protection: Gets or sets a value indicating whether gets or sets whether the
                DDOS protection should be switched on.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgs']]] subnets: Gets or sets List of subnets in a VirtualNetwork.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[str] target_resource_group_name: Gets or sets the target resource group name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -2569,6 +2783,10 @@ class VirtualNetworkResourceSettingsArgs:
             pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
         if subnets is not None:
             pulumi.set(__self__, "subnets", subnets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_group_name is not None:
+            pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2644,6 +2862,30 @@ class VirtualNetworkResourceSettingsArgs:
     @subnets.setter
     def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgs']]]]):
         pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Gets or sets the Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupName")
+    def target_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target resource group name.
+        """
+        return pulumi.get(self, "target_resource_group_name")
+
+    @target_resource_group_name.setter
+    def target_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_name", value)
 
 
 @pulumi.input_type

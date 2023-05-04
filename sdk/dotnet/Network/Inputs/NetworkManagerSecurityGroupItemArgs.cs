@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// <summary>
         /// Network manager group Id.
         /// </summary>
-        [Input("networkGroupId")]
-        public Input<string>? NetworkGroupId { get; set; }
+        [Input("networkGroupId", required: true)]
+        public Input<string> NetworkGroupId { get; set; } = null!;
 
         public NetworkManagerSecurityGroupItemArgs()
         {

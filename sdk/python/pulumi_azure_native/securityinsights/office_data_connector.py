@@ -27,7 +27,7 @@ class OfficeDataConnectorArgs:
         The set of arguments for constructing a OfficeDataConnector resource.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'Office365'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['OfficeDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
@@ -60,7 +60,7 @@ class OfficeDataConnectorArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -131,7 +131,8 @@ class OfficeDataConnector(pulumi.CustomResource):
                  __props__=None):
         """
         Represents office data connector.
-        API Version: 2020-01-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +140,7 @@ class OfficeDataConnector(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OfficeDataConnectorDataTypesArgs']] data_types: The available data types for the connector.
         :param pulumi.Input[str] kind: The kind of the data connector
                Expected value is 'Office365'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -151,7 +152,8 @@ class OfficeDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents office data connector.
-        API Version: 2020-01-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param OfficeDataConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -197,8 +199,9 @@ class OfficeDataConnector(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:OfficeDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:OfficeDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:OfficeDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OfficeDataConnector, __self__).__init__(
             'azure-native:securityinsights:OfficeDataConnector',
@@ -226,6 +229,7 @@ class OfficeDataConnector(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return OfficeDataConnector(resource_name, opts=opts, __props__=__props__)
@@ -259,9 +263,17 @@ class OfficeDataConnector(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tenantId")
@@ -275,7 +287,7 @@ class OfficeDataConnector(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
     /// <summary>
     /// A custom image.
     /// </summary>
-    [Obsolete(@"Version 2015-05-21-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:CustomImageResource")]
     public partial class CustomImageResource : global::Pulumi.CustomResource
     {

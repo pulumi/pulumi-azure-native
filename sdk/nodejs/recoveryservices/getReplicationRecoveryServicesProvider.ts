@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of registered recovery services provider.
- * API Version: 2018-07-10.
+ * API Version: 2023-02-01.
  */
 export function getReplicationRecoveryServicesProvider(args: GetReplicationRecoveryServicesProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryServicesProviderResult> {
 
@@ -28,7 +28,7 @@ export interface GetReplicationRecoveryServicesProviderArgs {
      */
     fabricName: string;
     /**
-     * Recovery services provider name
+     * Recovery services provider name.
      */
     providerName: string;
     /**
@@ -68,7 +68,7 @@ export interface GetReplicationRecoveryServicesProviderResult {
 }
 /**
  * Gets the details of registered recovery services provider.
- * API Version: 2018-07-10.
+ * API Version: 2023-02-01.
  */
 export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryServicesProvider(a, opts))
@@ -80,7 +80,7 @@ export interface GetReplicationRecoveryServicesProviderOutputArgs {
      */
     fabricName: pulumi.Input<string>;
     /**
-     * Recovery services provider name
+     * Recovery services provider name.
      */
     providerName: pulumi.Input<string>;
     /**

@@ -9,32 +9,20 @@ from ._enums import *
 from .aad_data_connector import *
 from .aatp_data_connector import *
 from .action import *
-from .activity_custom_entity_query import *
-from .anomalies import *
 from .anomaly_security_ml_analytics_settings import *
 from .asc_data_connector import *
 from .automation_rule import *
 from .aws_cloud_trail_data_connector import *
 from .bookmark import *
-from .bookmark_relation import *
-from .entity_analytics import *
-from .eyes_on import *
 from .fusion_alert_rule import *
 from .get_aad_data_connector import *
 from .get_aatp_data_connector import *
 from .get_action import *
-from .get_activity_custom_entity_query import *
-from .get_anomalies import *
 from .get_anomaly_security_ml_analytics_settings import *
 from .get_asc_data_connector import *
 from .get_automation_rule import *
 from .get_aws_cloud_trail_data_connector import *
 from .get_bookmark import *
-from .get_bookmark_relation import *
-from .get_entities_get_timeline import *
-from .get_entity_analytics import *
-from .get_entity_insights import *
-from .get_eyes_on import *
 from .get_fusion_alert_rule import *
 from .get_incident import *
 from .get_incident_comment import *
@@ -46,16 +34,13 @@ from .get_microsoft_security_incident_creation_alert_rule import *
 from .get_office_data_connector import *
 from .get_scheduled_alert_rule import *
 from .get_sentinel_onboarding_state import *
-from .get_source_control import *
 from .get_threat_intelligence_indicator import *
 from .get_ti_data_connector import *
-from .get_ueba import *
 from .get_watchlist import *
 from .get_watchlist_item import *
 from .incident import *
 from .incident_comment import *
 from .incident_relation import *
-from .list_source_control_repositories import *
 from .mcas_data_connector import *
 from .mdatp_data_connector import *
 from .metadata import *
@@ -63,10 +48,8 @@ from .microsoft_security_incident_creation_alert_rule import *
 from .office_data_connector import *
 from .scheduled_alert_rule import *
 from .sentinel_onboarding_state import *
-from .source_control import *
 from .threat_intelligence_indicator import *
 from .ti_data_connector import *
-from .ueba import *
 from .watchlist import *
 from .watchlist_item import *
 from ._inputs import *
@@ -116,6 +99,8 @@ if typing.TYPE_CHECKING:
     v20230201 = __v20230201
     import pulumi_azure_native.securityinsights.v20230201preview as __v20230201preview
     v20230201preview = __v20230201preview
+    import pulumi_azure_native.securityinsights.v20230301preview as __v20230301preview
+    v20230301preview = __v20230301preview
     import pulumi_azure_native.securityinsights.v20230401preview as __v20230401preview
     v20230401preview = __v20230401preview
 else:
@@ -140,5 +125,6 @@ else:
     v20221201preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20221201preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20230201')
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20230201preview')
+    v20230301preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20230301preview')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20230401preview')
 

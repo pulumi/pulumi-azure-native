@@ -22,16 +22,13 @@ class GetHybridRunbookWorkerGroupResult:
     """
     Definition of hybrid runbook worker group.
     """
-    def __init__(__self__, credential=None, group_type=None, hybrid_runbook_workers=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, credential=None, group_type=None, id=None, name=None, system_data=None, type=None):
         if credential and not isinstance(credential, dict):
             raise TypeError("Expected argument 'credential' to be a dict")
         pulumi.set(__self__, "credential", credential)
         if group_type and not isinstance(group_type, str):
             raise TypeError("Expected argument 'group_type' to be a str")
         pulumi.set(__self__, "group_type", group_type)
-        if hybrid_runbook_workers and not isinstance(hybrid_runbook_workers, list):
-            raise TypeError("Expected argument 'hybrid_runbook_workers' to be a list")
-        pulumi.set(__self__, "hybrid_runbook_workers", hybrid_runbook_workers)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -62,26 +59,18 @@ class GetHybridRunbookWorkerGroupResult:
         return pulumi.get(self, "group_type")
 
     @property
-    @pulumi.getter(name="hybridRunbookWorkers")
-    def hybrid_runbook_workers(self) -> Optional[Sequence['outputs.HybridRunbookWorkerLegacyResponse']]:
-        """
-        Gets or sets the list of hybrid runbook workers.
-        """
-        return pulumi.get(self, "hybrid_runbook_workers")
-
-    @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
-        Gets or sets the id of the resource.
+        Fully qualified resource Id for the resource
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
-        Gets or sets the name of the group.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -110,7 +99,6 @@ class AwaitableGetHybridRunbookWorkerGroupResult(GetHybridRunbookWorkerGroupResu
         return GetHybridRunbookWorkerGroupResult(
             credential=self.credential,
             group_type=self.group_type,
-            hybrid_runbook_workers=self.hybrid_runbook_workers,
             id=self.id,
             name=self.name,
             system_data=self.system_data,
@@ -123,7 +111,7 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridRunbookWorkerGroupResult:
     """
     Retrieve a hybrid runbook worker group.
-    API Version: 2021-06-22.
+    API Version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -140,7 +128,6 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
     return AwaitableGetHybridRunbookWorkerGroupResult(
         credential=__ret__.credential,
         group_type=__ret__.group_type,
-        hybrid_runbook_workers=__ret__.hybrid_runbook_workers,
         id=__ret__.id,
         name=__ret__.name,
         system_data=__ret__.system_data,
@@ -154,7 +141,7 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridRunbookWorkerGroupResult]:
     """
     Retrieve a hybrid runbook worker group.
-    API Version: 2021-06-22.
+    API Version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

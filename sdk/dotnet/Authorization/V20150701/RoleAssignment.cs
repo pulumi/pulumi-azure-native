@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Authorization.V20150701
     /// <summary>
     /// Role Assignments
     /// </summary>
-    [Obsolete(@"Version 2015-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:authorization/v20150701:RoleAssignment")]
     public partial class RoleAssignment : global::Pulumi.CustomResource
     {

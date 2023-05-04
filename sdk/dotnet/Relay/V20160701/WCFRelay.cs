@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Relay.V20160701
     /// <summary>
     /// Description of WcfRelays Resource.
     /// </summary>
-    [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:relay/v20160701:WCFRelay")]
     public partial class WCFRelay : global::Pulumi.CustomResource
     {

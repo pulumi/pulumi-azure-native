@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// <summary>
     /// The link resource format.
     /// </summary>
-    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:Link")]
     public partial class Link : global::Pulumi.CustomResource
     {

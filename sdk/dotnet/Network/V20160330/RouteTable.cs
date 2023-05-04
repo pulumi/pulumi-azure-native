@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20160330
     /// <summary>
     /// RouteTable resource
     /// </summary>
-    [Obsolete(@"Version 2016-03-30 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20160330:RouteTable")]
     public partial class RouteTable : global::Pulumi.CustomResource
     {
@@ -133,6 +132,7 @@ namespace Pulumi.AzureNative.Network.V20160330
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RouteTable"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:RouteTable"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:RouteTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:RouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

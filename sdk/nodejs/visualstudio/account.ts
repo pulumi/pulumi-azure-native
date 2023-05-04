@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The response to an account resource GET request.
- * API Version: 2014-04-01-preview.
+ * API Version: 2017-11-01-preview.
+ * Previous API Version: 2014-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Account extends pulumi.CustomResource {
     /**

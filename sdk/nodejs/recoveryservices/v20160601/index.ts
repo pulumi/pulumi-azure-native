@@ -10,20 +10,10 @@ export const getProtectionPolicy: typeof import("./getProtectionPolicy").getProt
 export const getProtectionPolicyOutput: typeof import("./getProtectionPolicy").getProtectionPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
 
-export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
-export const getVault: typeof import("./getVault").getVault = null as any;
-export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
-utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
-
 export { ProtectionPolicyArgs } from "./protectionPolicy";
 export type ProtectionPolicy = import("./protectionPolicy").ProtectionPolicy;
 export const ProtectionPolicy: typeof import("./protectionPolicy").ProtectionPolicy = null as any;
 utilities.lazyLoad(exports, ["ProtectionPolicy"], () => require("./protectionPolicy"));
-
-export { VaultArgs } from "./vault";
-export type Vault = import("./vault").Vault;
-export const Vault: typeof import("./vault").Vault = null as any;
-utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 
 
 // Export enums:
@@ -35,8 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:recoveryservices/v20160601:ProtectionPolicy":
                 return new ProtectionPolicy(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20160601:Vault":
-                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

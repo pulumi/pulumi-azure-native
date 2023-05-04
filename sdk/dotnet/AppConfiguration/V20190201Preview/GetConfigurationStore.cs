@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppConfiguration.V20190201Preview
 {
-    [Obsolete(@"Version 2019-02-01-preview will be removed in v2 of the provider.")]
     public static class GetConfigurationStore
     {
         /// <summary>

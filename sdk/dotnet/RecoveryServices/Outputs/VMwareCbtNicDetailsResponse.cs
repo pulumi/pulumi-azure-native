@@ -49,9 +49,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TargetIPAddressType;
         /// <summary>
+        /// Target NIC name.
+        /// </summary>
+        public readonly string? TargetNicName;
+        /// <summary>
         /// Target subnet name.
         /// </summary>
         public readonly string? TargetSubnetName;
+        /// <summary>
+        /// The test IP address.
+        /// </summary>
+        public readonly string? TestIPAddress;
+        /// <summary>
+        /// The test IP address type.
+        /// </summary>
+        public readonly string? TestIPAddressType;
+        /// <summary>
+        /// Source network Id.
+        /// </summary>
+        public readonly string? TestNetworkId;
+        /// <summary>
+        /// Test subnet name.
+        /// </summary>
+        public readonly string? TestSubnetName;
 
         [OutputConstructor]
         private VMwareCbtNicDetailsResponse(
@@ -71,7 +91,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? targetIPAddressType,
 
-            string? targetSubnetName)
+            string? targetNicName,
+
+            string? targetSubnetName,
+
+            string? testIPAddress,
+
+            string? testIPAddressType,
+
+            string? testNetworkId,
+
+            string? testSubnetName)
         {
             IsPrimaryNic = isPrimaryNic;
             IsSelectedForMigration = isSelectedForMigration;
@@ -81,7 +111,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             SourceNetworkId = sourceNetworkId;
             TargetIPAddress = targetIPAddress;
             TargetIPAddressType = targetIPAddressType;
+            TargetNicName = targetNicName;
             TargetSubnetName = targetSubnetName;
+            TestIPAddress = testIPAddress;
+            TestIPAddressType = testIPAddressType;
+            TestNetworkId = testNetworkId;
+            TestSubnetName = testSubnetName;
         }
     }
 }

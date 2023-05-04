@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the SignalR service and its properties.
  */
-/** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
-    pulumi.log.warn("getSignalR is deprecated: Version 2018-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20181001:getSignalR", {
@@ -106,7 +104,6 @@ export interface GetSignalRResult {
 /**
  * Get the SignalR service and its properties.
  */
-/** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
     return pulumi.output(args).apply((a: any) => getSignalR(a, opts))
 }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list operation.
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function listSubAccountMonitoredResources(args: ListSubAccountMonitoredResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListSubAccountMonitoredResourcesResult> {
 
@@ -51,7 +51,7 @@ export interface ListSubAccountMonitoredResourcesResult {
 }
 /**
  * Response of a list operation.
- * API Version: 2020-10-01.
+ * API Version: 2022-01-01-preview.
  */
 export function listSubAccountMonitoredResourcesOutput(args: ListSubAccountMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountMonitoredResourcesResult> {
     return pulumi.output(args).apply((a: any) => listSubAccountMonitoredResources(a, opts))

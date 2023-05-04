@@ -16,22 +16,22 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class APIServerProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IP of the cluster API server (immutable).
+        /// The IP of the cluster API server.
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
         /// <summary>
-        /// The URL to access the cluster API server (immutable).
+        /// The URL to access the cluster API server.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// API server visibility (immutable).
+        /// API server visibility.
         /// </summary>
         [Input("visibility")]
-        public Input<string>? Visibility { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RedHatOpenShift.Visibility>? Visibility { get; set; }
 
         public APIServerProfileArgs()
         {

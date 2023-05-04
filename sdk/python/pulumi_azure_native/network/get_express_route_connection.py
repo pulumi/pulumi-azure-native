@@ -22,13 +22,16 @@ class GetExpressRouteConnectionResult:
     """
     ExpressRouteConnection resource.
     """
-    def __init__(__self__, authorization_key=None, enable_internet_security=None, express_route_circuit_peering=None, express_route_gateway_bypass=None, id=None, name=None, provisioning_state=None, routing_configuration=None, routing_weight=None):
+    def __init__(__self__, authorization_key=None, enable_internet_security=None, enable_private_link_fast_path=None, express_route_circuit_peering=None, express_route_gateway_bypass=None, id=None, name=None, provisioning_state=None, routing_configuration=None, routing_weight=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
         if enable_internet_security and not isinstance(enable_internet_security, bool):
             raise TypeError("Expected argument 'enable_internet_security' to be a bool")
         pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+        if enable_private_link_fast_path and not isinstance(enable_private_link_fast_path, bool):
+            raise TypeError("Expected argument 'enable_private_link_fast_path' to be a bool")
+        pulumi.set(__self__, "enable_private_link_fast_path", enable_private_link_fast_path)
         if express_route_circuit_peering and not isinstance(express_route_circuit_peering, dict):
             raise TypeError("Expected argument 'express_route_circuit_peering' to be a dict")
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
@@ -66,6 +69,14 @@ class GetExpressRouteConnectionResult:
         Enable internet security.
         """
         return pulumi.get(self, "enable_internet_security")
+
+    @property
+    @pulumi.getter(name="enablePrivateLinkFastPath")
+    def enable_private_link_fast_path(self) -> Optional[bool]:
+        """
+        Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        """
+        return pulumi.get(self, "enable_private_link_fast_path")
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
@@ -132,6 +143,7 @@ class AwaitableGetExpressRouteConnectionResult(GetExpressRouteConnectionResult):
         return GetExpressRouteConnectionResult(
             authorization_key=self.authorization_key,
             enable_internet_security=self.enable_internet_security,
+            enable_private_link_fast_path=self.enable_private_link_fast_path,
             express_route_circuit_peering=self.express_route_circuit_peering,
             express_route_gateway_bypass=self.express_route_gateway_bypass,
             id=self.id,
@@ -147,7 +159,7 @@ def get_express_route_connection(connection_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteConnectionResult:
     """
     Gets the specified ExpressRouteConnection.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str connection_name: The name of the ExpressRoute connection.
@@ -164,6 +176,7 @@ def get_express_route_connection(connection_name: Optional[str] = None,
     return AwaitableGetExpressRouteConnectionResult(
         authorization_key=__ret__.authorization_key,
         enable_internet_security=__ret__.enable_internet_security,
+        enable_private_link_fast_path=__ret__.enable_private_link_fast_path,
         express_route_circuit_peering=__ret__.express_route_circuit_peering,
         express_route_gateway_bypass=__ret__.express_route_gateway_bypass,
         id=__ret__.id,
@@ -180,7 +193,7 @@ def get_express_route_connection_output(connection_name: Optional[pulumi.Input[s
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteConnectionResult]:
     """
     Gets the specified ExpressRouteConnection.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str connection_name: The name of the ExpressRoute connection.

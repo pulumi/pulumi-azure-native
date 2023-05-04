@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified public IP address in a specified resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetPublicIPAddressResult> InvokeAsync(GetPublicIPAddressArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-native:network:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified public IP address in a specified resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetPublicIPAddressResult> Invoke(GetPublicIPAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPAddressResult>("azure-native:network:getPublicIPAddress", args ?? new GetPublicIPAddressInvokeArgs(), options.WithDefaults());
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.Network
         /// The DDoS protection custom policy associated with the public IP address.
         /// </summary>
         public readonly Outputs.DdosSettingsResponse? DdosSettings;
+        /// <summary>
+        /// Specify what happens to the public IP address when the VM using it is deleted
+        /// </summary>
+        public readonly string? DeleteOption;
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
@@ -184,6 +188,8 @@ namespace Pulumi.AzureNative.Network
         private GetPublicIPAddressResult(
             Outputs.DdosSettingsResponse? ddosSettings,
 
+            string? deleteOption,
+
             Outputs.PublicIPAddressDnsSettingsResponse? dnsSettings,
 
             string etag,
@@ -231,6 +237,7 @@ namespace Pulumi.AzureNative.Network
             ImmutableArray<string> zones)
         {
             DdosSettings = ddosSettings;
+            DeleteOption = deleteOption;
             DnsSettings = dnsSettings;
             Etag = etag;
             ExtendedLocation = extendedLocation;

@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class ServicePrincipalProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client ID used for the cluster (immutable).
+        /// The client ID used for the cluster.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// The client secret used for the cluster (immutable).
+        /// The client secret used for the cluster.
         /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }

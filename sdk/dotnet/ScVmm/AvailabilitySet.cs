@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// <summary>
     /// The AvailabilitySets resource definition.
     /// API Version: 2020-06-05-preview.
+    /// Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:AvailabilitySet")]
     public partial class AvailabilitySet : global::Pulumi.CustomResource
@@ -96,6 +97,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:AvailabilitySet"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:AvailabilitySet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

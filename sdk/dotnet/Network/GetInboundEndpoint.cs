@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets properties of an inbound endpoint for a DNS resolver.
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2022-07-01.
         /// </summary>
         public static Task<GetInboundEndpointResult> InvokeAsync(GetInboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInboundEndpointResult>("azure-native:network:getInboundEndpoint", args ?? new GetInboundEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of an inbound endpoint for a DNS resolver.
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2022-07-01.
         /// </summary>
         public static Output<GetInboundEndpointResult> Invoke(GetInboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInboundEndpointResult>("azure-native:network:getInboundEndpoint", args ?? new GetInboundEndpointInvokeArgs(), options.WithDefaults());

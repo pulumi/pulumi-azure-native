@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-11-15.
  */
 export function getMongoDBResourceMongoUserDefinition(args: GetMongoDBResourceMongoUserDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoUserDefinitionResult> {
 
@@ -79,7 +79,7 @@ export interface GetMongoDBResourceMongoUserDefinitionResult {
 }
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-11-15.
  */
 export function getMongoDBResourceMongoUserDefinitionOutput(args: GetMongoDBResourceMongoUserDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoUserDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoUserDefinition(a, opts))

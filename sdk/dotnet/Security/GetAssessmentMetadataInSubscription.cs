@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get metadata information on an assessment type in a specific subscription
-        /// API Version: 2020-01-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetAssessmentMetadataInSubscriptionResult> InvokeAsync(GetAssessmentMetadataInSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentMetadataInSubscriptionResult>("azure-native:security:getAssessmentMetadataInSubscription", args ?? new GetAssessmentMetadataInSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get metadata information on an assessment type in a specific subscription
-        /// API Version: 2020-01-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetAssessmentMetadataInSubscriptionResult> Invoke(GetAssessmentMetadataInSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentMetadataInSubscriptionResult>("azure-native:security:getAssessmentMetadataInSubscription", args ?? new GetAssessmentMetadataInSubscriptionInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Security
         /// Describes the partner that created the assessment
         /// </summary>
         public readonly Outputs.SecurityAssessmentMetadataPartnerDataResponse? PartnerData;
+        public readonly string? PlannedDeprecationDate;
         /// <summary>
         /// Azure resource ID of the policy definition that turns this assessment calculation on
         /// </summary>
@@ -96,6 +97,7 @@ namespace Pulumi.AzureNative.Security
         /// True if this assessment is in preview release status
         /// </summary>
         public readonly bool? Preview;
+        public readonly Outputs.SecurityAssessmentMetadataPropertiesResponseResponsePublishDates? PublishDates;
         /// <summary>
         /// Human readable description of what you should do to mitigate this security issue
         /// </summary>
@@ -104,6 +106,8 @@ namespace Pulumi.AzureNative.Security
         /// The severity level of the assessment
         /// </summary>
         public readonly string Severity;
+        public readonly ImmutableArray<string> Tactics;
+        public readonly ImmutableArray<string> Techniques;
         public readonly ImmutableArray<string> Threats;
         /// <summary>
         /// Resource type
@@ -132,13 +136,21 @@ namespace Pulumi.AzureNative.Security
 
             Outputs.SecurityAssessmentMetadataPartnerDataResponse? partnerData,
 
+            string? plannedDeprecationDate,
+
             string policyDefinitionId,
 
             bool? preview,
 
+            Outputs.SecurityAssessmentMetadataPropertiesResponseResponsePublishDates? publishDates,
+
             string? remediationDescription,
 
             string severity,
+
+            ImmutableArray<string> tactics,
+
+            ImmutableArray<string> techniques,
 
             ImmutableArray<string> threats,
 
@@ -154,10 +166,14 @@ namespace Pulumi.AzureNative.Security
             ImplementationEffort = implementationEffort;
             Name = name;
             PartnerData = partnerData;
+            PlannedDeprecationDate = plannedDeprecationDate;
             PolicyDefinitionId = policyDefinitionId;
             Preview = preview;
+            PublishDates = publishDates;
             RemediationDescription = remediationDescription;
             Severity = severity;
+            Tactics = tactics;
+            Techniques = techniques;
             Threats = threats;
             Type = type;
             UserImpact = userImpact;

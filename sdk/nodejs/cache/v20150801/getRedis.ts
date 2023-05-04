@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Redis cache (resource description).
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
-    pulumi.log.warn("getRedis is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20150801:getRedis", {
@@ -112,7 +110,6 @@ export interface GetRedisResult {
 /**
  * Gets a Redis cache (resource description).
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
     return pulumi.output(args).apply((a: any) => getRedis(a, opts))
 }

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieves an existing access policy resource from an account by name.
- * API Version: 2021-05-01-preview.
+ * Retrieves an existing access policy resource with the given name.
+ * API Version: 2021-11-01-preview.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
 
@@ -23,7 +23,7 @@ export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeO
 
 export interface GetAccessPolicyArgs {
     /**
-     * The name of the access policy to retrieve.
+     * The Access Policy name.
      */
     accessPolicyName: string;
     /**
@@ -37,7 +37,7 @@ export interface GetAccessPolicyArgs {
 }
 
 /**
- * Policy that determines how a video can be accessed.
+ * Access policies help define the authentication rules, and control access to specific video resources.
  */
 export interface GetAccessPolicyResult {
     /**
@@ -57,7 +57,7 @@ export interface GetAccessPolicyResult {
      */
     readonly role?: string;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.videoanalyzer.SystemDataResponse;
     /**
@@ -66,8 +66,8 @@ export interface GetAccessPolicyResult {
     readonly type: string;
 }
 /**
- * Retrieves an existing access policy resource from an account by name.
- * API Version: 2021-05-01-preview.
+ * Retrieves an existing access policy resource with the given name.
+ * API Version: 2021-11-01-preview.
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
@@ -75,7 +75,7 @@ export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pu
 
 export interface GetAccessPolicyOutputArgs {
     /**
-     * The name of the access policy to retrieve.
+     * The Access Policy name.
      */
     accessPolicyName: pulumi.Input<string>;
     /**

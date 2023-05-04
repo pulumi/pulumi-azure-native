@@ -17,14 +17,22 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
     public sealed class ContinuousModeBackupPolicyResponse
     {
         /// <summary>
+        /// The object representing the state of the migration between the backup policies.
+        /// </summary>
+        public readonly Outputs.BackupPolicyMigrationStateResponse? MigrationState;
+        /// <summary>
         /// Describes the mode of backups.
         /// Expected value is 'Continuous'.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private ContinuousModeBackupPolicyResponse(string type)
+        private ContinuousModeBackupPolicyResponse(
+            Outputs.BackupPolicyMigrationStateResponse? migrationState,
+
+            string type)
         {
+            MigrationState = migrationState;
             Type = type;
         }
     }

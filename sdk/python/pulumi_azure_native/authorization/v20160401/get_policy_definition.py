@@ -16,8 +16,6 @@ __all__ = [
     'get_policy_definition_output',
 ]
 
-warnings.warn("""Version 2016-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetPolicyDefinitionResult:
     """
@@ -114,7 +112,6 @@ def get_policy_definition(policy_definition_name: Optional[str] = None,
 
     :param str policy_definition_name: The name of the policy definition to get.
     """
-    pulumi.log.warn("""get_policy_definition is deprecated: Version 2016-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['policyDefinitionName'] = policy_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -138,5 +135,4 @@ def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[s
 
     :param str policy_definition_name: The name of the policy definition to get.
     """
-    pulumi.log.warn("""get_policy_definition is deprecated: Version 2016-04-01 will be removed in v2 of the provider.""")
     ...

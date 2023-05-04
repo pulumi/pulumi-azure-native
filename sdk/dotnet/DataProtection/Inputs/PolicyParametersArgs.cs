@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
     /// </summary>
     public sealed class PolicyParametersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("backupDatasourceParametersList")]
+        private InputList<Union<Inputs.BlobBackupDatasourceParametersArgs, Inputs.KubernetesClusterBackupDatasourceParametersArgs>>? _backupDatasourceParametersList;
+
+        /// <summary>
+        /// Gets or sets the Backup Data Source Parameters
+        /// </summary>
+        public InputList<Union<Inputs.BlobBackupDatasourceParametersArgs, Inputs.KubernetesClusterBackupDatasourceParametersArgs>> BackupDatasourceParametersList
+        {
+            get => _backupDatasourceParametersList ?? (_backupDatasourceParametersList = new InputList<Union<Inputs.BlobBackupDatasourceParametersArgs, Inputs.KubernetesClusterBackupDatasourceParametersArgs>>());
+            set => _backupDatasourceParametersList = value;
+        }
+
         [Input("dataStoreParametersList")]
         private InputList<Inputs.AzureOperationalStoreParametersArgs>? _dataStoreParametersList;
 

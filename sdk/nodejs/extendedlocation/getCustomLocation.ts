@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the customLocation with a specified resource group and name.
- * API Version: 2021-03-15-preview.
+ * API Version: 2021-08-15.
  */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
 
@@ -60,6 +60,10 @@ export interface GetCustomLocationResult {
      */
     readonly id: string;
     /**
+     * Identity for the resource.
+     */
+    readonly identity?: outputs.extendedlocation.IdentityResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -90,7 +94,7 @@ export interface GetCustomLocationResult {
 }
 /**
  * Gets the details of the customLocation with a specified resource group and name.
- * API Version: 2021-03-15-preview.
+ * API Version: 2021-08-15.
  */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
     return pulumi.output(args).apply((a: any) => getCustomLocation(a, opts))

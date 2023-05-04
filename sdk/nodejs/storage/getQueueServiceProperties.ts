@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getQueueServiceProperties(args: GetQueueServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueServicePropertiesResult> {
 
@@ -59,7 +59,7 @@ export interface GetQueueServicePropertiesResult {
 }
 /**
  * Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getQueueServicePropertiesOutput(args: GetQueueServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueServicePropertiesResult> {
     return pulumi.output(args).apply((a: any) => getQueueServiceProperties(a, opts))

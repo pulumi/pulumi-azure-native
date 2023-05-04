@@ -130,7 +130,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:User" }, { type: "azure-native:labservices/v20211115preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices:User" }, { type: "azure-native:labservices/v20211001preview:User" }, { type: "azure-native:labservices/v20211115preview:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

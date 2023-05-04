@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class GetIncident
     {
         /// <summary>
-        /// Gets an incident.
-        /// API Version: 2020-01-01.
+        /// Gets a given incident.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-native:securityinsights:getIncident", args ?? new GetIncidentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an incident.
-        /// API Version: 2020-01-01.
+        /// Gets a given incident.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetIncidentResult> Invoke(GetIncidentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentResult>("azure-native:securityinsights:getIncident", args ?? new GetIncidentInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string IncidentId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> IncidentId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? FirstActivityTimeUtc;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -140,13 +140,21 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string LastModifiedTimeUtc;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// Describes a user that the incident is assigned to
         /// </summary>
         public readonly Outputs.IncidentOwnerInfoResponse? Owner;
+        /// <summary>
+        /// The incident ID assigned by the incident provider
+        /// </summary>
+        public readonly string ProviderIncidentId;
+        /// <summary>
+        /// The name of the source provider that generated the incident
+        /// </summary>
+        public readonly string ProviderName;
         /// <summary>
         /// List of resource ids of Analytic rules related to the incident
         /// </summary>
@@ -160,11 +168,15 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The title of the incident
         /// </summary>
         public readonly string Title;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -202,11 +214,17 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             Outputs.IncidentOwnerInfoResponse? owner,
 
+            string providerIncidentId,
+
+            string providerName,
+
             ImmutableArray<string> relatedAnalyticRuleIds,
 
             string severity,
 
             string status,
+
+            Outputs.SystemDataResponse systemData,
 
             string title,
 
@@ -228,9 +246,12 @@ namespace Pulumi.AzureNative.SecurityInsights
             LastModifiedTimeUtc = lastModifiedTimeUtc;
             Name = name;
             Owner = owner;
+            ProviderIncidentId = providerIncidentId;
+            ProviderName = providerName;
             RelatedAnalyticRuleIds = relatedAnalyticRuleIds;
             Severity = severity;
             Status = status;
+            SystemData = systemData;
             Title = title;
             Type = type;
         }

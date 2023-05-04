@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Description of an hostingEnvironment (App Service Environment)
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getHostingEnvironment(args: GetHostingEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetHostingEnvironmentResult> {
-    pulumi.log.warn("getHostingEnvironment is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getHostingEnvironment", {
@@ -185,7 +183,6 @@ export interface GetHostingEnvironmentResult {
 /**
  * Description of an hostingEnvironment (App Service Environment)
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getHostingEnvironmentOutput(args: GetHostingEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostingEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getHostingEnvironment(a, opts))
 }

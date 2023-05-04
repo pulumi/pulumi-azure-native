@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Binding and its properties.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
  */
 export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBindingResult> {
 
@@ -58,13 +58,17 @@ export interface GetBindingResult {
      */
     readonly properties: outputs.appplatform.BindingResourcePropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Get a Binding and its properties.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
  */
 export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBindingResult> {
     return pulumi.output(args).apply((a: any) => getBinding(a, opts))

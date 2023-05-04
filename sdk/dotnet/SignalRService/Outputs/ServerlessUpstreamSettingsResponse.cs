@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
 {
 
     /// <summary>
-    /// The settings for the Upstream when the Azure SignalR is in server-less mode.
+    /// The settings for the Upstream when the service is in server-less mode.
     /// </summary>
     [OutputType]
     public sealed class ServerlessUpstreamSettingsResponse

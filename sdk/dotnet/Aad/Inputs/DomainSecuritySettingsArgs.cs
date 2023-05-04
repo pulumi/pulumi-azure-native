@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Aad.Inputs
     public sealed class DomainSecuritySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A flag to determine whether or not ChannelBinding is enabled or disabled.
+        /// </summary>
+        [Input("channelBinding")]
+        public InputUnion<string, Pulumi.AzureNative.Aad.ChannelBinding>? ChannelBinding { get; set; }
+
+        /// <summary>
         /// A flag to determine whether or not KerberosArmoring is enabled or disabled.
         /// </summary>
         [Input("kerberosArmoring")]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.Aad.Inputs
         /// </summary>
         [Input("kerberosRc4Encryption")]
         public InputUnion<string, Pulumi.AzureNative.Aad.KerberosRc4Encryption>? KerberosRc4Encryption { get; set; }
+
+        /// <summary>
+        /// A flag to determine whether or not LdapSigning is enabled or disabled.
+        /// </summary>
+        [Input("ldapSigning")]
+        public InputUnion<string, Pulumi.AzureNative.Aad.LdapSigning>? LdapSigning { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -59,8 +71,10 @@ namespace Pulumi.AzureNative.Aad.Inputs
 
         public DomainSecuritySettingsArgs()
         {
+            ChannelBinding = "Disabled";
             KerberosArmoring = "Disabled";
             KerberosRc4Encryption = "Enabled";
+            LdapSigning = "Disabled";
             NtlmV1 = "Enabled";
             SyncKerberosPasswords = "Enabled";
             SyncNtlmPasswords = "Enabled";

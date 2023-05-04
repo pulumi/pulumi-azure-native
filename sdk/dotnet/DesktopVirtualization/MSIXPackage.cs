@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Schema for MSIX Package properties.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2022-09-09.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:MSIXPackage")]
     public partial class MSIXPackage : global::Pulumi.CustomResource
@@ -81,6 +82,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Output("packageRelativePath")]
         public Output<string?> PackageRelativePath { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

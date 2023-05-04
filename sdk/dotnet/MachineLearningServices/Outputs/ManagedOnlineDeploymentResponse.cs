@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Properties specific to a ManagedOnlineDeployment.
+    /// </summary>
     [OutputType]
     public sealed class ManagedOnlineDeploymentResponse
     {
@@ -26,12 +29,16 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        /// </summary>
+        public readonly string? EgressPublicNetworkAccess;
+        /// <summary>
         /// Enum to determine endpoint compute type.
         /// Expected value is 'Managed'.
         /// </summary>
         public readonly string EndpointComputeType;
         /// <summary>
-        /// ARM resource ID of the environment specification for the endpoint deployment.
+        /// ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         /// </summary>
         public readonly string? EnvironmentId;
         /// <summary>
@@ -43,13 +50,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
-        /// Deployment container liveness/readiness probe configuration.
+        /// Liveness probe monitors the health of the container regularly.
         /// </summary>
         public readonly Outputs.ProbeSettingsResponse? LivenessProbe;
         /// <summary>
-        /// Reference to the model asset for the endpoint deployment.
+        /// The URI path to the model.
         /// </summary>
-        public readonly object? Model;
+        public readonly string? Model;
+        /// <summary>
+        /// The path to mount the model in custom container.
+        /// </summary>
+        public readonly string? ModelMountPath;
         /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
@@ -59,17 +70,20 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Deployment container liveness/readiness probe configuration.
+        /// Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
         /// </summary>
         public readonly Outputs.ProbeSettingsResponse? ReadinessProbe;
         /// <summary>
-        /// Online deployment scoring requests configuration.
+        /// Request settings for the deployment.
         /// </summary>
         public readonly Outputs.OnlineRequestSettingsResponse? RequestSettings;
         /// <summary>
-        /// Online deployment scaling configuration.
+        /// Scale settings for the deployment.
+        /// If it is null or not provided,
+        /// it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
+        /// and to DefaultScaleSettings for ManagedOnlineDeployment.
         /// </summary>
-        public readonly Union<Outputs.AutoScaleSettingsResponse, Outputs.ManualScaleSettingsResponse>? ScaleSettings;
+        public readonly Union<Outputs.DefaultScaleSettingsResponse, Outputs.TargetUtilizationScaleSettingsResponse>? ScaleSettings;
 
         [OutputConstructor]
         private ManagedOnlineDeploymentResponse(
@@ -78,6 +92,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             Outputs.CodeConfigurationResponse? codeConfiguration,
 
             string? description,
+
+            string? egressPublicNetworkAccess,
 
             string endpointComputeType,
 
@@ -89,7 +105,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.ProbeSettingsResponse? livenessProbe,
 
-            object? model,
+            string? model,
+
+            string? modelMountPath,
 
             ImmutableDictionary<string, string>? properties,
 
@@ -99,17 +117,19 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.OnlineRequestSettingsResponse? requestSettings,
 
-            Union<Outputs.AutoScaleSettingsResponse, Outputs.ManualScaleSettingsResponse>? scaleSettings)
+            Union<Outputs.DefaultScaleSettingsResponse, Outputs.TargetUtilizationScaleSettingsResponse>? scaleSettings)
         {
             AppInsightsEnabled = appInsightsEnabled;
             CodeConfiguration = codeConfiguration;
             Description = description;
+            EgressPublicNetworkAccess = egressPublicNetworkAccess;
             EndpointComputeType = endpointComputeType;
             EnvironmentId = environmentId;
             EnvironmentVariables = environmentVariables;
             InstanceType = instanceType;
             LivenessProbe = livenessProbe;
             Model = model;
+            ModelMountPath = modelMountPath;
             Properties = properties;
             ProvisioningState = provisioningState;
             ReadinessProbe = readinessProbe;

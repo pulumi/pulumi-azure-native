@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'DeploymentMode',
-    'ResourceIdentityType',
 ]
 
 
@@ -16,10 +15,3 @@ class DeploymentMode(str, Enum):
     """
     INCREMENTAL = "Incremental"
     COMPLETE = "Complete"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"

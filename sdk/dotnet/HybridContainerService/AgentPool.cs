@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HybridContainerService
 {
     /// <summary>
     /// The agentPool resource definition
-    /// API Version: 2022-05-01-preview.
+    /// API Version: 2022-09-01-preview.
+    /// Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:agentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
@@ -156,6 +157,7 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:agentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:agentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -279,16 +281,16 @@ namespace Pulumi.AzureNative.HybridContainerService
         public InputUnion<string, Pulumi.AzureNative.HybridContainerService.OsType>? OsType { get; set; }
 
         /// <summary>
-        /// Parameter for the name of the provisioned cluster
-        /// </summary>
-        [Input("provisionedClustersName", required: true)]
-        public Input<string> ProvisionedClustersName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parameter for the name of the provisioned cluster
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
@@ -318,7 +320,6 @@ namespace Pulumi.AzureNative.HybridContainerService
         {
             Count = 1;
             Mode = "User";
-            OsType = "Linux";
         }
         public static new AgentPoolArgs Empty => new AgentPoolArgs();
     }

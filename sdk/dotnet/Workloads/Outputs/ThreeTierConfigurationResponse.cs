@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// Gets or sets the three tier SAP configuration.
+    /// Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
     /// </summary>
     [OutputType]
     public sealed class ThreeTierConfigurationResponse
@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// The central server configuration.
         /// </summary>
         public readonly Outputs.CentralServerConfigurationResponse CentralServer;
+        /// <summary>
+        /// The set of custom names to be used for underlying azure resources that are part of the SAP system.
+        /// </summary>
+        public readonly Outputs.ThreeTierFullResourceNamesResponse? CustomResourceNames;
         /// <summary>
         /// The database configuration.
         /// </summary>
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             Outputs.CentralServerConfigurationResponse centralServer,
 
+            Outputs.ThreeTierFullResourceNamesResponse? customResourceNames,
+
             Outputs.DatabaseConfigurationResponse databaseServer,
 
             string deploymentType,
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             AppResourceGroup = appResourceGroup;
             ApplicationServer = applicationServer;
             CentralServer = centralServer;
+            CustomResourceNames = customResourceNames;
             DatabaseServer = databaseServer;
             DeploymentType = deploymentType;
             HighAvailabilityConfig = highAvailabilityConfig;

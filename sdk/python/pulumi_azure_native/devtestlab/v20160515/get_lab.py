@@ -16,8 +16,6 @@ __all__ = [
     'get_lab_output',
 ]
 
-warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetLabResult:
     """
@@ -228,7 +226,6 @@ def get_lab(expand: Optional[str] = None,
     :param str name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_lab is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['name'] = name
@@ -267,5 +264,4 @@ def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_lab is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
     ...

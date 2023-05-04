@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// A private endpoint connection to an azure resource
-    /// API Version: 2021-04-01-preview.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubPrivateEndpointConnection")]
     public partial class WebPubSubPrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Group IDs
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -23,19 +30,19 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Private endpoint associated with the private endpoint connection
+        /// Private endpoint
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Connection state
+        /// Connection state of the private endpoint connection
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
         public Output<Outputs.PrivateLinkServiceConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the private endpoint connection
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -83,6 +90,7 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,7 +115,7 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class WebPubSubPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Private endpoint associated with the private endpoint connection
+        /// Private endpoint
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
@@ -119,7 +127,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// Connection state
+        /// Connection state of the private endpoint connection
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Tag description in scope of API
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiTagDescriptionResult> {
 
@@ -25,7 +25,7 @@ export interface GetApiTagDescriptionArgs {
      */
     apiId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -59,11 +59,11 @@ export interface GetApiTagDescriptionResult {
      */
     readonly externalDocsUrl?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -71,13 +71,13 @@ export interface GetApiTagDescriptionResult {
      */
     readonly tagId?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get Tag description in scope of API
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiTagDescriptionResult> {
     return pulumi.output(args).apply((a: any) => getApiTagDescription(a, opts))
@@ -89,7 +89,7 @@ export interface GetApiTagDescriptionOutputArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

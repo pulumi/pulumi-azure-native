@@ -74,6 +74,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20220615Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata:SqlServerDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:SqlServerDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230315preview:SqlServerDatabase"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get the named public certificate for an app (or deployment slot, if specified).
- * API Version: 2020-12-01.
+ * Description for Get the named public certificate for an app (or deployment slot, if specified).
+ * API Version: 2022-09-01.
  */
 export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateSlotResult> {
 
@@ -72,8 +72,8 @@ export interface GetWebAppPublicCertificateSlotResult {
     readonly type: string;
 }
 /**
- * Get the named public certificate for an app (or deployment slot, if specified).
- * API Version: 2020-12-01.
+ * Description for Get the named public certificate for an app (or deployment slot, if specified).
+ * API Version: 2022-09-01.
  */
 export function getWebAppPublicCertificateSlotOutput(args: GetWebAppPublicCertificateSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPublicCertificateSlot(a, opts))

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// VnetRoute contract used to pass routing information for a vnet.
     /// </summary>
-    [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:ServerFarmRouteForVnet")]
     public partial class ServerFarmRouteForVnet : global::Pulumi.CustomResource
     {

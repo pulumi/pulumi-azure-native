@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the secret validation key of the DelegationSettings.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function listDelegationSettingSecrets(args: ListDelegationSettingSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDelegationSettingSecretsResult> {
 
@@ -39,7 +39,7 @@ export interface ListDelegationSettingSecretsResult {
 }
 /**
  * Gets the secret validation key of the DelegationSettings.
- * API Version: 2020-12-01.
+ * API Version: 2021-08-01.
  */
 export function listDelegationSettingSecretsOutput(args: ListDelegationSettingSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDelegationSettingSecretsResult> {
     return pulumi.output(args).apply((a: any) => listDelegationSettingSecrets(a, opts))

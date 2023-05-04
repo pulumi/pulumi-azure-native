@@ -130,12 +130,7 @@ class VirtualMachineImageTemplateArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2018-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class VirtualMachineImageTemplate(pulumi.CustomResource):
-    warnings.warn("""Version 2018-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,7 +186,6 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union[pulumi.InputType['ImageTemplateIsoSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachineImageTemplate is deprecated: Version 2018-02-01-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

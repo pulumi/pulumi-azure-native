@@ -167,6 +167,40 @@ namespace Pulumi.AzureNative.ContainerInstance
     }
 
     /// <summary>
+    /// The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
+    /// </summary>
+    [EnumType]
+    public readonly struct DnsNameLabelReusePolicy : IEquatable<DnsNameLabelReusePolicy>
+    {
+        private readonly string _value;
+
+        private DnsNameLabelReusePolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DnsNameLabelReusePolicy Unsecure { get; } = new DnsNameLabelReusePolicy("Unsecure");
+        public static DnsNameLabelReusePolicy TenantReuse { get; } = new DnsNameLabelReusePolicy("TenantReuse");
+        public static DnsNameLabelReusePolicy SubscriptionReuse { get; } = new DnsNameLabelReusePolicy("SubscriptionReuse");
+        public static DnsNameLabelReusePolicy ResourceGroupReuse { get; } = new DnsNameLabelReusePolicy("ResourceGroupReuse");
+        public static DnsNameLabelReusePolicy Noreuse { get; } = new DnsNameLabelReusePolicy("Noreuse");
+
+        public static bool operator ==(DnsNameLabelReusePolicy left, DnsNameLabelReusePolicy right) => left.Equals(right);
+        public static bool operator !=(DnsNameLabelReusePolicy left, DnsNameLabelReusePolicy right) => !left.Equals(right);
+
+        public static explicit operator string(DnsNameLabelReusePolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DnsNameLabelReusePolicy other && Equals(other);
+        public bool Equals(DnsNameLabelReusePolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The SKU of the GPU resource.
     /// </summary>
     [EnumType]

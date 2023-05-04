@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets an authorization rule for a NotificationHub by name.
  */
-/** @deprecated Version 2016-03-01 will be removed in v2 of the provider. */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
-    pulumi.log.warn("getNotificationHubAuthorizationRule is deprecated: Version 2016-03-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20160301:getNotificationHubAuthorizationRule", {
@@ -78,7 +76,6 @@ export interface GetNotificationHubAuthorizationRuleResult {
 /**
  * Gets an authorization rule for a NotificationHub by name.
  */
-/** @deprecated Version 2016-03-01 will be removed in v2 of the provider. */
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHubAuthorizationRule(a, opts))
 }

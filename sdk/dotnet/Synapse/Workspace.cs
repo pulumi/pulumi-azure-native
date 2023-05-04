@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A workspace
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-06-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -26,7 +27,13 @@ namespace Pulumi.AzureNative.Synapse
         /// Connectivity endpoints
         /// </summary>
         [Output("connectivityEndpoints")]
-        public Output<ImmutableDictionary<string, string>?> ConnectivityEndpoints { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Initial workspace AAD admin properties for a CSP subscription
+        /// </summary>
+        [Output("cspWorkspaceAdminProperties")]
+        public Output<Outputs.CspWorkspaceAdminPropertiesResponse?> CspWorkspaceAdminProperties { get; private set; } = null!;
 
         /// <summary>
         /// Workspace default data lake storage account details
@@ -44,7 +51,7 @@ namespace Pulumi.AzureNative.Synapse
         /// Workspace level configs and feature flags
         /// </summary>
         [Output("extraProperties")]
-        public Output<ImmutableDictionary<string, object>> ExtraProperties { get; private set; } = null!;
+        public Output<object> ExtraProperties { get; private set; } = null!;
 
         /// <summary>
         /// Identity of the workspace
@@ -107,6 +114,12 @@ namespace Pulumi.AzureNative.Synapse
         public Output<Outputs.PurviewConfigurationResponse?> PurviewConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Workspace settings
+        /// </summary>
+        [Output("settings")]
+        public Output<ImmutableDictionary<string, object>> Settings { get; private set; } = null!;
+
+        /// <summary>
         /// Login for workspace SQL active directory administrator
         /// </summary>
         [Output("sqlAdministratorLogin")]
@@ -123,6 +136,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Is trustedServiceBypassEnabled for the workspace
+        /// </summary>
+        [Output("trustedServiceBypassEnabled")]
+        public Output<bool?> TrustedServiceBypassEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -203,17 +222,17 @@ namespace Pulumi.AzureNative.Synapse
 
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("connectivityEndpoints")]
-        private InputMap<string>? _connectivityEndpoints;
+        /// <summary>
+        /// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+        /// </summary>
+        [Input("azureADOnlyAuthentication")]
+        public Input<bool>? AzureADOnlyAuthentication { get; set; }
 
         /// <summary>
-        /// Connectivity endpoints
+        /// Initial workspace AAD admin properties for a CSP subscription
         /// </summary>
-        public InputMap<string> ConnectivityEndpoints
-        {
-            get => _connectivityEndpoints ?? (_connectivityEndpoints = new InputMap<string>());
-            set => _connectivityEndpoints = value;
-        }
+        [Input("cspWorkspaceAdminProperties")]
+        public Input<Inputs.CspWorkspaceAdminPropertiesArgs>? CspWorkspaceAdminProperties { get; set; }
 
         /// <summary>
         /// Workspace default data lake storage account details
@@ -312,13 +331,19 @@ namespace Pulumi.AzureNative.Synapse
         }
 
         /// <summary>
+        /// Is trustedServiceBypassEnabled for the workspace
+        /// </summary>
+        [Input("trustedServiceBypassEnabled")]
+        public Input<bool>? TrustedServiceBypassEnabled { get; set; }
+
+        /// <summary>
         /// Virtual Network profile
         /// </summary>
         [Input("virtualNetworkProfile")]
         public Input<Inputs.VirtualNetworkProfileArgs>? VirtualNetworkProfile { get; set; }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName")]
         public Input<string>? WorkspaceName { get; set; }
@@ -331,6 +356,8 @@ namespace Pulumi.AzureNative.Synapse
 
         public WorkspaceArgs()
         {
+            PublicNetworkAccess = "Enabled";
+            TrustedServiceBypassEnabled = false;
         }
         public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }

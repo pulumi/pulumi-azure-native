@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a specific action rule
  */
-/** @deprecated Version 2018-11-02-privatepreview will be removed in v2 of the provider. */
 export function getActionRuleByName(args: GetActionRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetActionRuleByNameResult> {
-    pulumi.log.warn("getActionRuleByName is deprecated: Version 2018-11-02-privatepreview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName", {
@@ -64,7 +62,6 @@ export interface GetActionRuleByNameResult {
 /**
  * Get a specific action rule
  */
-/** @deprecated Version 2018-11-02-privatepreview will be removed in v2 of the provider. */
 export function getActionRuleByNameOutput(args: GetActionRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRuleByNameResult> {
     return pulumi.output(args).apply((a: any) => getActionRuleByName(a, opts))
 }

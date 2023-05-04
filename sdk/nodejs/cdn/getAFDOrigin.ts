@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin within an origin group.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginResult> {
 
@@ -32,7 +32,7 @@ export interface GetAFDOriginArgs {
      */
     originName: string;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -55,6 +55,10 @@ export interface GetAFDOriginResult {
      */
     readonly enabledState?: string;
     /**
+     * Whether to enable certificate name check at origin level
+     */
+    readonly enforceCertificateNameCheck?: boolean;
+    /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
     readonly hostName: string;
@@ -74,6 +78,10 @@ export interface GetAFDOriginResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * The name of the origin group which contains this origin.
+     */
+    readonly originGroupName: string;
     /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
@@ -105,7 +113,7 @@ export interface GetAFDOriginResult {
 }
 /**
  * Gets an existing origin within an origin group.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getAFDOriginOutput(args: GetAFDOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginResult> {
     return pulumi.output(args).apply((a: any) => getAFDOrigin(a, opts))
@@ -121,7 +129,7 @@ export interface GetAFDOriginOutputArgs {
      */
     originName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

@@ -30,7 +30,7 @@ class ProjectEnvironmentTypeArgs:
         """
         The set of arguments for constructing a ProjectEnvironmentType resource.
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs'] creator_role_assignment: The role definition assigned to the environment creator on backing resources.
         :param pulumi.Input[str] deployment_target_id: Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
@@ -75,7 +75,7 @@ class ProjectEnvironmentTypeArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -198,7 +198,8 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an environment type.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,7 +209,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location for the environment type
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'EnableStatus']] status: Defines whether this Environment Type can be used in this Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['UserRoleAssignmentArgs']]]] user_role_assignments: Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
@@ -221,7 +222,8 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an environment type.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ProjectEnvironmentTypeArgs args: The arguments to use to populate this resource's properties.
@@ -275,7 +277,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:ProjectEnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:ProjectEnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:ProjectEnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:ProjectEnvironmentType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:ProjectEnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:ProjectEnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:ProjectEnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:ProjectEnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:ProjectEnvironmentType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProjectEnvironmentType, __self__).__init__(
             'azure-native:devcenter:ProjectEnvironmentType',

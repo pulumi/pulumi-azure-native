@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkFunction
     {
         /// <summary>
         /// Gets the specified Azure Traffic Collector in a specified resource group
-        /// API Version: 2022-05-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetAzureTrafficCollectorResult> InvokeAsync(GetAzureTrafficCollectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureTrafficCollectorResult>("azure-native:networkfunction:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Azure Traffic Collector in a specified resource group
-        /// API Version: 2022-05-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetAzureTrafficCollectorResult> Invoke(GetAzureTrafficCollectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureTrafficCollectorResult>("azure-native:networkfunction:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorInvokeArgs(), options.WithDefaults());
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Collector Policies for Azure Traffic Collector.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CollectorPolicyResponse> CollectorPolicies;
+        public readonly ImmutableArray<Outputs.ResourceReferenceResponse> CollectorPolicies;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// <summary>
         /// Resource location.
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -114,13 +114,13 @@ namespace Pulumi.AzureNative.NetworkFunction
 
         [OutputConstructor]
         private GetAzureTrafficCollectorResult(
-            ImmutableArray<Outputs.CollectorPolicyResponse> collectorPolicies,
+            ImmutableArray<Outputs.ResourceReferenceResponse> collectorPolicies,
 
             string etag,
 
             string id,
 
-            string? location,
+            string location,
 
             string name,
 

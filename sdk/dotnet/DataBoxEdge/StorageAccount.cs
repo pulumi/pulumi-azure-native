@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:StorageAccount")]
     public partial class StorageAccount : global::Pulumi.CustomResource
@@ -59,7 +60,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string?> StorageAccountStatus { get; private set; } = null!;
 
         /// <summary>
-        /// StorageAccount object on ASE device
+        /// Metadata pertaining to creation and last modification of StorageAccount
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

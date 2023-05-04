@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountKeysResult> {
 
@@ -47,7 +47,7 @@ export interface ListStorageAccountKeysResult {
 }
 /**
  * Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listStorageAccountKeys(a, opts))

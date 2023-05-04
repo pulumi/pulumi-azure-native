@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getSynapseWorkspaceSqlPoolTableDataSet(args: GetSynapseWorkspaceSqlPoolTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
 
@@ -77,7 +77,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getSynapseWorkspaceSqlPoolTableDataSetOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
     return pulumi.output(args).apply((a: any) => getSynapseWorkspaceSqlPoolTableDataSet(a, opts))

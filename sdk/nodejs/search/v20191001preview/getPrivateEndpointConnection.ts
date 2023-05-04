@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the private endpoint connection to the Search service in the given resource group.
  */
-/** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search/v20191001preview:getPrivateEndpointConnection", {
@@ -61,7 +59,6 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Gets the details of the private endpoint connection to the Search service in the given resource group.
  */
-/** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

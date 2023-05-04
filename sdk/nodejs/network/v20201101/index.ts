@@ -485,16 +485,6 @@ export const getVirtualNetworkTap: typeof import("./getVirtualNetworkTap").getVi
 export const getVirtualNetworkTapOutput: typeof import("./getVirtualNetworkTap").getVirtualNetworkTapOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkTap","getVirtualNetworkTapOutput"], () => require("./getVirtualNetworkTap"));
 
-export { GetVirtualRouterArgs, GetVirtualRouterResult, GetVirtualRouterOutputArgs } from "./getVirtualRouter";
-export const getVirtualRouter: typeof import("./getVirtualRouter").getVirtualRouter = null as any;
-export const getVirtualRouterOutput: typeof import("./getVirtualRouter").getVirtualRouterOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualRouter","getVirtualRouterOutput"], () => require("./getVirtualRouter"));
-
-export { GetVirtualRouterPeeringArgs, GetVirtualRouterPeeringResult, GetVirtualRouterPeeringOutputArgs } from "./getVirtualRouterPeering";
-export const getVirtualRouterPeering: typeof import("./getVirtualRouterPeering").getVirtualRouterPeering = null as any;
-export const getVirtualRouterPeeringOutput: typeof import("./getVirtualRouterPeering").getVirtualRouterPeeringOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualRouterPeering","getVirtualRouterPeeringOutput"], () => require("./getVirtualRouterPeering"));
-
 export { GetVirtualWanArgs, GetVirtualWanResult, GetVirtualWanOutputArgs } from "./getVirtualWan";
 export const getVirtualWan: typeof import("./getVirtualWan").getVirtualWan = null as any;
 export const getVirtualWanOutput: typeof import("./getVirtualWan").getVirtualWanOutput = null as any;
@@ -745,16 +735,6 @@ export type VirtualNetworkTap = import("./virtualNetworkTap").VirtualNetworkTap;
 export const VirtualNetworkTap: typeof import("./virtualNetworkTap").VirtualNetworkTap = null as any;
 utilities.lazyLoad(exports, ["VirtualNetworkTap"], () => require("./virtualNetworkTap"));
 
-export { VirtualRouterArgs } from "./virtualRouter";
-export type VirtualRouter = import("./virtualRouter").VirtualRouter;
-export const VirtualRouter: typeof import("./virtualRouter").VirtualRouter = null as any;
-utilities.lazyLoad(exports, ["VirtualRouter"], () => require("./virtualRouter"));
-
-export { VirtualRouterPeeringArgs } from "./virtualRouterPeering";
-export type VirtualRouterPeering = import("./virtualRouterPeering").VirtualRouterPeering;
-export const VirtualRouterPeering: typeof import("./virtualRouterPeering").VirtualRouterPeering = null as any;
-utilities.lazyLoad(exports, ["VirtualRouterPeering"], () => require("./virtualRouterPeering"));
-
 export { VirtualWanArgs } from "./virtualWan";
 export type VirtualWan = import("./virtualWan").VirtualWan;
 export const VirtualWan: typeof import("./virtualWan").VirtualWan = null as any;
@@ -923,10 +903,6 @@ const _module = {
                 return new VirtualNetworkPeering(name, <any>undefined, { urn })
             case "azure-native:network/v20201101:VirtualNetworkTap":
                 return new VirtualNetworkTap(name, <any>undefined, { urn })
-            case "azure-native:network/v20201101:VirtualRouter":
-                return new VirtualRouter(name, <any>undefined, { urn })
-            case "azure-native:network/v20201101:VirtualRouterPeering":
-                return new VirtualRouterPeering(name, <any>undefined, { urn })
             case "azure-native:network/v20201101:VirtualWan":
                 return new VirtualWan(name, <any>undefined, { urn })
             case "azure-native:network/v20201101:VpnConnection":

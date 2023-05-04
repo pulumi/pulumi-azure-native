@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Application gateway resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ApplicationGateway extends pulumi.CustomResource {
     /**
@@ -55,6 +56,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly backendHttpSettingsCollection!: pulumi.Output<outputs.network.ApplicationGatewayBackendHttpSettingsResponse[] | undefined>;
     /**
+     * Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly backendSettingsCollection!: pulumi.Output<outputs.network.ApplicationGatewayBackendSettingsResponse[] | undefined>;
+    /**
      * Custom error configurations of the application gateway resource.
      */
     public readonly customErrorConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorResponse[] | undefined>;
@@ -91,6 +96,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly gatewayIPConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayIPConfigurationResponse[] | undefined>;
     /**
+     * Global Configuration.
+     */
+    public readonly globalConfiguration!: pulumi.Output<outputs.network.ApplicationGatewayGlobalConfigurationResponse | undefined>;
+    /**
      * Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
     public readonly httpListeners!: pulumi.Output<outputs.network.ApplicationGatewayHttpListenerResponse[] | undefined>;
@@ -98,6 +107,14 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * The identity of the application gateway, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    public readonly listeners!: pulumi.Output<outputs.network.ApplicationGatewayListenerResponse[] | undefined>;
+    /**
+     * Load distribution policies of the application gateway resource.
+     */
+    public readonly loadDistributionPolicies!: pulumi.Output<outputs.network.ApplicationGatewayLoadDistributionPolicyResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -142,6 +159,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * Rewrite rules for the application gateway resource.
      */
     public readonly rewriteRuleSets!: pulumi.Output<outputs.network.ApplicationGatewayRewriteRuleSetResponse[] | undefined>;
+    /**
+     * Routing rules of the application gateway resource.
+     */
+    public readonly routingRules!: pulumi.Output<outputs.network.ApplicationGatewayRoutingRuleResponse[] | undefined>;
     /**
      * SKU of the application gateway resource.
      */
@@ -206,6 +227,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["autoscaleConfiguration"] = args ? args.autoscaleConfiguration : undefined;
             resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
             resourceInputs["backendHttpSettingsCollection"] = args ? args.backendHttpSettingsCollection : undefined;
+            resourceInputs["backendSettingsCollection"] = args ? args.backendSettingsCollection : undefined;
             resourceInputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
             resourceInputs["enableFips"] = args ? args.enableFips : undefined;
             resourceInputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
@@ -214,9 +236,12 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
             resourceInputs["frontendPorts"] = args ? args.frontendPorts : undefined;
             resourceInputs["gatewayIPConfigurations"] = args ? args.gatewayIPConfigurations : undefined;
+            resourceInputs["globalConfiguration"] = args ? args.globalConfiguration : undefined;
             resourceInputs["httpListeners"] = args ? args.httpListeners : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["listeners"] = args ? args.listeners : undefined;
+            resourceInputs["loadDistributionPolicies"] = args ? args.loadDistributionPolicies : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["privateLinkConfigurations"] = args ? args.privateLinkConfigurations : undefined;
             resourceInputs["probes"] = args ? args.probes : undefined;
@@ -224,6 +249,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["requestRoutingRules"] = args ? args.requestRoutingRules : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rewriteRuleSets"] = args ? args.rewriteRuleSets : undefined;
+            resourceInputs["routingRules"] = args ? args.routingRules : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sslCertificates"] = args ? args.sslCertificates : undefined;
             resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
@@ -246,6 +272,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["autoscaleConfiguration"] = undefined /*out*/;
             resourceInputs["backendAddressPools"] = undefined /*out*/;
             resourceInputs["backendHttpSettingsCollection"] = undefined /*out*/;
+            resourceInputs["backendSettingsCollection"] = undefined /*out*/;
             resourceInputs["customErrorConfigurations"] = undefined /*out*/;
             resourceInputs["enableFips"] = undefined /*out*/;
             resourceInputs["enableHttp2"] = undefined /*out*/;
@@ -255,8 +282,11 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["frontendIPConfigurations"] = undefined /*out*/;
             resourceInputs["frontendPorts"] = undefined /*out*/;
             resourceInputs["gatewayIPConfigurations"] = undefined /*out*/;
+            resourceInputs["globalConfiguration"] = undefined /*out*/;
             resourceInputs["httpListeners"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["listeners"] = undefined /*out*/;
+            resourceInputs["loadDistributionPolicies"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationalState"] = undefined /*out*/;
@@ -268,6 +298,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["requestRoutingRules"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["rewriteRuleSets"] = undefined /*out*/;
+            resourceInputs["routingRules"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["sslCertificates"] = undefined /*out*/;
             resourceInputs["sslPolicy"] = undefined /*out*/;
@@ -281,7 +312,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150501preview:ApplicationGateway" }, { type: "azure-native:network/v20150615:ApplicationGateway" }, { type: "azure-native:network/v20160330:ApplicationGateway" }, { type: "azure-native:network/v20160601:ApplicationGateway" }, { type: "azure-native:network/v20160901:ApplicationGateway" }, { type: "azure-native:network/v20161201:ApplicationGateway" }, { type: "azure-native:network/v20170301:ApplicationGateway" }, { type: "azure-native:network/v20170601:ApplicationGateway" }, { type: "azure-native:network/v20170801:ApplicationGateway" }, { type: "azure-native:network/v20170901:ApplicationGateway" }, { type: "azure-native:network/v20171001:ApplicationGateway" }, { type: "azure-native:network/v20171101:ApplicationGateway" }, { type: "azure-native:network/v20180101:ApplicationGateway" }, { type: "azure-native:network/v20180201:ApplicationGateway" }, { type: "azure-native:network/v20180401:ApplicationGateway" }, { type: "azure-native:network/v20180601:ApplicationGateway" }, { type: "azure-native:network/v20180701:ApplicationGateway" }, { type: "azure-native:network/v20180801:ApplicationGateway" }, { type: "azure-native:network/v20181001:ApplicationGateway" }, { type: "azure-native:network/v20181101:ApplicationGateway" }, { type: "azure-native:network/v20181201:ApplicationGateway" }, { type: "azure-native:network/v20190201:ApplicationGateway" }, { type: "azure-native:network/v20190401:ApplicationGateway" }, { type: "azure-native:network/v20190601:ApplicationGateway" }, { type: "azure-native:network/v20190701:ApplicationGateway" }, { type: "azure-native:network/v20190801:ApplicationGateway" }, { type: "azure-native:network/v20190901:ApplicationGateway" }, { type: "azure-native:network/v20191101:ApplicationGateway" }, { type: "azure-native:network/v20191201:ApplicationGateway" }, { type: "azure-native:network/v20200301:ApplicationGateway" }, { type: "azure-native:network/v20200401:ApplicationGateway" }, { type: "azure-native:network/v20200501:ApplicationGateway" }, { type: "azure-native:network/v20200601:ApplicationGateway" }, { type: "azure-native:network/v20200701:ApplicationGateway" }, { type: "azure-native:network/v20200801:ApplicationGateway" }, { type: "azure-native:network/v20201101:ApplicationGateway" }, { type: "azure-native:network/v20210201:ApplicationGateway" }, { type: "azure-native:network/v20210301:ApplicationGateway" }, { type: "azure-native:network/v20210501:ApplicationGateway" }, { type: "azure-native:network/v20210801:ApplicationGateway" }, { type: "azure-native:network/v20220101:ApplicationGateway" }, { type: "azure-native:network/v20220501:ApplicationGateway" }, { type: "azure-native:network/v20220701:ApplicationGateway" }, { type: "azure-native:network/v20220901:ApplicationGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150501preview:ApplicationGateway" }, { type: "azure-native:network/v20150615:ApplicationGateway" }, { type: "azure-native:network/v20160330:ApplicationGateway" }, { type: "azure-native:network/v20160601:ApplicationGateway" }, { type: "azure-native:network/v20160901:ApplicationGateway" }, { type: "azure-native:network/v20161201:ApplicationGateway" }, { type: "azure-native:network/v20170301:ApplicationGateway" }, { type: "azure-native:network/v20170601:ApplicationGateway" }, { type: "azure-native:network/v20170801:ApplicationGateway" }, { type: "azure-native:network/v20170901:ApplicationGateway" }, { type: "azure-native:network/v20171001:ApplicationGateway" }, { type: "azure-native:network/v20171101:ApplicationGateway" }, { type: "azure-native:network/v20180101:ApplicationGateway" }, { type: "azure-native:network/v20180201:ApplicationGateway" }, { type: "azure-native:network/v20180401:ApplicationGateway" }, { type: "azure-native:network/v20180601:ApplicationGateway" }, { type: "azure-native:network/v20180701:ApplicationGateway" }, { type: "azure-native:network/v20180801:ApplicationGateway" }, { type: "azure-native:network/v20181001:ApplicationGateway" }, { type: "azure-native:network/v20181101:ApplicationGateway" }, { type: "azure-native:network/v20181201:ApplicationGateway" }, { type: "azure-native:network/v20190201:ApplicationGateway" }, { type: "azure-native:network/v20190401:ApplicationGateway" }, { type: "azure-native:network/v20190601:ApplicationGateway" }, { type: "azure-native:network/v20190701:ApplicationGateway" }, { type: "azure-native:network/v20190801:ApplicationGateway" }, { type: "azure-native:network/v20190901:ApplicationGateway" }, { type: "azure-native:network/v20191101:ApplicationGateway" }, { type: "azure-native:network/v20191201:ApplicationGateway" }, { type: "azure-native:network/v20200301:ApplicationGateway" }, { type: "azure-native:network/v20200401:ApplicationGateway" }, { type: "azure-native:network/v20200501:ApplicationGateway" }, { type: "azure-native:network/v20200601:ApplicationGateway" }, { type: "azure-native:network/v20200701:ApplicationGateway" }, { type: "azure-native:network/v20200801:ApplicationGateway" }, { type: "azure-native:network/v20201101:ApplicationGateway" }, { type: "azure-native:network/v20210201:ApplicationGateway" }, { type: "azure-native:network/v20210301:ApplicationGateway" }, { type: "azure-native:network/v20210501:ApplicationGateway" }, { type: "azure-native:network/v20210801:ApplicationGateway" }, { type: "azure-native:network/v20220101:ApplicationGateway" }, { type: "azure-native:network/v20220501:ApplicationGateway" }, { type: "azure-native:network/v20220701:ApplicationGateway" }, { type: "azure-native:network/v20220901:ApplicationGateway" }, { type: "azure-native:network/v20221101:ApplicationGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationGateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -311,6 +342,10 @@ export interface ApplicationGatewayArgs {
      * Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
     backendHttpSettingsCollection?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSettingsArgs>[]>;
+    /**
+     * Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    backendSettingsCollection?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendSettingsArgs>[]>;
     /**
      * Custom error configurations of the application gateway resource.
      */
@@ -344,6 +379,10 @@ export interface ApplicationGatewayArgs {
      */
     gatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayIPConfigurationArgs>[]>;
     /**
+     * Global Configuration.
+     */
+    globalConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayGlobalConfigurationArgs>;
+    /**
      * Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
     httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListenerArgs>[]>;
@@ -355,6 +394,14 @@ export interface ApplicationGatewayArgs {
      * The identity of the application gateway, if configured.
      */
     identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
+    /**
+     * Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    listeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayListenerArgs>[]>;
+    /**
+     * Load distribution policies of the application gateway resource.
+     */
+    loadDistributionPolicies?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayLoadDistributionPolicyArgs>[]>;
     /**
      * Resource location.
      */
@@ -383,6 +430,10 @@ export interface ApplicationGatewayArgs {
      * Rewrite rules for the application gateway resource.
      */
     rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSetArgs>[]>;
+    /**
+     * Routing rules of the application gateway resource.
+     */
+    routingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRoutingRuleArgs>[]>;
     /**
      * SKU of the application gateway resource.
      */

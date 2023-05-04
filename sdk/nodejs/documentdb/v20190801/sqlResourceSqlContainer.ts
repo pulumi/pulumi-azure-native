@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB container.
- *
- * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class SqlResourceSqlContainer extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlContainer {
-        pulumi.log.warn("SqlResourceSqlContainer is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         return new SqlResourceSqlContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: SqlResourceSqlContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlResourceSqlContainer is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -104,7 +99,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20150401:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20150408:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20151106:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20160319:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20160331:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210315:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20211115preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220215preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220515:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220515preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220815:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220815preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20221115:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20230315:SqlResourceSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20150401:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20150408:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20151106:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20160319:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20160331:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210315:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20211115preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220215preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220515:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220515preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220815:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20220815preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20221115:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20221115preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20230301preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20230315:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20230415:SqlResourceSqlContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlContainer.__pulumiType, name, resourceInputs, opts);
     }

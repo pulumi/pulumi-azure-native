@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Retrieves the properties of a Lab Plan.
-        /// API Version: 2021-10-01-preview.
+        /// API Version: 2022-08-01.
         /// </summary>
         public static Task<GetLabPlanResult> InvokeAsync(GetLabPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabPlanResult>("azure-native:labservices:getLabPlan", args ?? new GetLabPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of a Lab Plan.
-        /// API Version: 2021-10-01-preview.
+        /// API Version: 2022-08-01.
         /// </summary>
         public static Output<GetLabPlanResult> Invoke(GetLabPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabPlanResult>("azure-native:labservices:getLabPlan", args ?? new GetLabPlanInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Managed Identity Information
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
         /// Base Url of the lms instance this lab plan can link lab rosters against.
         /// </summary>
         public readonly string? LinkedLmsInstance;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.LabServices
 
             string id,
 
+            Outputs.IdentityResponse? identity,
+
             string? linkedLmsInstance,
 
             string location,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.LabServices
             DefaultConnectionProfile = defaultConnectionProfile;
             DefaultNetworkProfile = defaultNetworkProfile;
             Id = id;
+            Identity = identity;
             LinkedLmsInstance = linkedLmsInstance;
             Location = location;
             Name = name;

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a Blueprint definition.
  * API Version: 2018-11-01-preview.
+ * Previous API Version: 2018-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Blueprint extends pulumi.CustomResource {
     /**

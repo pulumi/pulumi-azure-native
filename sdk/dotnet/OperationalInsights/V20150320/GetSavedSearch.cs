@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20150320
 {
-    [Obsolete(@"Version 2015-03-20 will be removed in v2 of the provider.")]
     public static class GetSavedSearch
     {
         /// <summary>

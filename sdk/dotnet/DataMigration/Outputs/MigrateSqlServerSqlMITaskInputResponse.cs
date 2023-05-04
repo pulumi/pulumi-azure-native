@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigrateSqlServerSqlMITaskInputResponse
     {
         /// <summary>
+        /// Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
+        /// </summary>
+        public readonly string? AadDomainName;
+        /// <summary>
         /// SAS URI of Azure Storage Account Container to be used for storing backup files.
         /// </summary>
         public readonly Outputs.BlobShareResponse BackupBlobShare;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MigrateSqlServerSqlMITaskInputResponse(
+            string? aadDomainName,
+
             Outputs.BlobShareResponse backupBlobShare,
 
             Outputs.FileShareResponse? backupFileShare,
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             Outputs.SqlConnectionInfoResponse targetConnectionInfo)
         {
+            AadDomainName = aadDomainName;
             BackupBlobShare = backupBlobShare;
             BackupFileShare = backupFileShare;
             BackupMode = backupMode;

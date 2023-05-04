@@ -123,7 +123,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets a private endpoint connection.
-    API Version: 2021-03-15.
+    API Version: 2022-11-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -154,7 +154,7 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets a private endpoint connection.
-    API Version: 2021-03-15.
+    API Version: 2022-11-15.
 
 
     :param str account_name: Cosmos DB database account name.

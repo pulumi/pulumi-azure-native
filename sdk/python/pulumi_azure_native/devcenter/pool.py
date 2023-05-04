@@ -32,7 +32,7 @@ class PoolArgs:
         :param pulumi.Input[Union[str, 'LocalAdminStatus']] local_administrator: Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
         :param pulumi.Input[str] network_connection_name: Name of a Network Connection in parent Project of this Pool
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] pool_name: Name of the pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -114,7 +114,7 @@ class PoolArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -176,7 +176,8 @@ class Pool(pulumi.CustomResource):
                  __props__=None):
         """
         A pool of Virtual Machines.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,7 +188,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection_name: Name of a Network Connection in parent Project of this Pool
         :param pulumi.Input[str] pool_name: Name of the pool.
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -198,7 +199,8 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A pool of Virtual Machines.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -258,7 +260,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:devcenter:Pool',

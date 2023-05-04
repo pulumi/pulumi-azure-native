@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified IoT Connector.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
  */
 export function getIotConnector(args: GetIotConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorResult> {
 
@@ -87,7 +87,7 @@ export interface GetIotConnectorResult {
 }
 /**
  * Gets the properties of the specified IoT Connector.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
  */
 export function getIotConnectorOutput(args: GetIotConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorResult> {
     return pulumi.output(args).apply((a: any) => getIotConnector(a, opts))

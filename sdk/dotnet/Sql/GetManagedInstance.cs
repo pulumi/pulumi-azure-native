@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a managed instance.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a managed instance.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? Collation;
         /// <summary>
+        /// The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        /// </summary>
+        public readonly string CurrentBackupStorageRedundancy;
+        /// <summary>
         /// The Dns Zone that the managed instance is in.
         /// </summary>
         public readonly string DnsZone;
@@ -157,7 +161,15 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly bool? PublicDataEndpointEnabled;
         /// <summary>
-        /// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+        /// The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        /// </summary>
+        public readonly string? RequestedBackupStorageRedundancy;
+        /// <summary>
+        /// The managed instance's service principal.
+        /// </summary>
+        public readonly Outputs.ServicePrincipalResponse? ServicePrincipal;
+        /// <summary>
+        /// Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
@@ -165,11 +177,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-        /// </summary>
-        public readonly string? StorageAccountType;
-        /// <summary>
-        /// Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        /// Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         /// </summary>
         public readonly int? StorageSizeInGB;
         /// <summary>
@@ -210,6 +218,8 @@ namespace Pulumi.AzureNative.Sql
 
             string? collation,
 
+            string currentBackupStorageRedundancy,
+
             string dnsZone,
 
             string fullyQualifiedDomainName,
@@ -242,11 +252,13 @@ namespace Pulumi.AzureNative.Sql
 
             bool? publicDataEndpointEnabled,
 
+            string? requestedBackupStorageRedundancy,
+
+            Outputs.ServicePrincipalResponse? servicePrincipal,
+
             Outputs.SkuResponse? sku,
 
             string state,
-
-            string? storageAccountType,
 
             int? storageSizeInGB,
 
@@ -265,6 +277,7 @@ namespace Pulumi.AzureNative.Sql
             AdministratorLogin = administratorLogin;
             Administrators = administrators;
             Collation = collation;
+            CurrentBackupStorageRedundancy = currentBackupStorageRedundancy;
             DnsZone = dnsZone;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
@@ -281,9 +294,10 @@ namespace Pulumi.AzureNative.Sql
             ProvisioningState = provisioningState;
             ProxyOverride = proxyOverride;
             PublicDataEndpointEnabled = publicDataEndpointEnabled;
+            RequestedBackupStorageRedundancy = requestedBackupStorageRedundancy;
+            ServicePrincipal = servicePrincipal;
             Sku = sku;
             State = state;
-            StorageAccountType = storageAccountType;
             StorageSizeInGB = storageSizeInGB;
             SubnetId = subnetId;
             Tags = tags;

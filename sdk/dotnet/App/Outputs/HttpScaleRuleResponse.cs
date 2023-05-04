@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.Outputs
 {
 
     /// <summary>
-    /// Container App container Custom scaling rule.
+    /// Container App container Http scaling rule.
     /// </summary>
     [OutputType]
     public sealed class HttpScaleRuleResponse

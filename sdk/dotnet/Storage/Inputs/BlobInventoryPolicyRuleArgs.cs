@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.Inputs
         public Input<Inputs.BlobInventoryPolicyDefinitionArgs> Definition { get; set; } = null!;
 
         /// <summary>
+        /// Container name where blob inventory files are stored. Must be pre-created.
+        /// </summary>
+        [Input("destination", required: true)]
+        public Input<string> Destination { get; set; } = null!;
+
+        /// <summary>
         /// Rule is enabled when set to true.
         /// </summary>
         [Input("enabled", required: true)]

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Profile of a lab user.
- *
- * @deprecated Version 2016-05-15 will be removed in v2 of the provider.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class User extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): User {
-        pulumi.log.warn("User is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
         return new User(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +81,7 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("User is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

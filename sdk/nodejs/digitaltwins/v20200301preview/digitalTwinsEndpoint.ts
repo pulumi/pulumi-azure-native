@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * DigitalTwinsInstance endpoint resource.
- *
- * @deprecated Version 2020-03-01-preview will be removed in v2 of the provider.
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DigitalTwinsEndpoint {
-        pulumi.log.warn("DigitalTwinsEndpoint is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.")
         return new DigitalTwinsEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,9 +57,7 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-03-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: DigitalTwinsEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DigitalTwinsEndpoint is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

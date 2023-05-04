@@ -20,21 +20,27 @@ __all__ = [
 @pulumi.output_type
 class GetProfileResult:
     """
-    CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+    A profile is a logical grouping of endpoints that share the same settings.
     """
-    def __init__(__self__, frontdoor_id=None, id=None, location=None, name=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
-        if frontdoor_id and not isinstance(frontdoor_id, str):
-            raise TypeError("Expected argument 'frontdoor_id' to be a str")
-        pulumi.set(__self__, "frontdoor_id", frontdoor_id)
+    def __init__(__self__, front_door_id=None, id=None, kind=None, location=None, name=None, origin_response_timeout_seconds=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+        if front_door_id and not isinstance(front_door_id, str):
+            raise TypeError("Expected argument 'front_door_id' to be a str")
+        pulumi.set(__self__, "front_door_id", front_door_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if origin_response_timeout_seconds and not isinstance(origin_response_timeout_seconds, int):
+            raise TypeError("Expected argument 'origin_response_timeout_seconds' to be a int")
+        pulumi.set(__self__, "origin_response_timeout_seconds", origin_response_timeout_seconds)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -55,12 +61,12 @@ class GetProfileResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="frontdoorId")
-    def frontdoor_id(self) -> str:
+    @pulumi.getter(name="frontDoorId")
+    def front_door_id(self) -> str:
         """
         The Id of the frontdoor.
         """
-        return pulumi.get(self, "frontdoor_id")
+        return pulumi.get(self, "front_door_id")
 
     @property
     @pulumi.getter
@@ -69,6 +75,14 @@ class GetProfileResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -85,6 +99,14 @@ class GetProfileResult:
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="originResponseTimeoutSeconds")
+    def origin_response_timeout_seconds(self) -> Optional[int]:
+        """
+        Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        """
+        return pulumi.get(self, "origin_response_timeout_seconds")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -106,7 +128,7 @@ class GetProfileResult:
     @pulumi.getter
     def sku(self) -> 'outputs.SkuResponse':
         """
-        The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+        The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
         """
         return pulumi.get(self, "sku")
 
@@ -141,10 +163,12 @@ class AwaitableGetProfileResult(GetProfileResult):
         if False:
             yield self
         return GetProfileResult(
-            frontdoor_id=self.frontdoor_id,
+            front_door_id=self.front_door_id,
             id=self.id,
+            kind=self.kind,
             location=self.location,
             name=self.name,
+            origin_response_timeout_seconds=self.origin_response_timeout_seconds,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
             sku=self.sku,
@@ -157,11 +181,11 @@ def get_profile(profile_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
-    Gets a CDN profile with the specified profile name under the specified subscription and resource group.
-    API Version: 2020-09-01.
+    Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
+    API Version: 2021-06-01.
 
 
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
@@ -171,10 +195,12 @@ def get_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
-        frontdoor_id=__ret__.frontdoor_id,
+        front_door_id=__ret__.front_door_id,
         id=__ret__.id,
+        kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
+        origin_response_timeout_seconds=__ret__.origin_response_timeout_seconds,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
         sku=__ret__.sku,
@@ -188,11 +214,11 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
-    Gets a CDN profile with the specified profile name under the specified subscription and resource group.
-    API Version: 2020-09-01.
+    Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
+    API Version: 2021-06-01.
 
 
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     ...

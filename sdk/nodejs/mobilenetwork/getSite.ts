@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified mobile network site.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-11-01.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
 
@@ -37,37 +37,13 @@ export interface GetSiteArgs {
 }
 
 /**
- * Site resource.
+ * Site resource. Must be created in the same location as its parent mobile network.
  */
 export interface GetSiteResult {
-    /**
-     * The timestamp of resource creation (UTC).
-     */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -77,9 +53,9 @@ export interface GetSiteResult {
      */
     readonly name: string;
     /**
-     * An array of IDs of the network functions deployed on the site, maintained by the user.
+     * An array of IDs of the network functions deployed in the site. Deleting the site will delete any network functions that are deployed in the site.
      */
-    readonly networkFunctions?: outputs.mobilenetwork.SubResourceResponse[];
+    readonly networkFunctions: outputs.mobilenetwork.SubResourceResponse[];
     /**
      * The provisioning state of the site resource.
      */
@@ -99,7 +75,7 @@ export interface GetSiteResult {
 }
 /**
  * Gets information about the specified mobile network site.
- * API Version: 2022-04-01-preview.
+ * API Version: 2022-11-01.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))

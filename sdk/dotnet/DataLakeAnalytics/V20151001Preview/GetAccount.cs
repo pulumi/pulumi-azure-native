@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
 {
-    [Obsolete(@"Version 2015-10-01-preview will be removed in v2 of the provider.")]
     public static class GetAccount
     {
         /// <summary>

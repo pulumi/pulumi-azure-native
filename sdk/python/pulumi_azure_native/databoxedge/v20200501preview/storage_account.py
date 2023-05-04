@@ -130,12 +130,7 @@ class StorageAccountArgs:
         pulumi.set(self, "storage_account_status", value)
 
 
-warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class StorageAccount(pulumi.CustomResource):
-    warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -193,7 +188,6 @@ class StorageAccount(pulumi.CustomResource):
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_account_status: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]] = None,
                  __props__=None):
-        pulumi.log.warn("""StorageAccount is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

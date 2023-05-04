@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets load balancer backend address pool.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
 
@@ -45,6 +45,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly backendIPConfigurations: outputs.network.NetworkInterfaceIPConfigurationResponse[];
     /**
+     * Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+     */
+    readonly drainPeriodInSeconds?: number;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -53,6 +57,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly id?: string;
     /**
+     * An array of references to inbound NAT rules that use this backend address pool.
+     */
+    readonly inboundNatRules: outputs.network.SubResourceResponse[];
+    /**
      * An array of backend addresses.
      */
     readonly loadBalancerBackendAddresses?: outputs.network.LoadBalancerBackendAddressResponse[];
@@ -60,6 +68,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      * An array of references to load balancing rules that use this backend address pool.
      */
     readonly loadBalancingRules: outputs.network.SubResourceResponse[];
+    /**
+     * The location of the backend address pool.
+     */
+    readonly location?: string;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
@@ -77,13 +89,21 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly provisioningState: string;
     /**
+     * An array of gateway load balancer tunnel interfaces.
+     */
+    readonly tunnelInterfaces?: outputs.network.GatewayLoadBalancerTunnelInterfaceResponse[];
+    /**
      * Type of the resource.
      */
     readonly type: string;
+    /**
+     * A reference to a virtual network.
+     */
+    readonly virtualNetwork?: outputs.network.SubResourceResponse;
 }
 /**
  * Gets load balancer backend address pool.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancerBackendAddressPool(a, opts))

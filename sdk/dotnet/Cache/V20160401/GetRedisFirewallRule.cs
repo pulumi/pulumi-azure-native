@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cache.V20160401
 {
-    [Obsolete(@"Version 2016-04-01 will be removed in v2 of the provider.")]
     public static class GetRedisFirewallRule
     {
         /// <summary>

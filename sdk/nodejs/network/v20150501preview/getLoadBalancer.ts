@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The Get network interface operation retrieves information about the specified network interface.
  */
-/** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    pulumi.log.warn("getLoadBalancer is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20150501preview:getLoadBalancer", {
@@ -100,7 +98,6 @@ export interface GetLoadBalancerResult {
 /**
  * The Get network interface operation retrieves information about the specified network interface.
  */
-/** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }

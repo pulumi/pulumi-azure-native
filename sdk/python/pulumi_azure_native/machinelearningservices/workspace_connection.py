@@ -8,56 +8,45 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['WorkspaceConnectionArgs', 'WorkspaceConnection']
 
 @pulumi.input_type
 class WorkspaceConnectionArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input[Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 auth_type: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[str]] = None,
-                 connection_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 target: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None,
-                 value_format: Optional[pulumi.Input[Union[str, 'ValueFormat']]] = None):
+                 connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WorkspaceConnection resource.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[str] auth_type: Authorization type of the workspace connection.
-        :param pulumi.Input[str] category: Category of the workspace connection.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
-        :param pulumi.Input[str] name: Friendly name of the workspace connection
-        :param pulumi.Input[str] target: Target of the workspace connection.
-        :param pulumi.Input[str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[str, 'ValueFormat']] value_format: format for the workspace connection value
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Union['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs', 'NoneAuthTypeWorkspaceConnectionPropertiesArgs', 'PATAuthTypeWorkspaceConnectionPropertiesArgs', 'SASAuthTypeWorkspaceConnectionPropertiesArgs', 'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group in which workspace is located.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -78,30 +67,6 @@ class WorkspaceConnectionArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Authorization type of the workspace connection.
-        """
-        return pulumi.get(self, "auth_type")
-
-    @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "auth_type", value)
-
-    @property
-    @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[str]]:
-        """
-        Category of the workspace connection.
-        """
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "category", value)
-
-    @property
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -113,84 +78,25 @@ class WorkspaceConnectionArgs:
     def connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_name", value)
 
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Friendly name of the workspace connection
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[str]]:
-        """
-        Target of the workspace connection.
-        """
-        return pulumi.get(self, "target")
-
-    @target.setter
-    def target(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
-
 
 class WorkspaceConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['NoneAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['PATAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['SASAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 target: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None,
-                 value_format: Optional[pulumi.Input[Union[str, 'ValueFormat']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Workspace connection.
-        API Version: 2021-01-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_type: Authorization type of the workspace connection.
-        :param pulumi.Input[str] category: Category of the workspace connection.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
-        :param pulumi.Input[str] name: Friendly name of the workspace connection
-        :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
-        :param pulumi.Input[str] target: Target of the workspace connection.
-        :param pulumi.Input[str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[str, 'ValueFormat']] value_format: format for the workspace connection value
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
         ...
@@ -200,8 +106,8 @@ class WorkspaceConnection(pulumi.CustomResource):
                  args: WorkspaceConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Workspace connection.
-        API Version: 2021-01-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -218,14 +124,9 @@ class WorkspaceConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['NoneAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['PATAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['SASAuthTypeWorkspaceConnectionPropertiesArgs'], pulumi.InputType['UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 target: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None,
-                 value_format: Optional[pulumi.Input[Union[str, 'ValueFormat']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,21 +137,20 @@ class WorkspaceConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceConnectionArgs.__new__(WorkspaceConnectionArgs)
 
-            __props__.__dict__["auth_type"] = auth_type
-            __props__.__dict__["category"] = category
             __props__.__dict__["connection_name"] = connection_name
-            __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["target"] = target
-            __props__.__dict__["value"] = value
-            __props__.__dict__["value_format"] = value_format
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200601:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200801:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210701:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220101preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:WorkspaceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200601:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200801:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210701:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220101preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:WorkspaceConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:WorkspaceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceConnection, __self__).__init__(
             'azure-native:machinelearningservices:WorkspaceConnection',
@@ -274,68 +174,38 @@ class WorkspaceConnection(pulumi.CustomResource):
 
         __props__ = WorkspaceConnectionArgs.__new__(WorkspaceConnectionArgs)
 
-        __props__.__dict__["auth_type"] = None
-        __props__.__dict__["category"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["target"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["value"] = None
-        __props__.__dict__["value_format"] = None
         return WorkspaceConnection(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="authType")
-    def auth_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Authorization type of the workspace connection.
-        """
-        return pulumi.get(self, "auth_type")
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Output[Optional[str]]:
-        """
-        Category of the workspace connection.
-        """
-        return pulumi.get(self, "category")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Friendly name of the workspace connection.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def target(self) -> pulumi.Output[Optional[str]]:
+    def properties(self) -> pulumi.Output[Any]:
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Target of the workspace connection.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "target")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type of workspace connection.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Output[Optional[str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> pulumi.Output[Optional[str]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
 

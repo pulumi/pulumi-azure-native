@@ -19,9 +19,9 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         /// <summary>
         /// Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
         /// </summary>
-        public readonly string? HttpsCAFile;
+        public readonly string? HttpsCACert;
         /// <summary>
-        /// Base64-encoded HTTPS username used to access private git repositories over HTTPS
+        /// Plaintext HTTPS username used to access private git repositories over HTTPS
         /// </summary>
         public readonly string? HttpsUser;
         /// <summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
 
         [OutputConstructor]
         private GitRepositoryDefinitionResponse(
-            string? httpsCAFile,
+            string? httpsCACert,
 
             string? httpsUser,
 
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
 
             string? url)
         {
-            HttpsCAFile = httpsCAFile;
+            HttpsCACert = httpsCACert;
             HttpsUser = httpsUser;
             LocalAuthRef = localAuthRef;
             RepositoryRef = repositoryRef;

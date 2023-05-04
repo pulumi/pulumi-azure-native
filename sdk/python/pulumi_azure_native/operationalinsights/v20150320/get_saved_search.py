@@ -17,8 +17,6 @@ __all__ = [
     'get_saved_search_output',
 ]
 
-warnings.warn("""Version 2015-03-20 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSavedSearchResult:
     """
@@ -155,7 +153,6 @@ def get_saved_search(resource_group_name: Optional[str] = None,
     :param str saved_search_id: The id of the saved search.
     :param str workspace_name: The Log Analytics Workspace name.
     """
-    pulumi.log.warn("""get_saved_search is deprecated: Version 2015-03-20 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['savedSearchId'] = saved_search_id
@@ -188,5 +185,4 @@ def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str saved_search_id: The id of the saved search.
     :param str workspace_name: The Log Analytics Workspace name.
     """
-    pulumi.log.warn("""get_saved_search is deprecated: Version 2015-03-20 will be removed in v2 of the provider.""")
     ...

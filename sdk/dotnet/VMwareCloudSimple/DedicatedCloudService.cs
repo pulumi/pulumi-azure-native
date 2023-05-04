@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     /// <summary>
     /// Dedicated cloud service model
     /// API Version: 2019-04-01.
+    /// Previous API Version: 2019-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple:DedicatedCloudService")]
     public partial class DedicatedCloudService : global::Pulumi.CustomResource

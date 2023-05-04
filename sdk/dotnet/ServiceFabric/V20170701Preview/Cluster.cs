@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
     /// <summary>
     /// The cluster resource
     /// </summary>
-    [Obsolete(@"Version 2017-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20170701preview:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
@@ -205,7 +204,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20160901:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20180201:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Cluster"},

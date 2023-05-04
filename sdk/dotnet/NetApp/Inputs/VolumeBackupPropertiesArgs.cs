@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         [Input("policyEnforced")]
         public Input<bool>? PolicyEnforced { get; set; }
 
-        /// <summary>
-        /// Vault Resource ID
-        /// </summary>
-        [Input("vaultId")]
-        public Input<string>? VaultId { get; set; }
-
         public VolumeBackupPropertiesArgs()
         {
         }

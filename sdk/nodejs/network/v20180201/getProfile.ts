@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Traffic Manager profile.
  */
-/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: Version 2018-02-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180201:getProfile", {
@@ -84,7 +82,6 @@ export interface GetProfileResult {
 /**
  * Gets a Traffic Manager profile.
  */
-/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }

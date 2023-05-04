@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of a Confidential Ledger.
- * API Version: 2020-12-01-preview.
+ * API Version: 2022-05-13.
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
 
@@ -66,7 +66,7 @@ export interface GetLedgerResult {
 }
 /**
  * Retrieves the properties of a Confidential Ledger.
- * API Version: 2020-12-01-preview.
+ * API Version: 2022-05-13.
  */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
     return pulumi.output(args).apply((a: any) => getLedger(a, opts))

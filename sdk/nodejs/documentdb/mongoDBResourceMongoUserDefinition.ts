@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB User Definition
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-11-15.
+ * Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class MongoDBResourceMongoUserDefinition extends pulumi.CustomResource {
     /**
@@ -110,7 +111,7 @@ export class MongoDBResourceMongoUserDefinition extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220215preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220815preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20221115:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220215preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20220815preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20221115:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20221115preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20230301preview:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition" }, { type: "azure-native:documentdb/v20230415:MongoDBResourceMongoUserDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoDBResourceMongoUserDefinition.__pulumiType, name, resourceInputs, opts);
     }

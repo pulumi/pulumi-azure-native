@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the managed cluster with a specified resource group and name.
  */
-/** @deprecated Version 2017-08-31 will be removed in v2 of the provider. */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
-    pulumi.log.warn("getManagedCluster is deprecated: Version 2017-08-31 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20170831:getManagedCluster", {
@@ -88,7 +86,6 @@ export interface GetManagedClusterResult {
 /**
  * Gets the details of the managed cluster with a specified resource group and name.
  */
-/** @deprecated Version 2017-08-31 will be removed in v2 of the provider. */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))
 }

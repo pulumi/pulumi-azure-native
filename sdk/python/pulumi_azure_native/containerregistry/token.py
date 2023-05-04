@@ -26,7 +26,7 @@ class TokenArgs:
         """
         The set of arguments for constructing a Token resource.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['TokenCredentialsPropertiesArgs'] credentials: The credentials that can be used for authenticating the token.
         :param pulumi.Input[str] scope_map_id: The resource ID of the scope map to which the token will be associated with.
         :param pulumi.Input[Union[str, 'TokenStatus']] status: The status of the token example enabled or disabled.
@@ -59,7 +59,7 @@ class TokenArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the container registry belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -130,13 +130,14 @@ class Token(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents a token for a container registry.
-        API Version: 2020-11-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TokenCredentialsPropertiesArgs']] credentials: The credentials that can be used for authenticating the token.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_map_id: The resource ID of the scope map to which the token will be associated with.
         :param pulumi.Input[Union[str, 'TokenStatus']] status: The status of the token example enabled or disabled.
         :param pulumi.Input[str] token_name: The name of the token.
@@ -149,7 +150,8 @@ class Token(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a token for a container registry.
-        API Version: 2020-11-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param TokenArgs args: The arguments to use to populate this resource's properties.

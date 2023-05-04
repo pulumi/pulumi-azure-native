@@ -22,7 +22,7 @@ class GetDicomServiceResult:
     """
     The description of Dicom Service
     """
-    def __init__(__self__, authentication_configuration=None, cors_configuration=None, etag=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_url=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, authentication_configuration=None, cors_configuration=None, etag=None, event_state=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_url=None, system_data=None, tags=None, type=None):
         if authentication_configuration and not isinstance(authentication_configuration, dict):
             raise TypeError("Expected argument 'authentication_configuration' to be a dict")
         pulumi.set(__self__, "authentication_configuration", authentication_configuration)
@@ -32,6 +32,9 @@ class GetDicomServiceResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if event_state and not isinstance(event_state, str):
+            raise TypeError("Expected argument 'event_state' to be a str")
+        pulumi.set(__self__, "event_state", event_state)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -89,6 +92,14 @@ class GetDicomServiceResult:
         An etag associated with the resource, used for optimistic concurrency when editing it.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="eventState")
+    def event_state(self) -> str:
+        """
+        DICOM Service event support status.
+        """
+        return pulumi.get(self, "event_state")
 
     @property
     @pulumi.getter
@@ -188,6 +199,7 @@ class AwaitableGetDicomServiceResult(GetDicomServiceResult):
             authentication_configuration=self.authentication_configuration,
             cors_configuration=self.cors_configuration,
             etag=self.etag,
+            event_state=self.event_state,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -207,7 +219,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDicomServiceResult:
     """
     Gets the properties of the specified DICOM Service.
-    API Version: 2022-05-15.
+    API Version: 2022-12-01.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.
@@ -225,6 +237,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
         authentication_configuration=__ret__.authentication_configuration,
         cors_configuration=__ret__.cors_configuration,
         etag=__ret__.etag,
+        event_state=__ret__.event_state,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
@@ -245,7 +258,7 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     Gets the properties of the specified DICOM Service.
-    API Version: 2022-05-15.
+    API Version: 2022-12-01.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.

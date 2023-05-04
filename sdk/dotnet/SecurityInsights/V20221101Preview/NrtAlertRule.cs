@@ -206,6 +206,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:NrtAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:NrtAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:NrtAlertRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:NrtAlertRule"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:NrtAlertRule"},
                 },
             };

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Get a given SyncGroup.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure-native:storagesync:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given SyncGroup.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-06-01.
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:storagesync:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string SyncGroupStatus;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.StorageSync
 
             string syncGroupStatus,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string uniqueId)
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNative.StorageSync
             Id = id;
             Name = name;
             SyncGroupStatus = syncGroupStatus;
+            SystemData = systemData;
             Type = type;
             UniqueId = uniqueId;
         }

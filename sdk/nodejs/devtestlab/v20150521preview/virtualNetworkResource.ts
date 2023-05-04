@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A virtual network.
- *
- * @deprecated Version 2015-05-21-preview will be removed in v2 of the provider.
  */
 export class VirtualNetworkResource extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkResource {
-        pulumi.log.warn("VirtualNetworkResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.")
         return new VirtualNetworkResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +81,7 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
     constructor(name: string, args: VirtualNetworkResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualNetworkResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

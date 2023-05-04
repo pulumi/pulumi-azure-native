@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB trigger.
- *
- * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class SqlResourceSqlTrigger extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlTrigger {
-        pulumi.log.warn("SqlResourceSqlTrigger is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         return new SqlResourceSqlTrigger(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: SqlResourceSqlTriggerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlResourceSqlTrigger is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -108,7 +103,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210315:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20211115preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220215preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220515:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220515preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220815:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20221115:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20230315:SqlResourceSqlTrigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210315:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20211115preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220215preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220515:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220515preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220815:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20221115:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20221115preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20230301preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20230315:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20230415:SqlResourceSqlTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlTrigger.__pulumiType, name, resourceInputs, opts);
     }

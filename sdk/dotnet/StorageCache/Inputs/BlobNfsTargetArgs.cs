@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
         [Input("usageModel")]
         public Input<string>? UsageModel { get; set; }
 
+        /// <summary>
+        /// Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        /// </summary>
+        [Input("verificationTimer")]
+        public Input<int>? VerificationTimer { get; set; }
+
+        /// <summary>
+        /// Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+        /// </summary>
+        [Input("writeBackTimer")]
+        public Input<int>? WriteBackTimer { get; set; }
+
         public BlobNfsTargetArgs()
         {
         }

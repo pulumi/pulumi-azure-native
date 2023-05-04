@@ -2,14 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
- * API Version: 2020-10-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResource {
     /**
@@ -55,10 +53,6 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      */
     public readonly swiftSupported!: pulumi.Output<boolean | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -89,14 +83,12 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
             resourceInputs["slot"] = args ? args.slot : undefined;
             resourceInputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
             resourceInputs["swiftSupported"] = args ? args.swiftSupported : undefined;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subnetResourceId"] = undefined /*out*/;
             resourceInputs["swiftSupported"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

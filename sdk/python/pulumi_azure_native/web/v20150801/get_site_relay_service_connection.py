@@ -16,8 +16,6 @@ __all__ = [
     'get_site_relay_service_connection_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSiteRelayServiceConnectionResult:
     """
@@ -181,7 +179,6 @@ def get_site_relay_service_connection(entity_name: Optional[str] = None,
     :param str name: The name of the web app
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_site_relay_service_connection is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['entityName'] = entity_name
     __args__['name'] = name
@@ -218,5 +215,4 @@ def get_site_relay_service_connection_output(entity_name: Optional[pulumi.Input[
     :param str name: The name of the web app
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_site_relay_service_connection is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

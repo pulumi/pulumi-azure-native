@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// </summary>
     public sealed class OwaspCrsExclusionEntryArgs : global::Pulumi.ResourceArgs
     {
+        [Input("exclusionManagedRuleSets")]
+        private InputList<Inputs.ExclusionManagedRuleSetArgs>? _exclusionManagedRuleSets;
+
+        /// <summary>
+        /// The managed rule sets that are associated with the exclusion.
+        /// </summary>
+        public InputList<Inputs.ExclusionManagedRuleSetArgs> ExclusionManagedRuleSets
+        {
+            get => _exclusionManagedRuleSets ?? (_exclusionManagedRuleSets = new InputList<Inputs.ExclusionManagedRuleSetArgs>());
+            set => _exclusionManagedRuleSets = value;
+        }
+
         /// <summary>
         /// The variable to be excluded.
         /// </summary>

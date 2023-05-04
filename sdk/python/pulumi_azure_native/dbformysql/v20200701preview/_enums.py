@@ -9,7 +9,6 @@ __all__ = [
     'HaEnabledEnum',
     'InfrastructureEncryptionEnum',
     'ResourceIdentityType',
-    'ServerKeyType',
     'ServerVersion',
     'SkuTier',
     'SslEnforcementEnum',
@@ -47,13 +46,6 @@ class ResourceIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class ServerKeyType(str, Enum):
-    """
-    The key type like 'AzureKeyVault'.
-    """
-    AZURE_KEY_VAULT = "AzureKeyVault"
 
 
 class ServerVersion(str, Enum):

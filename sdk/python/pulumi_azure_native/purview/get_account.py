@@ -212,7 +212,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.AccountPropertiesResponseSystemData':
+    def system_data(self) -> 'outputs.TrackedResourceResponseSystemData':
         """
         Metadata pertaining to creation and last modification of the resource.
         """
@@ -267,7 +267,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get an account
-    API Version: 2020-12-01-preview.
+    API Version: 2021-07-01.
 
 
     :param str account_name: The name of the account.
@@ -307,7 +307,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get an account
-    API Version: 2020-12-01-preview.
+    API Version: 2021-07-01.
 
 
     :param str account_name: The name of the account.

@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = ['ExtensionArgs', 'Extension']
 
@@ -20,14 +19,9 @@ class ExtensionArgs:
                  cluster_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[Any] = None,
@@ -39,41 +33,26 @@ class ExtensionArgs:
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         :param pulumi.Input[str] extension_name: The name of the machine extension.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param Any protected_settings: Protected settings (may contain secrets).
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler. Latest version would be used if not specified.
         """
         pulumi.set(__self__, "arc_setting_name", arc_setting_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if extension_name is not None:
             pulumi.set(__self__, "extension_name", extension_name)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
         if publisher is not None:
@@ -134,40 +113,16 @@ class ExtensionArgs:
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[bool]]:
         """
-        The timestamp of resource creation (UTC).
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         """
-        return pulumi.get(self, "created_at")
+        return pulumi.get(self, "enable_automatic_upgrade")
 
-    @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_at", value)
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_by", value)
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @created_by_type.setter
-    def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "created_by_type", value)
+    @enable_automatic_upgrade.setter
+    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_upgrade", value)
 
     @property
     @pulumi.getter(name="extensionName")
@@ -192,42 +147,6 @@ class ExtensionArgs:
     @force_update_tag.setter
     def force_update_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "force_update_tag", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @last_modified_at.setter
-    def last_modified_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_at", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_by", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @last_modified_by_type.setter
-    def last_modified_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "last_modified_by_type", value)
 
     @property
     @pulumi.getter(name="protectedSettings")
@@ -281,7 +200,7 @@ class ExtensionArgs:
     @pulumi.getter(name="typeHandlerVersion")
     def type_handler_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the version of the script handler.
+        Specifies the version of the script handler. Latest version would be used if not specified.
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -298,14 +217,9 @@ class Extension(pulumi.CustomResource):
                  arc_setting_name: Optional[pulumi.Input[str]] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -315,27 +229,23 @@ class Extension(pulumi.CustomResource):
                  __props__=None):
         """
         Details of a particular extension in HCI Cluster.
-        API Version: 2021-01-01-preview.
+        API Version: 2023-02-01.
+        Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         :param pulumi.Input[str] extension_name: The name of the machine extension.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param Any protected_settings: Protected settings (may contain secrets).
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler. Latest version would be used if not specified.
         """
         ...
     @overload
@@ -345,7 +255,8 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details of a particular extension in HCI Cluster.
-        API Version: 2021-01-01-preview.
+        API Version: 2023-02-01.
+        Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -365,14 +276,9 @@ class Extension(pulumi.CustomResource):
                  arc_setting_name: Optional[pulumi.Input[str]] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -395,14 +301,9 @@ class Extension(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            __props__.__dict__["created_at"] = created_at
-            __props__.__dict__["created_by"] = created_by
-            __props__.__dict__["created_by_type"] = created_by_type
+            __props__.__dict__["enable_automatic_upgrade"] = enable_automatic_upgrade
             __props__.__dict__["extension_name"] = extension_name
             __props__.__dict__["force_update_tag"] = force_update_tag
-            __props__.__dict__["last_modified_at"] = last_modified_at
-            __props__.__dict__["last_modified_by"] = last_modified_by
-            __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             __props__.__dict__["protected_settings"] = protected_settings
             __props__.__dict__["publisher"] = publisher
             if resource_group_name is None and not opts.urn:
@@ -415,7 +316,8 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["per_node_extension_details"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220301:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221201:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:Extension")])
+            __props__.__dict__["system_data"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220301:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221201:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-native:azurestackhci:Extension',
@@ -441,19 +343,15 @@ class Extension(pulumi.CustomResource):
 
         __props__.__dict__["aggregate_state"] = None
         __props__.__dict__["auto_upgrade_minor_version"] = None
-        __props__.__dict__["created_at"] = None
-        __props__.__dict__["created_by"] = None
-        __props__.__dict__["created_by_type"] = None
+        __props__.__dict__["enable_automatic_upgrade"] = None
         __props__.__dict__["force_update_tag"] = None
-        __props__.__dict__["last_modified_at"] = None
-        __props__.__dict__["last_modified_by"] = None
-        __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["per_node_extension_details"] = None
         __props__.__dict__["protected_settings"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["publisher"] = None
         __props__.__dict__["settings"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["type_handler_version"] = None
         return Extension(resource_name, opts=opts, __props__=__props__)
@@ -475,28 +373,12 @@ class Extension(pulumi.CustomResource):
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
-        The timestamp of resource creation (UTC).
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
+        return pulumi.get(self, "enable_automatic_upgrade")
 
     @property
     @pulumi.getter(name="forceUpdateTag")
@@ -505,30 +387,6 @@ class Extension(pulumi.CustomResource):
         How the extension handler should be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter
@@ -579,6 +437,14 @@ class Extension(pulumi.CustomResource):
         return pulumi.get(self, "settings")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
@@ -590,7 +456,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="typeHandlerVersion")
     def type_handler_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the version of the script handler.
+        Specifies the version of the script handler. Latest version would be used if not specified.
         """
         return pulumi.get(self, "type_handler_version")
 

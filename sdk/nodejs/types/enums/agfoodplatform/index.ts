@@ -10,14 +10,32 @@ export {
     v20210901preview,
 };
 
-export const SkuTier = {
-    Free: "Free",
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
 } as const;
 
 /**
- * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
-export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Hybrid: "Hybrid",
+} as const;
+
+/**
+ * Property to allow or block public traffic for an Azure FarmBeats resource.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

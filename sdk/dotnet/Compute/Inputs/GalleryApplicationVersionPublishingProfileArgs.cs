@@ -15,6 +15,30 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// </summary>
     public sealed class GalleryApplicationVersionPublishingProfileArgs : global::Pulumi.ResourceArgs
     {
+        [Input("advancedSettings")]
+        private InputMap<string>? _advancedSettings;
+
+        /// <summary>
+        /// Optional. Additional settings to pass to the vm-application-manager extension. For advanced use only.
+        /// </summary>
+        public InputMap<string> AdvancedSettings
+        {
+            get => _advancedSettings ?? (_advancedSettings = new InputMap<string>());
+            set => _advancedSettings = value;
+        }
+
+        [Input("customActions")]
+        private InputList<Inputs.GalleryApplicationCustomActionArgs>? _customActions;
+
+        /// <summary>
+        /// A list of custom actions that can be performed with this Gallery Application Version.
+        /// </summary>
+        public InputList<Inputs.GalleryApplicationCustomActionArgs> CustomActions
+        {
+            get => _customActions ?? (_customActions = new InputList<Inputs.GalleryApplicationCustomActionArgs>());
+            set => _customActions = value;
+        }
+
         /// <summary>
         /// Optional. Whether or not this application reports health.
         /// </summary>
@@ -43,6 +67,18 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<int>? ReplicaCount { get; set; }
 
         /// <summary>
+        /// Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+        /// </summary>
+        [Input("replicationMode")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.ReplicationMode>? ReplicationMode { get; set; }
+
+        /// <summary>
+        /// Additional settings for the VM app that contains the target package and config file name when it is deployed to target VM or VM scale set.
+        /// </summary>
+        [Input("settings")]
+        public Input<Inputs.UserArtifactSettingsArgs>? Settings { get; set; }
+
+        /// <summary>
         /// The source image from which the Image Version is going to be created.
         /// </summary>
         [Input("source", required: true)]
@@ -53,6 +89,18 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("storageAccountType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.StorageAccountType>? StorageAccountType { get; set; }
+
+        [Input("targetExtendedLocations")]
+        private InputList<Inputs.GalleryTargetExtendedLocationArgs>? _targetExtendedLocations;
+
+        /// <summary>
+        /// The target extended locations where the Image Version is going to be replicated to. This property is updatable.
+        /// </summary>
+        public InputList<Inputs.GalleryTargetExtendedLocationArgs> TargetExtendedLocations
+        {
+            get => _targetExtendedLocations ?? (_targetExtendedLocations = new InputList<Inputs.GalleryTargetExtendedLocationArgs>());
+            set => _targetExtendedLocations = value;
+        }
 
         [Input("targetRegions")]
         private InputList<Inputs.TargetRegionArgs>? _targetRegions;

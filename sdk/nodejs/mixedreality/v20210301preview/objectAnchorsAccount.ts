@@ -126,8 +126,6 @@ export class ObjectAnchorsAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality:ObjectAnchorsAccount" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ObjectAnchorsAccount.__pulumiType, name, resourceInputs, opts);
     }
 }

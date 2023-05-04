@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the specified network security rule.
  */
-/** @deprecated Version 2017-03-01 will be removed in v2 of the provider. */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
-    pulumi.log.warn("getSecurityRule is deprecated: Version 2017-03-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20170301:getSecurityRule", {
@@ -94,7 +92,6 @@ export interface GetSecurityRuleResult {
 /**
  * Get the specified network security rule.
  */
-/** @deprecated Version 2017-03-01 will be removed in v2 of the provider. */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
     return pulumi.output(args).apply((a: any) => getSecurityRule(a, opts))
 }

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the details of the management group.
  */
-/** @deprecated Version 2020-02-01 will be removed in v2 of the provider. */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
-    pulumi.log.warn("getManagementGroup is deprecated: Version 2020-02-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management/v20200201:getManagementGroup", {
@@ -86,7 +84,6 @@ export interface GetManagementGroupResult {
 /**
  * Get the details of the management group.
  */
-/** @deprecated Version 2020-02-01 will be removed in v2 of the provider. */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))
 }

@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * A host name binding object
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteHostNameBindingSlot(args: GetSiteHostNameBindingSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteHostNameBindingSlotResult> {
-    pulumi.log.warn("getSiteHostNameBindingSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteHostNameBindingSlot", {
@@ -95,7 +93,6 @@ export interface GetSiteHostNameBindingSlotResult {
 /**
  * A host name binding object
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteHostNameBindingSlotOutput(args: GetSiteHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteHostNameBindingSlotResult> {
     return pulumi.output(args).apply((a: any) => getSiteHostNameBindingSlot(a, opts))
 }

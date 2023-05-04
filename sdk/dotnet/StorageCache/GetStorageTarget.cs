@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// Returns a Storage Target from a Cache.
-        /// API Version: 2021-03-01.
+        /// API Version: 2023-01-01.
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a Storage Target from a Cache.
-        /// API Version: 2021-03-01.
+        /// API Version: 2023-01-01.
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.StorageCache
     public sealed class GetStorageTargetResult
     {
         /// <summary>
+        /// The percentage of cache space allocated for this storage target
+        /// </summary>
+        public readonly int AllocationPercentage;
+        /// <summary>
         /// Properties when targetType is blobNfs.
         /// </summary>
         public readonly Outputs.BlobNfsTargetResponse? BlobNfs;
@@ -114,7 +118,11 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Storage target operational state.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
@@ -134,6 +142,8 @@ namespace Pulumi.AzureNative.StorageCache
 
         [OutputConstructor]
         private GetStorageTargetResult(
+            int allocationPercentage,
+
             Outputs.BlobNfsTargetResponse? blobNfs,
 
             Outputs.ClfsTargetResponse? clfs,
@@ -148,7 +158,9 @@ namespace Pulumi.AzureNative.StorageCache
 
             Outputs.Nfs3TargetResponse? nfs3,
 
-            string? provisioningState,
+            string provisioningState,
+
+            string? state,
 
             Outputs.SystemDataResponse systemData,
 
@@ -158,6 +170,7 @@ namespace Pulumi.AzureNative.StorageCache
 
             Outputs.UnknownTargetResponse? unknown)
         {
+            AllocationPercentage = allocationPercentage;
             BlobNfs = blobNfs;
             Clfs = clfs;
             Id = id;
@@ -166,6 +179,7 @@ namespace Pulumi.AzureNative.StorageCache
             Name = name;
             Nfs3 = nfs3;
             ProvisioningState = provisioningState;
+            State = state;
             SystemData = systemData;
             TargetType = targetType;
             Type = type;

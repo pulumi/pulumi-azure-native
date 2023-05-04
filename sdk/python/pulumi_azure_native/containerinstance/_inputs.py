@@ -15,11 +15,12 @@ __all__ = [
     'ContainerExecArgs',
     'ContainerGroupDiagnosticsArgs',
     'ContainerGroupIdentityArgs',
-    'ContainerGroupNetworkProfileArgs',
+    'ContainerGroupSubnetIdArgs',
     'ContainerHttpGetArgs',
     'ContainerPortArgs',
     'ContainerProbeArgs',
     'ContainerArgs',
+    'DeploymentExtensionSpecArgs',
     'DnsConfigurationArgs',
     'EncryptionPropertiesArgs',
     'EnvironmentVariableArgs',
@@ -164,7 +165,7 @@ class ContainerGroupIdentityArgs:
         """
         Identity for the container group.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the container group.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -187,7 +188,7 @@ class ContainerGroupIdentityArgs:
     @pulumi.getter(name="userAssignedIdentities")
     def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The list of user identities associated with the container group.
         """
         return pulumi.get(self, "user_assigned_identities")
 
@@ -197,26 +198,42 @@ class ContainerGroupIdentityArgs:
 
 
 @pulumi.input_type
-class ContainerGroupNetworkProfileArgs:
+class ContainerGroupSubnetIdArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str]):
+                 id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
         """
-        Container group network profile information.
-        :param pulumi.Input[str] id: The identifier for a network profile.
+        Container group subnet information.
+        :param pulumi.Input[str] id: Resource ID of virtual network and subnet.
+        :param pulumi.Input[str] name: Friendly name for the subnet.
         """
         pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The identifier for a network profile.
+        Resource ID of virtual network and subnet.
         """
         return pulumi.get(self, "id")
 
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name for the subnet.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -599,6 +616,91 @@ class ContainerArgs:
 
 
 @pulumi.input_type
+class DeploymentExtensionSpecArgs:
+    def __init__(__self__, *,
+                 extension_type: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 version: pulumi.Input[str],
+                 protected_settings: Optional[Any] = None,
+                 settings: Optional[Any] = None):
+        """
+        Extension sidecars to be added to the deployment.
+        :param pulumi.Input[str] extension_type: Type of extension to be added.
+        :param pulumi.Input[str] name: Name of the extension.
+        :param pulumi.Input[str] version: Version of the extension being used.
+        :param Any protected_settings: Protected settings for the extension.
+        :param Any settings: Settings for the extension.
+        """
+        pulumi.set(__self__, "extension_type", extension_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="extensionType")
+    def extension_type(self) -> pulumi.Input[str]:
+        """
+        Type of extension to be added.
+        """
+        return pulumi.get(self, "extension_type")
+
+    @extension_type.setter
+    def extension_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extension_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the extension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        Version of the extension being used.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[Any]:
+        """
+        Protected settings for the extension.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @protected_settings.setter
+    def protected_settings(self, value: Optional[Any]):
+        pulumi.set(self, "protected_settings", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[Any]:
+        """
+        Settings for the extension.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[Any]):
+        pulumi.set(self, "settings", value)
+
+
+@pulumi.input_type
 class DnsConfigurationArgs:
     def __init__(__self__, *,
                  name_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -658,16 +760,20 @@ class EncryptionPropertiesArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
                  key_version: pulumi.Input[str],
-                 vault_base_url: pulumi.Input[str]):
+                 vault_base_url: pulumi.Input[str],
+                 identity: Optional[pulumi.Input[str]] = None):
         """
         The container group encryption properties.
         :param pulumi.Input[str] key_name: The encryption key name.
         :param pulumi.Input[str] key_version: The encryption key version.
         :param pulumi.Input[str] vault_base_url: The keyvault base url.
+        :param pulumi.Input[str] identity: The keyvault managed identity.
         """
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "key_version", key_version)
         pulumi.set(__self__, "vault_base_url", vault_base_url)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
 
     @property
     @pulumi.getter(name="keyName")
@@ -704,6 +810,18 @@ class EncryptionPropertiesArgs:
     @vault_base_url.setter
     def vault_base_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "vault_base_url", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The keyvault managed identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
 
 
 @pulumi.input_type
@@ -860,7 +978,7 @@ class HttpHeaderArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        The HTTP header
+        The HTTP header.
         :param pulumi.Input[str] name: The header name.
         :param pulumi.Input[str] value: The header value.
         """
@@ -898,18 +1016,27 @@ class HttpHeaderArgs:
 class ImageRegistryCredentialArgs:
     def __init__(__self__, *,
                  server: pulumi.Input[str],
-                 username: pulumi.Input[str],
-                 password: Optional[pulumi.Input[str]] = None):
+                 identity: Optional[pulumi.Input[str]] = None,
+                 identity_url: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         Image registry credential.
         :param pulumi.Input[str] server: The Docker image registry server without a protocol such as "http" and "https".
-        :param pulumi.Input[str] username: The username for the private registry.
+        :param pulumi.Input[str] identity: The identity for the private registry.
+        :param pulumi.Input[str] identity_url: The identity URL for the private registry.
         :param pulumi.Input[str] password: The password for the private registry.
+        :param pulumi.Input[str] username: The username for the private registry.
         """
         pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if identity_url is not None:
+            pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -925,15 +1052,27 @@ class ImageRegistryCredentialArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
+    def identity(self) -> Optional[pulumi.Input[str]]:
         """
-        The username for the private registry.
+        The identity for the private registry.
         """
-        return pulumi.get(self, "username")
+        return pulumi.get(self, "identity")
 
-    @username.setter
-    def username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username", value)
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="identityUrl")
+    def identity_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity URL for the private registry.
+        """
+        return pulumi.get(self, "identity_url")
+
+    @identity_url.setter
+    def identity_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_url", value)
 
     @property
     @pulumi.getter
@@ -946,6 +1085,18 @@ class ImageRegistryCredentialArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username for the private registry.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
@@ -1040,17 +1191,23 @@ class IpAddressArgs:
     def __init__(__self__, *,
                  ports: pulumi.Input[Sequence[pulumi.Input['PortArgs']]],
                  type: pulumi.Input[Union[str, 'ContainerGroupIpAddressType']],
+                 auto_generated_domain_name_label_scope: Optional[pulumi.Input[Union[str, 'DnsNameLabelReusePolicy']]] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip: Optional[pulumi.Input[str]] = None):
         """
         IP address for the container group.
         :param pulumi.Input[Sequence[pulumi.Input['PortArgs']]] ports: The list of ports exposed on the container group.
         :param pulumi.Input[Union[str, 'ContainerGroupIpAddressType']] type: Specifies if the IP is exposed to the public internet or private VNET.
+        :param pulumi.Input[Union[str, 'DnsNameLabelReusePolicy']] auto_generated_domain_name_label_scope: The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
         :param pulumi.Input[str] dns_name_label: The Dns name label for the IP.
         :param pulumi.Input[str] ip: The IP exposed to the public internet.
         """
         pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "type", type)
+        if auto_generated_domain_name_label_scope is None:
+            auto_generated_domain_name_label_scope = 'Unsecure'
+        if auto_generated_domain_name_label_scope is not None:
+            pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if dns_name_label is not None:
             pulumi.set(__self__, "dns_name_label", dns_name_label)
         if ip is not None:
@@ -1079,6 +1236,18 @@ class IpAddressArgs:
     @type.setter
     def type(self, value: pulumi.Input[Union[str, 'ContainerGroupIpAddressType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="autoGeneratedDomainNameLabelScope")
+    def auto_generated_domain_name_label_scope(self) -> Optional[pulumi.Input[Union[str, 'DnsNameLabelReusePolicy']]]:
+        """
+        The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
+        """
+        return pulumi.get(self, "auto_generated_domain_name_label_scope")
+
+    @auto_generated_domain_name_label_scope.setter
+    def auto_generated_domain_name_label_scope(self, value: Optional[pulumi.Input[Union[str, 'DnsNameLabelReusePolicy']]]):
+        pulumi.set(self, "auto_generated_domain_name_label_scope", value)
 
     @property
     @pulumi.getter(name="dnsNameLabel")
@@ -1112,14 +1281,14 @@ class LogAnalyticsArgs:
                  workspace_key: pulumi.Input[str],
                  log_type: Optional[pulumi.Input[Union[str, 'LogAnalyticsLogType']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 workspace_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Container group log analytics information.
         :param pulumi.Input[str] workspace_id: The workspace id for log analytics
         :param pulumi.Input[str] workspace_key: The workspace key for log analytics
         :param pulumi.Input[Union[str, 'LogAnalyticsLogType']] log_type: The log type to be used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata for log analytics.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] workspace_resource_id: The workspace resource id for log analytics
+        :param pulumi.Input[str] workspace_resource_id: The workspace resource id for log analytics
         """
         pulumi.set(__self__, "workspace_id", workspace_id)
         pulumi.set(__self__, "workspace_key", workspace_key)
@@ -1180,14 +1349,14 @@ class LogAnalyticsArgs:
 
     @property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The workspace resource id for log analytics
         """
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
-    def workspace_resource_id(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_resource_id", value)
 
 

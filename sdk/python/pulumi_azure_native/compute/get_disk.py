@@ -22,13 +22,22 @@ class GetDiskResult:
     """
     Disk resource.
     """
-    def __init__(__self__, bursting_enabled=None, creation_data=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, os_type=None, property_updates_in_progress=None, provisioning_state=None, purchase_plan=None, security_profile=None, share_info=None, sku=None, supports_hibernation=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
+    def __init__(__self__, bursting_enabled=None, bursting_enabled_time=None, completion_percent=None, creation_data=None, data_access_auth_mode=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, optimized_for_frequent_attach=None, os_type=None, property_updates_in_progress=None, provisioning_state=None, public_network_access=None, purchase_plan=None, security_profile=None, share_info=None, sku=None, supported_capabilities=None, supports_hibernation=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
         if bursting_enabled and not isinstance(bursting_enabled, bool):
             raise TypeError("Expected argument 'bursting_enabled' to be a bool")
         pulumi.set(__self__, "bursting_enabled", bursting_enabled)
+        if bursting_enabled_time and not isinstance(bursting_enabled_time, str):
+            raise TypeError("Expected argument 'bursting_enabled_time' to be a str")
+        pulumi.set(__self__, "bursting_enabled_time", bursting_enabled_time)
+        if completion_percent and not isinstance(completion_percent, float):
+            raise TypeError("Expected argument 'completion_percent' to be a float")
+        pulumi.set(__self__, "completion_percent", completion_percent)
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
+        if data_access_auth_mode and not isinstance(data_access_auth_mode, str):
+            raise TypeError("Expected argument 'data_access_auth_mode' to be a str")
+        pulumi.set(__self__, "data_access_auth_mode", data_access_auth_mode)
         if disk_access_id and not isinstance(disk_access_id, str):
             raise TypeError("Expected argument 'disk_access_id' to be a str")
         pulumi.set(__self__, "disk_access_id", disk_access_id)
@@ -86,6 +95,9 @@ class GetDiskResult:
         if network_access_policy and not isinstance(network_access_policy, str):
             raise TypeError("Expected argument 'network_access_policy' to be a str")
         pulumi.set(__self__, "network_access_policy", network_access_policy)
+        if optimized_for_frequent_attach and not isinstance(optimized_for_frequent_attach, bool):
+            raise TypeError("Expected argument 'optimized_for_frequent_attach' to be a bool")
+        pulumi.set(__self__, "optimized_for_frequent_attach", optimized_for_frequent_attach)
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
         pulumi.set(__self__, "os_type", os_type)
@@ -95,6 +107,9 @@ class GetDiskResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if purchase_plan and not isinstance(purchase_plan, dict):
             raise TypeError("Expected argument 'purchase_plan' to be a dict")
         pulumi.set(__self__, "purchase_plan", purchase_plan)
@@ -107,6 +122,9 @@ class GetDiskResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if supported_capabilities and not isinstance(supported_capabilities, dict):
+            raise TypeError("Expected argument 'supported_capabilities' to be a dict")
+        pulumi.set(__self__, "supported_capabilities", supported_capabilities)
         if supports_hibernation and not isinstance(supports_hibernation, bool):
             raise TypeError("Expected argument 'supports_hibernation' to be a bool")
         pulumi.set(__self__, "supports_hibernation", supports_hibernation)
@@ -138,12 +156,36 @@ class GetDiskResult:
         return pulumi.get(self, "bursting_enabled")
 
     @property
+    @pulumi.getter(name="burstingEnabledTime")
+    def bursting_enabled_time(self) -> str:
+        """
+        Latest time when bursting was last enabled on a disk.
+        """
+        return pulumi.get(self, "bursting_enabled_time")
+
+    @property
+    @pulumi.getter(name="completionPercent")
+    def completion_percent(self) -> Optional[float]:
+        """
+        Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        """
+        return pulumi.get(self, "completion_percent")
+
+    @property
     @pulumi.getter(name="creationData")
     def creation_data(self) -> 'outputs.CreationDataResponse':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
         return pulumi.get(self, "creation_data")
+
+    @property
+    @pulumi.getter(name="dataAccessAuthMode")
+    def data_access_auth_mode(self) -> Optional[str]:
+        """
+        Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        """
+        return pulumi.get(self, "data_access_auth_mode")
 
     @property
     @pulumi.getter(name="diskAccessId")
@@ -298,6 +340,14 @@ class GetDiskResult:
         return pulumi.get(self, "network_access_policy")
 
     @property
+    @pulumi.getter(name="optimizedForFrequentAttach")
+    def optimized_for_frequent_attach(self) -> Optional[bool]:
+        """
+        Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
+        """
+        return pulumi.get(self, "optimized_for_frequent_attach")
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
         """
@@ -320,6 +370,14 @@ class GetDiskResult:
         The disk provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Policy for controlling export on the disk.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="purchasePlan")
@@ -349,9 +407,17 @@ class GetDiskResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.DiskSkuResponse']:
         """
-        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
+        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="supportedCapabilities")
+    def supported_capabilities(self) -> Optional['outputs.SupportedCapabilitiesResponse']:
+        """
+        List of supported capabilities for the image from which the OS disk was created.
+        """
+        return pulumi.get(self, "supported_capabilities")
 
     @property
     @pulumi.getter(name="supportsHibernation")
@@ -417,7 +483,10 @@ class AwaitableGetDiskResult(GetDiskResult):
             yield self
         return GetDiskResult(
             bursting_enabled=self.bursting_enabled,
+            bursting_enabled_time=self.bursting_enabled_time,
+            completion_percent=self.completion_percent,
             creation_data=self.creation_data,
+            data_access_auth_mode=self.data_access_auth_mode,
             disk_access_id=self.disk_access_id,
             disk_iops_read_only=self.disk_iops_read_only,
             disk_iops_read_write=self.disk_iops_read_write,
@@ -437,13 +506,16 @@ class AwaitableGetDiskResult(GetDiskResult):
             max_shares=self.max_shares,
             name=self.name,
             network_access_policy=self.network_access_policy,
+            optimized_for_frequent_attach=self.optimized_for_frequent_attach,
             os_type=self.os_type,
             property_updates_in_progress=self.property_updates_in_progress,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             purchase_plan=self.purchase_plan,
             security_profile=self.security_profile,
             share_info=self.share_info,
             sku=self.sku,
+            supported_capabilities=self.supported_capabilities,
             supports_hibernation=self.supports_hibernation,
             tags=self.tags,
             tier=self.tier,
@@ -458,10 +530,10 @@ def get_disk(disk_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
     Gets information about a disk.
-    API Version: 2020-12-01.
+    API Version: 2022-07-02.
 
 
-    :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+    :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
@@ -472,7 +544,10 @@ def get_disk(disk_name: Optional[str] = None,
 
     return AwaitableGetDiskResult(
         bursting_enabled=__ret__.bursting_enabled,
+        bursting_enabled_time=__ret__.bursting_enabled_time,
+        completion_percent=__ret__.completion_percent,
         creation_data=__ret__.creation_data,
+        data_access_auth_mode=__ret__.data_access_auth_mode,
         disk_access_id=__ret__.disk_access_id,
         disk_iops_read_only=__ret__.disk_iops_read_only,
         disk_iops_read_write=__ret__.disk_iops_read_write,
@@ -492,13 +567,16 @@ def get_disk(disk_name: Optional[str] = None,
         max_shares=__ret__.max_shares,
         name=__ret__.name,
         network_access_policy=__ret__.network_access_policy,
+        optimized_for_frequent_attach=__ret__.optimized_for_frequent_attach,
         os_type=__ret__.os_type,
         property_updates_in_progress=__ret__.property_updates_in_progress,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         purchase_plan=__ret__.purchase_plan,
         security_profile=__ret__.security_profile,
         share_info=__ret__.share_info,
         sku=__ret__.sku,
+        supported_capabilities=__ret__.supported_capabilities,
         supports_hibernation=__ret__.supports_hibernation,
         tags=__ret__.tags,
         tier=__ret__.tier,
@@ -514,10 +592,10 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
     """
     Gets information about a disk.
-    API Version: 2020-12-01.
+    API Version: 2022-07-02.
 
 
-    :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+    :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
     ...

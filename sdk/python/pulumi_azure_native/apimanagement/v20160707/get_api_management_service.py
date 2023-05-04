@@ -17,8 +17,6 @@ __all__ = [
     'get_api_management_service_output',
 ]
 
-warnings.warn("""Version 2016-07-07 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetApiManagementServiceResult:
     """
@@ -321,7 +319,6 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_api_management_service is deprecated: Version 2016-07-07 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
@@ -365,5 +362,4 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_api_management_service is deprecated: Version 2016-07-07 will be removed in v2 of the provider.""")
     ...

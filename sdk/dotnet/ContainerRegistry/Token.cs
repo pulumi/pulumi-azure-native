@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a token for a container registry.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Token")]
     public partial class Token : global::Pulumi.CustomResource
@@ -133,7 +134,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

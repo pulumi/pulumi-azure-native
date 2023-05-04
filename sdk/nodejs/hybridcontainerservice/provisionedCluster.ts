@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The provisionedClusters resource definition.
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
+ * Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ProvisionedCluster extends pulumi.CustomResource {
     /**
@@ -83,8 +84,8 @@ export class ProvisionedCluster extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.hybridcontainerservice.provisionedClustersAllPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["provisionedClustersName"] = args ? args.provisionedClustersName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -100,7 +101,7 @@ export class ProvisionedCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster" }, { type: "azure-native:hybridcontainerservice/v20220901preview:ProvisionedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProvisionedCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -124,13 +125,13 @@ export interface ProvisionedClusterArgs {
      */
     properties?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClustersAllPropertiesArgs>;
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName?: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

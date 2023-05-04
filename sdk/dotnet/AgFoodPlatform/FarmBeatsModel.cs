@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// FarmBeats ARM Resource.
-    /// API Version: 2020-05-12-preview.
+    /// API Version: 2021-09-01-preview.
+    /// Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:FarmBeatsModel")]
     public partial class FarmBeatsModel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// Uri of the FarmBeats instance.
         /// </summary>
@@ -35,19 +42,31 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The private endpoint connection resource.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// FarmBeats instance provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The resource model definition representing SKU
+        /// Property to allow or block public traffic for an Azure FarmBeats resource.
         /// </summary>
-        [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Sensor integration request model.
+        /// </summary>
+        [Output("sensorIntegration")]
+        public Output<Outputs.SensorIntegrationResponse?> SensorIntegration { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -121,10 +140,22 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         public Input<string>? FarmBeatsResourceName { get; set; }
 
         /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Property to allow or block public traffic for an Azure FarmBeats resource.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.AgFoodPlatform.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -133,10 +164,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The resource model definition representing SKU
+        /// Sensor integration request model.
         /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        [Input("sensorIntegration")]
+        public Input<Inputs.SensorIntegrationArgs>? SensorIntegration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

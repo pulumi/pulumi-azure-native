@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// </summary>
         public readonly bool HasLegalHold;
         /// <summary>
+        /// Protected append blob writes history.
+        /// </summary>
+        public readonly Outputs.ProtectedAppendWritesHistoryResponse? ProtectedAppendWritesHistory;
+        /// <summary>
         /// The list of LegalHold tags of a blob container.
         /// </summary>
         public readonly ImmutableArray<Outputs.TagPropertyResponse> Tags;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Storage.Outputs
         private LegalHoldPropertiesResponse(
             bool hasLegalHold,
 
+            Outputs.ProtectedAppendWritesHistoryResponse? protectedAppendWritesHistory,
+
             ImmutableArray<Outputs.TagPropertyResponse> tags)
         {
             HasLegalHold = hasLegalHold;
+            ProtectedAppendWritesHistory = protectedAppendWritesHistory;
             Tags = tags;
         }
     }

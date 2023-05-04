@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Private endpoint connection resource.
- * API Version: 2018-01-01-preview.
+ * Properties of the PrivateEndpointConnection.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -39,31 +40,31 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    public /*out*/ readonly location!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the private endpoint object.
+     * The Private Endpoint resource for this Connection.
      */
     public readonly privateEndpoint!: pulumi.Output<outputs.relay.PrivateEndpointResponse | undefined>;
     /**
-     * Approval state of the private link connection.
+     * Details about the state of the connection.
      */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.relay.PrivateLinkServiceConnectionStateResponse | undefined>;
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.relay.ConnectionStateResponse | undefined>;
     /**
-     * Provisioning state of the private endpoint connection.
+     * Provisioning state of the Private Endpoint Connection.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
-     * Resource tags.
+     * The system meta data relating to this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.relay.SystemDataResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -84,15 +85,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
@@ -100,7 +101,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -115,31 +116,27 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * Resource location.
-     */
-    location?: pulumi.Input<string>;
-    /**
      * The namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Properties of the private endpoint object.
+     * The Private Endpoint resource for this Connection.
      */
     privateEndpoint?: pulumi.Input<inputs.relay.PrivateEndpointArgs>;
     /**
-     * The PrivateEndpointConnection name.
+     * The PrivateEndpointConnection name
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Approval state of the private link connection.
+     * Details about the state of the connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.relay.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.relay.ConnectionStateArgs>;
+    /**
+     * Provisioning state of the Private Endpoint Connection.
+     */
+    provisioningState?: pulumi.Input<string | enums.relay.EndPointProvisioningState>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource tags.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

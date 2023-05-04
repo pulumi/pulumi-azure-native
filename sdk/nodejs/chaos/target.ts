@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Model that represents a Target resource.
- * API Version: 2021-09-15-preview.
+ * API Version: 2022-10-01-preview.
+ * Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Target extends pulumi.CustomResource {
     /**
@@ -103,7 +104,7 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Target" }, { type: "azure-native:chaos/v20220701preview:Target" }, { type: "azure-native:chaos/v20221001preview:Target" }, { type: "azure-native:chaos/v20230401preview:Target" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Target" }, { type: "azure-native:chaos/v20220701preview:Target" }, { type: "azure-native:chaos/v20221001preview:Target" }, { type: "azure-native:chaos/v20230401preview:Target" }, { type: "azure-native:chaos/v20230415preview:Target" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Target.__pulumiType, name, resourceInputs, opts);
     }

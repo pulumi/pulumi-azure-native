@@ -8,36 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Sql.V20190601Preview
 {
     /// <summary>
-    /// Type of the sever administrator.
-    /// </summary>
-    [EnumType]
-    public readonly struct AdministratorType : IEquatable<AdministratorType>
-    {
-        private readonly string _value;
-
-        private AdministratorType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AdministratorType ActiveDirectory { get; } = new AdministratorType("ActiveDirectory");
-
-        public static bool operator ==(AdministratorType left, AdministratorType right) => left.Equals(right);
-        public static bool operator !=(AdministratorType left, AdministratorType right) => !left.Equals(right);
-
-        public static explicit operator string(AdministratorType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AdministratorType other && Equals(other);
-        public bool Equals(AdministratorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Collation of the metadata catalog.
     /// </summary>
     [EnumType]
@@ -186,73 +156,6 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
     }
 
     /// <summary>
-    /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-    /// </summary>
-    [EnumType]
-    public readonly struct IdentityType : IEquatable<IdentityType>
-    {
-        private readonly string _value;
-
-        private IdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IdentityType None { get; } = new IdentityType("None");
-        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
-        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
-        public static IdentityType SystemAssigned_UserAssigned { get; } = new IdentityType("SystemAssigned,UserAssigned");
-
-        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
-        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(IdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
-        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
-    /// </summary>
-    [EnumType]
-    public readonly struct ManagedDatabaseCreateMode : IEquatable<ManagedDatabaseCreateMode>
-    {
-        private readonly string _value;
-
-        private ManagedDatabaseCreateMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ManagedDatabaseCreateMode Default { get; } = new ManagedDatabaseCreateMode("Default");
-        public static ManagedDatabaseCreateMode RestoreExternalBackup { get; } = new ManagedDatabaseCreateMode("RestoreExternalBackup");
-        public static ManagedDatabaseCreateMode PointInTimeRestore { get; } = new ManagedDatabaseCreateMode("PointInTimeRestore");
-        public static ManagedDatabaseCreateMode Recovery { get; } = new ManagedDatabaseCreateMode("Recovery");
-        public static ManagedDatabaseCreateMode RestoreLongTermRetentionBackup { get; } = new ManagedDatabaseCreateMode("RestoreLongTermRetentionBackup");
-
-        public static bool operator ==(ManagedDatabaseCreateMode left, ManagedDatabaseCreateMode right) => left.Equals(right);
-        public static bool operator !=(ManagedDatabaseCreateMode left, ManagedDatabaseCreateMode right) => !left.Equals(right);
-
-        public static explicit operator string(ManagedDatabaseCreateMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedDatabaseCreateMode other && Equals(other);
-        public bool Equals(ManagedDatabaseCreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The name of the sample schema to apply when creating this database.
     /// </summary>
     [EnumType]
@@ -285,37 +188,6 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
     }
 
     /// <summary>
-    /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-    /// </summary>
-    [EnumType]
-    public readonly struct ServerPublicNetworkAccess : IEquatable<ServerPublicNetworkAccess>
-    {
-        private readonly string _value;
-
-        private ServerPublicNetworkAccess(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServerPublicNetworkAccess Enabled { get; } = new ServerPublicNetworkAccess("Enabled");
-        public static ServerPublicNetworkAccess Disabled { get; } = new ServerPublicNetworkAccess("Disabled");
-
-        public static bool operator ==(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => left.Equals(right);
-        public static bool operator !=(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => !left.Equals(right);
-
-        public static explicit operator string(ServerPublicNetworkAccess value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerPublicNetworkAccess other && Equals(other);
-        public bool Equals(ServerPublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The storage account type used to store backups for this database.
     /// </summary>
     [EnumType]
@@ -340,100 +212,6 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageAccountType other && Equals(other);
         public bool Equals(StorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Conflict resolution policy of the sync group.
-    /// </summary>
-    [EnumType]
-    public readonly struct SyncConflictResolutionPolicy : IEquatable<SyncConflictResolutionPolicy>
-    {
-        private readonly string _value;
-
-        private SyncConflictResolutionPolicy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SyncConflictResolutionPolicy HubWin { get; } = new SyncConflictResolutionPolicy("HubWin");
-        public static SyncConflictResolutionPolicy MemberWin { get; } = new SyncConflictResolutionPolicy("MemberWin");
-
-        public static bool operator ==(SyncConflictResolutionPolicy left, SyncConflictResolutionPolicy right) => left.Equals(right);
-        public static bool operator !=(SyncConflictResolutionPolicy left, SyncConflictResolutionPolicy right) => !left.Equals(right);
-
-        public static explicit operator string(SyncConflictResolutionPolicy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SyncConflictResolutionPolicy other && Equals(other);
-        public bool Equals(SyncConflictResolutionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Sync direction of the sync member.
-    /// </summary>
-    [EnumType]
-    public readonly struct SyncDirection : IEquatable<SyncDirection>
-    {
-        private readonly string _value;
-
-        private SyncDirection(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SyncDirection Bidirectional { get; } = new SyncDirection("Bidirectional");
-        public static SyncDirection OneWayMemberToHub { get; } = new SyncDirection("OneWayMemberToHub");
-        public static SyncDirection OneWayHubToMember { get; } = new SyncDirection("OneWayHubToMember");
-
-        public static bool operator ==(SyncDirection left, SyncDirection right) => left.Equals(right);
-        public static bool operator !=(SyncDirection left, SyncDirection right) => !left.Equals(right);
-
-        public static explicit operator string(SyncDirection value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SyncDirection other && Equals(other);
-        public bool Equals(SyncDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Database type of the sync member.
-    /// </summary>
-    [EnumType]
-    public readonly struct SyncMemberDbType : IEquatable<SyncMemberDbType>
-    {
-        private readonly string _value;
-
-        private SyncMemberDbType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SyncMemberDbType AzureSqlDatabase { get; } = new SyncMemberDbType("AzureSqlDatabase");
-        public static SyncMemberDbType SqlServerDatabase { get; } = new SyncMemberDbType("SqlServerDatabase");
-
-        public static bool operator ==(SyncMemberDbType left, SyncMemberDbType right) => left.Equals(right);
-        public static bool operator !=(SyncMemberDbType left, SyncMemberDbType right) => !left.Equals(right);
-
-        public static explicit operator string(SyncMemberDbType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SyncMemberDbType other && Equals(other);
-        public bool Equals(SyncMemberDbType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

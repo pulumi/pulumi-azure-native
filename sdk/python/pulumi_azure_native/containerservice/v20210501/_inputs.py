@@ -38,13 +38,9 @@ __all__ = [
     'ManagedClusterSKUArgs',
     'ManagedClusterServicePrincipalProfileArgs',
     'ManagedClusterWindowsProfileArgs',
-    'PrivateEndpointArgs',
     'PrivateLinkResourceArgs',
-    'PrivateLinkServiceConnectionStateArgs',
     'ResourceReferenceArgs',
     'SysctlConfigArgs',
-    'TimeInWeekArgs',
-    'TimeSpanArgs',
     'UserAssignedIdentityArgs',
 ]
 
@@ -2412,30 +2408,6 @@ class ManagedClusterWindowsProfileArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Private endpoint which a connection belongs to.
-        :param pulumi.Input[str] id: The resource ID of the private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource ID of the private endpoint
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
 class PrivateLinkResourceArgs:
     def __init__(__self__, *,
                  group_id: Optional[pulumi.Input[str]] = None,
@@ -2521,46 +2493,6 @@ class PrivateLinkResourceArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]] = None):
-        """
-        The state of a private link service connection.
-        :param pulumi.Input[str] description: The private link service connection description.
-        :param pulumi.Input[Union[str, 'ConnectionStatus']] status: The private link service connection status.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'ConnectionStatus']]]:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -3041,86 +2973,6 @@ class SysctlConfigArgs:
     @vm_vfs_cache_pressure.setter
     def vm_vfs_cache_pressure(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "vm_vfs_cache_pressure", value)
-
-
-@pulumi.input_type
-class TimeInWeekArgs:
-    def __init__(__self__, *,
-                 day: Optional[pulumi.Input[Union[str, 'WeekDay']]] = None,
-                 hour_slots: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
-        """
-        Time in a week.
-        :param pulumi.Input[Union[str, 'WeekDay']] day: The day of the week.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] hour_slots: Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if hour_slots is not None:
-            pulumi.set(__self__, "hour_slots", hour_slots)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[pulumi.Input[Union[str, 'WeekDay']]]:
-        """
-        The day of the week.
-        """
-        return pulumi.get(self, "day")
-
-    @day.setter
-    def day(self, value: Optional[pulumi.Input[Union[str, 'WeekDay']]]):
-        pulumi.set(self, "day", value)
-
-    @property
-    @pulumi.getter(name="hourSlots")
-    def hour_slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-        return pulumi.get(self, "hour_slots")
-
-    @hour_slots.setter
-    def hour_slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "hour_slots", value)
-
-
-@pulumi.input_type
-class TimeSpanArgs:
-    def __init__(__self__, *,
-                 end: Optional[pulumi.Input[str]] = None,
-                 start: Optional[pulumi.Input[str]] = None):
-        """
-        For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
-        :param pulumi.Input[str] end: The end of a time span
-        :param pulumi.Input[str] start: The start of a time span
-        """
-        if end is not None:
-            pulumi.set(__self__, "end", end)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[str]]:
-        """
-        The end of a time span
-        """
-        return pulumi.get(self, "end")
-
-    @end.setter
-    def end(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "end", value)
-
-    @property
-    @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[str]]:
-        """
-        The start of a time span
-        """
-        return pulumi.get(self, "start")
-
-    @start.setter
-    def start(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "start", value)
 
 
 @pulumi.input_type

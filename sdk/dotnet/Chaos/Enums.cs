@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AzureNative.Chaos
 {
     /// <summary>
+    /// Enum that discriminates between filter types. Currently only `Simple` type is supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct FilterType : IEquatable<FilterType>
+    {
+        private readonly string _value;
+
+        private FilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FilterType Simple { get; } = new FilterType("Simple");
+
+        public static bool operator ==(FilterType left, FilterType right) => left.Equals(right);
+        public static bool operator !=(FilterType left, FilterType right) => !left.Equals(right);
+
+        public static explicit operator string(FilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FilterType other && Equals(other);
+        public bool Equals(FilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// String of the resource identity type.
     /// </summary>
     [EnumType]

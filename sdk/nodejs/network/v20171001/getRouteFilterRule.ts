@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified rule from a route filter.
  */
-/** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
-    pulumi.log.warn("getRouteFilterRule is deprecated: Version 2017-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20171001:getRouteFilterRule", {
@@ -78,7 +76,6 @@ export interface GetRouteFilterRuleResult {
 /**
  * Gets the specified rule from a route filter.
  */
-/** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterRuleResult> {
     return pulumi.output(args).apply((a: any) => getRouteFilterRule(a, opts))
 }

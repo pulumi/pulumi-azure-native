@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetSAPDiskConfigurationsResult> InvokeAsync(GetSAPDiskConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPDiskConfigurationsResult>("azure-native:workloads:getSAPDiskConfigurations", args ?? new GetSAPDiskConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetSAPDiskConfigurationsResult> Invoke(GetSAPDiskConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPDiskConfigurationsResult>("azure-native:workloads:getSAPDiskConfigurations", args ?? new GetSAPDiskConfigurationsInvokeArgs(), options.WithDefaults());
@@ -132,14 +132,14 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetSAPDiskConfigurationsResult
     {
         /// <summary>
-        /// Gets the list of Disk Configurations.
+        /// The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
         /// </summary>
-        public readonly ImmutableArray<Outputs.SAPDiskConfigurationResponse> DiskConfigurations;
+        public readonly ImmutableDictionary<string, Outputs.SAPDiskConfigurationResponse>? VolumeConfigurations;
 
         [OutputConstructor]
-        private GetSAPDiskConfigurationsResult(ImmutableArray<Outputs.SAPDiskConfigurationResponse> diskConfigurations)
+        private GetSAPDiskConfigurationsResult(ImmutableDictionary<string, Outputs.SAPDiskConfigurationResponse>? volumeConfigurations)
         {
-            DiskConfigurations = diskConfigurations;
+            VolumeConfigurations = volumeConfigurations;
         }
     }
 }

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents a web app
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteSlot(args: GetSiteSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteSlotResult> {
-    pulumi.log.warn("getSiteSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteSlot", {
@@ -186,7 +184,6 @@ export interface GetSiteSlotResult {
 /**
  * Represents a web app
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteSlotOutput(args: GetSiteSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSlotResult> {
     return pulumi.output(args).apply((a: any) => getSiteSlot(a, opts))
 }

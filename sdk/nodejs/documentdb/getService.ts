@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the status of service.
- * API Version: 2021-04-01-preview.
+ * API Version: 2022-11-15.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -51,7 +51,7 @@ export interface GetServiceResult {
     /**
      * Services response resource.
      */
-    readonly properties: outputs.documentdb.DataTransferServiceResourcePropertiesResponse | outputs.documentdb.SqlDedicatedGatewayServiceResourcePropertiesResponse;
+    readonly properties: outputs.documentdb.DataTransferServiceResourcePropertiesResponse | outputs.documentdb.GraphAPIComputeServiceResourcePropertiesResponse | outputs.documentdb.MaterializedViewsBuilderServiceResourcePropertiesResponse | outputs.documentdb.SqlDedicatedGatewayServiceResourcePropertiesResponse;
     /**
      * The type of Azure resource.
      */
@@ -59,7 +59,7 @@ export interface GetServiceResult {
 }
 /**
  * Gets the status of service.
- * API Version: 2021-04-01-preview.
+ * API Version: 2022-11-15.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

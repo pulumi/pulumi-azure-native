@@ -23,7 +23,7 @@ class ProtectionIntentArgs:
                  e_tag: Optional[pulumi.Input[str]] = None,
                  intent_object_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ProtectionIntent resource.
@@ -33,7 +33,7 @@ class ProtectionIntentArgs:
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] intent_object_name: Intent object name.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']] properties: ProtectionIntentResource properties
+        :param pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']] properties: ProtectionIntentResource properties
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
@@ -124,14 +124,14 @@ class ProtectionIntentArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]]:
+    def properties(self) -> Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]]:
         """
         ProtectionIntentResource properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]]):
+    def properties(self, value: Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -156,14 +156,15 @@ class ProtectionIntent(pulumi.CustomResource):
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  intent_object_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadContainerAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Base class for backup ProtectionIntent.
-        API Version: 2021-02-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +172,7 @@ class ProtectionIntent(pulumi.CustomResource):
         :param pulumi.Input[str] fabric_name: Fabric name associated with the backup item.
         :param pulumi.Input[str] intent_object_name: Intent object name.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]] properties: ProtectionIntentResource properties
+        :param pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadContainerAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]] properties: ProtectionIntentResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
@@ -184,7 +185,8 @@ class ProtectionIntent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for backup ProtectionIntent.
-        API Version: 2021-02-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ProtectionIntentArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +207,7 @@ class ProtectionIntent(pulumi.CustomResource):
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  intent_object_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadContainerAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,

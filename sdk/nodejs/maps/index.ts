@@ -25,25 +25,10 @@ export const getCreator: typeof import("./getCreator").getCreator = null as any;
 export const getCreatorOutput: typeof import("./getCreator").getCreatorOutput = null as any;
 utilities.lazyLoad(exports, ["getCreator","getCreatorOutput"], () => require("./getCreator"));
 
-export { GetPrivateAtlaseArgs, GetPrivateAtlaseResult, GetPrivateAtlaseOutputArgs } from "./getPrivateAtlase";
-export const getPrivateAtlase: typeof import("./getPrivateAtlase").getPrivateAtlase = null as any;
-export const getPrivateAtlaseOutput: typeof import("./getPrivateAtlase").getPrivateAtlaseOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateAtlase","getPrivateAtlaseOutput"], () => require("./getPrivateAtlase"));
-
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
 export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
-
-export { ListAccountSasArgs, ListAccountSasResult, ListAccountSasOutputArgs } from "./listAccountSas";
-export const listAccountSas: typeof import("./listAccountSas").listAccountSas = null as any;
-export const listAccountSasOutput: typeof import("./listAccountSas").listAccountSasOutput = null as any;
-utilities.lazyLoad(exports, ["listAccountSas","listAccountSasOutput"], () => require("./listAccountSas"));
-
-export { PrivateAtlaseArgs } from "./privateAtlase";
-export type PrivateAtlase = import("./privateAtlase").PrivateAtlase;
-export const PrivateAtlase: typeof import("./privateAtlase").PrivateAtlase = null as any;
-utilities.lazyLoad(exports, ["PrivateAtlase"], () => require("./privateAtlase"));
 
 
 // Export enums:
@@ -74,8 +59,6 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure-native:maps:Creator":
                 return new Creator(name, <any>undefined, { urn })
-            case "azure-native:maps:PrivateAtlase":
-                return new PrivateAtlase(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

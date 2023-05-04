@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A vSphere Distributed Resource Scheduler (DRS) placement policy
- * API Version: 2021-12-01.
+ * API Version: 2022-05-01.
  */
 export function getPlacementPolicy(args: GetPlacementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementPolicyResult> {
 
@@ -64,7 +64,7 @@ export interface GetPlacementPolicyResult {
 }
 /**
  * A vSphere Distributed Resource Scheduler (DRS) placement policy
- * API Version: 2021-12-01.
+ * API Version: 2022-05-01.
  */
 export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPlacementPolicy(a, opts))

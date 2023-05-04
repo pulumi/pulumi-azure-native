@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a private endpoint connection
- * API Version: 2020-12-01.
+ * Description for Gets a private endpoint connection
+ * API Version: 2022-09-01.
  */
 export function getStaticSitePrivateEndpointConnection(args: GetStaticSitePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSitePrivateEndpointConnectionResult> {
 
@@ -71,8 +71,8 @@ export interface GetStaticSitePrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Gets a private endpoint connection
- * API Version: 2020-12-01.
+ * Description for Gets a private endpoint connection
+ * API Version: 2022-09-01.
  */
 export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getStaticSitePrivateEndpointConnection(a, opts))

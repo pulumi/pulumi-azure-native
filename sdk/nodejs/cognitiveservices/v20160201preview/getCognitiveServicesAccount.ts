@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns a Cognitive Services account specified by the parameters.
  */
-/** @deprecated Version 2016-02-01-preview will be removed in v2 of the provider. */
 export function getCognitiveServicesAccount(args: GetCognitiveServicesAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCognitiveServicesAccountResult> {
-    pulumi.log.warn("getCognitiveServicesAccount is deprecated: Version 2016-02-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20160201preview:getCognitiveServicesAccount", {
@@ -80,7 +78,6 @@ export interface GetCognitiveServicesAccountResult {
 /**
  * Returns a Cognitive Services account specified by the parameters.
  */
-/** @deprecated Version 2016-02-01-preview will be removed in v2 of the provider. */
 export function getCognitiveServicesAccountOutput(args: GetCognitiveServicesAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCognitiveServicesAccountResult> {
     return pulumi.output(args).apply((a: any) => getCognitiveServicesAccount(a, opts))
 }

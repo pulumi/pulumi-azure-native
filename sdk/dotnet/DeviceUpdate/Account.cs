@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// Device Update account details.
-    /// API Version: 2020-03-01-preview.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Device Update account primary and failover location details
+        /// </summary>
+        [Output("locations")]
+        public Output<ImmutableArray<Outputs.LocationResponse>> Locations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -57,6 +64,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Device Update Sku
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -170,6 +183,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Device Update Sku
+        /// </summary>
+        [Input("sku")]
+        public InputUnion<string, Pulumi.AzureNative.DeviceUpdate.SKU>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -185,6 +204,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
         public AccountArgs()
         {
             PublicNetworkAccess = "Enabled";
+            Sku = "Standard";
         }
         public static new AccountArgs Empty => new AccountArgs();
     }

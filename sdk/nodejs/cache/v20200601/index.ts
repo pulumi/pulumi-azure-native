@@ -25,11 +25,6 @@ export const getPatchSchedule: typeof import("./getPatchSchedule").getPatchSched
 export const getPatchScheduleOutput: typeof import("./getPatchSchedule").getPatchScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getPatchSchedule","getPatchScheduleOutput"], () => require("./getPatchSchedule"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
 export { GetRedisArgs, GetRedisResult, GetRedisOutputArgs } from "./getRedis";
 export const getRedis: typeof import("./getRedis").getRedis = null as any;
 export const getRedisOutput: typeof import("./getRedis").getRedisOutput = null as any;
@@ -50,11 +45,6 @@ export type PatchSchedule = import("./patchSchedule").PatchSchedule;
 export const PatchSchedule: typeof import("./patchSchedule").PatchSchedule = null as any;
 utilities.lazyLoad(exports, ["PatchSchedule"], () => require("./patchSchedule"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
 export { RedisArgs } from "./redis";
 export type Redis = import("./redis").Redis;
 export const Redis: typeof import("./redis").Redis = null as any;
@@ -74,8 +64,6 @@ const _module = {
                 return new LinkedServer(name, <any>undefined, { urn })
             case "azure-native:cache/v20200601:PatchSchedule":
                 return new PatchSchedule(name, <any>undefined, { urn })
-            case "azure-native:cache/v20200601:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:cache/v20200601:Redis":
                 return new Redis(name, <any>undefined, { urn })
             default:

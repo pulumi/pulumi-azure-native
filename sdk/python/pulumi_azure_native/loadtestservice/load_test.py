@@ -19,7 +19,8 @@ class LoadTestArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
+                 encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  load_test_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -27,14 +28,17 @@ class LoadTestArgs:
         The set of arguments for constructing a LoadTest resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] description: Description of the resource.
-        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The type of identity used for the resource.
-        :param pulumi.Input[str] load_test_name: Load Test resource name.
+        :param pulumi.Input['EncryptionPropertiesArgs'] encryption: CMK Encryption property.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The type of identity used for the resource.
+        :param pulumi.Input[str] load_test_name: Load Test name.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if load_test_name is not None:
@@ -70,21 +74,33 @@ class LoadTestArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
+    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesArgs']]:
+        """
+        CMK Encryption property.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertiesArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         The type of identity used for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="loadTestName")
     def load_test_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Load Test resource name.
+        Load Test name.
         """
         return pulumi.get(self, "load_test_name")
 
@@ -123,7 +139,8 @@ class LoadTest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  load_test_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -131,13 +148,15 @@ class LoadTest(pulumi.CustomResource):
                  __props__=None):
         """
         LoadTest details
-        API Version: 2021-12-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the resource.
-        :param pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']] identity: The type of identity used for the resource.
-        :param pulumi.Input[str] load_test_name: Load Test resource name.
+        :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: CMK Encryption property.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The type of identity used for the resource.
+        :param pulumi.Input[str] load_test_name: Load Test name.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -150,7 +169,8 @@ class LoadTest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         LoadTest details
-        API Version: 2021-12-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param LoadTestArgs args: The arguments to use to populate this resource's properties.
@@ -168,7 +188,8 @@ class LoadTest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  load_test_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -183,6 +204,7 @@ class LoadTest(pulumi.CustomResource):
             __props__ = LoadTestArgs.__new__(LoadTestArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["load_test_name"] = load_test_name
             __props__.__dict__["location"] = location
@@ -221,6 +243,7 @@ class LoadTest(pulumi.CustomResource):
 
         __props__.__dict__["data_plane_uri"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -248,7 +271,15 @@ class LoadTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionPropertiesResponse']]:
+        """
+        CMK Encryption property.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         The type of identity used for the resource.
         """

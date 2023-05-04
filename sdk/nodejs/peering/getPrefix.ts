@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
- * API Version: 2021-01-01.
+ * API Version: 2022-10-01.
  */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
 
@@ -88,7 +88,7 @@ export interface GetPrefixResult {
 }
 /**
  * Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
- * API Version: 2021-01-01.
+ * API Version: 2022-10-01.
  */
 export function getPrefixOutput(args: GetPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixResult> {
     return pulumi.output(args).apply((a: any) => getPrefix(a, opts))

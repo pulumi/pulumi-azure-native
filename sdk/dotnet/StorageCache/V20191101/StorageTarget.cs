@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.StorageCache.V20191101
     /// <summary>
     /// A storage system being cached by a Cache.
     /// </summary>
-    [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagecache/v20191101:StorageTarget")]
     public partial class StorageTarget : global::Pulumi.CustomResource
     {
@@ -100,6 +99,7 @@ namespace Pulumi.AzureNative.StorageCache.V20191101
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220501:StorageTarget"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230101:StorageTarget"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:StorageTarget"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:StorageTarget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

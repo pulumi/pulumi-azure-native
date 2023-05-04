@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the issue Comment for an API specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueCommentResult> {
 
@@ -34,7 +34,7 @@ export interface GetApiIssueCommentArgs {
      */
     issueId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -52,11 +52,11 @@ export interface GetApiIssueCommentResult {
      */
     readonly createdDate?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -64,7 +64,7 @@ export interface GetApiIssueCommentResult {
      */
     readonly text: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -74,7 +74,7 @@ export interface GetApiIssueCommentResult {
 }
 /**
  * Gets the details of the issue Comment for an API specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiIssueCommentOutput(args: GetApiIssueCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueCommentResult> {
     return pulumi.output(args).apply((a: any) => getApiIssueComment(a, opts))
@@ -94,7 +94,7 @@ export interface GetApiIssueCommentOutputArgs {
      */
     issueId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

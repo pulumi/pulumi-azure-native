@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified IpAllocation by resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAllocationResult> {
 
@@ -95,7 +95,7 @@ export interface GetIpAllocationResult {
 }
 /**
  * Gets the specified IpAllocation by resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getIpAllocationOutput(args: GetIpAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAllocationResult> {
     return pulumi.output(args).apply((a: any) => getIpAllocation(a, opts))

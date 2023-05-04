@@ -180,7 +180,8 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB User Definition
-        API Version: 2021-10-15-preview.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +203,8 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB User Definition
-        API Version: 2021-10-15-preview.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param MongoDBResourceMongoUserDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -252,7 +254,7 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20221115:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20221115:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20230415:MongoDBResourceMongoUserDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MongoDBResourceMongoUserDefinition, __self__).__init__(
             'azure-native:documentdb:MongoDBResourceMongoUserDefinition',

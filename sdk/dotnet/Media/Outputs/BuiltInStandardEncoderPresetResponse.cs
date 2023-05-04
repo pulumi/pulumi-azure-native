@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Media.Outputs
     public sealed class BuiltInStandardEncoderPresetResponse
     {
         /// <summary>
+        /// Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
+        /// </summary>
+        public readonly Outputs.PresetConfigurationsResponse? Configurations;
+        /// <summary>
         /// The discriminator for derived types.
         /// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
         /// </summary>
@@ -28,10 +32,13 @@ namespace Pulumi.AzureNative.Media.Outputs
 
         [OutputConstructor]
         private BuiltInStandardEncoderPresetResponse(
+            Outputs.PresetConfigurationsResponse? configurations,
+
             string odataType,
 
             string presetName)
         {
+            Configurations = configurations;
             OdataType = odataType;
             PresetName = presetName;
         }

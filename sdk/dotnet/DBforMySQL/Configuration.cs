@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a Configuration.
-    /// API Version: 2017-12-01.
+    /// API Version: 2021-05-01.
+    /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
@@ -41,6 +42,24 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
+        /// If is the configuration pending restart or not.
+        /// </summary>
+        [Output("isConfigPendingRestart")]
+        public Output<string> IsConfigPendingRestart { get; private set; } = null!;
+
+        /// <summary>
+        /// If is the configuration dynamic.
+        /// </summary>
+        [Output("isDynamicConfig")]
+        public Output<string> IsDynamicConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// If is the configuration read only.
+        /// </summary>
+        [Output("isReadOnly")]
+        public Output<string> IsReadOnly { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -51,6 +70,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -89,8 +114,12 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Configuration"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +165,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// Source of the configuration.
         /// </summary>
         [Input("source")]
-        public Input<string>? Source { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.ConfigurationSource>? Source { get; set; }
 
         /// <summary>
         /// Value of the configuration.

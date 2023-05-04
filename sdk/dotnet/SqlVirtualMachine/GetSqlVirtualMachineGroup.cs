@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     {
         /// <summary>
         /// Gets a SQL virtual machine group.
-        /// API Version: 2017-03-01-preview.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Task<GetSqlVirtualMachineGroupResult> InvokeAsync(GetSqlVirtualMachineGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineGroupResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a SQL virtual machine group.
-        /// API Version: 2017-03-01-preview.
+        /// API Version: 2022-02-01.
         /// </summary>
         public static Output<GetSqlVirtualMachineGroupResult> Invoke(GetSqlVirtualMachineGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineGroupResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         public readonly string? SqlImageSku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
             string? sqlImageSku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
             ScaleType = scaleType;
             SqlImageOffer = sqlImageOffer;
             SqlImageSku = sqlImageSku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             WsfcDomainProfile = wsfcDomainProfile;

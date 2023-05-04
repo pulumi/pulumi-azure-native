@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Issue Contract details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ApiIssue extends pulumi.CustomResource {
     /**
@@ -51,7 +52,7 @@ export class ApiIssue extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -63,7 +64,7 @@ export class ApiIssue extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -122,7 +123,7 @@ export class ApiIssue extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ApiIssue" }, { type: "azure-native:apimanagement/v20180101:ApiIssue" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssue" }, { type: "azure-native:apimanagement/v20190101:ApiIssue" }, { type: "azure-native:apimanagement/v20191201:ApiIssue" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssue" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssue" }, { type: "azure-native:apimanagement/v20201201:ApiIssue" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssue" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssue" }, { type: "azure-native:apimanagement/v20210801:ApiIssue" }, { type: "azure-native:apimanagement/v20211201preview:ApiIssue" }, { type: "azure-native:apimanagement/v20220401preview:ApiIssue" }, { type: "azure-native:apimanagement/v20220801:ApiIssue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ApiIssue" }, { type: "azure-native:apimanagement/v20180101:ApiIssue" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssue" }, { type: "azure-native:apimanagement/v20190101:ApiIssue" }, { type: "azure-native:apimanagement/v20191201:ApiIssue" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssue" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssue" }, { type: "azure-native:apimanagement/v20201201:ApiIssue" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssue" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssue" }, { type: "azure-native:apimanagement/v20210801:ApiIssue" }, { type: "azure-native:apimanagement/v20211201preview:ApiIssue" }, { type: "azure-native:apimanagement/v20220401preview:ApiIssue" }, { type: "azure-native:apimanagement/v20220801:ApiIssue" }, { type: "azure-native:apimanagement/v20220901preview:ApiIssue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiIssue.__pulumiType, name, resourceInputs, opts);
     }
@@ -149,7 +150,7 @@ export interface ApiIssueArgs {
      */
     issueId?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

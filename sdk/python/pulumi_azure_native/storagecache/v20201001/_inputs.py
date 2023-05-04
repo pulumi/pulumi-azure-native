@@ -21,14 +21,10 @@ __all__ = [
     'CacheSkuArgs',
     'CacheUsernameDownloadSettingsCredentialsArgs',
     'CacheUsernameDownloadSettingsArgs',
-    'ClfsTargetArgs',
     'KeyVaultKeyReferenceSourceVaultArgs',
     'KeyVaultKeyReferenceArgs',
-    'NamespaceJunctionArgs',
-    'Nfs3TargetArgs',
     'NfsAccessPolicyArgs',
     'NfsAccessRuleArgs',
-    'UnknownTargetArgs',
 ]
 
 @pulumi.input_type
@@ -558,30 +554,6 @@ class CacheUsernameDownloadSettingsArgs:
 
 
 @pulumi.input_type
-class ClfsTargetArgs:
-    def __init__(__self__, *,
-                 target: Optional[pulumi.Input[str]] = None):
-        """
-        Properties pertaining to the ClfsTarget
-        :param pulumi.Input[str] target: Resource ID of storage container.
-        """
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID of storage container.
-        """
-        return pulumi.get(self, "target")
-
-    @target.setter
-    def target(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target", value)
-
-
-@pulumi.input_type
 class KeyVaultKeyReferenceSourceVaultArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
@@ -641,118 +613,6 @@ class KeyVaultKeyReferenceArgs:
     @source_vault.setter
     def source_vault(self, value: pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs']):
         pulumi.set(self, "source_vault", value)
-
-
-@pulumi.input_type
-class NamespaceJunctionArgs:
-    def __init__(__self__, *,
-                 namespace_path: Optional[pulumi.Input[str]] = None,
-                 nfs_access_policy: Optional[pulumi.Input[str]] = None,
-                 nfs_export: Optional[pulumi.Input[str]] = None,
-                 target_path: Optional[pulumi.Input[str]] = None):
-        """
-        A namespace junction.
-        :param pulumi.Input[str] namespace_path: Namespace path on a Cache for a Storage Target.
-        :param pulumi.Input[str] nfs_access_policy: Name of the access policy applied to this junction.
-        :param pulumi.Input[str] nfs_export: NFS export where targetPath exists.
-        :param pulumi.Input[str] target_path: Path in Storage Target to which namespacePath points.
-        """
-        if namespace_path is not None:
-            pulumi.set(__self__, "namespace_path", namespace_path)
-        if nfs_access_policy is not None:
-            pulumi.set(__self__, "nfs_access_policy", nfs_access_policy)
-        if nfs_export is not None:
-            pulumi.set(__self__, "nfs_export", nfs_export)
-        if target_path is not None:
-            pulumi.set(__self__, "target_path", target_path)
-
-    @property
-    @pulumi.getter(name="namespacePath")
-    def namespace_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Namespace path on a Cache for a Storage Target.
-        """
-        return pulumi.get(self, "namespace_path")
-
-    @namespace_path.setter
-    def namespace_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_path", value)
-
-    @property
-    @pulumi.getter(name="nfsAccessPolicy")
-    def nfs_access_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the access policy applied to this junction.
-        """
-        return pulumi.get(self, "nfs_access_policy")
-
-    @nfs_access_policy.setter
-    def nfs_access_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "nfs_access_policy", value)
-
-    @property
-    @pulumi.getter(name="nfsExport")
-    def nfs_export(self) -> Optional[pulumi.Input[str]]:
-        """
-        NFS export where targetPath exists.
-        """
-        return pulumi.get(self, "nfs_export")
-
-    @nfs_export.setter
-    def nfs_export(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "nfs_export", value)
-
-    @property
-    @pulumi.getter(name="targetPath")
-    def target_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path in Storage Target to which namespacePath points.
-        """
-        return pulumi.get(self, "target_path")
-
-    @target_path.setter
-    def target_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target_path", value)
-
-
-@pulumi.input_type
-class Nfs3TargetArgs:
-    def __init__(__self__, *,
-                 target: Optional[pulumi.Input[str]] = None,
-                 usage_model: Optional[pulumi.Input[str]] = None):
-        """
-        Properties pertaining to the Nfs3Target
-        :param pulumi.Input[str] target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        :param pulumi.Input[str] usage_model: Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
-        """
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-        if usage_model is not None:
-            pulumi.set(__self__, "usage_model", usage_model)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[str]]:
-        """
-        IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        """
-        return pulumi.get(self, "target")
-
-    @target.setter
-    def target(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target", value)
-
-    @property
-    @pulumi.getter(name="usageModel")
-    def usage_model(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
-        """
-        return pulumi.get(self, "usage_model")
-
-    @usage_model.setter
-    def usage_model(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "usage_model", value)
 
 
 @pulumi.input_type
@@ -929,29 +789,5 @@ class NfsAccessRuleArgs:
     @suid.setter
     def suid(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "suid", value)
-
-
-@pulumi.input_type
-class UnknownTargetArgs:
-    def __init__(__self__, *,
-                 unknown_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        Properties pertaining to the UnknownTarget
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] unknown_map: Dictionary of string->string pairs containing information about the Storage Target.
-        """
-        if unknown_map is not None:
-            pulumi.set(__self__, "unknown_map", unknown_map)
-
-    @property
-    @pulumi.getter(name="unknownMap")
-    def unknown_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Dictionary of string->string pairs containing information about the Storage Target.
-        """
-        return pulumi.get(self, "unknown_map")
-
-    @unknown_map.setter
-    def unknown_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "unknown_map", value)
 
 

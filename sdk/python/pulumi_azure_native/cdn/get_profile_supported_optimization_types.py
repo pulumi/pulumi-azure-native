@@ -49,10 +49,10 @@ def get_profile_supported_optimization_types(profile_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileSupportedOptimizationTypesResult:
     """
     Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
@@ -71,10 +71,10 @@ def get_profile_supported_optimization_types_output(profile_name: Optional[pulum
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileSupportedOptimizationTypesResult]:
     """
     Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
-    API Version: 2020-09-01.
+    API Version: 2021-06-01.
 
 
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     ...

@@ -129,7 +129,8 @@ class Certificate(pulumi.CustomResource):
                  __props__=None):
         """
         Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-        API Version: 2022-03-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +149,8 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-        API Version: 2022-03-01.
+        API Version: 2022-10-01.
+        Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -193,7 +195,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20220301:Certificate"), pulumi.Alias(type_="azure-native:app/v20220601preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20221001:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20220301:Certificate"), pulumi.Alias(type_="azure-native:app/v20220601preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20221001:Certificate"), pulumi.Alias(type_="azure-native:app/v20221101preview:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:app:Certificate',

@@ -17,8 +17,6 @@ __all__ = [
     'get_scaling_plan_output',
 ]
 
-warnings.warn("""Version 2020-11-10-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetScalingPlanResult:
     """
@@ -189,7 +187,6 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scaling_plan_name: The name of the scaling plan.
     """
-    pulumi.log.warn("""get_scaling_plan is deprecated: Version 2020-11-10-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['scalingPlanName'] = scaling_plan_name
@@ -222,5 +219,4 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scaling_plan_name: The name of the scaling plan.
     """
-    pulumi.log.warn("""get_scaling_plan is deprecated: Version 2020-11-10-preview will be removed in v2 of the provider.""")
     ...

@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         public Input<string> ResourceType { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets the target resource group name.
+        /// </summary>
+        [Input("targetResourceGroupName")]
+        public Input<string>? TargetResourceGroupName { get; set; }
+
+        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         [Input("targetResourceName", required: true)]

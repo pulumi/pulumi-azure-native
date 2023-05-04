@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Network.V20220701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualNetworkLink"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:VirtualNetworkLink"},
                 },
             };

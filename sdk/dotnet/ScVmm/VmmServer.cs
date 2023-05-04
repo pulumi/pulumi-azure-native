@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// <summary>
     /// The VmmServers resource definition.
     /// API Version: 2020-06-05-preview.
+    /// Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VmmServer")]
     public partial class VmmServer : global::Pulumi.CustomResource
@@ -126,6 +127,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VmmServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:VmmServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -22,16 +22,7 @@ class GetSimResult:
     """
     SIM resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, device_type=None, id=None, integrated_circuit_card_identifier=None, international_mobile_subscriber_identity=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, provisioning_state=None, sim_policy=None, sim_state=None, static_ip_configuration=None, system_data=None, type=None):
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
-        if created_by and not isinstance(created_by, str):
-            raise TypeError("Expected argument 'created_by' to be a str")
-        pulumi.set(__self__, "created_by", created_by)
-        if created_by_type and not isinstance(created_by_type, str):
-            raise TypeError("Expected argument 'created_by_type' to be a str")
-        pulumi.set(__self__, "created_by_type", created_by_type)
+    def __init__(__self__, device_type=None, id=None, integrated_circuit_card_identifier=None, international_mobile_subscriber_identity=None, name=None, provisioning_state=None, sim_policy=None, sim_state=None, site_provisioning_state=None, static_ip_configuration=None, system_data=None, type=None, vendor_key_fingerprint=None, vendor_name=None):
         if device_type and not isinstance(device_type, str):
             raise TypeError("Expected argument 'device_type' to be a str")
         pulumi.set(__self__, "device_type", device_type)
@@ -44,15 +35,6 @@ class GetSimResult:
         if international_mobile_subscriber_identity and not isinstance(international_mobile_subscriber_identity, str):
             raise TypeError("Expected argument 'international_mobile_subscriber_identity' to be a str")
         pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
-        if last_modified_at and not isinstance(last_modified_at, str):
-            raise TypeError("Expected argument 'last_modified_at' to be a str")
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type and not isinstance(last_modified_by_type, str):
-            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +47,9 @@ class GetSimResult:
         if sim_state and not isinstance(sim_state, str):
             raise TypeError("Expected argument 'sim_state' to be a str")
         pulumi.set(__self__, "sim_state", sim_state)
+        if site_provisioning_state and not isinstance(site_provisioning_state, dict):
+            raise TypeError("Expected argument 'site_provisioning_state' to be a dict")
+        pulumi.set(__self__, "site_provisioning_state", site_provisioning_state)
         if static_ip_configuration and not isinstance(static_ip_configuration, list):
             raise TypeError("Expected argument 'static_ip_configuration' to be a list")
         pulumi.set(__self__, "static_ip_configuration", static_ip_configuration)
@@ -74,30 +59,12 @@ class GetSimResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
+        if vendor_key_fingerprint and not isinstance(vendor_key_fingerprint, str):
+            raise TypeError("Expected argument 'vendor_key_fingerprint' to be a str")
+        pulumi.set(__self__, "vendor_key_fingerprint", vendor_key_fingerprint)
+        if vendor_name and not isinstance(vendor_name, str):
+            raise TypeError("Expected argument 'vendor_name' to be a str")
+        pulumi.set(__self__, "vendor_name", vendor_name)
 
     @property
     @pulumi.getter(name="deviceType")
@@ -132,30 +99,6 @@ class GetSimResult:
         return pulumi.get(self, "international_mobile_subscriber_identity")
 
     @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -175,7 +118,7 @@ class GetSimResult:
     @pulumi.getter(name="simPolicy")
     def sim_policy(self) -> Optional['outputs.SimPolicyResourceIdResponse']:
         """
-        The SIM policy used by this SIM.
+        The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
         """
         return pulumi.get(self, "sim_policy")
 
@@ -186,6 +129,14 @@ class GetSimResult:
         The state of the SIM resource.
         """
         return pulumi.get(self, "sim_state")
+
+    @property
+    @pulumi.getter(name="siteProvisioningState")
+    def site_provisioning_state(self) -> Mapping[str, str]:
+        """
+        A dictionary of sites to the provisioning state of this SIM on that site.
+        """
+        return pulumi.get(self, "site_provisioning_state")
 
     @property
     @pulumi.getter(name="staticIpConfiguration")
@@ -211,6 +162,22 @@ class GetSimResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="vendorKeyFingerprint")
+    def vendor_key_fingerprint(self) -> str:
+        """
+        The public key fingerprint of the SIM vendor who provided this SIM, if any.
+        """
+        return pulumi.get(self, "vendor_key_fingerprint")
+
+    @property
+    @pulumi.getter(name="vendorName")
+    def vendor_name(self) -> str:
+        """
+        The name of the SIM vendor who provided this SIM, if any.
+        """
+        return pulumi.get(self, "vendor_name")
+
 
 class AwaitableGetSimResult(GetSimResult):
     # pylint: disable=using-constant-test
@@ -218,23 +185,20 @@ class AwaitableGetSimResult(GetSimResult):
         if False:
             yield self
         return GetSimResult(
-            created_at=self.created_at,
-            created_by=self.created_by,
-            created_by_type=self.created_by_type,
             device_type=self.device_type,
             id=self.id,
             integrated_circuit_card_identifier=self.integrated_circuit_card_identifier,
             international_mobile_subscriber_identity=self.international_mobile_subscriber_identity,
-            last_modified_at=self.last_modified_at,
-            last_modified_by=self.last_modified_by,
-            last_modified_by_type=self.last_modified_by_type,
             name=self.name,
             provisioning_state=self.provisioning_state,
             sim_policy=self.sim_policy,
             sim_state=self.sim_state,
+            site_provisioning_state=self.site_provisioning_state,
             static_ip_configuration=self.static_ip_configuration,
             system_data=self.system_data,
-            type=self.type)
+            type=self.type,
+            vendor_key_fingerprint=self.vendor_key_fingerprint,
+            vendor_name=self.vendor_name)
 
 
 def get_sim(resource_group_name: Optional[str] = None,
@@ -243,7 +207,7 @@ def get_sim(resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimResult:
     """
     Gets information about the specified SIM.
-    API Version: 2022-04-01-preview.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -258,23 +222,20 @@ def get_sim(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getSim', __args__, opts=opts, typ=GetSimResult).value
 
     return AwaitableGetSimResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
         device_type=__ret__.device_type,
         id=__ret__.id,
         integrated_circuit_card_identifier=__ret__.integrated_circuit_card_identifier,
         international_mobile_subscriber_identity=__ret__.international_mobile_subscriber_identity,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         sim_policy=__ret__.sim_policy,
         sim_state=__ret__.sim_state,
+        site_provisioning_state=__ret__.site_provisioning_state,
         static_ip_configuration=__ret__.static_ip_configuration,
         system_data=__ret__.system_data,
-        type=__ret__.type)
+        type=__ret__.type,
+        vendor_key_fingerprint=__ret__.vendor_key_fingerprint,
+        vendor_name=__ret__.vendor_name)
 
 
 @_utilities.lift_output_func(get_sim)
@@ -284,7 +245,7 @@ def get_sim_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimResult]:
     """
     Gets information about the specified SIM.
-    API Version: 2022-04-01-preview.
+    API Version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

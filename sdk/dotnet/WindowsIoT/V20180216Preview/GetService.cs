@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.WindowsIoT.V20180216Preview
 {
-    [Obsolete(@"Version 2018-02-16-preview will be removed in v2 of the provider.")]
     public static class GetService
     {
         /// <summary>

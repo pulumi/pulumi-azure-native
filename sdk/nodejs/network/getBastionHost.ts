@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Bastion Host.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
 
@@ -36,9 +36,29 @@ export interface GetBastionHostArgs {
  */
 export interface GetBastionHostResult {
     /**
+     * Enable/Disable Copy/Paste feature of the Bastion Host resource.
+     */
+    readonly disableCopyPaste?: boolean;
+    /**
      * FQDN for the endpoint on which bastion host is accessible.
      */
     readonly dnsName?: string;
+    /**
+     * Enable/Disable File Copy feature of the Bastion Host resource.
+     */
+    readonly enableFileCopy?: boolean;
+    /**
+     * Enable/Disable IP Connect feature of the Bastion Host resource.
+     */
+    readonly enableIpConnect?: boolean;
+    /**
+     * Enable/Disable Shareable Link of the Bastion Host resource.
+     */
+    readonly enableShareableLink?: boolean;
+    /**
+     * Enable/Disable Tunneling feature of the Bastion Host resource.
+     */
+    readonly enableTunneling?: boolean;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -64,6 +84,14 @@ export interface GetBastionHostResult {
      */
     readonly provisioningState: string;
     /**
+     * The scale units for the Bastion Host resource.
+     */
+    readonly scaleUnits?: number;
+    /**
+     * The sku of this Bastion Host.
+     */
+    readonly sku?: outputs.network.SkuResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -74,7 +102,7 @@ export interface GetBastionHostResult {
 }
 /**
  * Gets the specified Bastion Host.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
     return pulumi.output(args).apply((a: any) => getBastionHost(a, opts))

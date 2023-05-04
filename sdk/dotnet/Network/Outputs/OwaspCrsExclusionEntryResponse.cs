@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class OwaspCrsExclusionEntryResponse
     {
         /// <summary>
+        /// The managed rule sets that are associated with the exclusion.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExclusionManagedRuleSetResponse> ExclusionManagedRuleSets;
+        /// <summary>
         /// The variable to be excluded.
         /// </summary>
         public readonly string MatchVariable;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private OwaspCrsExclusionEntryResponse(
+            ImmutableArray<Outputs.ExclusionManagedRuleSetResponse> exclusionManagedRuleSets,
+
             string matchVariable,
 
             string selector,
 
             string selectorMatchOperator)
         {
+            ExclusionManagedRuleSets = exclusionManagedRuleSets;
             MatchVariable = matchVariable;
             Selector = selector;
             SelectorMatchOperator = selectorMatchOperator;

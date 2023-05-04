@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of products.
- * API Version: 2017-06-01.
+ * API Version: 2022-06-01.
  */
 export function getProducts(args: GetProductsArgs, opts?: pulumi.InvokeOptions): Promise<GetProductsResult> {
 
@@ -51,7 +51,7 @@ export interface GetProductsResult {
 }
 /**
  * Returns a list of products.
- * API Version: 2017-06-01.
+ * API Version: 2022-06-01.
  */
 export function getProductsOutput(args: GetProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductsResult> {
     return pulumi.output(args).apply((a: any) => getProducts(a, opts))

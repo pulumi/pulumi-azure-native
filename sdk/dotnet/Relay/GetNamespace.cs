@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Relay
     {
         /// <summary>
         /// Returns the description for the specified namespace.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the description for the specified namespace.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -91,7 +91,18 @@ namespace Pulumi.AzureNative.Relay
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Provisioning state of the Namespace.
+        /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Endpoint you can use to perform Service Bus operations.
         /// </summary>
@@ -100,6 +111,14 @@ namespace Pulumi.AzureNative.Relay
         /// SKU of the namespace.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// Status of the Namespace.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -125,11 +144,19 @@ namespace Pulumi.AzureNative.Relay
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             string serviceBusEndpoint,
 
             Outputs.SkuResponse? sku,
+
+            string status,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -142,9 +169,13 @@ namespace Pulumi.AzureNative.Relay
             Location = location;
             MetricId = metricId;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
+            Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UpdatedAt = updatedAt;

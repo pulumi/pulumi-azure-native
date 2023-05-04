@@ -75,11 +75,6 @@ export type DefaultAdminRule = import("./defaultAdminRule").DefaultAdminRule;
 export const DefaultAdminRule: typeof import("./defaultAdminRule").DefaultAdminRule = null as any;
 utilities.lazyLoad(exports, ["DefaultAdminRule"], () => require("./defaultAdminRule"));
 
-export { DefaultUserRuleArgs } from "./defaultUserRule";
-export type DefaultUserRule = import("./defaultUserRule").DefaultUserRule;
-export const DefaultUserRule: typeof import("./defaultUserRule").DefaultUserRule = null as any;
-utilities.lazyLoad(exports, ["DefaultUserRule"], () => require("./defaultUserRule"));
-
 export { DnsForwardingRulesetArgs } from "./dnsForwardingRuleset";
 export type DnsForwardingRuleset = import("./dnsForwardingRuleset").DnsForwardingRuleset;
 export const DnsForwardingRuleset: typeof import("./dnsForwardingRuleset").DnsForwardingRuleset = null as any;
@@ -265,11 +260,6 @@ export const getDefaultAdminRule: typeof import("./getDefaultAdminRule").getDefa
 export const getDefaultAdminRuleOutput: typeof import("./getDefaultAdminRule").getDefaultAdminRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultAdminRule","getDefaultAdminRuleOutput"], () => require("./getDefaultAdminRule"));
 
-export { GetDefaultUserRuleArgs, GetDefaultUserRuleResult, GetDefaultUserRuleOutputArgs } from "./getDefaultUserRule";
-export const getDefaultUserRule: typeof import("./getDefaultUserRule").getDefaultUserRule = null as any;
-export const getDefaultUserRuleOutput: typeof import("./getDefaultUserRule").getDefaultUserRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getDefaultUserRule","getDefaultUserRuleOutput"], () => require("./getDefaultUserRule"));
-
 export { GetDnsForwardingRulesetArgs, GetDnsForwardingRulesetResult, GetDnsForwardingRulesetOutputArgs } from "./getDnsForwardingRuleset";
 export const getDnsForwardingRuleset: typeof import("./getDnsForwardingRuleset").getDnsForwardingRuleset = null as any;
 export const getDnsForwardingRulesetOutput: typeof import("./getDnsForwardingRuleset").getDnsForwardingRulesetOutput = null as any;
@@ -395,6 +385,11 @@ export const getInboundNatRule: typeof import("./getInboundNatRule").getInboundN
 export const getInboundNatRuleOutput: typeof import("./getInboundNatRule").getInboundNatRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getInboundNatRule","getInboundNatRuleOutput"], () => require("./getInboundNatRule"));
 
+export { GetInterfaceEndpointArgs, GetInterfaceEndpointResult, GetInterfaceEndpointOutputArgs } from "./getInterfaceEndpoint";
+export const getInterfaceEndpoint: typeof import("./getInterfaceEndpoint").getInterfaceEndpoint = null as any;
+export const getInterfaceEndpointOutput: typeof import("./getInterfaceEndpoint").getInterfaceEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getInterfaceEndpoint","getInterfaceEndpointOutput"], () => require("./getInterfaceEndpoint"));
+
 export { GetIpAllocationArgs, GetIpAllocationResult, GetIpAllocationOutputArgs } from "./getIpAllocation";
 export const getIpAllocation: typeof import("./getIpAllocation").getIpAllocation = null as any;
 export const getIpAllocationOutput: typeof import("./getIpAllocation").getIpAllocationOutput = null as any;
@@ -470,35 +465,20 @@ export const getNetworkSecurityGroup: typeof import("./getNetworkSecurityGroup")
 export const getNetworkSecurityGroupOutput: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkSecurityGroup","getNetworkSecurityGroupOutput"], () => require("./getNetworkSecurityGroup"));
 
-export { GetNetworkSecurityPerimeterArgs, GetNetworkSecurityPerimeterResult, GetNetworkSecurityPerimeterOutputArgs } from "./getNetworkSecurityPerimeter";
-export const getNetworkSecurityPerimeter: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeter = null as any;
-export const getNetworkSecurityPerimeterOutput: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeterOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkSecurityPerimeter","getNetworkSecurityPerimeterOutput"], () => require("./getNetworkSecurityPerimeter"));
-
 export { GetNetworkVirtualApplianceArgs, GetNetworkVirtualApplianceResult, GetNetworkVirtualApplianceOutputArgs } from "./getNetworkVirtualAppliance";
 export const getNetworkVirtualAppliance: typeof import("./getNetworkVirtualAppliance").getNetworkVirtualAppliance = null as any;
 export const getNetworkVirtualApplianceOutput: typeof import("./getNetworkVirtualAppliance").getNetworkVirtualApplianceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkVirtualAppliance","getNetworkVirtualApplianceOutput"], () => require("./getNetworkVirtualAppliance"));
 
+export { GetNetworkVirtualApplianceConnectionArgs, GetNetworkVirtualApplianceConnectionResult, GetNetworkVirtualApplianceConnectionOutputArgs } from "./getNetworkVirtualApplianceConnection";
+export const getNetworkVirtualApplianceConnection: typeof import("./getNetworkVirtualApplianceConnection").getNetworkVirtualApplianceConnection = null as any;
+export const getNetworkVirtualApplianceConnectionOutput: typeof import("./getNetworkVirtualApplianceConnection").getNetworkVirtualApplianceConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkVirtualApplianceConnection","getNetworkVirtualApplianceConnectionOutput"], () => require("./getNetworkVirtualApplianceConnection"));
+
 export { GetNetworkWatcherArgs, GetNetworkWatcherResult, GetNetworkWatcherOutputArgs } from "./getNetworkWatcher";
 export const getNetworkWatcher: typeof import("./getNetworkWatcher").getNetworkWatcher = null as any;
 export const getNetworkWatcherOutput: typeof import("./getNetworkWatcher").getNetworkWatcherOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkWatcher","getNetworkWatcherOutput"], () => require("./getNetworkWatcher"));
-
-export { GetNspAccessRuleArgs, GetNspAccessRuleResult, GetNspAccessRuleOutputArgs } from "./getNspAccessRule";
-export const getNspAccessRule: typeof import("./getNspAccessRule").getNspAccessRule = null as any;
-export const getNspAccessRuleOutput: typeof import("./getNspAccessRule").getNspAccessRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getNspAccessRule","getNspAccessRuleOutput"], () => require("./getNspAccessRule"));
-
-export { GetNspAssociationArgs, GetNspAssociationResult, GetNspAssociationOutputArgs } from "./getNspAssociation";
-export const getNspAssociation: typeof import("./getNspAssociation").getNspAssociation = null as any;
-export const getNspAssociationOutput: typeof import("./getNspAssociation").getNspAssociationOutput = null as any;
-utilities.lazyLoad(exports, ["getNspAssociation","getNspAssociationOutput"], () => require("./getNspAssociation"));
-
-export { GetNspProfileArgs, GetNspProfileResult, GetNspProfileOutputArgs } from "./getNspProfile";
-export const getNspProfile: typeof import("./getNspProfile").getNspProfile = null as any;
-export const getNspProfileOutput: typeof import("./getNspProfile").getNspProfileOutput = null as any;
-utilities.lazyLoad(exports, ["getNspProfile","getNspProfileOutput"], () => require("./getNspProfile"));
 
 export { GetOutboundEndpointArgs, GetOutboundEndpointResult, GetOutboundEndpointOutputArgs } from "./getOutboundEndpoint";
 export const getOutboundEndpoint: typeof import("./getOutboundEndpoint").getOutboundEndpoint = null as any;
@@ -600,6 +580,11 @@ export const getRouteFilterRule: typeof import("./getRouteFilterRule").getRouteF
 export const getRouteFilterRuleOutput: typeof import("./getRouteFilterRule").getRouteFilterRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteFilterRule","getRouteFilterRuleOutput"], () => require("./getRouteFilterRule"));
 
+export { GetRouteMapArgs, GetRouteMapResult, GetRouteMapOutputArgs } from "./getRouteMap";
+export const getRouteMap: typeof import("./getRouteMap").getRouteMap = null as any;
+export const getRouteMapOutput: typeof import("./getRouteMap").getRouteMapOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteMap","getRouteMapOutput"], () => require("./getRouteMap"));
+
 export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
 export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
 export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
@@ -635,11 +620,6 @@ export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule
 export const getSecurityRuleOutput: typeof import("./getSecurityRule").getSecurityRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityRule","getSecurityRuleOutput"], () => require("./getSecurityRule"));
 
-export { GetSecurityUserConfigurationArgs, GetSecurityUserConfigurationResult, GetSecurityUserConfigurationOutputArgs } from "./getSecurityUserConfiguration";
-export const getSecurityUserConfiguration: typeof import("./getSecurityUserConfiguration").getSecurityUserConfiguration = null as any;
-export const getSecurityUserConfigurationOutput: typeof import("./getSecurityUserConfiguration").getSecurityUserConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getSecurityUserConfiguration","getSecurityUserConfigurationOutput"], () => require("./getSecurityUserConfiguration"));
-
 export { GetServiceEndpointPolicyArgs, GetServiceEndpointPolicyResult, GetServiceEndpointPolicyOutputArgs } from "./getServiceEndpointPolicy";
 export const getServiceEndpointPolicy: typeof import("./getServiceEndpointPolicy").getServiceEndpointPolicy = null as any;
 export const getServiceEndpointPolicyOutput: typeof import("./getServiceEndpointPolicy").getServiceEndpointPolicyOutput = null as any;
@@ -668,16 +648,6 @@ utilities.lazyLoad(exports, ["getSubscriptionNetworkManagerConnection","getSubsc
 export { GetTrafficManagerUserMetricsKeyArgs, GetTrafficManagerUserMetricsKeyResult } from "./getTrafficManagerUserMetricsKey";
 export const getTrafficManagerUserMetricsKey: typeof import("./getTrafficManagerUserMetricsKey").getTrafficManagerUserMetricsKey = null as any;
 utilities.lazyLoad(exports, ["getTrafficManagerUserMetricsKey"], () => require("./getTrafficManagerUserMetricsKey"));
-
-export { GetUserRuleArgs, GetUserRuleResult, GetUserRuleOutputArgs } from "./getUserRule";
-export const getUserRule: typeof import("./getUserRule").getUserRule = null as any;
-export const getUserRuleOutput: typeof import("./getUserRule").getUserRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getUserRule","getUserRuleOutput"], () => require("./getUserRule"));
-
-export { GetUserRuleCollectionArgs, GetUserRuleCollectionResult, GetUserRuleCollectionOutputArgs } from "./getUserRuleCollection";
-export const getUserRuleCollection: typeof import("./getUserRuleCollection").getUserRuleCollection = null as any;
-export const getUserRuleCollectionOutput: typeof import("./getUserRuleCollection").getUserRuleCollectionOutput = null as any;
-utilities.lazyLoad(exports, ["getUserRuleCollection","getUserRuleCollectionOutput"], () => require("./getUserRuleCollection"));
 
 export { GetVirtualApplianceSiteArgs, GetVirtualApplianceSiteResult, GetVirtualApplianceSiteOutputArgs } from "./getVirtualApplianceSite";
 export const getVirtualApplianceSite: typeof import("./getVirtualApplianceSite").getVirtualApplianceSite = null as any;
@@ -829,6 +799,11 @@ export type InboundNatRule = import("./inboundNatRule").InboundNatRule;
 export const InboundNatRule: typeof import("./inboundNatRule").InboundNatRule = null as any;
 utilities.lazyLoad(exports, ["InboundNatRule"], () => require("./inboundNatRule"));
 
+export { InterfaceEndpointArgs } from "./interfaceEndpoint";
+export type InterfaceEndpoint = import("./interfaceEndpoint").InterfaceEndpoint;
+export const InterfaceEndpoint: typeof import("./interfaceEndpoint").InterfaceEndpoint = null as any;
+utilities.lazyLoad(exports, ["InterfaceEndpoint"], () => require("./interfaceEndpoint"));
+
 export { IpAllocationArgs } from "./ipAllocation";
 export type IpAllocation = import("./ipAllocation").IpAllocation;
 export const IpAllocation: typeof import("./ipAllocation").IpAllocation = null as any;
@@ -839,20 +814,15 @@ export type IpGroup = import("./ipGroup").IpGroup;
 export const IpGroup: typeof import("./ipGroup").IpGroup = null as any;
 utilities.lazyLoad(exports, ["IpGroup"], () => require("./ipGroup"));
 
-export { ListActiveConnectivityConfigurationArgs, ListActiveConnectivityConfigurationResult, ListActiveConnectivityConfigurationOutputArgs } from "./listActiveConnectivityConfiguration";
-export const listActiveConnectivityConfiguration: typeof import("./listActiveConnectivityConfiguration").listActiveConnectivityConfiguration = null as any;
-export const listActiveConnectivityConfigurationOutput: typeof import("./listActiveConnectivityConfiguration").listActiveConnectivityConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["listActiveConnectivityConfiguration","listActiveConnectivityConfigurationOutput"], () => require("./listActiveConnectivityConfiguration"));
+export { ListActiveConnectivityConfigurationsArgs, ListActiveConnectivityConfigurationsResult, ListActiveConnectivityConfigurationsOutputArgs } from "./listActiveConnectivityConfigurations";
+export const listActiveConnectivityConfigurations: typeof import("./listActiveConnectivityConfigurations").listActiveConnectivityConfigurations = null as any;
+export const listActiveConnectivityConfigurationsOutput: typeof import("./listActiveConnectivityConfigurations").listActiveConnectivityConfigurationsOutput = null as any;
+utilities.lazyLoad(exports, ["listActiveConnectivityConfigurations","listActiveConnectivityConfigurationsOutput"], () => require("./listActiveConnectivityConfigurations"));
 
-export { ListActiveSecurityAdminRuleArgs, ListActiveSecurityAdminRuleResult, ListActiveSecurityAdminRuleOutputArgs } from "./listActiveSecurityAdminRule";
-export const listActiveSecurityAdminRule: typeof import("./listActiveSecurityAdminRule").listActiveSecurityAdminRule = null as any;
-export const listActiveSecurityAdminRuleOutput: typeof import("./listActiveSecurityAdminRule").listActiveSecurityAdminRuleOutput = null as any;
-utilities.lazyLoad(exports, ["listActiveSecurityAdminRule","listActiveSecurityAdminRuleOutput"], () => require("./listActiveSecurityAdminRule"));
-
-export { ListActiveSecurityUserRuleArgs, ListActiveSecurityUserRuleResult, ListActiveSecurityUserRuleOutputArgs } from "./listActiveSecurityUserRule";
-export const listActiveSecurityUserRule: typeof import("./listActiveSecurityUserRule").listActiveSecurityUserRule = null as any;
-export const listActiveSecurityUserRuleOutput: typeof import("./listActiveSecurityUserRule").listActiveSecurityUserRuleOutput = null as any;
-utilities.lazyLoad(exports, ["listActiveSecurityUserRule","listActiveSecurityUserRuleOutput"], () => require("./listActiveSecurityUserRule"));
+export { ListActiveSecurityAdminRulesArgs, ListActiveSecurityAdminRulesResult, ListActiveSecurityAdminRulesOutputArgs } from "./listActiveSecurityAdminRules";
+export const listActiveSecurityAdminRules: typeof import("./listActiveSecurityAdminRules").listActiveSecurityAdminRules = null as any;
+export const listActiveSecurityAdminRulesOutput: typeof import("./listActiveSecurityAdminRules").listActiveSecurityAdminRulesOutput = null as any;
+utilities.lazyLoad(exports, ["listActiveSecurityAdminRules","listActiveSecurityAdminRulesOutput"], () => require("./listActiveSecurityAdminRules"));
 
 export { ListDnsForwardingRulesetByVirtualNetworkArgs, ListDnsForwardingRulesetByVirtualNetworkResult, ListDnsForwardingRulesetByVirtualNetworkOutputArgs } from "./listDnsForwardingRulesetByVirtualNetwork";
 export const listDnsForwardingRulesetByVirtualNetwork: typeof import("./listDnsForwardingRulesetByVirtualNetwork").listDnsForwardingRulesetByVirtualNetwork = null as any;
@@ -863,21 +833,6 @@ export { ListDnsResolverByVirtualNetworkArgs, ListDnsResolverByVirtualNetworkRes
 export const listDnsResolverByVirtualNetwork: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetwork = null as any;
 export const listDnsResolverByVirtualNetworkOutput: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["listDnsResolverByVirtualNetwork","listDnsResolverByVirtualNetworkOutput"], () => require("./listDnsResolverByVirtualNetwork"));
-
-export { ListEffectiveConnectivityConfigurationArgs, ListEffectiveConnectivityConfigurationResult, ListEffectiveConnectivityConfigurationOutputArgs } from "./listEffectiveConnectivityConfiguration";
-export const listEffectiveConnectivityConfiguration: typeof import("./listEffectiveConnectivityConfiguration").listEffectiveConnectivityConfiguration = null as any;
-export const listEffectiveConnectivityConfigurationOutput: typeof import("./listEffectiveConnectivityConfiguration").listEffectiveConnectivityConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["listEffectiveConnectivityConfiguration","listEffectiveConnectivityConfigurationOutput"], () => require("./listEffectiveConnectivityConfiguration"));
-
-export { ListEffectiveVirtualNetworkByNetworkGroupArgs, ListEffectiveVirtualNetworkByNetworkGroupResult, ListEffectiveVirtualNetworkByNetworkGroupOutputArgs } from "./listEffectiveVirtualNetworkByNetworkGroup";
-export const listEffectiveVirtualNetworkByNetworkGroup: typeof import("./listEffectiveVirtualNetworkByNetworkGroup").listEffectiveVirtualNetworkByNetworkGroup = null as any;
-export const listEffectiveVirtualNetworkByNetworkGroupOutput: typeof import("./listEffectiveVirtualNetworkByNetworkGroup").listEffectiveVirtualNetworkByNetworkGroupOutput = null as any;
-utilities.lazyLoad(exports, ["listEffectiveVirtualNetworkByNetworkGroup","listEffectiveVirtualNetworkByNetworkGroupOutput"], () => require("./listEffectiveVirtualNetworkByNetworkGroup"));
-
-export { ListEffectiveVirtualNetworkByNetworkManagerArgs, ListEffectiveVirtualNetworkByNetworkManagerResult, ListEffectiveVirtualNetworkByNetworkManagerOutputArgs } from "./listEffectiveVirtualNetworkByNetworkManager";
-export const listEffectiveVirtualNetworkByNetworkManager: typeof import("./listEffectiveVirtualNetworkByNetworkManager").listEffectiveVirtualNetworkByNetworkManager = null as any;
-export const listEffectiveVirtualNetworkByNetworkManagerOutput: typeof import("./listEffectiveVirtualNetworkByNetworkManager").listEffectiveVirtualNetworkByNetworkManagerOutput = null as any;
-utilities.lazyLoad(exports, ["listEffectiveVirtualNetworkByNetworkManager","listEffectiveVirtualNetworkByNetworkManagerOutput"], () => require("./listEffectiveVirtualNetworkByNetworkManager"));
 
 export { ListFirewallPolicyIdpsSignatureArgs, ListFirewallPolicyIdpsSignatureResult, ListFirewallPolicyIdpsSignatureOutputArgs } from "./listFirewallPolicyIdpsSignature";
 export const listFirewallPolicyIdpsSignature: typeof import("./listFirewallPolicyIdpsSignature").listFirewallPolicyIdpsSignature = null as any;
@@ -894,10 +849,15 @@ export const listNetworkManagerDeploymentStatus: typeof import("./listNetworkMan
 export const listNetworkManagerDeploymentStatusOutput: typeof import("./listNetworkManagerDeploymentStatus").listNetworkManagerDeploymentStatusOutput = null as any;
 utilities.lazyLoad(exports, ["listNetworkManagerDeploymentStatus","listNetworkManagerDeploymentStatusOutput"], () => require("./listNetworkManagerDeploymentStatus"));
 
-export { ListNetworkManagerEffectiveSecurityAdminRuleArgs, ListNetworkManagerEffectiveSecurityAdminRuleResult, ListNetworkManagerEffectiveSecurityAdminRuleOutputArgs } from "./listNetworkManagerEffectiveSecurityAdminRule";
-export const listNetworkManagerEffectiveSecurityAdminRule: typeof import("./listNetworkManagerEffectiveSecurityAdminRule").listNetworkManagerEffectiveSecurityAdminRule = null as any;
-export const listNetworkManagerEffectiveSecurityAdminRuleOutput: typeof import("./listNetworkManagerEffectiveSecurityAdminRule").listNetworkManagerEffectiveSecurityAdminRuleOutput = null as any;
-utilities.lazyLoad(exports, ["listNetworkManagerEffectiveSecurityAdminRule","listNetworkManagerEffectiveSecurityAdminRuleOutput"], () => require("./listNetworkManagerEffectiveSecurityAdminRule"));
+export { ListNetworkManagerEffectiveConnectivityConfigurationsArgs, ListNetworkManagerEffectiveConnectivityConfigurationsResult, ListNetworkManagerEffectiveConnectivityConfigurationsOutputArgs } from "./listNetworkManagerEffectiveConnectivityConfigurations";
+export const listNetworkManagerEffectiveConnectivityConfigurations: typeof import("./listNetworkManagerEffectiveConnectivityConfigurations").listNetworkManagerEffectiveConnectivityConfigurations = null as any;
+export const listNetworkManagerEffectiveConnectivityConfigurationsOutput: typeof import("./listNetworkManagerEffectiveConnectivityConfigurations").listNetworkManagerEffectiveConnectivityConfigurationsOutput = null as any;
+utilities.lazyLoad(exports, ["listNetworkManagerEffectiveConnectivityConfigurations","listNetworkManagerEffectiveConnectivityConfigurationsOutput"], () => require("./listNetworkManagerEffectiveConnectivityConfigurations"));
+
+export { ListNetworkManagerEffectiveSecurityAdminRulesArgs, ListNetworkManagerEffectiveSecurityAdminRulesResult, ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs } from "./listNetworkManagerEffectiveSecurityAdminRules";
+export const listNetworkManagerEffectiveSecurityAdminRules: typeof import("./listNetworkManagerEffectiveSecurityAdminRules").listNetworkManagerEffectiveSecurityAdminRules = null as any;
+export const listNetworkManagerEffectiveSecurityAdminRulesOutput: typeof import("./listNetworkManagerEffectiveSecurityAdminRules").listNetworkManagerEffectiveSecurityAdminRulesOutput = null as any;
+utilities.lazyLoad(exports, ["listNetworkManagerEffectiveSecurityAdminRules","listNetworkManagerEffectiveSecurityAdminRulesOutput"], () => require("./listNetworkManagerEffectiveSecurityAdminRules"));
 
 export { LoadBalancerArgs } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
@@ -964,35 +924,20 @@ export type NetworkSecurityGroup = import("./networkSecurityGroup").NetworkSecur
 export const NetworkSecurityGroup: typeof import("./networkSecurityGroup").NetworkSecurityGroup = null as any;
 utilities.lazyLoad(exports, ["NetworkSecurityGroup"], () => require("./networkSecurityGroup"));
 
-export { NetworkSecurityPerimeterArgs } from "./networkSecurityPerimeter";
-export type NetworkSecurityPerimeter = import("./networkSecurityPerimeter").NetworkSecurityPerimeter;
-export const NetworkSecurityPerimeter: typeof import("./networkSecurityPerimeter").NetworkSecurityPerimeter = null as any;
-utilities.lazyLoad(exports, ["NetworkSecurityPerimeter"], () => require("./networkSecurityPerimeter"));
-
 export { NetworkVirtualApplianceArgs } from "./networkVirtualAppliance";
 export type NetworkVirtualAppliance = import("./networkVirtualAppliance").NetworkVirtualAppliance;
 export const NetworkVirtualAppliance: typeof import("./networkVirtualAppliance").NetworkVirtualAppliance = null as any;
 utilities.lazyLoad(exports, ["NetworkVirtualAppliance"], () => require("./networkVirtualAppliance"));
 
+export { NetworkVirtualApplianceConnectionArgs } from "./networkVirtualApplianceConnection";
+export type NetworkVirtualApplianceConnection = import("./networkVirtualApplianceConnection").NetworkVirtualApplianceConnection;
+export const NetworkVirtualApplianceConnection: typeof import("./networkVirtualApplianceConnection").NetworkVirtualApplianceConnection = null as any;
+utilities.lazyLoad(exports, ["NetworkVirtualApplianceConnection"], () => require("./networkVirtualApplianceConnection"));
+
 export { NetworkWatcherArgs } from "./networkWatcher";
 export type NetworkWatcher = import("./networkWatcher").NetworkWatcher;
 export const NetworkWatcher: typeof import("./networkWatcher").NetworkWatcher = null as any;
 utilities.lazyLoad(exports, ["NetworkWatcher"], () => require("./networkWatcher"));
-
-export { NspAccessRuleArgs } from "./nspAccessRule";
-export type NspAccessRule = import("./nspAccessRule").NspAccessRule;
-export const NspAccessRule: typeof import("./nspAccessRule").NspAccessRule = null as any;
-utilities.lazyLoad(exports, ["NspAccessRule"], () => require("./nspAccessRule"));
-
-export { NspAssociationArgs } from "./nspAssociation";
-export type NspAssociation = import("./nspAssociation").NspAssociation;
-export const NspAssociation: typeof import("./nspAssociation").NspAssociation = null as any;
-utilities.lazyLoad(exports, ["NspAssociation"], () => require("./nspAssociation"));
-
-export { NspProfileArgs } from "./nspProfile";
-export type NspProfile = import("./nspProfile").NspProfile;
-export const NspProfile: typeof import("./nspProfile").NspProfile = null as any;
-utilities.lazyLoad(exports, ["NspProfile"], () => require("./nspProfile"));
 
 export { OutboundEndpointArgs } from "./outboundEndpoint";
 export type OutboundEndpoint = import("./outboundEndpoint").OutboundEndpoint;
@@ -1084,6 +1029,11 @@ export type RouteFilterRule = import("./routeFilterRule").RouteFilterRule;
 export const RouteFilterRule: typeof import("./routeFilterRule").RouteFilterRule = null as any;
 utilities.lazyLoad(exports, ["RouteFilterRule"], () => require("./routeFilterRule"));
 
+export { RouteMapArgs } from "./routeMap";
+export type RouteMap = import("./routeMap").RouteMap;
+export const RouteMap: typeof import("./routeMap").RouteMap = null as any;
+utilities.lazyLoad(exports, ["RouteMap"], () => require("./routeMap"));
+
 export { RouteTableArgs } from "./routeTable";
 export type RouteTable = import("./routeTable").RouteTable;
 export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
@@ -1119,11 +1069,6 @@ export type SecurityRule = import("./securityRule").SecurityRule;
 export const SecurityRule: typeof import("./securityRule").SecurityRule = null as any;
 utilities.lazyLoad(exports, ["SecurityRule"], () => require("./securityRule"));
 
-export { SecurityUserConfigurationArgs } from "./securityUserConfiguration";
-export type SecurityUserConfiguration = import("./securityUserConfiguration").SecurityUserConfiguration;
-export const SecurityUserConfiguration: typeof import("./securityUserConfiguration").SecurityUserConfiguration = null as any;
-utilities.lazyLoad(exports, ["SecurityUserConfiguration"], () => require("./securityUserConfiguration"));
-
 export { ServiceEndpointPolicyArgs } from "./serviceEndpointPolicy";
 export type ServiceEndpointPolicy = import("./serviceEndpointPolicy").ServiceEndpointPolicy;
 export const ServiceEndpointPolicy: typeof import("./serviceEndpointPolicy").ServiceEndpointPolicy = null as any;
@@ -1153,16 +1098,6 @@ export { TrafficManagerUserMetricsKeyArgs } from "./trafficManagerUserMetricsKey
 export type TrafficManagerUserMetricsKey = import("./trafficManagerUserMetricsKey").TrafficManagerUserMetricsKey;
 export const TrafficManagerUserMetricsKey: typeof import("./trafficManagerUserMetricsKey").TrafficManagerUserMetricsKey = null as any;
 utilities.lazyLoad(exports, ["TrafficManagerUserMetricsKey"], () => require("./trafficManagerUserMetricsKey"));
-
-export { UserRuleArgs } from "./userRule";
-export type UserRule = import("./userRule").UserRule;
-export const UserRule: typeof import("./userRule").UserRule = null as any;
-utilities.lazyLoad(exports, ["UserRule"], () => require("./userRule"));
-
-export { UserRuleCollectionArgs } from "./userRuleCollection";
-export type UserRuleCollection = import("./userRuleCollection").UserRuleCollection;
-export const UserRuleCollection: typeof import("./userRuleCollection").UserRuleCollection = null as any;
-utilities.lazyLoad(exports, ["UserRuleCollection"], () => require("./userRuleCollection"));
 
 export { VirtualApplianceSiteArgs } from "./virtualApplianceSite";
 export type VirtualApplianceSite = import("./virtualApplianceSite").VirtualApplianceSite;
@@ -1276,15 +1211,12 @@ export * from "../types/enums/network";
 // Export sub-modules:
 import * as v20150501preview from "./v20150501preview";
 import * as v20150504preview from "./v20150504preview";
-import * as v20150615 from "./v20150615";
-import * as v20151101 from "./v20151101";
 import * as v20160330 from "./v20160330";
 import * as v20160401 from "./v20160401";
 import * as v20160601 from "./v20160601";
 import * as v20160901 from "./v20160901";
 import * as v20161201 from "./v20161201";
 import * as v20170301 from "./v20170301";
-import * as v20170501 from "./v20170501";
 import * as v20170601 from "./v20170601";
 import * as v20170801 from "./v20170801";
 import * as v20170901 from "./v20170901";
@@ -1293,29 +1225,22 @@ import * as v20171001 from "./v20171001";
 import * as v20171101 from "./v20171101";
 import * as v20180101 from "./v20180101";
 import * as v20180201 from "./v20180201";
-import * as v20180301 from "./v20180301";
-import * as v20180301preview from "./v20180301preview";
 import * as v20180401 from "./v20180401";
 import * as v20180501 from "./v20180501";
 import * as v20180601 from "./v20180601";
 import * as v20180701 from "./v20180701";
 import * as v20180801 from "./v20180801";
-import * as v20180901 from "./v20180901";
 import * as v20181001 from "./v20181001";
 import * as v20181101 from "./v20181101";
 import * as v20181201 from "./v20181201";
 import * as v20190201 from "./v20190201";
-import * as v20190301 from "./v20190301";
 import * as v20190401 from "./v20190401";
-import * as v20190501 from "./v20190501";
 import * as v20190601 from "./v20190601";
 import * as v20190701 from "./v20190701";
 import * as v20190801 from "./v20190801";
 import * as v20190901 from "./v20190901";
-import * as v20191001 from "./v20191001";
 import * as v20191101 from "./v20191101";
 import * as v20191201 from "./v20191201";
-import * as v20200101 from "./v20200101";
 import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
 import * as v20200401preview from "./v20200401preview";
@@ -1338,19 +1263,17 @@ import * as v20220401preview from "./v20220401preview";
 import * as v20220501 from "./v20220501";
 import * as v20220701 from "./v20220701";
 import * as v20220901 from "./v20220901";
+import * as v20221101 from "./v20221101";
 
 export {
     v20150501preview,
     v20150504preview,
-    v20150615,
-    v20151101,
     v20160330,
     v20160401,
     v20160601,
     v20160901,
     v20161201,
     v20170301,
-    v20170501,
     v20170601,
     v20170801,
     v20170901,
@@ -1359,29 +1282,22 @@ export {
     v20171101,
     v20180101,
     v20180201,
-    v20180301,
-    v20180301preview,
     v20180401,
     v20180501,
     v20180601,
     v20180701,
     v20180801,
-    v20180901,
     v20181001,
     v20181101,
     v20181201,
     v20190201,
-    v20190301,
     v20190401,
-    v20190501,
     v20190601,
     v20190701,
     v20190801,
     v20190901,
-    v20191001,
     v20191101,
     v20191201,
-    v20200101,
     v20200301,
     v20200401,
     v20200401preview,
@@ -1404,6 +1320,7 @@ export {
     v20220501,
     v20220701,
     v20220901,
+    v20221101,
 };
 
 const _module = {
@@ -1438,8 +1355,6 @@ const _module = {
                 return new DdosProtectionPlan(name, <any>undefined, { urn })
             case "azure-native:network:DefaultAdminRule":
                 return new DefaultAdminRule(name, <any>undefined, { urn })
-            case "azure-native:network:DefaultUserRule":
-                return new DefaultUserRule(name, <any>undefined, { urn })
             case "azure-native:network:DnsForwardingRuleset":
                 return new DnsForwardingRuleset(name, <any>undefined, { urn })
             case "azure-native:network:DnsResolver":
@@ -1488,6 +1403,8 @@ const _module = {
                 return new InboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:InboundNatRule":
                 return new InboundNatRule(name, <any>undefined, { urn })
+            case "azure-native:network:InterfaceEndpoint":
+                return new InterfaceEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:IpAllocation":
                 return new IpAllocation(name, <any>undefined, { urn })
             case "azure-native:network:IpGroup":
@@ -1518,18 +1435,12 @@ const _module = {
                 return new NetworkProfile(name, <any>undefined, { urn })
             case "azure-native:network:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
-            case "azure-native:network:NetworkSecurityPerimeter":
-                return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
             case "azure-native:network:NetworkVirtualAppliance":
                 return new NetworkVirtualAppliance(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkVirtualApplianceConnection":
+                return new NetworkVirtualApplianceConnection(name, <any>undefined, { urn })
             case "azure-native:network:NetworkWatcher":
                 return new NetworkWatcher(name, <any>undefined, { urn })
-            case "azure-native:network:NspAccessRule":
-                return new NspAccessRule(name, <any>undefined, { urn })
-            case "azure-native:network:NspAssociation":
-                return new NspAssociation(name, <any>undefined, { urn })
-            case "azure-native:network:NspProfile":
-                return new NspProfile(name, <any>undefined, { urn })
             case "azure-native:network:OutboundEndpoint":
                 return new OutboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:P2sVpnGateway":
@@ -1566,6 +1477,8 @@ const _module = {
                 return new RouteFilter(name, <any>undefined, { urn })
             case "azure-native:network:RouteFilterRule":
                 return new RouteFilterRule(name, <any>undefined, { urn })
+            case "azure-native:network:RouteMap":
+                return new RouteMap(name, <any>undefined, { urn })
             case "azure-native:network:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
             case "azure-native:network:RoutingIntent":
@@ -1580,8 +1493,6 @@ const _module = {
                 return new SecurityPartnerProvider(name, <any>undefined, { urn })
             case "azure-native:network:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
-            case "azure-native:network:SecurityUserConfiguration":
-                return new SecurityUserConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:ServiceEndpointPolicy":
                 return new ServiceEndpointPolicy(name, <any>undefined, { urn })
             case "azure-native:network:ServiceEndpointPolicyDefinition":
@@ -1594,10 +1505,6 @@ const _module = {
                 return new SubscriptionNetworkManagerConnection(name, <any>undefined, { urn })
             case "azure-native:network:TrafficManagerUserMetricsKey":
                 return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
-            case "azure-native:network:UserRule":
-                return new UserRule(name, <any>undefined, { urn })
-            case "azure-native:network:UserRuleCollection":
-                return new UserRuleCollection(name, <any>undefined, { urn })
             case "azure-native:network:VirtualApplianceSite":
                 return new VirtualApplianceSite(name, <any>undefined, { urn })
             case "azure-native:network:VirtualHub":

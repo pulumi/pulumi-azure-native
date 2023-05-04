@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -67,7 +68,7 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly storageAccountStatus!: pulumi.Output<string | undefined>;
     /**
-     * StorageAccount object on ASE device
+     * Metadata pertaining to creation and last modification of StorageAccount
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

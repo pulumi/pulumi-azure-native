@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Registered Server resource.
-    /// API Version: 2020-03-01.
+    /// API Version: 2022-06-01.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:RegisteredServer")]
     public partial class RegisteredServer : global::Pulumi.CustomResource
@@ -131,6 +132,12 @@ namespace Pulumi.AzureNative.StorageSync
         public Output<int?> ServerManagementErrorCode { get; private set; } = null!;
 
         /// <summary>
+        /// Server name
+        /// </summary>
+        [Output("serverName")]
+        public Output<string> ServerName { get; private set; } = null!;
+
+        /// <summary>
         /// Registered Server OS Version
         /// </summary>
         [Output("serverOSVersion")]
@@ -153,6 +160,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("storageSyncServiceUid")]
         public Output<string?> StorageSyncServiceUid { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

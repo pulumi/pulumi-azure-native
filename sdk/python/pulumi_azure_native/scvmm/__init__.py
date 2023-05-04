@@ -10,12 +10,18 @@ from .availability_set import *
 from .cloud import *
 from .get_availability_set import *
 from .get_cloud import *
+from .get_guest_agent import *
+from .get_hybrid_identity_metadata import *
 from .get_inventory_item import *
+from .get_machine_extension import *
 from .get_virtual_machine import *
 from .get_virtual_machine_template import *
 from .get_virtual_network import *
 from .get_vmm_server import *
+from .guest_agent import *
+from .hybrid_identity_metadata import *
 from .inventory_item import *
+from .machine_extension import *
 from .virtual_machine import *
 from .virtual_machine_template import *
 from .virtual_network import *
@@ -27,6 +33,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.scvmm.v20200605preview as __v20200605preview
     v20200605preview = __v20200605preview
+    import pulumi_azure_native.scvmm.v20220521preview as __v20220521preview
+    v20220521preview = __v20220521preview
 else:
     v20200605preview = _utilities.lazy_import('pulumi_azure_native.scvmm.v20200605preview')
+    v20220521preview = _utilities.lazy_import('pulumi_azure_native.scvmm.v20220521preview')
 

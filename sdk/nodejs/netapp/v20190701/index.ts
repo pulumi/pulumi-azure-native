@@ -20,11 +20,6 @@ export const getPool: typeof import("./getPool").getPool = null as any;
 export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
 
-export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
-export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
-export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
-utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
-
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
@@ -34,11 +29,6 @@ export { PoolArgs } from "./pool";
 export type Pool = import("./pool").Pool;
 export const Pool: typeof import("./pool").Pool = null as any;
 utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
-
-export { SnapshotArgs } from "./snapshot";
-export type Snapshot = import("./snapshot").Snapshot;
-export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
-utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 
 export { VolumeArgs } from "./volume";
 export type Volume = import("./volume").Volume;
@@ -57,8 +47,6 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure-native:netapp/v20190701:Pool":
                 return new Pool(name, <any>undefined, { urn })
-            case "azure-native:netapp/v20190701:Snapshot":
-                return new Snapshot(name, <any>undefined, { urn })
             case "azure-native:netapp/v20190701:Volume":
                 return new Volume(name, <any>undefined, { urn })
             default:

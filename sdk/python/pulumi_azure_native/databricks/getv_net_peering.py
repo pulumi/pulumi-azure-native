@@ -195,7 +195,7 @@ def getv_net_peering(peering_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetvNetPeeringResult:
     """
     Gets the workspace vNet Peering.
-    API Version: 2018-04-01.
+    API Version: 2023-02-01.
 
 
     :param str peering_name: The name of the workspace vNet peering.
@@ -232,7 +232,7 @@ def getv_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetvNetPeeringResult]:
     """
     Gets the workspace vNet Peering.
-    API Version: 2018-04-01.
+    API Version: 2023-02-01.
 
 
     :param str peering_name: The name of the workspace vNet peering.

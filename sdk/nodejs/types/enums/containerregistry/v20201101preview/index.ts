@@ -2,15 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const Action = {
-    Allow: "Allow",
-} as const;
-
-/**
- * The action of virtual network rule.
- */
-export type Action = (typeof Action)[keyof typeof Action];
-
 export const ActionsRequired = {
     None: "None",
     Recreate: "Recreate",
@@ -53,26 +44,6 @@ export const ConnectionStatus = {
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
-export const DefaultAction = {
-    Allow: "Allow",
-    Deny: "Deny",
-} as const;
-
-/**
- * The default action of allow or deny when no other rules match.
- */
-export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
-
-export const EncryptionStatus = {
-    Enabled: "enabled",
-    Disabled: "disabled",
-} as const;
-
-/**
- * Indicates whether or not the encryption is enabled for container registry.
- */
-export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
-
 export const LogLevel = {
     Debug: "Debug",
     Information: "Information",
@@ -85,16 +56,6 @@ export const LogLevel = {
  * The verbosity of logs persisted on the connected registry.
  */
 export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
-
-export const NetworkRuleBypassOptions = {
-    AzureServices: "AzureServices",
-    None: "None",
-} as const;
-
-/**
- * Whether to allow trusted Azure services to access a network restricted registry.
- */
-export type NetworkRuleBypassOptions = (typeof NetworkRuleBypassOptions)[keyof typeof NetworkRuleBypassOptions];
 
 export const PipelineOptions = {
     OverwriteTags: "OverwriteTags",
@@ -132,26 +93,6 @@ export const PipelineSourceType = {
  */
 export type PipelineSourceType = (typeof PipelineSourceType)[keyof typeof PipelineSourceType];
 
-export const PolicyStatus = {
-    Enabled: "enabled",
-    Disabled: "disabled",
-} as const;
-
-/**
- * The value that indicates whether the policy is enabled or not.
- */
-export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
-
-export const PublicNetworkAccess = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Whether or not public network access is allowed for the container registry.
- */
-export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
-
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -163,18 +104,6 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
-export const SkuName = {
-    Classic: "Classic",
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
-} as const;
-
-/**
- * The SKU name of the container registry. Required for registry creation.
- */
-export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const TokenCertificateName = {
     Certificate1: "certificate1",
@@ -212,42 +141,3 @@ export const TriggerStatus = {
  * The current status of the source trigger.
  */
 export type TriggerStatus = (typeof TriggerStatus)[keyof typeof TriggerStatus];
-
-export const TrustPolicyType = {
-    Notary: "Notary",
-} as const;
-
-/**
- * The type of trust policy.
- */
-export type TrustPolicyType = (typeof TrustPolicyType)[keyof typeof TrustPolicyType];
-
-export const WebhookAction = {
-    Push: "push",
-    Delete: "delete",
-    Quarantine: "quarantine",
-    Chart_push: "chart_push",
-    Chart_delete: "chart_delete",
-} as const;
-
-export type WebhookAction = (typeof WebhookAction)[keyof typeof WebhookAction];
-
-export const WebhookStatus = {
-    Enabled: "enabled",
-    Disabled: "disabled",
-} as const;
-
-/**
- * The status of the webhook at the time the operation was called.
- */
-export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];
-
-export const ZoneRedundancy = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Whether or not zone redundancy is enabled for this container registry replication
- */
-export type ZoneRedundancy = (typeof ZoneRedundancy)[keyof typeof ZoneRedundancy];

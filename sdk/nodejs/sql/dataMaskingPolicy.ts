@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a database data masking policy.
- * API Version: 2014-04-01.
+ * A database data masking policy.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DataMaskingPolicy extends pulumi.CustomResource {
     /**
@@ -51,7 +52,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
      */
     public readonly exemptPrincipals!: pulumi.Output<string | undefined>;
     /**
-     * The kind of data masking policy. Metadata, used for Azure portal.
+     * The kind of Data Masking Policy. Metadata, used for Azure portal.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
@@ -128,7 +129,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
  */
 export interface DataMaskingPolicyArgs {
     /**
-     * The name of the database for which the data masking rule applies.
+     * The name of the database for which the data masking policy applies.
      */
     dataMaskingPolicyName?: pulumi.Input<string>;
     /**

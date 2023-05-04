@@ -37,15 +37,11 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A friendly name for the resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// List of hubItems
         /// </summary>
         public readonly ImmutableArray<Outputs.HubResponse> Hubs;
         /// <summary>
-        /// Resource ID.
+        /// Connectivity configuration ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -69,8 +65,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? description,
 
-            string? displayName,
-
             ImmutableArray<Outputs.HubResponse> hubs,
 
             string? id,
@@ -84,7 +78,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             ConnectivityTopology = connectivityTopology;
             DeleteExistingPeering = deleteExistingPeering;
             Description = description;
-            DisplayName = displayName;
             Hubs = hubs;
             Id = id;
             IsGlobal = isGlobal;

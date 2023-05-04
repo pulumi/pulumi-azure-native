@@ -5,41 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'AccessRights',
     'AccessRightsDescription',
     'AllocationPolicy',
-    'AuthenticationType',
-    'Capabilities',
     'IotDpsSku',
-    'IotHubSku',
     'IpFilterActionType',
     'IpFilterTargetType',
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
-    'RoutingSource',
     'State',
 ]
-
-
-class AccessRights(str, Enum):
-    """
-    The permissions assigned to the shared access policy.
-    """
-    REGISTRY_READ = "RegistryRead"
-    REGISTRY_WRITE = "RegistryWrite"
-    SERVICE_CONNECT = "ServiceConnect"
-    DEVICE_CONNECT = "DeviceConnect"
-    REGISTRY_READ_REGISTRY_WRITE = "RegistryRead, RegistryWrite"
-    REGISTRY_READ_SERVICE_CONNECT = "RegistryRead, ServiceConnect"
-    REGISTRY_READ_DEVICE_CONNECT = "RegistryRead, DeviceConnect"
-    REGISTRY_WRITE_SERVICE_CONNECT = "RegistryWrite, ServiceConnect"
-    REGISTRY_WRITE_DEVICE_CONNECT = "RegistryWrite, DeviceConnect"
-    SERVICE_CONNECT_DEVICE_CONNECT = "ServiceConnect, DeviceConnect"
-    REGISTRY_READ_REGISTRY_WRITE_SERVICE_CONNECT = "RegistryRead, RegistryWrite, ServiceConnect"
-    REGISTRY_READ_REGISTRY_WRITE_DEVICE_CONNECT = "RegistryRead, RegistryWrite, DeviceConnect"
-    REGISTRY_READ_SERVICE_CONNECT_DEVICE_CONNECT = "RegistryRead, ServiceConnect, DeviceConnect"
-    REGISTRY_WRITE_SERVICE_CONNECT_DEVICE_CONNECT = "RegistryWrite, ServiceConnect, DeviceConnect"
-    REGISTRY_READ_REGISTRY_WRITE_SERVICE_CONNECT_DEVICE_CONNECT = "RegistryRead, RegistryWrite, ServiceConnect, DeviceConnect"
 
 
 class AccessRightsDescription(str, Enum):
@@ -63,40 +37,11 @@ class AllocationPolicy(str, Enum):
     STATIC = "Static"
 
 
-class AuthenticationType(str, Enum):
-    """
-    Specifies authentication type being used for connecting to the storage account.
-    """
-    KEY_BASED = "keyBased"
-    IDENTITY_BASED = "identityBased"
-
-
-class Capabilities(str, Enum):
-    """
-    The capabilities and features enabled for the IoT hub.
-    """
-    NONE = "None"
-    DEVICE_MANAGEMENT = "DeviceManagement"
-
-
 class IotDpsSku(str, Enum):
     """
     Sku name.
     """
     S1 = "S1"
-
-
-class IotHubSku(str, Enum):
-    """
-    The name of the SKU.
-    """
-    F1 = "F1"
-    S1 = "S1"
-    S2 = "S2"
-    S3 = "S3"
-    B1 = "B1"
-    B2 = "B2"
-    B3 = "B3"
 
 
 class IpFilterActionType(str, Enum):
@@ -132,17 +77,6 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class RoutingSource(str, Enum):
-    """
-    The source that the routing rule is to be applied to, such as DeviceMessages.
-    """
-    INVALID = "Invalid"
-    DEVICE_MESSAGES = "DeviceMessages"
-    TWIN_CHANGE_EVENTS = "TwinChangeEvents"
-    DEVICE_LIFECYCLE_EVENTS = "DeviceLifecycleEvents"
-    DEVICE_JOB_LIFECYCLE_EVENTS = "DeviceJobLifecycleEvents"
 
 
 class State(str, Enum):

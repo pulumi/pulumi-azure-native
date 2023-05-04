@@ -6,25 +6,15 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .disk import *
-from .disk_access import *
-from .disk_access_a_private_endpoint_connection import *
-from .disk_encryption_set import *
 from .gallery import *
 from .gallery_application import *
 from .gallery_application_version import *
 from .gallery_image import *
 from .gallery_image_version import *
-from .get_disk import *
-from .get_disk_access import *
-from .get_disk_access_a_private_endpoint_connection import *
-from .get_disk_encryption_set import *
 from .get_gallery import *
 from .get_gallery_application import *
 from .get_gallery_application_version import *
 from .get_gallery_image import *
 from .get_gallery_image_version import *
-from .get_snapshot import *
-from .snapshot import *
 from ._inputs import *
 from . import outputs

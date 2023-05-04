@@ -34,6 +34,14 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string? Sku;
         /// <summary>
+        /// Gets or sets the Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Gets or sets the target resource group name.
+        /// </summary>
+        public readonly string? TargetResourceGroupName;
+        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         public readonly string TargetResourceName;
@@ -53,6 +61,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? sku,
 
+            ImmutableDictionary<string, string>? tags,
+
+            string? targetResourceGroupName,
+
             string targetResourceName,
 
             string? zones)
@@ -61,6 +73,8 @@ namespace Pulumi.AzureNative.Migrate.Outputs
             FrontendIPConfigurations = frontendIPConfigurations;
             ResourceType = resourceType;
             Sku = sku;
+            Tags = tags;
+            TargetResourceGroupName = targetResourceGroupName;
             TargetResourceName = targetResourceName;
             Zones = zones;
         }

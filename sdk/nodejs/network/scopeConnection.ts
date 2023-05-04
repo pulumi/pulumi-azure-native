@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Scope Connections resource
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ScopeConnection extends pulumi.CustomResource {
     /**
@@ -104,7 +105,7 @@ export class ScopeConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ScopeConnection" }, { type: "azure-native:network/v20220101:ScopeConnection" }, { type: "azure-native:network/v20220201preview:ScopeConnection" }, { type: "azure-native:network/v20220401preview:ScopeConnection" }, { type: "azure-native:network/v20220501:ScopeConnection" }, { type: "azure-native:network/v20220701:ScopeConnection" }, { type: "azure-native:network/v20220901:ScopeConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ScopeConnection" }, { type: "azure-native:network/v20220101:ScopeConnection" }, { type: "azure-native:network/v20220201preview:ScopeConnection" }, { type: "azure-native:network/v20220401preview:ScopeConnection" }, { type: "azure-native:network/v20220501:ScopeConnection" }, { type: "azure-native:network/v20220701:ScopeConnection" }, { type: "azure-native:network/v20220901:ScopeConnection" }, { type: "azure-native:network/v20221101:ScopeConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeConnection.__pulumiType, name, resourceInputs, opts);
     }

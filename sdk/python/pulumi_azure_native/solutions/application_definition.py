@@ -385,7 +385,8 @@ class ApplicationDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         Information about managed application definition.
-        API Version: 2019-07-01.
+        API Version: 2021-07-01.
+        Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -419,7 +420,8 @@ class ApplicationDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about managed application definition.
-        API Version: 2019-07-01.
+        API Version: 2021-07-01.
+        Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApplicationDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -492,6 +494,7 @@ class ApplicationDefinition(pulumi.CustomResource):
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20160901preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20170901:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20171201:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180201:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180301:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180601:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20190701:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:ApplicationDefinition"), pulumi.Alias(type_="azure-native:solutions/v20210701:ApplicationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -536,6 +539,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         __props__.__dict__["policies"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["storage_account_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ApplicationDefinition(resource_name, opts=opts, __props__=__props__)
@@ -691,6 +695,14 @@ class ApplicationDefinition(pulumi.CustomResource):
         The storage account id for bring your own storage scenario.
         """
         return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

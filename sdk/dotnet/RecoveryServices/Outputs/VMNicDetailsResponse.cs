@@ -21,33 +21,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly bool? EnableAcceleratedNetworkingOnRecovery;
         /// <summary>
-        /// Whether the test failover NIC has accelerated networking enabled.
+        /// Whether the TFO NIC has accelerated networking enabled.
         /// </summary>
         public readonly bool? EnableAcceleratedNetworkingOnTfo;
         /// <summary>
-        /// Ip address type.
+        /// The IP configurations of the NIC.
         /// </summary>
-        public readonly string? IpAddressType;
+        public readonly ImmutableArray<Outputs.IPConfigDetailsResponse> IpConfigs;
         /// <summary>
         /// The nic Id.
         /// </summary>
         public readonly string? NicId;
         /// <summary>
-        /// Primary nic static IP address.
-        /// </summary>
-        public readonly string? PrimaryNicStaticIPAddress;
-        /// <summary>
-        /// The target backend address pools for the NIC.
-        /// </summary>
-        public readonly ImmutableArray<string> RecoveryLBBackendAddressPoolIds;
-        /// <summary>
         /// The id of the NSG associated with the NIC.
         /// </summary>
         public readonly string? RecoveryNetworkSecurityGroupId;
-        /// <summary>
-        /// IP allocation type for recovery VM.
-        /// </summary>
-        public readonly string? RecoveryNicIpAddressType;
         /// <summary>
         /// The name of the NIC to be used when creating target NICs.
         /// </summary>
@@ -57,25 +45,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? RecoveryNicResourceGroupName;
         /// <summary>
-        /// The id of the public IP address resource associated with the NIC.
-        /// </summary>
-        public readonly string? RecoveryPublicIpAddressId;
-        /// <summary>
         /// Recovery VM network Id.
         /// </summary>
         public readonly string? RecoveryVMNetworkId;
         /// <summary>
-        /// Recovery VM subnet name.
-        /// </summary>
-        public readonly string? RecoveryVMSubnetName;
-        /// <summary>
         /// The replica nic Id.
         /// </summary>
         public readonly string? ReplicaNicId;
-        /// <summary>
-        /// Replica nic static IP address.
-        /// </summary>
-        public readonly string? ReplicaNicStaticIPAddress;
         /// <summary>
         /// A value indicating whether an existing NIC is allowed to be reused during failover subject to availability.
         /// </summary>
@@ -89,9 +65,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? SourceNicArmId;
         /// <summary>
-        /// The IP configurations to be used by NIC during test failover.
+        /// Target NIC name.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigResponse> TfoIPConfigs;
+        public readonly string? TargetNicName;
         /// <summary>
         /// The NSG to be used by NIC during test failover.
         /// </summary>
@@ -113,17 +89,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TfoVMNetworkId;
         /// <summary>
-        /// The subnet to be used by NIC during test failover.
-        /// </summary>
-        public readonly string? TfoVMSubnetName;
-        /// <summary>
         /// VM network name.
         /// </summary>
         public readonly string? VMNetworkName;
-        /// <summary>
-        /// VM subnet name.
-        /// </summary>
-        public readonly string? VMSubnetName;
 
         [OutputConstructor]
         private VMNicDetailsResponse(
@@ -131,31 +99,19 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             bool? enableAcceleratedNetworkingOnTfo,
 
-            string? ipAddressType,
+            ImmutableArray<Outputs.IPConfigDetailsResponse> ipConfigs,
 
             string? nicId,
 
-            string? primaryNicStaticIPAddress,
-
-            ImmutableArray<string> recoveryLBBackendAddressPoolIds,
-
             string? recoveryNetworkSecurityGroupId,
-
-            string? recoveryNicIpAddressType,
 
             string? recoveryNicName,
 
             string? recoveryNicResourceGroupName,
 
-            string? recoveryPublicIpAddressId,
-
             string? recoveryVMNetworkId,
 
-            string? recoveryVMSubnetName,
-
             string? replicaNicId,
-
-            string? replicaNicStaticIPAddress,
 
             bool? reuseExistingNic,
 
@@ -163,7 +119,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? sourceNicArmId,
 
-            ImmutableArray<Outputs.IPConfigResponse> tfoIPConfigs,
+            string? targetNicName,
 
             string? tfoNetworkSecurityGroupId,
 
@@ -175,39 +131,27 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? tfoVMNetworkId,
 
-            string? tfoVMSubnetName,
-
-            string? vMNetworkName,
-
-            string? vMSubnetName)
+            string? vMNetworkName)
         {
             EnableAcceleratedNetworkingOnRecovery = enableAcceleratedNetworkingOnRecovery;
             EnableAcceleratedNetworkingOnTfo = enableAcceleratedNetworkingOnTfo;
-            IpAddressType = ipAddressType;
+            IpConfigs = ipConfigs;
             NicId = nicId;
-            PrimaryNicStaticIPAddress = primaryNicStaticIPAddress;
-            RecoveryLBBackendAddressPoolIds = recoveryLBBackendAddressPoolIds;
             RecoveryNetworkSecurityGroupId = recoveryNetworkSecurityGroupId;
-            RecoveryNicIpAddressType = recoveryNicIpAddressType;
             RecoveryNicName = recoveryNicName;
             RecoveryNicResourceGroupName = recoveryNicResourceGroupName;
-            RecoveryPublicIpAddressId = recoveryPublicIpAddressId;
             RecoveryVMNetworkId = recoveryVMNetworkId;
-            RecoveryVMSubnetName = recoveryVMSubnetName;
             ReplicaNicId = replicaNicId;
-            ReplicaNicStaticIPAddress = replicaNicStaticIPAddress;
             ReuseExistingNic = reuseExistingNic;
             SelectionType = selectionType;
             SourceNicArmId = sourceNicArmId;
-            TfoIPConfigs = tfoIPConfigs;
+            TargetNicName = targetNicName;
             TfoNetworkSecurityGroupId = tfoNetworkSecurityGroupId;
             TfoRecoveryNicName = tfoRecoveryNicName;
             TfoRecoveryNicResourceGroupName = tfoRecoveryNicResourceGroupName;
             TfoReuseExistingNic = tfoReuseExistingNic;
             TfoVMNetworkId = tfoVMNetworkId;
-            TfoVMSubnetName = tfoVMSubnetName;
             VMNetworkName = vMNetworkName;
-            VMSubnetName = vMSubnetName;
         }
     }
 }

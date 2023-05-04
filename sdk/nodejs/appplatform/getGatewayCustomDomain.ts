@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Spring Cloud Gateway custom domain.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
  */
 export function getGatewayCustomDomain(args: GetGatewayCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCustomDomainResult> {
 
@@ -68,7 +68,7 @@ export interface GetGatewayCustomDomainResult {
 }
 /**
  * Get the Spring Cloud Gateway custom domain.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
  */
 export function getGatewayCustomDomainOutput(args: GetGatewayCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getGatewayCustomDomain(a, opts))

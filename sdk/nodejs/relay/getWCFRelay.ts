@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Returns the description for the specified WCF relay.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
 
@@ -42,7 +45,7 @@ export interface GetWCFRelayResult {
      */
     readonly createdAt: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -54,7 +57,11 @@ export interface GetWCFRelayResult {
      */
     readonly listenerCount: number;
     /**
-     * Resource name.
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -70,7 +77,11 @@ export interface GetWCFRelayResult {
      */
     readonly requiresTransportSecurity?: boolean;
     /**
-     * Resource type.
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.relay.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
     /**
@@ -84,7 +95,7 @@ export interface GetWCFRelayResult {
 }
 /**
  * Returns the description for the specified WCF relay.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
     return pulumi.output(args).apply((a: any) => getWCFRelay(a, opts))

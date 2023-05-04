@@ -17,8 +17,6 @@ __all__ = [
     'get_route_table_output',
 ]
 
-warnings.warn("""Version 2015-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetRouteTableResult:
     """
@@ -153,7 +151,6 @@ def get_route_table(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str route_table_name: The name of the route table.
     """
-    pulumi.log.warn("""get_route_table is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeTableName'] = route_table_name
@@ -183,5 +180,4 @@ def get_route_table_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group.
     :param str route_table_name: The name of the route table.
     """
-    pulumi.log.warn("""get_route_table is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.""")
     ...

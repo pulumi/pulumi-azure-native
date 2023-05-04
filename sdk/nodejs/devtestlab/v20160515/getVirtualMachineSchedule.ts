@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get schedule.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getVirtualMachineSchedule(args: GetVirtualMachineScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScheduleResult> {
-    pulumi.log.warn("getVirtualMachineSchedule is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getVirtualMachineSchedule", {
@@ -119,7 +117,6 @@ export interface GetVirtualMachineScheduleResult {
 /**
  * Get schedule.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getVirtualMachineScheduleOutput(args: GetVirtualMachineScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScheduleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineSchedule(a, opts))
 }

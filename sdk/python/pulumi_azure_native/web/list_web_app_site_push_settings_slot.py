@@ -91,7 +91,7 @@ class ListWebAppSitePushSettingsSlotResult:
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> Optional[str]:
         """
-        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 
@@ -136,8 +136,8 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
                                          slot: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSitePushSettingsSlotResult:
     """
-    Gets the Push settings associated with web app.
-    API Version: 2020-12-01.
+    Description for Gets the Push settings associated with web app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of web app.
@@ -168,8 +168,8 @@ def list_web_app_site_push_settings_slot_output(name: Optional[pulumi.Input[str]
                                                 slot: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSitePushSettingsSlotResult]:
     """
-    Gets the Push settings associated with web app.
-    API Version: 2020-12-01.
+    Description for Gets the Push settings associated with web app.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of web app.

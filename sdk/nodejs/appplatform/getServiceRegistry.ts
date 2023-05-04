@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Service Registry and its properties.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
  */
 export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRegistryResult> {
 
@@ -63,7 +63,7 @@ export interface GetServiceRegistryResult {
 }
 /**
  * Get the Service Registry and its properties.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
  */
 export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRegistryResult> {
     return pulumi.output(args).apply((a: any) => getServiceRegistry(a, opts))

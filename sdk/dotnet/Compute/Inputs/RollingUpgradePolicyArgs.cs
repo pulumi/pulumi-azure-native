@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<int>? MaxBatchInstancePercent { get; set; }
 
         /// <summary>
+        /// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch.
+        /// </summary>
+        [Input("maxSurge")]
+        public Input<bool>? MaxSurge { get; set; }
+
+        /// <summary>
         /// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
         /// </summary>
         [Input("maxUnhealthyInstancePercent")]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("prioritizeUnhealthyInstances")]
         public Input<bool>? PrioritizeUnhealthyInstances { get; set; }
+
+        /// <summary>
+        /// Rollback failed instances to previous model if the Rolling Upgrade policy is violated.
+        /// </summary>
+        [Input("rollbackFailedInstancesOnPolicyBreach")]
+        public Input<bool>? RollbackFailedInstancesOnPolicyBreach { get; set; }
 
         public RollingUpgradePolicyArgs()
         {

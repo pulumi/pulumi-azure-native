@@ -47,7 +47,7 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKeyByAutomationAccountResult:
     """
     Retrieve the automation keys for an account.
-    API Version: 2021-06-22.
+    API Version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -69,7 +69,7 @@ def list_key_by_automation_account_output(automation_account_name: Optional[pulu
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKeyByAutomationAccountResult]:
     """
     Retrieve the automation keys for an account.
-    API Version: 2021-06-22.
+    API Version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         public Input<string>? IdentityClientId { get; set; }
 
         /// <summary>
-        /// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        /// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         /// </summary>
         [Input("secretIdentifier")]
         public Input<string>? SecretIdentifier { get; set; }

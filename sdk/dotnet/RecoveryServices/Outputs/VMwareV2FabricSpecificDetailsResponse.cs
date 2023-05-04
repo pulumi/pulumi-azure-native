@@ -26,6 +26,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string MigrationSolutionId;
         /// <summary>
+        /// The ARM Id of the physical site.
+        /// </summary>
+        public readonly string PhysicalSiteId;
+        /// <summary>
+        /// The list of process servers.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ProcessServerDetailsResponse> ProcessServers;
+        /// <summary>
+        /// The service container Id.
+        /// </summary>
+        public readonly string ServiceContainerId;
+        /// <summary>
         /// The service endpoint.
         /// </summary>
         public readonly string ServiceEndpoint;
@@ -44,6 +56,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string migrationSolutionId,
 
+            string physicalSiteId,
+
+            ImmutableArray<Outputs.ProcessServerDetailsResponse> processServers,
+
+            string serviceContainerId,
+
             string serviceEndpoint,
 
             string serviceResourceId,
@@ -52,6 +70,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         {
             InstanceType = instanceType;
             MigrationSolutionId = migrationSolutionId;
+            PhysicalSiteId = physicalSiteId;
+            ProcessServers = processServers;
+            ServiceContainerId = serviceContainerId;
             ServiceEndpoint = serviceEndpoint;
             ServiceResourceId = serviceResourceId;
             VmwareSiteId = vmwareSiteId;

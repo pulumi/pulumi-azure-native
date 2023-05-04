@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get notification channels.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
-    pulumi.log.warn("getNotificationChannel is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getNotificationChannel", {
@@ -94,7 +92,6 @@ export interface GetNotificationChannelResult {
 /**
  * Get notification channels.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
     return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))
 }

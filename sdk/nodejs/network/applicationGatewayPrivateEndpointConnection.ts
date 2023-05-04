@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Private Endpoint connection on an application gateway.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -105,7 +106,7 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210201:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210301:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20220101:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20220501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210201:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210301:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20220101:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20220501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20221101:ApplicationGatewayPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationGatewayPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

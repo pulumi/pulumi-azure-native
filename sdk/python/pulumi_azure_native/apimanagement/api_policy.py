@@ -24,7 +24,7 @@ class ApiPolicyArgs:
         """
         The set of arguments for constructing a ApiPolicy resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] value: Contents of the Policy as defined by the format.
         :param pulumi.Input[Union[str, 'PolicyContentFormat']] format: Format of the policyContent.
@@ -57,7 +57,7 @@ class ApiPolicyArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -128,14 +128,15 @@ class ApiPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Policy Contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[Union[str, 'PolicyContentFormat']] format: Format of the policyContent.
         :param pulumi.Input[str] policy_id: The identifier of the Policy.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] value: Contents of the Policy as defined by the format.
         """
@@ -147,7 +148,8 @@ class ApiPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy Contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApiPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -197,7 +199,7 @@ class ApiPolicy(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiPolicy, __self__).__init__(
             'azure-native:apimanagement:ApiPolicy',
@@ -239,7 +241,7 @@ class ApiPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -247,7 +249,7 @@ class ApiPolicy(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

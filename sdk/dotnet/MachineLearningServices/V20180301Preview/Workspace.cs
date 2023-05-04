@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview
     /// <summary>
     /// An object that represents a machine learning workspace.
     /// </summary>
-    [Obsolete(@"Version 2018-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20180301preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
@@ -162,6 +161,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Workspace"},
                 },
             };

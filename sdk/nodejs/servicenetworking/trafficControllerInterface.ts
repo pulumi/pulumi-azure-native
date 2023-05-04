@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  * API Version: 2022-10-01-preview.
+ * Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class TrafficControllerInterface extends pulumi.CustomResource {
     /**

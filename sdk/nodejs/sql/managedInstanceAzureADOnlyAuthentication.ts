@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Active Directory only authentication.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResource {
     /**

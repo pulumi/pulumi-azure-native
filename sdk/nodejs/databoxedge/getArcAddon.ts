@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific addon by name.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
 
@@ -87,7 +87,7 @@ export interface GetArcAddonResult {
      */
     readonly subscriptionId: string;
     /**
-     * Addon type
+     * Metadata pertaining to creation and last modification of Addon
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
@@ -101,7 +101,7 @@ export interface GetArcAddonResult {
 }
 /**
  * Gets a specific addon by name.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {
     return pulumi.output(args).apply((a: any) => getArcAddon(a, opts))

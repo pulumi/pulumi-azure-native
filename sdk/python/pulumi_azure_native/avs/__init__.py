@@ -31,6 +31,7 @@ from .get_workload_network_segment import *
 from .get_workload_network_vm_group import *
 from .global_reach_connection import *
 from .hcx_enterprise_site import *
+from .list_cluster_zones import *
 from .list_private_cloud_admin_credentials import *
 from .placement_policy import *
 from .private_cloud import *

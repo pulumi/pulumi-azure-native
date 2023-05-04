@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A share subscription data transfer object.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-08-01.
+    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:ShareSubscription")]
     public partial class ShareSubscription : global::Pulumi.CustomResource

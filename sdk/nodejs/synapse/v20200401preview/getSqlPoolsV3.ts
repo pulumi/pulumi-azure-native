@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a SqlPool.
  */
-/** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolsV3(args: GetSqlPoolsV3Args, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolsV3Result> {
-    pulumi.log.warn("getSqlPoolsV3 is deprecated: Version 2020-04-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20200401preview:getSqlPoolsV3", {
@@ -105,7 +103,6 @@ export interface GetSqlPoolsV3Result {
 /**
  * Gets a SqlPool.
  */
-/** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlPoolsV3Output(args: GetSqlPoolsV3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolsV3Result> {
     return pulumi.output(args).apply((a: any) => getSqlPoolsV3(a, opts))
 }

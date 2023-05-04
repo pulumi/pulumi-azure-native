@@ -17,8 +17,6 @@ __all__ = [
     'get_subscription_alias_output',
 ]
 
-warnings.warn("""Version 2019-10-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSubscriptionAliasResult:
     """
@@ -91,7 +89,6 @@ def get_subscription_alias(alias_name: Optional[str] = None,
 
     :param str alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
     """
-    pulumi.log.warn("""get_subscription_alias is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['aliasName'] = alias_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -113,5 +110,4 @@ def get_subscription_alias_output(alias_name: Optional[pulumi.Input[str]] = None
 
     :param str alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
     """
-    pulumi.log.warn("""get_subscription_alias is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.""")
     ...

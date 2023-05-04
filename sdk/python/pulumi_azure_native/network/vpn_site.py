@@ -266,7 +266,8 @@ class VpnSite(pulumi.CustomResource):
                  __props__=None):
         """
         VpnSite Resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,7 +294,8 @@ class VpnSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnSite Resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param VpnSiteArgs args: The arguments to use to populate this resource's properties.
@@ -353,7 +355,7 @@ class VpnSite(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181001:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190901:VpnSite"), pulumi.Alias(type_="azure-native:network/v20191101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20191201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200301:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200501:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20201101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20210201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20210301:VpnSite"), pulumi.Alias(type_="azure-native:network/v20210501:VpnSite"), pulumi.Alias(type_="azure-native:network/v20210801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20220101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20220501:VpnSite"), pulumi.Alias(type_="azure-native:network/v20220701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20220901:VpnSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181001:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190901:VpnSite"), pulumi.Alias(type_="azure-native:network/v20191101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20191201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200301:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200501:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20201101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20210201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20210301:VpnSite"), pulumi.Alias(type_="azure-native:network/v20210501:VpnSite"), pulumi.Alias(type_="azure-native:network/v20210801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20220101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20220501:VpnSite"), pulumi.Alias(type_="azure-native:network/v20220701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20220901:VpnSite"), pulumi.Alias(type_="azure-native:network/v20221101:VpnSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnSite, __self__).__init__(
             'azure-native:network:VpnSite',

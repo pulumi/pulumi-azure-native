@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     /// <summary>
     /// ExpressRouteCircuit resource
     /// </summary>
-    [Obsolete(@"Version 2015-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20150501preview:ExpressRouteCircuit")]
     public partial class ExpressRouteCircuit : global::Pulumi.CustomResource
     {
@@ -169,6 +168,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRouteCircuit"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ExpressRouteCircuit"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ExpressRouteCircuit"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ExpressRouteCircuit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

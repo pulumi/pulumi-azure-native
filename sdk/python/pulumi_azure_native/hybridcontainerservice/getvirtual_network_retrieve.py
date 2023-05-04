@@ -131,7 +131,7 @@ def getvirtual_network_retrieve(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetvirtualNetworkRetrieveResult:
     """
     Gets the Hybrid AKS virtual network
-    API Version: 2022-05-01-preview.
+    API Version: 2022-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -160,7 +160,7 @@ def getvirtual_network_retrieve_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetvirtualNetworkRetrieveResult]:
     """
     Gets the Hybrid AKS virtual network
-    API Version: 2022-05-01-preview.
+    API Version: 2022-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

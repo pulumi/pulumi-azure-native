@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// An environment for hosting container apps
-    /// API Version: 2022-03-01.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironment")]
     public partial class ManagedEnvironment : global::Pulumi.CustomResource
@@ -23,6 +24,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("appLogsConfiguration")]
         public Output<Outputs.AppLogsConfigurationResponse?> AppLogsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom domain configuration for the environment
+        /// </summary>
+        [Output("customDomainConfiguration")]
+        public Output<Outputs.CustomDomainConfigurationResponse?> CustomDomainConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
@@ -49,6 +56,18 @@ namespace Pulumi.AzureNative.App
         public Output<string> DeploymentErrors { get; private set; } = null!;
 
         /// <summary>
+        /// The endpoint of the eventstream of the Environment.
+        /// </summary>
+        [Output("eventStreamEndpoint")]
+        public Output<string> EventStreamEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Kind of the Environment.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -65,6 +84,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// SKU properties of the Environment.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.EnvironmentSkuPropertiesResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Static IP of the Environment
@@ -95,6 +120,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("vnetConfiguration")]
         public Output<Outputs.VnetConfigurationResponse?> VnetConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Workload profiles configured for the Managed Environment.
+        /// </summary>
+        [Output("workloadProfiles")]
+        public Output<ImmutableArray<Outputs.WorkloadProfileResponse>> WorkloadProfiles { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not this Managed Environment is zone-redundant.
@@ -131,6 +162,7 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ManagedEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ManagedEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ManagedEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ManagedEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -163,6 +195,12 @@ namespace Pulumi.AzureNative.App
         public Input<Inputs.AppLogsConfigurationArgs>? AppLogsConfiguration { get; set; }
 
         /// <summary>
+        /// Custom domain configuration for the environment
+        /// </summary>
+        [Input("customDomainConfiguration")]
+        public Input<Inputs.CustomDomainConfigurationArgs>? CustomDomainConfiguration { get; set; }
+
+        /// <summary>
         /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
         /// </summary>
         [Input("daprAIConnectionString")]
@@ -181,6 +219,12 @@ namespace Pulumi.AzureNative.App
         public Input<string>? EnvironmentName { get; set; }
 
         /// <summary>
+        /// Kind of the Environment.
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -191,6 +235,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// SKU properties of the Environment.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.EnvironmentSkuPropertiesArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -209,6 +259,18 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("vnetConfiguration")]
         public Input<Inputs.VnetConfigurationArgs>? VnetConfiguration { get; set; }
+
+        [Input("workloadProfiles")]
+        private InputList<Inputs.WorkloadProfileArgs>? _workloadProfiles;
+
+        /// <summary>
+        /// Workload profiles configured for the Managed Environment.
+        /// </summary>
+        public InputList<Inputs.WorkloadProfileArgs> WorkloadProfiles
+        {
+            get => _workloadProfiles ?? (_workloadProfiles = new InputList<Inputs.WorkloadProfileArgs>());
+            set => _workloadProfiles = value;
+        }
 
         /// <summary>
         /// Whether or not this Managed Environment is zone-redundant.

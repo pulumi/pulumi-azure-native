@@ -22,7 +22,7 @@ class GetWorkspaceResult:
     """
     Represents a Workspace definition.
     """
-    def __init__(__self__, application_group_references=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, sku=None, tags=None, type=None):
+    def __init__(__self__, application_group_references=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, sku=None, system_data=None, tags=None, type=None):
         if application_group_references and not isinstance(application_group_references, list):
             raise TypeError("Expected argument 'application_group_references' to be a list")
         pulumi.set(__self__, "application_group_references", application_group_references)
@@ -65,6 +65,9 @@ class GetWorkspaceResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -176,6 +179,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -212,6 +223,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             object_id=self.object_id,
             plan=self.plan,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -221,7 +233,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Get a workspace.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-09.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -248,6 +260,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         object_id=__ret__.object_id,
         plan=__ret__.plan,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -258,7 +271,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Get a workspace.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-09.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

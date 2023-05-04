@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Return the Bastion Shareable Links for all the VMs specified in the request.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionShareableLinkResult> {
 
@@ -51,7 +51,7 @@ export interface GetBastionShareableLinkResult {
 }
 /**
  * Return the Bastion Shareable Links for all the VMs specified in the request.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getBastionShareableLinkOutput(args: GetBastionShareableLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionShareableLinkResult> {
     return pulumi.output(args).apply((a: any) => getBastionShareableLink(a, opts))

@@ -50,11 +50,11 @@ def list_open_id_connect_provider_secrets(opid: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenIdConnectProviderSecretsResult:
     """
     Gets the client secret details of the OpenID Connect Provider.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -75,11 +75,11 @@ def list_open_id_connect_provider_secrets_output(opid: Optional[pulumi.Input[str
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOpenIdConnectProviderSecretsResult]:
     """
     Gets the client secret details of the OpenID Connect Provider.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

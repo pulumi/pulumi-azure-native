@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a particular backup Policy
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
 
@@ -31,7 +31,7 @@ export interface GetBackupPolicyArgs {
      */
     backupPolicyName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -41,6 +41,10 @@ export interface GetBackupPolicyArgs {
  */
 export interface GetBackupPolicyResult {
     /**
+     * Backup Policy Resource ID
+     */
+    readonly backupPolicyId: string;
+    /**
      * Daily backups count to keep
      */
     readonly dailyBackupsToKeep?: number;
@@ -49,11 +53,15 @@ export interface GetBackupPolicyResult {
      */
     readonly enabled?: boolean;
     /**
-     * Resource Id
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -61,7 +69,7 @@ export interface GetBackupPolicyResult {
      */
     readonly monthlyBackupsToKeep?: number;
     /**
-     * Name of backup policy
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -69,33 +77,33 @@ export interface GetBackupPolicyResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.netapp.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
      * A list of volumes assigned to this policy
      */
-    readonly volumeBackups?: outputs.netapp.VolumeBackupsResponse[];
+    readonly volumeBackups: outputs.netapp.VolumeBackupsResponse[];
     /**
      * Volumes using current backup policy
      */
-    readonly volumesAssigned?: number;
+    readonly volumesAssigned: number;
     /**
      * Weekly backups count to keep
      */
     readonly weeklyBackupsToKeep?: number;
-    /**
-     * Yearly backups count to keep
-     */
-    readonly yearlyBackupsToKeep?: number;
 }
 /**
  * Get a particular backup Policy
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
  */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
@@ -111,7 +119,7 @@ export interface GetBackupPolicyOutputArgs {
      */
     backupPolicyName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

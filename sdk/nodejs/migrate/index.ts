@@ -30,10 +30,10 @@ export const getImportCollector: typeof import("./getImportCollector").getImport
 export const getImportCollectorOutput: typeof import("./getImportCollector").getImportCollectorOutput = null as any;
 utilities.lazyLoad(exports, ["getImportCollector","getImportCollectorOutput"], () => require("./getImportCollector"));
 
-export { GetMigrateProjectArgs, GetMigrateProjectResult, GetMigrateProjectOutputArgs } from "./getMigrateProject";
-export const getMigrateProject: typeof import("./getMigrateProject").getMigrateProject = null as any;
-export const getMigrateProjectOutput: typeof import("./getMigrateProject").getMigrateProjectOutput = null as any;
-utilities.lazyLoad(exports, ["getMigrateProject","getMigrateProjectOutput"], () => require("./getMigrateProject"));
+export { GetMigrateProjectsControllerMigrateProjectArgs, GetMigrateProjectsControllerMigrateProjectResult, GetMigrateProjectsControllerMigrateProjectOutputArgs } from "./getMigrateProjectsControllerMigrateProject";
+export const getMigrateProjectsControllerMigrateProject: typeof import("./getMigrateProjectsControllerMigrateProject").getMigrateProjectsControllerMigrateProject = null as any;
+export const getMigrateProjectsControllerMigrateProjectOutput: typeof import("./getMigrateProjectsControllerMigrateProject").getMigrateProjectsControllerMigrateProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getMigrateProjectsControllerMigrateProject","getMigrateProjectsControllerMigrateProjectOutput"], () => require("./getMigrateProjectsControllerMigrateProject"));
 
 export { GetMoveCollectionArgs, GetMoveCollectionResult, GetMoveCollectionOutputArgs } from "./getMoveCollection";
 export const getMoveCollection: typeof import("./getMoveCollection").getMoveCollection = null as any;
@@ -50,6 +50,11 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult, GetPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnectionControllerPrivateEndpointConnection";
+export const getPrivateEndpointConnectionControllerPrivateEndpointConnection: typeof import("./getPrivateEndpointConnectionControllerPrivateEndpointConnection").getPrivateEndpointConnectionControllerPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnectionControllerPrivateEndpointConnection").getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionControllerPrivateEndpointConnection","getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnectionControllerPrivateEndpointConnection"));
+
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
@@ -64,16 +69,6 @@ export { GetServerCollectorArgs, GetServerCollectorResult, GetServerCollectorOut
 export const getServerCollector: typeof import("./getServerCollector").getServerCollector = null as any;
 export const getServerCollectorOutput: typeof import("./getServerCollector").getServerCollectorOutput = null as any;
 utilities.lazyLoad(exports, ["getServerCollector","getServerCollectorOutput"], () => require("./getServerCollector"));
-
-export { GetSolutionArgs, GetSolutionResult, GetSolutionOutputArgs } from "./getSolution";
-export const getSolution: typeof import("./getSolution").getSolution = null as any;
-export const getSolutionOutput: typeof import("./getSolution").getSolutionOutput = null as any;
-utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
-
-export { GetSolutionConfigArgs, GetSolutionConfigResult, GetSolutionConfigOutputArgs } from "./getSolutionConfig";
-export const getSolutionConfig: typeof import("./getSolutionConfig").getSolutionConfig = null as any;
-export const getSolutionConfigOutput: typeof import("./getSolutionConfig").getSolutionConfigOutput = null as any;
-utilities.lazyLoad(exports, ["getSolutionConfig","getSolutionConfigOutput"], () => require("./getSolutionConfig"));
 
 export { GetVMwareCollectorArgs, GetVMwareCollectorResult, GetVMwareCollectorOutputArgs } from "./getVMwareCollector";
 export const getVMwareCollector: typeof import("./getVMwareCollector").getVMwareCollector = null as any;
@@ -95,10 +90,10 @@ export type ImportCollector = import("./importCollector").ImportCollector;
 export const ImportCollector: typeof import("./importCollector").ImportCollector = null as any;
 utilities.lazyLoad(exports, ["ImportCollector"], () => require("./importCollector"));
 
-export { MigrateProjectArgs } from "./migrateProject";
-export type MigrateProject = import("./migrateProject").MigrateProject;
-export const MigrateProject: typeof import("./migrateProject").MigrateProject = null as any;
-utilities.lazyLoad(exports, ["MigrateProject"], () => require("./migrateProject"));
+export { MigrateProjectsControllerMigrateProjectArgs } from "./migrateProjectsControllerMigrateProject";
+export type MigrateProjectsControllerMigrateProject = import("./migrateProjectsControllerMigrateProject").MigrateProjectsControllerMigrateProject;
+export const MigrateProjectsControllerMigrateProject: typeof import("./migrateProjectsControllerMigrateProject").MigrateProjectsControllerMigrateProject = null as any;
+utilities.lazyLoad(exports, ["MigrateProjectsControllerMigrateProject"], () => require("./migrateProjectsControllerMigrateProject"));
 
 export { MoveCollectionArgs } from "./moveCollection";
 export type MoveCollection = import("./moveCollection").MoveCollection;
@@ -115,6 +110,11 @@ export type PrivateEndpointConnection = import("./privateEndpointConnection").Pr
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
+export { PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs } from "./privateEndpointConnectionControllerPrivateEndpointConnection";
+export type PrivateEndpointConnectionControllerPrivateEndpointConnection = import("./privateEndpointConnectionControllerPrivateEndpointConnection").PrivateEndpointConnectionControllerPrivateEndpointConnection;
+export const PrivateEndpointConnectionControllerPrivateEndpointConnection: typeof import("./privateEndpointConnectionControllerPrivateEndpointConnection").PrivateEndpointConnectionControllerPrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionControllerPrivateEndpointConnection"], () => require("./privateEndpointConnectionControllerPrivateEndpointConnection"));
+
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -124,11 +124,6 @@ export { ServerCollectorArgs } from "./serverCollector";
 export type ServerCollector = import("./serverCollector").ServerCollector;
 export const ServerCollector: typeof import("./serverCollector").ServerCollector = null as any;
 utilities.lazyLoad(exports, ["ServerCollector"], () => require("./serverCollector"));
-
-export { SolutionArgs } from "./solution";
-export type Solution = import("./solution").Solution;
-export const Solution: typeof import("./solution").Solution = null as any;
-utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
 
 export { VMwareCollectorArgs } from "./vmwareCollector";
 export type VMwareCollector = import("./vmwareCollector").VMwareCollector;
@@ -144,10 +139,8 @@ import * as v20171111preview from "./v20171111preview";
 import * as v20180202 from "./v20180202";
 import * as v20180901preview from "./v20180901preview";
 import * as v20191001 from "./v20191001";
-import * as v20191001preview from "./v20191001preview";
 import * as v20200501 from "./v20200501";
 import * as v20210101 from "./v20210101";
-import * as v20210801 from "./v20210801";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220801 from "./v20220801";
 
@@ -156,10 +149,8 @@ export {
     v20180202,
     v20180901preview,
     v20191001,
-    v20191001preview,
     v20200501,
     v20210101,
-    v20210801,
     v20220501preview,
     v20220801,
 };
@@ -176,20 +167,20 @@ const _module = {
                 return new HyperVCollector(name, <any>undefined, { urn })
             case "azure-native:migrate:ImportCollector":
                 return new ImportCollector(name, <any>undefined, { urn })
-            case "azure-native:migrate:MigrateProject":
-                return new MigrateProject(name, <any>undefined, { urn })
+            case "azure-native:migrate:MigrateProjectsControllerMigrateProject":
+                return new MigrateProjectsControllerMigrateProject(name, <any>undefined, { urn })
             case "azure-native:migrate:MoveCollection":
                 return new MoveCollection(name, <any>undefined, { urn })
             case "azure-native:migrate:MoveResource":
                 return new MoveResource(name, <any>undefined, { urn })
             case "azure-native:migrate:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection":
+                return new PrivateEndpointConnectionControllerPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:migrate:Project":
                 return new Project(name, <any>undefined, { urn })
             case "azure-native:migrate:ServerCollector":
                 return new ServerCollector(name, <any>undefined, { urn })
-            case "azure-native:migrate:Solution":
-                return new Solution(name, <any>undefined, { urn })
             case "azure-native:migrate:VMwareCollector":
                 return new VMwareCollector(name, <any>undefined, { urn })
             default:

@@ -95,7 +95,8 @@ class Storage(pulumi.CustomResource):
                  __props__=None):
         """
         Storage resource payload.
-        API Version: 2021-09-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +113,8 @@ class Storage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage resource payload.
-        API Version: 2021-09-01-preview.
+        API Version: 2022-12-01.
+        Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param StorageArgs args: The arguments to use to populate this resource's properties.
@@ -153,7 +155,7 @@ class Storage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Storage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Storage"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:Storage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Storage, __self__).__init__(
             'azure-native:appplatform:Storage',

@@ -86,7 +86,7 @@ def get_outbound_firewall_rule(outbound_rule_fqdn: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutboundFirewallRuleResult:
     """
     Gets an outbound firewall rule.
-    API Version: 2021-02-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -113,7 +113,7 @@ def get_outbound_firewall_rule_output(outbound_rule_fqdn: Optional[pulumi.Input[
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutboundFirewallRuleResult]:
     """
     Gets an outbound firewall rule.
-    API Version: 2021-02-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific Azure Active Directory only authentication property.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getManagedInstanceAzureADOnlyAuthentication(args: GetManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceAzureADOnlyAuthenticationResult> {
 
@@ -56,7 +56,7 @@ export interface GetManagedInstanceAzureADOnlyAuthenticationResult {
 }
 /**
  * Gets a specific Azure Active Directory only authentication property.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getManagedInstanceAzureADOnlyAuthenticationOutput(args: GetManagedInstanceAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAzureADOnlyAuthenticationResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstanceAzureADOnlyAuthentication(a, opts))

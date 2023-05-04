@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get DigitalTwinsInstances Endpoint.
  */
-/** @deprecated Version 2020-03-01-preview will be removed in v2 of the provider. */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
-    pulumi.log.warn("getDigitalTwinsEndpoint is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20200301preview:getDigitalTwinsEndpoint", {
@@ -61,7 +59,6 @@ export interface GetDigitalTwinsEndpointResult {
 /**
  * Get DigitalTwinsInstances Endpoint.
  */
-/** @deprecated Version 2020-03-01-preview will be removed in v2 of the provider. */
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwinsEndpoint(a, opts))
 }

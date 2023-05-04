@@ -27,7 +27,7 @@ class DataMaskingPolicyArgs:
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] data_masking_policy_name: The name of the database for which the data masking rule applies.
+        :param pulumi.Input[str] data_masking_policy_name: The name of the database for which the data masking policy applies.
         :param pulumi.Input[str] exempt_principals: The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
         """
         pulumi.set(__self__, "data_masking_state", data_masking_state)
@@ -91,7 +91,7 @@ class DataMaskingPolicyArgs:
     @pulumi.getter(name="dataMaskingPolicyName")
     def data_masking_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the database for which the data masking rule applies.
+        The name of the database for which the data masking policy applies.
         """
         return pulumi.get(self, "data_masking_policy_name")
 
@@ -125,12 +125,13 @@ class DataMaskingPolicy(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Represents a database data masking policy.
-        API Version: 2014-04-01.
+        A database data masking policy.
+        API Version: 2021-11-01.
+        Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_masking_policy_name: The name of the database for which the data masking rule applies.
+        :param pulumi.Input[str] data_masking_policy_name: The name of the database for which the data masking policy applies.
         :param pulumi.Input['DataMaskingState'] data_masking_state: The state of the data masking policy.
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] exempt_principals: The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
@@ -144,8 +145,9 @@ class DataMaskingPolicy(pulumi.CustomResource):
                  args: DataMaskingPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a database data masking policy.
-        API Version: 2014-04-01.
+        A database data masking policy.
+        API Version: 2021-11-01.
+        Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DataMaskingPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -259,7 +261,7 @@ class DataMaskingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        The kind of data masking policy. Metadata, used for Azure portal.
+        The kind of Data Masking Policy. Metadata, used for Azure portal.
         """
         return pulumi.get(self, "kind")
 

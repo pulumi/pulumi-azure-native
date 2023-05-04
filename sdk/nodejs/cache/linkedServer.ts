@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Response to put/get linked server (with properties) for Redis cache.
- * API Version: 2020-06-01.
+ * API Version: 2022-06-01.
+ * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class LinkedServer extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class LinkedServer extends pulumi.CustomResource {
     }
 
     /**
+     * The unchanging DNS name which will always point to current geo-primary cache among the linked redis caches for seamless Geo Failover experience.
+     */
+    public /*out*/ readonly geoReplicatedPrimaryHostName!: pulumi.Output<string>;
+    /**
      * Fully qualified resourceId of the linked redis cache.
      */
     public readonly linkedRedisCacheId!: pulumi.Output<string>;
@@ -47,9 +52,13 @@ export class LinkedServer extends pulumi.CustomResource {
      */
     public readonly linkedRedisCacheLocation!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The changing DNS name that resolves to the current geo-primary cache among the linked redis caches before or after the Geo Failover.
+     */
+    public /*out*/ readonly primaryHostName!: pulumi.Output<string>;
     /**
      * Terminal state of the link between primary and secondary redis cache.
      */
@@ -59,7 +68,7 @@ export class LinkedServer extends pulumi.CustomResource {
      */
     public readonly serverRole!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -95,12 +104,16 @@ export class LinkedServer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverRole"] = args ? args.serverRole : undefined;
+            resourceInputs["geoReplicatedPrimaryHostName"] = undefined /*out*/;
+            resourceInputs["primaryHostName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["geoReplicatedPrimaryHostName"] = undefined /*out*/;
             resourceInputs["linkedRedisCacheId"] = undefined /*out*/;
             resourceInputs["linkedRedisCacheLocation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryHostName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serverRole"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -2,16 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20220801preview from "./v20220801preview";
 import * as v20220901preview from "./v20220901preview";
-import * as v20221012preview from "./v20221012preview";
 import * as v20221111preview from "./v20221111preview";
+import * as v20230101preview from "./v20230101preview";
 
 export {
-    v20220801preview,
     v20220901preview,
-    v20221012preview,
     v20221111preview,
+    v20230101preview,
 };
 
 export const DomainJoinType = {
@@ -33,6 +31,16 @@ export const EnableStatus = {
  * Indicates whether or not this scheduled task is enabled.
  */
 export type EnableStatus = (typeof EnableStatus)[keyof typeof EnableStatus];
+
+export const HibernateSupport = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+ */
+export type HibernateSupport = (typeof HibernateSupport)[keyof typeof HibernateSupport];
 
 export const LicenseType = {
     Windows_Client: "Windows_Client",

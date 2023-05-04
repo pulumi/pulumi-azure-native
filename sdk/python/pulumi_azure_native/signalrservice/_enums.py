@@ -7,16 +7,18 @@ from enum import Enum
 __all__ = [
     'ACLAction',
     'FeatureFlags',
+    'ManagedIdentityType',
     'PrivateLinkServiceConnectionStatus',
     'ServiceKind',
     'SignalRRequestType',
     'SignalRSkuTier',
+    'UpstreamAuthType',
 ]
 
 
 class ACLAction(str, Enum):
     """
-    Default action when no other rule matches
+    Azure Networking ACL Action.
     """
     ALLOW = "Allow"
     DENY = "Deny"
@@ -27,10 +29,22 @@ class FeatureFlags(str, Enum):
     FeatureFlags is the supported features of Azure SignalR service.
     - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
     - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+    - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+    - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
     """
     SERVICE_MODE = "ServiceMode"
     ENABLE_CONNECTIVITY_LOGS = "EnableConnectivityLogs"
     ENABLE_MESSAGING_LOGS = "EnableMessagingLogs"
+    ENABLE_LIVE_TRACE = "EnableLiveTrace"
+
+
+class ManagedIdentityType(str, Enum):
+    """
+    Represents the identity type: systemAssigned, userAssigned, None
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class PrivateLinkServiceConnectionStatus(str, Enum):
@@ -45,7 +59,7 @@ class PrivateLinkServiceConnectionStatus(str, Enum):
 
 class ServiceKind(str, Enum):
     """
-    The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+    The kind of the service, it can be SignalR or RawWebSockets
     """
     SIGNAL_R = "SignalR"
     RAW_WEB_SOCKETS = "RawWebSockets"
@@ -53,7 +67,7 @@ class ServiceKind(str, Enum):
 
 class SignalRRequestType(str, Enum):
     """
-    Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    The incoming request type to the service
     """
     CLIENT_CONNECTION = "ClientConnection"
     SERVER_CONNECTION = "ServerConnection"
@@ -71,3 +85,11 @@ class SignalRSkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class UpstreamAuthType(str, Enum):
+    """
+    Upstream auth type enum.
+    """
+    NONE = "None"
+    MANAGED_IDENTITY = "ManagedIdentity"

@@ -26,7 +26,7 @@ class ApiIssueCommentArgs:
         The set of arguments for constructing a ApiIssueComment resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] text: Comment text.
         :param pulumi.Input[str] user_id: A resource identifier for the user who left the comment.
@@ -72,7 +72,7 @@ class ApiIssueCommentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -157,7 +157,8 @@ class ApiIssueComment(pulumi.CustomResource):
                  __props__=None):
         """
         Issue Comment Contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +166,7 @@ class ApiIssueComment(pulumi.CustomResource):
         :param pulumi.Input[str] comment_id: Comment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[str] created_date: Date and time when the comment was created.
         :param pulumi.Input[str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] text: Comment text.
         :param pulumi.Input[str] user_id: A resource identifier for the user who left the comment.
@@ -178,7 +179,8 @@ class ApiIssueComment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Issue Comment Contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApiIssueCommentArgs args: The arguments to use to populate this resource's properties.
@@ -234,7 +236,7 @@ class ApiIssueComment(pulumi.CustomResource):
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiIssueComment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiIssueComment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueComment, __self__).__init__(
             'azure-native:apimanagement:ApiIssueComment',
@@ -277,7 +279,7 @@ class ApiIssueComment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -293,7 +295,7 @@ class ApiIssueComment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the peering service prefix.
  */
-/** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
 export function getPeeringServicePrefix(args: GetPeeringServicePrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServicePrefixResult> {
-    pulumi.log.warn("getPeeringServicePrefix is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20190801preview:getPeeringServicePrefix", {
@@ -70,7 +68,6 @@ export interface GetPeeringServicePrefixResult {
 /**
  * Gets the peering service prefix.
  */
-/** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
 export function getPeeringServicePrefixOutput(args: GetPeeringServicePrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringServicePrefixResult> {
     return pulumi.output(args).apply((a: any) => getPeeringServicePrefix(a, opts))
 }

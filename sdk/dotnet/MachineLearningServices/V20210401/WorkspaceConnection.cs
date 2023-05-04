@@ -96,6 +96,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:WorkspaceConnection"},
                 },
             };

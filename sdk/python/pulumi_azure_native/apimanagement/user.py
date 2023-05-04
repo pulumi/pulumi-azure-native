@@ -35,7 +35,7 @@ class UserArgs:
         :param pulumi.Input[str] email: Email address. Must not be empty and must be unique within the service instance.
         :param pulumi.Input[str] first_name: First name.
         :param pulumi.Input[str] last_name: Last name.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Union[str, 'AppType']] app_type: Determines the type of application which send the create user request. Default is legacy portal.
         :param pulumi.Input[Union[str, 'Confirmation']] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
@@ -110,7 +110,7 @@ class UserArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -248,7 +248,8 @@ class User(pulumi.CustomResource):
                  __props__=None):
         """
         User details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,7 +262,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] note: Optional note about a user set by the administrator.
         :param pulumi.Input[bool] notify: Send an Email notification to the User.
         :param pulumi.Input[str] password: User Password. If no value is provided, a default password is generated.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Union[str, 'UserState']] state: Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
@@ -274,7 +275,8 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         User details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -342,7 +344,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["registration_date"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:User"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:User"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:User"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:User"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:User"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:User"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:User"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:User"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:User"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:User"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:User"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:User"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:User"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:User"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-native:apimanagement:User',
@@ -422,7 +424,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -454,7 +456,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

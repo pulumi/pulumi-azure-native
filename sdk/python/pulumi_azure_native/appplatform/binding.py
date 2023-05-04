@@ -111,7 +111,8 @@ class Binding(pulumi.CustomResource):
                  __props__=None):
         """
         Binding resource payload
-        API Version: 2020-07-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +130,8 @@ class Binding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Binding resource payload
-        API Version: 2020-07-01.
+        API Version: 2022-12-01.
+        Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param BindingArgs args: The arguments to use to populate this resource's properties.
@@ -172,8 +174,9 @@ class Binding(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220401:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Binding")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220401:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Binding"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:Binding")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Binding, __self__).__init__(
             'azure-native:appplatform:Binding',
@@ -199,6 +202,7 @@ class Binding(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Binding(resource_name, opts=opts, __props__=__props__)
 
@@ -217,6 +221,14 @@ class Binding(pulumi.CustomResource):
         Properties of the Binding resource
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

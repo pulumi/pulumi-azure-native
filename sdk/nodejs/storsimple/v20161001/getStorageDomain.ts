@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified storage domain name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageDomainResult> {
-    pulumi.log.warn("getStorageDomain is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getStorageDomain", {
@@ -69,7 +67,6 @@ export interface GetStorageDomainResult {
 /**
  * Returns the properties of the specified storage domain name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getStorageDomainOutput(args: GetStorageDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageDomainResult> {
     return pulumi.output(args).apply((a: any) => getStorageDomain(a, opts))
 }

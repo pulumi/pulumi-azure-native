@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetBackupResult',
@@ -21,7 +22,7 @@ class GetBackupResult:
     """
     Backup of a Volume
     """
-    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None, volume_name=None):
+    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, system_data=None, type=None, use_existing_snapshot=None, volume_name=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -52,9 +53,15 @@ class GetBackupResult:
         if size and not isinstance(size, float):
             raise TypeError("Expected argument 'size' to be a float")
         pulumi.set(__self__, "size", size)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if use_existing_snapshot and not isinstance(use_existing_snapshot, bool):
+            raise TypeError("Expected argument 'use_existing_snapshot' to be a bool")
+        pulumi.set(__self__, "use_existing_snapshot", use_existing_snapshot)
         if volume_name and not isinstance(volume_name, str):
             raise TypeError("Expected argument 'volume_name' to be a str")
         pulumi.set(__self__, "volume_name", volume_name)
@@ -95,7 +102,7 @@ class GetBackupResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -119,7 +126,7 @@ class GetBackupResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -140,12 +147,28 @@ class GetBackupResult:
         return pulumi.get(self, "size")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useExistingSnapshot")
+    def use_existing_snapshot(self) -> Optional[bool]:
+        """
+        Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        """
+        return pulumi.get(self, "use_existing_snapshot")
 
     @property
     @pulumi.getter(name="volumeName")
@@ -172,7 +195,9 @@ class AwaitableGetBackupResult(GetBackupResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             size=self.size,
+            system_data=self.system_data,
             type=self.type,
+            use_existing_snapshot=self.use_existing_snapshot,
             volume_name=self.volume_name)
 
 
@@ -183,14 +208,14 @@ def get_backup(account_name: Optional[str] = None,
                volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
-    Get a particular backup of the volume
-    API Version: 2020-12-01.
+    Gets the specified backup of the volume
+    API Version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str backup_name: The name of the backup
     :param str pool_name: The name of the capacity pool
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume
     """
     __args__ = dict()
@@ -213,7 +238,9 @@ def get_backup(account_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         size=__ret__.size,
+        system_data=__ret__.system_data,
         type=__ret__.type,
+        use_existing_snapshot=__ret__.use_existing_snapshot,
         volume_name=__ret__.volume_name)
 
 
@@ -225,14 +252,14 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
                       volume_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupResult]:
     """
-    Get a particular backup of the volume
-    API Version: 2020-12-01.
+    Gets the specified backup of the volume
+    API Version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str backup_name: The name of the backup
     :param str pool_name: The name of the capacity pool
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume
     """
     ...

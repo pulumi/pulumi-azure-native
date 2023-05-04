@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20160301
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// </summary>
-    [Obsolete(@"Version 2016-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {

@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Aad
 {
     /// <summary>
+    /// A flag to determine whether or not ChannelBinding is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelBinding : IEquatable<ChannelBinding>
+    {
+        private readonly string _value;
+
+        private ChannelBinding(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelBinding Enabled { get; } = new ChannelBinding("Enabled");
+        public static ChannelBinding Disabled { get; } = new ChannelBinding("Disabled");
+
+        public static bool operator ==(ChannelBinding left, ChannelBinding right) => left.Equals(right);
+        public static bool operator !=(ChannelBinding left, ChannelBinding right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelBinding value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelBinding other && Equals(other);
+        public bool Equals(ChannelBinding other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
     /// </summary>
     [EnumType]
@@ -124,6 +155,37 @@ namespace Pulumi.AzureNative.Aad
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KerberosRc4Encryption other && Equals(other);
         public bool Equals(KerberosRc4Encryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A flag to determine whether or not LdapSigning is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct LdapSigning : IEquatable<LdapSigning>
+    {
+        private readonly string _value;
+
+        private LdapSigning(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LdapSigning Enabled { get; } = new LdapSigning("Enabled");
+        public static LdapSigning Disabled { get; } = new LdapSigning("Disabled");
+
+        public static bool operator ==(LdapSigning left, LdapSigning right) => left.Equals(right);
+        public static bool operator !=(LdapSigning left, LdapSigning right) => !left.Equals(right);
+
+        public static explicit operator string(LdapSigning value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LdapSigning other && Equals(other);
+        public bool Equals(LdapSigning other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -256,6 +318,41 @@ namespace Pulumi.AzureNative.Aad
     }
 
     /// <summary>
+    /// Status for individual validator after running diagnostics.
+    /// </summary>
+    [EnumType]
+    public readonly struct Status : IEquatable<Status>
+    {
+        private readonly string _value;
+
+        private Status(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Status None { get; } = new Status("None");
+        public static Status Running { get; } = new Status("Running");
+        public static Status OK { get; } = new Status("OK");
+        public static Status Failure { get; } = new Status("Failure");
+        public static Status Warning { get; } = new Status("Warning");
+        public static Status Skipped { get; } = new Status("Skipped");
+
+        public static bool operator ==(Status left, Status right) => left.Equals(right);
+        public static bool operator !=(Status left, Status right) => !left.Equals(right);
+
+        public static explicit operator string(Status value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Status other && Equals(other);
+        public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
     /// </summary>
     [EnumType]
@@ -341,6 +438,37 @@ namespace Pulumi.AzureNative.Aad
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SyncOnPremPasswords other && Equals(other);
         public bool Equals(SyncOnPremPasswords other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+    /// </summary>
+    [EnumType]
+    public readonly struct SyncScope : IEquatable<SyncScope>
+    {
+        private readonly string _value;
+
+        private SyncScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SyncScope All { get; } = new SyncScope("All");
+        public static SyncScope CloudOnly { get; } = new SyncScope("CloudOnly");
+
+        public static bool operator ==(SyncScope left, SyncScope right) => left.Equals(right);
+        public static bool operator !=(SyncScope left, SyncScope right) => !left.Equals(right);
+
+        public static explicit operator string(SyncScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SyncScope other && Equals(other);
+        public bool Equals(SyncScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a deployment.
- * API Version: 2021-01-01.
+ * API Version: 2022-09-01.
  */
 export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtTenantScopeResult> {
 
@@ -57,7 +57,7 @@ export interface GetDeploymentAtTenantScopeResult {
 }
 /**
  * Gets a deployment.
- * API Version: 2021-01-01.
+ * API Version: 2022-09-01.
  */
 export function getDeploymentAtTenantScopeOutput(args: GetDeploymentAtTenantScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtTenantScopeResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentAtTenantScope(a, opts))

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
- *
- * @deprecated Version 2020-05-01-preview will be removed in v2 of the provider.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageAccount {
-        pulumi.log.warn("StorageAccount is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.")
         return new StorageAccount(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2020-05-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("StorageAccount is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

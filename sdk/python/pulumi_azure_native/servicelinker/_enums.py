@@ -6,7 +6,10 @@ from enum import Enum
 
 __all__ = [
     'AuthType',
+    'AzureResourceType',
     'ClientType',
+    'SecretType',
+    'TargetServiceType',
     'VNetSolutionType',
 ]
 
@@ -20,6 +23,13 @@ class AuthType(str, Enum):
     SERVICE_PRINCIPAL_SECRET = "servicePrincipalSecret"
     SERVICE_PRINCIPAL_CERTIFICATE = "servicePrincipalCertificate"
     SECRET = "secret"
+
+
+class AzureResourceType(str, Enum):
+    """
+    The azure resource type.
+    """
+    KEY_VAULT = "KeyVault"
 
 
 class ClientType(str, Enum):
@@ -36,6 +46,25 @@ class ClientType(str, Enum):
     DJANGO = "django"
     NODEJS = "nodejs"
     SPRING_BOOT = "springBoot"
+    KAFKA_SPRING_BOOT = "kafka-springBoot"
+
+
+class SecretType(str, Enum):
+    """
+    The secret type.
+    """
+    RAW_VALUE = "rawValue"
+    KEY_VAULT_SECRET_URI = "keyVaultSecretUri"
+    KEY_VAULT_SECRET_REFERENCE = "keyVaultSecretReference"
+
+
+class TargetServiceType(str, Enum):
+    """
+    The target service type.
+    """
+    AZURE_RESOURCE = "AzureResource"
+    CONFLUENT_BOOTSTRAP_SERVER = "ConfluentBootstrapServer"
+    CONFLUENT_SCHEMA_REGISTRY = "ConfluentSchemaRegistry"
 
 
 class VNetSolutionType(str, Enum):

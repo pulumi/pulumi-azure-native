@@ -17,8 +17,6 @@ __all__ = [
     'get_storage_account_credential_output',
 ]
 
-warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetStorageAccountCredentialResult:
     """
@@ -155,7 +153,6 @@ def get_storage_account_credential(credential_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_storage_account_credential is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['credentialName'] = credential_name
     __args__['managerName'] = manager_name
@@ -188,5 +185,4 @@ def get_storage_account_credential_output(credential_name: Optional[pulumi.Input
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_storage_account_credential is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     ...

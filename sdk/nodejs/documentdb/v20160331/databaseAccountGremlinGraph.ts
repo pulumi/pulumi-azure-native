@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Gremlin graph.
- *
- * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountGremlinGraph {
-        pulumi.log.warn("DatabaseAccountGremlinGraph is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         return new DatabaseAccountGremlinGraph(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +93,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
     constructor(name: string, args: DatabaseAccountGremlinGraphArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountGremlinGraph is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -150,7 +145,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             resourceInputs["uniqueKeyPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountGremlinGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20221115preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20230301preview:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountGremlinGraph" }, { type: "azure-native:documentdb/v20230415:DatabaseAccountGremlinGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountGremlinGraph.__pulumiType, name, resourceInputs, opts);
     }

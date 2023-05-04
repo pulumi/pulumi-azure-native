@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets an image.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-native:compute:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an image.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:compute:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());

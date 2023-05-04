@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Description of topic resource.
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -75,11 +76,19 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
     /**
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
+     * Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+     */
+    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number | undefined>;
+    /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -103,7 +112,11 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly supportOrdering!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource type
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -134,6 +147,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             resourceInputs["enableExpress"] = args ? args.enableExpress : undefined;
             resourceInputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            resourceInputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
             resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
@@ -144,9 +158,11 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sizeInBytes"] = undefined /*out*/;
             resourceInputs["subscriptionCount"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
@@ -159,6 +175,8 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["enableBatchedOperations"] = undefined /*out*/;
             resourceInputs["enableExpress"] = undefined /*out*/;
             resourceInputs["enablePartitioning"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxMessageSizeInKilobytes"] = undefined /*out*/;
             resourceInputs["maxSizeInMegabytes"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["requiresDuplicateDetection"] = undefined /*out*/;
@@ -166,6 +184,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subscriptionCount"] = undefined /*out*/;
             resourceInputs["supportOrdering"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -204,6 +223,10 @@ export interface TopicArgs {
      * Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
      */
     enablePartitioning?: pulumi.Input<boolean>;
+    /**
+     * Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+     */
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */

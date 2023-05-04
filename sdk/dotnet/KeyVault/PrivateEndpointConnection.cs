@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// Private endpoint connection resource.
-    /// API Version: 2019-09-01.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

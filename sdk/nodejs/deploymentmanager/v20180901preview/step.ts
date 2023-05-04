@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource representation of a rollout step.
- *
- * @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
  */
 export class Step extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Step extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Step {
-        pulumi.log.warn("Step is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
         return new Step(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,9 +65,7 @@ export class Step extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: StepArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Step is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
     /// <summary>
     /// An Azure Cosmos DB Table.
     /// </summary>
-    [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20190801:TableResourceTable")]
     public partial class TableResourceTable : global::Pulumi.CustomResource
     {
@@ -96,7 +95,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:TableResourceTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:TableResourceTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:TableResourceTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:TableResourceTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -2,24 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AccessRights = {
-    Manage: "Manage",
-    Send: "Send",
-    Listen: "Listen",
-} as const;
-
-export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
-
-export const DefaultAction = {
-    Allow: "Allow",
-    Deny: "Deny",
-} as const;
-
-/**
- * Default Action for Network Rule Set
- */
-export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
-
 export const EndPointProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -34,33 +16,6 @@ export const EndPointProvisioningState = {
  */
 export type EndPointProvisioningState = (typeof EndPointProvisioningState)[keyof typeof EndPointProvisioningState];
 
-export const EntityStatus = {
-    Active: "Active",
-    Disabled: "Disabled",
-    Restoring: "Restoring",
-    SendDisabled: "SendDisabled",
-    ReceiveDisabled: "ReceiveDisabled",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Renaming: "Renaming",
-    Unknown: "Unknown",
-} as const;
-
-/**
- * Enumerates the possible values for the status of a messaging entity.
- */
-export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
-
-export const FilterType = {
-    SqlFilter: "SqlFilter",
-    CorrelationFilter: "CorrelationFilter",
-} as const;
-
-/**
- * Filter type that is evaluated against a BrokeredMessage.
- */
-export type FilterType = (typeof FilterType)[keyof typeof FilterType];
-
 export const IPAction = {
     Accept: "Accept",
     Reject: "Reject",
@@ -70,33 +25,6 @@ export const IPAction = {
  * The IP Filter Action
  */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];
-
-export const IdentityType = {
-    SystemAssigned: "SystemAssigned",
-} as const;
-
-/**
- * Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
- */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
-export const KeySource = {
-    Microsoft_KeyVault: "Microsoft.KeyVault",
-} as const;
-
-/**
- * Enumerates the possible value of keySource for Encryption
- */
-export type KeySource = (typeof KeySource)[keyof typeof KeySource];
-
-export const NetworkRuleIPAction = {
-    Allow: "Allow",
-} as const;
-
-/**
- * The IP Filter Action
- */
-export type NetworkRuleIPAction = (typeof NetworkRuleIPAction)[keyof typeof NetworkRuleIPAction];
 
 export const PrivateLinkConnectionStatus = {
     Pending: "Pending",
@@ -109,25 +37,3 @@ export const PrivateLinkConnectionStatus = {
  * Status of the connection.
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
-
-export const SkuName = {
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
-} as const;
-
-/**
- * Name of this SKU.
- */
-export type SkuName = (typeof SkuName)[keyof typeof SkuName];
-
-export const SkuTier = {
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
-} as const;
-
-/**
- * The billing tier of this particular SKU.
- */
-export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

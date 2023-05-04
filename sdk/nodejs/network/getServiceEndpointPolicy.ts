@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified service Endpoint Policies in a specified resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getServiceEndpointPolicy(args: GetServiceEndpointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyResult> {
 
@@ -41,6 +41,10 @@ export interface GetServiceEndpointPolicyArgs {
  */
 export interface GetServiceEndpointPolicyResult {
     /**
+     * A collection of contextual service endpoint policy.
+     */
+    readonly contextualServiceEndpointPolicies?: string[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -69,6 +73,10 @@ export interface GetServiceEndpointPolicyResult {
      */
     readonly resourceGuid: string;
     /**
+     * The alias indicating if the policy belongs to a service
+     */
+    readonly serviceAlias?: string;
+    /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
      */
     readonly serviceEndpointPolicyDefinitions?: outputs.network.ServiceEndpointPolicyDefinitionResponse[];
@@ -87,7 +95,7 @@ export interface GetServiceEndpointPolicyResult {
 }
 /**
  * Gets the specified service Endpoint Policies in a specified resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getServiceEndpointPolicyOutput(args: GetServiceEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointPolicy(a, opts))

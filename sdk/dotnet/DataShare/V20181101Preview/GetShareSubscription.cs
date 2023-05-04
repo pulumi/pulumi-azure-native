@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
-    [Obsolete(@"Version 2018-11-01-preview will be removed in v2 of the provider.")]
     public static class GetShareSubscription
     {
         /// <summary>

@@ -153,8 +153,6 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security:Assignment" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assignment.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.DomainRegistration
     public static class ListDomainRecommendations
     {
         /// <summary>
-        /// Get domain name recommendations based on keywords.
-        /// API Version: 2020-10-01.
+        /// Description for Get domain name recommendations based on keywords.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get domain name recommendations based on keywords.
-        /// API Version: 2020-10-01.
+        /// Description for Get domain name recommendations based on keywords.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<ListDomainRecommendationsResult> Invoke(ListDomainRecommendationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithDefaults());

@@ -16,37 +16,65 @@ __all__ = [
     'AdditionalWorkspacesPropertiesResponse',
     'AllowlistCustomAlertRuleResponse',
     'AssessmentLinksResponse',
-    'AssessmentStatusResponse',
-    'AssignedComponentItemResponse',
-    'AssignedStandardItemResponse',
-    'AssignmentPropertiesResponseAdditionalData',
-    'AutomationActionEventHubResponse',
-    'AutomationActionLogicAppResponse',
-    'AutomationActionWorkspaceResponse',
-    'AutomationRuleSetResponse',
-    'AutomationScopeResponse',
-    'AutomationSourceResponse',
-    'AutomationTriggeringRuleResponse',
-    'AwAssumeRoleAuthenticationDetailsPropertiesResponse',
-    'AwsCredsAuthenticationDetailsPropertiesResponse',
+    'AssessmentStatusResponseResponse',
+    'AwsEnvironmentDataResponse',
+    'AwsOrganizationalDataMasterResponse',
+    'AwsOrganizationalDataMemberResponse',
+    'AzureDevOpsScopeEnvironmentDataResponse',
     'AzureResourceDetailsResponse',
     'CspmMonitorAwsOfferingResponse',
     'CspmMonitorAwsOfferingResponseNativeCloudConnection',
+    'CspmMonitorAzureDevOpsOfferingResponse',
+    'CspmMonitorGcpOfferingResponse',
+    'CspmMonitorGcpOfferingResponseNativeCloudConnection',
+    'CspmMonitorGithubOfferingResponse',
+    'DefenderCspmAwsOfferingResponse',
+    'DefenderCspmAwsOfferingResponseConfiguration',
+    'DefenderCspmAwsOfferingResponseVmScanners',
+    'DefenderCspmGcpOfferingResponse',
+    'DefenderFoDatabasesAwsOfferingResponse',
+    'DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning',
+    'DefenderFoDatabasesAwsOfferingResponseRds',
     'DefenderForContainersAwsOfferingResponse',
     'DefenderForContainersAwsOfferingResponseCloudWatchToKinesis',
+    'DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment',
+    'DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask',
     'DefenderForContainersAwsOfferingResponseKinesisToS3',
     'DefenderForContainersAwsOfferingResponseKubernetesScubaReader',
     'DefenderForContainersAwsOfferingResponseKubernetesService',
+    'DefenderForContainersGcpOfferingResponse',
+    'DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection',
+    'DefenderForContainersGcpOfferingResponseNativeCloudConnection',
+    'DefenderForDatabasesGcpOfferingResponse',
+    'DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning',
+    'DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning',
+    'DefenderForDevOpsAzureDevOpsOfferingResponse',
+    'DefenderForDevOpsGithubOfferingResponse',
     'DefenderForServersAwsOfferingResponse',
     'DefenderForServersAwsOfferingResponseArcAutoProvisioning',
+    'DefenderForServersAwsOfferingResponseConfiguration',
+    'DefenderForServersAwsOfferingResponseConfigurationConfiguration',
     'DefenderForServersAwsOfferingResponseDefenderForServers',
-    'DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata',
+    'DefenderForServersAwsOfferingResponseMdeAutoProvisioning',
+    'DefenderForServersAwsOfferingResponseSubPlan',
+    'DefenderForServersAwsOfferingResponseVaAutoProvisioning',
+    'DefenderForServersAwsOfferingResponseVmScanners',
+    'DefenderForServersGcpOfferingResponse',
+    'DefenderForServersGcpOfferingResponseArcAutoProvisioning',
+    'DefenderForServersGcpOfferingResponseConfiguration',
+    'DefenderForServersGcpOfferingResponseDefenderForServers',
+    'DefenderForServersGcpOfferingResponseMdeAutoProvisioning',
+    'DefenderForServersGcpOfferingResponseSubPlan',
+    'DefenderForServersGcpOfferingResponseVaAutoProvisioning',
     'DenylistCustomAlertRuleResponse',
-    'GcpCredentialsDetailsPropertiesResponse',
-    'HybridComputeSettingsPropertiesResponse',
+    'GcpOrganizationalDataMemberResponse',
+    'GcpOrganizationalDataOrganizationResponse',
+    'GcpProjectDetailsResponse',
+    'GcpProjectEnvironmentDataResponse',
+    'GithubScopeEnvironmentDataResponse',
+    'IdentityResponse',
     'InformationProtectionAwsOfferingResponse',
     'InformationProtectionAwsOfferingResponseInformationProtection',
-    'IngestionConnectionStringResponse',
     'JitNetworkAccessPolicyVirtualMachineResponse',
     'JitNetworkAccessPortRuleResponse',
     'JitNetworkAccessRequestPortResponse',
@@ -56,20 +84,13 @@ __all__ = [
     'OnPremiseSqlResourceDetailsResponse',
     'PathRecommendationResponse',
     'ProtectionModeResponse',
-    'ProxyServerPropertiesResponse',
     'PublisherInfoResponse',
     'RecommendationConfigurationPropertiesResponse',
     'RuleResultsPropertiesResponse',
-    'ScopeElementResponse',
     'SecurityAssessmentMetadataPartnerDataResponse',
     'SecurityAssessmentMetadataPropertiesResponse',
+    'SecurityAssessmentMetadataPropertiesResponseResponsePublishDates',
     'SecurityAssessmentPartnerDataResponse',
-    'SecurityConnectorPropertiesResponseOrganizationalData',
-    'SecurityContactPropertiesResponseAlertNotifications',
-    'SecurityContactPropertiesResponseNotificationsByRole',
-    'ServicePrincipalPropertiesResponse',
-    'StandardComponentPropertiesResponse',
-    'SuppressionAlertsScopeResponse',
     'SystemDataResponse',
     'ThresholdCustomAlertRuleResponse',
     'TimeWindowCustomAlertRuleResponse',
@@ -340,21 +361,46 @@ class AssessmentLinksResponse(dict):
 
 
 @pulumi.output_type
-class AssessmentStatusResponse(dict):
+class AssessmentStatusResponseResponse(dict):
     """
     The result of the assessment
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstEvaluationDate":
+            suggest = "first_evaluation_date"
+        elif key == "statusChangeDate":
+            suggest = "status_change_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentStatusResponseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentStatusResponseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentStatusResponseResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code: str,
+                 first_evaluation_date: str,
+                 status_change_date: str,
                  cause: Optional[str] = None,
                  description: Optional[str] = None):
         """
         The result of the assessment
         :param str code: Programmatic code for the status of the assessment
+        :param str first_evaluation_date: The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
+        :param str status_change_date: The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
         :param str cause: Programmatic code for the cause of the assessment status
         :param str description: Human readable description of the assessment status
         """
         pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "first_evaluation_date", first_evaluation_date)
+        pulumi.set(__self__, "status_change_date", status_change_date)
         if cause is not None:
             pulumi.set(__self__, "cause", cause)
         if description is not None:
@@ -367,6 +413,22 @@ class AssessmentStatusResponse(dict):
         Programmatic code for the status of the assessment
         """
         return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="firstEvaluationDate")
+    def first_evaluation_date(self) -> str:
+        """
+        The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
+        """
+        return pulumi.get(self, "first_evaluation_date")
+
+    @property
+    @pulumi.getter(name="statusChangeDate")
+    def status_change_date(self) -> str:
+        """
+        The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
+        """
+        return pulumi.get(self, "status_change_date")
 
     @property
     @pulumi.getter
@@ -386,710 +448,223 @@ class AssessmentStatusResponse(dict):
 
 
 @pulumi.output_type
-class AssignedComponentItemResponse(dict):
+class AwsEnvironmentDataResponse(dict):
     """
-    describe the properties of a security assessment object reference (by key)
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None):
-        """
-        describe the properties of a security assessment object reference (by key)
-        :param str key: unique key to a security assessment object
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        unique key to a security assessment object
-        """
-        return pulumi.get(self, "key")
-
-
-@pulumi.output_type
-class AssignedStandardItemResponse(dict):
-    """
-    describe the properties of a of a security standard object reference
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        describe the properties of a of a security standard object reference
-        :param str id: full resourceId of the Microsoft.Security/standard object
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        full resourceId of the Microsoft.Security/standard object
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class AssignmentPropertiesResponseAdditionalData(dict):
-    """
-    Additional data about the assignment
+    The aws connector environment data
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "exemptionCategory":
-            suggest = "exemption_category"
+        if key == "environmentType":
+            suggest = "environment_type"
+        elif key == "organizationalData":
+            suggest = "organizational_data"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssignmentPropertiesResponseAdditionalData. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AwsEnvironmentDataResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssignmentPropertiesResponseAdditionalData.__key_warning(key)
+        AwsEnvironmentDataResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssignmentPropertiesResponseAdditionalData.__key_warning(key)
+        AwsEnvironmentDataResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 exemption_category: Optional[str] = None):
+                 environment_type: str,
+                 organizational_data: Optional[Any] = None):
         """
-        Additional data about the assignment
-        :param str exemption_category: Exemption category of this assignment
+        The aws connector environment data
+        :param str environment_type: The type of the environment data.
+               Expected value is 'AwsAccount'.
+        :param Union['AwsOrganizationalDataMasterResponse', 'AwsOrganizationalDataMemberResponse'] organizational_data: The AWS account's organizational data
         """
-        if exemption_category is not None:
-            pulumi.set(__self__, "exemption_category", exemption_category)
+        pulumi.set(__self__, "environment_type", 'AwsAccount')
+        if organizational_data is not None:
+            pulumi.set(__self__, "organizational_data", organizational_data)
 
     @property
-    @pulumi.getter(name="exemptionCategory")
-    def exemption_category(self) -> Optional[str]:
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> str:
         """
-        Exemption category of this assignment
+        The type of the environment data.
+        Expected value is 'AwsAccount'.
         """
-        return pulumi.get(self, "exemption_category")
+        return pulumi.get(self, "environment_type")
+
+    @property
+    @pulumi.getter(name="organizationalData")
+    def organizational_data(self) -> Optional[Any]:
+        """
+        The AWS account's organizational data
+        """
+        return pulumi.get(self, "organizational_data")
 
 
 @pulumi.output_type
-class AutomationActionEventHubResponse(dict):
+class AwsOrganizationalDataMasterResponse(dict):
     """
-    The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+    The awsOrganization data for the master account
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "actionType":
-            suggest = "action_type"
-        elif key == "sasPolicyName":
-            suggest = "sas_policy_name"
-        elif key == "connectionString":
-            suggest = "connection_string"
-        elif key == "eventHubResourceId":
-            suggest = "event_hub_resource_id"
+        if key == "organizationMembershipType":
+            suggest = "organization_membership_type"
+        elif key == "excludedAccountIds":
+            suggest = "excluded_account_ids"
+        elif key == "stacksetName":
+            suggest = "stackset_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AutomationActionEventHubResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AwsOrganizationalDataMasterResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AutomationActionEventHubResponse.__key_warning(key)
+        AwsOrganizationalDataMasterResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AutomationActionEventHubResponse.__key_warning(key)
+        AwsOrganizationalDataMasterResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_type: str,
-                 sas_policy_name: str,
-                 connection_string: Optional[str] = None,
-                 event_hub_resource_id: Optional[str] = None):
+                 organization_membership_type: str,
+                 excluded_account_ids: Optional[Sequence[str]] = None,
+                 stackset_name: Optional[str] = None):
         """
-        The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
-        :param str action_type: The type of the action that will be triggered by the Automation
-               Expected value is 'EventHub'.
-        :param str sas_policy_name: The target Event Hub SAS policy name.
-        :param str connection_string: The target Event Hub connection string (it will not be included in any response).
-        :param str event_hub_resource_id: The target Event Hub Azure Resource ID.
+        The awsOrganization data for the master account
+        :param str organization_membership_type: The multi cloud account's membership type in the organization
+               Expected value is 'Organization'.
+        :param Sequence[str] excluded_account_ids: If the multi cloud account is of membership type organization, list of accounts excluded from offering
+        :param str stackset_name: If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
         """
-        pulumi.set(__self__, "action_type", 'EventHub')
-        pulumi.set(__self__, "sas_policy_name", sas_policy_name)
-        if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
-        if event_hub_resource_id is not None:
-            pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
+        pulumi.set(__self__, "organization_membership_type", 'Organization')
+        if excluded_account_ids is not None:
+            pulumi.set(__self__, "excluded_account_ids", excluded_account_ids)
+        if stackset_name is not None:
+            pulumi.set(__self__, "stackset_name", stackset_name)
 
     @property
-    @pulumi.getter(name="actionType")
-    def action_type(self) -> str:
+    @pulumi.getter(name="organizationMembershipType")
+    def organization_membership_type(self) -> str:
         """
-        The type of the action that will be triggered by the Automation
-        Expected value is 'EventHub'.
+        The multi cloud account's membership type in the organization
+        Expected value is 'Organization'.
         """
-        return pulumi.get(self, "action_type")
+        return pulumi.get(self, "organization_membership_type")
 
     @property
-    @pulumi.getter(name="sasPolicyName")
-    def sas_policy_name(self) -> str:
+    @pulumi.getter(name="excludedAccountIds")
+    def excluded_account_ids(self) -> Optional[Sequence[str]]:
         """
-        The target Event Hub SAS policy name.
+        If the multi cloud account is of membership type organization, list of accounts excluded from offering
         """
-        return pulumi.get(self, "sas_policy_name")
+        return pulumi.get(self, "excluded_account_ids")
 
     @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[str]:
+    @pulumi.getter(name="stacksetName")
+    def stackset_name(self) -> Optional[str]:
         """
-        The target Event Hub connection string (it will not be included in any response).
+        If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
         """
-        return pulumi.get(self, "connection_string")
-
-    @property
-    @pulumi.getter(name="eventHubResourceId")
-    def event_hub_resource_id(self) -> Optional[str]:
-        """
-        The target Event Hub Azure Resource ID.
-        """
-        return pulumi.get(self, "event_hub_resource_id")
+        return pulumi.get(self, "stackset_name")
 
 
 @pulumi.output_type
-class AutomationActionLogicAppResponse(dict):
+class AwsOrganizationalDataMemberResponse(dict):
     """
-    The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+    The awsOrganization data for the member account
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "actionType":
-            suggest = "action_type"
-        elif key == "logicAppResourceId":
-            suggest = "logic_app_resource_id"
+        if key == "organizationMembershipType":
+            suggest = "organization_membership_type"
+        elif key == "parentHierarchyId":
+            suggest = "parent_hierarchy_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AutomationActionLogicAppResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AwsOrganizationalDataMemberResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AutomationActionLogicAppResponse.__key_warning(key)
+        AwsOrganizationalDataMemberResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AutomationActionLogicAppResponse.__key_warning(key)
+        AwsOrganizationalDataMemberResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_type: str,
-                 logic_app_resource_id: Optional[str] = None,
-                 uri: Optional[str] = None):
+                 organization_membership_type: str,
+                 parent_hierarchy_id: Optional[str] = None):
         """
-        The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
-        :param str action_type: The type of the action that will be triggered by the Automation
-               Expected value is 'LogicApp'.
-        :param str logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
-        :param str uri: The Logic App trigger URI endpoint (it will not be included in any response).
+        The awsOrganization data for the member account
+        :param str organization_membership_type: The multi cloud account's membership type in the organization
+               Expected value is 'Member'.
+        :param str parent_hierarchy_id: If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
         """
-        pulumi.set(__self__, "action_type", 'LogicApp')
-        if logic_app_resource_id is not None:
-            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+        pulumi.set(__self__, "organization_membership_type", 'Member')
+        if parent_hierarchy_id is not None:
+            pulumi.set(__self__, "parent_hierarchy_id", parent_hierarchy_id)
 
     @property
-    @pulumi.getter(name="actionType")
-    def action_type(self) -> str:
+    @pulumi.getter(name="organizationMembershipType")
+    def organization_membership_type(self) -> str:
         """
-        The type of the action that will be triggered by the Automation
-        Expected value is 'LogicApp'.
+        The multi cloud account's membership type in the organization
+        Expected value is 'Member'.
         """
-        return pulumi.get(self, "action_type")
+        return pulumi.get(self, "organization_membership_type")
 
     @property
-    @pulumi.getter(name="logicAppResourceId")
-    def logic_app_resource_id(self) -> Optional[str]:
+    @pulumi.getter(name="parentHierarchyId")
+    def parent_hierarchy_id(self) -> Optional[str]:
         """
-        The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
         """
-        return pulumi.get(self, "logic_app_resource_id")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[str]:
-        """
-        The Logic App trigger URI endpoint (it will not be included in any response).
-        """
-        return pulumi.get(self, "uri")
+        return pulumi.get(self, "parent_hierarchy_id")
 
 
 @pulumi.output_type
-class AutomationActionWorkspaceResponse(dict):
+class AzureDevOpsScopeEnvironmentDataResponse(dict):
     """
-    The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+    The AzureDevOps scope connector's environment data
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "actionType":
-            suggest = "action_type"
-        elif key == "workspaceResourceId":
-            suggest = "workspace_resource_id"
+        if key == "environmentType":
+            suggest = "environment_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AutomationActionWorkspaceResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AzureDevOpsScopeEnvironmentDataResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AutomationActionWorkspaceResponse.__key_warning(key)
+        AzureDevOpsScopeEnvironmentDataResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AutomationActionWorkspaceResponse.__key_warning(key)
+        AzureDevOpsScopeEnvironmentDataResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_type: str,
-                 workspace_resource_id: Optional[str] = None):
+                 environment_type: str):
         """
-        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
-        :param str action_type: The type of the action that will be triggered by the Automation
-               Expected value is 'Workspace'.
-        :param str workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
+        The AzureDevOps scope connector's environment data
+        :param str environment_type: The type of the environment data.
+               Expected value is 'AzureDevOpsScope'.
         """
-        pulumi.set(__self__, "action_type", 'Workspace')
-        if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+        pulumi.set(__self__, "environment_type", 'AzureDevOpsScope')
 
     @property
-    @pulumi.getter(name="actionType")
-    def action_type(self) -> str:
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> str:
         """
-        The type of the action that will be triggered by the Automation
-        Expected value is 'Workspace'.
+        The type of the environment data.
+        Expected value is 'AzureDevOpsScope'.
         """
-        return pulumi.get(self, "action_type")
-
-    @property
-    @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[str]:
-        """
-        The fully qualified Log Analytics Workspace Azure Resource ID.
-        """
-        return pulumi.get(self, "workspace_resource_id")
-
-
-@pulumi.output_type
-class AutomationRuleSetResponse(dict):
-    """
-    A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
-    """
-    def __init__(__self__, *,
-                 rules: Optional[Sequence['outputs.AutomationTriggeringRuleResponse']] = None):
-        """
-        A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
-        """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.AutomationTriggeringRuleResponse']]:
-        return pulumi.get(self, "rules")
-
-
-@pulumi.output_type
-class AutomationScopeResponse(dict):
-    """
-    A single automation scope.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "scopePath":
-            suggest = "scope_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AutomationScopeResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AutomationScopeResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AutomationScopeResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 description: Optional[str] = None,
-                 scope_path: Optional[str] = None):
-        """
-        A single automation scope.
-        :param str description: The resources scope description.
-        :param str scope_path: The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if scope_path is not None:
-            pulumi.set(__self__, "scope_path", scope_path)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The resources scope description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="scopePath")
-    def scope_path(self) -> Optional[str]:
-        """
-        The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
-        """
-        return pulumi.get(self, "scope_path")
-
-
-@pulumi.output_type
-class AutomationSourceResponse(dict):
-    """
-    The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "eventSource":
-            suggest = "event_source"
-        elif key == "ruleSets":
-            suggest = "rule_sets"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AutomationSourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AutomationSourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AutomationSourceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 event_source: Optional[str] = None,
-                 rule_sets: Optional[Sequence['outputs.AutomationRuleSetResponse']] = None):
-        """
-        The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
-        :param str event_source: A valid event source type.
-        :param Sequence['AutomationRuleSetResponse'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
-        """
-        if event_source is not None:
-            pulumi.set(__self__, "event_source", event_source)
-        if rule_sets is not None:
-            pulumi.set(__self__, "rule_sets", rule_sets)
-
-    @property
-    @pulumi.getter(name="eventSource")
-    def event_source(self) -> Optional[str]:
-        """
-        A valid event source type.
-        """
-        return pulumi.get(self, "event_source")
-
-    @property
-    @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[Sequence['outputs.AutomationRuleSetResponse']]:
-        """
-        A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
-        """
-        return pulumi.get(self, "rule_sets")
-
-
-@pulumi.output_type
-class AutomationTriggeringRuleResponse(dict):
-    """
-    A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "expectedValue":
-            suggest = "expected_value"
-        elif key == "propertyJPath":
-            suggest = "property_j_path"
-        elif key == "propertyType":
-            suggest = "property_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AutomationTriggeringRuleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AutomationTriggeringRuleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AutomationTriggeringRuleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 expected_value: Optional[str] = None,
-                 operator: Optional[str] = None,
-                 property_j_path: Optional[str] = None,
-                 property_type: Optional[str] = None):
-        """
-        A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
-        :param str expected_value: The expected value.
-        :param str operator: A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-        :param str property_j_path: The JPath of the entity model property that should be checked.
-        :param str property_type: The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-        """
-        if expected_value is not None:
-            pulumi.set(__self__, "expected_value", expected_value)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if property_j_path is not None:
-            pulumi.set(__self__, "property_j_path", property_j_path)
-        if property_type is not None:
-            pulumi.set(__self__, "property_type", property_type)
-
-    @property
-    @pulumi.getter(name="expectedValue")
-    def expected_value(self) -> Optional[str]:
-        """
-        The expected value.
-        """
-        return pulumi.get(self, "expected_value")
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[str]:
-        """
-        A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter(name="propertyJPath")
-    def property_j_path(self) -> Optional[str]:
-        """
-        The JPath of the entity model property that should be checked.
-        """
-        return pulumi.get(self, "property_j_path")
-
-    @property
-    @pulumi.getter(name="propertyType")
-    def property_type(self) -> Optional[str]:
-        """
-        The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-        """
-        return pulumi.get(self, "property_type")
-
-
-@pulumi.output_type
-class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
-    """
-    AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accountId":
-            suggest = "account_id"
-        elif key == "authenticationProvisioningState":
-            suggest = "authentication_provisioning_state"
-        elif key == "authenticationType":
-            suggest = "authentication_type"
-        elif key == "awsAssumeRoleArn":
-            suggest = "aws_assume_role_arn"
-        elif key == "awsExternalId":
-            suggest = "aws_external_id"
-        elif key == "grantedPermissions":
-            suggest = "granted_permissions"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AwAssumeRoleAuthenticationDetailsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AwAssumeRoleAuthenticationDetailsPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AwAssumeRoleAuthenticationDetailsPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 account_id: str,
-                 authentication_provisioning_state: str,
-                 authentication_type: str,
-                 aws_assume_role_arn: str,
-                 aws_external_id: str,
-                 granted_permissions: Sequence[str]):
-        """
-        AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
-        :param str account_id: The ID of the cloud account
-        :param str authentication_provisioning_state: State of the multi-cloud connector
-        :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-               Expected value is 'awsAssumeRole'.
-        :param str aws_assume_role_arn: Assumed role ID is an identifier that you can use to create temporary security credentials.
-        :param str aws_external_id: A unique identifier that is required when you assume a role in another account.
-        :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
-        """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "authentication_provisioning_state", authentication_provisioning_state)
-        pulumi.set(__self__, "authentication_type", 'awsAssumeRole')
-        pulumi.set(__self__, "aws_assume_role_arn", aws_assume_role_arn)
-        pulumi.set(__self__, "aws_external_id", aws_external_id)
-        pulumi.set(__self__, "granted_permissions", granted_permissions)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
-        """
-        The ID of the cloud account
-        """
-        return pulumi.get(self, "account_id")
-
-    @property
-    @pulumi.getter(name="authenticationProvisioningState")
-    def authentication_provisioning_state(self) -> str:
-        """
-        State of the multi-cloud connector
-        """
-        return pulumi.get(self, "authentication_provisioning_state")
-
-    @property
-    @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> str:
-        """
-        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-        Expected value is 'awsAssumeRole'.
-        """
-        return pulumi.get(self, "authentication_type")
-
-    @property
-    @pulumi.getter(name="awsAssumeRoleArn")
-    def aws_assume_role_arn(self) -> str:
-        """
-        Assumed role ID is an identifier that you can use to create temporary security credentials.
-        """
-        return pulumi.get(self, "aws_assume_role_arn")
-
-    @property
-    @pulumi.getter(name="awsExternalId")
-    def aws_external_id(self) -> str:
-        """
-        A unique identifier that is required when you assume a role in another account.
-        """
-        return pulumi.get(self, "aws_external_id")
-
-    @property
-    @pulumi.getter(name="grantedPermissions")
-    def granted_permissions(self) -> Sequence[str]:
-        """
-        The permissions detected in the cloud account.
-        """
-        return pulumi.get(self, "granted_permissions")
-
-
-@pulumi.output_type
-class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
-    """
-    AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accountId":
-            suggest = "account_id"
-        elif key == "authenticationProvisioningState":
-            suggest = "authentication_provisioning_state"
-        elif key == "authenticationType":
-            suggest = "authentication_type"
-        elif key == "awsAccessKeyId":
-            suggest = "aws_access_key_id"
-        elif key == "awsSecretAccessKey":
-            suggest = "aws_secret_access_key"
-        elif key == "grantedPermissions":
-            suggest = "granted_permissions"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AwsCredsAuthenticationDetailsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AwsCredsAuthenticationDetailsPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AwsCredsAuthenticationDetailsPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 account_id: str,
-                 authentication_provisioning_state: str,
-                 authentication_type: str,
-                 aws_access_key_id: str,
-                 aws_secret_access_key: str,
-                 granted_permissions: Sequence[str]):
-        """
-        AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
-        :param str account_id: The ID of the cloud account
-        :param str authentication_provisioning_state: State of the multi-cloud connector
-        :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-               Expected value is 'awsCreds'.
-        :param str aws_access_key_id: Public key element of the AWS credential object (write only)
-        :param str aws_secret_access_key: Secret key element of the AWS credential object (write only)
-        :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
-        """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "authentication_provisioning_state", authentication_provisioning_state)
-        pulumi.set(__self__, "authentication_type", 'awsCreds')
-        pulumi.set(__self__, "aws_access_key_id", aws_access_key_id)
-        pulumi.set(__self__, "aws_secret_access_key", aws_secret_access_key)
-        pulumi.set(__self__, "granted_permissions", granted_permissions)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
-        """
-        The ID of the cloud account
-        """
-        return pulumi.get(self, "account_id")
-
-    @property
-    @pulumi.getter(name="authenticationProvisioningState")
-    def authentication_provisioning_state(self) -> str:
-        """
-        State of the multi-cloud connector
-        """
-        return pulumi.get(self, "authentication_provisioning_state")
-
-    @property
-    @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> str:
-        """
-        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-        Expected value is 'awsCreds'.
-        """
-        return pulumi.get(self, "authentication_type")
-
-    @property
-    @pulumi.getter(name="awsAccessKeyId")
-    def aws_access_key_id(self) -> str:
-        """
-        Public key element of the AWS credential object (write only)
-        """
-        return pulumi.get(self, "aws_access_key_id")
-
-    @property
-    @pulumi.getter(name="awsSecretAccessKey")
-    def aws_secret_access_key(self) -> str:
-        """
-        Secret key element of the AWS credential object (write only)
-        """
-        return pulumi.get(self, "aws_secret_access_key")
-
-    @property
-    @pulumi.getter(name="grantedPermissions")
-    def granted_permissions(self) -> Sequence[str]:
-        """
-        The permissions detected in the cloud account.
-        """
-        return pulumi.get(self, "granted_permissions")
+        return pulumi.get(self, "environment_type")
 
 
 @pulumi.output_type
@@ -1130,7 +705,7 @@ class AzureResourceDetailsResponse(dict):
 @pulumi.output_type
 class CspmMonitorAwsOfferingResponse(dict):
     """
-    The CSPM monitoring for AWS offering configurations
+    The CSPM monitoring for AWS offering
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1156,7 +731,7 @@ class CspmMonitorAwsOfferingResponse(dict):
                  offering_type: str,
                  native_cloud_connection: Optional['outputs.CspmMonitorAwsOfferingResponseNativeCloudConnection'] = None):
         """
-        The CSPM monitoring for AWS offering configurations
+        The CSPM monitoring for AWS offering
         :param str description: The offering description.
         :param str offering_type: The type of the security offering.
                Expected value is 'CspmMonitorAws'.
@@ -1234,23 +809,662 @@ class CspmMonitorAwsOfferingResponseNativeCloudConnection(dict):
 
 
 @pulumi.output_type
-class DefenderForContainersAwsOfferingResponse(dict):
+class CspmMonitorAzureDevOpsOfferingResponse(dict):
     """
-    The Defender for Containers AWS offering configurations
+    The CSPM monitoring for AzureDevOps offering
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "offeringType":
             suggest = "offering_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CspmMonitorAzureDevOpsOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CspmMonitorAzureDevOpsOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CspmMonitorAzureDevOpsOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str):
+        """
+        The CSPM monitoring for AzureDevOps offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'CspmMonitorAzureDevOps'.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'CspmMonitorAzureDevOps')
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorAzureDevOps'.
+        """
+        return pulumi.get(self, "offering_type")
+
+
+@pulumi.output_type
+class CspmMonitorGcpOfferingResponse(dict):
+    """
+    The CSPM monitoring for GCP offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+        elif key == "nativeCloudConnection":
+            suggest = "native_cloud_connection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CspmMonitorGcpOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CspmMonitorGcpOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CspmMonitorGcpOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str,
+                 native_cloud_connection: Optional['outputs.CspmMonitorGcpOfferingResponseNativeCloudConnection'] = None):
+        """
+        The CSPM monitoring for GCP offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'CspmMonitorGcp'.
+        :param 'CspmMonitorGcpOfferingResponseNativeCloudConnection' native_cloud_connection: The native cloud connection configuration
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'CspmMonitorGcp')
+        if native_cloud_connection is not None:
+            pulumi.set(__self__, "native_cloud_connection", native_cloud_connection)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorGcp'.
+        """
+        return pulumi.get(self, "offering_type")
+
+    @property
+    @pulumi.getter(name="nativeCloudConnection")
+    def native_cloud_connection(self) -> Optional['outputs.CspmMonitorGcpOfferingResponseNativeCloudConnection']:
+        """
+        The native cloud connection configuration
+        """
+        return pulumi.get(self, "native_cloud_connection")
+
+
+@pulumi.output_type
+class CspmMonitorGcpOfferingResponseNativeCloudConnection(dict):
+    """
+    The native cloud connection configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountEmailAddress":
+            suggest = "service_account_email_address"
+        elif key == "workloadIdentityProviderId":
+            suggest = "workload_identity_provider_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CspmMonitorGcpOfferingResponseNativeCloudConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CspmMonitorGcpOfferingResponseNativeCloudConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CspmMonitorGcpOfferingResponseNativeCloudConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_account_email_address: Optional[str] = None,
+                 workload_identity_provider_id: Optional[str] = None):
+        """
+        The native cloud connection configuration
+        :param str service_account_email_address: The service account email address in GCP for this offering
+        :param str workload_identity_provider_id: The GCP workload identity provider id for the offering
+        """
+        if service_account_email_address is not None:
+            pulumi.set(__self__, "service_account_email_address", service_account_email_address)
+        if workload_identity_provider_id is not None:
+            pulumi.set(__self__, "workload_identity_provider_id", workload_identity_provider_id)
+
+    @property
+    @pulumi.getter(name="serviceAccountEmailAddress")
+    def service_account_email_address(self) -> Optional[str]:
+        """
+        The service account email address in GCP for this offering
+        """
+        return pulumi.get(self, "service_account_email_address")
+
+    @property
+    @pulumi.getter(name="workloadIdentityProviderId")
+    def workload_identity_provider_id(self) -> Optional[str]:
+        """
+        The GCP workload identity provider id for the offering
+        """
+        return pulumi.get(self, "workload_identity_provider_id")
+
+
+@pulumi.output_type
+class CspmMonitorGithubOfferingResponse(dict):
+    """
+    The CSPM monitoring for github offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CspmMonitorGithubOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CspmMonitorGithubOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CspmMonitorGithubOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str):
+        """
+        The CSPM monitoring for github offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'CspmMonitorGithub'.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'CspmMonitorGithub')
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'CspmMonitorGithub'.
+        """
+        return pulumi.get(self, "offering_type")
+
+
+@pulumi.output_type
+class DefenderCspmAwsOfferingResponse(dict):
+    """
+    The CSPM P1 for Aws offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+        elif key == "vmScanners":
+            suggest = "vm_scanners"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderCspmAwsOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderCspmAwsOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderCspmAwsOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str,
+                 vm_scanners: Optional['outputs.DefenderCspmAwsOfferingResponseVmScanners'] = None):
+        """
+        The CSPM P1 for Aws offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'DefenderCspmAws'.
+        :param 'DefenderCspmAwsOfferingResponseVmScanners' vm_scanners: The Microsoft Defender for Server VM scanning configuration
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'DefenderCspmAws')
+        if vm_scanners is not None:
+            pulumi.set(__self__, "vm_scanners", vm_scanners)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'DefenderCspmAws'.
+        """
+        return pulumi.get(self, "offering_type")
+
+    @property
+    @pulumi.getter(name="vmScanners")
+    def vm_scanners(self) -> Optional['outputs.DefenderCspmAwsOfferingResponseVmScanners']:
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+        return pulumi.get(self, "vm_scanners")
+
+
+@pulumi.output_type
+class DefenderCspmAwsOfferingResponseConfiguration(dict):
+    """
+    configuration for Microsoft Defender for Server VM scanning
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudRoleArn":
+            suggest = "cloud_role_arn"
+        elif key == "exclusionTags":
+            suggest = "exclusion_tags"
+        elif key == "scanningMode":
+            suggest = "scanning_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderCspmAwsOfferingResponseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderCspmAwsOfferingResponseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderCspmAwsOfferingResponseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_role_arn: Optional[str] = None,
+                 exclusion_tags: Optional[Mapping[str, str]] = None,
+                 scanning_mode: Optional[str] = None):
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        :param Mapping[str, str] exclusion_tags: VM tags that indicates that VM should not be scanned
+        :param str scanning_mode: The scanning mode for the vm scan.
+        """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+        if exclusion_tags is not None:
+            pulumi.set(__self__, "exclusion_tags", exclusion_tags)
+        if scanning_mode is not None:
+            pulumi.set(__self__, "scanning_mode", scanning_mode)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[str]:
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        return pulumi.get(self, "cloud_role_arn")
+
+    @property
+    @pulumi.getter(name="exclusionTags")
+    def exclusion_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        VM tags that indicates that VM should not be scanned
+        """
+        return pulumi.get(self, "exclusion_tags")
+
+    @property
+    @pulumi.getter(name="scanningMode")
+    def scanning_mode(self) -> Optional[str]:
+        """
+        The scanning mode for the vm scan.
+        """
+        return pulumi.get(self, "scanning_mode")
+
+
+@pulumi.output_type
+class DefenderCspmAwsOfferingResponseVmScanners(dict):
+    """
+    The Microsoft Defender for Server VM scanning configuration
+    """
+    def __init__(__self__, *,
+                 configuration: Optional['outputs.DefenderCspmAwsOfferingResponseConfiguration'] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        :param 'DefenderCspmAwsOfferingResponseConfiguration' configuration: configuration for Microsoft Defender for Server VM scanning
+        :param bool enabled: Is Microsoft Defender for Server VM scanning enabled
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.DefenderCspmAwsOfferingResponseConfiguration']:
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is Microsoft Defender for Server VM scanning enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderCspmGcpOfferingResponse(dict):
+    """
+    The CSPM P1 for GCP offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderCspmGcpOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderCspmGcpOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderCspmGcpOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str):
+        """
+        The CSPM P1 for GCP offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'DefenderCspmGcp'.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'DefenderCspmGcp')
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'DefenderCspmGcp'.
+        """
+        return pulumi.get(self, "offering_type")
+
+
+@pulumi.output_type
+class DefenderFoDatabasesAwsOfferingResponse(dict):
+    """
+    The Defender for Databases AWS offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+        elif key == "arcAutoProvisioning":
+            suggest = "arc_auto_provisioning"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderFoDatabasesAwsOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderFoDatabasesAwsOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderFoDatabasesAwsOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str,
+                 arc_auto_provisioning: Optional['outputs.DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning'] = None,
+                 rds: Optional['outputs.DefenderFoDatabasesAwsOfferingResponseRds'] = None):
+        """
+        The Defender for Databases AWS offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'DefenderForDatabasesAws'.
+        :param 'DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning' arc_auto_provisioning: The ARC autoprovisioning configuration
+        :param 'DefenderFoDatabasesAwsOfferingResponseRds' rds: The RDS configuration
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'DefenderForDatabasesAws')
+        if arc_auto_provisioning is not None:
+            pulumi.set(__self__, "arc_auto_provisioning", arc_auto_provisioning)
+        if rds is not None:
+            pulumi.set(__self__, "rds", rds)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDatabasesAws'.
+        """
+        return pulumi.get(self, "offering_type")
+
+    @property
+    @pulumi.getter(name="arcAutoProvisioning")
+    def arc_auto_provisioning(self) -> Optional['outputs.DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning']:
+        """
+        The ARC autoprovisioning configuration
+        """
+        return pulumi.get(self, "arc_auto_provisioning")
+
+    @property
+    @pulumi.getter
+    def rds(self) -> Optional['outputs.DefenderFoDatabasesAwsOfferingResponseRds']:
+        """
+        The RDS configuration
+        """
+        return pulumi.get(self, "rds")
+
+
+@pulumi.output_type
+class DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning(dict):
+    """
+    The ARC autoprovisioning configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudRoleArn":
+            suggest = "cloud_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_role_arn: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The ARC autoprovisioning configuration
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        :param bool enabled: Is arc auto provisioning enabled
+        """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[str]:
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        return pulumi.get(self, "cloud_role_arn")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is arc auto provisioning enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderFoDatabasesAwsOfferingResponseRds(dict):
+    """
+    The RDS configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudRoleArn":
+            suggest = "cloud_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderFoDatabasesAwsOfferingResponseRds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderFoDatabasesAwsOfferingResponseRds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderFoDatabasesAwsOfferingResponseRds.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_role_arn: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The RDS configuration
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        :param bool enabled: Is RDS protection enabled
+        """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[str]:
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        return pulumi.get(self, "cloud_role_arn")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is RDS protection enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderForContainersAwsOfferingResponse(dict):
+    """
+    The Defender for Containers AWS offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+        elif key == "autoProvisioning":
+            suggest = "auto_provisioning"
         elif key == "cloudWatchToKinesis":
             suggest = "cloud_watch_to_kinesis"
+        elif key == "containerVulnerabilityAssessment":
+            suggest = "container_vulnerability_assessment"
+        elif key == "containerVulnerabilityAssessmentTask":
+            suggest = "container_vulnerability_assessment_task"
+        elif key == "enableContainerVulnerabilityAssessment":
+            suggest = "enable_container_vulnerability_assessment"
         elif key == "kinesisToS3":
             suggest = "kinesis_to_s3"
+        elif key == "kubeAuditRetentionTime":
+            suggest = "kube_audit_retention_time"
         elif key == "kubernetesScubaReader":
             suggest = "kubernetes_scuba_reader"
         elif key == "kubernetesService":
             suggest = "kubernetes_service"
+        elif key == "scubaExternalId":
+            suggest = "scuba_external_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DefenderForContainersAwsOfferingResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1266,30 +1480,54 @@ class DefenderForContainersAwsOfferingResponse(dict):
     def __init__(__self__, *,
                  description: str,
                  offering_type: str,
+                 auto_provisioning: Optional[bool] = None,
                  cloud_watch_to_kinesis: Optional['outputs.DefenderForContainersAwsOfferingResponseCloudWatchToKinesis'] = None,
+                 container_vulnerability_assessment: Optional['outputs.DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment'] = None,
+                 container_vulnerability_assessment_task: Optional['outputs.DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask'] = None,
+                 enable_container_vulnerability_assessment: Optional[bool] = None,
                  kinesis_to_s3: Optional['outputs.DefenderForContainersAwsOfferingResponseKinesisToS3'] = None,
+                 kube_audit_retention_time: Optional[float] = None,
                  kubernetes_scuba_reader: Optional['outputs.DefenderForContainersAwsOfferingResponseKubernetesScubaReader'] = None,
-                 kubernetes_service: Optional['outputs.DefenderForContainersAwsOfferingResponseKubernetesService'] = None):
+                 kubernetes_service: Optional['outputs.DefenderForContainersAwsOfferingResponseKubernetesService'] = None,
+                 scuba_external_id: Optional[str] = None):
         """
-        The Defender for Containers AWS offering configurations
+        The Defender for Containers AWS offering
         :param str description: The offering description.
         :param str offering_type: The type of the security offering.
                Expected value is 'DefenderForContainersAws'.
+        :param bool auto_provisioning: Is audit logs pipeline auto provisioning enabled
         :param 'DefenderForContainersAwsOfferingResponseCloudWatchToKinesis' cloud_watch_to_kinesis: The cloudwatch to kinesis connection configuration
+        :param 'DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment' container_vulnerability_assessment: The container vulnerability assessment configuration
+        :param 'DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask' container_vulnerability_assessment_task: The container vulnerability assessment task configuration
+        :param bool enable_container_vulnerability_assessment: Enable container vulnerability assessment feature
         :param 'DefenderForContainersAwsOfferingResponseKinesisToS3' kinesis_to_s3: The kinesis to s3 connection configuration
+        :param float kube_audit_retention_time: The retention time in days of kube audit logs set on the CloudWatch log group
         :param 'DefenderForContainersAwsOfferingResponseKubernetesScubaReader' kubernetes_scuba_reader: The kubernetes to scuba connection configuration
         :param 'DefenderForContainersAwsOfferingResponseKubernetesService' kubernetes_service: The kubernetes service connection configuration
+        :param str scuba_external_id: The externalId used by the data reader to prevent the confused deputy attack
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "offering_type", 'DefenderForContainersAws')
+        if auto_provisioning is not None:
+            pulumi.set(__self__, "auto_provisioning", auto_provisioning)
         if cloud_watch_to_kinesis is not None:
             pulumi.set(__self__, "cloud_watch_to_kinesis", cloud_watch_to_kinesis)
+        if container_vulnerability_assessment is not None:
+            pulumi.set(__self__, "container_vulnerability_assessment", container_vulnerability_assessment)
+        if container_vulnerability_assessment_task is not None:
+            pulumi.set(__self__, "container_vulnerability_assessment_task", container_vulnerability_assessment_task)
+        if enable_container_vulnerability_assessment is not None:
+            pulumi.set(__self__, "enable_container_vulnerability_assessment", enable_container_vulnerability_assessment)
         if kinesis_to_s3 is not None:
             pulumi.set(__self__, "kinesis_to_s3", kinesis_to_s3)
+        if kube_audit_retention_time is not None:
+            pulumi.set(__self__, "kube_audit_retention_time", kube_audit_retention_time)
         if kubernetes_scuba_reader is not None:
             pulumi.set(__self__, "kubernetes_scuba_reader", kubernetes_scuba_reader)
         if kubernetes_service is not None:
             pulumi.set(__self__, "kubernetes_service", kubernetes_service)
+        if scuba_external_id is not None:
+            pulumi.set(__self__, "scuba_external_id", scuba_external_id)
 
     @property
     @pulumi.getter
@@ -1309,6 +1547,14 @@ class DefenderForContainersAwsOfferingResponse(dict):
         return pulumi.get(self, "offering_type")
 
     @property
+    @pulumi.getter(name="autoProvisioning")
+    def auto_provisioning(self) -> Optional[bool]:
+        """
+        Is audit logs pipeline auto provisioning enabled
+        """
+        return pulumi.get(self, "auto_provisioning")
+
+    @property
     @pulumi.getter(name="cloudWatchToKinesis")
     def cloud_watch_to_kinesis(self) -> Optional['outputs.DefenderForContainersAwsOfferingResponseCloudWatchToKinesis']:
         """
@@ -1317,12 +1563,44 @@ class DefenderForContainersAwsOfferingResponse(dict):
         return pulumi.get(self, "cloud_watch_to_kinesis")
 
     @property
+    @pulumi.getter(name="containerVulnerabilityAssessment")
+    def container_vulnerability_assessment(self) -> Optional['outputs.DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment']:
+        """
+        The container vulnerability assessment configuration
+        """
+        return pulumi.get(self, "container_vulnerability_assessment")
+
+    @property
+    @pulumi.getter(name="containerVulnerabilityAssessmentTask")
+    def container_vulnerability_assessment_task(self) -> Optional['outputs.DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask']:
+        """
+        The container vulnerability assessment task configuration
+        """
+        return pulumi.get(self, "container_vulnerability_assessment_task")
+
+    @property
+    @pulumi.getter(name="enableContainerVulnerabilityAssessment")
+    def enable_container_vulnerability_assessment(self) -> Optional[bool]:
+        """
+        Enable container vulnerability assessment feature
+        """
+        return pulumi.get(self, "enable_container_vulnerability_assessment")
+
+    @property
     @pulumi.getter(name="kinesisToS3")
     def kinesis_to_s3(self) -> Optional['outputs.DefenderForContainersAwsOfferingResponseKinesisToS3']:
         """
         The kinesis to s3 connection configuration
         """
         return pulumi.get(self, "kinesis_to_s3")
+
+    @property
+    @pulumi.getter(name="kubeAuditRetentionTime")
+    def kube_audit_retention_time(self) -> Optional[float]:
+        """
+        The retention time in days of kube audit logs set on the CloudWatch log group
+        """
+        return pulumi.get(self, "kube_audit_retention_time")
 
     @property
     @pulumi.getter(name="kubernetesScubaReader")
@@ -1339,6 +1617,14 @@ class DefenderForContainersAwsOfferingResponse(dict):
         The kubernetes service connection configuration
         """
         return pulumi.get(self, "kubernetes_service")
+
+    @property
+    @pulumi.getter(name="scubaExternalId")
+    def scuba_external_id(self) -> Optional[str]:
+        """
+        The externalId used by the data reader to prevent the confused deputy attack
+        """
+        return pulumi.get(self, "scuba_external_id")
 
 
 @pulumi.output_type
@@ -1367,6 +1653,86 @@ class DefenderForContainersAwsOfferingResponseCloudWatchToKinesis(dict):
                  cloud_role_arn: Optional[str] = None):
         """
         The cloudwatch to kinesis connection configuration
+        :param str cloud_role_arn: The cloud role ARN in AWS used by CloudWatch to transfer data into Kinesis
+        """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[str]:
+        """
+        The cloud role ARN in AWS used by CloudWatch to transfer data into Kinesis
+        """
+        return pulumi.get(self, "cloud_role_arn")
+
+
+@pulumi.output_type
+class DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment(dict):
+    """
+    The container vulnerability assessment configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudRoleArn":
+            suggest = "cloud_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_role_arn: Optional[str] = None):
+        """
+        The container vulnerability assessment configuration
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[str]:
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        return pulumi.get(self, "cloud_role_arn")
+
+
+@pulumi.output_type
+class DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask(dict):
+    """
+    The container vulnerability assessment task configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudRoleArn":
+            suggest = "cloud_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_role_arn: Optional[str] = None):
+        """
+        The container vulnerability assessment task configuration
         :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
         if cloud_role_arn is not None:
@@ -1407,7 +1773,7 @@ class DefenderForContainersAwsOfferingResponseKinesisToS3(dict):
                  cloud_role_arn: Optional[str] = None):
         """
         The kinesis to s3 connection configuration
-        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        :param str cloud_role_arn: The cloud role ARN in AWS used by Kinesis to transfer data into S3
         """
         if cloud_role_arn is not None:
             pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
@@ -1416,7 +1782,7 @@ class DefenderForContainersAwsOfferingResponseKinesisToS3(dict):
     @pulumi.getter(name="cloudRoleArn")
     def cloud_role_arn(self) -> Optional[str]:
         """
-        The cloud role ARN in AWS for this feature
+        The cloud role ARN in AWS used by Kinesis to transfer data into S3
         """
         return pulumi.get(self, "cloud_role_arn")
 
@@ -1447,7 +1813,7 @@ class DefenderForContainersAwsOfferingResponseKubernetesScubaReader(dict):
                  cloud_role_arn: Optional[str] = None):
         """
         The kubernetes to scuba connection configuration
-        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature used for reading data
         """
         if cloud_role_arn is not None:
             pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
@@ -1456,7 +1822,7 @@ class DefenderForContainersAwsOfferingResponseKubernetesScubaReader(dict):
     @pulumi.getter(name="cloudRoleArn")
     def cloud_role_arn(self) -> Optional[str]:
         """
-        The cloud role ARN in AWS for this feature
+        The cloud role ARN in AWS for this feature used for reading data
         """
         return pulumi.get(self, "cloud_role_arn")
 
@@ -1487,7 +1853,7 @@ class DefenderForContainersAwsOfferingResponseKubernetesService(dict):
                  cloud_role_arn: Optional[str] = None):
         """
         The kubernetes service connection configuration
-        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature used for provisioning resources
         """
         if cloud_role_arn is not None:
             pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
@@ -1496,15 +1862,506 @@ class DefenderForContainersAwsOfferingResponseKubernetesService(dict):
     @pulumi.getter(name="cloudRoleArn")
     def cloud_role_arn(self) -> Optional[str]:
         """
-        The cloud role ARN in AWS for this feature
+        The cloud role ARN in AWS for this feature used for provisioning resources
         """
         return pulumi.get(self, "cloud_role_arn")
 
 
 @pulumi.output_type
+class DefenderForContainersGcpOfferingResponse(dict):
+    """
+    The containers GCP offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+        elif key == "auditLogsAutoProvisioningFlag":
+            suggest = "audit_logs_auto_provisioning_flag"
+        elif key == "dataPipelineNativeCloudConnection":
+            suggest = "data_pipeline_native_cloud_connection"
+        elif key == "defenderAgentAutoProvisioningFlag":
+            suggest = "defender_agent_auto_provisioning_flag"
+        elif key == "nativeCloudConnection":
+            suggest = "native_cloud_connection"
+        elif key == "policyAgentAutoProvisioningFlag":
+            suggest = "policy_agent_auto_provisioning_flag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForContainersGcpOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForContainersGcpOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForContainersGcpOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str,
+                 audit_logs_auto_provisioning_flag: Optional[bool] = None,
+                 data_pipeline_native_cloud_connection: Optional['outputs.DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection'] = None,
+                 defender_agent_auto_provisioning_flag: Optional[bool] = None,
+                 native_cloud_connection: Optional['outputs.DefenderForContainersGcpOfferingResponseNativeCloudConnection'] = None,
+                 policy_agent_auto_provisioning_flag: Optional[bool] = None):
+        """
+        The containers GCP offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'DefenderForContainersGcp'.
+        :param bool audit_logs_auto_provisioning_flag: Is audit logs data collection enabled
+        :param 'DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection' data_pipeline_native_cloud_connection: The native cloud connection configuration
+        :param bool defender_agent_auto_provisioning_flag: Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
+        :param 'DefenderForContainersGcpOfferingResponseNativeCloudConnection' native_cloud_connection: The native cloud connection configuration
+        :param bool policy_agent_auto_provisioning_flag: Is Policy Kubernetes agent auto provisioning enabled
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'DefenderForContainersGcp')
+        if audit_logs_auto_provisioning_flag is not None:
+            pulumi.set(__self__, "audit_logs_auto_provisioning_flag", audit_logs_auto_provisioning_flag)
+        if data_pipeline_native_cloud_connection is not None:
+            pulumi.set(__self__, "data_pipeline_native_cloud_connection", data_pipeline_native_cloud_connection)
+        if defender_agent_auto_provisioning_flag is not None:
+            pulumi.set(__self__, "defender_agent_auto_provisioning_flag", defender_agent_auto_provisioning_flag)
+        if native_cloud_connection is not None:
+            pulumi.set(__self__, "native_cloud_connection", native_cloud_connection)
+        if policy_agent_auto_provisioning_flag is not None:
+            pulumi.set(__self__, "policy_agent_auto_provisioning_flag", policy_agent_auto_provisioning_flag)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForContainersGcp'.
+        """
+        return pulumi.get(self, "offering_type")
+
+    @property
+    @pulumi.getter(name="auditLogsAutoProvisioningFlag")
+    def audit_logs_auto_provisioning_flag(self) -> Optional[bool]:
+        """
+        Is audit logs data collection enabled
+        """
+        return pulumi.get(self, "audit_logs_auto_provisioning_flag")
+
+    @property
+    @pulumi.getter(name="dataPipelineNativeCloudConnection")
+    def data_pipeline_native_cloud_connection(self) -> Optional['outputs.DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection']:
+        """
+        The native cloud connection configuration
+        """
+        return pulumi.get(self, "data_pipeline_native_cloud_connection")
+
+    @property
+    @pulumi.getter(name="defenderAgentAutoProvisioningFlag")
+    def defender_agent_auto_provisioning_flag(self) -> Optional[bool]:
+        """
+        Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
+        """
+        return pulumi.get(self, "defender_agent_auto_provisioning_flag")
+
+    @property
+    @pulumi.getter(name="nativeCloudConnection")
+    def native_cloud_connection(self) -> Optional['outputs.DefenderForContainersGcpOfferingResponseNativeCloudConnection']:
+        """
+        The native cloud connection configuration
+        """
+        return pulumi.get(self, "native_cloud_connection")
+
+    @property
+    @pulumi.getter(name="policyAgentAutoProvisioningFlag")
+    def policy_agent_auto_provisioning_flag(self) -> Optional[bool]:
+        """
+        Is Policy Kubernetes agent auto provisioning enabled
+        """
+        return pulumi.get(self, "policy_agent_auto_provisioning_flag")
+
+
+@pulumi.output_type
+class DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection(dict):
+    """
+    The native cloud connection configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountEmailAddress":
+            suggest = "service_account_email_address"
+        elif key == "workloadIdentityProviderId":
+            suggest = "workload_identity_provider_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_account_email_address: Optional[str] = None,
+                 workload_identity_provider_id: Optional[str] = None):
+        """
+        The native cloud connection configuration
+        :param str service_account_email_address: The data collection service account email address in GCP for this offering
+        :param str workload_identity_provider_id: The data collection GCP workload identity provider id for this offering
+        """
+        if service_account_email_address is not None:
+            pulumi.set(__self__, "service_account_email_address", service_account_email_address)
+        if workload_identity_provider_id is not None:
+            pulumi.set(__self__, "workload_identity_provider_id", workload_identity_provider_id)
+
+    @property
+    @pulumi.getter(name="serviceAccountEmailAddress")
+    def service_account_email_address(self) -> Optional[str]:
+        """
+        The data collection service account email address in GCP for this offering
+        """
+        return pulumi.get(self, "service_account_email_address")
+
+    @property
+    @pulumi.getter(name="workloadIdentityProviderId")
+    def workload_identity_provider_id(self) -> Optional[str]:
+        """
+        The data collection GCP workload identity provider id for this offering
+        """
+        return pulumi.get(self, "workload_identity_provider_id")
+
+
+@pulumi.output_type
+class DefenderForContainersGcpOfferingResponseNativeCloudConnection(dict):
+    """
+    The native cloud connection configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountEmailAddress":
+            suggest = "service_account_email_address"
+        elif key == "workloadIdentityProviderId":
+            suggest = "workload_identity_provider_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForContainersGcpOfferingResponseNativeCloudConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForContainersGcpOfferingResponseNativeCloudConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForContainersGcpOfferingResponseNativeCloudConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_account_email_address: Optional[str] = None,
+                 workload_identity_provider_id: Optional[str] = None):
+        """
+        The native cloud connection configuration
+        :param str service_account_email_address: The service account email address in GCP for this offering
+        :param str workload_identity_provider_id: The GCP workload identity provider id for this offering
+        """
+        if service_account_email_address is not None:
+            pulumi.set(__self__, "service_account_email_address", service_account_email_address)
+        if workload_identity_provider_id is not None:
+            pulumi.set(__self__, "workload_identity_provider_id", workload_identity_provider_id)
+
+    @property
+    @pulumi.getter(name="serviceAccountEmailAddress")
+    def service_account_email_address(self) -> Optional[str]:
+        """
+        The service account email address in GCP for this offering
+        """
+        return pulumi.get(self, "service_account_email_address")
+
+    @property
+    @pulumi.getter(name="workloadIdentityProviderId")
+    def workload_identity_provider_id(self) -> Optional[str]:
+        """
+        The GCP workload identity provider id for this offering
+        """
+        return pulumi.get(self, "workload_identity_provider_id")
+
+
+@pulumi.output_type
+class DefenderForDatabasesGcpOfferingResponse(dict):
+    """
+    The Defender for Databases GCP offering configurations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+        elif key == "arcAutoProvisioning":
+            suggest = "arc_auto_provisioning"
+        elif key == "defenderForDatabasesArcAutoProvisioning":
+            suggest = "defender_for_databases_arc_auto_provisioning"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForDatabasesGcpOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForDatabasesGcpOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForDatabasesGcpOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str,
+                 arc_auto_provisioning: Optional['outputs.DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning'] = None,
+                 defender_for_databases_arc_auto_provisioning: Optional['outputs.DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning'] = None):
+        """
+        The Defender for Databases GCP offering configurations
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'DefenderForDatabasesGcp'.
+        :param 'DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning' arc_auto_provisioning: The ARC autoprovisioning configuration
+        :param 'DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning' defender_for_databases_arc_auto_provisioning: The native cloud connection configuration
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'DefenderForDatabasesGcp')
+        if arc_auto_provisioning is not None:
+            pulumi.set(__self__, "arc_auto_provisioning", arc_auto_provisioning)
+        if defender_for_databases_arc_auto_provisioning is not None:
+            pulumi.set(__self__, "defender_for_databases_arc_auto_provisioning", defender_for_databases_arc_auto_provisioning)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDatabasesGcp'.
+        """
+        return pulumi.get(self, "offering_type")
+
+    @property
+    @pulumi.getter(name="arcAutoProvisioning")
+    def arc_auto_provisioning(self) -> Optional['outputs.DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning']:
+        """
+        The ARC autoprovisioning configuration
+        """
+        return pulumi.get(self, "arc_auto_provisioning")
+
+    @property
+    @pulumi.getter(name="defenderForDatabasesArcAutoProvisioning")
+    def defender_for_databases_arc_auto_provisioning(self) -> Optional['outputs.DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning']:
+        """
+        The native cloud connection configuration
+        """
+        return pulumi.get(self, "defender_for_databases_arc_auto_provisioning")
+
+
+@pulumi.output_type
+class DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning(dict):
+    """
+    The ARC autoprovisioning configuration
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        The ARC autoprovisioning configuration
+        :param bool enabled: Is arc auto provisioning enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is arc auto provisioning enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning(dict):
+    """
+    The native cloud connection configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountEmailAddress":
+            suggest = "service_account_email_address"
+        elif key == "workloadIdentityProviderId":
+            suggest = "workload_identity_provider_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_account_email_address: Optional[str] = None,
+                 workload_identity_provider_id: Optional[str] = None):
+        """
+        The native cloud connection configuration
+        :param str service_account_email_address: The service account email address in GCP for this offering
+        :param str workload_identity_provider_id: The GCP workload identity provider id for this offering
+        """
+        if service_account_email_address is not None:
+            pulumi.set(__self__, "service_account_email_address", service_account_email_address)
+        if workload_identity_provider_id is not None:
+            pulumi.set(__self__, "workload_identity_provider_id", workload_identity_provider_id)
+
+    @property
+    @pulumi.getter(name="serviceAccountEmailAddress")
+    def service_account_email_address(self) -> Optional[str]:
+        """
+        The service account email address in GCP for this offering
+        """
+        return pulumi.get(self, "service_account_email_address")
+
+    @property
+    @pulumi.getter(name="workloadIdentityProviderId")
+    def workload_identity_provider_id(self) -> Optional[str]:
+        """
+        The GCP workload identity provider id for this offering
+        """
+        return pulumi.get(self, "workload_identity_provider_id")
+
+
+@pulumi.output_type
+class DefenderForDevOpsAzureDevOpsOfferingResponse(dict):
+    """
+    The Defender for DevOps for Azure DevOps offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForDevOpsAzureDevOpsOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForDevOpsAzureDevOpsOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForDevOpsAzureDevOpsOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str):
+        """
+        The Defender for DevOps for Azure DevOps offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'DefenderForDevOpsAzureDevOps'.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'DefenderForDevOpsAzureDevOps')
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDevOpsAzureDevOps'.
+        """
+        return pulumi.get(self, "offering_type")
+
+
+@pulumi.output_type
+class DefenderForDevOpsGithubOfferingResponse(dict):
+    """
+    The Defender for DevOps for Github offering
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForDevOpsGithubOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForDevOpsGithubOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForDevOpsGithubOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str):
+        """
+        The Defender for DevOps for Github offering
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'DefenderForDevOpsGithub'.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'DefenderForDevOpsGithub')
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'DefenderForDevOpsGithub'.
+        """
+        return pulumi.get(self, "offering_type")
+
+
+@pulumi.output_type
 class DefenderForServersAwsOfferingResponse(dict):
     """
-    The Defender for Servers AWS offering configurations
+    The Defender for Servers AWS offering
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1515,6 +2372,14 @@ class DefenderForServersAwsOfferingResponse(dict):
             suggest = "arc_auto_provisioning"
         elif key == "defenderForServers":
             suggest = "defender_for_servers"
+        elif key == "mdeAutoProvisioning":
+            suggest = "mde_auto_provisioning"
+        elif key == "subPlan":
+            suggest = "sub_plan"
+        elif key == "vaAutoProvisioning":
+            suggest = "va_auto_provisioning"
+        elif key == "vmScanners":
+            suggest = "vm_scanners"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DefenderForServersAwsOfferingResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1531,14 +2396,22 @@ class DefenderForServersAwsOfferingResponse(dict):
                  description: str,
                  offering_type: str,
                  arc_auto_provisioning: Optional['outputs.DefenderForServersAwsOfferingResponseArcAutoProvisioning'] = None,
-                 defender_for_servers: Optional['outputs.DefenderForServersAwsOfferingResponseDefenderForServers'] = None):
+                 defender_for_servers: Optional['outputs.DefenderForServersAwsOfferingResponseDefenderForServers'] = None,
+                 mde_auto_provisioning: Optional['outputs.DefenderForServersAwsOfferingResponseMdeAutoProvisioning'] = None,
+                 sub_plan: Optional['outputs.DefenderForServersAwsOfferingResponseSubPlan'] = None,
+                 va_auto_provisioning: Optional['outputs.DefenderForServersAwsOfferingResponseVaAutoProvisioning'] = None,
+                 vm_scanners: Optional['outputs.DefenderForServersAwsOfferingResponseVmScanners'] = None):
         """
-        The Defender for Servers AWS offering configurations
+        The Defender for Servers AWS offering
         :param str description: The offering description.
         :param str offering_type: The type of the security offering.
                Expected value is 'DefenderForServersAws'.
         :param 'DefenderForServersAwsOfferingResponseArcAutoProvisioning' arc_auto_provisioning: The ARC autoprovisioning configuration
         :param 'DefenderForServersAwsOfferingResponseDefenderForServers' defender_for_servers: The Defender for servers connection configuration
+        :param 'DefenderForServersAwsOfferingResponseMdeAutoProvisioning' mde_auto_provisioning: The Microsoft Defender for Endpoint autoprovisioning configuration
+        :param 'DefenderForServersAwsOfferingResponseSubPlan' sub_plan: configuration for the servers offering subPlan
+        :param 'DefenderForServersAwsOfferingResponseVaAutoProvisioning' va_auto_provisioning: The Vulnerability Assessment autoprovisioning configuration
+        :param 'DefenderForServersAwsOfferingResponseVmScanners' vm_scanners: The Microsoft Defender for Server VM scanning configuration
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "offering_type", 'DefenderForServersAws')
@@ -1546,6 +2419,14 @@ class DefenderForServersAwsOfferingResponse(dict):
             pulumi.set(__self__, "arc_auto_provisioning", arc_auto_provisioning)
         if defender_for_servers is not None:
             pulumi.set(__self__, "defender_for_servers", defender_for_servers)
+        if mde_auto_provisioning is not None:
+            pulumi.set(__self__, "mde_auto_provisioning", mde_auto_provisioning)
+        if sub_plan is not None:
+            pulumi.set(__self__, "sub_plan", sub_plan)
+        if va_auto_provisioning is not None:
+            pulumi.set(__self__, "va_auto_provisioning", va_auto_provisioning)
+        if vm_scanners is not None:
+            pulumi.set(__self__, "vm_scanners", vm_scanners)
 
     @property
     @pulumi.getter
@@ -1580,6 +2461,38 @@ class DefenderForServersAwsOfferingResponse(dict):
         """
         return pulumi.get(self, "defender_for_servers")
 
+    @property
+    @pulumi.getter(name="mdeAutoProvisioning")
+    def mde_auto_provisioning(self) -> Optional['outputs.DefenderForServersAwsOfferingResponseMdeAutoProvisioning']:
+        """
+        The Microsoft Defender for Endpoint autoprovisioning configuration
+        """
+        return pulumi.get(self, "mde_auto_provisioning")
+
+    @property
+    @pulumi.getter(name="subPlan")
+    def sub_plan(self) -> Optional['outputs.DefenderForServersAwsOfferingResponseSubPlan']:
+        """
+        configuration for the servers offering subPlan
+        """
+        return pulumi.get(self, "sub_plan")
+
+    @property
+    @pulumi.getter(name="vaAutoProvisioning")
+    def va_auto_provisioning(self) -> Optional['outputs.DefenderForServersAwsOfferingResponseVaAutoProvisioning']:
+        """
+        The Vulnerability Assessment autoprovisioning configuration
+        """
+        return pulumi.get(self, "va_auto_provisioning")
+
+    @property
+    @pulumi.getter(name="vmScanners")
+    def vm_scanners(self) -> Optional['outputs.DefenderForServersAwsOfferingResponseVmScanners']:
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        """
+        return pulumi.get(self, "vm_scanners")
+
 
 @pulumi.output_type
 class DefenderForServersAwsOfferingResponseArcAutoProvisioning(dict):
@@ -1589,8 +2502,8 @@ class DefenderForServersAwsOfferingResponseArcAutoProvisioning(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "servicePrincipalSecretMetadata":
-            suggest = "service_principal_secret_metadata"
+        if key == "cloudRoleArn":
+            suggest = "cloud_role_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DefenderForServersAwsOfferingResponseArcAutoProvisioning. Access the value via the '{suggest}' property getter instead.")
@@ -1604,17 +2517,25 @@ class DefenderForServersAwsOfferingResponseArcAutoProvisioning(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 service_principal_secret_metadata: Optional['outputs.DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata'] = None):
+                 cloud_role_arn: Optional[str] = None,
+                 enabled: Optional[bool] = None):
         """
         The ARC autoprovisioning configuration
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param bool enabled: Is arc auto provisioning enabled
-        :param 'DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata' service_principal_secret_metadata: Metadata of Service Principal secret for autoprovisioning
         """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if service_principal_secret_metadata is not None:
-            pulumi.set(__self__, "service_principal_secret_metadata", service_principal_secret_metadata)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[str]:
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        return pulumi.get(self, "cloud_role_arn")
 
     @property
     @pulumi.getter
@@ -1624,13 +2545,96 @@ class DefenderForServersAwsOfferingResponseArcAutoProvisioning(dict):
         """
         return pulumi.get(self, "enabled")
 
+
+@pulumi.output_type
+class DefenderForServersAwsOfferingResponseConfiguration(dict):
+    """
+    configuration for Vulnerability Assessment autoprovisioning
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+        :param str type: The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
     @property
-    @pulumi.getter(name="servicePrincipalSecretMetadata")
-    def service_principal_secret_metadata(self) -> Optional['outputs.DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata']:
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         """
-        Metadata of Service Principal secret for autoprovisioning
+        The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
         """
-        return pulumi.get(self, "service_principal_secret_metadata")
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DefenderForServersAwsOfferingResponseConfigurationConfiguration(dict):
+    """
+    configuration for Microsoft Defender for Server VM scanning
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudRoleArn":
+            suggest = "cloud_role_arn"
+        elif key == "exclusionTags":
+            suggest = "exclusion_tags"
+        elif key == "scanningMode":
+            suggest = "scanning_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForServersAwsOfferingResponseConfigurationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForServersAwsOfferingResponseConfigurationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForServersAwsOfferingResponseConfigurationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_role_arn: Optional[str] = None,
+                 exclusion_tags: Optional[Mapping[str, str]] = None,
+                 scanning_mode: Optional[str] = None):
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        :param Mapping[str, str] exclusion_tags: VM tags that indicates that VM should not be scanned
+        :param str scanning_mode: The scanning mode for the vm scan.
+        """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+        if exclusion_tags is not None:
+            pulumi.set(__self__, "exclusion_tags", exclusion_tags)
+        if scanning_mode is not None:
+            pulumi.set(__self__, "scanning_mode", scanning_mode)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[str]:
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        return pulumi.get(self, "cloud_role_arn")
+
+    @property
+    @pulumi.getter(name="exclusionTags")
+    def exclusion_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        VM tags that indicates that VM should not be scanned
+        """
+        return pulumi.get(self, "exclusion_tags")
+
+    @property
+    @pulumi.getter(name="scanningMode")
+    def scanning_mode(self) -> Optional[str]:
+        """
+        The scanning mode for the vm scan.
+        """
+        return pulumi.get(self, "scanning_mode")
 
 
 @pulumi.output_type
@@ -1674,71 +2678,446 @@ class DefenderForServersAwsOfferingResponseDefenderForServers(dict):
 
 
 @pulumi.output_type
-class DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata(dict):
+class DefenderForServersAwsOfferingResponseMdeAutoProvisioning(dict):
     """
-    Metadata of Service Principal secret for autoprovisioning
+    The Microsoft Defender for Endpoint autoprovisioning configuration
+    """
+    def __init__(__self__, *,
+                 configuration: Optional[Any] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The Microsoft Defender for Endpoint autoprovisioning configuration
+        :param Any configuration: configuration for Microsoft Defender for Endpoint autoprovisioning
+        :param bool enabled: Is Microsoft Defender for Endpoint auto provisioning enabled
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[Any]:
+        """
+        configuration for Microsoft Defender for Endpoint autoprovisioning
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is Microsoft Defender for Endpoint auto provisioning enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderForServersAwsOfferingResponseSubPlan(dict):
+    """
+    configuration for the servers offering subPlan
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        configuration for the servers offering subPlan
+        :param str type: The available sub plans
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The available sub plans
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DefenderForServersAwsOfferingResponseVaAutoProvisioning(dict):
+    """
+    The Vulnerability Assessment autoprovisioning configuration
+    """
+    def __init__(__self__, *,
+                 configuration: Optional['outputs.DefenderForServersAwsOfferingResponseConfiguration'] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The Vulnerability Assessment autoprovisioning configuration
+        :param 'DefenderForServersAwsOfferingResponseConfiguration' configuration: configuration for Vulnerability Assessment autoprovisioning
+        :param bool enabled: Is Vulnerability Assessment auto provisioning enabled
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.DefenderForServersAwsOfferingResponseConfiguration']:
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is Vulnerability Assessment auto provisioning enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderForServersAwsOfferingResponseVmScanners(dict):
+    """
+    The Microsoft Defender for Server VM scanning configuration
+    """
+    def __init__(__self__, *,
+                 configuration: Optional['outputs.DefenderForServersAwsOfferingResponseConfigurationConfiguration'] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The Microsoft Defender for Server VM scanning configuration
+        :param 'DefenderForServersAwsOfferingResponseConfigurationConfiguration' configuration: configuration for Microsoft Defender for Server VM scanning
+        :param bool enabled: Is Microsoft Defender for Server VM scanning enabled
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.DefenderForServersAwsOfferingResponseConfigurationConfiguration']:
+        """
+        configuration for Microsoft Defender for Server VM scanning
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is Microsoft Defender for Server VM scanning enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderForServersGcpOfferingResponse(dict):
+    """
+    The Defender for Servers GCP offering configurations
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "expiryDate":
-            suggest = "expiry_date"
-        elif key == "parameterNameInStore":
-            suggest = "parameter_name_in_store"
-        elif key == "parameterStoreRegion":
-            suggest = "parameter_store_region"
+        if key == "offeringType":
+            suggest = "offering_type"
+        elif key == "arcAutoProvisioning":
+            suggest = "arc_auto_provisioning"
+        elif key == "defenderForServers":
+            suggest = "defender_for_servers"
+        elif key == "mdeAutoProvisioning":
+            suggest = "mde_auto_provisioning"
+        elif key == "subPlan":
+            suggest = "sub_plan"
+        elif key == "vaAutoProvisioning":
+            suggest = "va_auto_provisioning"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForServersGcpOfferingResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata.__key_warning(key)
+        DefenderForServersGcpOfferingResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata.__key_warning(key)
+        DefenderForServersGcpOfferingResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 expiry_date: Optional[str] = None,
-                 parameter_name_in_store: Optional[str] = None,
-                 parameter_store_region: Optional[str] = None):
+                 description: str,
+                 offering_type: str,
+                 arc_auto_provisioning: Optional['outputs.DefenderForServersGcpOfferingResponseArcAutoProvisioning'] = None,
+                 defender_for_servers: Optional['outputs.DefenderForServersGcpOfferingResponseDefenderForServers'] = None,
+                 mde_auto_provisioning: Optional['outputs.DefenderForServersGcpOfferingResponseMdeAutoProvisioning'] = None,
+                 sub_plan: Optional['outputs.DefenderForServersGcpOfferingResponseSubPlan'] = None,
+                 va_auto_provisioning: Optional['outputs.DefenderForServersGcpOfferingResponseVaAutoProvisioning'] = None):
         """
-        Metadata of Service Principal secret for autoprovisioning
-        :param str expiry_date: expiration date of service principal secret
-        :param str parameter_name_in_store: name of secret resource in parameter store
-        :param str parameter_store_region: region of parameter store where secret is kept
+        The Defender for Servers GCP offering configurations
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'DefenderForServersGcp'.
+        :param 'DefenderForServersGcpOfferingResponseArcAutoProvisioning' arc_auto_provisioning: The ARC autoprovisioning configuration
+        :param 'DefenderForServersGcpOfferingResponseDefenderForServers' defender_for_servers: The Defender for servers connection configuration
+        :param 'DefenderForServersGcpOfferingResponseMdeAutoProvisioning' mde_auto_provisioning: The Microsoft Defender for Endpoint autoprovisioning configuration
+        :param 'DefenderForServersGcpOfferingResponseSubPlan' sub_plan: configuration for the servers offering subPlan
+        :param 'DefenderForServersGcpOfferingResponseVaAutoProvisioning' va_auto_provisioning: The Vulnerability Assessment autoprovisioning configuration
         """
-        if expiry_date is not None:
-            pulumi.set(__self__, "expiry_date", expiry_date)
-        if parameter_name_in_store is not None:
-            pulumi.set(__self__, "parameter_name_in_store", parameter_name_in_store)
-        if parameter_store_region is not None:
-            pulumi.set(__self__, "parameter_store_region", parameter_store_region)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'DefenderForServersGcp')
+        if arc_auto_provisioning is not None:
+            pulumi.set(__self__, "arc_auto_provisioning", arc_auto_provisioning)
+        if defender_for_servers is not None:
+            pulumi.set(__self__, "defender_for_servers", defender_for_servers)
+        if mde_auto_provisioning is not None:
+            pulumi.set(__self__, "mde_auto_provisioning", mde_auto_provisioning)
+        if sub_plan is not None:
+            pulumi.set(__self__, "sub_plan", sub_plan)
+        if va_auto_provisioning is not None:
+            pulumi.set(__self__, "va_auto_provisioning", va_auto_provisioning)
 
     @property
-    @pulumi.getter(name="expiryDate")
-    def expiry_date(self) -> Optional[str]:
+    @pulumi.getter
+    def description(self) -> str:
         """
-        expiration date of service principal secret
+        The offering description.
         """
-        return pulumi.get(self, "expiry_date")
+        return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="parameterNameInStore")
-    def parameter_name_in_store(self) -> Optional[str]:
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
         """
-        name of secret resource in parameter store
+        The type of the security offering.
+        Expected value is 'DefenderForServersGcp'.
         """
-        return pulumi.get(self, "parameter_name_in_store")
+        return pulumi.get(self, "offering_type")
 
     @property
-    @pulumi.getter(name="parameterStoreRegion")
-    def parameter_store_region(self) -> Optional[str]:
+    @pulumi.getter(name="arcAutoProvisioning")
+    def arc_auto_provisioning(self) -> Optional['outputs.DefenderForServersGcpOfferingResponseArcAutoProvisioning']:
         """
-        region of parameter store where secret is kept
+        The ARC autoprovisioning configuration
         """
-        return pulumi.get(self, "parameter_store_region")
+        return pulumi.get(self, "arc_auto_provisioning")
+
+    @property
+    @pulumi.getter(name="defenderForServers")
+    def defender_for_servers(self) -> Optional['outputs.DefenderForServersGcpOfferingResponseDefenderForServers']:
+        """
+        The Defender for servers connection configuration
+        """
+        return pulumi.get(self, "defender_for_servers")
+
+    @property
+    @pulumi.getter(name="mdeAutoProvisioning")
+    def mde_auto_provisioning(self) -> Optional['outputs.DefenderForServersGcpOfferingResponseMdeAutoProvisioning']:
+        """
+        The Microsoft Defender for Endpoint autoprovisioning configuration
+        """
+        return pulumi.get(self, "mde_auto_provisioning")
+
+    @property
+    @pulumi.getter(name="subPlan")
+    def sub_plan(self) -> Optional['outputs.DefenderForServersGcpOfferingResponseSubPlan']:
+        """
+        configuration for the servers offering subPlan
+        """
+        return pulumi.get(self, "sub_plan")
+
+    @property
+    @pulumi.getter(name="vaAutoProvisioning")
+    def va_auto_provisioning(self) -> Optional['outputs.DefenderForServersGcpOfferingResponseVaAutoProvisioning']:
+        """
+        The Vulnerability Assessment autoprovisioning configuration
+        """
+        return pulumi.get(self, "va_auto_provisioning")
+
+
+@pulumi.output_type
+class DefenderForServersGcpOfferingResponseArcAutoProvisioning(dict):
+    """
+    The ARC autoprovisioning configuration
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        The ARC autoprovisioning configuration
+        :param bool enabled: Is arc auto provisioning enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is arc auto provisioning enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderForServersGcpOfferingResponseConfiguration(dict):
+    """
+    configuration for Vulnerability Assessment autoprovisioning
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+        :param str type: The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DefenderForServersGcpOfferingResponseDefenderForServers(dict):
+    """
+    The Defender for servers connection configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountEmailAddress":
+            suggest = "service_account_email_address"
+        elif key == "workloadIdentityProviderId":
+            suggest = "workload_identity_provider_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefenderForServersGcpOfferingResponseDefenderForServers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefenderForServersGcpOfferingResponseDefenderForServers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefenderForServersGcpOfferingResponseDefenderForServers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_account_email_address: Optional[str] = None,
+                 workload_identity_provider_id: Optional[str] = None):
+        """
+        The Defender for servers connection configuration
+        :param str service_account_email_address: The service account email address in GCP for this feature
+        :param str workload_identity_provider_id: The workload identity provider id in GCP for this feature
+        """
+        if service_account_email_address is not None:
+            pulumi.set(__self__, "service_account_email_address", service_account_email_address)
+        if workload_identity_provider_id is not None:
+            pulumi.set(__self__, "workload_identity_provider_id", workload_identity_provider_id)
+
+    @property
+    @pulumi.getter(name="serviceAccountEmailAddress")
+    def service_account_email_address(self) -> Optional[str]:
+        """
+        The service account email address in GCP for this feature
+        """
+        return pulumi.get(self, "service_account_email_address")
+
+    @property
+    @pulumi.getter(name="workloadIdentityProviderId")
+    def workload_identity_provider_id(self) -> Optional[str]:
+        """
+        The workload identity provider id in GCP for this feature
+        """
+        return pulumi.get(self, "workload_identity_provider_id")
+
+
+@pulumi.output_type
+class DefenderForServersGcpOfferingResponseMdeAutoProvisioning(dict):
+    """
+    The Microsoft Defender for Endpoint autoprovisioning configuration
+    """
+    def __init__(__self__, *,
+                 configuration: Optional[Any] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The Microsoft Defender for Endpoint autoprovisioning configuration
+        :param Any configuration: configuration for Microsoft Defender for Endpoint autoprovisioning
+        :param bool enabled: Is Microsoft Defender for Endpoint auto provisioning enabled
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[Any]:
+        """
+        configuration for Microsoft Defender for Endpoint autoprovisioning
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is Microsoft Defender for Endpoint auto provisioning enabled
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DefenderForServersGcpOfferingResponseSubPlan(dict):
+    """
+    configuration for the servers offering subPlan
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        configuration for the servers offering subPlan
+        :param str type: The available sub plans
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The available sub plans
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DefenderForServersGcpOfferingResponseVaAutoProvisioning(dict):
+    """
+    The Vulnerability Assessment autoprovisioning configuration
+    """
+    def __init__(__self__, *,
+                 configuration: Optional['outputs.DefenderForServersGcpOfferingResponseConfiguration'] = None,
+                 enabled: Optional[bool] = None):
+        """
+        The Vulnerability Assessment autoprovisioning configuration
+        :param 'DefenderForServersGcpOfferingResponseConfiguration' configuration: configuration for Vulnerability Assessment autoprovisioning
+        :param bool enabled: Is Vulnerability Assessment auto provisioning enabled
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.DefenderForServersGcpOfferingResponseConfiguration']:
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is Vulnerability Assessment auto provisioning enabled
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -1846,323 +3225,402 @@ class DenylistCustomAlertRuleResponse(dict):
 
 
 @pulumi.output_type
-class GcpCredentialsDetailsPropertiesResponse(dict):
+class GcpOrganizationalDataMemberResponse(dict):
     """
-    GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
+    The gcpOrganization data for the member account
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "authProviderX509CertUrl":
-            suggest = "auth_provider_x509_cert_url"
-        elif key == "authUri":
-            suggest = "auth_uri"
-        elif key == "authenticationProvisioningState":
-            suggest = "authentication_provisioning_state"
-        elif key == "authenticationType":
-            suggest = "authentication_type"
-        elif key == "clientEmail":
-            suggest = "client_email"
-        elif key == "clientId":
-            suggest = "client_id"
-        elif key == "clientX509CertUrl":
-            suggest = "client_x509_cert_url"
-        elif key == "grantedPermissions":
-            suggest = "granted_permissions"
-        elif key == "organizationId":
-            suggest = "organization_id"
-        elif key == "privateKey":
-            suggest = "private_key"
-        elif key == "privateKeyId":
-            suggest = "private_key_id"
-        elif key == "projectId":
-            suggest = "project_id"
-        elif key == "tokenUri":
-            suggest = "token_uri"
+        if key == "organizationMembershipType":
+            suggest = "organization_membership_type"
+        elif key == "managementProjectNumber":
+            suggest = "management_project_number"
+        elif key == "parentHierarchyId":
+            suggest = "parent_hierarchy_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GcpCredentialsDetailsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GcpOrganizationalDataMemberResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GcpCredentialsDetailsPropertiesResponse.__key_warning(key)
+        GcpOrganizationalDataMemberResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GcpCredentialsDetailsPropertiesResponse.__key_warning(key)
+        GcpOrganizationalDataMemberResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auth_provider_x509_cert_url: str,
-                 auth_uri: str,
-                 authentication_provisioning_state: str,
-                 authentication_type: str,
-                 client_email: str,
-                 client_id: str,
-                 client_x509_cert_url: str,
-                 granted_permissions: Sequence[str],
-                 organization_id: str,
-                 private_key: str,
-                 private_key_id: str,
-                 project_id: str,
-                 token_uri: str,
-                 type: str):
+                 organization_membership_type: str,
+                 management_project_number: Optional[str] = None,
+                 parent_hierarchy_id: Optional[str] = None):
         """
-        GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
-        :param str auth_provider_x509_cert_url: Auth provider x509 certificate URL field of the API key (write only)
-        :param str auth_uri: Auth URI field of the API key (write only)
-        :param str authentication_provisioning_state: State of the multi-cloud connector
-        :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-               Expected value is 'gcpCredentials'.
-        :param str client_email: Client email field of the API key (write only)
-        :param str client_id: Client ID field of the API key (write only)
-        :param str client_x509_cert_url: Client x509 certificate URL field of the API key (write only)
-        :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
-        :param str organization_id: The organization ID of the GCP cloud account
-        :param str private_key: Private key field of the API key (write only)
-        :param str private_key_id: Private key ID field of the API key (write only)
-        :param str project_id: Project ID field of the API key (write only)
-        :param str token_uri: Token URI field of the API key (write only)
-        :param str type: Type field of the API key (write only)
+        The gcpOrganization data for the member account
+        :param str organization_membership_type: The multi cloud account's membership type in the organization
+               Expected value is 'Member'.
+        :param str management_project_number: The GCP management project number from organizational onboarding
+        :param str parent_hierarchy_id: If the multi cloud account is not of membership type organization, this will be the ID of the project's parent
         """
-        pulumi.set(__self__, "auth_provider_x509_cert_url", auth_provider_x509_cert_url)
-        pulumi.set(__self__, "auth_uri", auth_uri)
-        pulumi.set(__self__, "authentication_provisioning_state", authentication_provisioning_state)
-        pulumi.set(__self__, "authentication_type", 'gcpCredentials')
-        pulumi.set(__self__, "client_email", client_email)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_x509_cert_url", client_x509_cert_url)
-        pulumi.set(__self__, "granted_permissions", granted_permissions)
-        pulumi.set(__self__, "organization_id", organization_id)
-        pulumi.set(__self__, "private_key", private_key)
-        pulumi.set(__self__, "private_key_id", private_key_id)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "token_uri", token_uri)
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "organization_membership_type", 'Member')
+        if management_project_number is not None:
+            pulumi.set(__self__, "management_project_number", management_project_number)
+        if parent_hierarchy_id is not None:
+            pulumi.set(__self__, "parent_hierarchy_id", parent_hierarchy_id)
 
     @property
-    @pulumi.getter(name="authProviderX509CertUrl")
-    def auth_provider_x509_cert_url(self) -> str:
+    @pulumi.getter(name="organizationMembershipType")
+    def organization_membership_type(self) -> str:
         """
-        Auth provider x509 certificate URL field of the API key (write only)
+        The multi cloud account's membership type in the organization
+        Expected value is 'Member'.
         """
-        return pulumi.get(self, "auth_provider_x509_cert_url")
+        return pulumi.get(self, "organization_membership_type")
 
     @property
-    @pulumi.getter(name="authUri")
-    def auth_uri(self) -> str:
+    @pulumi.getter(name="managementProjectNumber")
+    def management_project_number(self) -> Optional[str]:
         """
-        Auth URI field of the API key (write only)
+        The GCP management project number from organizational onboarding
         """
-        return pulumi.get(self, "auth_uri")
+        return pulumi.get(self, "management_project_number")
 
     @property
-    @pulumi.getter(name="authenticationProvisioningState")
-    def authentication_provisioning_state(self) -> str:
+    @pulumi.getter(name="parentHierarchyId")
+    def parent_hierarchy_id(self) -> Optional[str]:
         """
-        State of the multi-cloud connector
+        If the multi cloud account is not of membership type organization, this will be the ID of the project's parent
         """
-        return pulumi.get(self, "authentication_provisioning_state")
+        return pulumi.get(self, "parent_hierarchy_id")
+
+
+@pulumi.output_type
+class GcpOrganizationalDataOrganizationResponse(dict):
+    """
+    The gcpOrganization data for the parent account
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationMembershipType":
+            suggest = "organization_membership_type"
+        elif key == "excludedProjectNumbers":
+            suggest = "excluded_project_numbers"
+        elif key == "serviceAccountEmailAddress":
+            suggest = "service_account_email_address"
+        elif key == "workloadIdentityProviderId":
+            suggest = "workload_identity_provider_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GcpOrganizationalDataOrganizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GcpOrganizationalDataOrganizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GcpOrganizationalDataOrganizationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 organization_membership_type: str,
+                 excluded_project_numbers: Optional[Sequence[str]] = None,
+                 service_account_email_address: Optional[str] = None,
+                 workload_identity_provider_id: Optional[str] = None):
+        """
+        The gcpOrganization data for the parent account
+        :param str organization_membership_type: The multi cloud account's membership type in the organization
+               Expected value is 'Organization'.
+        :param Sequence[str] excluded_project_numbers: If the multi cloud account is of membership type organization, list of accounts excluded from offering
+        :param str service_account_email_address: The service account email address which represents the organization level permissions container.
+        :param str workload_identity_provider_id: The GCP workload identity provider id which represents the permissions required to auto provision security connectors
+        """
+        pulumi.set(__self__, "organization_membership_type", 'Organization')
+        if excluded_project_numbers is not None:
+            pulumi.set(__self__, "excluded_project_numbers", excluded_project_numbers)
+        if service_account_email_address is not None:
+            pulumi.set(__self__, "service_account_email_address", service_account_email_address)
+        if workload_identity_provider_id is not None:
+            pulumi.set(__self__, "workload_identity_provider_id", workload_identity_provider_id)
 
     @property
-    @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> str:
+    @pulumi.getter(name="organizationMembershipType")
+    def organization_membership_type(self) -> str:
         """
-        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-        Expected value is 'gcpCredentials'.
+        The multi cloud account's membership type in the organization
+        Expected value is 'Organization'.
         """
-        return pulumi.get(self, "authentication_type")
+        return pulumi.get(self, "organization_membership_type")
 
     @property
-    @pulumi.getter(name="clientEmail")
-    def client_email(self) -> str:
+    @pulumi.getter(name="excludedProjectNumbers")
+    def excluded_project_numbers(self) -> Optional[Sequence[str]]:
         """
-        Client email field of the API key (write only)
+        If the multi cloud account is of membership type organization, list of accounts excluded from offering
         """
-        return pulumi.get(self, "client_email")
+        return pulumi.get(self, "excluded_project_numbers")
 
     @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    @pulumi.getter(name="serviceAccountEmailAddress")
+    def service_account_email_address(self) -> Optional[str]:
         """
-        Client ID field of the API key (write only)
+        The service account email address which represents the organization level permissions container.
         """
-        return pulumi.get(self, "client_id")
+        return pulumi.get(self, "service_account_email_address")
 
     @property
-    @pulumi.getter(name="clientX509CertUrl")
-    def client_x509_cert_url(self) -> str:
+    @pulumi.getter(name="workloadIdentityProviderId")
+    def workload_identity_provider_id(self) -> Optional[str]:
         """
-        Client x509 certificate URL field of the API key (write only)
+        The GCP workload identity provider id which represents the permissions required to auto provision security connectors
         """
-        return pulumi.get(self, "client_x509_cert_url")
+        return pulumi.get(self, "workload_identity_provider_id")
+
+
+@pulumi.output_type
+class GcpProjectDetailsResponse(dict):
+    """
+    The details about the project represented by the security connector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workloadIdentityPoolId":
+            suggest = "workload_identity_pool_id"
+        elif key == "projectId":
+            suggest = "project_id"
+        elif key == "projectNumber":
+            suggest = "project_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GcpProjectDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GcpProjectDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GcpProjectDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workload_identity_pool_id: str,
+                 project_id: Optional[str] = None,
+                 project_number: Optional[str] = None):
+        """
+        The details about the project represented by the security connector
+        :param str workload_identity_pool_id: The GCP workload identity federation pool id
+        :param str project_id: The GCP Project id
+        :param str project_number: The unique GCP Project number
+        """
+        pulumi.set(__self__, "workload_identity_pool_id", workload_identity_pool_id)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if project_number is not None:
+            pulumi.set(__self__, "project_number", project_number)
 
     @property
-    @pulumi.getter(name="grantedPermissions")
-    def granted_permissions(self) -> Sequence[str]:
+    @pulumi.getter(name="workloadIdentityPoolId")
+    def workload_identity_pool_id(self) -> str:
         """
-        The permissions detected in the cloud account.
+        The GCP workload identity federation pool id
         """
-        return pulumi.get(self, "granted_permissions")
-
-    @property
-    @pulumi.getter(name="organizationId")
-    def organization_id(self) -> str:
-        """
-        The organization ID of the GCP cloud account
-        """
-        return pulumi.get(self, "organization_id")
-
-    @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
-        """
-        Private key field of the API key (write only)
-        """
-        return pulumi.get(self, "private_key")
-
-    @property
-    @pulumi.getter(name="privateKeyId")
-    def private_key_id(self) -> str:
-        """
-        Private key ID field of the API key (write only)
-        """
-        return pulumi.get(self, "private_key_id")
+        return pulumi.get(self, "workload_identity_pool_id")
 
     @property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> str:
+    def project_id(self) -> Optional[str]:
         """
-        Project ID field of the API key (write only)
+        The GCP Project id
         """
         return pulumi.get(self, "project_id")
 
     @property
-    @pulumi.getter(name="tokenUri")
-    def token_uri(self) -> str:
+    @pulumi.getter(name="projectNumber")
+    def project_number(self) -> Optional[str]:
         """
-        Token URI field of the API key (write only)
+        The unique GCP Project number
         """
-        return pulumi.get(self, "token_uri")
+        return pulumi.get(self, "project_number")
+
+
+@pulumi.output_type
+class GcpProjectEnvironmentDataResponse(dict):
+    """
+    The GCP project connector environment data
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentType":
+            suggest = "environment_type"
+        elif key == "organizationalData":
+            suggest = "organizational_data"
+        elif key == "projectDetails":
+            suggest = "project_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GcpProjectEnvironmentDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GcpProjectEnvironmentDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GcpProjectEnvironmentDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_type: str,
+                 organizational_data: Optional[Any] = None,
+                 project_details: Optional['outputs.GcpProjectDetailsResponse'] = None):
+        """
+        The GCP project connector environment data
+        :param str environment_type: The type of the environment data.
+               Expected value is 'GcpProject'.
+        :param Union['GcpOrganizationalDataMemberResponse', 'GcpOrganizationalDataOrganizationResponse'] organizational_data: The Gcp project's organizational data
+        :param 'GcpProjectDetailsResponse' project_details: The Gcp project's details
+        """
+        pulumi.set(__self__, "environment_type", 'GcpProject')
+        if organizational_data is not None:
+            pulumi.set(__self__, "organizational_data", organizational_data)
+        if project_details is not None:
+            pulumi.set(__self__, "project_details", project_details)
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> str:
+        """
+        The type of the environment data.
+        Expected value is 'GcpProject'.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @property
+    @pulumi.getter(name="organizationalData")
+    def organizational_data(self) -> Optional[Any]:
+        """
+        The Gcp project's organizational data
+        """
+        return pulumi.get(self, "organizational_data")
+
+    @property
+    @pulumi.getter(name="projectDetails")
+    def project_details(self) -> Optional['outputs.GcpProjectDetailsResponse']:
+        """
+        The Gcp project's details
+        """
+        return pulumi.get(self, "project_details")
+
+
+@pulumi.output_type
+class GithubScopeEnvironmentDataResponse(dict):
+    """
+    The github scope connector's environment data
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentType":
+            suggest = "environment_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GithubScopeEnvironmentDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GithubScopeEnvironmentDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GithubScopeEnvironmentDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_type: str):
+        """
+        The github scope connector's environment data
+        :param str environment_type: The type of the environment data.
+               Expected value is 'GithubScope'.
+        """
+        pulumi.set(__self__, "environment_type", 'GithubScope')
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> str:
+        """
+        The type of the environment data.
+        Expected value is 'GithubScope'.
+        """
+        return pulumi.get(self, "environment_type")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
-        Type field of the API key (write only)
+        The identity type.
         """
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
-class HybridComputeSettingsPropertiesResponse(dict):
-    """
-    Settings for hybrid compute management
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "autoProvision":
-            suggest = "auto_provision"
-        elif key == "hybridComputeProvisioningState":
-            suggest = "hybrid_compute_provisioning_state"
-        elif key == "proxyServer":
-            suggest = "proxy_server"
-        elif key == "resourceGroupName":
-            suggest = "resource_group_name"
-        elif key == "servicePrincipal":
-            suggest = "service_principal"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HybridComputeSettingsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HybridComputeSettingsPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HybridComputeSettingsPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 auto_provision: str,
-                 hybrid_compute_provisioning_state: str,
-                 proxy_server: Optional['outputs.ProxyServerPropertiesResponse'] = None,
-                 region: Optional[str] = None,
-                 resource_group_name: Optional[str] = None,
-                 service_principal: Optional['outputs.ServicePrincipalPropertiesResponse'] = None):
-        """
-        Settings for hybrid compute management
-        :param str auto_provision: Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-        :param str hybrid_compute_provisioning_state: State of the service principal and its secret
-        :param 'ProxyServerPropertiesResponse' proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-        :param str region: The location where the metadata of machines will be stored
-        :param str resource_group_name: The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-        :param 'ServicePrincipalPropertiesResponse' service_principal: An object to access resources that are secured by an Azure AD tenant.
-        """
-        pulumi.set(__self__, "auto_provision", auto_provision)
-        pulumi.set(__self__, "hybrid_compute_provisioning_state", hybrid_compute_provisioning_state)
-        if proxy_server is not None:
-            pulumi.set(__self__, "proxy_server", proxy_server)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
-
-    @property
-    @pulumi.getter(name="autoProvision")
-    def auto_provision(self) -> str:
-        """
-        Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-        """
-        return pulumi.get(self, "auto_provision")
-
-    @property
-    @pulumi.getter(name="hybridComputeProvisioningState")
-    def hybrid_compute_provisioning_state(self) -> str:
-        """
-        State of the service principal and its secret
-        """
-        return pulumi.get(self, "hybrid_compute_provisioning_state")
-
-    @property
-    @pulumi.getter(name="proxyServer")
-    def proxy_server(self) -> Optional['outputs.ProxyServerPropertiesResponse']:
-        """
-        For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-        """
-        return pulumi.get(self, "proxy_server")
-
-    @property
-    @pulumi.getter
-    def region(self) -> Optional[str]:
-        """
-        The location where the metadata of machines will be stored
-        """
-        return pulumi.get(self, "region")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[str]:
-        """
-        The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @property
-    @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional['outputs.ServicePrincipalPropertiesResponse']:
-        """
-        An object to access resources that are secured by an Azure AD tenant.
-        """
-        return pulumi.get(self, "service_principal")
-
-
-@pulumi.output_type
 class InformationProtectionAwsOfferingResponse(dict):
     """
-    The information protection for AWS offering configurations
+    The information protection for AWS offering
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2188,7 +3646,7 @@ class InformationProtectionAwsOfferingResponse(dict):
                  offering_type: str,
                  information_protection: Optional['outputs.InformationProtectionAwsOfferingResponseInformationProtection'] = None):
         """
-        The information protection for AWS offering configurations
+        The information protection for AWS offering
         :param str description: The offering description.
         :param str offering_type: The type of the security offering.
                Expected value is 'InformationProtectionAws'.
@@ -2263,39 +3721,6 @@ class InformationProtectionAwsOfferingResponseInformationProtection(dict):
         The cloud role ARN in AWS for this feature
         """
         return pulumi.get(self, "cloud_role_arn")
-
-
-@pulumi.output_type
-class IngestionConnectionStringResponse(dict):
-    """
-    Connection string for ingesting security data and logs
-    """
-    def __init__(__self__, *,
-                 location: str,
-                 value: str):
-        """
-        Connection string for ingesting security data and logs
-        :param str location: The region where ingested logs and data resides
-        :param str value: Connection string value
-        """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        The region where ingested logs and data resides
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Connection string value
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -3035,41 +4460,6 @@ class ProtectionModeResponse(dict):
 
 
 @pulumi.output_type
-class ProxyServerPropertiesResponse(dict):
-    """
-    For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-    """
-    def __init__(__self__, *,
-                 ip: Optional[str] = None,
-                 port: Optional[str] = None):
-        """
-        For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-        :param str ip: Proxy server IP
-        :param str port: Proxy server port
-        """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[str]:
-        """
-        Proxy server IP
-        """
-        return pulumi.get(self, "ip")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[str]:
-        """
-        Proxy server port
-        """
-        return pulumi.get(self, "port")
-
-
-@pulumi.output_type
 class PublisherInfoResponse(dict):
     """
     Represents the publisher information of a process/rule
@@ -3229,29 +4619,6 @@ class RuleResultsPropertiesResponse(dict):
         Expected results in the baseline.
         """
         return pulumi.get(self, "results")
-
-
-@pulumi.output_type
-class ScopeElementResponse(dict):
-    """
-    A more specific scope used to identify the alerts to suppress.
-    """
-    def __init__(__self__, *,
-                 field: Optional[str] = None):
-        """
-        A more specific scope used to identify the alerts to suppress.
-        :param str field: The alert entity type to suppress by.
-        """
-        if field is not None:
-            pulumi.set(__self__, "field", field)
-
-    @property
-    @pulumi.getter
-    def field(self) -> Optional[str]:
-        """
-        The alert entity type to suppress by.
-        """
-        return pulumi.get(self, "field")
 
 
 @pulumi.output_type
@@ -3491,6 +4858,43 @@ class SecurityAssessmentMetadataPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class SecurityAssessmentMetadataPropertiesResponseResponsePublishDates(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gA":
+            suggest = "g_a"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityAssessmentMetadataPropertiesResponseResponsePublishDates. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityAssessmentMetadataPropertiesResponseResponsePublishDates.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityAssessmentMetadataPropertiesResponseResponsePublishDates.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public: str,
+                 g_a: Optional[str] = None):
+        pulumi.set(__self__, "public", public)
+        if g_a is not None:
+            pulumi.set(__self__, "g_a", g_a)
+
+    @property
+    @pulumi.getter
+    def public(self) -> str:
+        return pulumi.get(self, "public")
+
+    @property
+    @pulumi.getter(name="gA")
+    def g_a(self) -> Optional[str]:
+        return pulumi.get(self, "g_a")
+
+
+@pulumi.output_type
 class SecurityAssessmentPartnerDataResponse(dict):
     """
     Data regarding 3rd party partner integration
@@ -3538,285 +4942,6 @@ class SecurityAssessmentPartnerDataResponse(dict):
         secret to authenticate the partner - write only
         """
         return pulumi.get(self, "secret")
-
-
-@pulumi.output_type
-class SecurityConnectorPropertiesResponseOrganizationalData(dict):
-    """
-    The multi cloud account's organizational data
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "excludedAccountIds":
-            suggest = "excluded_account_ids"
-        elif key == "organizationMembershipType":
-            suggest = "organization_membership_type"
-        elif key == "parentHierarchyId":
-            suggest = "parent_hierarchy_id"
-        elif key == "stacksetName":
-            suggest = "stackset_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecurityConnectorPropertiesResponseOrganizationalData. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SecurityConnectorPropertiesResponseOrganizationalData.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SecurityConnectorPropertiesResponseOrganizationalData.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 excluded_account_ids: Optional[Sequence[str]] = None,
-                 organization_membership_type: Optional[str] = None,
-                 parent_hierarchy_id: Optional[str] = None,
-                 stackset_name: Optional[str] = None):
-        """
-        The multi cloud account's organizational data
-        :param Sequence[str] excluded_account_ids: If the multi cloud account is of membership type organization, list of accounts excluded from offering
-        :param str organization_membership_type: The multi cloud account's membership type in the organization
-        :param str parent_hierarchy_id: If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
-        :param str stackset_name: If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
-        """
-        if excluded_account_ids is not None:
-            pulumi.set(__self__, "excluded_account_ids", excluded_account_ids)
-        if organization_membership_type is not None:
-            pulumi.set(__self__, "organization_membership_type", organization_membership_type)
-        if parent_hierarchy_id is not None:
-            pulumi.set(__self__, "parent_hierarchy_id", parent_hierarchy_id)
-        if stackset_name is not None:
-            pulumi.set(__self__, "stackset_name", stackset_name)
-
-    @property
-    @pulumi.getter(name="excludedAccountIds")
-    def excluded_account_ids(self) -> Optional[Sequence[str]]:
-        """
-        If the multi cloud account is of membership type organization, list of accounts excluded from offering
-        """
-        return pulumi.get(self, "excluded_account_ids")
-
-    @property
-    @pulumi.getter(name="organizationMembershipType")
-    def organization_membership_type(self) -> Optional[str]:
-        """
-        The multi cloud account's membership type in the organization
-        """
-        return pulumi.get(self, "organization_membership_type")
-
-    @property
-    @pulumi.getter(name="parentHierarchyId")
-    def parent_hierarchy_id(self) -> Optional[str]:
-        """
-        If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
-        """
-        return pulumi.get(self, "parent_hierarchy_id")
-
-    @property
-    @pulumi.getter(name="stacksetName")
-    def stackset_name(self) -> Optional[str]:
-        """
-        If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset
-        """
-        return pulumi.get(self, "stackset_name")
-
-
-@pulumi.output_type
-class SecurityContactPropertiesResponseAlertNotifications(dict):
-    """
-    Defines whether to send email notifications about new security alerts
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "minimalSeverity":
-            suggest = "minimal_severity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecurityContactPropertiesResponseAlertNotifications. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SecurityContactPropertiesResponseAlertNotifications.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SecurityContactPropertiesResponseAlertNotifications.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 minimal_severity: Optional[str] = None,
-                 state: Optional[str] = None):
-        """
-        Defines whether to send email notifications about new security alerts
-        :param str minimal_severity: Defines the minimal alert severity which will be sent as email notifications
-        :param str state: Defines if email notifications will be sent about new security alerts
-        """
-        if minimal_severity is not None:
-            pulumi.set(__self__, "minimal_severity", minimal_severity)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="minimalSeverity")
-    def minimal_severity(self) -> Optional[str]:
-        """
-        Defines the minimal alert severity which will be sent as email notifications
-        """
-        return pulumi.get(self, "minimal_severity")
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[str]:
-        """
-        Defines if email notifications will be sent about new security alerts
-        """
-        return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class SecurityContactPropertiesResponseNotificationsByRole(dict):
-    """
-    Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
-    """
-    def __init__(__self__, *,
-                 roles: Optional[Sequence[str]] = None,
-                 state: Optional[str] = None):
-        """
-        Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
-        :param Sequence[str] roles: Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
-        :param str state: Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
-        """
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def roles(self) -> Optional[Sequence[str]]:
-        """
-        Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
-        """
-        return pulumi.get(self, "roles")
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[str]:
-        """
-        Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
-        """
-        return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class ServicePrincipalPropertiesResponse(dict):
-    """
-    Details of the service principal.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "applicationId":
-            suggest = "application_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServicePrincipalPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServicePrincipalPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 application_id: Optional[str] = None,
-                 secret: Optional[str] = None):
-        """
-        Details of the service principal.
-        :param str application_id: Application ID of service principal.
-        :param str secret: A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
-        """
-        if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
-        if secret is not None:
-            pulumi.set(__self__, "secret", secret)
-
-    @property
-    @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[str]:
-        """
-        Application ID of service principal.
-        """
-        return pulumi.get(self, "application_id")
-
-    @property
-    @pulumi.getter
-    def secret(self) -> Optional[str]:
-        """
-        A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
-        """
-        return pulumi.get(self, "secret")
-
-
-@pulumi.output_type
-class StandardComponentPropertiesResponse(dict):
-    """
-    Describes properties of an component as related to the standard
-    """
-    def __init__(__self__, *,
-                 key: Optional[str] = None):
-        """
-        Describes properties of an component as related to the standard
-        :param str key: Component Key matching componentMetadata
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        """
-        Component Key matching componentMetadata
-        """
-        return pulumi.get(self, "key")
-
-
-@pulumi.output_type
-class SuppressionAlertsScopeResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "allOf":
-            suggest = "all_of"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SuppressionAlertsScopeResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SuppressionAlertsScopeResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SuppressionAlertsScopeResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 all_of: Sequence['outputs.ScopeElementResponse']):
-        """
-        :param Sequence['ScopeElementResponse'] all_of: All the conditions inside need to be true in order to suppress the alert
-        """
-        pulumi.set(__self__, "all_of", all_of)
-
-    @property
-    @pulumi.getter(name="allOf")
-    def all_of(self) -> Sequence['outputs.ScopeElementResponse']:
-        """
-        All the conditions inside need to be true in order to suppress the alert
-        """
-        return pulumi.get(self, "all_of")
 
 
 @pulumi.output_type

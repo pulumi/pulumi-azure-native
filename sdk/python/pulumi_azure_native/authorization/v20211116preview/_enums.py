@@ -8,7 +8,6 @@ __all__ = [
     'AccessReviewRecurrencePatternType',
     'AccessReviewRecurrenceRangeType',
     'AccessReviewResult',
-    'DefaultDecisionType',
 ]
 
 
@@ -38,12 +37,3 @@ class AccessReviewResult(str, Enum):
     NOT_REVIEWED = "NotReviewed"
     DONT_KNOW = "DontKnow"
     NOT_NOTIFIED = "NotNotified"
-
-
-class DefaultDecisionType(str, Enum):
-    """
-    This specifies the behavior for the autoReview feature when an access review completes.
-    """
-    APPROVE = "Approve"
-    DENY = "Deny"
-    RECOMMENDATION = "Recommendation"

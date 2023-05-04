@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace data table definition.
- * API Version: 2021-12-01-preview.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -65,11 +66,15 @@ export class Table extends pulumi.CustomResource {
     /**
      * Search job execution statistics.
      */
-    public /*out*/ readonly resultStatistics!: pulumi.Output<outputs.operationalinsights.ResultStatisticsResponse | undefined>;
+    public /*out*/ readonly resultStatistics!: pulumi.Output<outputs.operationalinsights.ResultStatisticsResponse>;
     /**
      * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    /**
+     * True - Value originates from workspace retention in days, False - Customer specific.
+     */
+    public /*out*/ readonly retentionInDaysAsDefault!: pulumi.Output<boolean>;
     /**
      * Table schema.
      */
@@ -86,6 +91,10 @@ export class Table extends pulumi.CustomResource {
      * The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
      */
     public readonly totalRetentionInDays!: pulumi.Output<number | undefined>;
+    /**
+     * True - Value originates from retention in days, False - Customer specific.
+     */
+    public /*out*/ readonly totalRetentionInDaysAsDefault!: pulumi.Output<boolean>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -122,7 +131,9 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resultStatistics"] = undefined /*out*/;
+            resourceInputs["retentionInDaysAsDefault"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalRetentionInDaysAsDefault"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["archiveRetentionInDays"] = undefined /*out*/;
@@ -133,10 +144,12 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["restoredLogs"] = undefined /*out*/;
             resourceInputs["resultStatistics"] = undefined /*out*/;
             resourceInputs["retentionInDays"] = undefined /*out*/;
+            resourceInputs["retentionInDaysAsDefault"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
             resourceInputs["searchResults"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalRetentionInDays"] = undefined /*out*/;
+            resourceInputs["totalRetentionInDaysAsDefault"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

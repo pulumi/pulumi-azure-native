@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a Blueprint assignment.
  */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
-    pulumi.log.warn("getAssignment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20171111preview:getAssignment", {
@@ -92,7 +90,6 @@ export interface GetAssignmentResult {
 /**
  * Get a Blueprint assignment.
  */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getAssignment(a, opts))
 }

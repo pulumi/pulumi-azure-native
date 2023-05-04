@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Quota Rule of a Volume
- * API Version: 2022-01-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VolumeQuotaRule extends pulumi.CustomResource {
     /**
@@ -159,7 +160,7 @@ export interface VolumeQuotaRuleArgs {
      */
     quotaType?: pulumi.Input<string | enums.netapp.Type>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

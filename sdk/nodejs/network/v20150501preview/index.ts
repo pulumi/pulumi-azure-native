@@ -15,16 +15,6 @@ export type ExpressRouteCircuit = import("./expressRouteCircuit").ExpressRouteCi
 export const ExpressRouteCircuit: typeof import("./expressRouteCircuit").ExpressRouteCircuit = null as any;
 utilities.lazyLoad(exports, ["ExpressRouteCircuit"], () => require("./expressRouteCircuit"));
 
-export { ExpressRouteCircuitAuthorizationArgs } from "./expressRouteCircuitAuthorization";
-export type ExpressRouteCircuitAuthorization = import("./expressRouteCircuitAuthorization").ExpressRouteCircuitAuthorization;
-export const ExpressRouteCircuitAuthorization: typeof import("./expressRouteCircuitAuthorization").ExpressRouteCircuitAuthorization = null as any;
-utilities.lazyLoad(exports, ["ExpressRouteCircuitAuthorization"], () => require("./expressRouteCircuitAuthorization"));
-
-export { ExpressRouteCircuitPeeringArgs } from "./expressRouteCircuitPeering";
-export type ExpressRouteCircuitPeering = import("./expressRouteCircuitPeering").ExpressRouteCircuitPeering;
-export const ExpressRouteCircuitPeering: typeof import("./expressRouteCircuitPeering").ExpressRouteCircuitPeering = null as any;
-utilities.lazyLoad(exports, ["ExpressRouteCircuitPeering"], () => require("./expressRouteCircuitPeering"));
-
 export { GetApplicationGatewayArgs, GetApplicationGatewayResult, GetApplicationGatewayOutputArgs } from "./getApplicationGateway";
 export const getApplicationGateway: typeof import("./getApplicationGateway").getApplicationGateway = null as any;
 export const getApplicationGatewayOutput: typeof import("./getApplicationGateway").getApplicationGatewayOutput = null as any;
@@ -34,16 +24,6 @@ export { GetExpressRouteCircuitArgs, GetExpressRouteCircuitResult, GetExpressRou
 export const getExpressRouteCircuit: typeof import("./getExpressRouteCircuit").getExpressRouteCircuit = null as any;
 export const getExpressRouteCircuitOutput: typeof import("./getExpressRouteCircuit").getExpressRouteCircuitOutput = null as any;
 utilities.lazyLoad(exports, ["getExpressRouteCircuit","getExpressRouteCircuitOutput"], () => require("./getExpressRouteCircuit"));
-
-export { GetExpressRouteCircuitAuthorizationArgs, GetExpressRouteCircuitAuthorizationResult, GetExpressRouteCircuitAuthorizationOutputArgs } from "./getExpressRouteCircuitAuthorization";
-export const getExpressRouteCircuitAuthorization: typeof import("./getExpressRouteCircuitAuthorization").getExpressRouteCircuitAuthorization = null as any;
-export const getExpressRouteCircuitAuthorizationOutput: typeof import("./getExpressRouteCircuitAuthorization").getExpressRouteCircuitAuthorizationOutput = null as any;
-utilities.lazyLoad(exports, ["getExpressRouteCircuitAuthorization","getExpressRouteCircuitAuthorizationOutput"], () => require("./getExpressRouteCircuitAuthorization"));
-
-export { GetExpressRouteCircuitPeeringArgs, GetExpressRouteCircuitPeeringResult, GetExpressRouteCircuitPeeringOutputArgs } from "./getExpressRouteCircuitPeering";
-export const getExpressRouteCircuitPeering: typeof import("./getExpressRouteCircuitPeering").getExpressRouteCircuitPeering = null as any;
-export const getExpressRouteCircuitPeeringOutput: typeof import("./getExpressRouteCircuitPeering").getExpressRouteCircuitPeeringOutput = null as any;
-utilities.lazyLoad(exports, ["getExpressRouteCircuitPeering","getExpressRouteCircuitPeeringOutput"], () => require("./getExpressRouteCircuitPeering"));
 
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
@@ -65,20 +45,10 @@ export const getPublicIpAddress: typeof import("./getPublicIpAddress").getPublic
 export const getPublicIpAddressOutput: typeof import("./getPublicIpAddress").getPublicIpAddressOutput = null as any;
 utilities.lazyLoad(exports, ["getPublicIpAddress","getPublicIpAddressOutput"], () => require("./getPublicIpAddress"));
 
-export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
-export const getRoute: typeof import("./getRoute").getRoute = null as any;
-export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
-utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
-
 export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
 export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
 export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
-
-export { GetSecurityRuleArgs, GetSecurityRuleResult, GetSecurityRuleOutputArgs } from "./getSecurityRule";
-export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule = null as any;
-export const getSecurityRuleOutput: typeof import("./getSecurityRule").getSecurityRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getSecurityRule","getSecurityRuleOutput"], () => require("./getSecurityRule"));
 
 export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet";
 export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
@@ -110,20 +80,10 @@ export type PublicIpAddress = import("./publicIpAddress").PublicIpAddress;
 export const PublicIpAddress: typeof import("./publicIpAddress").PublicIpAddress = null as any;
 utilities.lazyLoad(exports, ["PublicIpAddress"], () => require("./publicIpAddress"));
 
-export { RouteArgs } from "./route";
-export type Route = import("./route").Route;
-export const Route: typeof import("./route").Route = null as any;
-utilities.lazyLoad(exports, ["Route"], () => require("./route"));
-
 export { RouteTableArgs } from "./routeTable";
 export type RouteTable = import("./routeTable").RouteTable;
 export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
 utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
-
-export { SecurityRuleArgs } from "./securityRule";
-export type SecurityRule = import("./securityRule").SecurityRule;
-export const SecurityRule: typeof import("./securityRule").SecurityRule = null as any;
-utilities.lazyLoad(exports, ["SecurityRule"], () => require("./securityRule"));
 
 export { SubnetArgs } from "./subnet";
 export type Subnet = import("./subnet").Subnet;
@@ -147,10 +107,6 @@ const _module = {
                 return new ApplicationGateway(name, <any>undefined, { urn })
             case "azure-native:network/v20150501preview:ExpressRouteCircuit":
                 return new ExpressRouteCircuit(name, <any>undefined, { urn })
-            case "azure-native:network/v20150501preview:ExpressRouteCircuitAuthorization":
-                return new ExpressRouteCircuitAuthorization(name, <any>undefined, { urn })
-            case "azure-native:network/v20150501preview:ExpressRouteCircuitPeering":
-                return new ExpressRouteCircuitPeering(name, <any>undefined, { urn })
             case "azure-native:network/v20150501preview:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "azure-native:network/v20150501preview:NetworkInterface":
@@ -159,12 +115,8 @@ const _module = {
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20150501preview:PublicIpAddress":
                 return new PublicIpAddress(name, <any>undefined, { urn })
-            case "azure-native:network/v20150501preview:Route":
-                return new Route(name, <any>undefined, { urn })
             case "azure-native:network/v20150501preview:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
-            case "azure-native:network/v20150501preview:SecurityRule":
-                return new SecurityRule(name, <any>undefined, { urn })
             case "azure-native:network/v20150501preview:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
             case "azure-native:network/v20150501preview:VirtualNetwork":

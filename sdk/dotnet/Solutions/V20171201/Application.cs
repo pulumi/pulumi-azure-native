@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Solutions.V20171201
     /// <summary>
     /// Information about managed application.
     /// </summary>
-    [Obsolete(@"Version 2017-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20171201:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The peering service prefix class.
- *
- * @deprecated Version 2019-08-01-preview will be removed in v2 of the provider.
  */
 export class PeeringServicePrefix extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class PeeringServicePrefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PeeringServicePrefix {
-        pulumi.log.warn("PeeringServicePrefix is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.")
         return new PeeringServicePrefix(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +69,7 @@ export class PeeringServicePrefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: PeeringServicePrefixArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PeeringServicePrefix is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

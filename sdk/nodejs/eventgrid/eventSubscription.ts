@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2020-06-01.
+ * API Version: 2022-06-15.
+ * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**
@@ -39,11 +40,23 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * The DeadLetter destination of the event subscription.
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    public readonly deadLetterWithResourceIdentity!: pulumi.Output<outputs.eventgrid.DeadLetterWithResourceIdentityResponse | undefined>;
+    /**
      * Information about the destination where events have to be delivered for the event subscription.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    public readonly deliveryWithResourceIdentity!: pulumi.Output<outputs.eventgrid.DeliveryWithResourceIdentityResponse | undefined>;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     public readonly destination!: pulumi.Output<outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
@@ -102,6 +115,8 @@ export class EventSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scope'");
             }
             resourceInputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
+            resourceInputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
+            resourceInputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) ?? "EventGridSchema";
             resourceInputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
@@ -117,6 +132,8 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["deadLetterDestination"] = undefined /*out*/;
+            resourceInputs["deadLetterWithResourceIdentity"] = undefined /*out*/;
+            resourceInputs["deliveryWithResourceIdentity"] = undefined /*out*/;
             resourceInputs["destination"] = undefined /*out*/;
             resourceInputs["eventDeliverySchema"] = undefined /*out*/;
             resourceInputs["expirationTimeUtc"] = undefined /*out*/;
@@ -141,11 +158,23 @@ export class EventSubscription extends pulumi.CustomResource {
  */
 export interface EventSubscriptionArgs {
     /**
-     * The DeadLetter destination of the event subscription.
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     deadLetterDestination?: pulumi.Input<inputs.eventgrid.StorageBlobDeadLetterDestinationArgs>;
     /**
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeadLetterWithResourceIdentityArgs>;
+    /**
      * Information about the destination where events have to be delivered for the event subscription.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeliveryWithResourceIdentityArgs>;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
     /**

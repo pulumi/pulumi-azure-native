@@ -147,7 +147,7 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationGroupResult:
     """
     The operation that retrieves information about a capacity reservation group.
-    API Version: 2021-04-01.
+    API Version: 2022-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -180,7 +180,7 @@ def get_capacity_reservation_group_output(capacity_reservation_group_name: Optio
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:
     """
     The operation that retrieves information about a capacity reservation group.
-    API Version: 2021-04-01.
+    API Version: 2022-11-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

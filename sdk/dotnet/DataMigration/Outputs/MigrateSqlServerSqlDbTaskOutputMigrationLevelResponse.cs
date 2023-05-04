@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Migration level result for Sql server to Azure Sql DB migration.
-    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse
     {
@@ -47,7 +44,11 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Migration Report Result, provides unique url for downloading your migration report.
         /// </summary>
-        public readonly Outputs.MigrationReportResultResponse MigrationReport;
+        public readonly Outputs.MigrationReportResultResponse? MigrationReportResult;
+        /// <summary>
+        /// Migration Validation Results
+        /// </summary>
+        public readonly Outputs.MigrationValidationResultResponse? MigrationValidationResult;
         /// <summary>
         /// Result type
         /// Expected value is 'MigrationLevelOutput'.
@@ -98,7 +99,9 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string message,
 
-            Outputs.MigrationReportResultResponse migrationReport,
+            Outputs.MigrationReportResultResponse? migrationReportResult,
+
+            Outputs.MigrationValidationResultResponse? migrationValidationResult,
 
             string resultType,
 
@@ -123,7 +126,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             ExceptionsAndWarnings = exceptionsAndWarnings;
             Id = id;
             Message = message;
-            MigrationReport = migrationReport;
+            MigrationReportResult = migrationReportResult;
+            MigrationValidationResult = migrationValidationResult;
             ResultType = resultType;
             SourceServerBrandVersion = sourceServerBrandVersion;
             SourceServerVersion = sourceServerVersion;

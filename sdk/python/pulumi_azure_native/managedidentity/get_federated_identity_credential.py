@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetFederatedIdentityCredentialResult',
@@ -21,7 +22,7 @@ class GetFederatedIdentityCredentialResult:
     """
     Describes a federated identity credential.
     """
-    def __init__(__self__, audiences=None, id=None, issuer=None, name=None, subject=None, type=None):
+    def __init__(__self__, audiences=None, id=None, issuer=None, name=None, subject=None, system_data=None, type=None):
         if audiences and not isinstance(audiences, list):
             raise TypeError("Expected argument 'audiences' to be a list")
         pulumi.set(__self__, "audiences", audiences)
@@ -37,6 +38,9 @@ class GetFederatedIdentityCredentialResult:
         if subject and not isinstance(subject, str):
             raise TypeError("Expected argument 'subject' to be a str")
         pulumi.set(__self__, "subject", subject)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -53,7 +57,7 @@ class GetFederatedIdentityCredentialResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -82,6 +86,14 @@ class GetFederatedIdentityCredentialResult:
         return pulumi.get(self, "subject")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -101,6 +113,7 @@ class AwaitableGetFederatedIdentityCredentialResult(GetFederatedIdentityCredenti
             issuer=self.issuer,
             name=self.name,
             subject=self.subject,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -110,11 +123,11 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFederatedIdentityCredentialResult:
     """
     Gets the federated identity credential.
-    API Version: 2022-01-31-preview.
+    API Version: 2023-01-31.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.
-    :param str resource_group_name: The name of the Resource Group to which the identity belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the identity resource.
     """
     __args__ = dict()
@@ -130,6 +143,7 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
         issuer=__ret__.issuer,
         name=__ret__.name,
         subject=__ret__.subject,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -140,11 +154,11 @@ def get_federated_identity_credential_output(federated_identity_credential_resou
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedIdentityCredentialResult]:
     """
     Gets the federated identity credential.
-    API Version: 2022-01-31-preview.
+    API Version: 2023-01-31.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.
-    :param str resource_group_name: The name of the Resource Group to which the identity belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the identity resource.
     """
     ...

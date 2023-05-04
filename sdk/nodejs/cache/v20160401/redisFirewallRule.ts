@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
- *
- * @deprecated Version 2016-04-01 will be removed in v2 of the provider.
  */
 export class RedisFirewallRule extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class RedisFirewallRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RedisFirewallRule {
-        pulumi.log.warn("RedisFirewallRule is deprecated: Version 2016-04-01 will be removed in v2 of the provider.")
         return new RedisFirewallRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,9 +58,7 @@ export class RedisFirewallRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
     constructor(name: string, args: RedisFirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RedisFirewallRule is deprecated: Version 2016-04-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

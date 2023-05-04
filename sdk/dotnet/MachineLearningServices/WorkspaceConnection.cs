@@ -10,53 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Workspace connection.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:WorkspaceConnection")]
     public partial class WorkspaceConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Authorization type of the workspace connection.
-        /// </summary>
-        [Output("authType")]
-        public Output<string?> AuthType { get; private set; } = null!;
-
-        /// <summary>
-        /// Category of the workspace connection.
-        /// </summary>
-        [Output("category")]
-        public Output<string?> Category { get; private set; } = null!;
-
-        /// <summary>
-        /// Friendly name of the workspace connection.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Target of the workspace connection.
-        /// </summary>
-        [Output("target")]
-        public Output<string?> Target { get; private set; } = null!;
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type of workspace connection.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Value details of the workspace connection.
-        /// </summary>
-        [Output("value")]
-        public Output<string?> Value { get; private set; } = null!;
-
-        /// <summary>
-        /// format for the workspace connection value
-        /// </summary>
-        [Output("valueFormat")]
-        public Output<string?> ValueFormat { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,6 +76,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:WorkspaceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:WorkspaceConnection"},
                 },
             };
@@ -122,52 +103,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class WorkspaceConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authorization type of the workspace connection.
-        /// </summary>
-        [Input("authType")]
-        public Input<string>? AuthType { get; set; }
-
-        /// <summary>
-        /// Category of the workspace connection.
-        /// </summary>
-        [Input("category")]
-        public Input<string>? Category { get; set; }
-
-        /// <summary>
         /// Friendly name of the workspace connection
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
-        /// <summary>
-        /// Friendly name of the workspace connection
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("properties", required: true)]
+        public object Properties { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Target of the workspace connection.
-        /// </summary>
-        [Input("target")]
-        public Input<string>? Target { get; set; }
-
-        /// <summary>
-        /// Value details of the workspace connection.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        /// <summary>
-        /// format for the workspace connection value
-        /// </summary>
-        [Input("valueFormat")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ValueFormat>? ValueFormat { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.

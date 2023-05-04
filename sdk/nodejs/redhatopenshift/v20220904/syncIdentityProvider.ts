@@ -82,6 +82,8 @@ export class SyncIdentityProvider extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift:SyncIdentityProvider" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncIdentityProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

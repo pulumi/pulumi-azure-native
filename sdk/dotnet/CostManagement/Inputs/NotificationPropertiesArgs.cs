@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
     public sealed class NotificationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Locale of the email.
+        /// </summary>
+        [Input("language")]
+        public Input<string>? Language { get; set; }
+
+        /// <summary>
         /// Optional message to be added in the email. Length is limited to 250 characters.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
+
+        /// <summary>
+        /// Regional format used for formatting date/time and currency values in the email.
+        /// </summary>
+        [Input("regionalFormat")]
+        public Input<string>? RegionalFormat { get; set; }
 
         /// <summary>
         /// Subject of the email. Length is limited to 70 characters.

@@ -11,103 +11,10 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'IdentityArgs',
-    'IpRuleArgs',
-    'NetworkRuleSetArgs',
     'PrivateEndpointConnectionPropertiesPrivateEndpointArgs',
     'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs',
     'PrivateEndpointConnectionPropertiesArgs',
-    'SkuArgs',
 ]
-
-@pulumi.input_type
-class IdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input['IdentityType']):
-        """
-        Identity for the resource.
-        :param pulumi.Input['IdentityType'] type: The identity type.
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['IdentityType']:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['IdentityType']):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class IpRuleArgs:
-    def __init__(__self__, *,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        The IP restriction rule of the Azure Cognitive Search service.
-        :param pulumi.Input[str] value: Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
-        """
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class NetworkRuleSetArgs:
-    def __init__(__self__, *,
-                 endpoint_access: Optional[pulumi.Input['EndpointAccess']] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None):
-        """
-        Network specific rules that determine how the Azure Cognitive Search service may be reached.
-        :param pulumi.Input['EndpointAccess'] endpoint_access: The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
-        :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
-        """
-        if endpoint_access is None:
-            endpoint_access = 'Public'
-        if endpoint_access is not None:
-            pulumi.set(__self__, "endpoint_access", endpoint_access)
-        if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
-
-    @property
-    @pulumi.getter(name="endpointAccess")
-    def endpoint_access(self) -> Optional[pulumi.Input['EndpointAccess']]:
-        """
-        The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
-        """
-        return pulumi.get(self, "endpoint_access")
-
-    @endpoint_access.setter
-    def endpoint_access(self, value: Optional[pulumi.Input['EndpointAccess']]):
-        pulumi.set(self, "endpoint_access", value)
-
-    @property
-    @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]]:
-        """
-        A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
-        """
-        return pulumi.get(self, "ip_rules")
-
-    @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]]):
-        pulumi.set(self, "ip_rules", value)
-
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesPrivateEndpointArgs:
@@ -229,29 +136,5 @@ class PrivateEndpointConnectionPropertiesArgs:
     @private_link_service_connection_state.setter
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
-
-
-@pulumi.input_type
-class SkuArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input['SkuName']] = None):
-        """
-        Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
-        :param pulumi.Input['SkuName'] name: The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input['SkuName']]:
-        """
-        The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input['SkuName']]):
-        pulumi.set(self, "name", value)
 
 

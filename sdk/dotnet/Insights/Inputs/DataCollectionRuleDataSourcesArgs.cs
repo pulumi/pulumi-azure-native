@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// </summary>
     public sealed class DataCollectionRuleDataSourcesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifications of pull based data sources
+        /// </summary>
+        [Input("dataImports")]
+        public Input<Inputs.DataSourcesSpecDataImportsArgs>? DataImports { get; set; }
+
         [Input("extensions")]
         private InputList<Inputs.ExtensionDataSourceArgs>? _extensions;
 
@@ -28,6 +34,30 @@ namespace Pulumi.AzureNative.Insights.Inputs
             set => _extensions = value;
         }
 
+        [Input("iisLogs")]
+        private InputList<Inputs.IisLogsDataSourceArgs>? _iisLogs;
+
+        /// <summary>
+        /// The list of IIS logs source configurations.
+        /// </summary>
+        public InputList<Inputs.IisLogsDataSourceArgs> IisLogs
+        {
+            get => _iisLogs ?? (_iisLogs = new InputList<Inputs.IisLogsDataSourceArgs>());
+            set => _iisLogs = value;
+        }
+
+        [Input("logFiles")]
+        private InputList<Inputs.LogFilesDataSourceArgs>? _logFiles;
+
+        /// <summary>
+        /// The list of Log files source configurations.
+        /// </summary>
+        public InputList<Inputs.LogFilesDataSourceArgs> LogFiles
+        {
+            get => _logFiles ?? (_logFiles = new InputList<Inputs.LogFilesDataSourceArgs>());
+            set => _logFiles = value;
+        }
+
         [Input("performanceCounters")]
         private InputList<Inputs.PerfCounterDataSourceArgs>? _performanceCounters;
 
@@ -38,6 +68,30 @@ namespace Pulumi.AzureNative.Insights.Inputs
         {
             get => _performanceCounters ?? (_performanceCounters = new InputList<Inputs.PerfCounterDataSourceArgs>());
             set => _performanceCounters = value;
+        }
+
+        [Input("platformTelemetry")]
+        private InputList<Inputs.PlatformTelemetryDataSourceArgs>? _platformTelemetry;
+
+        /// <summary>
+        /// The list of platform telemetry configurations
+        /// </summary>
+        public InputList<Inputs.PlatformTelemetryDataSourceArgs> PlatformTelemetry
+        {
+            get => _platformTelemetry ?? (_platformTelemetry = new InputList<Inputs.PlatformTelemetryDataSourceArgs>());
+            set => _platformTelemetry = value;
+        }
+
+        [Input("prometheusForwarder")]
+        private InputList<Inputs.PrometheusForwarderDataSourceArgs>? _prometheusForwarder;
+
+        /// <summary>
+        /// The list of Prometheus forwarder data source configurations.
+        /// </summary>
+        public InputList<Inputs.PrometheusForwarderDataSourceArgs> PrometheusForwarder
+        {
+            get => _prometheusForwarder ?? (_prometheusForwarder = new InputList<Inputs.PrometheusForwarderDataSourceArgs>());
+            set => _prometheusForwarder = value;
         }
 
         [Input("syslog")]
@@ -62,6 +116,18 @@ namespace Pulumi.AzureNative.Insights.Inputs
         {
             get => _windowsEventLogs ?? (_windowsEventLogs = new InputList<Inputs.WindowsEventLogDataSourceArgs>());
             set => _windowsEventLogs = value;
+        }
+
+        [Input("windowsFirewallLogs")]
+        private InputList<Inputs.WindowsFirewallLogsDataSourceArgs>? _windowsFirewallLogs;
+
+        /// <summary>
+        /// The list of Windows Firewall logs source configurations.
+        /// </summary>
+        public InputList<Inputs.WindowsFirewallLogsDataSourceArgs> WindowsFirewallLogs
+        {
+            get => _windowsFirewallLogs ?? (_windowsFirewallLogs = new InputList<Inputs.WindowsFirewallLogsDataSourceArgs>());
+            set => _windowsFirewallLogs = value;
         }
 
         public DataCollectionRuleDataSourcesArgs()

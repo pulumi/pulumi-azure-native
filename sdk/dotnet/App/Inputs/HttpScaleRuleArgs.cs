@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.Inputs
 {
 
     /// <summary>
-    /// Container App container Custom scaling rule.
+    /// Container App container Http scaling rule.
     /// </summary>
     public sealed class HttpScaleRuleArgs : global::Pulumi.ResourceArgs
     {

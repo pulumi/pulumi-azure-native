@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The cluster resource
- *
- * @deprecated Version 2017-07-01-preview will be removed in v2 of the provider.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
-        pulumi.log.warn("Cluster is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.")
         return new Cluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -164,9 +161,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-07-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Cluster is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -233,7 +228,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vmImage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:Cluster" }, { type: "azure-native:servicefabric/v20160901:Cluster" }, { type: "azure-native:servicefabric/v20180201:Cluster" }, { type: "azure-native:servicefabric/v20190301:Cluster" }, { type: "azure-native:servicefabric/v20190301preview:Cluster" }, { type: "azure-native:servicefabric/v20190601preview:Cluster" }, { type: "azure-native:servicefabric/v20191101preview:Cluster" }, { type: "azure-native:servicefabric/v20200301:Cluster" }, { type: "azure-native:servicefabric/v20201201preview:Cluster" }, { type: "azure-native:servicefabric/v20210601:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20160901:Cluster" }, { type: "azure-native:servicefabric/v20180201:Cluster" }, { type: "azure-native:servicefabric/v20190301:Cluster" }, { type: "azure-native:servicefabric/v20190301preview:Cluster" }, { type: "azure-native:servicefabric/v20190601preview:Cluster" }, { type: "azure-native:servicefabric/v20191101preview:Cluster" }, { type: "azure-native:servicefabric/v20200301:Cluster" }, { type: "azure-native:servicefabric/v20201201preview:Cluster" }, { type: "azure-native:servicefabric/v20210601:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

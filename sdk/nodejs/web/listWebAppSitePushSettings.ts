@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the Push settings associated with web app.
- * API Version: 2020-12-01.
+ * Description for Gets the Push settings associated with web app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppSitePushSettings(args: ListWebAppSitePushSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsResult> {
 
@@ -53,7 +53,7 @@ export interface ListWebAppSitePushSettingsResult {
      */
     readonly name: string;
     /**
-     * Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+     * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */
     readonly tagWhitelistJson?: string;
     /**
@@ -69,8 +69,8 @@ export interface ListWebAppSitePushSettingsResult {
     readonly type: string;
 }
 /**
- * Gets the Push settings associated with web app.
- * API Version: 2020-12-01.
+ * Description for Gets the Push settings associated with web app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppSitePushSettingsOutput(args: ListWebAppSitePushSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppSitePushSettings(a, opts))

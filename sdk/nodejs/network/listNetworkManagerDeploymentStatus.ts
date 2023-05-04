@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Post to List of Network Manager Deployment Status.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function listNetworkManagerDeploymentStatus(args: ListNetworkManagerDeploymentStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerDeploymentStatusResult> {
 
@@ -20,6 +20,7 @@ export function listNetworkManagerDeploymentStatus(args: ListNetworkManagerDeplo
         "regions": args.regions,
         "resourceGroupName": args.resourceGroupName,
         "skipToken": args.skipToken,
+        "top": args.top,
     }, opts);
 }
 
@@ -44,6 +45,10 @@ export interface ListNetworkManagerDeploymentStatusArgs {
      * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
      */
     skipToken?: string;
+    /**
+     * An optional query parameter which specifies the maximum number of records to be returned by the server.
+     */
+    top?: number;
 }
 
 /**
@@ -61,7 +66,7 @@ export interface ListNetworkManagerDeploymentStatusResult {
 }
 /**
  * Post to List of Network Manager Deployment Status.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function listNetworkManagerDeploymentStatusOutput(args: ListNetworkManagerDeploymentStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerDeploymentStatusResult> {
     return pulumi.output(args).apply((a: any) => listNetworkManagerDeploymentStatus(a, opts))
@@ -88,4 +93,8 @@ export interface ListNetworkManagerDeploymentStatusOutputArgs {
      * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
      */
     skipToken?: pulumi.Input<string>;
+    /**
+     * An optional query parameter which specifies the maximum number of records to be returned by the server.
+     */
+    top?: pulumi.Input<number>;
 }

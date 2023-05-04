@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get formula.
  */
-/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getFormulaResource(args: GetFormulaResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetFormulaResourceResult> {
-    pulumi.log.warn("getFormulaResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20150521preview:getFormulaResource", {
@@ -93,7 +91,6 @@ export interface GetFormulaResourceResult {
 /**
  * Get formula.
  */
-/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getFormulaResourceOutput(args: GetFormulaResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormulaResourceResult> {
     return pulumi.output(args).apply((a: any) => getFormulaResource(a, opts))
 }

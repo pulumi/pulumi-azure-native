@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20170615Preview
 {
-    [Obsolete(@"Version 2017-06-15-preview will be removed in v2 of the provider.")]
     public static class GetEventSubscription
     {
         /// <summary>

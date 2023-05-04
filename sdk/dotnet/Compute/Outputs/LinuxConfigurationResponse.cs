@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly bool? DisablePasswordAuthentication;
         /// <summary>
+        /// Indicates whether VMAgent Platform Updates is enabled for the Linux virtual machine. Default value is false.
+        /// </summary>
+        public readonly bool? EnableVMAgentPlatformUpdates;
+        /// <summary>
         /// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
         /// </summary>
         public readonly Outputs.LinuxPatchSettingsResponse? PatchSettings;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private LinuxConfigurationResponse(
             bool? disablePasswordAuthentication,
 
+            bool? enableVMAgentPlatformUpdates,
+
             Outputs.LinuxPatchSettingsResponse? patchSettings,
 
             bool? provisionVMAgent,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             Outputs.SshConfigurationResponse? ssh)
         {
             DisablePasswordAuthentication = disablePasswordAuthentication;
+            EnableVMAgentPlatformUpdates = enableVMAgentPlatformUpdates;
             PatchSettings = patchSettings;
             ProvisionVMAgent = provisionVMAgent;
             Ssh = ssh;

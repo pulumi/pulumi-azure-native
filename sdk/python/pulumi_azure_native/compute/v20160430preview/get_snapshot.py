@@ -17,8 +17,6 @@ __all__ = [
     'get_snapshot_output',
 ]
 
-warnings.warn("""Version 2016-04-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSnapshotResult:
     """
@@ -201,7 +199,6 @@ def get_snapshot(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_name: The name of the snapshot within the given subscription and resource group.
     """
-    pulumi.log.warn("""get_snapshot is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['snapshotName'] = snapshot_name
@@ -235,5 +232,4 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_name: The name of the snapshot within the given subscription and resource group.
     """
-    pulumi.log.warn("""get_snapshot is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.""")
     ...

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// <summary>
     /// The iSCSI disk.
     /// </summary>
-    [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:IscsiDisk")]
     public partial class IscsiDisk : global::Pulumi.CustomResource
     {

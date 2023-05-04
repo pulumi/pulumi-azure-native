@@ -17,8 +17,6 @@ __all__ = [
     'get_redis_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetRedisResult:
     """
@@ -261,7 +259,6 @@ def get_redis(name: Optional[str] = None,
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_redis is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -300,5 +297,4 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_redis is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

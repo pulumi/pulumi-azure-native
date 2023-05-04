@@ -32,7 +32,7 @@ class SAPVirtualInstanceArgs:
         :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'SAPProductType']] sap_product: Defines the SAP Product type.
-        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
@@ -105,7 +105,7 @@ class SAPVirtualInstanceArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['UserAssignedServiceIdentityArgs']]:
         """
-        Managed service identity (user assigned identities)
+        A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         """
         return pulumi.get(self, "identity")
 
@@ -179,13 +179,14 @@ class SAPVirtualInstance(pulumi.CustomResource):
                  __props__=None):
         """
         Define the Virtual Instance for SAP solutions resource.
-        API Version: 2021-12-01-preview.
+        API Version: 2023-04-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['DeploymentConfigurationArgs'], pulumi.InputType['DeploymentWithOSConfigurationArgs'], pulumi.InputType['DiscoveryConfigurationArgs']]] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
-        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -201,7 +202,8 @@ class SAPVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the Virtual Instance for SAP solutions resource.
-        API Version: 2021-12-01-preview.
+        API Version: 2023-04-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SAPVirtualInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -338,7 +340,7 @@ class SAPVirtualInstance(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.UserAssignedServiceIdentityResponse']]:
         """
-        Managed service identity (user assigned identities)
+        A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         """
         return pulumi.get(self, "identity")
 

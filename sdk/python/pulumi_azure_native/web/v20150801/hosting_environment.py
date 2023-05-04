@@ -614,12 +614,7 @@ class HostingEnvironmentArgs:
         pulumi.set(self, "worker_pools", value)
 
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class HostingEnvironment(pulumi.CustomResource):
-    warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -768,7 +763,6 @@ class HostingEnvironment(pulumi.CustomResource):
                  vnet_subnet_name: Optional[pulumi.Input[str]] = None,
                  worker_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""HostingEnvironment is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

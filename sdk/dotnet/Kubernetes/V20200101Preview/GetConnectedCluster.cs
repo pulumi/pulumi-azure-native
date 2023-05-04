@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kubernetes.V20200101Preview
 {
-    [Obsolete(@"Version 2020-01-01-preview will be removed in v2 of the provider.")]
     public static class GetConnectedCluster
     {
         /// <summary>

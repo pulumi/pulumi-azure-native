@@ -10,19 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
+    /// <summary>
+    /// Details about a user assigned identity.
+    /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentityResponse
     {
         /// <summary>
-        /// The client id of the user assigned identity.
+        /// The client ID of the user assigned identity.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// The object id of the user assigned identity.
+        /// The object ID of the user assigned identity.
         /// </summary>
         public readonly string? ObjectId;
         /// <summary>
-        /// The resource id of the user assigned identity.
+        /// The resource ID of the user assigned identity.
         /// </summary>
         public readonly string? ResourceId;
 

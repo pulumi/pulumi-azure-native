@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Custom Locations definition.
- * API Version: 2021-03-15-preview.
+ * API Version: 2021-08-15.
+ * Previous API Version: 2021-03-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class CustomLocation extends pulumi.CustomResource {
     /**
@@ -59,6 +60,10 @@ export class CustomLocation extends pulumi.CustomResource {
      */
     public readonly hostType!: pulumi.Output<string | undefined>;
     /**
+     * Identity for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.extendedlocation.IdentityResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -106,6 +111,7 @@ export class CustomLocation extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["hostResourceId"] = args ? args.hostResourceId : undefined;
             resourceInputs["hostType"] = args ? args.hostType : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -121,6 +127,7 @@ export class CustomLocation extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["hostResourceId"] = undefined /*out*/;
             resourceInputs["hostType"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
@@ -160,6 +167,10 @@ export interface CustomLocationArgs {
      * Type of host the Custom Locations is referencing (Kubernetes, etc...).
      */
     hostType?: pulumi.Input<string | enums.extendedlocation.HostType>;
+    /**
+     * Identity for the resource.
+     */
+    identity?: pulumi.Input<inputs.extendedlocation.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

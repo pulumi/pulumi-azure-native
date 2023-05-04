@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Define the SAP Application Server Instance resource.
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
+ * Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SAPApplicationServerInstance extends pulumi.CustomResource {
     /**
@@ -79,6 +80,10 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly kernelVersion!: pulumi.Output<string>;
     /**
+     * The Load Balancer details such as LoadBalancer ID attached to Application Server Virtual Machines
+     */
+    public /*out*/ readonly loadBalancerDetails!: pulumi.Output<outputs.workloads.LoadBalancerDetailsResponse>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -94,10 +99,6 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      * Defines the SAP Instance status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
-     */
-    public /*out*/ readonly storageDetails!: pulumi.Output<outputs.workloads.StorageInformationResponse[]>;
     /**
      * Application server Subnet.
      */
@@ -115,9 +116,9 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The virtual machine.
+     * The list of virtual machines.
      */
-    public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
+    public /*out*/ readonly vmDetails!: pulumi.Output<outputs.workloads.ApplicationServerVmDetailsResponse[]>;
 
     /**
      * Create a SAPApplicationServerInstance resource with the given unique name, arguments, and options.
@@ -151,14 +152,14 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["kernelPatch"] = undefined /*out*/;
             resourceInputs["kernelVersion"] = undefined /*out*/;
+            resourceInputs["loadBalancerDetails"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["storageDetails"] = undefined /*out*/;
             resourceInputs["subnet"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachineId"] = undefined /*out*/;
+            resourceInputs["vmDetails"] = undefined /*out*/;
         } else {
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["gatewayPort"] = undefined /*out*/;
@@ -170,16 +171,16 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["kernelPatch"] = undefined /*out*/;
             resourceInputs["kernelVersion"] = undefined /*out*/;
+            resourceInputs["loadBalancerDetails"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["storageDetails"] = undefined /*out*/;
             resourceInputs["subnet"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualMachineId"] = undefined /*out*/;
+            resourceInputs["vmDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20221101preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20230401:SAPApplicationServerInstance" }] };

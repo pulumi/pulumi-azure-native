@@ -19,35 +19,35 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// <summary>
         /// The status code.
         /// </summary>
-        public readonly string Code;
+        public readonly string? Code;
         /// <summary>
         /// The short localizable label for the status.
         /// </summary>
-        public readonly string DisplayStatus;
+        public readonly string? DisplayStatus;
         /// <summary>
         /// The level code.
         /// </summary>
-        public readonly string Level;
+        public readonly string? Level;
         /// <summary>
         /// The detailed status message, including for alerts and error messages.
         /// </summary>
-        public readonly string Message;
+        public readonly string? Message;
         /// <summary>
         /// The time of the status.
         /// </summary>
-        public readonly string Time;
+        public readonly string? Time;
 
         [OutputConstructor]
         private MachineExtensionInstanceViewResponseStatus(
-            string code,
+            string? code,
 
-            string displayStatus,
+            string? displayStatus,
 
-            string level,
+            string? level,
 
-            string message,
+            string? message,
 
-            string time)
+            string? time)
         {
             Code = code;
             DisplayStatus = displayStatus;

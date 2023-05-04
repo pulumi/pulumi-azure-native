@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerService.V20180930Preview
 {
-    [Obsolete(@"Version 2018-09-30-preview will be removed in v2 of the provider.")]
     public static class GetOpenShiftManagedCluster
     {
         /// <summary>

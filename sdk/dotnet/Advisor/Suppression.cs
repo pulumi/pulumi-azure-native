@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Advisor
 {
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-    /// API Version: 2020-01-01.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:advisor:Suppression")]
     public partial class Suppression : global::Pulumi.CustomResource
@@ -23,7 +24,7 @@ namespace Pulumi.AzureNative.Advisor
         public Output<string> ExpirationTimeStamp { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -35,13 +36,19 @@ namespace Pulumi.AzureNative.Advisor
         public Output<string?> SuppressionId { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The duration for which the suppression is valid.
         /// </summary>
         [Output("ttl")]
         public Output<string?> Ttl { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -77,6 +84,7 @@ namespace Pulumi.AzureNative.Advisor
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20220901:Suppression"},
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20221001:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20230101:Suppression"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20150101
 {
-    [Obsolete(@"Version 2015-01-01 will be removed in v2 of the provider.")]
     public static class GetManagementLockAtResourceGroupLevel
     {
         /// <summary>

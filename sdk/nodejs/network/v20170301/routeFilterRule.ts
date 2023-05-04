@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Route Filter Rule Resource
- *
- * @deprecated Version 2017-03-01 will be removed in v2 of the provider.
  */
 export class RouteFilterRule extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class RouteFilterRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RouteFilterRule {
-        pulumi.log.warn("RouteFilterRule is deprecated: Version 2017-03-01 will be removed in v2 of the provider.")
         return new RouteFilterRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-03-01 will be removed in v2 of the provider. */
     constructor(name: string, args: RouteFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RouteFilterRule is deprecated: Version 2017-03-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -124,7 +119,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:RouteFilterRule" }, { type: "azure-native:network/v20161201:RouteFilterRule" }, { type: "azure-native:network/v20170601:RouteFilterRule" }, { type: "azure-native:network/v20170801:RouteFilterRule" }, { type: "azure-native:network/v20170901:RouteFilterRule" }, { type: "azure-native:network/v20171001:RouteFilterRule" }, { type: "azure-native:network/v20171101:RouteFilterRule" }, { type: "azure-native:network/v20180101:RouteFilterRule" }, { type: "azure-native:network/v20180201:RouteFilterRule" }, { type: "azure-native:network/v20180401:RouteFilterRule" }, { type: "azure-native:network/v20180601:RouteFilterRule" }, { type: "azure-native:network/v20180701:RouteFilterRule" }, { type: "azure-native:network/v20180801:RouteFilterRule" }, { type: "azure-native:network/v20181001:RouteFilterRule" }, { type: "azure-native:network/v20181101:RouteFilterRule" }, { type: "azure-native:network/v20181201:RouteFilterRule" }, { type: "azure-native:network/v20190201:RouteFilterRule" }, { type: "azure-native:network/v20190401:RouteFilterRule" }, { type: "azure-native:network/v20190601:RouteFilterRule" }, { type: "azure-native:network/v20190701:RouteFilterRule" }, { type: "azure-native:network/v20190801:RouteFilterRule" }, { type: "azure-native:network/v20190901:RouteFilterRule" }, { type: "azure-native:network/v20191101:RouteFilterRule" }, { type: "azure-native:network/v20191201:RouteFilterRule" }, { type: "azure-native:network/v20200301:RouteFilterRule" }, { type: "azure-native:network/v20200401:RouteFilterRule" }, { type: "azure-native:network/v20200501:RouteFilterRule" }, { type: "azure-native:network/v20200601:RouteFilterRule" }, { type: "azure-native:network/v20200701:RouteFilterRule" }, { type: "azure-native:network/v20200801:RouteFilterRule" }, { type: "azure-native:network/v20201101:RouteFilterRule" }, { type: "azure-native:network/v20210201:RouteFilterRule" }, { type: "azure-native:network/v20210301:RouteFilterRule" }, { type: "azure-native:network/v20210501:RouteFilterRule" }, { type: "azure-native:network/v20210801:RouteFilterRule" }, { type: "azure-native:network/v20220101:RouteFilterRule" }, { type: "azure-native:network/v20220501:RouteFilterRule" }, { type: "azure-native:network/v20220701:RouteFilterRule" }, { type: "azure-native:network/v20220901:RouteFilterRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:RouteFilterRule" }, { type: "azure-native:network/v20161201:RouteFilterRule" }, { type: "azure-native:network/v20170601:RouteFilterRule" }, { type: "azure-native:network/v20170801:RouteFilterRule" }, { type: "azure-native:network/v20170901:RouteFilterRule" }, { type: "azure-native:network/v20171001:RouteFilterRule" }, { type: "azure-native:network/v20171101:RouteFilterRule" }, { type: "azure-native:network/v20180101:RouteFilterRule" }, { type: "azure-native:network/v20180201:RouteFilterRule" }, { type: "azure-native:network/v20180401:RouteFilterRule" }, { type: "azure-native:network/v20180601:RouteFilterRule" }, { type: "azure-native:network/v20180701:RouteFilterRule" }, { type: "azure-native:network/v20180801:RouteFilterRule" }, { type: "azure-native:network/v20181001:RouteFilterRule" }, { type: "azure-native:network/v20181101:RouteFilterRule" }, { type: "azure-native:network/v20181201:RouteFilterRule" }, { type: "azure-native:network/v20190201:RouteFilterRule" }, { type: "azure-native:network/v20190401:RouteFilterRule" }, { type: "azure-native:network/v20190601:RouteFilterRule" }, { type: "azure-native:network/v20190701:RouteFilterRule" }, { type: "azure-native:network/v20190801:RouteFilterRule" }, { type: "azure-native:network/v20190901:RouteFilterRule" }, { type: "azure-native:network/v20191101:RouteFilterRule" }, { type: "azure-native:network/v20191201:RouteFilterRule" }, { type: "azure-native:network/v20200301:RouteFilterRule" }, { type: "azure-native:network/v20200401:RouteFilterRule" }, { type: "azure-native:network/v20200501:RouteFilterRule" }, { type: "azure-native:network/v20200601:RouteFilterRule" }, { type: "azure-native:network/v20200701:RouteFilterRule" }, { type: "azure-native:network/v20200801:RouteFilterRule" }, { type: "azure-native:network/v20201101:RouteFilterRule" }, { type: "azure-native:network/v20210201:RouteFilterRule" }, { type: "azure-native:network/v20210301:RouteFilterRule" }, { type: "azure-native:network/v20210501:RouteFilterRule" }, { type: "azure-native:network/v20210801:RouteFilterRule" }, { type: "azure-native:network/v20220101:RouteFilterRule" }, { type: "azure-native:network/v20220501:RouteFilterRule" }, { type: "azure-native:network/v20220701:RouteFilterRule" }, { type: "azure-native:network/v20220901:RouteFilterRule" }, { type: "azure-native:network/v20221101:RouteFilterRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RouteFilterRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureSphere
     /// <summary>
     /// An device resource belonging to a device group resource.
     /// API Version: 2022-09-01-preview.
+    /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Device")]
     public partial class Device : global::Pulumi.CustomResource

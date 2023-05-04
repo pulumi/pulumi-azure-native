@@ -32,7 +32,7 @@ class MonitorArgs:
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] app_location: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
-        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: [currently not in use] Managed service identity(user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] log_analytics_workspace_arm_id: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
         :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
@@ -92,7 +92,7 @@ class MonitorArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['UserAssignedServiceIdentityArgs']]:
         """
-        Managed service identity (user assigned identities)
+        [currently not in use] Managed service identity(user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -216,12 +216,13 @@ class Monitor(pulumi.CustomResource):
                  __props__=None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        API Version: 2021-12-01-preview.
+        API Version: 2023-04-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_location: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
-        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: [currently not in use] Managed service identity(user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] log_analytics_workspace_arm_id: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
         :param pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']] managed_resource_group_configuration: Managed resource group configuration
@@ -240,7 +241,8 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        API Version: 2021-12-01-preview.
+        API Version: 2023-04-01.
+        Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
@@ -359,7 +361,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.UserAssignedServiceIdentityResponse']]:
         """
-        Managed service identity (user assigned identities)
+        [currently not in use] Managed service identity(user assigned identities)
         """
         return pulumi.get(self, "identity")
 

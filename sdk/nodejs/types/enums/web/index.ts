@@ -42,6 +42,17 @@ export {
     v20220901,
 };
 
+export const ActiveRevisionsMode = {
+    Multiple: "multiple",
+    Single: "single",
+} as const;
+
+/**
+ * ActiveRevisionsMode controls how active revisions are handled for the Container app:
+ * <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+ */
+export type ActiveRevisionsMode = (typeof ActiveRevisionsMode)[keyof typeof ActiveRevisionsMode];
+
 export const ApiType = {
     NotSpecified: "NotSpecified",
     Rest: "Rest",
@@ -191,6 +202,28 @@ export const DatabaseType = {
  */
 export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
 
+export const DefaultAction = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * Default action for scm access restriction if no rules are matched.
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
+
+export const EnterpriseGradeCdnStatus = {
+    Enabled: "Enabled",
+    Enabling: "Enabling",
+    Disabled: "Disabled",
+    Disabling: "Disabling",
+} as const;
+
+/**
+ * State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+ */
+export type EnterpriseGradeCdnStatus = (typeof EnterpriseGradeCdnStatus)[keyof typeof EnterpriseGradeCdnStatus];
+
 export const ForwardProxyConvention = {
     NoProxy: "NoProxy",
     Standard: "Standard",
@@ -249,6 +282,17 @@ export const HostType = {
  * Indicates whether the hostname is a standard or repository hostname.
  */
 export type HostType = (typeof HostType)[keyof typeof HostType];
+
+export const IngressTransportMethod = {
+    Auto: "auto",
+    Http: "http",
+    Http2: "http2",
+} as const;
+
+/**
+ * Ingress transport protocol
+ */
+export type IngressTransportMethod = (typeof IngressTransportMethod)[keyof typeof IngressTransportMethod];
 
 export const IpFilterTag = {
     Default: "Default",
@@ -444,6 +488,30 @@ export const UnauthenticatedClientActionV2 = {
  * The action to take when an unauthenticated client attempts to access the app.
  */
 export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];
+
+export const UpgradePreference = {
+    /**
+     * No preference on when this App Service Environment will be upgraded
+     */
+    None: "None",
+    /**
+     * This App Service Environment will be upgraded before others in the same region that have Upgrade Preference 'Late'
+     */
+    Early: "Early",
+    /**
+     * This App Service Environment will be upgraded after others in the same region that have Upgrade Preference 'Early'
+     */
+    Late: "Late",
+    /**
+     * ASEv3 only. Once an upgrade is available, this App Service Environment will wait 10 days for the upgrade to be manually initiated. After 10 days the upgrade will begin automatically
+     */
+    Manual: "Manual",
+} as const;
+
+/**
+ * Upgrade Preference
+ */
+export type UpgradePreference = (typeof UpgradePreference)[keyof typeof UpgradePreference];
 
 export const WsdlImportMethod = {
     NotSpecified: "NotSpecified",

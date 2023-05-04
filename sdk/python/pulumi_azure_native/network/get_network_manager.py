@@ -22,13 +22,10 @@ class GetNetworkManagerResult:
     """
     The Managed Network resource
     """
-    def __init__(__self__, description=None, display_name=None, etag=None, id=None, location=None, name=None, network_manager_scope_accesses=None, network_manager_scopes=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, description=None, etag=None, id=None, location=None, name=None, network_manager_scope_accesses=None, network_manager_scopes=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -69,14 +66,6 @@ class GetNetworkManagerResult:
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        A friendly name for the network manager.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
     @pulumi.getter
     def etag(self) -> str:
         """
@@ -110,7 +99,7 @@ class GetNetworkManagerResult:
 
     @property
     @pulumi.getter(name="networkManagerScopeAccesses")
-    def network_manager_scope_accesses(self) -> Optional[Sequence[str]]:
+    def network_manager_scope_accesses(self) -> Sequence[str]:
         """
         Scope Access.
         """
@@ -118,7 +107,7 @@ class GetNetworkManagerResult:
 
     @property
     @pulumi.getter(name="networkManagerScopes")
-    def network_manager_scopes(self) -> Optional['outputs.NetworkManagerPropertiesResponseNetworkManagerScopes']:
+    def network_manager_scopes(self) -> 'outputs.NetworkManagerPropertiesResponseNetworkManagerScopes':
         """
         Scope of Network Manager.
         """
@@ -128,7 +117,7 @@ class GetNetworkManagerResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the scope assignment resource.
+        The provisioning state of the network manager resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -164,7 +153,6 @@ class AwaitableGetNetworkManagerResult(GetNetworkManagerResult):
             yield self
         return GetNetworkManagerResult(
             description=self.description,
-            display_name=self.display_name,
             etag=self.etag,
             id=self.id,
             location=self.location,
@@ -182,7 +170,7 @@ def get_network_manager(network_manager_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkManagerResult:
     """
     Gets the specified Network Manager.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -196,7 +184,6 @@ def get_network_manager(network_manager_name: Optional[str] = None,
 
     return AwaitableGetNetworkManagerResult(
         description=__ret__.description,
-        display_name=__ret__.display_name,
         etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
@@ -215,7 +202,7 @@ def get_network_manager_output(network_manager_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerResult]:
     """
     Gets the specified Network Manager.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
     :param str network_manager_name: The name of the network manager.

@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a workspace.
  */
-/** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    pulumi.log.warn("getWorkspace is deprecated: Version 2020-11-10-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20201110preview:getWorkspace", {
@@ -69,7 +67,6 @@ export interface GetWorkspaceResult {
 /**
  * Get a workspace.
  */
-/** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }

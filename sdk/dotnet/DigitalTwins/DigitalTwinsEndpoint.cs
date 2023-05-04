@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
     /// DigitalTwinsInstance endpoint resource.
-    /// API Version: 2020-12-01.
+    /// API Version: 2023-01-31.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:DigitalTwinsEndpoint")]
     public partial class DigitalTwinsEndpoint : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// </summary>
         [Output("properties")]
         public Output<object> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VpnGateway Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnGateway")]
     public partial class VpnGateway : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("connections")]
         public Output<ImmutableArray<Outputs.VpnConnectionResponse>> Connections { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable BGP routes translation for NAT on this VpnGateway.
+        /// </summary>
+        [Output("enableBgpRouteTranslationForNat")]
+        public Output<bool?> EnableBgpRouteTranslationForNat { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -149,6 +156,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VpnGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VpnGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VpnGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,6 +197,12 @@ namespace Pulumi.AzureNative.Network
             get => _connections ?? (_connections = new InputList<Inputs.VpnConnectionArgs>());
             set => _connections = value;
         }
+
+        /// <summary>
+        /// Enable BGP routes translation for NAT on this VpnGateway.
+        /// </summary>
+        [Input("enableBgpRouteTranslationForNat")]
+        public Input<bool>? EnableBgpRouteTranslationForNat { get; set; }
 
         /// <summary>
         /// The name of the gateway.

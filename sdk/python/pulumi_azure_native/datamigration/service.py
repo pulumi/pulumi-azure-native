@@ -23,7 +23,8 @@ class ServiceArgs:
                  public_key: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ServiceSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_nic_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] group_name: Name of the resource group
@@ -34,6 +35,7 @@ class ServiceArgs:
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input['ServiceSkuArgs'] sku: Service SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_nic_id: The ID of the Microsoft.Network/networkInterfaces resource which the service have
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
@@ -49,6 +51,8 @@ class ServiceArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_nic_id is not None:
+            pulumi.set(__self__, "virtual_nic_id", virtual_nic_id)
 
     @property
     @pulumi.getter(name="groupName")
@@ -146,6 +150,18 @@ class ServiceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="virtualNicId")
+    def virtual_nic_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        """
+        return pulumi.get(self, "virtual_nic_id")
+
+    @virtual_nic_id.setter
+    def virtual_nic_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_nic_id", value)
+
 
 class Service(pulumi.CustomResource):
     @overload
@@ -159,11 +175,13 @@ class Service(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_nic_id: Optional[pulumi.Input[str]] = None,
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A Database Migration Service resource
-        API Version: 2018-04-19.
+        API Version: 2021-06-30.
+        Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,6 +192,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: Service SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_nic_id: The ID of the Microsoft.Network/networkInterfaces resource which the service have
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
         ...
@@ -184,7 +203,8 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Database Migration Service resource
-        API Version: 2018-04-19.
+        API Version: 2021-06-30.
+        Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -208,6 +228,7 @@ class Service(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_nic_id: Optional[pulumi.Input[str]] = None,
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -227,12 +248,14 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_nic_id"] = virtual_nic_id
             if virtual_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_subnet_id'")
             __props__.__dict__["virtual_subnet_id"] = virtual_subnet_id
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Service"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -265,8 +288,10 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_key"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_nic_id"] = None
         __props__.__dict__["virtual_subnet_id"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
@@ -327,6 +352,14 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -341,6 +374,14 @@ class Service(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNicId")
+    def virtual_nic_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        """
+        return pulumi.get(self, "virtual_nic_id")
 
     @property
     @pulumi.getter(name="virtualSubnetId")

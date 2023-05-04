@@ -17,8 +17,8 @@ __all__ = ['AgentPoolArgs', 'AgentPool']
 @pulumi.input_type
 class AgentPoolArgs:
     def __init__(__self__, *,
-                 provisioned_clusters_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_provider_profile: Optional[pulumi.Input['CloudProviderProfileArgs']] = None,
@@ -38,8 +38,8 @@ class AgentPoolArgs:
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AgentPool resource.
-        :param pulumi.Input[str] provisioned_clusters_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[str] agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
         :param pulumi.Input['CloudProviderProfileArgs'] cloud_provider_profile: The underlying cloud infra provider properties.
@@ -57,8 +57,8 @@ class AgentPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_size: VmSize - The size of the agent pool VMs.
         """
-        pulumi.set(__self__, "provisioned_clusters_name", provisioned_clusters_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         if agent_pool_name is not None:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if availability_zones is not None:
@@ -89,8 +89,6 @@ class AgentPoolArgs:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is None:
-            os_type = 'Linux'
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if status is not None:
@@ -99,18 +97,6 @@ class AgentPoolArgs:
             pulumi.set(__self__, "tags", tags)
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
-
-    @property
-    @pulumi.getter(name="provisionedClustersName")
-    def provisioned_clusters_name(self) -> pulumi.Input[str]:
-        """
-        Parameter for the name of the provisioned cluster
-        """
-        return pulumi.get(self, "provisioned_clusters_name")
-
-    @provisioned_clusters_name.setter
-    def provisioned_clusters_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provisioned_clusters_name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -123,6 +109,18 @@ class AgentPoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        Parameter for the name of the provisioned cluster
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
 
     @property
     @pulumi.getter(name="agentPoolName")
@@ -345,15 +343,16 @@ class AgentPool(pulumi.CustomResource):
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
-                 provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The agentPool resource definition
-        API Version: 2022-05-01-preview.
+        API Version: 2022-09-01-preview.
+        Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -370,8 +369,8 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[Union[str, 'OsType']] os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        :param pulumi.Input[str] provisioned_clusters_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name_: Parameter for the name of the provisioned cluster
         :param pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']] status: HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_size: VmSize - The size of the agent pool VMs.
@@ -384,7 +383,8 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The agentPool resource definition
-        API Version: 2022-05-01-preview.
+        API Version: 2022-09-01-preview.
+        Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
@@ -415,8 +415,8 @@ class AgentPool(pulumi.CustomResource):
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
-                 provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[pulumi.InputType['AgentPoolProvisioningStatusStatusArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
@@ -446,15 +446,13 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["node_image_version"] = node_image_version
             __props__.__dict__["node_labels"] = node_labels
             __props__.__dict__["node_taints"] = node_taints
-            if os_type is None:
-                os_type = 'Linux'
             __props__.__dict__["os_type"] = os_type
-            if provisioned_clusters_name is None and not opts.urn:
-                raise TypeError("Missing required property 'provisioned_clusters_name'")
-            __props__.__dict__["provisioned_clusters_name"] = provisioned_clusters_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vm_size"] = vm_size
@@ -462,7 +460,7 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:agentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:agentPool"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:agentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-native:hybridcontainerservice:agentPool',

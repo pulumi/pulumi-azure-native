@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a gallery Application Version.
- * API Version: 2020-09-30.
+ * API Version: 2022-03-03.
  */
 export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationVersionResult> {
 
@@ -75,6 +75,10 @@ export interface GetGalleryApplicationVersionResult {
      */
     readonly replicationStatus: outputs.compute.ReplicationStatusResponse;
     /**
+     * The safety profile of the Gallery Application Version.
+     */
+    readonly safetyProfile?: outputs.compute.GalleryApplicationVersionSafetyProfileResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
@@ -85,7 +89,7 @@ export interface GetGalleryApplicationVersionResult {
 }
 /**
  * Retrieves information about a gallery Application Version.
- * API Version: 2020-09-30.
+ * API Version: 2022-03-03.
  */
 export function getGalleryApplicationVersionOutput(args: GetGalleryApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationVersionResult> {
     return pulumi.output(args).apply((a: any) => getGalleryApplicationVersion(a, opts))

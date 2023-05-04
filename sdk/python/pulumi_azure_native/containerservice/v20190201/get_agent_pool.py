@@ -16,8 +16,6 @@ __all__ = [
     'get_agent_pool_output',
 ]
 
-warnings.warn("""Version 2019-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetAgentPoolResult:
     """
@@ -226,7 +224,6 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
     :param str managed_cluster_name: The name of the managed cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_agent_pool is deprecated: Version 2019-02-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['agentPoolName'] = agent_pool_name
     __args__['managedClusterName'] = managed_cluster_name
@@ -265,5 +262,4 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     :param str managed_cluster_name: The name of the managed cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_agent_pool is deprecated: Version 2019-02-01 will be removed in v2 of the provider.""")
     ...

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? ScriptData { get; set; }
 
         /// <summary>
-        /// The storage source of the script: inline, workspace.
+        /// The storage source of the script: workspace.
         /// </summary>
         [Input("scriptSource")]
         public Input<string>? ScriptSource { get; set; }

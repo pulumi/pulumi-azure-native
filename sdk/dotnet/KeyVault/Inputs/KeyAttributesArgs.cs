@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
 {
 
     /// <summary>
-    /// The attributes of the key.
+    /// The object attributes managed by the Azure Key Vault service.
     /// </summary>
     public sealed class KeyAttributesArgs : global::Pulumi.ResourceArgs
     {
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         public Input<double>? Expires { get; set; }
 
         /// <summary>
+        /// Indicates if the private key can be exported.
+        /// </summary>
+        [Input("exportable")]
+        public Input<bool>? Exportable { get; set; }
+
+        /// <summary>
         /// Not before date in seconds since 1970-01-01T00:00:00Z.
         /// </summary>
         [Input("notBefore")]
@@ -35,6 +41,7 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
 
         public KeyAttributesArgs()
         {
+            Exportable = false;
         }
         public static new KeyAttributesArgs Empty => new KeyAttributesArgs();
     }

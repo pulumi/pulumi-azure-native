@@ -6,16 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationType',
-    'BackupMode',
-    'MongoDbReplication',
-    'MongoDbShardKeyOrder',
-    'MySqlTargetPlatformType',
     'ProjectSourcePlatform',
     'ProjectTargetPlatform',
-    'ServerLevelPermissionsGroup',
     'SqlSourcePlatform',
-    'SsisMigrationOverwriteOption',
-    'SsisStoreType',
 ]
 
 
@@ -28,40 +21,6 @@ class AuthenticationType(str, Enum):
     SQL_AUTHENTICATION = "SqlAuthentication"
     ACTIVE_DIRECTORY_INTEGRATED = "ActiveDirectoryIntegrated"
     ACTIVE_DIRECTORY_PASSWORD = "ActiveDirectoryPassword"
-
-
-class BackupMode(str, Enum):
-    """
-    Backup Mode to specify whether to use existing backup or create new backup.
-    """
-    CREATE_BACKUP = "CreateBackup"
-    EXISTING_BACKUP = "ExistingBackup"
-
-
-class MongoDbReplication(str, Enum):
-    """
-    Describes how changes will be replicated from the source to the target. The default is OneTime.
-    """
-    DISABLED = "Disabled"
-    ONE_TIME = "OneTime"
-    CONTINUOUS = "Continuous"
-
-
-class MongoDbShardKeyOrder(str, Enum):
-    """
-    The field ordering
-    """
-    FORWARD = "Forward"
-    REVERSE = "Reverse"
-    HASHED = "Hashed"
-
-
-class MySqlTargetPlatformType(str, Enum):
-    """
-    Target Platform for the migration
-    """
-    SQL_SERVER = "SqlServer"
-    AZURE_DB_FOR_MY_SQL = "AzureDbForMySQL"
 
 
 class ProjectSourcePlatform(str, Enum):
@@ -87,33 +46,8 @@ class ProjectTargetPlatform(str, Enum):
     UNKNOWN = "Unknown"
 
 
-class ServerLevelPermissionsGroup(str, Enum):
-    """
-    Permission group for validations
-    """
-    DEFAULT = "Default"
-    MIGRATION_FROM_SQL_SERVER_TO_AZURE_DB = "MigrationFromSqlServerToAzureDB"
-    MIGRATION_FROM_SQL_SERVER_TO_AZURE_MI = "MigrationFromSqlServerToAzureMI"
-    MIGRATION_FROM_MY_SQL_TO_AZURE_DB_FOR_MY_SQL = "MigrationFromMySQLToAzureDBForMySQL"
-
-
 class SqlSourcePlatform(str, Enum):
     """
     Server platform type for connection
     """
     SQL_ON_PREM = "SqlOnPrem"
-
-
-class SsisMigrationOverwriteOption(str, Enum):
-    """
-    The overwrite option for the SSIS project migration
-    """
-    IGNORE = "Ignore"
-    OVERWRITE = "Overwrite"
-
-
-class SsisStoreType(str, Enum):
-    """
-    The SSIS store type of source, only SSIS catalog is supported now in DMS
-    """
-    SSIS_CATALOG = "SsisCatalog"

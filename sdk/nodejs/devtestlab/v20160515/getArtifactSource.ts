@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get artifact source.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
-    pulumi.log.warn("getArtifactSource is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getArtifactSource", {
@@ -111,7 +109,6 @@ export interface GetArtifactSourceResult {
 /**
  * Get artifact source.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {
     return pulumi.output(args).apply((a: any) => getArtifactSource(a, opts))
 }

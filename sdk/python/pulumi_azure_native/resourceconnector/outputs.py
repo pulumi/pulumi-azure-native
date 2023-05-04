@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'ApplianceCredentialKubeconfigResponse',
     'AppliancePropertiesResponseInfrastructureConfig',
+    'ArtifactProfileResponse',
     'HybridConnectionConfigResponse',
     'IdentityResponse',
     'SSHKeyResponse',
@@ -73,6 +74,28 @@ class AppliancePropertiesResponseInfrastructureConfig(dict):
         Information about the connected appliance.
         """
         return pulumi.get(self, "provider")
+
+
+@pulumi.output_type
+class ArtifactProfileResponse(dict):
+    """
+    Appliance ArtifactProfile definition.
+    """
+    def __init__(__self__, *,
+                 endpoint: str):
+        """
+        Appliance ArtifactProfile definition.
+        :param str endpoint: Endpoint is the URL to upload artifacts to.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        Endpoint is the URL to upload artifacts to.
+        """
+        return pulumi.get(self, "endpoint")
 
 
 @pulumi.output_type
@@ -200,31 +223,62 @@ class SSHKeyResponse(dict):
     Appliance SSHKey definition.
     """
     def __init__(__self__, *,
-                 private_key: Optional[str] = None,
-                 public_key: Optional[str] = None):
+                 certificate: str,
+                 creation_time_stamp: float,
+                 expiration_time_stamp: float,
+                 private_key: str,
+                 public_key: str):
         """
         Appliance SSHKey definition.
-        :param str private_key: User Private Key.
-        :param str public_key: User Public Key.
+        :param str certificate: Certificate associated with the public key if the key is signed.
+        :param float creation_time_stamp: Certificate creation timestamp (Unix).
+        :param float expiration_time_stamp: Certificate expiration timestamp (Unix).
+        :param str private_key: Private Key.
+        :param str public_key: Public Key.
         """
-        if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
-        if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+        pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "creation_time_stamp", creation_time_stamp)
+        pulumi.set(__self__, "expiration_time_stamp", expiration_time_stamp)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "public_key", public_key)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> str:
+        """
+        Certificate associated with the public key if the key is signed.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="creationTimeStamp")
+    def creation_time_stamp(self) -> float:
+        """
+        Certificate creation timestamp (Unix).
+        """
+        return pulumi.get(self, "creation_time_stamp")
+
+    @property
+    @pulumi.getter(name="expirationTimeStamp")
+    def expiration_time_stamp(self) -> float:
+        """
+        Certificate expiration timestamp (Unix).
+        """
+        return pulumi.get(self, "expiration_time_stamp")
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[str]:
+    def private_key(self) -> str:
         """
-        User Private Key.
+        Private Key.
         """
         return pulumi.get(self, "private_key")
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[str]:
+    def public_key(self) -> str:
         """
-        User Public Key.
+        Public Key.
         """
         return pulumi.get(self, "public_key")
 

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Sku sub resource.
-    /// API Version: 2020-01-01-preview.
+    /// API Version: 2021-05-01.
+    /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:VendorSkus")]
     public partial class VendorSkus : global::Pulumi.CustomResource
@@ -47,6 +48,12 @@ namespace Pulumi.AzureNative.HybridNetwork
         public Output<Outputs.NetworkFunctionTemplateResponse?> NetworkFunctionTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// The network function type.
+        /// </summary>
+        [Output("networkFunctionType")]
+        public Output<string?> NetworkFunctionType { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates if the vendor sku is in preview mode.
         /// </summary>
         [Output("preview")]
@@ -63,6 +70,12 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Output("skuType")]
         public Output<string?> SkuType { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -144,6 +157,12 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Input("networkFunctionTemplate")]
         public Input<Inputs.NetworkFunctionTemplateArgs>? NetworkFunctionTemplate { get; set; }
+
+        /// <summary>
+        /// The network function type.
+        /// </summary>
+        [Input("networkFunctionType")]
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.NetworkFunctionType>? NetworkFunctionType { get; set; }
 
         /// <summary>
         /// Indicates if the vendor sku is in preview mode.

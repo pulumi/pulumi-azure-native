@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A class representing an EmailService resource.
-    /// API Version: 2021-10-01-preview.
+    /// API Version: 2023-03-01-preview.
+    /// Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:EmailService")]
     public partial class EmailService : global::Pulumi.CustomResource
@@ -85,6 +86,7 @@ namespace Pulumi.AzureNative.Communication
                 {
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:EmailService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:EmailService"},
                 },
             };

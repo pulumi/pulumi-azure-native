@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// A Media Services account.
-    /// API Version: 2020-05-01.
+    /// API Version: 2023-01-01.
+    /// Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:MediaService")]
     public partial class MediaService : global::Pulumi.CustomResource
@@ -29,6 +30,12 @@ namespace Pulumi.AzureNative.Media
         public Output<Outputs.MediaServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The Key Delivery properties for Media Services account.
+        /// </summary>
+        [Output("keyDelivery")]
+        public Output<Outputs.KeyDeliveryResponse?> KeyDelivery { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -41,10 +48,34 @@ namespace Pulumi.AzureNative.Media
         public Output<string> MediaServiceId { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The Private Endpoint Connections created for the Media Service account.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the Media Services account.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not public network access is allowed for resources under the Media Services account.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The storage accounts for this resource.
@@ -149,10 +180,28 @@ namespace Pulumi.AzureNative.Media
         public Input<Inputs.MediaServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The Key Delivery properties for Media Services account.
+        /// </summary>
+        [Input("keyDelivery")]
+        public Input<Inputs.KeyDeliveryArgs>? KeyDelivery { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public InputUnion<string, Pulumi.AzureNative.Media.MinimumTlsVersion>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
+        /// Whether or not public network access is allowed for resources under the Media Services account.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Media.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.
@@ -189,6 +238,7 @@ namespace Pulumi.AzureNative.Media
 
         public MediaServiceArgs()
         {
+            MinimumTlsVersion = "Tls12";
         }
         public static new MediaServiceArgs Empty => new MediaServiceArgs();
     }

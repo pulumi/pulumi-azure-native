@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid System Topic.
- * API Version: 2021-06-01-preview.
+ * API Version: 2022-06-15.
+ * Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SystemTopic extends pulumi.CustomResource {
     /**

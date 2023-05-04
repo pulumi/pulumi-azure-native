@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// The CSPM monitoring for AWS offering configurations
+    /// The CSPM monitoring for AWS offering
     /// </summary>
     [OutputType]
     public sealed class CspmMonitorAwsOfferingResponse

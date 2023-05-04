@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified storage account credential name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
-    pulumi.log.warn("getStorageAccountCredential is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getStorageAccountCredential", {
@@ -81,7 +79,6 @@ export interface GetStorageAccountCredentialResult {
 /**
  * Returns the properties of the specified storage account credential name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {
     return pulumi.output(args).apply((a: any) => getStorageAccountCredential(a, opts))
 }

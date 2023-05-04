@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
         /// <summary>
         /// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// A managed identity that Video Analyzer will use to access the storage account.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 
         [OutputConstructor]
         private StorageAccountResponse(
-            string? id,
+            string id,
 
             Outputs.ResourceIdentityResponse? identity,
 

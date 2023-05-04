@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.NetApp
     public static class GetBackup
     {
         /// <summary>
-        /// Get a particular backup of the volume
-        /// API Version: 2020-12-01.
+        /// Gets the specified backup of the volume
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a particular backup of the volume
-        /// API Version: 2020-12-01.
+        /// Gets the specified backup of the volume
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.NetApp
         public string PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string FailureReason;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -148,9 +148,17 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly double Size;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        /// </summary>
+        public readonly bool? UseExistingSnapshot;
         /// <summary>
         /// Volume name
         /// </summary>
@@ -178,7 +186,11 @@ namespace Pulumi.AzureNative.NetApp
 
             double size,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
+
+            bool? useExistingSnapshot,
 
             string volumeName)
         {
@@ -192,7 +204,9 @@ namespace Pulumi.AzureNative.NetApp
             Name = name;
             ProvisioningState = provisioningState;
             Size = size;
+            SystemData = systemData;
             Type = type;
+            UseExistingSnapshot = useExistingSnapshot;
             VolumeName = volumeName;
         }
     }

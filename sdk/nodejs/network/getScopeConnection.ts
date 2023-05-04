@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get specified scope connection created by this Network Manager.
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getScopeConnection(args: GetScopeConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeConnectionResult> {
 
@@ -75,7 +75,7 @@ export interface GetScopeConnectionResult {
 }
 /**
  * Get specified scope connection created by this Network Manager.
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getScopeConnectionOutput(args: GetScopeConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeConnectionResult> {
     return pulumi.output(args).apply((a: any) => getScopeConnection(a, opts))

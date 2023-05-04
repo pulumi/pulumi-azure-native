@@ -18,33 +18,15 @@ __all__ = [
     'ApplicationGatewaySslPolicyType',
     'ApplicationGatewaySslProtocol',
     'ApplicationGatewayTier',
-    'AuthorizationUseStatus',
-    'AzureFirewallApplicationRuleProtocolType',
-    'AzureFirewallNatRCActionType',
-    'AzureFirewallNetworkRuleProtocol',
-    'AzureFirewallRCActionType',
-    'AzureFirewallSkuName',
-    'AzureFirewallSkuTier',
-    'AzureFirewallThreatIntelMode',
-    'DdosCustomPolicyProtocol',
-    'DdosCustomPolicyTriggerSensitivityOverride',
     'DdosSettingsProtectionCoverage',
     'DhGroup',
     'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState',
     'ExpressRouteCircuitPeeringState',
-    'ExpressRouteCircuitSkuFamily',
-    'ExpressRouteCircuitSkuTier',
     'ExpressRouteLinkAdminState',
     'ExpressRouteLinkMacSecCipher',
     'ExpressRoutePeeringState',
     'ExpressRoutePeeringType',
     'ExpressRoutePortsEncapsulation',
-    'FirewallPolicyFilterRuleActionType',
-    'FirewallPolicyNatRuleActionType',
-    'FirewallPolicyRuleConditionApplicationProtocolType',
-    'FirewallPolicyRuleConditionNetworkProtocol',
-    'FirewallPolicyRuleConditionType',
-    'FirewallPolicyRuleType',
     'IPAllocationMethod',
     'IPVersion',
     'IkeEncryption',
@@ -54,11 +36,7 @@ __all__ = [
     'LoadBalancerOutboundRuleProtocol',
     'LoadBalancerSkuName',
     'LoadDistribution',
-    'ManagedRuleEnabledState',
     'NatGatewaySkuName',
-    'OwaspCrsExclusionEntryMatchVariable',
-    'OwaspCrsExclusionEntrySelectorMatchOperator',
-    'PcProtocol',
     'PfsGroup',
     'ProbeProtocol',
     'PublicIPAddressSkuName',
@@ -69,7 +47,6 @@ __all__ = [
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
-    'ServiceProviderProvisioningState',
     'TransportProtocol',
     'VirtualNetworkGatewayConnectionProtocol',
     'VirtualNetworkGatewayConnectionType',
@@ -77,18 +54,9 @@ __all__ = [
     'VirtualNetworkGatewaySkuTier',
     'VirtualNetworkGatewayType',
     'VirtualNetworkPeeringState',
-    'VpnAuthenticationType',
     'VpnClientProtocol',
     'VpnGatewayGeneration',
-    'VpnGatewayTunnelingProtocol',
     'VpnType',
-    'WebApplicationFirewallAction',
-    'WebApplicationFirewallEnabledState',
-    'WebApplicationFirewallMatchVariable',
-    'WebApplicationFirewallMode',
-    'WebApplicationFirewallOperator',
-    'WebApplicationFirewallRuleType',
-    'WebApplicationFirewallTransform',
 ]
 
 
@@ -233,92 +201,6 @@ class ApplicationGatewayTier(str, Enum):
     WA_F_V2 = "WAF_v2"
 
 
-class AuthorizationUseStatus(str, Enum):
-    """
-    The authorization use status.
-    """
-    AVAILABLE = "Available"
-    IN_USE = "InUse"
-
-
-class AzureFirewallApplicationRuleProtocolType(str, Enum):
-    """
-    Protocol type.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
-    MSSQL = "Mssql"
-
-
-class AzureFirewallNatRCActionType(str, Enum):
-    """
-    The type of action.
-    """
-    SNAT = "Snat"
-    DNAT = "Dnat"
-
-
-class AzureFirewallNetworkRuleProtocol(str, Enum):
-    """
-    The protocol of a Network Rule resource.
-    """
-    TCP = "TCP"
-    UDP = "UDP"
-    ANY = "Any"
-    ICMP = "ICMP"
-
-
-class AzureFirewallRCActionType(str, Enum):
-    """
-    The type of action.
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
-
-
-class AzureFirewallSkuName(str, Enum):
-    """
-    Name of an Azure Firewall SKU.
-    """
-    AZF_W_V_NET = "AZFW_VNet"
-    AZF_W_HUB = "AZFW_Hub"
-
-
-class AzureFirewallSkuTier(str, Enum):
-    """
-    Tier of an Azure Firewall.
-    """
-    STANDARD = "Standard"
-
-
-class AzureFirewallThreatIntelMode(str, Enum):
-    """
-    The operation mode for Threat Intelligence.
-    """
-    ALERT = "Alert"
-    DENY = "Deny"
-    OFF = "Off"
-
-
-class DdosCustomPolicyProtocol(str, Enum):
-    """
-    The protocol for which the DDoS protection policy is being customized.
-    """
-    TCP = "Tcp"
-    UDP = "Udp"
-    SYN = "Syn"
-
-
-class DdosCustomPolicyTriggerSensitivityOverride(str, Enum):
-    """
-    The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
-    """
-    RELAXED = "Relaxed"
-    LOW = "Low"
-    DEFAULT = "Default"
-    HIGH = "High"
-
-
 class DdosSettingsProtectionCoverage(str, Enum):
     """
     The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
@@ -357,24 +239,6 @@ class ExpressRouteCircuitPeeringState(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
-
-
-class ExpressRouteCircuitSkuFamily(str, Enum):
-    """
-    The family of the SKU.
-    """
-    UNLIMITED_DATA = "UnlimitedData"
-    METERED_DATA = "MeteredData"
-
-
-class ExpressRouteCircuitSkuTier(str, Enum):
-    """
-    The tier of the SKU.
-    """
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
-    BASIC = "Basic"
-    LOCAL = "Local"
 
 
 class ExpressRouteLinkAdminState(str, Enum):
@@ -418,55 +282,6 @@ class ExpressRoutePortsEncapsulation(str, Enum):
     QIN_Q = "QinQ"
 
 
-class FirewallPolicyFilterRuleActionType(str, Enum):
-    """
-    The type of action.
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
-
-
-class FirewallPolicyNatRuleActionType(str, Enum):
-    """
-    The type of action.
-    """
-    DNAT = "DNAT"
-
-
-class FirewallPolicyRuleConditionApplicationProtocolType(str, Enum):
-    """
-    Protocol type.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
-
-
-class FirewallPolicyRuleConditionNetworkProtocol(str, Enum):
-    """
-    The Network protocol of a Rule condition.
-    """
-    TCP = "TCP"
-    UDP = "UDP"
-    ANY = "Any"
-    ICMP = "ICMP"
-
-
-class FirewallPolicyRuleConditionType(str, Enum):
-    """
-    Rule Condition Type.
-    """
-    APPLICATION_RULE_CONDITION = "ApplicationRuleCondition"
-    NETWORK_RULE_CONDITION = "NetworkRuleCondition"
-
-
-class FirewallPolicyRuleType(str, Enum):
-    """
-    The type of the rule.
-    """
-    FIREWALL_POLICY_NAT_RULE = "FirewallPolicyNatRule"
-    FIREWALL_POLICY_FILTER_RULE = "FirewallPolicyFilterRule"
-
-
 class IPAllocationMethod(str, Enum):
     """
     The private IP address allocation method.
@@ -477,7 +292,7 @@ class IPAllocationMethod(str, Enum):
 
 class IPVersion(str, Enum):
     """
-    Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+    The public IP address version.
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
@@ -561,47 +376,11 @@ class LoadDistribution(str, Enum):
     SOURCE_IP_PROTOCOL = "SourceIPProtocol"
 
 
-class ManagedRuleEnabledState(str, Enum):
-    """
-    Describes the state of the managed rule. Defaults to Disabled if not specified.
-    """
-    DISABLED = "Disabled"
-
-
 class NatGatewaySkuName(str, Enum):
     """
     Name of Nat Gateway SKU.
     """
     STANDARD = "Standard"
-
-
-class OwaspCrsExclusionEntryMatchVariable(str, Enum):
-    """
-    The variable to be excluded.
-    """
-    REQUEST_HEADER_NAMES = "RequestHeaderNames"
-    REQUEST_COOKIE_NAMES = "RequestCookieNames"
-    REQUEST_ARG_NAMES = "RequestArgNames"
-
-
-class OwaspCrsExclusionEntrySelectorMatchOperator(str, Enum):
-    """
-    When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
-    """
-    EQUALS = "Equals"
-    CONTAINS = "Contains"
-    STARTS_WITH = "StartsWith"
-    ENDS_WITH = "EndsWith"
-    EQUALS_ANY = "EqualsAny"
-
-
-class PcProtocol(str, Enum):
-    """
-    Protocol to be filtered on.
-    """
-    TCP = "TCP"
-    UDP = "UDP"
-    ANY = "Any"
 
 
 class PfsGroup(str, Enum):
@@ -699,16 +478,6 @@ class SecurityRuleProtocol(str, Enum):
     AH = "Ah"
 
 
-class ServiceProviderProvisioningState(str, Enum):
-    """
-    The ServiceProviderProvisioningState state of the resource.
-    """
-    NOT_PROVISIONED = "NotProvisioned"
-    PROVISIONING = "Provisioning"
-    PROVISIONED = "Provisioned"
-    DEPROVISIONING = "Deprovisioning"
-
-
 class TransportProtocol(str, Enum):
     """
     The reference to the transport protocol used by the load balancing rule.
@@ -799,15 +568,6 @@ class VirtualNetworkPeeringState(str, Enum):
     DISCONNECTED = "Disconnected"
 
 
-class VpnAuthenticationType(str, Enum):
-    """
-    VPN authentication types enabled for the VpnServerConfiguration.
-    """
-    CERTIFICATE = "Certificate"
-    RADIUS = "Radius"
-    AAD = "AAD"
-
-
 class VpnClientProtocol(str, Enum):
     """
     VPN client protocol enabled for the virtual network gateway.
@@ -826,92 +586,9 @@ class VpnGatewayGeneration(str, Enum):
     GENERATION2 = "Generation2"
 
 
-class VpnGatewayTunnelingProtocol(str, Enum):
-    """
-    VPN protocol enabled for the VpnServerConfiguration.
-    """
-    IKE_V2 = "IkeV2"
-    OPEN_VPN = "OpenVPN"
-
-
 class VpnType(str, Enum):
     """
     The type of this virtual network gateway.
     """
     POLICY_BASED = "PolicyBased"
     ROUTE_BASED = "RouteBased"
-
-
-class WebApplicationFirewallAction(str, Enum):
-    """
-    Type of Actions.
-    """
-    ALLOW = "Allow"
-    BLOCK = "Block"
-    LOG = "Log"
-
-
-class WebApplicationFirewallEnabledState(str, Enum):
-    """
-    Describes if the policy is in enabled state or disabled state.
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"
-
-
-class WebApplicationFirewallMatchVariable(str, Enum):
-    """
-    Match Variable.
-    """
-    REMOTE_ADDR = "RemoteAddr"
-    REQUEST_METHOD = "RequestMethod"
-    QUERY_STRING = "QueryString"
-    POST_ARGS = "PostArgs"
-    REQUEST_URI = "RequestUri"
-    REQUEST_HEADERS = "RequestHeaders"
-    REQUEST_BODY = "RequestBody"
-    REQUEST_COOKIES = "RequestCookies"
-
-
-class WebApplicationFirewallMode(str, Enum):
-    """
-    Describes if it is in detection mode or prevention mode at policy level.
-    """
-    PREVENTION = "Prevention"
-    DETECTION = "Detection"
-
-
-class WebApplicationFirewallOperator(str, Enum):
-    """
-    Describes operator to be matched.
-    """
-    IP_MATCH = "IPMatch"
-    EQUAL = "Equal"
-    CONTAINS = "Contains"
-    LESS_THAN = "LessThan"
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
-    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
-    BEGINS_WITH = "BeginsWith"
-    ENDS_WITH = "EndsWith"
-    REGEX = "Regex"
-
-
-class WebApplicationFirewallRuleType(str, Enum):
-    """
-    Describes type of rule.
-    """
-    MATCH_RULE = "MatchRule"
-    INVALID = "Invalid"
-
-
-class WebApplicationFirewallTransform(str, Enum):
-    """
-    Describes what transforms applied before matching.
-    """
-    LOWERCASE = "Lowercase"
-    TRIM = "Trim"
-    URL_DECODE = "UrlDecode"
-    URL_ENCODE = "UrlEncode"
-    REMOVE_NULLS = "RemoveNulls"
-    HTML_ENTITY_DECODE = "HtmlEntityDecode"

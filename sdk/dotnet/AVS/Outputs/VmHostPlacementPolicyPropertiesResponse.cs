@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.AVS.Outputs
     public sealed class VmHostPlacementPolicyPropertiesResponse
     {
         /// <summary>
+        /// vm-host placement policy affinity strength (should/must)
+        /// </summary>
+        public readonly string? AffinityStrength;
+        /// <summary>
         /// placement policy affinity type
         /// </summary>
         public readonly string AffinityType;
+        /// <summary>
+        /// placement policy azure hybrid benefit opt-in type
+        /// </summary>
+        public readonly string? AzureHybridBenefitType;
         /// <summary>
         /// Display name of the placement policy
         /// </summary>
@@ -48,7 +56,11 @@ namespace Pulumi.AzureNative.AVS.Outputs
 
         [OutputConstructor]
         private VmHostPlacementPolicyPropertiesResponse(
+            string? affinityStrength,
+
             string affinityType,
+
+            string? azureHybridBenefitType,
 
             string? displayName,
 
@@ -62,7 +74,9 @@ namespace Pulumi.AzureNative.AVS.Outputs
 
             ImmutableArray<string> vmMembers)
         {
+            AffinityStrength = affinityStrength;
             AffinityType = affinityType;
+            AzureHybridBenefitType = azureHybridBenefitType;
             DisplayName = displayName;
             HostMembers = hostMembers;
             ProvisioningState = provisioningState;

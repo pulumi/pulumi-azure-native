@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a published Blueprint.
  */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedBlueprintResult> {
-    pulumi.log.warn("getPublishedBlueprint is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20171111preview:getPublishedBlueprint", {
@@ -89,7 +87,6 @@ export interface GetPublishedBlueprintResult {
 /**
  * Get a published Blueprint.
  */
-/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedBlueprintResult> {
     return pulumi.output(args).apply((a: any) => getPublishedBlueprint(a, opts))
 }

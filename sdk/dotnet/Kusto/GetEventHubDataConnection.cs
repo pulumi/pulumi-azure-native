@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns a data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-12-29.
         /// </summary>
         public static Task<GetEventHubDataConnectionResult> InvokeAsync(GetEventHubDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:kusto:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-12-29.
         /// </summary>
         public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:kusto:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string? DataFormat;
         /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        public readonly string? DatabaseRouting;
+        /// <summary>
         /// The resource ID of the event hub to be used to create a data connection.
         /// </summary>
         public readonly string EventHubResourceId;
@@ -129,6 +133,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The object ID of the managedIdentityResourceId
+        /// </summary>
+        public readonly string ManagedIdentityObjectId;
+        /// <summary>
         /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         /// </summary>
         public readonly string? ManagedIdentityResourceId;
@@ -144,6 +152,10 @@ namespace Pulumi.AzureNative.Kusto
         /// The provisioned state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        /// </summary>
+        public readonly string? RetrievalStartDate;
         /// <summary>
         /// The table where the data should be ingested. Optionally the table information can be added to each message.
         /// </summary>
@@ -161,6 +173,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string? dataFormat,
 
+            string? databaseRouting,
+
             string eventHubResourceId,
 
             ImmutableArray<string> eventSystemProperties,
@@ -171,6 +185,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string? location,
 
+            string managedIdentityObjectId,
+
             string? managedIdentityResourceId,
 
             string? mappingRuleName,
@@ -179,6 +195,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string provisioningState,
 
+            string? retrievalStartDate,
+
             string? tableName,
 
             string type)
@@ -186,15 +204,18 @@ namespace Pulumi.AzureNative.Kusto
             Compression = compression;
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;
+            DatabaseRouting = databaseRouting;
             EventHubResourceId = eventHubResourceId;
             EventSystemProperties = eventSystemProperties;
             Id = id;
             Kind = kind;
             Location = location;
+            ManagedIdentityObjectId = managedIdentityObjectId;
             ManagedIdentityResourceId = managedIdentityResourceId;
             MappingRuleName = mappingRuleName;
             Name = name;
             ProvisioningState = provisioningState;
+            RetrievalStartDate = retrievalStartDate;
             TableName = tableName;
             Type = type;
         }

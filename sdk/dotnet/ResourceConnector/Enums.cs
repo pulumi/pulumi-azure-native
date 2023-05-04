@@ -53,6 +53,8 @@ namespace Pulumi.AzureNative.ResourceConnector
         public static Provider VMWare { get; } = new Provider("VMWare");
         public static Provider HCI { get; } = new Provider("HCI");
         public static Provider SCVMM { get; } = new Provider("SCVMM");
+        public static Provider KubeVirt { get; } = new Provider("KubeVirt");
+        public static Provider OpenStack { get; } = new Provider("OpenStack");
 
         public static bool operator ==(Provider left, Provider right) => left.Equals(right);
         public static bool operator !=(Provider left, Provider right) => !left.Equals(right);

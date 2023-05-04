@@ -17,8 +17,6 @@ __all__ = [
     'get_sql_database_output',
 ]
 
-warnings.warn("""Version 2020-04-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSqlDatabaseResult:
     """
@@ -179,7 +177,6 @@ def get_sql_database(resource_group_name: Optional[str] = None,
     :param str sql_database_name: The name of the sql database.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_sql_database is deprecated: Version 2020-04-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlDatabaseName'] = sql_database_name
@@ -214,5 +211,4 @@ def get_sql_database_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str sql_database_name: The name of the sql database.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_sql_database is deprecated: Version 2020-04-01-preview will be removed in v2 of the provider.""")
     ...

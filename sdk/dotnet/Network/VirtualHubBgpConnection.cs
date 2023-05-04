@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Appliance Site resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHubBgpConnection")]
     public partial class VirtualHubBgpConnection : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the HubVirtualNetworkConnection resource.
+        /// </summary>
+        [Output("hubVirtualNetworkConnection")]
+        public Output<Outputs.SubResourceResponse?> HubVirtualNetworkConnection { get; private set; } = null!;
 
         /// <summary>
         /// Name of the connection.
@@ -96,6 +103,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualHubBgpConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualHubBgpConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualHubBgpConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualHubBgpConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,6 +132,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
+
+        /// <summary>
+        /// The reference to the HubVirtualNetworkConnection resource.
+        /// </summary>
+        [Input("hubVirtualNetworkConnection")]
+        public Input<Inputs.SubResourceArgs>? HubVirtualNetworkConnection { get; set; }
 
         /// <summary>
         /// Resource ID.

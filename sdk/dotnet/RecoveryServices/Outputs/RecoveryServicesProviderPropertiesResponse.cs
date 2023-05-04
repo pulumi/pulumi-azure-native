@@ -25,9 +25,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly Outputs.IdentityProviderDetailsResponse? AuthenticationIdentityDetails;
         /// <summary>
+        /// The Bios Id.
+        /// </summary>
+        public readonly string? BiosId;
+        /// <summary>
         /// A value indicating whether DRA is responsive.
         /// </summary>
         public readonly string? ConnectionStatus;
+        /// <summary>
+        /// The data plane authentication identity details.
+        /// </summary>
+        public readonly Outputs.IdentityProviderDetailsResponse? DataPlaneAuthenticationIdentityDetails;
         /// <summary>
         /// The DRA Id.
         /// </summary>
@@ -52,6 +60,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Time when last heartbeat was sent by the DRA.
         /// </summary>
         public readonly string? LastHeartBeat;
+        /// <summary>
+        /// The machine Id.
+        /// </summary>
+        public readonly string? MachineId;
+        /// <summary>
+        /// The machine name.
+        /// </summary>
+        public readonly string? MachineName;
         /// <summary>
         /// Number of protected VMs currently managed by the DRA.
         /// </summary>
@@ -87,7 +103,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.IdentityProviderDetailsResponse? authenticationIdentityDetails,
 
+            string? biosId,
+
             string? connectionStatus,
+
+            Outputs.IdentityProviderDetailsResponse? dataPlaneAuthenticationIdentityDetails,
 
             string? draIdentifier,
 
@@ -100,6 +120,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ImmutableArray<Outputs.HealthErrorResponse> healthErrorDetails,
 
             string? lastHeartBeat,
+
+            string? machineId,
+
+            string? machineName,
 
             int? protectedItemCount,
 
@@ -117,13 +141,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         {
             AllowedScenarios = allowedScenarios;
             AuthenticationIdentityDetails = authenticationIdentityDetails;
+            BiosId = biosId;
             ConnectionStatus = connectionStatus;
+            DataPlaneAuthenticationIdentityDetails = dataPlaneAuthenticationIdentityDetails;
             DraIdentifier = draIdentifier;
             FabricFriendlyName = fabricFriendlyName;
             FabricType = fabricType;
             FriendlyName = friendlyName;
             HealthErrorDetails = healthErrorDetails;
             LastHeartBeat = lastHeartBeat;
+            MachineId = machineId;
+            MachineName = machineName;
             ProtectedItemCount = protectedItemCount;
             ProviderVersion = providerVersion;
             ProviderVersionDetails = providerVersionDetails;

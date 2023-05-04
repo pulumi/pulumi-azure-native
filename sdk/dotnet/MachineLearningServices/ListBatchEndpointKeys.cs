@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Keys for endpoint authentication.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<ListBatchEndpointKeysResult> InvokeAsync(ListBatchEndpointKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBatchEndpointKeysResult>("azure-native:machinelearningservices:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Keys for endpoint authentication.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<ListBatchEndpointKeysResult> Invoke(ListBatchEndpointKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBatchEndpointKeysResult>("azure-native:machinelearningservices:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysInvokeArgs(), options.WithDefaults());

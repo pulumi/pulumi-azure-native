@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Lists the notification hubs associated with a namespace.
  */
-/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
-    pulumi.log.warn("getNotificationHub is deprecated: Version 2014-09-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20140901:getNotificationHub", {
@@ -69,7 +67,6 @@ export interface GetNotificationHubResult {
 /**
  * Lists the notification hubs associated with a namespace.
  */
-/** @deprecated Version 2014-09-01 will be removed in v2 of the provider. */
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHub(a, opts))
 }

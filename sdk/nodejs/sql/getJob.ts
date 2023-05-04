@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a job.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
 
@@ -72,7 +72,7 @@ export interface GetJobResult {
 }
 /**
  * Gets a job.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))

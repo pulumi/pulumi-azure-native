@@ -126,12 +126,7 @@ class SnapshotArgs:
         pulumi.set(self, "snapshot_name", value)
 
 
-warnings.warn("""Version 2017-08-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Snapshot(pulumi.CustomResource):
-    warnings.warn("""Version 2017-08-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -189,7 +184,6 @@ class Snapshot(pulumi.CustomResource):
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Snapshot is deprecated: Version 2017-08-15 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -80,8 +80,6 @@ export class WorkflowAccessKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic:WorkflowAccessKey" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkflowAccessKey.__pulumiType, name, resourceInputs, opts);
     }
 }

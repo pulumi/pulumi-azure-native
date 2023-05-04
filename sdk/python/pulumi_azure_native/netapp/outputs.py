@@ -15,20 +15,26 @@ __all__ = [
     'AccountEncryptionResponse',
     'ActiveDirectoryResponse',
     'DailyScheduleResponse',
+    'EncryptionIdentityResponse',
     'ExportPolicyRuleResponse',
     'HourlyScheduleResponse',
+    'KeyVaultPropertiesResponse',
+    'LdapSearchScopeOptResponse',
+    'ManagedServiceIdentityResponse',
     'MonthlyScheduleResponse',
     'MountTargetPropertiesResponse',
     'PlacementKeyValuePairsResponse',
     'ReplicationObjectResponse',
     'ReplicationResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
     'VolumeBackupPropertiesResponse',
     'VolumeBackupsResponse',
     'VolumeGroupMetaDataResponse',
     'VolumeGroupVolumePropertiesResponse',
     'VolumePropertiesResponseDataProtection',
     'VolumePropertiesResponseExportPolicy',
+    'VolumeRelocationPropertiesResponse',
     'VolumeSnapshotPropertiesResponse',
     'WeeklyScheduleResponse',
 ]
@@ -43,6 +49,8 @@ class AccountEncryptionResponse(dict):
         suggest = None
         if key == "keySource":
             suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AccountEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -56,21 +64,47 @@ class AccountEncryptionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_source: Optional[str] = None):
+                 identity: Optional['outputs.EncryptionIdentityResponse'] = None,
+                 key_source: Optional[str] = None,
+                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         Encryption settings
-        :param str key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+        :param 'EncryptionIdentityResponse' identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_source is None:
+            key_source = 'Microsoft.NetApp'
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EncryptionIdentityResponse']:
+        """
+        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="keySource")
     def key_source(self) -> Optional[str]:
         """
-        Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
         """
         return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+        """
+        Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_properties")
 
 
 @pulumi.output_type
@@ -93,14 +127,20 @@ class ActiveDirectoryResponse(dict):
             suggest = "allow_local_nfs_users_with_ldap"
         elif key == "backupOperators":
             suggest = "backup_operators"
+        elif key == "encryptDCConnections":
+            suggest = "encrypt_dc_connections"
         elif key == "kdcIP":
             suggest = "kdc_ip"
         elif key == "ldapOverTLS":
             suggest = "ldap_over_tls"
+        elif key == "ldapSearchScope":
+            suggest = "ldap_search_scope"
         elif key == "ldapSigning":
             suggest = "ldap_signing"
         elif key == "organizationalUnit":
             suggest = "organizational_unit"
+        elif key == "preferredServersForLdapClient":
+            suggest = "preferred_servers_for_ldap_client"
         elif key == "securityOperators":
             suggest = "security_operators"
         elif key == "serverRootCACertificate":
@@ -124,16 +164,20 @@ class ActiveDirectoryResponse(dict):
                  status_details: str,
                  active_directory_id: Optional[str] = None,
                  ad_name: Optional[str] = None,
+                 administrators: Optional[Sequence[str]] = None,
                  aes_encryption: Optional[bool] = None,
                  allow_local_nfs_users_with_ldap: Optional[bool] = None,
                  backup_operators: Optional[Sequence[str]] = None,
                  dns: Optional[str] = None,
                  domain: Optional[str] = None,
+                 encrypt_dc_connections: Optional[bool] = None,
                  kdc_ip: Optional[str] = None,
                  ldap_over_tls: Optional[bool] = None,
+                 ldap_search_scope: Optional['outputs.LdapSearchScopeOptResponse'] = None,
                  ldap_signing: Optional[bool] = None,
                  organizational_unit: Optional[str] = None,
                  password: Optional[str] = None,
+                 preferred_servers_for_ldap_client: Optional[str] = None,
                  security_operators: Optional[Sequence[str]] = None,
                  server_root_ca_certificate: Optional[str] = None,
                  site: Optional[str] = None,
@@ -145,16 +189,20 @@ class ActiveDirectoryResponse(dict):
         :param str status_details: Any details in regards to the Status of the Active Directory
         :param str active_directory_id: Id of the Active Directory
         :param str ad_name: Name of the active directory machine. This optional parameter is used only while creating kerberos volume
+        :param Sequence[str] administrators: Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
         :param bool aes_encryption: If enabled, AES encryption will be enabled for SMB communication.
         :param bool allow_local_nfs_users_with_ldap:  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
         :param Sequence[str] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         :param str dns: Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         :param str domain: Name of the Active Directory domain
+        :param bool encrypt_dc_connections: If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
         :param str kdc_ip: kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
         :param bool ldap_over_tls: Specifies whether or not the LDAP traffic needs to be secured via TLS.
+        :param 'LdapSearchScopeOptResponse' ldap_search_scope: LDAP Search scope options
         :param bool ldap_signing: Specifies whether or not the LDAP traffic needs to be signed.
         :param str organizational_unit: The Organizational Unit (OU) within the Windows Active Directory
         :param str password: Plain text password of Active Directory domain administrator, value is masked in the response
+        :param str preferred_servers_for_ldap_client: Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
         :param Sequence[str] security_operators: Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
         :param str server_root_ca_certificate: When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
         :param str site: The Active Directory site the service will limit Domain Controller discovery to
@@ -167,6 +215,8 @@ class ActiveDirectoryResponse(dict):
             pulumi.set(__self__, "active_directory_id", active_directory_id)
         if ad_name is not None:
             pulumi.set(__self__, "ad_name", ad_name)
+        if administrators is not None:
+            pulumi.set(__self__, "administrators", administrators)
         if aes_encryption is not None:
             pulumi.set(__self__, "aes_encryption", aes_encryption)
         if allow_local_nfs_users_with_ldap is not None:
@@ -177,10 +227,14 @@ class ActiveDirectoryResponse(dict):
             pulumi.set(__self__, "dns", dns)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if encrypt_dc_connections is not None:
+            pulumi.set(__self__, "encrypt_dc_connections", encrypt_dc_connections)
         if kdc_ip is not None:
             pulumi.set(__self__, "kdc_ip", kdc_ip)
         if ldap_over_tls is not None:
             pulumi.set(__self__, "ldap_over_tls", ldap_over_tls)
+        if ldap_search_scope is not None:
+            pulumi.set(__self__, "ldap_search_scope", ldap_search_scope)
         if ldap_signing is not None:
             pulumi.set(__self__, "ldap_signing", ldap_signing)
         if organizational_unit is None:
@@ -189,6 +243,8 @@ class ActiveDirectoryResponse(dict):
             pulumi.set(__self__, "organizational_unit", organizational_unit)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if preferred_servers_for_ldap_client is not None:
+            pulumi.set(__self__, "preferred_servers_for_ldap_client", preferred_servers_for_ldap_client)
         if security_operators is not None:
             pulumi.set(__self__, "security_operators", security_operators)
         if server_root_ca_certificate is not None:
@@ -233,6 +289,14 @@ class ActiveDirectoryResponse(dict):
         return pulumi.get(self, "ad_name")
 
     @property
+    @pulumi.getter
+    def administrators(self) -> Optional[Sequence[str]]:
+        """
+        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "administrators")
+
+    @property
     @pulumi.getter(name="aesEncryption")
     def aes_encryption(self) -> Optional[bool]:
         """
@@ -273,6 +337,14 @@ class ActiveDirectoryResponse(dict):
         return pulumi.get(self, "domain")
 
     @property
+    @pulumi.getter(name="encryptDCConnections")
+    def encrypt_dc_connections(self) -> Optional[bool]:
+        """
+        If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+        """
+        return pulumi.get(self, "encrypt_dc_connections")
+
+    @property
     @pulumi.getter(name="kdcIP")
     def kdc_ip(self) -> Optional[str]:
         """
@@ -287,6 +359,14 @@ class ActiveDirectoryResponse(dict):
         Specifies whether or not the LDAP traffic needs to be secured via TLS.
         """
         return pulumi.get(self, "ldap_over_tls")
+
+    @property
+    @pulumi.getter(name="ldapSearchScope")
+    def ldap_search_scope(self) -> Optional['outputs.LdapSearchScopeOptResponse']:
+        """
+        LDAP Search scope options
+        """
+        return pulumi.get(self, "ldap_search_scope")
 
     @property
     @pulumi.getter(name="ldapSigning")
@@ -311,6 +391,14 @@ class ActiveDirectoryResponse(dict):
         Plain text password of Active Directory domain administrator, value is masked in the response
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="preferredServersForLdapClient")
+    def preferred_servers_for_ldap_client(self) -> Optional[str]:
+        """
+        Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
+        """
+        return pulumi.get(self, "preferred_servers_for_ldap_client")
 
     @property
     @pulumi.getter(name="securityOperators")
@@ -429,6 +517,59 @@ class DailyScheduleResponse(dict):
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
+
+
+@pulumi.output_type
+class EncryptionIdentityResponse(dict):
+    """
+    Identity used to authenticate with key vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        Identity used to authenticate with key vault.
+        :param str principal_id: The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
+        :param str user_assigned_identity: The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type
@@ -741,6 +882,240 @@ class HourlyScheduleResponse(dict):
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
+
+
+@pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    """
+    Properties of key vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "keyVaultResourceId":
+            suggest = "key_vault_resource_id"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_name: str,
+                 key_vault_id: str,
+                 key_vault_resource_id: str,
+                 key_vault_uri: str,
+                 status: str):
+        """
+        Properties of key vault.
+        :param str key_name: The name of KeyVault key.
+        :param str key_vault_id: UUID v4 used to identify the Azure Key Vault configuration
+        :param str key_vault_resource_id: The resource ID of KeyVault.
+        :param str key_vault_uri: The Uri of KeyVault.
+        :param str status: Status of the KeyVault connection.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        UUID v4 used to identify the Azure Key Vault configuration
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="keyVaultResourceId")
+    def key_vault_resource_id(self) -> str:
+        """
+        The resource ID of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_resource_id")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> str:
+        """
+        The Uri of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the KeyVault connection.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class LdapSearchScopeOptResponse(dict):
+    """
+    LDAP search scope 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupDN":
+            suggest = "group_dn"
+        elif key == "groupMembershipFilter":
+            suggest = "group_membership_filter"
+        elif key == "userDN":
+            suggest = "user_dn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LdapSearchScopeOptResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LdapSearchScopeOptResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LdapSearchScopeOptResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_dn: Optional[str] = None,
+                 group_membership_filter: Optional[str] = None,
+                 user_dn: Optional[str] = None):
+        """
+        LDAP search scope 
+        :param str group_dn: This specifies the group DN, which overrides the base DN for group lookups.
+        :param str group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        :param str user_dn: This specifies the user DN, which overrides the base DN for user lookups.
+        """
+        if group_dn is not None:
+            pulumi.set(__self__, "group_dn", group_dn)
+        if group_membership_filter is not None:
+            pulumi.set(__self__, "group_membership_filter", group_membership_filter)
+        if user_dn is not None:
+            pulumi.set(__self__, "user_dn", user_dn)
+
+    @property
+    @pulumi.getter(name="groupDN")
+    def group_dn(self) -> Optional[str]:
+        """
+        This specifies the group DN, which overrides the base DN for group lookups.
+        """
+        return pulumi.get(self, "group_dn")
+
+    @property
+    @pulumi.getter(name="groupMembershipFilter")
+    def group_membership_filter(self) -> Optional[str]:
+        """
+        This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        """
+        return pulumi.get(self, "group_membership_filter")
+
+    @property
+    @pulumi.getter(name="userDN")
+    def user_dn(self) -> Optional[str]:
+        """
+        This specifies the user DN, which overrides the base DN for user lookups.
+        """
+        return pulumi.get(self, "user_dn")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -1211,6 +1586,58 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class VolumeBackupPropertiesResponse(dict):
     """
     Volume Backup Properties
@@ -1224,8 +1651,6 @@ class VolumeBackupPropertiesResponse(dict):
             suggest = "backup_policy_id"
         elif key == "policyEnforced":
             suggest = "policy_enforced"
-        elif key == "vaultId":
-            suggest = "vault_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VolumeBackupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1241,14 +1666,12 @@ class VolumeBackupPropertiesResponse(dict):
     def __init__(__self__, *,
                  backup_enabled: Optional[bool] = None,
                  backup_policy_id: Optional[str] = None,
-                 policy_enforced: Optional[bool] = None,
-                 vault_id: Optional[str] = None):
+                 policy_enforced: Optional[bool] = None):
         """
         Volume Backup Properties
         :param bool backup_enabled: Backup Enabled
         :param str backup_policy_id: Backup Policy Resource ID
         :param bool policy_enforced: Policy Enforced
-        :param str vault_id: Vault Resource ID
         """
         if backup_enabled is not None:
             pulumi.set(__self__, "backup_enabled", backup_enabled)
@@ -1256,8 +1679,6 @@ class VolumeBackupPropertiesResponse(dict):
             pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if policy_enforced is not None:
             pulumi.set(__self__, "policy_enforced", policy_enforced)
-        if vault_id is not None:
-            pulumi.set(__self__, "vault_id", vault_id)
 
     @property
     @pulumi.getter(name="backupEnabled")
@@ -1282,14 +1703,6 @@ class VolumeBackupPropertiesResponse(dict):
         Policy Enforced
         """
         return pulumi.get(self, "policy_enforced")
-
-    @property
-    @pulumi.getter(name="vaultId")
-    def vault_id(self) -> Optional[str]:
-        """
-        Vault Resource ID
-        """
-        return pulumi.get(self, "vault_id")
 
 
 @pulumi.output_type
@@ -1483,6 +1896,10 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "clone_progress"
         elif key == "creationToken":
             suggest = "creation_token"
+        elif key == "dataStoreResourceId":
+            suggest = "data_store_resource_id"
+        elif key == "fileAccessLogs":
+            suggest = "file_access_logs"
         elif key == "fileSystemId":
             suggest = "file_system_id"
         elif key == "maximumNumberOfFiles":
@@ -1491,6 +1908,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "mount_targets"
         elif key == "networkSiblingSetId":
             suggest = "network_sibling_set_id"
+        elif key == "provisionedAvailabilityZone":
+            suggest = "provisioned_availability_zone"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "storageToNetworkProximity":
@@ -1519,6 +1938,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "default_group_quota_in_ki_bs"
         elif key == "defaultUserQuotaInKiBs":
             suggest = "default_user_quota_in_ki_bs"
+        elif key == "deleteBaseSnapshot":
+            suggest = "delete_base_snapshot"
         elif key == "enableSubvolumes":
             suggest = "enable_subvolumes"
         elif key == "encryptionKeySource":
@@ -1527,10 +1948,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "export_policy"
         elif key == "isDefaultQuotaEnabled":
             suggest = "is_default_quota_enabled"
+        elif key == "isLargeVolume":
+            suggest = "is_large_volume"
         elif key == "isRestoring":
             suggest = "is_restoring"
         elif key == "kerberosEnabled":
             suggest = "kerberos_enabled"
+        elif key == "keyVaultPrivateEndpointResourceId":
+            suggest = "key_vault_private_endpoint_resource_id"
         elif key == "ldapEnabled":
             suggest = "ldap_enabled"
         elif key == "networkFeatures":
@@ -1545,10 +1970,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "security_style"
         elif key == "serviceLevel":
             suggest = "service_level"
+        elif key == "smbAccessBasedEnumeration":
+            suggest = "smb_access_based_enumeration"
         elif key == "smbContinuouslyAvailable":
             suggest = "smb_continuously_available"
         elif key == "smbEncryption":
             suggest = "smb_encryption"
+        elif key == "smbNonBrowsable":
+            suggest = "smb_non_browsable"
         elif key == "snapshotDirectoryVisible":
             suggest = "snapshot_directory_visible"
         elif key == "snapshotId":
@@ -1577,11 +2006,15 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  baremetal_tenant_id: str,
                  clone_progress: int,
                  creation_token: str,
+                 data_store_resource_id: Sequence[str],
+                 encrypted: bool,
+                 file_access_logs: str,
                  file_system_id: str,
                  id: str,
                  maximum_number_of_files: float,
                  mount_targets: Sequence['outputs.MountTargetPropertiesResponse'],
                  network_sibling_set_id: str,
+                 provisioned_availability_zone: str,
                  provisioning_state: str,
                  storage_to_network_proximity: str,
                  subnet_id: str,
@@ -1597,12 +2030,15 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  data_protection: Optional['outputs.VolumePropertiesResponseDataProtection'] = None,
                  default_group_quota_in_ki_bs: Optional[float] = None,
                  default_user_quota_in_ki_bs: Optional[float] = None,
+                 delete_base_snapshot: Optional[bool] = None,
                  enable_subvolumes: Optional[str] = None,
                  encryption_key_source: Optional[str] = None,
                  export_policy: Optional['outputs.VolumePropertiesResponseExportPolicy'] = None,
                  is_default_quota_enabled: Optional[bool] = None,
+                 is_large_volume: Optional[bool] = None,
                  is_restoring: Optional[bool] = None,
                  kerberos_enabled: Optional[bool] = None,
+                 key_vault_private_endpoint_resource_id: Optional[str] = None,
                  ldap_enabled: Optional[bool] = None,
                  name: Optional[str] = None,
                  network_features: Optional[str] = None,
@@ -1611,8 +2047,10 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  proximity_placement_group: Optional[str] = None,
                  security_style: Optional[str] = None,
                  service_level: Optional[str] = None,
+                 smb_access_based_enumeration: Optional[str] = None,
                  smb_continuously_available: Optional[bool] = None,
                  smb_encryption: Optional[bool] = None,
+                 smb_non_browsable: Optional[str] = None,
                  snapshot_directory_visible: Optional[bool] = None,
                  snapshot_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
@@ -1625,17 +2063,21 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param str baremetal_tenant_id: Unique Baremetal Tenant Identifier.
         :param int clone_progress: When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
         :param str creation_token: A unique file path for the volume. Used when creating mount targets
+        :param Sequence[str] data_store_resource_id: Data store resource unique identifier
+        :param bool encrypted: Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        :param str file_access_logs: Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume.
         :param str file_system_id: Unique FileSystem Identifier.
         :param str id: Resource Id
         :param float maximum_number_of_files: Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
         :param Sequence['MountTargetPropertiesResponse'] mount_targets: List of mount targets
         :param str network_sibling_set_id: Network Sibling Set ID for the the group of volumes sharing networking resources.
+        :param str provisioned_availability_zone: The availability zone where the volume is provisioned. This refers to the logical availability zone where the volume resides.
         :param str provisioning_state: Azure lifecycle management
         :param str storage_to_network_proximity: Provides storage to network proximity information for the volume.
         :param str subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param str t2_network: T2 network information
         :param str type: Resource type
-        :param float usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        :param float usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         :param str volume_group_name: Volume Group Name
         :param str avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         :param str backup_id: UUID v4 or resource identifier used to identify the Backup.
@@ -1645,12 +2087,15 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param 'VolumePropertiesResponseDataProtection' data_protection: DataProtection type volumes include an object containing details of the replication
         :param float default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         :param float default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        :param bool delete_base_snapshot: If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
         :param str enable_subvolumes: Flag indicating whether subvolume operations are enabled on the volume
-        :param str encryption_key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        :param str encryption_key_source: Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
         :param 'VolumePropertiesResponseExportPolicy' export_policy: Set of export policy rules
         :param bool is_default_quota_enabled: Specifies if default quota is enabled for the volume.
+        :param bool is_large_volume: Specifies whether volume is a Large Volume or Regular Volume.
         :param bool is_restoring: Restoring
         :param bool kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+        :param str key_vault_private_endpoint_resource_id: The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
         :param bool ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
         :param str name: Resource name
         :param str network_features: Basic network, or Standard features available to the volume.
@@ -1659,8 +2104,10 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param str proximity_placement_group: Proximity placement group associated with the volume
         :param str security_style: The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         :param str service_level: The service level of the file system
+        :param str smb_access_based_enumeration: Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         :param bool smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param bool smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+        :param str smb_non_browsable: Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         :param bool snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         :param str snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param Mapping[str, str] tags: Resource tags
@@ -1671,11 +2118,17 @@ class VolumeGroupVolumePropertiesResponse(dict):
         pulumi.set(__self__, "baremetal_tenant_id", baremetal_tenant_id)
         pulumi.set(__self__, "clone_progress", clone_progress)
         pulumi.set(__self__, "creation_token", creation_token)
+        pulumi.set(__self__, "data_store_resource_id", data_store_resource_id)
+        pulumi.set(__self__, "encrypted", encrypted)
+        if file_access_logs is None:
+            file_access_logs = 'Disabled'
+        pulumi.set(__self__, "file_access_logs", file_access_logs)
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "maximum_number_of_files", maximum_number_of_files)
         pulumi.set(__self__, "mount_targets", mount_targets)
         pulumi.set(__self__, "network_sibling_set_id", network_sibling_set_id)
+        pulumi.set(__self__, "provisioned_availability_zone", provisioned_availability_zone)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "storage_to_network_proximity", storage_to_network_proximity)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -1709,10 +2162,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
             default_user_quota_in_ki_bs = 0
         if default_user_quota_in_ki_bs is not None:
             pulumi.set(__self__, "default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
+        if delete_base_snapshot is not None:
+            pulumi.set(__self__, "delete_base_snapshot", delete_base_snapshot)
         if enable_subvolumes is None:
             enable_subvolumes = 'Disabled'
         if enable_subvolumes is not None:
             pulumi.set(__self__, "enable_subvolumes", enable_subvolumes)
+        if encryption_key_source is None:
+            encryption_key_source = 'Microsoft.NetApp'
         if encryption_key_source is not None:
             pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if export_policy is not None:
@@ -1721,12 +2178,18 @@ class VolumeGroupVolumePropertiesResponse(dict):
             is_default_quota_enabled = False
         if is_default_quota_enabled is not None:
             pulumi.set(__self__, "is_default_quota_enabled", is_default_quota_enabled)
+        if is_large_volume is None:
+            is_large_volume = False
+        if is_large_volume is not None:
+            pulumi.set(__self__, "is_large_volume", is_large_volume)
         if is_restoring is not None:
             pulumi.set(__self__, "is_restoring", is_restoring)
         if kerberos_enabled is None:
             kerberos_enabled = False
         if kerberos_enabled is not None:
             pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
+        if key_vault_private_endpoint_resource_id is not None:
+            pulumi.set(__self__, "key_vault_private_endpoint_resource_id", key_vault_private_endpoint_resource_id)
         if ldap_enabled is None:
             ldap_enabled = False
         if ldap_enabled is not None:
@@ -1749,6 +2212,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             pulumi.set(__self__, "security_style", security_style)
         if service_level is not None:
             pulumi.set(__self__, "service_level", service_level)
+        if smb_access_based_enumeration is not None:
+            pulumi.set(__self__, "smb_access_based_enumeration", smb_access_based_enumeration)
         if smb_continuously_available is None:
             smb_continuously_available = False
         if smb_continuously_available is not None:
@@ -1757,6 +2222,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             smb_encryption = False
         if smb_encryption is not None:
             pulumi.set(__self__, "smb_encryption", smb_encryption)
+        if smb_non_browsable is not None:
+            pulumi.set(__self__, "smb_non_browsable", smb_non_browsable)
         if snapshot_directory_visible is None:
             snapshot_directory_visible = True
         if snapshot_directory_visible is not None:
@@ -1801,6 +2268,30 @@ class VolumeGroupVolumePropertiesResponse(dict):
         return pulumi.get(self, "creation_token")
 
     @property
+    @pulumi.getter(name="dataStoreResourceId")
+    def data_store_resource_id(self) -> Sequence[str]:
+        """
+        Data store resource unique identifier
+        """
+        return pulumi.get(self, "data_store_resource_id")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter(name="fileAccessLogs")
+    def file_access_logs(self) -> str:
+        """
+        Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume.
+        """
+        return pulumi.get(self, "file_access_logs")
+
+    @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> str:
         """
@@ -1839,6 +2330,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         Network Sibling Set ID for the the group of volumes sharing networking resources.
         """
         return pulumi.get(self, "network_sibling_set_id")
+
+    @property
+    @pulumi.getter(name="provisionedAvailabilityZone")
+    def provisioned_availability_zone(self) -> str:
+        """
+        The availability zone where the volume is provisioned. This refers to the logical availability zone where the volume resides.
+        """
+        return pulumi.get(self, "provisioned_availability_zone")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1884,7 +2383,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> float:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
 
@@ -1961,6 +2460,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         return pulumi.get(self, "default_user_quota_in_ki_bs")
 
     @property
+    @pulumi.getter(name="deleteBaseSnapshot")
+    def delete_base_snapshot(self) -> Optional[bool]:
+        """
+        If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+        """
+        return pulumi.get(self, "delete_base_snapshot")
+
+    @property
     @pulumi.getter(name="enableSubvolumes")
     def enable_subvolumes(self) -> Optional[str]:
         """
@@ -1972,7 +2479,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
     @pulumi.getter(name="encryptionKeySource")
     def encryption_key_source(self) -> Optional[str]:
         """
-        Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
         """
         return pulumi.get(self, "encryption_key_source")
 
@@ -1993,6 +2500,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         return pulumi.get(self, "is_default_quota_enabled")
 
     @property
+    @pulumi.getter(name="isLargeVolume")
+    def is_large_volume(self) -> Optional[bool]:
+        """
+        Specifies whether volume is a Large Volume or Regular Volume.
+        """
+        return pulumi.get(self, "is_large_volume")
+
+    @property
     @pulumi.getter(name="isRestoring")
     def is_restoring(self) -> Optional[bool]:
         """
@@ -2007,6 +2522,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos_enabled")
+
+    @property
+    @pulumi.getter(name="keyVaultPrivateEndpointResourceId")
+    def key_vault_private_endpoint_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_resource_id")
 
     @property
     @pulumi.getter(name="ldapEnabled")
@@ -2073,6 +2596,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         return pulumi.get(self, "service_level")
 
     @property
+    @pulumi.getter(name="smbAccessBasedEnumeration")
+    def smb_access_based_enumeration(self) -> Optional[str]:
+        """
+        Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        return pulumi.get(self, "smb_access_based_enumeration")
+
+    @property
     @pulumi.getter(name="smbContinuouslyAvailable")
     def smb_continuously_available(self) -> Optional[bool]:
         """
@@ -2087,6 +2618,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         """
         return pulumi.get(self, "smb_encryption")
+
+    @property
+    @pulumi.getter(name="smbNonBrowsable")
+    def smb_non_browsable(self) -> Optional[str]:
+        """
+        Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        return pulumi.get(self, "smb_non_browsable")
 
     @property
     @pulumi.getter(name="snapshotDirectoryVisible")
@@ -2147,15 +2686,34 @@ class VolumePropertiesResponseDataProtection(dict):
     """
     DataProtection type volumes include an object containing details of the replication
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeRelocation":
+            suggest = "volume_relocation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumePropertiesResponseDataProtection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumePropertiesResponseDataProtection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumePropertiesResponseDataProtection.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup: Optional['outputs.VolumeBackupPropertiesResponse'] = None,
                  replication: Optional['outputs.ReplicationObjectResponse'] = None,
-                 snapshot: Optional['outputs.VolumeSnapshotPropertiesResponse'] = None):
+                 snapshot: Optional['outputs.VolumeSnapshotPropertiesResponse'] = None,
+                 volume_relocation: Optional['outputs.VolumeRelocationPropertiesResponse'] = None):
         """
         DataProtection type volumes include an object containing details of the replication
         :param 'VolumeBackupPropertiesResponse' backup: Backup Properties
         :param 'ReplicationObjectResponse' replication: Replication properties
         :param 'VolumeSnapshotPropertiesResponse' snapshot: Snapshot properties.
+        :param 'VolumeRelocationPropertiesResponse' volume_relocation: VolumeRelocation properties
         """
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
@@ -2163,6 +2721,8 @@ class VolumePropertiesResponseDataProtection(dict):
             pulumi.set(__self__, "replication", replication)
         if snapshot is not None:
             pulumi.set(__self__, "snapshot", snapshot)
+        if volume_relocation is not None:
+            pulumi.set(__self__, "volume_relocation", volume_relocation)
 
     @property
     @pulumi.getter
@@ -2188,6 +2748,14 @@ class VolumePropertiesResponseDataProtection(dict):
         """
         return pulumi.get(self, "snapshot")
 
+    @property
+    @pulumi.getter(name="volumeRelocation")
+    def volume_relocation(self) -> Optional['outputs.VolumeRelocationPropertiesResponse']:
+        """
+        VolumeRelocation properties
+        """
+        return pulumi.get(self, "volume_relocation")
+
 
 @pulumi.output_type
 class VolumePropertiesResponseExportPolicy(dict):
@@ -2210,6 +2778,59 @@ class VolumePropertiesResponseExportPolicy(dict):
         Export policy rule
         """
         return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class VolumeRelocationPropertiesResponse(dict):
+    """
+    Volume relocation properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readyToBeFinalized":
+            suggest = "ready_to_be_finalized"
+        elif key == "relocationRequested":
+            suggest = "relocation_requested"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeRelocationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeRelocationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeRelocationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ready_to_be_finalized: bool,
+                 relocation_requested: Optional[bool] = None):
+        """
+        Volume relocation properties
+        :param bool ready_to_be_finalized: Has relocation finished and is ready to be cleaned up
+        :param bool relocation_requested: Has relocation been requested for this volume
+        """
+        pulumi.set(__self__, "ready_to_be_finalized", ready_to_be_finalized)
+        if relocation_requested is not None:
+            pulumi.set(__self__, "relocation_requested", relocation_requested)
+
+    @property
+    @pulumi.getter(name="readyToBeFinalized")
+    def ready_to_be_finalized(self) -> bool:
+        """
+        Has relocation finished and is ready to be cleaned up
+        """
+        return pulumi.get(self, "ready_to_be_finalized")
+
+    @property
+    @pulumi.getter(name="relocationRequested")
+    def relocation_requested(self) -> Optional[bool]:
+        """
+        Has relocation been requested for this volume
+        """
+        return pulumi.get(self, "relocation_requested")
 
 
 @pulumi.output_type

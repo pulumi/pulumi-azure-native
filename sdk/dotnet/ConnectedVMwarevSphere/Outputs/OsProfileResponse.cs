@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the operating system settings for the virtual machine.
     /// </summary>
     [OutputType]
     public sealed class OsProfileResponse
@@ -21,9 +21,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
         /// </summary>
         public readonly string? AdminUsername;
         /// <summary>
+        /// Gets or sets a value indicating whether the VM is ready for extension operations.
+        /// </summary>
+        public readonly bool AllowExtensionOperations;
+        /// <summary>
         /// Gets or sets computer name.
         /// </summary>
         public readonly string? ComputerName;
+        /// <summary>
+        /// Gets or sets the guestId.
+        /// </summary>
+        public readonly string? GuestId;
+        /// <summary>
+        /// Specifies the linux configuration for update management.
+        /// </summary>
+        public readonly Outputs.OsProfileResponseLinuxConfiguration? LinuxConfiguration;
         /// <summary>
         /// Gets or sets os name.
         /// </summary>
@@ -44,12 +56,22 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
         /// Gets or sets the current version status of VMware Tools installed in the guest operating system.
         /// </summary>
         public readonly string ToolsVersionStatus;
+        /// <summary>
+        /// Specifies the windows configuration for update management.
+        /// </summary>
+        public readonly Outputs.OsProfileResponseWindowsConfiguration? WindowsConfiguration;
 
         [OutputConstructor]
         private OsProfileResponse(
             string? adminUsername,
 
+            bool allowExtensionOperations,
+
             string? computerName,
+
+            string? guestId,
+
+            Outputs.OsProfileResponseLinuxConfiguration? linuxConfiguration,
 
             string osName,
 
@@ -59,15 +81,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
 
             string toolsVersion,
 
-            string toolsVersionStatus)
+            string toolsVersionStatus,
+
+            Outputs.OsProfileResponseWindowsConfiguration? windowsConfiguration)
         {
             AdminUsername = adminUsername;
+            AllowExtensionOperations = allowExtensionOperations;
             ComputerName = computerName;
+            GuestId = guestId;
+            LinuxConfiguration = linuxConfiguration;
             OsName = osName;
             OsType = osType;
             ToolsRunningStatus = toolsRunningStatus;
             ToolsVersion = toolsVersion;
             ToolsVersionStatus = toolsVersionStatus;
+            WindowsConfiguration = windowsConfiguration;
         }
     }
 }

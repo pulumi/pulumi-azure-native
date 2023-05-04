@@ -5,32 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'Kind',
-    'MsaAppType',
     'PrivateEndpointServiceConnectionStatus',
-    'PublicNetworkAccess',
-    'SkuName',
 ]
-
-
-class Kind(str, Enum):
-    """
-    Required. Gets or sets the Kind of the resource.
-    """
-    SDK = "sdk"
-    DESIGNER = "designer"
-    BOT = "bot"
-    FUNCTION = "function"
-    AZUREBOT = "azurebot"
-
-
-class MsaAppType(str, Enum):
-    """
-    Microsoft App Type for the bot
-    """
-    USER_ASSIGNED_MSI = "UserAssignedMSI"
-    SINGLE_TENANT = "SingleTenant"
-    MULTI_TENANT = "MultiTenant"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -40,19 +16,3 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Whether the bot is in an isolated network
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class SkuName(str, Enum):
-    """
-    The sku name
-    """
-    F0 = "F0"
-    S1 = "S1"

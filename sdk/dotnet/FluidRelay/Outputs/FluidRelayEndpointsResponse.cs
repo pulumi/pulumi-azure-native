@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.FluidRelay.Outputs
         /// </summary>
         public readonly ImmutableArray<string> OrdererEndpoints;
         /// <summary>
+        /// The Fluid Relay service endpoints.
+        /// </summary>
+        public readonly ImmutableArray<string> ServiceEndpoints;
+        /// <summary>
         /// The Fluid Relay storage endpoints.
         /// </summary>
         public readonly ImmutableArray<string> StorageEndpoints;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.FluidRelay.Outputs
         private FluidRelayEndpointsResponse(
             ImmutableArray<string> ordererEndpoints,
 
+            ImmutableArray<string> serviceEndpoints,
+
             ImmutableArray<string> storageEndpoints)
         {
             OrdererEndpoints = ordererEndpoints;
+            ServiceEndpoints = serviceEndpoints;
             StorageEndpoints = storageEndpoints;
         }
     }

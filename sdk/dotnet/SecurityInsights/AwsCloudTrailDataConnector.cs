@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents Amazon Web Services CloudTrail data connector.
-    /// API Version: 2020-01-01.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:AwsCloudTrailDataConnector")]
     public partial class AwsCloudTrailDataConnector : global::Pulumi.CustomResource
@@ -42,13 +43,19 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -105,6 +112,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:AwsCloudTrailDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:AwsCloudTrailDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:AwsCloudTrailDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:AwsCloudTrailDataConnector"},
                 },
             };
@@ -155,7 +163,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

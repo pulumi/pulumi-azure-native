@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20170901
     /// <summary>
     /// Peering in an ExpressRouteCircuit resource.
     /// </summary>
-    [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170901:ExpressRouteCircuitPeering")]
     public partial class ExpressRouteCircuitPeering : global::Pulumi.CustomResource
     {
@@ -199,6 +198,7 @@ namespace Pulumi.AzureNative.Network.V20170901
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRouteCircuitPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ExpressRouteCircuitPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ExpressRouteCircuitPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ExpressRouteCircuitPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

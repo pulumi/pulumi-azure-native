@@ -35,7 +35,9 @@ class AuthorizationServerArgs:
                  resource_owner_username: Optional[pulumi.Input[str]] = None,
                  support_state: Optional[pulumi.Input[bool]] = None,
                  token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['TokenBodyParameterContractArgs']]]] = None,
-                 token_endpoint: Optional[pulumi.Input[str]] = None):
+                 token_endpoint: Optional[pulumi.Input[str]] = None,
+                 use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
+                 use_in_test_console: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a AuthorizationServer resource.
         :param pulumi.Input[str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
@@ -43,7 +45,7 @@ class AuthorizationServerArgs:
         :param pulumi.Input[str] client_registration_endpoint: Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
         :param pulumi.Input[str] display_name: User-friendly authorization server name.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'GrantType']]]] grant_types: Form of an authorization grant, which the client uses to request the access token.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input['AuthorizationMethod']]] authorization_methods: HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
         :param pulumi.Input[str] authsid: Identifier of the authorization server.
@@ -57,6 +59,8 @@ class AuthorizationServerArgs:
         :param pulumi.Input[bool] support_state: If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
         :param pulumi.Input[Sequence[pulumi.Input['TokenBodyParameterContractArgs']]] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         :param pulumi.Input[str] token_endpoint: OAuth token endpoint. Contains absolute URI to entity being referenced.
+        :param pulumi.Input[bool] use_in_api_documentation: If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+        :param pulumi.Input[bool] use_in_test_console: If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
@@ -89,6 +93,10 @@ class AuthorizationServerArgs:
             pulumi.set(__self__, "token_body_parameters", token_body_parameters)
         if token_endpoint is not None:
             pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if use_in_api_documentation is not None:
+            pulumi.set(__self__, "use_in_api_documentation", use_in_api_documentation)
+        if use_in_test_console is not None:
+            pulumi.set(__self__, "use_in_test_console", use_in_test_console)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -154,7 +162,7 @@ class AuthorizationServerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -318,6 +326,30 @@ class AuthorizationServerArgs:
     def token_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "token_endpoint", value)
 
+    @property
+    @pulumi.getter(name="useInApiDocumentation")
+    def use_in_api_documentation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_api_documentation")
+
+    @use_in_api_documentation.setter
+    def use_in_api_documentation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_in_api_documentation", value)
+
+    @property
+    @pulumi.getter(name="useInTestConsole")
+    def use_in_test_console(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_test_console")
+
+    @use_in_test_console.setter
+    def use_in_test_console(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_in_test_console", value)
+
 
 class AuthorizationServer(pulumi.CustomResource):
     @overload
@@ -343,10 +375,13 @@ class AuthorizationServer(pulumi.CustomResource):
                  support_state: Optional[pulumi.Input[bool]] = None,
                  token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]]] = None,
                  token_endpoint: Optional[pulumi.Input[str]] = None,
+                 use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
+                 use_in_test_console: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         External OAuth authorization server settings.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -362,13 +397,15 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the authorization server. Can contain HTML formatting tags.
         :param pulumi.Input[str] display_name: User-friendly authorization server name.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'GrantType']]]] grant_types: Form of an authorization grant, which the client uses to request the access token.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_owner_password: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
         :param pulumi.Input[str] resource_owner_username: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[bool] support_state: If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         :param pulumi.Input[str] token_endpoint: OAuth token endpoint. Contains absolute URI to entity being referenced.
+        :param pulumi.Input[bool] use_in_api_documentation: If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+        :param pulumi.Input[bool] use_in_test_console: If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
         """
         ...
     @overload
@@ -378,7 +415,8 @@ class AuthorizationServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         External OAuth authorization server settings.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AuthorizationServerArgs args: The arguments to use to populate this resource's properties.
@@ -414,6 +452,8 @@ class AuthorizationServer(pulumi.CustomResource):
                  support_state: Optional[pulumi.Input[bool]] = None,
                  token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]]] = None,
                  token_endpoint: Optional[pulumi.Input[str]] = None,
+                 use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
+                 use_in_test_console: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -456,9 +496,11 @@ class AuthorizationServer(pulumi.CustomResource):
             __props__.__dict__["support_state"] = support_state
             __props__.__dict__["token_body_parameters"] = token_body_parameters
             __props__.__dict__["token_endpoint"] = token_endpoint
+            __props__.__dict__["use_in_api_documentation"] = use_in_api_documentation
+            __props__.__dict__["use_in_test_console"] = use_in_test_console
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:AuthorizationServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:AuthorizationServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AuthorizationServer, __self__).__init__(
             'azure-native:apimanagement:AuthorizationServer',
@@ -500,6 +542,8 @@ class AuthorizationServer(pulumi.CustomResource):
         __props__.__dict__["token_body_parameters"] = None
         __props__.__dict__["token_endpoint"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["use_in_api_documentation"] = None
+        __props__.__dict__["use_in_test_console"] = None
         return AuthorizationServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -594,7 +638,7 @@ class AuthorizationServer(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -642,7 +686,23 @@ class AuthorizationServer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useInApiDocumentation")
+    def use_in_api_documentation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_api_documentation")
+
+    @property
+    @pulumi.getter(name="useInTestConsole")
+    def use_in_test_console(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_test_console")
 

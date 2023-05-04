@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.SignalRService.V20181001
     /// <summary>
     /// A class represent a SignalR service resource.
     /// </summary>
-    [Obsolete(@"Version 2018-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20181001:SignalR")]
     public partial class SignalR : global::Pulumi.CustomResource
     {
@@ -142,6 +141,7 @@ namespace Pulumi.AzureNative.SignalRService.V20181001
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalR"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalR"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

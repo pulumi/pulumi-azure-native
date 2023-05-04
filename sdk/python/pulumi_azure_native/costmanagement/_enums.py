@@ -7,9 +7,6 @@ from enum import Enum
 __all__ = [
     'AccumulatedType',
     'ChartType',
-    'ConnectorBillingModel',
-    'CostAllocationPolicyType',
-    'CostAllocationResourceType',
     'DaysOfWeek',
     'ExportType',
     'FileFormat',
@@ -20,13 +17,12 @@ __all__ = [
     'MetricType',
     'OperatorType',
     'PivotTypeType',
+    'QueryColumnType',
     'RecurrenceType',
-    'ReportColumnType',
-    'ReportConfigColumnType',
+    'ReportConfigSortingType',
     'ReportGranularityType',
     'ReportTimeframeType',
     'ReportType',
-    'RuleStatus',
     'ScheduleFrequency',
     'ScheduledActionKind',
     'ScheduledActionStatus',
@@ -55,37 +51,6 @@ class ChartType(str, Enum):
     TABLE = "Table"
 
 
-class ConnectorBillingModel(str, Enum):
-    """
-    Connector billing model
-    """
-    TRIAL = "trial"
-    AUTO_UPGRADE = "autoUpgrade"
-    PREMIUM = "premium"
-    EXPIRED = "expired"
-
-
-class CostAllocationPolicyType(str, Enum):
-    """
-    Method of cost allocation for the rule
-    """
-    FIXED_PROPORTION = "FixedProportion"
-
-
-class CostAllocationResourceType(str, Enum):
-    """
-    Type of resources contained in this cost allocation rule
-    """
-    DIMENSION = "Dimension"
-    """
-    Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.
-    """
-    TAG = "Tag"
-    """
-    Allocates cost based on Azure Tag key value pairs.
-    """
-
-
 class DaysOfWeek(str, Enum):
     """
     Days of Week.
@@ -110,14 +75,14 @@ class ExportType(str, Enum):
 
 class FileFormat(str, Enum):
     """
-    Destination of the view data. Currently only csv format is supported.
+    Destination of the view data. Currently only CSV format is supported.
     """
     CSV = "Csv"
 
 
 class FormatType(str, Enum):
     """
-    The format of the report being delivered.
+    The format of the export being delivered. Currently only 'Csv' is supported.
     """
     CSV = "Csv"
 
@@ -126,18 +91,14 @@ class FunctionType(str, Enum):
     """
     The name of the aggregation function to use.
     """
-    AVG = "Avg"
-    MAX = "Max"
-    MIN = "Min"
     SUM = "Sum"
 
 
 class GranularityType(str, Enum):
     """
-    The granularity of rows in the report.
+    The granularity of rows in the export. Currently only 'Daily' is supported.
     """
     DAILY = "Daily"
-    HOURLY = "Hourly"
 
 
 class KpiTypeType(str, Enum):
@@ -173,6 +134,20 @@ class PivotTypeType(str, Enum):
     TAG_KEY = "TagKey"
 
 
+class QueryColumnType(str, Enum):
+    """
+    Has type of the column to group.
+    """
+    TAG_KEY = "TagKey"
+    """
+    The tag associated with the cost data.
+    """
+    DIMENSION = "Dimension"
+    """
+    The dimension of cost data.
+    """
+
+
 class RecurrenceType(str, Enum):
     """
     The schedule recurrence.
@@ -183,20 +158,12 @@ class RecurrenceType(str, Enum):
     ANNUALLY = "Annually"
 
 
-class ReportColumnType(str, Enum):
+class ReportConfigSortingType(str, Enum):
     """
-    Has type of the column to group.
+    Direction of sort.
     """
-    TAG = "Tag"
-    DIMENSION = "Dimension"
-
-
-class ReportConfigColumnType(str, Enum):
-    """
-    Has type of the column to group.
-    """
-    TAG = "Tag"
-    DIMENSION = "Dimension"
+    ASCENDING = "Ascending"
+    DESCENDING = "Descending"
 
 
 class ReportGranularityType(str, Enum):
@@ -222,24 +189,6 @@ class ReportType(str, Enum):
     The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
     """
     USAGE = "Usage"
-
-
-class RuleStatus(str, Enum):
-    """
-    Status of the rule
-    """
-    NOT_ACTIVE = "NotActive"
-    """
-    Rule is saved but not used to allocate costs.
-    """
-    ACTIVE = "Active"
-    """
-    Rule is saved and impacting cost allocation.
-    """
-    PROCESSING = "Processing"
-    """
-    Rule is saved and cost allocation is being updated. Readonly value that cannot be submitted in a put request.
-    """
 
 
 class ScheduleFrequency(str, Enum):
@@ -268,6 +217,10 @@ class ScheduledActionKind(str, Enum):
     """
     Cost analysis data will be emailed.
     """
+    INSIGHT_ALERT = "InsightAlert"
+    """
+    Cost anomaly information will be emailed. Available only on subscription scope at daily frequency. If no anomaly is detected on the resource, an email won't be sent.
+    """
 
 
 class ScheduledActionStatus(str, Enum):
@@ -276,17 +229,21 @@ class ScheduledActionStatus(str, Enum):
     """
     DISABLED = "Disabled"
     """
-    Scheduled action is saved but will not be executed.
+    Scheduled action is saved but will not be run.
     """
     ENABLED = "Enabled"
     """
-    Scheduled action is saved and will be executed.
+    Scheduled action is saved and will be run.
+    """
+    EXPIRED = "Expired"
+    """
+    Scheduled action is expired.
     """
 
 
 class StatusType(str, Enum):
     """
-    The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+    The status of the export's schedule. If 'Inactive', the export's schedule is paused.
     """
     ACTIVE = "Active"
     INACTIVE = "Inactive"
@@ -294,10 +251,13 @@ class StatusType(str, Enum):
 
 class TimeframeType(str, Enum):
     """
-    The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+    The time frame for pulling data for the export. If custom, then a specific time period must be provided.
     """
-    WEEK_TO_DATE = "WeekToDate"
     MONTH_TO_DATE = "MonthToDate"
+    BILLING_MONTH_TO_DATE = "BillingMonthToDate"
+    THE_LAST_MONTH = "TheLastMonth"
+    THE_LAST_BILLING_MONTH = "TheLastBillingMonth"
+    WEEK_TO_DATE = "WeekToDate"
     CUSTOM = "Custom"
 
 

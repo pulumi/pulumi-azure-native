@@ -16,8 +16,6 @@ __all__ = [
     'get_certificate_csr_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetCertificateCsrResult:
     """
@@ -188,7 +186,6 @@ def get_certificate_csr(name: Optional[str] = None,
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group
     """
-    pulumi.log.warn("""get_certificate_csr is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -221,5 +218,4 @@ def get_certificate_csr_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group
     """
-    pulumi.log.warn("""get_certificate_csr is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

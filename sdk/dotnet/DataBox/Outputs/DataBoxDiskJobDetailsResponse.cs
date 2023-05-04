@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
     public sealed class DataBoxDiskJobDetailsResponse
     {
         /// <summary>
+        /// Available actions on the job.
+        /// </summary>
+        public readonly ImmutableArray<string> Actions;
+        /// <summary>
         /// Shared access key to download the chain of custody logs
         /// </summary>
         public readonly string ChainOfCustodySasKey;
@@ -33,6 +37,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataBoxDiskCopyProgressResponse> CopyProgress;
         /// <summary>
+        /// DataCenter code.
+        /// </summary>
+        public readonly string DataCenterCode;
+        /// <summary>
         /// Details of the data to be exported from azure.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataExportDetailsResponse> DataExportDetails;
@@ -41,9 +49,17 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataImportDetailsResponse> DataImportDetails;
         /// <summary>
+        /// Datacenter address to ship to, for the given sku and storage location.
+        /// </summary>
+        public readonly Union<Outputs.DatacenterAddressInstructionResponseResponse, Outputs.DatacenterAddressLocationResponseResponse> DatacenterAddress;
+        /// <summary>
         /// Delivery package shipping details.
         /// </summary>
         public readonly Outputs.PackageShippingDetailsResponse DeliveryPackage;
+        /// <summary>
+        /// Holds device data erasure details
+        /// </summary>
+        public readonly Outputs.DeviceErasureDetailsResponse DeviceErasureDetails;
         /// <summary>
         /// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
         /// </summary>
@@ -52,6 +68,14 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// The expected size of the data, which needs to be transferred in this job, in terabytes.
         /// </summary>
         public readonly int? ExpectedDataSizeInTeraBytes;
+        /// <summary>
+        /// Copy progress per disk.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataBoxDiskGranularCopyLogDetailsResponse> GranularCopyLogDetails;
+        /// <summary>
+        /// Copy progress per disk.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataBoxDiskGranularCopyProgressResponse> GranularCopyProgress;
         /// <summary>
         /// Indicates the type of job details.
         /// Expected value is 'DataBoxDisk'.
@@ -65,6 +89,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// Details about which key encryption type is being used.
         /// </summary>
         public readonly Outputs.KeyEncryptionKeyResponse? KeyEncryptionKey;
+        /// <summary>
+        /// Last mitigation action performed on the job.
+        /// </summary>
+        public readonly Outputs.LastMitigationActionOnJobResponse LastMitigationActionOnJob;
         /// <summary>
         /// User entered passkey for DataBox Disk job.
         /// </summary>
@@ -86,12 +114,18 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly string ReverseShipmentLabelSasKey;
         /// <summary>
+        /// Optional Reverse Shipping details for order.
+        /// </summary>
+        public readonly Outputs.ReverseShippingDetailsResponse? ReverseShippingDetails;
+        /// <summary>
         /// Shipping address of the customer.
         /// </summary>
         public readonly Outputs.ShippingAddressResponse? ShippingAddress;
 
         [OutputConstructor]
         private DataBoxDiskJobDetailsResponse(
+            ImmutableArray<string> actions,
+
             string chainOfCustodySasKey,
 
             Outputs.ContactDetailsResponse contactDetails,
@@ -100,21 +134,33 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             ImmutableArray<Outputs.DataBoxDiskCopyProgressResponse> copyProgress,
 
+            string dataCenterCode,
+
             ImmutableArray<Outputs.DataExportDetailsResponse> dataExportDetails,
 
             ImmutableArray<Outputs.DataImportDetailsResponse> dataImportDetails,
 
+            Union<Outputs.DatacenterAddressInstructionResponseResponse, Outputs.DatacenterAddressLocationResponseResponse> datacenterAddress,
+
             Outputs.PackageShippingDetailsResponse deliveryPackage,
+
+            Outputs.DeviceErasureDetailsResponse deviceErasureDetails,
 
             ImmutableDictionary<string, int> disksAndSizeDetails,
 
             int? expectedDataSizeInTeraBytes,
+
+            ImmutableArray<Outputs.DataBoxDiskGranularCopyLogDetailsResponse> granularCopyLogDetails,
+
+            ImmutableArray<Outputs.DataBoxDiskGranularCopyProgressResponse> granularCopyProgress,
 
             string jobDetailsType,
 
             ImmutableArray<Outputs.JobStagesResponse> jobStages,
 
             Outputs.KeyEncryptionKeyResponse? keyEncryptionKey,
+
+            Outputs.LastMitigationActionOnJobResponse lastMitigationActionOnJob,
 
             string? passkey,
 
@@ -126,25 +172,35 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             string reverseShipmentLabelSasKey,
 
+            Outputs.ReverseShippingDetailsResponse? reverseShippingDetails,
+
             Outputs.ShippingAddressResponse? shippingAddress)
         {
+            Actions = actions;
             ChainOfCustodySasKey = chainOfCustodySasKey;
             ContactDetails = contactDetails;
             CopyLogDetails = copyLogDetails;
             CopyProgress = copyProgress;
+            DataCenterCode = dataCenterCode;
             DataExportDetails = dataExportDetails;
             DataImportDetails = dataImportDetails;
+            DatacenterAddress = datacenterAddress;
             DeliveryPackage = deliveryPackage;
+            DeviceErasureDetails = deviceErasureDetails;
             DisksAndSizeDetails = disksAndSizeDetails;
             ExpectedDataSizeInTeraBytes = expectedDataSizeInTeraBytes;
+            GranularCopyLogDetails = granularCopyLogDetails;
+            GranularCopyProgress = granularCopyProgress;
             JobDetailsType = jobDetailsType;
             JobStages = jobStages;
             KeyEncryptionKey = keyEncryptionKey;
+            LastMitigationActionOnJob = lastMitigationActionOnJob;
             Passkey = passkey;
             Preferences = preferences;
             PreferredDisks = preferredDisks;
             ReturnPackage = returnPackage;
             ReverseShipmentLabelSasKey = reverseShipmentLabelSasKey;
+            ReverseShippingDetails = reverseShippingDetails;
             ShippingAddress = shippingAddress;
         }
     }

@@ -20,11 +20,6 @@ export type ApplicationTypeVersion = import("./applicationTypeVersion").Applicat
 export const ApplicationTypeVersion: typeof import("./applicationTypeVersion").ApplicationTypeVersion = null as any;
 utilities.lazyLoad(exports, ["ApplicationTypeVersion"], () => require("./applicationTypeVersion"));
 
-export { ClusterArgs } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
@@ -39,11 +34,6 @@ export { GetApplicationTypeVersionArgs, GetApplicationTypeVersionResult, GetAppl
 export const getApplicationTypeVersion: typeof import("./getApplicationTypeVersion").getApplicationTypeVersion = null as any;
 export const getApplicationTypeVersionOutput: typeof import("./getApplicationTypeVersion").getApplicationTypeVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getApplicationTypeVersion","getApplicationTypeVersionOutput"], () => require("./getApplicationTypeVersion"));
-
-export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
-export const getCluster: typeof import("./getCluster").getCluster = null as any;
-export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
 export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
@@ -65,11 +55,6 @@ export const getmanagedAzResiliencyStatus: typeof import("./getmanagedAzResilien
 export const getmanagedAzResiliencyStatusOutput: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getmanagedAzResiliencyStatus","getmanagedAzResiliencyStatusOutput"], () => require("./getmanagedAzResiliencyStatus"));
 
-export { ListListUpgradableVersionPostArgs, ListListUpgradableVersionPostResult, ListListUpgradableVersionPostOutputArgs } from "./listListUpgradableVersionPost";
-export const listListUpgradableVersionPost: typeof import("./listListUpgradableVersionPost").listListUpgradableVersionPost = null as any;
-export const listListUpgradableVersionPostOutput: typeof import("./listListUpgradableVersionPost").listListUpgradableVersionPostOutput = null as any;
-utilities.lazyLoad(exports, ["listListUpgradableVersionPost","listListUpgradableVersionPostOutput"], () => require("./listListUpgradableVersionPost"));
-
 export { ManagedClusterArgs } from "./managedCluster";
 export type ManagedCluster = import("./managedCluster").ManagedCluster;
 export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
@@ -90,22 +75,12 @@ utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 export * from "../types/enums/servicefabric";
 
 // Export sub-modules:
-import * as v20160901 from "./v20160901";
 import * as v20170701preview from "./v20170701preview";
-import * as v20180201 from "./v20180201";
-import * as v20190301 from "./v20190301";
-import * as v20190301preview from "./v20190301preview";
-import * as v20190601preview from "./v20190601preview";
-import * as v20191101preview from "./v20191101preview";
 import * as v20200101preview from "./v20200101preview";
 import * as v20200301 from "./v20200301";
 import * as v20201201preview from "./v20201201preview";
-import * as v20210101preview from "./v20210101preview";
-import * as v20210501 from "./v20210501";
 import * as v20210601 from "./v20210601";
-import * as v20210701preview from "./v20210701preview";
 import * as v20210901privatepreview from "./v20210901privatepreview";
-import * as v20211101preview from "./v20211101preview";
 import * as v20220101 from "./v20220101";
 import * as v20220201preview from "./v20220201preview";
 import * as v20220601preview from "./v20220601preview";
@@ -114,22 +89,12 @@ import * as v20221001preview from "./v20221001preview";
 import * as v20230201preview from "./v20230201preview";
 
 export {
-    v20160901,
     v20170701preview,
-    v20180201,
-    v20190301,
-    v20190301preview,
-    v20190601preview,
-    v20191101preview,
     v20200101preview,
     v20200301,
     v20201201preview,
-    v20210101preview,
-    v20210501,
     v20210601,
-    v20210701preview,
     v20210901privatepreview,
-    v20211101preview,
     v20220101,
     v20220201preview,
     v20220601preview,
@@ -148,8 +113,6 @@ const _module = {
                 return new ApplicationType(name, <any>undefined, { urn })
             case "azure-native:servicefabric:ApplicationTypeVersion":
                 return new ApplicationTypeVersion(name, <any>undefined, { urn })
-            case "azure-native:servicefabric:Cluster":
-                return new Cluster(name, <any>undefined, { urn })
             case "azure-native:servicefabric:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
             case "azure-native:servicefabric:NodeType":

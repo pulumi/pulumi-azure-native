@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         private InputList<Inputs.ServiceResourceIdArgs>? _allowedServices;
 
         /// <summary>
-        /// List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item.
+        /// List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item. The services must be in the same location as the SIM policy.
         /// </summary>
         public InputList<Inputs.ServiceResourceIdArgs> AllowedServices
         {
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         }
 
         /// <summary>
-        /// A reference to the data network that these settings apply to
+        /// A reference to the data network that these settings apply to. The data network must be in the same location as the SIM policy.
         /// </summary>
         [Input("dataNetwork", required: true)]
         public Input<Inputs.DataNetworkResourceIdArgs> DataNetwork { get; set; } = null!;
@@ -58,10 +58,16 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.PduSessionType>? DefaultSessionType { get; set; }
 
         /// <summary>
-        /// Default QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        /// Default 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
         /// </summary>
         [Input("fiveQi")]
         public Input<int>? FiveQi { get; set; }
+
+        /// <summary>
+        /// The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+        /// </summary>
+        [Input("maximumNumberOfBufferedPackets")]
+        public Input<int>? MaximumNumberOfBufferedPackets { get; set; }
 
         /// <summary>
         /// Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
             AllocationAndRetentionPriorityLevel = 9;
             DefaultSessionType = "IPv4";
             FiveQi = 9;
+            MaximumNumberOfBufferedPackets = 10;
             PreemptionCapability = "NotPreempt";
             PreemptionVulnerability = "Preemptable";
         }

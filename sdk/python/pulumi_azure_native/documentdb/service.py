@@ -129,7 +129,8 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         Properties for the database account.
-        API Version: 2021-04-01-preview.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +149,8 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties for the database account.
-        API Version: 2021-04-01-preview.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -193,7 +195,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20210401preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220515:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220815:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20221115:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230315:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20210401preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220515:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220815:Service"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20221115:Service"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230315:Service"), pulumi.Alias(type_="azure-native:documentdb/v20230415:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:documentdb:Service',

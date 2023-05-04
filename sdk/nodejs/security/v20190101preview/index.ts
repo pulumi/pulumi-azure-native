@@ -10,11 +10,6 @@ export type AlertsSuppressionRule = import("./alertsSuppressionRule").AlertsSupp
 export const AlertsSuppressionRule: typeof import("./alertsSuppressionRule").AlertsSuppressionRule = null as any;
 utilities.lazyLoad(exports, ["AlertsSuppressionRule"], () => require("./alertsSuppressionRule"));
 
-export { AssessmentArgs } from "./assessment";
-export type Assessment = import("./assessment").Assessment;
-export const Assessment: typeof import("./assessment").Assessment = null as any;
-utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
-
 export { AssessmentsMetadataSubscriptionArgs } from "./assessmentsMetadataSubscription";
 export type AssessmentsMetadataSubscription = import("./assessmentsMetadataSubscription").AssessmentsMetadataSubscription;
 export const AssessmentsMetadataSubscription: typeof import("./assessmentsMetadataSubscription").AssessmentsMetadataSubscription = null as any;
@@ -29,11 +24,6 @@ export { GetAlertsSuppressionRuleArgs, GetAlertsSuppressionRuleResult, GetAlerts
 export const getAlertsSuppressionRule: typeof import("./getAlertsSuppressionRule").getAlertsSuppressionRule = null as any;
 export const getAlertsSuppressionRuleOutput: typeof import("./getAlertsSuppressionRule").getAlertsSuppressionRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getAlertsSuppressionRule","getAlertsSuppressionRuleOutput"], () => require("./getAlertsSuppressionRule"));
-
-export { GetAssessmentArgs, GetAssessmentResult, GetAssessmentOutputArgs } from "./getAssessment";
-export const getAssessment: typeof import("./getAssessment").getAssessment = null as any;
-export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
-utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
 
 export { GetAssessmentsMetadataSubscriptionArgs, GetAssessmentsMetadataSubscriptionResult, GetAssessmentsMetadataSubscriptionOutputArgs } from "./getAssessmentsMetadataSubscription";
 export const getAssessmentsMetadataSubscription: typeof import("./getAssessmentsMetadataSubscription").getAssessmentsMetadataSubscription = null as any;
@@ -55,8 +45,6 @@ const _module = {
         switch (type) {
             case "azure-native:security/v20190101preview:AlertsSuppressionRule":
                 return new AlertsSuppressionRule(name, <any>undefined, { urn })
-            case "azure-native:security/v20190101preview:Assessment":
-                return new Assessment(name, <any>undefined, { urn })
             case "azure-native:security/v20190101preview:AssessmentsMetadataSubscription":
                 return new AssessmentsMetadataSubscription(name, <any>undefined, { urn })
             case "azure-native:security/v20190101preview:Automation":

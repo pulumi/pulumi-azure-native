@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StoragePool.Outputs
 {
 
     /// <summary>
-    /// Resource metadata required by ARM RPC.
+    /// Metadata pertaining to creation and last modification of the resource.
     /// </summary>
     [OutputType]
     public sealed class SystemMetadataResponse
@@ -21,23 +21,23 @@ namespace Pulumi.AzureNative.StoragePool.Outputs
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// A string identifier for the identity that created the resource.
+        /// The identity that created the resource.
         /// </summary>
         public readonly string? CreatedBy;
         /// <summary>
-        /// The type of identity that created the resource: user, application, managedIdentity.
+        /// The type of identity that created the resource.
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The timestamp of resource last modification (UTC).
+        /// The type of identity that last modified the resource.
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>
-        /// A string identifier for the identity that last modified the resource.
+        /// The identity that last modified the resource.
         /// </summary>
         public readonly string? LastModifiedBy;
         /// <summary>
-        /// The type of identity that last modified the resource: user, application, managedIdentity.
+        /// The type of identity that last modified the resource.
         /// </summary>
         public readonly string? LastModifiedByType;
 

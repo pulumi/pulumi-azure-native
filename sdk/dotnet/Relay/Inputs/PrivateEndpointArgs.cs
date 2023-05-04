@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Relay.Inputs
 {
 
     /// <summary>
-    /// Private endpoint object properties.
+    /// PrivateEndpoint information.
     /// </summary>
     public sealed class PrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Full identifier of the private endpoint resource.
+        /// The ARM identifier for Private Endpoint.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

@@ -22,16 +22,22 @@ class GetSecurityConnectorResult:
     """
     The security connector resource.
     """
-    def __init__(__self__, cloud_name=None, etag=None, hierarchy_identifier=None, id=None, kind=None, location=None, name=None, offerings=None, organizational_data=None, system_data=None, tags=None, type=None):
-        if cloud_name and not isinstance(cloud_name, str):
-            raise TypeError("Expected argument 'cloud_name' to be a str")
-        pulumi.set(__self__, "cloud_name", cloud_name)
+    def __init__(__self__, environment_data=None, environment_name=None, etag=None, hierarchy_identifier=None, hierarchy_identifier_trial_end_date=None, id=None, kind=None, location=None, name=None, offerings=None, system_data=None, tags=None, type=None):
+        if environment_data and not isinstance(environment_data, dict):
+            raise TypeError("Expected argument 'environment_data' to be a dict")
+        pulumi.set(__self__, "environment_data", environment_data)
+        if environment_name and not isinstance(environment_name, str):
+            raise TypeError("Expected argument 'environment_name' to be a str")
+        pulumi.set(__self__, "environment_name", environment_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if hierarchy_identifier and not isinstance(hierarchy_identifier, str):
             raise TypeError("Expected argument 'hierarchy_identifier' to be a str")
         pulumi.set(__self__, "hierarchy_identifier", hierarchy_identifier)
+        if hierarchy_identifier_trial_end_date and not isinstance(hierarchy_identifier_trial_end_date, str):
+            raise TypeError("Expected argument 'hierarchy_identifier_trial_end_date' to be a str")
+        pulumi.set(__self__, "hierarchy_identifier_trial_end_date", hierarchy_identifier_trial_end_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,9 +53,6 @@ class GetSecurityConnectorResult:
         if offerings and not isinstance(offerings, list):
             raise TypeError("Expected argument 'offerings' to be a list")
         pulumi.set(__self__, "offerings", offerings)
-        if organizational_data and not isinstance(organizational_data, dict):
-            raise TypeError("Expected argument 'organizational_data' to be a dict")
-        pulumi.set(__self__, "organizational_data", organizational_data)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -61,12 +64,20 @@ class GetSecurityConnectorResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="cloudName")
-    def cloud_name(self) -> Optional[str]:
+    @pulumi.getter(name="environmentData")
+    def environment_data(self) -> Optional[Any]:
+        """
+        The security connector environment data.
+        """
+        return pulumi.get(self, "environment_data")
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> Optional[str]:
         """
         The multi cloud resource's cloud name.
         """
-        return pulumi.get(self, "cloud_name")
+        return pulumi.get(self, "environment_name")
 
     @property
     @pulumi.getter
@@ -80,9 +91,17 @@ class GetSecurityConnectorResult:
     @pulumi.getter(name="hierarchyIdentifier")
     def hierarchy_identifier(self) -> Optional[str]:
         """
-        The multi cloud resource identifier (account id in case of AWS connector).
+        The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         """
         return pulumi.get(self, "hierarchy_identifier")
+
+    @property
+    @pulumi.getter(name="hierarchyIdentifierTrialEndDate")
+    def hierarchy_identifier_trial_end_date(self) -> str:
+        """
+        The date on which the trial period will end, if applicable. Trial period exists for 30 days after upgrading to payed offerings.
+        """
+        return pulumi.get(self, "hierarchy_identifier_trial_end_date")
 
     @property
     @pulumi.getter
@@ -125,14 +144,6 @@ class GetSecurityConnectorResult:
         return pulumi.get(self, "offerings")
 
     @property
-    @pulumi.getter(name="organizationalData")
-    def organizational_data(self) -> Optional['outputs.SecurityConnectorPropertiesResponseOrganizationalData']:
-        """
-        The multi cloud account's organizational data
-        """
-        return pulumi.get(self, "organizational_data")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -163,15 +174,16 @@ class AwaitableGetSecurityConnectorResult(GetSecurityConnectorResult):
         if False:
             yield self
         return GetSecurityConnectorResult(
-            cloud_name=self.cloud_name,
+            environment_data=self.environment_data,
+            environment_name=self.environment_name,
             etag=self.etag,
             hierarchy_identifier=self.hierarchy_identifier,
+            hierarchy_identifier_trial_end_date=self.hierarchy_identifier_trial_end_date,
             id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
             offerings=self.offerings,
-            organizational_data=self.organizational_data,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -182,7 +194,7 @@ def get_security_connector(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityConnectorResult:
     """
     Retrieves details of a specific security connector
-    API Version: 2021-07-01-preview.
+    API Version: 2022-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -195,15 +207,16 @@ def get_security_connector(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getSecurityConnector', __args__, opts=opts, typ=GetSecurityConnectorResult).value
 
     return AwaitableGetSecurityConnectorResult(
-        cloud_name=__ret__.cloud_name,
+        environment_data=__ret__.environment_data,
+        environment_name=__ret__.environment_name,
         etag=__ret__.etag,
         hierarchy_identifier=__ret__.hierarchy_identifier,
+        hierarchy_identifier_trial_end_date=__ret__.hierarchy_identifier_trial_end_date,
         id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
         offerings=__ret__.offerings,
-        organizational_data=__ret__.organizational_data,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -215,7 +228,7 @@ def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityConnectorResult]:
     """
     Retrieves details of a specific security connector
-    API Version: 2021-07-01-preview.
+    API Version: 2022-08-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

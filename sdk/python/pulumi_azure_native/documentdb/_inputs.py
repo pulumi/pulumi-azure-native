@@ -11,15 +11,19 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AnalyticalStorageConfigurationArgs',
     'ApiPropertiesArgs',
     'AutoscaleSettingsArgs',
+    'BackupPolicyMigrationStateArgs',
     'CapabilityArgs',
+    'CapacityArgs',
     'CassandraKeyspaceResourceArgs',
     'CassandraPartitionKeyArgs',
     'CassandraSchemaArgs',
     'CassandraTableResourceArgs',
-    'CassandraViewResourceArgs',
     'CertificateArgs',
+    'ClientEncryptionIncludedPathArgs',
+    'ClientEncryptionPolicyArgs',
     'ClusterKeyArgs',
     'ClusterResourcePropertiesArgs',
     'ColumnArgs',
@@ -31,15 +35,17 @@ __all__ = [
     'CorsPolicyArgs',
     'CreateUpdateOptionsArgs',
     'DataCenterResourcePropertiesArgs',
+    'DatabaseRestoreResourceArgs',
     'ExcludedPathArgs',
-    'GraphResourceArgs',
     'GremlinDatabaseResourceArgs',
+    'GremlinDatabaseRestoreResourceArgs',
     'GremlinGraphResourceArgs',
     'IncludedPathArgs',
     'IndexesArgs',
     'IndexingPolicyArgs',
     'IpAddressOrRangeArgs',
     'LocationArgs',
+    'ManagedCassandraManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgs',
     'MongoDBCollectionResourceArgs',
     'MongoDBDatabaseResourceArgs',
@@ -53,6 +59,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStatePropertyArgs',
     'PrivilegeResourceArgs',
     'PrivilegeArgs',
+    'RestoreParametersArgs',
     'RoleArgs',
     'SeedNodeArgs',
     'SpatialSpecArgs',
@@ -66,6 +73,30 @@ __all__ = [
     'UniqueKeyArgs',
     'VirtualNetworkRuleArgs',
 ]
+
+@pulumi.input_type
+class AnalyticalStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 schema_type: Optional[pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']]] = None):
+        """
+        Analytical storage specific properties.
+        :param pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']] schema_type: Describes the types of schema for analytical storage.
+        """
+        if schema_type is not None:
+            pulumi.set(__self__, "schema_type", schema_type)
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> Optional[pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']]]:
+        """
+        Describes the types of schema for analytical storage.
+        """
+        return pulumi.get(self, "schema_type")
+
+    @schema_type.setter
+    def schema_type(self, value: Optional[pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']]]):
+        pulumi.set(self, "schema_type", value)
+
 
 @pulumi.input_type
 class ApiPropertiesArgs:
@@ -114,6 +145,62 @@ class AutoscaleSettingsArgs:
 
 
 @pulumi.input_type
+class BackupPolicyMigrationStateArgs:
+    def __init__(__self__, *,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']]] = None,
+                 target_type: Optional[pulumi.Input[Union[str, 'BackupPolicyType']]] = None):
+        """
+        The object representing the state of the migration between the backup policies.
+        :param pulumi.Input[str] start_time: Time at which the backup policy migration started (ISO-8601 format).
+        :param pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']] status: Describes the status of migration between backup policy types.
+        :param pulumi.Input[Union[str, 'BackupPolicyType']] target_type: Describes the target backup policy type of the backup policy migration.
+        """
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time at which the backup policy migration started (ISO-8601 format).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']]]:
+        """
+        Describes the status of migration between backup policy types.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[Union[str, 'BackupPolicyType']]]:
+        """
+        Describes the target backup policy type of the backup policy migration.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[Union[str, 'BackupPolicyType']]]):
+        pulumi.set(self, "target_type", value)
+
+
+@pulumi.input_type
 class CapabilityArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
@@ -135,6 +222,30 @@ class CapabilityArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CapacityArgs:
+    def __init__(__self__, *,
+                 total_throughput_limit: Optional[pulumi.Input[int]] = None):
+        """
+        The object that represents all properties related to capacity enforcement on an account.
+        :param pulumi.Input[int] total_throughput_limit: The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
+        """
+        if total_throughput_limit is not None:
+            pulumi.set(__self__, "total_throughput_limit", total_throughput_limit)
+
+    @property
+    @pulumi.getter(name="totalThroughputLimit")
+    def total_throughput_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
+        """
+        return pulumi.get(self, "total_throughput_limit")
+
+    @total_throughput_limit.setter
+    def total_throughput_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "total_throughput_limit", value)
 
 
 @pulumi.input_type
@@ -312,44 +423,6 @@ class CassandraTableResourceArgs:
 
 
 @pulumi.input_type
-class CassandraViewResourceArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str],
-                 view_definition: pulumi.Input[str]):
-        """
-        Cosmos DB Cassandra view resource object
-        :param pulumi.Input[str] id: Name of the Cosmos DB Cassandra view
-        :param pulumi.Input[str] view_definition: View Definition of the Cosmos DB Cassandra view
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "view_definition", view_definition)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Name of the Cosmos DB Cassandra view
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="viewDefinition")
-    def view_definition(self) -> pulumi.Input[str]:
-        """
-        View Definition of the Cosmos DB Cassandra view
-        """
-        return pulumi.get(self, "view_definition")
-
-    @view_definition.setter
-    def view_definition(self, value: pulumi.Input[str]):
-        pulumi.set(self, "view_definition", value)
-
-
-@pulumi.input_type
 class CertificateArgs:
     def __init__(__self__, *,
                  pem: Optional[pulumi.Input[str]] = None):
@@ -370,6 +443,112 @@ class CertificateArgs:
     @pem.setter
     def pem(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pem", value)
+
+
+@pulumi.input_type
+class ClientEncryptionIncludedPathArgs:
+    def __init__(__self__, *,
+                 client_encryption_key_id: pulumi.Input[str],
+                 encryption_algorithm: pulumi.Input[str],
+                 encryption_type: pulumi.Input[str],
+                 path: pulumi.Input[str]):
+        """
+        .
+        :param pulumi.Input[str] client_encryption_key_id: The identifier of the Client Encryption Key to be used to encrypt the path.
+        :param pulumi.Input[str] encryption_algorithm: The encryption algorithm which will be used. Eg - AEAD_AES_256_CBC_HMAC_SHA256.
+        :param pulumi.Input[str] encryption_type: The type of encryption to be performed. Eg - Deterministic, Randomized.
+        :param pulumi.Input[str] path: Path that needs to be encrypted.
+        """
+        pulumi.set(__self__, "client_encryption_key_id", client_encryption_key_id)
+        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="clientEncryptionKeyId")
+    def client_encryption_key_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Client Encryption Key to be used to encrypt the path.
+        """
+        return pulumi.get(self, "client_encryption_key_id")
+
+    @client_encryption_key_id.setter
+    def client_encryption_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_encryption_key_id", value)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> pulumi.Input[str]:
+        """
+        The encryption algorithm which will be used. Eg - AEAD_AES_256_CBC_HMAC_SHA256.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Input[str]:
+        """
+        The type of encryption to be performed. Eg - Deterministic, Randomized.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encryption_type", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path that needs to be encrypted.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class ClientEncryptionPolicyArgs:
+    def __init__(__self__, *,
+                 included_paths: pulumi.Input[Sequence[pulumi.Input['ClientEncryptionIncludedPathArgs']]],
+                 policy_format_version: pulumi.Input[int]):
+        """
+        Cosmos DB client encryption policy.
+        :param pulumi.Input[Sequence[pulumi.Input['ClientEncryptionIncludedPathArgs']]] included_paths: Paths of the item that need encryption along with path-specific settings.
+        :param pulumi.Input[int] policy_format_version: Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption. 
+        """
+        pulumi.set(__self__, "included_paths", included_paths)
+        pulumi.set(__self__, "policy_format_version", policy_format_version)
+
+    @property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> pulumi.Input[Sequence[pulumi.Input['ClientEncryptionIncludedPathArgs']]]:
+        """
+        Paths of the item that need encryption along with path-specific settings.
+        """
+        return pulumi.get(self, "included_paths")
+
+    @included_paths.setter
+    def included_paths(self, value: pulumi.Input[Sequence[pulumi.Input['ClientEncryptionIncludedPathArgs']]]):
+        pulumi.set(self, "included_paths", value)
+
+    @property
+    @pulumi.getter(name="policyFormatVersion")
+    def policy_format_version(self) -> pulumi.Input[int]:
+        """
+        Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption. 
+        """
+        return pulumi.get(self, "policy_format_version")
+
+    @policy_format_version.setter
+    def policy_format_version(self, value: pulumi.Input[int]):
+        pulumi.set(self, "policy_format_version", value)
 
 
 @pulumi.input_type
@@ -416,9 +595,11 @@ class ClusterKeyArgs:
 class ClusterResourcePropertiesArgs:
     def __init__(__self__, *,
                  authentication_method: Optional[pulumi.Input[Union[str, 'AuthenticationMethod']]] = None,
+                 cassandra_audit_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  cassandra_version: Optional[pulumi.Input[str]] = None,
                  client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]] = None,
                  cluster_name_override: Optional[pulumi.Input[str]] = None,
+                 deallocated: Optional[pulumi.Input[bool]] = None,
                  delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
                  external_gossip_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]] = None,
                  external_seed_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]]] = None,
@@ -431,9 +612,11 @@ class ClusterResourcePropertiesArgs:
         """
         Properties of a managed Cassandra cluster.
         :param pulumi.Input[Union[str, 'AuthenticationMethod']] authentication_method: Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        :param pulumi.Input[bool] cassandra_audit_logging_enabled: Whether Cassandra audit logging is enabled
         :param pulumi.Input[str] cassandra_version: Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
         :param pulumi.Input[str] cluster_name_override: If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+        :param pulumi.Input[bool] deallocated: Whether the cluster and associated data centers has been deallocated.
         :param pulumi.Input[str] delegated_management_subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         :param pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
         :param pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
@@ -446,12 +629,16 @@ class ClusterResourcePropertiesArgs:
         """
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
+        if cassandra_audit_logging_enabled is not None:
+            pulumi.set(__self__, "cassandra_audit_logging_enabled", cassandra_audit_logging_enabled)
         if cassandra_version is not None:
             pulumi.set(__self__, "cassandra_version", cassandra_version)
         if client_certificates is not None:
             pulumi.set(__self__, "client_certificates", client_certificates)
         if cluster_name_override is not None:
             pulumi.set(__self__, "cluster_name_override", cluster_name_override)
+        if deallocated is not None:
+            pulumi.set(__self__, "deallocated", deallocated)
         if delegated_management_subnet_id is not None:
             pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
         if external_gossip_certificates is not None:
@@ -482,6 +669,18 @@ class ClusterResourcePropertiesArgs:
     @authentication_method.setter
     def authentication_method(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMethod']]]):
         pulumi.set(self, "authentication_method", value)
+
+    @property
+    @pulumi.getter(name="cassandraAuditLoggingEnabled")
+    def cassandra_audit_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Cassandra audit logging is enabled
+        """
+        return pulumi.get(self, "cassandra_audit_logging_enabled")
+
+    @cassandra_audit_logging_enabled.setter
+    def cassandra_audit_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cassandra_audit_logging_enabled", value)
 
     @property
     @pulumi.getter(name="cassandraVersion")
@@ -518,6 +717,18 @@ class ClusterResourcePropertiesArgs:
     @cluster_name_override.setter
     def cluster_name_override(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_name_override", value)
+
+    @property
+    @pulumi.getter
+    def deallocated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the cluster and associated data centers has been deallocated.
+        """
+        return pulumi.get(self, "deallocated")
+
+    @deallocated.setter
+    def deallocated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deallocated", value)
 
     @property
     @pulumi.getter(name="delegatedManagementSubnetId")
@@ -881,13 +1092,17 @@ class ContainerPartitionKeyArgs:
 @pulumi.input_type
 class ContinuousModeBackupPolicyArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 migration_state: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']] = None):
         """
         The object representing continuous mode backup policy.
         :param pulumi.Input[str] type: Describes the mode of backups.
                Expected value is 'Continuous'.
+        :param pulumi.Input['BackupPolicyMigrationStateArgs'] migration_state: The object representing the state of the migration between the backup policies.
         """
         pulumi.set(__self__, "type", 'Continuous')
+        if migration_state is not None:
+            pulumi.set(__self__, "migration_state", migration_state)
 
     @property
     @pulumi.getter
@@ -901,6 +1116,18 @@ class ContinuousModeBackupPolicyArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]:
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+        return pulumi.get(self, "migration_state")
+
+    @migration_state.setter
+    def migration_state(self, value: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]):
+        pulumi.set(self, "migration_state", value)
 
 
 @pulumi.input_type
@@ -1033,29 +1260,77 @@ class CreateUpdateOptionsArgs:
 @pulumi.input_type
 class DataCenterResourcePropertiesArgs:
     def __init__(__self__, *,
+                 availability_zone: Optional[pulumi.Input[bool]] = None,
+                 backup_storage_customer_key_uri: Optional[pulumi.Input[str]] = None,
                  base64_encoded_cassandra_yaml_fragment: Optional[pulumi.Input[str]] = None,
                  data_center_location: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
+                 disk_capacity: Optional[pulumi.Input[int]] = None,
+                 disk_sku: Optional[pulumi.Input[str]] = None,
+                 managed_disk_customer_key_uri: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']]] = None):
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']]] = None,
+                 sku: Optional[pulumi.Input[str]] = None):
         """
         Properties of a managed Cassandra data center.
+        :param pulumi.Input[bool] availability_zone: If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        :param pulumi.Input[str] backup_storage_customer_key_uri: Indicates the Key Uri of the customer key to use for encryption of the backup storage account.
         :param pulumi.Input[str] base64_encoded_cassandra_yaml_fragment: A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
         :param pulumi.Input[str] data_center_location: The region this data center should be created in.
         :param pulumi.Input[str] delegated_subnet_id: Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+        :param pulumi.Input[int] disk_capacity: Number of disk used for data centers. Default value is 4.
+        :param pulumi.Input[str] disk_sku: Disk SKU used for data centers. Default value is P30.
+        :param pulumi.Input[str] managed_disk_customer_key_uri: Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
         :param pulumi.Input[int] node_count: The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
         :param pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']] provisioning_state: The status of the resource at the time the operation was called.
+        :param pulumi.Input[str] sku: Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
         """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if backup_storage_customer_key_uri is not None:
+            pulumi.set(__self__, "backup_storage_customer_key_uri", backup_storage_customer_key_uri)
         if base64_encoded_cassandra_yaml_fragment is not None:
             pulumi.set(__self__, "base64_encoded_cassandra_yaml_fragment", base64_encoded_cassandra_yaml_fragment)
         if data_center_location is not None:
             pulumi.set(__self__, "data_center_location", data_center_location)
         if delegated_subnet_id is not None:
             pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
+        if disk_capacity is not None:
+            pulumi.set(__self__, "disk_capacity", disk_capacity)
+        if disk_sku is not None:
+            pulumi.set(__self__, "disk_sku", disk_sku)
+        if managed_disk_customer_key_uri is not None:
+            pulumi.set(__self__, "managed_disk_customer_key_uri", managed_disk_customer_key_uri)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the azure data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="backupStorageCustomerKeyUri")
+    def backup_storage_customer_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the Key Uri of the customer key to use for encryption of the backup storage account.
+        """
+        return pulumi.get(self, "backup_storage_customer_key_uri")
+
+    @backup_storage_customer_key_uri.setter
+    def backup_storage_customer_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_storage_customer_key_uri", value)
 
     @property
     @pulumi.getter(name="base64EncodedCassandraYamlFragment")
@@ -1094,6 +1369,42 @@ class DataCenterResourcePropertiesArgs:
         pulumi.set(self, "delegated_subnet_id", value)
 
     @property
+    @pulumi.getter(name="diskCapacity")
+    def disk_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of disk used for data centers. Default value is 4.
+        """
+        return pulumi.get(self, "disk_capacity")
+
+    @disk_capacity.setter
+    def disk_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_capacity", value)
+
+    @property
+    @pulumi.getter(name="diskSku")
+    def disk_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Disk SKU used for data centers. Default value is P30.
+        """
+        return pulumi.get(self, "disk_sku")
+
+    @disk_sku.setter
+    def disk_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_sku", value)
+
+    @property
+    @pulumi.getter(name="managedDiskCustomerKeyUri")
+    def managed_disk_customer_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
+        """
+        return pulumi.get(self, "managed_disk_customer_key_uri")
+
+    @managed_disk_customer_key_uri.setter
+    def managed_disk_customer_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_disk_customer_key_uri", value)
+
+    @property
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1116,6 +1427,58 @@ class DataCenterResourcePropertiesArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+
+@pulumi.input_type
+class DatabaseRestoreResourceArgs:
+    def __init__(__self__, *,
+                 collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None):
+        """
+        Specific Databases to restore.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] collection_names: The names of the collections available for restore.
+        :param pulumi.Input[str] database_name: The name of the database available for restore.
+        """
+        if collection_names is not None:
+            pulumi.set(__self__, "collection_names", collection_names)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="collectionNames")
+    def collection_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The names of the collections available for restore.
+        """
+        return pulumi.get(self, "collection_names")
+
+    @collection_names.setter
+    def collection_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "collection_names", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database available for restore.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
 
 
 @pulumi.input_type
@@ -1142,29 +1505,6 @@ class ExcludedPathArgs:
 
 
 @pulumi.input_type
-class GraphResourceArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        Cosmos DB Graph resource object
-        :param pulumi.Input[str] id: Name of the Cosmos DB Graph
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Name of the Cosmos DB Graph
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
 class GremlinDatabaseResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1188,9 +1528,50 @@ class GremlinDatabaseResourceArgs:
 
 
 @pulumi.input_type
+class GremlinDatabaseRestoreResourceArgs:
+    def __init__(__self__, *,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 graph_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Specific Gremlin Databases to restore.
+        :param pulumi.Input[str] database_name: The name of the gremlin database available for restore.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] graph_names: The names of the graphs available for restore.
+        """
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if graph_names is not None:
+            pulumi.set(__self__, "graph_names", graph_names)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the gremlin database available for restore.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="graphNames")
+    def graph_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The names of the graphs available for restore.
+        """
+        return pulumi.get(self, "graph_names")
+
+    @graph_names.setter
+    def graph_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "graph_names", value)
+
+
+@pulumi.input_type
 class GremlinGraphResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
+                 analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
@@ -1199,6 +1580,7 @@ class GremlinGraphResourceArgs:
         """
         Cosmos DB Gremlin graph resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB Gremlin graph
+        :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the graph.
         :param pulumi.Input[int] default_ttl: Default time to live
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
@@ -1206,6 +1588,8 @@ class GremlinGraphResourceArgs:
         :param pulumi.Input['UniqueKeyPolicyArgs'] unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         pulumi.set(__self__, "id", id)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
@@ -1228,6 +1612,18 @@ class GremlinGraphResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        Analytical TTL.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")
@@ -1577,6 +1973,30 @@ class LocationArgs:
 
 
 @pulumi.input_type
+class ManagedCassandraManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ManagedCassandraResourceIdentityType']]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input[Union[str, 'ManagedCassandraResourceIdentityType']] type: The type of the resource.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedCassandraResourceIdentityType']]]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedCassandraResourceIdentityType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
@@ -1818,14 +2238,18 @@ class MongoIndexArgs:
 class PeriodicModeBackupPolicyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 migration_state: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']] = None,
                  periodic_mode_properties: Optional[pulumi.Input['PeriodicModePropertiesArgs']] = None):
         """
         The object representing periodic mode backup policy.
         :param pulumi.Input[str] type: Describes the mode of backups.
                Expected value is 'Periodic'.
+        :param pulumi.Input['BackupPolicyMigrationStateArgs'] migration_state: The object representing the state of the migration between the backup policies.
         :param pulumi.Input['PeriodicModePropertiesArgs'] periodic_mode_properties: Configuration values for periodic mode backup
         """
         pulumi.set(__self__, "type", 'Periodic')
+        if migration_state is not None:
+            pulumi.set(__self__, "migration_state", migration_state)
         if periodic_mode_properties is not None:
             pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
 
@@ -1841,6 +2265,18 @@ class PeriodicModeBackupPolicyArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]:
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+        return pulumi.get(self, "migration_state")
+
+    @migration_state.setter
+    def migration_state(self, value: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]):
+        pulumi.set(self, "migration_state", value)
 
     @property
     @pulumi.getter(name="periodicModeProperties")
@@ -1859,16 +2295,20 @@ class PeriodicModeBackupPolicyArgs:
 class PeriodicModePropertiesArgs:
     def __init__(__self__, *,
                  backup_interval_in_minutes: Optional[pulumi.Input[int]] = None,
-                 backup_retention_interval_in_hours: Optional[pulumi.Input[int]] = None):
+                 backup_retention_interval_in_hours: Optional[pulumi.Input[int]] = None,
+                 backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None):
         """
         Configuration values for periodic mode backup
         :param pulumi.Input[int] backup_interval_in_minutes: An integer representing the interval in minutes between two backups
         :param pulumi.Input[int] backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] backup_storage_redundancy: Enum to indicate type of backup residency
         """
         if backup_interval_in_minutes is not None:
             pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
         if backup_retention_interval_in_hours is not None:
             pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+        if backup_storage_redundancy is not None:
+            pulumi.set(__self__, "backup_storage_redundancy", backup_storage_redundancy)
 
     @property
     @pulumi.getter(name="backupIntervalInMinutes")
@@ -1893,6 +2333,18 @@ class PeriodicModePropertiesArgs:
     @backup_retention_interval_in_hours.setter
     def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_interval_in_hours", value)
+
+    @property
+    @pulumi.getter(name="backupStorageRedundancy")
+    def backup_storage_redundancy(self) -> Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]:
+        """
+        Enum to indicate type of backup residency
+        """
+        return pulumi.get(self, "backup_storage_redundancy")
+
+    @backup_storage_redundancy.setter
+    def backup_storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]):
+        pulumi.set(self, "backup_storage_redundancy", value)
 
 
 @pulumi.input_type
@@ -2080,6 +2532,110 @@ class PrivilegeArgs:
 
 
 @pulumi.input_type
+class RestoreParametersArgs:
+    def __init__(__self__, *,
+                 databases_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]] = None,
+                 gremlin_databases_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinDatabaseRestoreResourceArgs']]]] = None,
+                 restore_mode: Optional[pulumi.Input[Union[str, 'RestoreMode']]] = None,
+                 restore_source: Optional[pulumi.Input[str]] = None,
+                 restore_timestamp_in_utc: Optional[pulumi.Input[str]] = None,
+                 tables_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Parameters to indicate the information about the restore.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]] databases_to_restore: List of specific databases available for restore.
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinDatabaseRestoreResourceArgs']]] gremlin_databases_to_restore: List of specific gremlin databases available for restore.
+        :param pulumi.Input[Union[str, 'RestoreMode']] restore_mode: Describes the mode of the restore.
+        :param pulumi.Input[str] restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_restore: List of specific tables available for restore.
+        """
+        if databases_to_restore is not None:
+            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+        if gremlin_databases_to_restore is not None:
+            pulumi.set(__self__, "gremlin_databases_to_restore", gremlin_databases_to_restore)
+        if restore_mode is not None:
+            pulumi.set(__self__, "restore_mode", restore_mode)
+        if restore_source is not None:
+            pulumi.set(__self__, "restore_source", restore_source)
+        if restore_timestamp_in_utc is not None:
+            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+        if tables_to_restore is not None:
+            pulumi.set(__self__, "tables_to_restore", tables_to_restore)
+
+    @property
+    @pulumi.getter(name="databasesToRestore")
+    def databases_to_restore(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]]:
+        """
+        List of specific databases available for restore.
+        """
+        return pulumi.get(self, "databases_to_restore")
+
+    @databases_to_restore.setter
+    def databases_to_restore(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]]):
+        pulumi.set(self, "databases_to_restore", value)
+
+    @property
+    @pulumi.getter(name="gremlinDatabasesToRestore")
+    def gremlin_databases_to_restore(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinDatabaseRestoreResourceArgs']]]]:
+        """
+        List of specific gremlin databases available for restore.
+        """
+        return pulumi.get(self, "gremlin_databases_to_restore")
+
+    @gremlin_databases_to_restore.setter
+    def gremlin_databases_to_restore(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinDatabaseRestoreResourceArgs']]]]):
+        pulumi.set(self, "gremlin_databases_to_restore", value)
+
+    @property
+    @pulumi.getter(name="restoreMode")
+    def restore_mode(self) -> Optional[pulumi.Input[Union[str, 'RestoreMode']]]:
+        """
+        Describes the mode of the restore.
+        """
+        return pulumi.get(self, "restore_mode")
+
+    @restore_mode.setter
+    def restore_mode(self, value: Optional[pulumi.Input[Union[str, 'RestoreMode']]]):
+        pulumi.set(self, "restore_mode", value)
+
+    @property
+    @pulumi.getter(name="restoreSource")
+    def restore_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        return pulumi.get(self, "restore_source")
+
+    @restore_source.setter
+    def restore_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_source", value)
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
+
+    @restore_timestamp_in_utc.setter
+    def restore_timestamp_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_timestamp_in_utc", value)
+
+    @property
+    @pulumi.getter(name="tablesToRestore")
+    def tables_to_restore(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of specific tables available for restore.
+        """
+        return pulumi.get(self, "tables_to_restore")
+
+    @tables_to_restore.setter
+    def tables_to_restore(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tables_to_restore", value)
+
+
+@pulumi.input_type
 class RoleArgs:
     def __init__(__self__, *,
                  db: Optional[pulumi.Input[str]] = None,
@@ -2186,6 +2742,7 @@ class SqlContainerResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
+                 client_encryption_policy: Optional[pulumi.Input['ClientEncryptionPolicyArgs']] = None,
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
@@ -2195,6 +2752,7 @@ class SqlContainerResourceArgs:
         Cosmos DB SQL container resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB SQL container
         :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
+        :param pulumi.Input['ClientEncryptionPolicyArgs'] client_encryption_policy: The client encryption policy for the container.
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the container.
         :param pulumi.Input[int] default_ttl: Default time to live
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
@@ -2204,6 +2762,8 @@ class SqlContainerResourceArgs:
         pulumi.set(__self__, "id", id)
         if analytical_storage_ttl is not None:
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+        if client_encryption_policy is not None:
+            pulumi.set(__self__, "client_encryption_policy", client_encryption_policy)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
@@ -2238,6 +2798,18 @@ class SqlContainerResourceArgs:
     @analytical_storage_ttl.setter
     def analytical_storage_ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "analytical_storage_ttl", value)
+
+    @property
+    @pulumi.getter(name="clientEncryptionPolicy")
+    def client_encryption_policy(self) -> Optional[pulumi.Input['ClientEncryptionPolicyArgs']]:
+        """
+        The client encryption policy for the container.
+        """
+        return pulumi.get(self, "client_encryption_policy")
+
+    @client_encryption_policy.setter
+    def client_encryption_policy(self, value: Optional[pulumi.Input['ClientEncryptionPolicyArgs']]):
+        pulumi.set(self, "client_encryption_policy", value)
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")

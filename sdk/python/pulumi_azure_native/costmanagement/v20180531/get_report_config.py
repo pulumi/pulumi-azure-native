@@ -17,8 +17,6 @@ __all__ = [
     'get_report_config_output',
 ]
 
-warnings.warn("""Version 2018-05-31 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetReportConfigResult:
     """
@@ -139,7 +137,6 @@ def get_report_config(report_config_name: Optional[str] = None,
 
     :param str report_config_name: Report Config Name.
     """
-    pulumi.log.warn("""get_report_config is deprecated: Version 2018-05-31 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['reportConfigName'] = report_config_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -165,5 +162,4 @@ def get_report_config_output(report_config_name: Optional[pulumi.Input[str]] = N
 
     :param str report_config_name: Report Config Name.
     """
-    pulumi.log.warn("""get_report_config is deprecated: Version 2018-05-31 will be removed in v2 of the provider.""")
     ...

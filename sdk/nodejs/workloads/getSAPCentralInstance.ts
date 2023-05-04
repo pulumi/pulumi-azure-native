@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SAP Central Services Instance resource.
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getSAPCentralInstance(args: GetSAPCentralInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPCentralInstanceResult> {
 
@@ -123,7 +123,7 @@ export interface GetSAPCentralInstanceResult {
 }
 /**
  * Gets the SAP Central Services Instance resource.
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getSAPCentralInstanceOutput(args: GetSAPCentralInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPCentralInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPCentralInstance(a, opts))

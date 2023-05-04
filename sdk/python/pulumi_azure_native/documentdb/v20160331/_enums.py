@@ -6,11 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ConflictResolutionMode',
-    'ConnectorOffer',
     'DataType',
-    'DatabaseAccountKind',
-    'DatabaseAccountOfferType',
-    'DefaultConsistencyLevel',
     'IndexKind',
     'IndexingMode',
     'PartitionKind',
@@ -25,13 +21,6 @@ class ConflictResolutionMode(str, Enum):
     CUSTOM = "Custom"
 
 
-class ConnectorOffer(str, Enum):
-    """
-    The cassandra connector offer type for the Cosmos DB database C* account.
-    """
-    SMALL = "Small"
-
-
 class DataType(str, Enum):
     """
     The datatype for which the indexing behavior is applied to.
@@ -42,33 +31,6 @@ class DataType(str, Enum):
     POLYGON = "Polygon"
     LINE_STRING = "LineString"
     MULTI_POLYGON = "MultiPolygon"
-
-
-class DatabaseAccountKind(str, Enum):
-    """
-    Indicates the type of database account. This can only be set at database account creation.
-    """
-    GLOBAL_DOCUMENT_DB = "GlobalDocumentDB"
-    MONGO_DB = "MongoDB"
-    PARSE = "Parse"
-
-
-class DatabaseAccountOfferType(str, Enum):
-    """
-    The offer type for the database
-    """
-    STANDARD = "Standard"
-
-
-class DefaultConsistencyLevel(str, Enum):
-    """
-    The default consistency level and configuration settings of the Cosmos DB account.
-    """
-    EVENTUAL = "Eventual"
-    SESSION = "Session"
-    BOUNDED_STALENESS = "BoundedStaleness"
-    STRONG = "Strong"
-    CONSISTENT_PREFIX = "ConsistentPrefix"
 
 
 class IndexKind(str, Enum):

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview
     /// <summary>
     /// A container group.
     /// </summary>
-    [Obsolete(@"Version 2017-08-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerinstance/v20170801preview:ContainerGroup")]
     public partial class ContainerGroup : global::Pulumi.CustomResource
     {
@@ -129,6 +128,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20211001:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20220901:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20221001preview:ContainerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20230201preview:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20230501:ContainerGroup"},
                 },
             };

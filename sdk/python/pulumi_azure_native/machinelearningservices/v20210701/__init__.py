@@ -5,20 +5,10 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
-from ._enums import *
-from .compute import *
-from .get_compute import *
-from .get_private_endpoint_connection import *
-from .get_workspace import *
-from .get_workspace_connection import *
 from .list_compute_keys import *
 from .list_compute_nodes import *
 from .list_workspace_keys import *
 from .list_workspace_notebook_access_token import *
 from .list_workspace_notebook_keys import *
 from .list_workspace_storage_account_keys import *
-from .private_endpoint_connection import *
-from .workspace import *
-from .workspace_connection import *
-from ._inputs import *
 from . import outputs

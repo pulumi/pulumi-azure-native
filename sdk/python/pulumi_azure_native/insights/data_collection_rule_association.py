@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['DataCollectionRuleAssociationArgs', 'DataCollectionRuleAssociation']
 
@@ -16,18 +17,22 @@ class DataCollectionRuleAssociationArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[str],
                  association_name: Optional[pulumi.Input[str]] = None,
+                 data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataCollectionRuleAssociation resource.
         :param pulumi.Input[str] resource_uri: The identifier of the resource.
         :param pulumi.Input[str] association_name: The name of the association. The name is case insensitive.
+        :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the data collection endpoint that is to be associated.
         :param pulumi.Input[str] data_collection_rule_id: The resource ID of the data collection rule that is to be associated.
         :param pulumi.Input[str] description: Description of the association.
         """
         pulumi.set(__self__, "resource_uri", resource_uri)
         if association_name is not None:
             pulumi.set(__self__, "association_name", association_name)
+        if data_collection_endpoint_id is not None:
+            pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
         if data_collection_rule_id is not None:
             pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
         if description is not None:
@@ -56,6 +61,18 @@ class DataCollectionRuleAssociationArgs:
     @association_name.setter
     def association_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "association_name", value)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointId")
+    def data_collection_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the data collection endpoint that is to be associated.
+        """
+        return pulumi.get(self, "data_collection_endpoint_id")
+
+    @data_collection_endpoint_id.setter
+    def data_collection_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_collection_endpoint_id", value)
 
     @property
     @pulumi.getter(name="dataCollectionRuleId")
@@ -88,17 +105,20 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_name: Optional[pulumi.Input[str]] = None,
+                 data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Definition of generic ARM proxy resource.
-        API Version: 2019-11-01-preview.
+        API Version: 2022-06-01.
+        Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_name: The name of the association. The name is case insensitive.
+        :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the data collection endpoint that is to be associated.
         :param pulumi.Input[str] data_collection_rule_id: The resource ID of the data collection rule that is to be associated.
         :param pulumi.Input[str] description: Description of the association.
         :param pulumi.Input[str] resource_uri: The identifier of the resource.
@@ -111,7 +131,8 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of generic ARM proxy resource.
-        API Version: 2019-11-01-preview.
+        API Version: 2022-06-01.
+        Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -129,6 +150,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_name: Optional[pulumi.Input[str]] = None,
+                 data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
@@ -142,14 +164,17 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             __props__ = DataCollectionRuleAssociationArgs.__new__(DataCollectionRuleAssociationArgs)
 
             __props__.__dict__["association_name"] = association_name
+            __props__.__dict__["data_collection_endpoint_id"] = data_collection_endpoint_id
             __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id
             __props__.__dict__["description"] = description
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
             __props__.__dict__["etag"] = None
+            __props__.__dict__["metadata"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20191101preview:DataCollectionRuleAssociation"), pulumi.Alias(type_="azure-native:insights/v20210401:DataCollectionRuleAssociation"), pulumi.Alias(type_="azure-native:insights/v20210901preview:DataCollectionRuleAssociation"), pulumi.Alias(type_="azure-native:insights/v20220601:DataCollectionRuleAssociation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -175,13 +200,24 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
 
         __props__ = DataCollectionRuleAssociationArgs.__new__(DataCollectionRuleAssociationArgs)
 
+        __props__.__dict__["data_collection_endpoint_id"] = None
         __props__.__dict__["data_collection_rule_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DataCollectionRuleAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointId")
+    def data_collection_endpoint_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource ID of the data collection endpoint that is to be associated.
+        """
+        return pulumi.get(self, "data_collection_endpoint_id")
 
     @property
     @pulumi.getter(name="dataCollectionRuleId")
@@ -209,6 +245,14 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def metadata(self) -> pulumi.Output['outputs.DataCollectionRuleAssociationResponseMetadata']:
+        """
+        Metadata about the resource
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
@@ -222,6 +266,14 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         The resource provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

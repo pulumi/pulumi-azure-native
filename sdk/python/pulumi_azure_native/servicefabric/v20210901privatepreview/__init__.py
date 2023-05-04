@@ -6,17 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .application import *
-from .application_type import *
-from .application_type_version import *
-from .get_application import *
-from .get_application_type import *
-from .get_application_type_version import *
-from .get_managed_cluster import *
 from .get_node_type import *
-from .get_service import *
-from .managed_cluster import *
 from .node_type import *
-from .service import *
 from ._inputs import *
 from . import outputs

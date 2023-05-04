@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified key-value.
- * API Version: 2020-07-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
 
@@ -88,7 +88,7 @@ export interface GetKeyValueResult {
 }
 /**
  * Gets the properties of the specified key-value.
- * API Version: 2020-07-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueResult> {
     return pulumi.output(args).apply((a: any) => getKeyValue(a, opts))

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Custom domain of the API portal
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ApiPortalCustomDomain")]
     public partial class ApiPortalCustomDomain : global::Pulumi.CustomResource
@@ -72,6 +73,7 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApiPortalCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:ApiPortalCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApiPortalCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApiPortalCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

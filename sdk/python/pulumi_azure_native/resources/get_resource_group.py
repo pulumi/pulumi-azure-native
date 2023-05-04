@@ -121,7 +121,7 @@ def get_resource_group(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGroupResult:
     """
     Gets a resource group.
-    API Version: 2019-05-01.
+    API Version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
@@ -146,7 +146,7 @@ def get_resource_group_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupResult]:
     """
     Gets a resource group.
-    API Version: 2019-05-01.
+    API Version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.

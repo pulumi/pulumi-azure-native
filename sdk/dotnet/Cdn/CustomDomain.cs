@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-06-01.
+    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource
@@ -23,7 +24,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>?> CustomHttpsParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning status of Custom Https of the custom domain.
+        /// Provisioning status of the custom domain.
         /// </summary>
         [Output("customHttpsProvisioningState")]
         public Output<string> CustomHttpsProvisioningState { get; private set; } = null!;
@@ -47,7 +48,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning status of the custom domain.
+        /// Provisioning status of Custom Https of the custom domain.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

@@ -157,6 +157,22 @@ export const PrivateEndpointServiceConnectionStatus = {
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
+export const PublicNetworkAccess = {
+    /**
+     * Public network access is enabled.
+     */
+    Enabled: "Enabled",
+    /**
+     * Public network access is disabled.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network access is allowed for resources under the Video Analyzer account.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const RtspTransport = {
     /**
      * HTTP transport. RTSP messages are exchanged over long running HTTP requests and RTP packets are interleaved within the HTTP channel.

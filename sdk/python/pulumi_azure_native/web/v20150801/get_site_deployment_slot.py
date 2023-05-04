@@ -16,8 +16,6 @@ __all__ = [
     'get_site_deployment_slot_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSiteDeploymentSlotResult:
     """
@@ -228,7 +226,6 @@ def get_site_deployment_slot(id: Optional[str] = None,
     :param str resource_group_name: Name of resource group
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
-    pulumi.log.warn("""get_site_deployment_slot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
@@ -270,5 +267,4 @@ def get_site_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of resource group
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
-    pulumi.log.warn("""get_site_deployment_slot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

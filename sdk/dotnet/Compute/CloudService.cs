@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes the cloud service.
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-09-04.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CloudService")]
     public partial class CloudService : global::Pulumi.CustomResource
@@ -35,6 +36,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.CloudServicePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -45,6 +52,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -132,6 +145,18 @@ namespace Pulumi.AzureNative.Compute
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
         }
 
         public CloudServiceArgs()

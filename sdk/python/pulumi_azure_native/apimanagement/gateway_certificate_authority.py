@@ -22,7 +22,7 @@ class GatewayCertificateAuthorityArgs:
         """
         The set of arguments for constructing a GatewayCertificateAuthority resource.
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[bool] is_trusted: Determines whether certificate authority is trusted.
@@ -51,7 +51,7 @@ class GatewayCertificateAuthorityArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -109,14 +109,15 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
                  __props__=None):
         """
         Gateway certificate authority details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input[bool] is_trusted: Determines whether certificate authority is trusted.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
         ...
@@ -127,7 +128,8 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Gateway certificate authority details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param GatewayCertificateAuthorityArgs args: The arguments to use to populate this resource's properties.
@@ -171,7 +173,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayCertificateAuthority")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayCertificateAuthority, __self__).__init__(
             'azure-native:apimanagement:GatewayCertificateAuthority',
@@ -212,7 +214,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -220,7 +222,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

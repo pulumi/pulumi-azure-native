@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetVirtualMachineScaleSetExtensionResult',
@@ -21,7 +22,7 @@ class GetVirtualMachineScaleSetExtensionResult:
     """
     Describes a Virtual Machine Scale Set Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, name=None, protected_settings=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, name=None, protected_settings=None, protected_settings_from_key_vault=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, suppress_failures=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
@@ -40,6 +41,9 @@ class GetVirtualMachineScaleSetExtensionResult:
         if protected_settings and not isinstance(protected_settings, dict):
             raise TypeError("Expected argument 'protected_settings' to be a dict")
         pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault and not isinstance(protected_settings_from_key_vault, dict):
+            raise TypeError("Expected argument 'protected_settings_from_key_vault' to be a dict")
+        pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
         if provision_after_extensions and not isinstance(provision_after_extensions, list):
             raise TypeError("Expected argument 'provision_after_extensions' to be a list")
         pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
@@ -52,6 +56,9 @@ class GetVirtualMachineScaleSetExtensionResult:
         if settings and not isinstance(settings, dict):
             raise TypeError("Expected argument 'settings' to be a dict")
         pulumi.set(__self__, "settings", settings)
+        if suppress_failures and not isinstance(suppress_failures, bool):
+            raise TypeError("Expected argument 'suppress_failures' to be a bool")
+        pulumi.set(__self__, "suppress_failures", suppress_failures)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -108,6 +115,14 @@ class GetVirtualMachineScaleSetExtensionResult:
         return pulumi.get(self, "protected_settings")
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional['outputs.KeyVaultSecretReferenceResponse']:
+        """
+        The extensions protected settings that are passed by reference, and consumed from key vault
+        """
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @property
     @pulumi.getter(name="provisionAfterExtensions")
     def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
@@ -140,6 +155,14 @@ class GetVirtualMachineScaleSetExtensionResult:
         return pulumi.get(self, "settings")
 
     @property
+    @pulumi.getter(name="suppressFailures")
+    def suppress_failures(self) -> Optional[bool]:
+        """
+        Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        """
+        return pulumi.get(self, "suppress_failures")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -168,10 +191,12 @@ class AwaitableGetVirtualMachineScaleSetExtensionResult(GetVirtualMachineScaleSe
             id=self.id,
             name=self.name,
             protected_settings=self.protected_settings,
+            protected_settings_from_key_vault=self.protected_settings_from_key_vault,
             provision_after_extensions=self.provision_after_extensions,
             provisioning_state=self.provisioning_state,
             publisher=self.publisher,
             settings=self.settings,
+            suppress_failures=self.suppress_failures,
             type=self.type,
             type_handler_version=self.type_handler_version)
 
@@ -183,7 +208,7 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetExtensionResult:
     """
     The operation to get the extension.
-    API Version: 2021-03-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -206,10 +231,12 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         protected_settings=__ret__.protected_settings,
+        protected_settings_from_key_vault=__ret__.protected_settings_from_key_vault,
         provision_after_extensions=__ret__.provision_after_extensions,
         provisioning_state=__ret__.provisioning_state,
         publisher=__ret__.publisher,
         settings=__ret__.settings,
+        suppress_failures=__ret__.suppress_failures,
         type=__ret__.type,
         type_handler_version=__ret__.type_handler_version)
 
@@ -222,7 +249,7 @@ def get_virtual_machine_scale_set_extension_output(expand: Optional[pulumi.Input
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetExtensionResult]:
     """
     The operation to get the extension.
-    API Version: 2021-03-01.
+    API Version: 2022-11-01.
 
 
     :param str expand: The expand expression to apply on the operation.

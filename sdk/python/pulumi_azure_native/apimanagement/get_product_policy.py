@@ -50,7 +50,7 @@ class GetProductPolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -58,7 +58,7 @@ class GetProductPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -66,7 +66,7 @@ class GetProductPolicyResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -100,13 +100,13 @@ def get_product_policy(format: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductPolicyResult:
     """
     Get the policy configuration at the Product level.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str format: Policy Export Format.
     :param str policy_id: The identifier of the Policy.
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -135,13 +135,13 @@ def get_product_policy_output(format: Optional[pulumi.Input[Optional[str]]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductPolicyResult]:
     """
     Get the policy configuration at the Product level.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str format: Policy Export Format.
     :param str policy_id: The identifier of the Policy.
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

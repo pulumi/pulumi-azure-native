@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The status of the Canonical support plan.
  * API Version: 2018-03-01.
+ * Previous API Version: 2018-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SupportPlanType extends pulumi.CustomResource {
     /**

@@ -171,12 +171,12 @@ def get_pool(pool_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Gets a machine pool
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str pool_name: Name of the pool.
     :param str project_name: The name of the project.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['poolName'] = pool_name
@@ -206,11 +206,11 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Gets a machine pool
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str pool_name: Name of the pool.
     :param str project_name: The name of the project.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

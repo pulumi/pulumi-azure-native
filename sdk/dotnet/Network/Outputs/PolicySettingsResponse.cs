@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class PolicySettingsResponse
     {
         /// <summary>
+        /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        /// </summary>
+        public readonly string? CustomBlockResponseBody;
+        /// <summary>
+        /// If the action type is block, customer can override the response status code.
+        /// </summary>
+        public readonly int? CustomBlockResponseStatusCode;
+        /// <summary>
         /// Maximum file upload size in Mb for WAF.
         /// </summary>
         public readonly int? FileUploadLimitInMb;
@@ -39,6 +47,10 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private PolicySettingsResponse(
+            string? customBlockResponseBody,
+
+            int? customBlockResponseStatusCode,
+
             int? fileUploadLimitInMb,
 
             int? maxRequestBodySizeInKb,
@@ -49,6 +61,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? state)
         {
+            CustomBlockResponseBody = customBlockResponseBody;
+            CustomBlockResponseStatusCode = customBlockResponseStatusCode;
             FileUploadLimitInMb = fileUploadLimitInMb;
             MaxRequestBodySizeInKb = maxRequestBodySizeInKb;
             Mode = mode;
