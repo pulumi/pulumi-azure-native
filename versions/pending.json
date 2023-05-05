@@ -199,7 +199,8 @@
     "2022-05-01",
     "2022-06-01",
     "2022-11-01-preview",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-04-01"
   ],
   "Capacity": [],
   "Cdn": [
@@ -380,7 +381,8 @@
     "2022-08-01-preview",
     "2022-10-01",
     "2022-10-01-preview",
-    "2022-10-05-preview"
+    "2022-10-05-preview",
+    "2023-04-01-preview"
   ],
   "CustomProviders": [],
   "CustomerInsights": [],
@@ -508,7 +510,8 @@
   "DevCenter": [
     "2022-10-12-preview",
     "2022-11-11-preview",
-    "2023-01-01-preview"
+    "2023-01-01-preview",
+    "2023-04-01"
   ],
   "DevHub": [
     "2022-10-11-preview"
@@ -638,7 +641,8 @@
     "2022-01-25"
   ],
   "HDInsight": [
-    "2021-06-01"
+    "2021-06-01",
+    "2023-04-15-preview"
   ],
   "HanaOnAzure": [
     "2020-02-07-preview"
@@ -735,7 +739,8 @@
     "2022-10-01",
     "2023-01-01",
     "2023-01-01-preview",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-03-15-preview"
   ],
   "Intune": [
     "2015-01-14-privatepreview"
@@ -1193,7 +1198,9 @@
     "2022-05-01",
     "2022-11-01-preview"
   ],
-  "ServiceNetworking": [],
+  "ServiceNetworking": [
+    "2023-05-01-preview"
+  ],
   "SignalRService": [
     "2020-07-01-preview",
     "2021-04-01-preview",

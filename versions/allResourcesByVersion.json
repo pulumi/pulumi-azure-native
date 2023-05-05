@@ -2492,6 +2492,14 @@
       "PrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
+    ],
+    "2023-04-01": [
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
     ]
   },
   "Capacity": {
@@ -4300,6 +4308,14 @@
       "SettingByScope",
       "View",
       "ViewByScope"
+    ],
+    "2023-04-01-preview": [
+      "Budget",
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
+      "View",
+      "ViewByScope"
     ]
   },
   "CustomProviders": {
@@ -5458,6 +5474,19 @@
       "Schedule"
     ],
     "2023-01-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
+    ],
+    "2023-04-01": [
       "AttachedNetworkByDevCenter",
       "Catalog",
       "DevBoxDefinition",
@@ -7291,6 +7320,16 @@
       "PrivateEndpointConnection",
       "getClusterGatewaySettings",
       "listVirtualMachineHosts"
+    ],
+    "2023-04-15-preview": [
+      "Application",
+      "Cluster",
+      "Extension",
+      "ExtensionAzureMonitorStatus",
+      "ExtensionMonitoringStatus",
+      "PrivateEndpointConnection",
+      "getClusterGatewaySettings",
+      "listVirtualMachineHosts"
     ]
   },
   "HanaOnAzure": {
@@ -7818,6 +7857,9 @@
     ],
     "2023-03-01-preview": [
       "TenantActionGroup"
+    ],
+    "2023-03-15-preview": [
+      "ScheduledQueryRule"
     ]
   },
   "Intune": {
@@ -14910,6 +14952,11 @@
   },
   "ServiceNetworking": {
     "2022-10-01-preview": [
+      "AssociationsInterface",
+      "FrontendsInterface",
+      "TrafficControllerInterface"
+    ],
+    "2023-05-01-preview": [
       "AssociationsInterface",
       "FrontendsInterface",
       "TrafficControllerInterface"
