@@ -1764,6 +1764,11 @@ func azureError(err error) error {
 	if errors.Is(err, context.DeadlineExceeded) {
 		return errors.New("operation timed out")
 	}
+	if requestError, ok := err.(azure.RequestError); ok {
+		if requestError.DetailedError.Message != "" {
+			return fmt.Errorf("%w. %s", err, requestError.DetailedError.Message)
+		}
+	}
 	return err
 }
 
