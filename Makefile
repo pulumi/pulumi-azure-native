@@ -160,7 +160,23 @@ explode_schema_v2: bin/v2/schema-full.json
 	mkdir -p bin/schema_v2
 	yarn && yarn explode --schema bin/v2/schema-full.json --outDir bin/schema_v2
 
+.PHONY: upgrade_tools upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
+upgrade_tools: upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
+upgrade_java:
+	gh release list --repo pulumi/pulumi-java --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 > .pulumi-java-gen.version
+upgrade_pulumi:
+	gh release list --repo pulumi/pulumi --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .pulumi.version
+upgrade_pulumictl:
+	gh release list --repo pulumi/pulumictl --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .pulumictl.version
+upgrade_schematools:
+	gh release list --repo pulumi/schema-tools --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .schema-tools.version
+
 # --------- File-based targets --------- #
+
+.pulumi/bin/pulumi: PULUMI_VERSION := $(shell cat .pulumi.version)
+.pulumi/bin/pulumi: HOME := $(WORKING_DIR)
+.pulumi/bin/pulumi: .pulumi.version
+	curl -fsSL https://get.pulumi.com | sh -s -- --version "$(PULUMI_VERSION)"
 
 # Download local copy of pulumictl based on the version in .pulumictl.version
 # Anywhere which uses VERSION_GENERIC or VERSION_FLAGS should depend on bin/pulumictl
@@ -208,11 +224,11 @@ bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN
 
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
-bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v1-spec.yaml
-	bin/$(CODEGEN) schema $(VERSION_GENERIC)
+bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v1-lock.json versions/v2-config.yaml versions/v2-removed-resources.yaml
+	CODEGEN_VERSION=v2 bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
-bin/v2/schema-full.json: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v2-config.yaml versions/v1-spec.yaml versions/v2-spec.yaml
-	bin/$(CODEGEN) schema-v2 $(VERSION_GENERIC)
+bin/v2/schema-full.json bin/v2/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v2-config.yaml versions/v1-spec.yaml versions/v2-spec.yaml
+	CODEGEN_VERSION=v2 CODEGEN_SCHEMA_OUTPUT_PATH=bin/v2/schema-full.json CODEGEN_METADATA_OUTPUT_PATH=bin/v2/metadata-compact.json bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 # Docs schema
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json
@@ -277,34 +293,34 @@ endef
 export FAKE_MODULE
 
 # We use the docs schema for java but don't depend on it because it changes on every generation
-.make/generate_java: bin/pulumictl bin/pulumi-java-gen
+.make/generate_java: bin/pulumictl bin/pulumi-java-gen bin/schema-full.json
 	@mkdir -p sdk/java
 	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
-	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+	bin/$(JAVA_GEN) generate --schema bin/schema-full.json --out sdk/java --build gradle-nexus
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
-.make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_nodejs: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) nodejs $(VERSION_GENERIC)
+	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language nodejs
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > sdk/nodejs/go.mod
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch $@
 
-.make/generate_python: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_python: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) python $(VERSION_GENERIC)
+	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language python
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > sdk/python/go.mod
 	cp README.md sdk/python
 	@touch $@
 
-.make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_dotnet: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) dotnet $(VERSION_GENERIC)
+	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language dotnet
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
@@ -368,10 +384,11 @@ export FAKE_MODULE
 	@touch $@
 
 .make/build_java: bin/pulumictl .make/generate_java
+	# Temp hack: reset changes to keep our custom memory & packaging settings
+	git checkout sdk/java
 	cd sdk/java/ && \
 		gradle --console=plain -Pversion=$(VERSION_GENERIC) build
 	@touch $@
-
 
 .make/build_go: .make/generate_go_local
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go build" \;

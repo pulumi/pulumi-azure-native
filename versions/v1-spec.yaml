@@ -127,6 +127,8 @@ AzureArcData:
     ActiveDirectoryConnector: 2022-03-01-preview
 AzureData:
   tracking: 2019-07-24-preview
+AzureSphere:
+  tracking: 2022-09-01-preview
 AzureStack:
   tracking: "2017-06-01"
   additions:
