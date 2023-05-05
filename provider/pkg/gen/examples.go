@@ -165,7 +165,8 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 				pcl.FormatBody(body)
 				languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption)
 				if err != nil {
-					return err
+					fmt.Printf("skipping example %s for resource %s: %v", example.Description, pulumiToken, err)
+					continue
 				}
 
 				examplesRenderData.Data = append(examplesRenderData.Data,
@@ -250,7 +251,7 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 
 	program, diags, err := hcl2.BindProgram(parser.Files, bindOptions...)
 	if err != nil {
-		log.Fatalf("failed to bind program: %v", err)
+		return nil, fmt.Errorf("failed to bind program for example %s. %v", example.Location, err)
 	}
 	if diags.HasErrors() {
 		log.Print(programBody)
