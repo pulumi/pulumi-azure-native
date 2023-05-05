@@ -360,7 +360,7 @@ func (r *Renderer) RenderPrograms(body *model.Body, languages []string) (map[str
 		}
 	}
 
-	program, diags, err := hcl2.BindProgram(parser.Files, loaderOption)
+	program, diags, err := hcl2.BindProgram(parser.Files, loaderOption, hcl2.AllowMissingVariables, hcl2.AllowMissingProperties)
 	if err != nil {
 		return nil, false, fmt.Errorf("bind program: %v", err)
 	}
