@@ -79,7 +79,7 @@ jobs:
   build_sdks:
     needs: prerequisites
     # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
-    runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
+    runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'java') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
     strategy:
       fail-fast: true
       matrix:
@@ -91,7 +91,7 @@ jobs:
           - java
     name: Build & Test SDKs
     permissions:
-      id-token: write  # required for OIDC auth
+      id-token: write # required for OIDC auth
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
