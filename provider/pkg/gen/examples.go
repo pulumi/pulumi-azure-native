@@ -163,7 +163,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 				}
 				body := &model.Body{Items: []model.BodyItem{&block}}
 				pcl.FormatBody(body)
-				languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption)
+				languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption, hcl2.AllowMissingVariables, hcl2.AllowMissingProperties)
 				if err != nil {
 					fmt.Printf("skipping example %s for resource %s: %v", example.Description, pulumiToken, err)
 					continue
@@ -254,7 +254,6 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 			log.Printf("failed to write diagnostics: %v", err)
 		}
 	}
-
 	program, diags, err := hcl2.BindProgram(parser.Files, bindOptions...)
 	if err != nil {
 		return nil, fmt.Errorf("failed to bind program for example %s. %v", example.Location, err)
