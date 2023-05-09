@@ -7,50 +7,11 @@ import (
 	"io"
 	"log"
 	"os"
-	"path/filepath"
 	"strings"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/segmentio/encoding/json"
 )
-
-func ReadV1DefaultVersionLock() (DefaultVersionLock, error) {
-	dir, err := os.Getwd()
-	if err != nil {
-		return nil, err
-	}
-	v1Path := filepath.Join(dir, "versions", "v1-lock.json")
-	return ReadDefaultVersionLock(v1Path)
-}
-
-func ReadV2DefaultVersionLock() (DefaultVersionLock, error) {
-	dir, err := os.Getwd()
-	if err != nil {
-		return nil, err
-	}
-	v1Path := filepath.Join(dir, "versions", "v2-lock.json")
-	return ReadDefaultVersionLock(v1Path)
-}
-
-func ReadDeprecated() (ProviderVersionList, error) {
-	dir, err := os.Getwd()
-	if err != nil {
-		return nil, err
-	}
-
-	deprecatedPath := filepath.Join(dir, "versions", "deprecated.json")
-	return ReadProviderVersionList(deprecatedPath)
-}
-
-func ReadRemoved() (ProviderVersionList, error) {
-	dir, err := os.Getwd()
-	if err != nil {
-		return nil, err
-	}
-
-	removedPath := filepath.Join(dir, "versions", "v1-removed.json")
-	return ReadProviderVersionList(removedPath)
-}
 
 func ReadProviderVersionList(path string) (ProviderVersionList, error) {
 	jsonFile, err := os.Open(path)
