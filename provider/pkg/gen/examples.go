@@ -163,9 +163,10 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 				}
 				body := &model.Body{Items: []model.BodyItem{&block}}
 				pcl.FormatBody(body)
-				languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption)
+				languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption, hcl2.AllowMissingVariables, hcl2.AllowMissingProperties)
 				if err != nil {
-					return err
+					fmt.Printf("skipping example %s for resource %s: %v", example.Description, pulumiToken, err)
+					continue
 				}
 
 				examplesRenderData.Data = append(examplesRenderData.Data,
@@ -235,7 +236,13 @@ type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error
 func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body, languages []string,
 	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
-	debug.Log(programBody)
+	switch example.Location {
+	// TODO: Remove this once https://github.com/pulumi/pulumi/issues/12832 is fixed.
+	case "azure-rest-api-specs/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/preview/2021-03-01-preview/examples/metadata/PutMetadata.json":
+		fmt.Printf("Skipping generating example program %s\n%s\n", example.Location, programBody)
+		return nil, nil
+	}
+	debug.Log("Generating example programs for %s\n%s\n", example.Location, programBody)
 	parser := syntax.NewParser()
 	if err := parser.ParseFile(strings.NewReader(programBody), "program.pp"); err != nil {
 		return nil, fmt.Errorf("failed to parse IR - file: %s: %v", example.Location, err)
@@ -247,10 +254,9 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 			log.Printf("failed to write diagnostics: %v", err)
 		}
 	}
-
 	program, diags, err := hcl2.BindProgram(parser.Files, bindOptions...)
 	if err != nil {
-		log.Fatalf("failed to bind program: %v", err)
+		return nil, fmt.Errorf("failed to bind program for example %s. %v", example.Location, err)
 	}
 	if diags.HasErrors() {
 		log.Print(programBody)
