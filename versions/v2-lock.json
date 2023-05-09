@@ -1159,6 +1159,8 @@
   "Maintenance": {
     "ConfigurationAssignment": "2022-11-01-preview",
     "ConfigurationAssignmentParent": "2022-11-01-preview",
+    "ConfigurationAssignmentsForResourceGroup": "2023-04-01",
+    "ConfigurationAssignmentsForSubscription": "2023-04-01",
     "MaintenanceConfiguration": "2022-11-01-preview"
   },
   "ManagedIdentity": {
