@@ -87,18 +87,23 @@ func ApplyProvidersTransformations(providers AzureProviders, defaultVersion Defa
 }
 
 func CheckPathChanges(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) {
+	if previousVersion == nil {
+		// Nothing to do for v1.
+		return
+	}
+
 	changes := findPathChanges(providers, defaultVersion, previousVersion)
 	printPathChanges(changes)
 }
 
-type specChange struct {
-	current      *ResourceSpec
-	previous     *ResourceSpec
+type pathChange struct {
+	currentPath  string
+	previousPath string
 	resourceName string
 }
 
-func findPathChanges(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) []specChange {
-	result := []specChange{}
+func findPathChanges(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) []pathChange {
+	result := []pathChange{}
 
 	for providerName, resources := range defaultVersion {
 		previousResources, ok := previousVersion[providerName]
@@ -134,10 +139,13 @@ func findPathChanges(providers AzureProviders, defaultVersion DefaultVersionLock
 				continue
 			}
 
-			if spec.Path != prevSpec.Path {
-				result = append(result, specChange{
-					current:      spec,
-					previous:     prevSpec,
+			path := paths.NormalizePath(spec.Path)
+			prevPath := paths.NormalizePath(prevSpec.Path)
+
+			if path != prevPath {
+				result = append(result, pathChange{
+					currentPath:  path,
+					previousPath: prevPath,
 					resourceName: resourceName,
 				})
 			}
@@ -146,30 +154,19 @@ func findPathChanges(providers AzureProviders, defaultVersion DefaultVersionLock
 	return result
 }
 
-func printPathChanges(changes []specChange) {
+func printPathChanges(changes []pathChange) {
+	const fmtStr = "[V1->V2 path change] %s: %s...\n    ...%s\n    ...%s\n"
+
 	for _, change := range changes {
-		cur := change.current
-		prev := change.previous
-
-		lowerPath := strings.ToLower(cur.Path)
-		lowerPrevPath := strings.ToLower(prev.Path)
-
-		msg := `[V1->V2 path change]`
-		if lowerPath == lowerPrevPath {
-			if lowerPath[:2] == "/s" && lowerPrevPath[:2] == "/s" && cur.Path[1] != prev.Path[1] && cur.Path[2:] == prev.Path[2:] {
-				fmt.Printf("%s %s: '/subscription' case only\n", msg, change.resourceName)
-				continue
-			}
-			msg += `[case only]`
-		}
+		cur := change.currentPath
+		prev := change.previousPath
 
 		// Find the first index where the paths differ so we can print the common prefix only once.
 		idx := 0
-		for idx < len(cur.Path) && idx < len(prev.Path) && cur.Path[idx] == prev.Path[idx] {
+		for idx < len(cur) && idx < len(prev) && cur[idx] == prev[idx] {
 			idx++
 		}
-		fmt.Printf("%s %s: %s...\n    ...%s\n    ...%s\n",
-			msg, change.resourceName, prev.Path[:idx], cur.Path[idx:], prev.Path[idx:])
+		fmt.Printf(fmtStr, change.resourceName, prev[:idx], cur[idx:], prev[idx:])
 	}
 }
 
