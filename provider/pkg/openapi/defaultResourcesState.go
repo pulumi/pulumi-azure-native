@@ -32,7 +32,8 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		"state": "Disabled",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/networkRuleSets/default": {
-		"defaultAction": "Deny",
+		"defaultAction":       "Deny",
+		"publicNetworkAccess": "Disabled",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures": {
 		"currentBillingFeatures": []string{"Basic"},
