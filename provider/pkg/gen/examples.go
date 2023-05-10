@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
 	"strings"
 	"text/template"
 	"time"
@@ -236,12 +237,13 @@ type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error
 func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body, languages []string,
 	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
-	switch example.Location {
+
 	// TODO: Remove this once https://github.com/pulumi/pulumi/issues/12832 is fixed.
-	case "azure-rest-api-specs/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/preview/2021-03-01-preview/examples/metadata/PutMetadata.json":
+	if match, err := path.Match("azure-rest-api-specs/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/*/*/examples/metadata/PutMetadata.json", example.Location); match || err != nil {
 		fmt.Printf("Skipping generating example program %s\n%s\n", example.Location, programBody)
-		return nil, nil
+		return nil, err
 	}
+
 	debug.Log("Generating example programs for %s\n%s\n", example.Location, programBody)
 	parser := syntax.NewParser()
 	if err := parser.ParseFile(strings.NewReader(programBody), "program.pp"); err != nil {
