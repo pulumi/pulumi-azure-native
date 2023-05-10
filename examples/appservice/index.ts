@@ -52,6 +52,7 @@ const appInsights = new insights.Component("ai", {
     resourceGroupName: resourceGroup.name,
     kind: "web",
     applicationType: insights.ApplicationType.Web,
+    ingestionMode: insights.IngestionMode.ApplicationInsights
 });
 
 new insights.ComponentCurrentBillingFeature("ccbf", {
