@@ -5,7 +5,7 @@ const config = new pulumi.Config();
 const managedClustersAzureNativeAksNameParam = config.get("managedClustersAzureNativeAksNameParam") || "azure-native-aks";
 const publicIPAddresses87a245eeEdc1470cA08eC456659d9861ExternalidParam = config.get("publicIPAddresses87a245eeEdc1470cA08eC456659d9861ExternalidParam") || "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_azure-native-go_azure-native-aks_westus/providers/Microsoft.Network/publicIPAddresses/87a245ee-edc1-470c-a08e-c456659d9861";
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const managedClusterResource = new azure_native.containerservice.v20200701.ManagedCluster("managedClusterResource", {
+const managedClusterResource = new azure_native.containerservice.v20210301.ManagedCluster("managedClusterResource", {
     addonProfiles: {
         KubeDashboard: {
             enabled: true,
@@ -63,7 +63,7 @@ const managedClusterResource = new azure_native.containerservice.v20200701.Manag
         tier: "Free",
     },
 });
-const agentPoolResource = new azure_native.containerservice.v20200701.AgentPool("agentPoolResource", {
+const agentPoolResource = new azure_native.containerservice.v20210201.AgentPool("agentPoolResource", {
     agentPoolName: `${managedClustersAzureNativeAksNameParam}/agentpool`,
     count: 3,
     maxPods: 110,

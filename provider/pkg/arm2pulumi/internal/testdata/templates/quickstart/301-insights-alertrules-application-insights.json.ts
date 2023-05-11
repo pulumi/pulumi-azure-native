@@ -9,7 +9,7 @@ const resourceGroupVar = azure_native.resources.getResourceGroup({
 });
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
 const workspaceNameParam = config.get("workspaceNameParam") || "myWorkspace";
-const workspaceResource = new azure_native.operationalinsights.v20200301preview.Workspace("workspaceResource", {
+const workspaceResource = new azure_native.operationalinsights.v20211201preview.Workspace("workspaceResource", {
     location: locationParam,
     resourceGroupName: resourceGroupNameParam,
     sku: {

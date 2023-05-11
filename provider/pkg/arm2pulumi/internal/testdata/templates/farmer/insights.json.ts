@@ -3,7 +3,7 @@ import * as azure_native from "@pulumi/azure-native";
 
 const config = new pulumi.Config();
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const farmerpulumi2 = new azure_native.storage.v20190401.StorageAccount("farmerpulumi2", {
+const farmerpulumi2 = new azure_native.storage.v20210201.StorageAccount("farmerpulumi2", {
     accountName: "farmerpulumi2",
     kind: "StorageV2",
     location: "northeurope",
@@ -25,7 +25,7 @@ const farmerpulumi3Ai = new azure_native.insights.v20150501.Component("farmerpul
         "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', 'farmerpulumi3')]": "Resource",
     },
 });
-const farmerpulumi3Farm = new azure_native.web.v20180201.AppServicePlan("farmerpulumi3Farm", {
+const farmerpulumi3Farm = new azure_native.web.v20201001.AppServicePlan("farmerpulumi3Farm", {
     location: "northeurope",
     name: "farmerpulumi3-farm",
     perSiteScaling: false,

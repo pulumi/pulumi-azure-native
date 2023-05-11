@@ -2,7 +2,7 @@ package main
 
 import (
 	resources "github.com/pulumi/pulumi-azure-native/sdk/go/azure/resources"
-	storage "github.com/pulumi/pulumi-azure-native/sdk/go/azure/storage/v20190401"
+	storage "github.com/pulumi/pulumi-azure-native/sdk/go/azure/storage/v20210201"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
