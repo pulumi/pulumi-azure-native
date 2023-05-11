@@ -4,10 +4,11 @@ package gen
 
 import (
 	"fmt"
-	"github.com/segmentio/encoding/json"
 	"os"
 	"strings"
 	"testing"
+
+	"github.com/segmentio/encoding/json"
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/stretchr/testify/require"
@@ -36,7 +37,7 @@ func TestFlattenParams(t *testing.T) {
 	}{
 		{
 			name:         "ContainersInBody",
-			resourceName: "azure-native:compute/v20200601:VirtualMachine",
+			resourceName: "azure-native:compute/v20210301:VirtualMachine",
 			input: map[string]interface{}{
 				"parameters": map[string]interface{}{
 					"resourceGroupName": "myResourceGroup",
@@ -155,7 +156,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:botservice/v20200602:BotConnection",
+			resourceName: "azure-native:botservice/v20210301:BotConnection",
 			expected: map[string]interface{}{
 				"resourceGroupName": "OneResourceGroupName",
 				"resourceName":      "samplebotname",
@@ -225,7 +226,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:apimanagement/v20170301:Backend",
+			resourceName: "azure-native:apimanagement/v20180101:Backend",
 			expected: map[string]interface{}{
 				"serviceName":       "apimService1",
 				"resourceGroupName": "rg1",
@@ -296,7 +297,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:apimanagement/v20170301:Backend",
+			resourceName: "azure-native:apimanagement/v20180101:Backend",
 			expected: map[string]interface{}{
 				"serviceName":       "apimService1",
 				"resourceGroupName": "rg1",
@@ -363,7 +364,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:network/v20200501:NetworkSecurityGroup",
+			resourceName: "azure-native:network/v20220901:NetworkSecurityGroup",
 			expected: map[string]interface{}{
 				"networkSecurityGroupName": "rancher-security-group",
 				"securityRules": []interface{}{
@@ -541,10 +542,8 @@ func TestFlattenParams(t *testing.T) {
 				"parameters": map[string]interface{}{
 					"appResource": map[string]interface{}{
 						"properties": map[string]interface{}{
-							"public":               true,
-							"activeDeploymentName": "mydeployment1",
-							"fqdn":                 "myapp.mydomain.com",
-							"httpsOnly":            false,
+							"public":    true,
+							"httpsOnly": false,
 							"temporaryDisk": map[string]interface{}{
 								"sizeInGB":  2,
 								"mountPath": "mytemporarydisk",
@@ -569,9 +568,7 @@ func TestFlattenParams(t *testing.T) {
 				"appName":  "myapp",
 				"location": "eastus",
 				"properties": map[string]interface{}{
-					"activeDeploymentName": "mydeployment1",
-					"fqdn":                 "myapp.mydomain.com",
-					"httpsOnly":            false,
+					"httpsOnly": false,
 					"persistentDisk": map[string]interface{}{
 						"mountPath": "mypersistentdisk",
 						"sizeInGB":  2,
@@ -758,7 +755,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-native:compute/v20190701:VirtualMachineExtension",
+			resourceName: "azure-native:compute/v20210301:VirtualMachineExtension",
 			expected: map[string]interface{}{
 				"autoUpgradeMinorVersion": true,
 				"publisher":               "Microsoft.OSTCExtensions",
@@ -796,7 +793,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:botservice/v20200602:Channel",
+			resourceName: "azure-native:botservice/v20210301:Channel",
 			expected: map[string]interface{}{
 				"channelName": "AlexaChannel",
 				"location":    "global",
@@ -818,7 +815,11 @@ func TestFlattenParams(t *testing.T) {
 			}
 			in := test.input["parameters"].(map[string]interface{})
 			params := map[string]resources.AzureAPIParameter{}
-			for _, param := range metadata.Resources[test.resourceName].PutParameters {
+			resource, resourceFound := metadata.Resources[test.resourceName]
+			if !resourceFound {
+				require.Failf(t, "resource not found", "resource %s not found", test.resourceName)
+			}
+			for _, param := range resource.PutParameters {
 				params[param.Name] = param
 			}
 			out, err := FlattenParams(in, params, metadata.Types)
