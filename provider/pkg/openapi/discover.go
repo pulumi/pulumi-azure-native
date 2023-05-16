@@ -11,6 +11,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
@@ -110,7 +111,7 @@ func AddDefaultVersion(providers map[string]map[string]VersionResources, default
 			items := versionMap[version]
 			for _, r := range items.Resources {
 				var otherVersions []string
-				normalisedPath := normalizePath(r.Path)
+				normalisedPath := paths.NormalizePath(r.Path)
 				otherVersionsSorted := pathVersions[normalisedPath].SortedValues()
 				for _, otherVersion := range otherVersionsSorted {
 					if otherVersion != version {
@@ -311,7 +312,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 
 		switch {
 		case pathItem.Get != nil && !pathItem.Get.Deprecated:
-			defaultBody, hasDefault := defaultResourcesStateNormalized[normalizePath(path)]
+			defaultBody, hasDefault := defaultResourcesStateNormalized[paths.NormalizePath(path)]
 			if hasDefault && hasDelete && containsNonEmptyCollections(defaultBody) {
 				// See the limitation in `SdkShapeConverter.isDefaultResponse()`
 				panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
@@ -359,7 +360,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			}
 			if typeName != "" {
 				var defaultBody map[string]interface{}
-				if v, has := defaultResourcesStateNormalized[normalizePath(path)]; has {
+				if v, has := defaultResourcesStateNormalized[paths.NormalizePath(path)]; has {
 					defaultBody = v
 				} else if !hasDelete {
 					// The /list pattern that we handle here seems to (almost) universally have this shape of the default body.
@@ -384,7 +385,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 
 	// Add an entry for PATCH-based resources.
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
-		defaultBody, hasDefault := defaultResourcesStateNormalized[normalizePath(path)]
+		defaultBody, hasDefault := defaultResourcesStateNormalized[paths.NormalizePath(path)]
 		typeName := resources.ResourceName(pathItem.Get.ID)
 		if typeName != "" && hasDefault {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
@@ -433,60 +434,4 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			}
 		}
 	}
-}
-
-// Sometimes, Azure resources change the API paths between API versions. Most of the time, we can detect that based
-// on operation names. However, in a number of cases, the operation names change at the same time.
-// legacyPathMappings provides a manual map to help our codegen discover the old "aliases" of new resource paths
-// and group them under the same Pulumi resource, including proper top-level resource calculation and aliasing.
-var legacyPathMappings = map[string]string{
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/buildTasks/{buildTaskName}":                                       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/tasks/{taskName}",
-	"/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CostManagement/connectors/{connectorName}":                                                                    "/providers/Microsoft.CostManagement/cloudConnectors/{connectorName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/cassandra/keyspaces/{keyspaceName}":                            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/cassandra/keyspaces/{keyspaceName}/tables/{tableName}":         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}/tables/{tableName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/gremlin/databases/{databaseName}":                              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/gremlinDatabases/{databaseName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/gremlin/databases/{databaseName}/graphs/{graphName}":           "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/gremlinDatabases/{databaseName}/graphs/{graphName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/mongodb/databases/{databaseName}":                              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/mongodb/databases/{databaseName}/collections/{collectionName}": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/collections/{collectionName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/sql/databases/{databaseName}":                                  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/sql/databases/{databaseName}/containers/{containerName}":       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/table/tables/{tableName}":                                      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tables/{tableName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/interfaceEndpoints/{interfaceEndpointName}":                                                           "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}",
-	"/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/listKeys":                                                      "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/sharedKeys",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/appliances/{applianceName}":                                                                         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applianceDefinitions/{applianceDefinitionName}":                                                     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applicationDefinitions/{applicationDefinitionName}",
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/managedHostingEnvironments/{name}":                                                                        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}",
-}
-var legacyPathMappingNormalized = map[string]string{}
-
-func init() {
-	for key, value := range legacyPathMappings {
-		legacyPathMappingNormalized[normalizePath(key)] = normalizePath(value)
-	}
-}
-
-// normalizePath converts an API path to its canonical form (lowercase, with all placeholders removed). The paths that
-// convert to the same canonical path are considered to represent the same resource.
-func normalizePath(path string) string {
-	lowerPath := strings.ReplaceAll(strings.ToLower(strings.TrimSuffix(path, "/")), "-", "")
-
-	// Work around an odd version v2019-01-01-preview of SecurityInsights where they have a parameter for the provider.
-	// This breaks all path matching for that version which includes quite a lot of resources. Instead of providing
-	// a value per each resource, let's replace this path segment while normalizing.
-	lowerPath = strings.ReplaceAll(lowerPath, "providers/{operationalinsightsresourceprovider}", "providers/microsoft.operationalinsights")
-
-	parts := strings.Split(lowerPath, "/")
-	newParts := make([]string, len(parts))
-	for i, part := range parts {
-		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
-			newParts[i] = "{}"
-		} else {
-			newParts[i] = part
-		}
-	}
-	normalized := strings.Join(newParts, "/")
-	if override, ok := legacyPathMappingNormalized[normalized]; ok {
-		return override
-	}
-	return normalized
 }

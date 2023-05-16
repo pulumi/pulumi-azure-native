@@ -2,7 +2,11 @@
 
 package openapi
 
-import "reflect"
+import (
+	"reflect"
+
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/paths"
+)
 
 // defaultResourcesStateRaw is a map non-normalized paths. It's handy to have paths as they are in the Open API spec's
 // latest version for easy search. This map shouldn't be used for lookups: use 'defaultResourcesStateMap' instead.
@@ -159,7 +163,7 @@ var defaultResourcesStateNormalized map[string]map[string]interface{}
 func init() {
 	defaultResourcesStateNormalized = map[string]map[string]interface{}{}
 	for key, value := range defaultResourcesStateRaw {
-		defaultResourcesStateNormalized[normalizePath(key)] = value
+		defaultResourcesStateNormalized[paths.NormalizePath(key)] = value
 	}
 }
 
