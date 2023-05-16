@@ -9,6 +9,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/segmentio/encoding/json"
 )
@@ -61,7 +62,7 @@ func calculatePathVersions(versionMap ProviderVersions) map[string]codegen.Strin
 	pathVersions := map[string]codegen.StringSet{}
 	for version, items := range versionMap {
 		for _, r := range items.Resources {
-			normalizedPath := normalizePath(r.Path)
+			normalizedPath := paths.NormalizePath(r.Path)
 			versions, ok := pathVersions[normalizedPath]
 			if !ok {
 				versions = codegen.StringSet{}
