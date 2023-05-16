@@ -213,7 +213,7 @@ class PrivateLinkServicesForM365ComplianceCenter(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityandcompliance:PrivateLinkServicesForM365ComplianceCenter"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365ComplianceCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter"), pulumi.Alias(type_="azure-native:securityandcompliance:PrivateLinkServicesForM365ComplianceCenter"), pulumi.Alias(type_="azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365ComplianceCenter"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkServicesForM365ComplianceCenter, __self__).__init__(
             'azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365ComplianceCenter',

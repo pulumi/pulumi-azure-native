@@ -153,7 +153,7 @@ export class GalleryimageRetrieve extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:galleryimageRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:galleryimageRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryimageRetrieve.__pulumiType, name, resourceInputs, opts);
     }

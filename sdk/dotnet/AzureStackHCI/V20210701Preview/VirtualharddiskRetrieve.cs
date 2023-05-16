@@ -112,7 +112,9 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

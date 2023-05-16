@@ -123,6 +123,8 @@ export class StoragecontainerRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StoragecontainerRetrieve.__pulumiType, name, resourceInputs, opts);
     }
 }
