@@ -120,7 +120,7 @@ export class VirtualnetworkRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualnetworkRetrieve.__pulumiType, name, resourceInputs, opts);
     }

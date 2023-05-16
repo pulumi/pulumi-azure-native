@@ -109,7 +109,9 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

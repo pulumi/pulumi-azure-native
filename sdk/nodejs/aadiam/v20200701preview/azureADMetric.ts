@@ -84,7 +84,7 @@ export class AzureADMetric extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:aadiam:AzureADMetric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aadiam/v20200701preview:azureADMetric" }, { type: "azure-native:aadiam:AzureADMetric" }, { type: "azure-native:aadiam:azureADMetric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureADMetric.__pulumiType, name, resourceInputs, opts);
     }
