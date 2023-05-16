@@ -420,7 +420,13 @@ type packageGenerator struct {
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {
 	// Resource names should consistently start with upper case.
-	typeName = strings.Title(typeName)
+	// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
+	// These aliases will not be required anymore with v3; their removal is tracked by #2411.
+	typeNameAliases := []string{}
+	titleCasedTypeName := strings.Title(typeName)
+	if titleCasedTypeName != typeName {
+		typeNameAliases = append(typeNameAliases, typeName)
+	}
 
 	// A single API path can be modelled as several resources if it accepts a polymorphic payload:
 	// i.e., when the request body is a discriminated union type of several object types. Pulumi
@@ -428,11 +434,11 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	// per each union case. We call them "variants" in the code below.
 	variants, err := g.findResourceVariants(resource)
 	if err != nil {
-		return errors.Wrapf(err, "resource %s.%s", prov, typeName)
+		return errors.Wrapf(err, "resource %s.%s", prov, titleCasedTypeName)
 	}
 
-	for _, d := range variants {
-		err = g.genResourceVariant(prov, resource, d)
+	for _, v := range variants {
+		err = g.genResourceVariant(prov, resource, v, typeNameAliases...)
 		if err != nil {
 			return err
 		}
@@ -445,12 +451,12 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 
 	mainResource := &resourceVariant{
 		ResourceSpec: resource,
-		typeName:     typeName,
+		typeName:     titleCasedTypeName,
 	}
 	if resource.DeprecationMessage != "" {
 		mainResource.deprecationMessage = resource.DeprecationMessage
 	}
-	return g.genResourceVariant(prov, resource, mainResource)
+	return g.genResourceVariant(prov, resource, mainResource, typeNameAliases...)
 }
 
 // resourceVariant points to request body's and response's schemas of a resource which is one of the variants
@@ -539,10 +545,16 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
-func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.ResourceSpec, resource *resourceVariant) error {
+func (g *packageGenerator) makeTypeAlias(prov, alias, apiVersion string) pschema.AliasSpec {
+	fqAlias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, providerApiToModule(prov, apiVersion), alias)
+	return pschema.AliasSpec{Type: &fqAlias}
+}
+
+func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.ResourceSpec, resource *resourceVariant, typeNameAliases ...string) error {
 	module := g.providerToModule(prov)
 	swagger := resource.Swagger
 	path := resource.PathItem
+
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, resource.typeName)
 
 	// Generate the resource.
@@ -588,14 +600,6 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	delete(resourceResponse.specs, "id")
 	resourceResponse.requiredSpecs.Delete("id")
 
-	// Add an alias for each API version that has the same path in it.
-	var aliases []pschema.AliasSpec
-	for _, version := range resource.CompatibleVersions {
-		moduleName := providerApiToModule(prov, version)
-		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, resource.typeName)
-		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
-	}
-
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: g.formatDescription(resourceResponse.description, swagger.Info, apiSpec),
@@ -605,7 +609,7 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 		},
 		InputProperties:    resourceRequest.specs,
 		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
-		Aliases:            aliases,
+		Aliases:            g.generateAliases(prov, resource, typeNameAliases...),
 		DeprecationMessage: resource.deprecationMessage,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
@@ -694,6 +698,25 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 
 	g.generateExampleReferences(resourceTok, path, swagger)
 	return nil
+}
+
+func (g *packageGenerator) generateAliases(prov string, resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
+	var aliases []pschema.AliasSpec
+
+	for _, alias := range typeNameAliases {
+		aliases = append(aliases, g.makeTypeAlias(prov, alias, g.apiVersion))
+	}
+
+	// Add an alias for each API version that has the same path in it.
+	for _, version := range resource.CompatibleVersions {
+		aliases = append(aliases, g.makeTypeAlias(prov, resource.typeName, version))
+
+		for _, alias := range typeNameAliases {
+			aliases = append(aliases, g.makeTypeAlias(prov, alias, version))
+		}
+	}
+
+	return aliases
 }
 
 func (g *packageGenerator) generateExampleReferences(resourceTok string, path *spec.PathItem, swagger *openapi.Spec) error {
