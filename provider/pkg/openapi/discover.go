@@ -11,6 +11,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -312,8 +313,8 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 
 		switch {
 		case pathItem.Get != nil && !pathItem.Get.Deprecated:
-			defaultBody, hasDefault := defaultResourcesStateNormalized[paths.NormalizePath(path)]
-			if hasDefault && hasDelete && containsNonEmptyCollections(defaultBody) {
+			defaultState := defaults.GetDefaultResourceState(path)
+			if defaultState.HasDefault && hasDelete && defaultState.HasNonEmptyCollections {
 				// See the limitation in `SdkShapeConverter.isDefaultResponse()`
 				panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
 			}
@@ -327,7 +328,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 				typeName = "PrivateRecordSet"
 			}
 
-			if typeName != "" && (hasDelete || hasDefault) {
+			if typeName != "" && (hasDelete || defaultState.HasDefault) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
@@ -335,7 +336,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 					Path:        path,
 					PathItem:    &pathItem,
 					Swagger:     swagger,
-					DefaultBody: defaultBody,
+					DefaultBody: defaultState.State,
 				}
 			}
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
@@ -360,8 +361,8 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			}
 			if typeName != "" {
 				var defaultBody map[string]interface{}
-				if v, has := defaultResourcesStateNormalized[paths.NormalizePath(path)]; has {
-					defaultBody = v
+				if defaultState := defaults.GetDefaultResourceState(path); defaultState.HasDefault {
+					defaultBody = defaultState.State
 				} else if !hasDelete {
 					// The /list pattern that we handle here seems to (almost) universally have this shape of the default body.
 					// Instead of maintaining the resources in defaultResourcesState, we can hard-code it here.
@@ -385,9 +386,9 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 
 	// Add an entry for PATCH-based resources.
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
-		defaultBody, hasDefault := defaultResourcesStateNormalized[paths.NormalizePath(path)]
+		defaultState := defaults.GetDefaultResourceState(path)
 		typeName := resources.ResourceName(pathItem.Get.ID)
-		if typeName != "" && hasDefault {
+		if typeName != "" && defaultState.HasDefault {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 			}
@@ -395,7 +396,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 				Path:        path,
 				PathItem:    &pathItem,
 				Swagger:     swagger,
-				DefaultBody: defaultBody,
+				DefaultBody: defaultState.State,
 			}
 		}
 	}

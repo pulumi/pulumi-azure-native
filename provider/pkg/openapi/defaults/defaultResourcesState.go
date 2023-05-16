@@ -1,6 +1,6 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
-package openapi
+package defaults
 
 import (
 	"reflect"
@@ -182,4 +182,26 @@ func containsNonEmptyCollections(value map[string]interface{}) bool {
 		}
 	}
 	return false
+}
+
+type DefaultResourceState struct {
+	HasDefault             bool
+	State                  map[string]interface{}
+	HasNonEmptyCollections bool
+}
+
+func GetDefaultResourceState(path string) DefaultResourceState {
+	normalizedPath := paths.NormalizePath(path)
+	if value, ok := defaultResourcesStateNormalized[normalizedPath]; ok {
+		return DefaultResourceState{
+			HasDefault:             true,
+			State:                  value,
+			HasNonEmptyCollections: containsNonEmptyCollections(value),
+		}
+	}
+	return DefaultResourceState{
+		HasDefault:             false,
+		State:                  nil,
+		HasNonEmptyCollections: false,
+	}
 }
