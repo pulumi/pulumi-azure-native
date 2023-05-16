@@ -30,6 +30,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -1260,6 +1261,9 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	case res.Singleton:
 		// Singleton resources can't be deleted (or created), set them to the default state.
 		for _, param := range res.PutParameters {
+			if defaults.SkipDeleteOperation(res.Path) {
+				continue
+			}
 			if param.Location == "body" {
 				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody)
 
