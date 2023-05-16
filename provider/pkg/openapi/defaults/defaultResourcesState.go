@@ -3,6 +3,7 @@
 package defaults
 
 import (
+	"fmt"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/paths"
@@ -81,9 +82,6 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/securityAlertPolicies/{securityAlertPolicyName}": {
 		"state": "Disabled",
 	},
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{transparentDataEncryptionName}": {
-		"status": "Disabled",
-	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/auditingSettings/{blobAuditingPolicyName}": {
 		"state": "Disabled",
 	},
@@ -154,17 +152,38 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	},
 }
 
+var skipDeleteResources = map[string]bool{
+	// https://learn.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{tdeName}": true,
+}
+
 // defaultResourcesStateNormalized maps normalized paths of resources to default state of a resource. The default state is
 // the configuration of that resource after its parent resource is created and before any explicit PUT operations on
 // its endpoint. These resources are created automatically by Azure with their parents, therefore, the provider can
 // expect to see this state at the time of the Create operation.
-var defaultResourcesStateNormalized map[string]map[string]interface{}
+var defaultResourcesStateNormalized map[string]DefaultResourceState
 
 func init() {
-	defaultResourcesStateNormalized = map[string]map[string]interface{}{}
-	for key, value := range defaultResourcesStateRaw {
-		defaultResourcesStateNormalized[paths.NormalizePath(key)] = value
+	defaultResourcesStateNormalized = map[string]DefaultResourceState{}
+	for key := range skipDeleteResources {
+		addNormalisedState(key, DefaultResourceState{
+			SkipDelete: true,
+		})
 	}
+	for key, value := range defaultResourcesStateRaw {
+		addNormalisedState(key, DefaultResourceState{
+			State:                  value,
+			HasNonEmptyCollections: containsNonEmptyCollections(value),
+		})
+	}
+}
+
+func addNormalisedState(path string, state DefaultResourceState) {
+	normalizedPath := paths.NormalizePath(path)
+	if _, exists := defaultResourcesStateNormalized[normalizedPath]; exists {
+		panic(fmt.Errorf("FATAL: default state for %s is already set", normalizedPath))
+	}
+	defaultResourcesStateNormalized[normalizedPath] = state
 }
 
 func containsNonEmptyCollections(value map[string]interface{}) bool {
@@ -185,23 +204,27 @@ func containsNonEmptyCollections(value map[string]interface{}) bool {
 }
 
 type DefaultResourceState struct {
-	HasDefault             bool
-	State                  map[string]interface{}
+	// State is the default state of a resource.
+	State map[string]interface{}
+	// SkipDelete is true if the PUT operation should be skipped during the delete step.
+	SkipDelete bool
+	// HasNonEmptyCollections is true if any property of the default state is a non-empty collection.
 	HasNonEmptyCollections bool
 }
 
-func GetDefaultResourceState(path string) DefaultResourceState {
+func GetDefaultResourceState(path string) *DefaultResourceState {
 	normalizedPath := paths.NormalizePath(path)
-	if value, ok := defaultResourcesStateNormalized[normalizedPath]; ok {
-		return DefaultResourceState{
-			HasDefault:             true,
-			State:                  value,
-			HasNonEmptyCollections: containsNonEmptyCollections(value),
-		}
+	defaults, ok := defaultResourcesStateNormalized[normalizedPath]
+	if !ok {
+		return nil
 	}
-	return DefaultResourceState{
-		HasDefault:             false,
-		State:                  nil,
-		HasNonEmptyCollections: false,
+	return &defaults
+}
+
+func SkipDeleteOperation(path string) bool {
+	defaultState := GetDefaultResourceState(path)
+	if defaultState == nil {
+		return false
 	}
+	return defaultState.SkipDelete
 }

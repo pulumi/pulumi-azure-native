@@ -314,7 +314,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 		switch {
 		case pathItem.Get != nil && !pathItem.Get.Deprecated:
 			defaultState := defaults.GetDefaultResourceState(path)
-			if defaultState.HasDefault && hasDelete && defaultState.HasNonEmptyCollections {
+			if defaultState != nil && hasDelete && defaultState.HasNonEmptyCollections {
 				// See the limitation in `SdkShapeConverter.isDefaultResponse()`
 				panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
 			}
@@ -328,15 +328,19 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 				typeName = "PrivateRecordSet"
 			}
 
-			if typeName != "" && (hasDelete || defaultState.HasDefault) {
+			if typeName != "" && (hasDelete || defaultState != nil) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
+				}
+				defaultBody := map[string]interface{}{}
+				if defaultState != nil {
+					defaultBody = defaultState.State
 				}
 				version.Resources[typeName] = &ResourceSpec{
 					Path:        path,
 					PathItem:    &pathItem,
 					Swagger:     swagger,
-					DefaultBody: defaultState.State,
+					DefaultBody: defaultBody,
 				}
 			}
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
@@ -361,7 +365,8 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			}
 			if typeName != "" {
 				var defaultBody map[string]interface{}
-				if defaultState := defaults.GetDefaultResourceState(path); defaultState.HasDefault {
+				defaultState := defaults.GetDefaultResourceState(path)
+				if defaultState != nil {
 					defaultBody = defaultState.State
 				} else if !hasDelete {
 					// The /list pattern that we handle here seems to (almost) universally have this shape of the default body.
@@ -388,7 +393,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
 		defaultState := defaults.GetDefaultResourceState(path)
 		typeName := resources.ResourceName(pathItem.Get.ID)
-		if typeName != "" && defaultState.HasDefault {
+		if typeName != "" && defaultState != nil {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 			}
