@@ -22,7 +22,7 @@ class GetPacketCaptureResult:
     """
     Information about packet capture session.
     """
-    def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, id=None, name=None, provisioning_state=None, storage_location=None, target=None, time_limit_in_seconds=None, total_bytes_per_session=None):
+    def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, id=None, name=None, provisioning_state=None, scope=None, storage_location=None, target=None, target_type=None, time_limit_in_seconds=None, total_bytes_per_session=None):
         if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, float):
             raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a float")
         pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
@@ -41,12 +41,18 @@ class GetPacketCaptureResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if scope and not isinstance(scope, dict):
+            raise TypeError("Expected argument 'scope' to be a dict")
+        pulumi.set(__self__, "scope", scope)
         if storage_location and not isinstance(storage_location, dict):
             raise TypeError("Expected argument 'storage_location' to be a dict")
         pulumi.set(__self__, "storage_location", storage_location)
         if target and not isinstance(target, str):
             raise TypeError("Expected argument 'target' to be a str")
         pulumi.set(__self__, "target", target)
+        if target_type and not isinstance(target_type, str):
+            raise TypeError("Expected argument 'target_type' to be a str")
+        pulumi.set(__self__, "target_type", target_type)
         if time_limit_in_seconds and not isinstance(time_limit_in_seconds, int):
             raise TypeError("Expected argument 'time_limit_in_seconds' to be a int")
         pulumi.set(__self__, "time_limit_in_seconds", time_limit_in_seconds)
@@ -103,6 +109,14 @@ class GetPacketCaptureResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.PacketCaptureMachineScopeResponse']:
+        """
+        A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> 'outputs.PacketCaptureStorageLocationResponse':
         """
@@ -114,9 +128,17 @@ class GetPacketCaptureResult:
     @pulumi.getter
     def target(self) -> str:
         """
-        The ID of the targeted resource, only VM is currently supported.
+        The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         """
         return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[str]:
+        """
+        Target type of the resource provided.
+        """
+        return pulumi.get(self, "target_type")
 
     @property
     @pulumi.getter(name="timeLimitInSeconds")
@@ -147,8 +169,10 @@ class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            scope=self.scope,
             storage_location=self.storage_location,
             target=self.target,
+            target_type=self.target_type,
             time_limit_in_seconds=self.time_limit_in_seconds,
             total_bytes_per_session=self.total_bytes_per_session)
 
@@ -159,7 +183,7 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCaptureResult:
     """
     Gets a packet capture session by name.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str network_watcher_name: The name of the network watcher.
@@ -180,8 +204,10 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        scope=__ret__.scope,
         storage_location=__ret__.storage_location,
         target=__ret__.target,
+        target_type=__ret__.target_type,
         time_limit_in_seconds=__ret__.time_limit_in_seconds,
         total_bytes_per_session=__ret__.total_bytes_per_session)
 
@@ -193,7 +219,7 @@ def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[str]] 
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCaptureResult]:
     """
     Gets a packet capture session by name.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str network_watcher_name: The name of the network watcher.

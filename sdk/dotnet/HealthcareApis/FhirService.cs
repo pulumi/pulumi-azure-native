@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of Fhir Service
-    /// API Version: 2022-05-15.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:FhirService")]
     public partial class FhirService : global::Pulumi.CustomResource
@@ -63,6 +64,18 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceManagedIdentityResponseIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Implementation Guides configuration.
+        /// </summary>
+        [Output("implementationGuidesConfiguration")]
+        public Output<Outputs.ImplementationGuidesConfigurationResponse?> ImplementationGuidesConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Fhir Service import configuration.
+        /// </summary>
+        [Output("importConfiguration")]
+        public Output<Outputs.FhirServiceImportConfigurationResponse?> ImportConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the service.
@@ -156,6 +169,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:FhirService"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:FhirService"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:FhirService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:FhirService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -226,6 +240,18 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceManagedIdentityIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Implementation Guides configuration.
+        /// </summary>
+        [Input("implementationGuidesConfiguration")]
+        public Input<Inputs.ImplementationGuidesConfigurationArgs>? ImplementationGuidesConfiguration { get; set; }
+
+        /// <summary>
+        /// Fhir Service import configuration.
+        /// </summary>
+        [Input("importConfiguration")]
+        public Input<Inputs.FhirServiceImportConfigurationArgs>? ImportConfiguration { get; set; }
 
         /// <summary>
         /// The kind of the service.

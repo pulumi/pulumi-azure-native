@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a deployment.
- * API Version: 2021-01-01.
+ * API Version: 2022-09-01.
  */
 export function getDeploymentAtManagementGroupScope(args: GetDeploymentAtManagementGroupScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtManagementGroupScopeResult> {
 
@@ -62,7 +62,7 @@ export interface GetDeploymentAtManagementGroupScopeResult {
 }
 /**
  * Gets a deployment.
- * API Version: 2021-01-01.
+ * API Version: 2022-09-01.
  */
 export function getDeploymentAtManagementGroupScopeOutput(args: GetDeploymentAtManagementGroupScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtManagementGroupScopeResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentAtManagementGroupScope(a, opts))

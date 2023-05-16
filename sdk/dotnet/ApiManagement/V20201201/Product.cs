@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Product"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Product"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Product"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

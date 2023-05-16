@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a project resource.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
+ * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -46,6 +47,10 @@ export class Project extends pulumi.CustomResource {
      * Resource Id of an associated DevCenter
      */
     public readonly devCenterId!: pulumi.Output<string | undefined>;
+    /**
+     * The URI of the resource.
+     */
+    public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -91,6 +96,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devCenterUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -98,6 +104,7 @@ export class Project extends pulumi.CustomResource {
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["devCenterId"] = undefined /*out*/;
+            resourceInputs["devCenterUri"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -106,7 +113,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }, { type: "azure-native:devcenter/v20230101preview:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
@@ -133,7 +140,7 @@ export interface ProjectArgs {
      */
     projectName?: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

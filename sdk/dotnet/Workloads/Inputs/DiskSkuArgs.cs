@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
 {
 
     /// <summary>
-    /// The disk sku.
+    /// The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
     /// </summary>
     public sealed class DiskSkuArgs : global::Pulumi.ResourceArgs
     {

@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
 {
 
     /// <summary>
-    /// Describes a reference to Key Vault Key.
+    /// Describes a reference to key vault key.
     /// </summary>
     [OutputType]
     public sealed class KeyVaultKeyReferenceResponse
     {
         /// <summary>
-        /// The URL referencing a key encryption key in Key Vault.
+        /// The URL referencing a key encryption key in key vault.
         /// </summary>
         public readonly string KeyUrl;
         /// <summary>
-        /// Describes a resource Id to source Key Vault.
+        /// Describes a resource Id to source key vault.
         /// </summary>
         public readonly Outputs.KeyVaultKeyReferenceResponseSourceVault SourceVault;
 

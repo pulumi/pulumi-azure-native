@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a hybrid machine.
- *
- * @deprecated Version 2019-03-18-preview will be removed in v2 of the provider.
  */
 export class Machine extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Machine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Machine {
-        pulumi.log.warn("Machine is deprecated: Version 2019-03-18-preview will be removed in v2 of the provider.")
         return new Machine(name, undefined as any, { ...opts, id: id });
     }
 
@@ -124,9 +121,7 @@ export class Machine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-03-18-preview will be removed in v2 of the provider. */
     constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Machine is deprecated: Version 2019-03-18-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -175,7 +170,7 @@ export class Machine extends pulumi.CustomResource {
             resourceInputs["vmId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-native:hybridcompute/v20210128preview:Machine" }, { type: "azure-native:hybridcompute/v20210325preview:Machine" }, { type: "azure-native:hybridcompute/v20210422preview:Machine" }, { type: "azure-native:hybridcompute/v20210517preview:Machine" }, { type: "azure-native:hybridcompute/v20210520:Machine" }, { type: "azure-native:hybridcompute/v20210610preview:Machine" }, { type: "azure-native:hybridcompute/v20211210preview:Machine" }, { type: "azure-native:hybridcompute/v20220310:Machine" }, { type: "azure-native:hybridcompute/v20220510preview:Machine" }, { type: "azure-native:hybridcompute/v20220811preview:Machine" }, { type: "azure-native:hybridcompute/v20221110:Machine" }, { type: "azure-native:hybridcompute/v20221227:Machine" }, { type: "azure-native:hybridcompute/v20221227preview:Machine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-native:hybridcompute/v20210128preview:Machine" }, { type: "azure-native:hybridcompute/v20210325preview:Machine" }, { type: "azure-native:hybridcompute/v20210422preview:Machine" }, { type: "azure-native:hybridcompute/v20210517preview:Machine" }, { type: "azure-native:hybridcompute/v20210520:Machine" }, { type: "azure-native:hybridcompute/v20210610preview:Machine" }, { type: "azure-native:hybridcompute/v20211210preview:Machine" }, { type: "azure-native:hybridcompute/v20220310:Machine" }, { type: "azure-native:hybridcompute/v20220510preview:Machine" }, { type: "azure-native:hybridcompute/v20220811preview:Machine" }, { type: "azure-native:hybridcompute/v20221110:Machine" }, { type: "azure-native:hybridcompute/v20221227:Machine" }, { type: "azure-native:hybridcompute/v20221227preview:Machine" }, { type: "azure-native:hybridcompute/v20230315preview:Machine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Machine.__pulumiType, name, resourceInputs, opts);
     }

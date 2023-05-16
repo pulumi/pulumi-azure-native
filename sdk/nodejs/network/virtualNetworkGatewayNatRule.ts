@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualNetworkGatewayNatRule Resource.
- * API Version: 2021-03-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
     /**
@@ -111,7 +112,7 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210301:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210801:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220101:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220701:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220901:VirtualNetworkGatewayNatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210301:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210801:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220101:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220701:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220901:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20221101:VirtualNetworkGatewayNatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkGatewayNatRule.__pulumiType, name, resourceInputs, opts);
     }

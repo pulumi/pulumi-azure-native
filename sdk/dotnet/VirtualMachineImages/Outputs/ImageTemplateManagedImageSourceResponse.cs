@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
     /// <summary>
-    /// Describes an image source that is a managed image in customer subscription.
+    /// Describes an image source that is a managed image in customer subscription. This image must reside in the same subscription and region as the Image Builder template.
     /// </summary>
     [OutputType]
     public sealed class ImageTemplateManagedImageSourceResponse

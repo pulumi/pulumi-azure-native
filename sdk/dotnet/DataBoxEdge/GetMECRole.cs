@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Gets a specific role by name.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetMECRoleResult> InvokeAsync(GetMECRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMECRoleResult>("azure-native:databoxedge:getMECRole", args ?? new GetMECRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific role by name.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetMECRoleResult> Invoke(GetMECRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly Outputs.AsymmetricEncryptedSecretResponse? ConnectionString;
         /// <summary>
+        /// Controller Endpoint.
+        /// </summary>
+        public readonly string? ControllerEndpoint;
+        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -101,11 +105,15 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Unique Id of the Resource.
+        /// </summary>
+        public readonly string? ResourceUniqueId;
+        /// <summary>
         /// Role status.
         /// </summary>
         public readonly string RoleStatus;
         /// <summary>
-        /// Role configured on ASE resource
+        /// Metadata pertaining to creation and last modification of Role
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -117,11 +125,15 @@ namespace Pulumi.AzureNative.DataBoxEdge
         private GetMECRoleResult(
             Outputs.AsymmetricEncryptedSecretResponse? connectionString,
 
+            string? controllerEndpoint,
+
             string id,
 
             string kind,
 
             string name,
+
+            string? resourceUniqueId,
 
             string roleStatus,
 
@@ -130,9 +142,11 @@ namespace Pulumi.AzureNative.DataBoxEdge
             string type)
         {
             ConnectionString = connectionString;
+            ControllerEndpoint = controllerEndpoint;
             Id = id;
             Kind = kind;
             Name = name;
+            ResourceUniqueId = resourceUniqueId;
             RoleStatus = roleStatus;
             SystemData = systemData;
             Type = type;

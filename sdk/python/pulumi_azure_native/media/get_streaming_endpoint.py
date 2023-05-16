@@ -22,7 +22,7 @@ class GetStreamingEndpointResult:
     """
     The streaming endpoint.
     """
-    def __init__(__self__, access_control=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, id=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, access_control=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, id=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, sku=None, system_data=None, tags=None, type=None):
         if access_control and not isinstance(access_control, dict):
             raise TypeError("Expected argument 'access_control' to be a dict")
         pulumi.set(__self__, "access_control", access_control)
@@ -80,6 +80,9 @@ class GetStreamingEndpointResult:
         if scale_units and not isinstance(scale_units, int):
             raise TypeError("Expected argument 'scale_units' to be a int")
         pulumi.set(__self__, "scale_units", scale_units)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -243,6 +246,14 @@ class GetStreamingEndpointResult:
         return pulumi.get(self, "scale_units")
 
     @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ArmStreamingEndpointCurrentSkuResponse']:
+        """
+        The streaming endpoint sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -292,6 +303,7 @@ class AwaitableGetStreamingEndpointResult(GetStreamingEndpointResult):
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
             scale_units=self.scale_units,
+            sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -303,7 +315,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingEndpointResult:
     """
     Gets a streaming endpoint.
-    API Version: 2020-05-01.
+    API Version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -337,6 +349,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
         scale_units=__ret__.scale_units,
+        sku=__ret__.sku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -349,7 +362,7 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingEndpointResult]:
     """
     Gets a streaming endpoint.
-    API Version: 2020-05-01.
+    API Version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.

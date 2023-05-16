@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// Gets or sets the single server configuration.
+    /// Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
     /// </summary>
     [OutputType]
     public sealed class SingleServerConfigurationResponse
@@ -20,6 +20,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// The application resource group where SAP system resources will be deployed.
         /// </summary>
         public readonly string AppResourceGroup;
+        /// <summary>
+        /// The set of custom names to be used for underlying azure resources that are part of the SAP system.
+        /// </summary>
+        public readonly Outputs.SingleServerFullResourceNamesResponse? CustomResourceNames;
         /// <summary>
         /// The database type.
         /// </summary>
@@ -50,6 +54,8 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         private SingleServerConfigurationResponse(
             string appResourceGroup,
 
+            Outputs.SingleServerFullResourceNamesResponse? customResourceNames,
+
             string? databaseType,
 
             Outputs.DiskConfigurationResponse? dbDiskConfiguration,
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             Outputs.VirtualMachineConfigurationResponse virtualMachineConfiguration)
         {
             AppResourceGroup = appResourceGroup;
+            CustomResourceNames = customResourceNames;
             DatabaseType = databaseType;
             DbDiskConfiguration = dbDiskConfiguration;
             DeploymentType = deploymentType;

@@ -7,11 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .alerts_suppression_rule import *
-from .assessment import *
 from .assessments_metadata_subscription import *
 from .automation import *
 from .get_alerts_suppression_rule import *
-from .get_assessment import *
 from .get_assessments_metadata_subscription import *
 from .get_automation import *
 from ._inputs import *

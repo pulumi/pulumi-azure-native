@@ -17,8 +17,6 @@ __all__ = [
     'get_notification_hub_output',
 ]
 
-warnings.warn("""Version 2016-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetNotificationHubResult:
     """
@@ -215,7 +213,6 @@ def get_notification_hub(namespace_name: Optional[str] = None,
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_notification_hub is deprecated: Version 2016-03-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['notificationHubName'] = notification_hub_name
@@ -253,5 +250,4 @@ def get_notification_hub_output(namespace_name: Optional[pulumi.Input[str]] = No
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_notification_hub is deprecated: Version 2016-03-01 will be removed in v2 of the provider.""")
     ...

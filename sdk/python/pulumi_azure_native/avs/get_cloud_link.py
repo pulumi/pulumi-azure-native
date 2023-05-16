@@ -98,7 +98,7 @@ def get_cloud_link(cloud_link_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudLinkResult:
     """
     A cloud link resource
-    API Version: 2021-06-01.
+    API Version: 2022-05-01.
 
 
     :param str cloud_link_name: Name of the cloud link resource
@@ -127,7 +127,7 @@ def get_cloud_link_output(cloud_link_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudLinkResult]:
     """
     A cloud link resource
-    API Version: 2021-06-01.
+    API Version: 2022-05-01.
 
 
     :param str cloud_link_name: Name of the cloud link resource

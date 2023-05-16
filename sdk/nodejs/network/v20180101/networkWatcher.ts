@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Network watcher in a resource group.
- *
- * @deprecated Version 2018-01-01 will be removed in v2 of the provider.
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkWatcher {
-        pulumi.log.warn("NetworkWatcher is deprecated: Version 2018-01-01 will be removed in v2 of the provider.")
         return new NetworkWatcher(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,9 +63,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
     constructor(name: string, args: NetworkWatcherArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NetworkWatcher is deprecated: Version 2018-01-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -93,7 +88,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkWatcher" }, { type: "azure-native:network/v20160901:NetworkWatcher" }, { type: "azure-native:network/v20161201:NetworkWatcher" }, { type: "azure-native:network/v20170301:NetworkWatcher" }, { type: "azure-native:network/v20170601:NetworkWatcher" }, { type: "azure-native:network/v20170801:NetworkWatcher" }, { type: "azure-native:network/v20170901:NetworkWatcher" }, { type: "azure-native:network/v20171001:NetworkWatcher" }, { type: "azure-native:network/v20171101:NetworkWatcher" }, { type: "azure-native:network/v20180201:NetworkWatcher" }, { type: "azure-native:network/v20180401:NetworkWatcher" }, { type: "azure-native:network/v20180601:NetworkWatcher" }, { type: "azure-native:network/v20180701:NetworkWatcher" }, { type: "azure-native:network/v20180801:NetworkWatcher" }, { type: "azure-native:network/v20181001:NetworkWatcher" }, { type: "azure-native:network/v20181101:NetworkWatcher" }, { type: "azure-native:network/v20181201:NetworkWatcher" }, { type: "azure-native:network/v20190201:NetworkWatcher" }, { type: "azure-native:network/v20190401:NetworkWatcher" }, { type: "azure-native:network/v20190601:NetworkWatcher" }, { type: "azure-native:network/v20190701:NetworkWatcher" }, { type: "azure-native:network/v20190801:NetworkWatcher" }, { type: "azure-native:network/v20190901:NetworkWatcher" }, { type: "azure-native:network/v20191101:NetworkWatcher" }, { type: "azure-native:network/v20191201:NetworkWatcher" }, { type: "azure-native:network/v20200301:NetworkWatcher" }, { type: "azure-native:network/v20200401:NetworkWatcher" }, { type: "azure-native:network/v20200501:NetworkWatcher" }, { type: "azure-native:network/v20200601:NetworkWatcher" }, { type: "azure-native:network/v20200701:NetworkWatcher" }, { type: "azure-native:network/v20200801:NetworkWatcher" }, { type: "azure-native:network/v20201101:NetworkWatcher" }, { type: "azure-native:network/v20210201:NetworkWatcher" }, { type: "azure-native:network/v20210301:NetworkWatcher" }, { type: "azure-native:network/v20210501:NetworkWatcher" }, { type: "azure-native:network/v20210801:NetworkWatcher" }, { type: "azure-native:network/v20220101:NetworkWatcher" }, { type: "azure-native:network/v20220501:NetworkWatcher" }, { type: "azure-native:network/v20220701:NetworkWatcher" }, { type: "azure-native:network/v20220901:NetworkWatcher" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkWatcher" }, { type: "azure-native:network/v20160901:NetworkWatcher" }, { type: "azure-native:network/v20161201:NetworkWatcher" }, { type: "azure-native:network/v20170301:NetworkWatcher" }, { type: "azure-native:network/v20170601:NetworkWatcher" }, { type: "azure-native:network/v20170801:NetworkWatcher" }, { type: "azure-native:network/v20170901:NetworkWatcher" }, { type: "azure-native:network/v20171001:NetworkWatcher" }, { type: "azure-native:network/v20171101:NetworkWatcher" }, { type: "azure-native:network/v20180201:NetworkWatcher" }, { type: "azure-native:network/v20180401:NetworkWatcher" }, { type: "azure-native:network/v20180601:NetworkWatcher" }, { type: "azure-native:network/v20180701:NetworkWatcher" }, { type: "azure-native:network/v20180801:NetworkWatcher" }, { type: "azure-native:network/v20181001:NetworkWatcher" }, { type: "azure-native:network/v20181101:NetworkWatcher" }, { type: "azure-native:network/v20181201:NetworkWatcher" }, { type: "azure-native:network/v20190201:NetworkWatcher" }, { type: "azure-native:network/v20190401:NetworkWatcher" }, { type: "azure-native:network/v20190601:NetworkWatcher" }, { type: "azure-native:network/v20190701:NetworkWatcher" }, { type: "azure-native:network/v20190801:NetworkWatcher" }, { type: "azure-native:network/v20190901:NetworkWatcher" }, { type: "azure-native:network/v20191101:NetworkWatcher" }, { type: "azure-native:network/v20191201:NetworkWatcher" }, { type: "azure-native:network/v20200301:NetworkWatcher" }, { type: "azure-native:network/v20200401:NetworkWatcher" }, { type: "azure-native:network/v20200501:NetworkWatcher" }, { type: "azure-native:network/v20200601:NetworkWatcher" }, { type: "azure-native:network/v20200701:NetworkWatcher" }, { type: "azure-native:network/v20200801:NetworkWatcher" }, { type: "azure-native:network/v20201101:NetworkWatcher" }, { type: "azure-native:network/v20210201:NetworkWatcher" }, { type: "azure-native:network/v20210301:NetworkWatcher" }, { type: "azure-native:network/v20210501:NetworkWatcher" }, { type: "azure-native:network/v20210801:NetworkWatcher" }, { type: "azure-native:network/v20220101:NetworkWatcher" }, { type: "azure-native:network/v20220501:NetworkWatcher" }, { type: "azure-native:network/v20220701:NetworkWatcher" }, { type: "azure-native:network/v20220901:NetworkWatcher" }, { type: "azure-native:network/v20221101:NetworkWatcher" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkWatcher.__pulumiType, name, resourceInputs, opts);
     }

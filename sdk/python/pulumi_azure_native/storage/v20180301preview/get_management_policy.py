@@ -16,8 +16,6 @@ __all__ = [
     'get_management_policy_output',
 ]
 
-warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetManagementPolicyResult:
     """
@@ -106,7 +104,6 @@ def get_management_policy(account_name: Optional[str] = None,
     :param str management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_management_policy is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['managementPolicyName'] = management_policy_name
@@ -135,5 +132,4 @@ def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = Non
     :param str management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_management_policy is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.""")
     ...

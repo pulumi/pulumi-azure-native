@@ -256,7 +256,7 @@ def get_job_definition(job_definition_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
     Gets a Job Definition resource.
-    API Version: 2022-07-01-preview.
+    API Version: 2023-03-01.
 
 
     :param str job_definition_name: The name of the Job Definition resource.
@@ -301,7 +301,7 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Gets a Job Definition resource.
-    API Version: 2022-07-01-preview.
+    API Version: 2023-03-01.
 
 
     :param str job_definition_name: The name of the Job Definition resource.

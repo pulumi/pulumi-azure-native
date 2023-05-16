@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a virtual network the app (or deployment slot) is connected to by name.
- * API Version: 2020-12-01.
+ * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
+ * API Version: 2022-09-01.
  */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
 
@@ -42,7 +42,7 @@ export interface GetWebAppVnetConnectionSlotArgs {
 }
 
 /**
- * Virtual Network information contract.
+ * Virtual Network information ARM resource.
  */
 export interface GetWebAppVnetConnectionSlotResult {
     /**
@@ -92,8 +92,8 @@ export interface GetWebAppVnetConnectionSlotResult {
     readonly vnetResourceId?: string;
 }
 /**
- * Gets a virtual network the app (or deployment slot) is connected to by name.
- * API Version: 2020-12-01.
+ * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
+ * API Version: 2022-09-01.
  */
 export function getWebAppVnetConnectionSlotOutput(args: GetWebAppVnetConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppVnetConnectionSlot(a, opts))

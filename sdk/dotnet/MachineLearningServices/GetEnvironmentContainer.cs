@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetEnvironmentContainerResult> InvokeAsync(GetEnvironmentContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentContainerResult>("azure-native:machinelearningservices:getEnvironmentContainer", args ?? new GetEnvironmentContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetEnvironmentContainerResult> Invoke(GetEnvironmentContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentContainerResult>("azure-native:machinelearningservices:getEnvironmentContainer", args ?? new GetEnvironmentContainerInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetEnvironmentContainerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Container name.
+        /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetEnvironmentContainerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Container name.
+        /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetEnvironmentContainerResult
     {
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.EnvironmentContainerResponse EnvironmentContainerProperties;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -92,11 +96,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.EnvironmentContainerResponse Properties;
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -106,19 +106,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetEnvironmentContainerResult(
+            Outputs.EnvironmentContainerResponse environmentContainerProperties,
+
             string id,
 
             string name,
-
-            Outputs.EnvironmentContainerResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            EnvironmentContainerProperties = environmentContainerProperties;
             Id = id;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

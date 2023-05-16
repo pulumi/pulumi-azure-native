@@ -50,11 +50,11 @@ def list_identity_provider_secrets(identity_provider_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIdentityProviderSecretsResult:
     """
     Gets the client secret details of the Identity Provider.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -75,11 +75,11 @@ def list_identity_provider_secrets_output(identity_provider_name: Optional[pulum
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIdentityProviderSecretsResult]:
     """
     Gets the client secret details of the Identity Provider.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

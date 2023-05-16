@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
- * API Version: 2020-06-25.
+ * API Version: 2022-01-25.
+ * Previous API Version: 2020-06-25. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
     /**
@@ -51,6 +52,10 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.guestconfiguration.GuestConfigurationAssignmentPropertiesResponse>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.guestconfiguration.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -76,13 +81,15 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["machineName"] = args ? args.machineName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.guestconfiguration.guestConfigurationAssignmentPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

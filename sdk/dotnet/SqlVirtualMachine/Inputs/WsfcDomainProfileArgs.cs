@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public Input<string>? ClusterOperatorAccount { get; set; }
 
         /// <summary>
+        /// Cluster subnet type.
+        /// </summary>
+        [Input("clusterSubnetType")]
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.ClusterSubnetType>? ClusterSubnetType { get; set; }
+
+        /// <summary>
         /// Fully qualified name of the domain.
         /// </summary>
         [Input("domainFqdn")]

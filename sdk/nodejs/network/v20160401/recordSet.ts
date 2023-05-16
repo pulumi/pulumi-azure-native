@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type).
- *
- * @deprecated Version 2016-04-01 will be removed in v2 of the provider.
  */
 export class RecordSet extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class RecordSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RecordSet {
-        pulumi.log.warn("RecordSet is deprecated: Version 2016-04-01 will be removed in v2 of the provider.")
         return new RecordSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,9 +105,7 @@ export class RecordSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
     constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RecordSet is deprecated: Version 2016-04-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

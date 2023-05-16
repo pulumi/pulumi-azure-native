@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Dicom Service
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DicomService extends pulumi.CustomResource {
     /**
@@ -50,6 +51,10 @@ export class DicomService extends pulumi.CustomResource {
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * DICOM Service event support status.
+     */
+    public /*out*/ readonly eventState!: pulumi.Output<string>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
@@ -117,6 +122,7 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -128,6 +134,7 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
             resourceInputs["corsConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventState"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -140,7 +147,7 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:DicomService" }, { type: "azure-native:healthcareapis/v20211101:DicomService" }, { type: "azure-native:healthcareapis/v20220131preview:DicomService" }, { type: "azure-native:healthcareapis/v20220515:DicomService" }, { type: "azure-native:healthcareapis/v20220601:DicomService" }, { type: "azure-native:healthcareapis/v20221001preview:DicomService" }, { type: "azure-native:healthcareapis/v20221201:DicomService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:DicomService" }, { type: "azure-native:healthcareapis/v20211101:DicomService" }, { type: "azure-native:healthcareapis/v20220131preview:DicomService" }, { type: "azure-native:healthcareapis/v20220515:DicomService" }, { type: "azure-native:healthcareapis/v20220601:DicomService" }, { type: "azure-native:healthcareapis/v20221001preview:DicomService" }, { type: "azure-native:healthcareapis/v20221201:DicomService" }, { type: "azure-native:healthcareapis/v20230228:DicomService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DicomService.__pulumiType, name, resourceInputs, opts);
     }

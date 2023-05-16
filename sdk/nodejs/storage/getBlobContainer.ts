@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a specified container.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
 
@@ -57,6 +57,14 @@ export interface GetBlobContainerResult {
      */
     readonly denyEncryptionScopeOverride?: boolean;
     /**
+     * Enable NFSv3 all squash on blob container.
+     */
+    readonly enableNfsV3AllSquash?: boolean;
+    /**
+     * Enable NFSv3 root squash on blob container.
+     */
+    readonly enableNfsV3RootSquash?: boolean;
+    /**
      * Resource Etag.
      */
     readonly etag: string;
@@ -76,6 +84,10 @@ export interface GetBlobContainerResult {
      * The ImmutabilityPolicy property of the container.
      */
     readonly immutabilityPolicy: outputs.storage.ImmutabilityPolicyPropertiesResponse;
+    /**
+     * The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+     */
+    readonly immutableStorageWithVersioning?: outputs.storage.ImmutableStorageWithVersioningResponse;
     /**
      * Returns the date and time the container was last modified.
      */
@@ -123,7 +135,7 @@ export interface GetBlobContainerResult {
 }
 /**
  * Gets properties of a specified container.
- * API Version: 2021-02-01.
+ * API Version: 2022-09-01.
  */
 export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainer(a, opts))

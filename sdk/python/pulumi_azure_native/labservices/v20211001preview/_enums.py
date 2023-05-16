@@ -6,11 +6,9 @@ from enum import Enum
 
 __all__ = [
     'ConnectionType',
-    'CreateOption',
     'EnableState',
     'RecurrenceFrequency',
     'ShutdownOnIdleMode',
-    'SkuTier',
     'WeekDay',
 ]
 
@@ -22,20 +20,6 @@ class ConnectionType(str, Enum):
     PUBLIC = "Public"
     PRIVATE = "Private"
     NONE = "None"
-
-
-class CreateOption(str, Enum):
-    """
-    Indicates what lab virtual machines are created from.
-    """
-    IMAGE = "Image"
-    """
-    An image is used to create all lab user virtual machines. When this option is set, no template VM will be created.
-    """
-    TEMPLATE_VM = "TemplateVM"
-    """
-    A template VM will be used to create all lab user virtual machines.
-    """
 
 
 class EnableState(str, Enum):
@@ -76,16 +60,6 @@ class ShutdownOnIdleMode(str, Enum):
     """
     The VM will be considered as idle when user is absent and the resource (CPU and disk) consumption is low.
     """
-
-
-class SkuTier(str, Enum):
-    """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
 
 
 class WeekDay(str, Enum):

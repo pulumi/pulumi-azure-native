@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoutePort Authorization resource definition.
- * API Version: 2022-01-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ExpressRoutePortAuthorization extends pulumi.CustomResource {
     /**
@@ -102,7 +103,7 @@ export class ExpressRoutePortAuthorization extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210801:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220501:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220701:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220901:ExpressRoutePortAuthorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210801:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220501:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220701:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220901:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20221101:ExpressRoutePortAuthorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRoutePortAuthorization.__pulumiType, name, resourceInputs, opts);
     }

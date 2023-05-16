@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a devcenter.
-        /// API Version: 2022-09-01-preview.
+        /// API Version: 2022-11-11-preview.
         /// </summary>
         public static Task<GetDevCenterResult> InvokeAsync(GetDevCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a devcenter.
-        /// API Version: 2022-09-01-preview.
+        /// API Version: 2022-11-11-preview.
         /// </summary>
         public static Output<GetDevCenterResult> Invoke(GetDevCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DevCenter
         public string DevCenterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> DevCenterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.DevCenter
     [OutputType]
     public sealed class GetDevCenterResult
     {
+        /// <summary>
+        /// The URI of the resource.
+        /// </summary>
+        public readonly string DevCenterUri;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNative.DevCenter
 
         [OutputConstructor]
         private GetDevCenterResult(
+            string devCenterUri,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string type)
         {
+            DevCenterUri = devCenterUri;
             Id = id;
             Identity = identity;
             Location = location;

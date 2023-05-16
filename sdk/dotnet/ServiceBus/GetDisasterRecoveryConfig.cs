@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:servicebus:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetDisasterRecoveryConfigResult> Invoke(GetDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:servicebus:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());
@@ -88,11 +88,15 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? AlternateName;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -112,7 +116,11 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// Resource type
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
 
@@ -121,6 +129,8 @@ namespace Pulumi.AzureNative.ServiceBus
             string? alternateName,
 
             string id,
+
+            string location,
 
             string name,
 
@@ -132,15 +142,19 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string role,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AlternateName = alternateName;
             Id = id;
+            Location = location;
             Name = name;
             PartnerNamespace = partnerNamespace;
             PendingReplicationOperationsCount = pendingReplicationOperationsCount;
             ProvisioningState = provisioningState;
             Role = role;
+            SystemData = systemData;
             Type = type;
         }
     }

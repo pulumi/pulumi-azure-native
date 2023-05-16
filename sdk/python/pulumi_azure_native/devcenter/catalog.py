@@ -24,7 +24,7 @@ class CatalogArgs:
         """
         The set of arguments for constructing a Catalog resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['GitCatalogArgs'] ado_git: Properties for an Azure DevOps catalog type.
         :param pulumi.Input[str] catalog_name: The name of the Catalog.
         :param pulumi.Input['GitCatalogArgs'] git_hub: Properties for a GitHub catalog type.
@@ -54,7 +54,7 @@ class CatalogArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -112,7 +112,8 @@ class Catalog(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a catalog.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,7 +121,7 @@ class Catalog(pulumi.CustomResource):
         :param pulumi.Input[str] catalog_name: The name of the Catalog.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[pulumi.InputType['GitCatalogArgs']] git_hub: Properties for a GitHub catalog type.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -130,7 +131,8 @@ class Catalog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a catalog.
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.
@@ -173,9 +175,10 @@ class Catalog(pulumi.CustomResource):
             __props__.__dict__["last_sync_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sync_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Catalog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Catalog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Catalog, __self__).__init__(
             'azure-native:devcenter:Catalog',
@@ -204,6 +207,7 @@ class Catalog(pulumi.CustomResource):
         __props__.__dict__["last_sync_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sync_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Catalog(resource_name, opts=opts, __props__=__props__)
@@ -247,6 +251,14 @@ class Catalog(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="syncState")
+    def sync_state(self) -> pulumi.Output[str]:
+        """
+        The synchronization state of the catalog.
+        """
+        return pulumi.get(self, "sync_state")
 
     @property
     @pulumi.getter(name="systemData")

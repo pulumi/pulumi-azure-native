@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
-        /// API Version: 2020-07-01.
+        /// API Version: 2023-02-01-preview.
         /// </summary>
         public static Task<ListDeploymentInfoResult> InvokeAsync(ListDeploymentInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
-        /// API Version: 2020-07-01.
+        /// API Version: 2023-02-01-preview.
         /// </summary>
         public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());
@@ -72,9 +72,17 @@ namespace Pulumi.AzureNative.Elastic
     public sealed class ListDeploymentInfoResult
     {
         /// <summary>
+        /// Deployment URL of the elasticsearch in Elastic cloud deployment.
+        /// </summary>
+        public readonly string DeploymentUrl;
+        /// <summary>
         /// Disk capacity of the elasticsearch in Elastic cloud deployment.
         /// </summary>
         public readonly string DiskCapacity;
+        /// <summary>
+        /// Marketplace SaaS Info of the resource.
+        /// </summary>
+        public readonly Outputs.MarketplaceSaaSInfoResponse MarketplaceSaasInfo;
         /// <summary>
         /// RAM capacity of the elasticsearch in Elastic cloud deployment.
         /// </summary>
@@ -90,7 +98,11 @@ namespace Pulumi.AzureNative.Elastic
 
         [OutputConstructor]
         private ListDeploymentInfoResult(
+            string deploymentUrl,
+
             string diskCapacity,
+
+            Outputs.MarketplaceSaaSInfoResponse marketplaceSaasInfo,
 
             string memoryCapacity,
 
@@ -98,7 +110,9 @@ namespace Pulumi.AzureNative.Elastic
 
             string version)
         {
+            DeploymentUrl = deploymentUrl;
             DiskCapacity = diskCapacity;
+            MarketplaceSaasInfo = marketplaceSaasInfo;
             MemoryCapacity = memoryCapacity;
             Status = status;
             Version = version;

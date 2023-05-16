@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Arc Addon.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ArcAddon extends pulumi.CustomResource {
     /**
@@ -76,7 +77,7 @@ export class ArcAddon extends pulumi.CustomResource {
      */
     public readonly subscriptionId!: pulumi.Output<string>;
     /**
-     * Addon type
+     * Metadata pertaining to creation and last modification of Addon
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

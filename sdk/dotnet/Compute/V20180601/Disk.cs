@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Compute.V20180601
     /// <summary>
     /// Disk resource.
     /// </summary>
-    [Obsolete(@"Version 2018-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20180601:Disk")]
     public partial class Disk : global::Pulumi.CustomResource
     {

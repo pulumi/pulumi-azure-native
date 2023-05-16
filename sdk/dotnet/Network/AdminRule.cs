@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Network admin rule.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:AdminRule")]
     public partial class AdminRule : global::Pulumi.CustomResource
@@ -47,12 +48,6 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Direction { get; private set; } = null!;
 
         /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -75,7 +70,7 @@ namespace Pulumi.AzureNative.Network
         /// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
         [Output("priority")]
-        public Output<int?> Priority { get; private set; } = null!;
+        public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
         /// Network protocol this rule applies to.
@@ -153,6 +148,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:AdminRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:AdminRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:AdminRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:AdminRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,7 +179,7 @@ namespace Pulumi.AzureNative.Network
         public InputUnion<string, Pulumi.AzureNative.Network.SecurityConfigurationRuleAccess> Access { get; set; } = null!;
 
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -225,12 +221,6 @@ namespace Pulumi.AzureNative.Network
         public InputUnion<string, Pulumi.AzureNative.Network.SecurityConfigurationRuleDirection> Direction { get; set; } = null!;
 
         /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Whether the rule is custom or default.
         /// Expected value is 'Custom'.
         /// </summary>
@@ -246,8 +236,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
         /// Network protocol this rule applies to.

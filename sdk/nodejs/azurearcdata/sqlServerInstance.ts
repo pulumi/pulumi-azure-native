@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A SqlServerInstance.
- * API Version: 2021-06-01-preview.
+ * API Version: 2023-03-15-preview.
+ * Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SqlServerInstance extends pulumi.CustomResource {
     /**
@@ -51,7 +52,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.azurearcdata.SqlServerInstancePropertiesResponse>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.azurearcdata.SystemDataResponse>;
     /**
@@ -59,7 +60,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -94,7 +95,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20210801:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220301preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20220615preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerInstance" }, { type: "azure-native:azurearcdata/v20230315preview:SqlServerInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,7 +118,7 @@ export interface SqlServerInstanceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of SQL Server Instance
+     * Name of SQL Server Instance
      */
     sqlServerInstanceName?: pulumi.Input<string>;
     /**

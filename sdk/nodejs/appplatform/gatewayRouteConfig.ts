@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Spring Cloud Gateway route config resource
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class GatewayRouteConfig extends pulumi.CustomResource {
     /**
@@ -76,7 +77,7 @@ export class GatewayRouteConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.gatewayRouteConfigPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routeConfigName"] = args ? args.routeConfigName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
@@ -90,7 +91,7 @@ export class GatewayRouteConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220301preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220501preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220901preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20221101preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20221201:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20230101preview:GatewayRouteConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220301preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220501preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220901preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20221101preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20221201:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20230101preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20230301preview:GatewayRouteConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayRouteConfig.__pulumiType, name, resourceInputs, opts);
     }

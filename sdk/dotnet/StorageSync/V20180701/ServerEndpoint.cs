@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
     /// <summary>
     /// Server Endpoint object.
     /// </summary>
-    [Obsolete(@"Version 2018-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20180701:ServerEndpoint")]
     public partial class ServerEndpoint : global::Pulumi.CustomResource
     {

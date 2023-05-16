@@ -35,13 +35,3 @@ export const ProjectTargetPlatform = {
  * Target platform for the project
  */
 export type ProjectTargetPlatform = (typeof ProjectTargetPlatform)[keyof typeof ProjectTargetPlatform];
-
-export const ServerLevelPermissionsGroup = {
-    Default: "Default",
-    MigrationFromSqlServerToAzureDB: "MigrationFromSqlServerToAzureDB",
-} as const;
-
-/**
- * Permission group for validations
- */
-export type ServerLevelPermissionsGroup = (typeof ServerLevelPermissionsGroup)[keyof typeof ServerLevelPermissionsGroup];

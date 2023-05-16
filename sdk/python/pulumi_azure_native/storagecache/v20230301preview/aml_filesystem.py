@@ -320,7 +320,7 @@ class AmlFilesystem(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["throughput_provisioned_m_bps"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20230301preview:amlFilesystem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20230301preview:amlFilesystem"), pulumi.Alias(type_="azure-native:storagecache:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache:amlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20230501:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20230501:amlFilesystem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AmlFilesystem, __self__).__init__(
             'azure-native:storagecache/v20230301preview:AmlFilesystem',

@@ -8,6 +8,7 @@ __all__ = [
     'AdvancedFilterOperatorType',
     'ChannelProvisioningState',
     'ChannelType',
+    'DataResidencyBoundary',
     'DeadLetterEndPointType',
     'DeliveryAttributeMappingType',
     'EndpointType',
@@ -18,13 +19,9 @@ __all__ = [
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
-    'PartnerClientAuthenticationType',
     'PartnerConfigurationProvisioningState',
-    'PartnerDestinationActivationState',
-    'PartnerDestinationProvisioningState',
-    'PartnerEndpointType',
-    'PartnerRegistrationVisibilityState',
     'PartnerTopicActivationState',
+    'PartnerTopicRoutingMode',
     'PersistedConnectionStatus',
     'PublicNetworkAccess',
     'ReadinessState',
@@ -67,14 +64,22 @@ class ChannelProvisioningState(str, Enum):
     SUCCEEDED = "Succeeded"
     CANCELED = "Canceled"
     FAILED = "Failed"
+    IDLE_DUE_TO_MIRRORED_PARTNER_TOPIC_DELETION = "IdleDueToMirroredPartnerTopicDeletion"
 
 
 class ChannelType(str, Enum):
     """
-    The type of the event channel which represents the  direction flow of events.
+    The type of the event channel which represents the direction flow of events.
     """
     PARTNER_TOPIC = "PartnerTopic"
-    PARTNER_DESTINATION = "PartnerDestination"
+
+
+class DataResidencyBoundary(str, Enum):
+    """
+    Data Residency Boundary of the resource.
+    """
+    WITHIN_GEOPAIR = "WithinGeopair"
+    WITHIN_REGION = "WithinRegion"
 
 
 class DeadLetterEndPointType(str, Enum):
@@ -103,7 +108,6 @@ class EndpointType(str, Enum):
     SERVICE_BUS_QUEUE = "ServiceBusQueue"
     SERVICE_BUS_TOPIC = "ServiceBusTopic"
     AZURE_FUNCTION = "AzureFunction"
-    PARTNER_DESTINATION = "PartnerDestination"
 
 
 class EventDefinitionKind(str, Enum):
@@ -163,13 +167,6 @@ class IpActionType(str, Enum):
     ALLOW = "Allow"
 
 
-class PartnerClientAuthenticationType(str, Enum):
-    """
-    Type of client authentication
-    """
-    AZURE_AD = "AzureAD"
-
-
 class PartnerConfigurationProvisioningState(str, Enum):
     """
     Provisioning state of the partner configuration.
@@ -182,42 +179,6 @@ class PartnerConfigurationProvisioningState(str, Enum):
     FAILED = "Failed"
 
 
-class PartnerDestinationActivationState(str, Enum):
-    """
-    Activation state of the partner destination.
-    """
-    NEVER_ACTIVATED = "NeverActivated"
-    ACTIVATED = "Activated"
-
-
-class PartnerDestinationProvisioningState(str, Enum):
-    """
-    Provisioning state of the partner destination.
-    """
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    CANCELED = "Canceled"
-    FAILED = "Failed"
-
-
-class PartnerEndpointType(str, Enum):
-    """
-    Type of the endpoint for the partner destination
-    """
-    WEB_HOOK = "WebHook"
-
-
-class PartnerRegistrationVisibilityState(str, Enum):
-    """
-    Visibility state of the partner registration.
-    """
-    HIDDEN = "Hidden"
-    PUBLIC_PREVIEW = "PublicPreview"
-    GENERALLY_AVAILABLE = "GenerallyAvailable"
-
-
 class PartnerTopicActivationState(str, Enum):
     """
     Activation state of the partner topic.
@@ -225,6 +186,15 @@ class PartnerTopicActivationState(str, Enum):
     NEVER_ACTIVATED = "NeverActivated"
     ACTIVATED = "Activated"
     DEACTIVATED = "Deactivated"
+
+
+class PartnerTopicRoutingMode(str, Enum):
+    """
+    This determines if events published to this partner namespace should use the source attribute in the event payload
+    or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+    """
+    SOURCE_EVENT_ATTRIBUTE = "SourceEventAttribute"
+    CHANNEL_NAME_HEADER = "ChannelNameHeader"
 
 
 class PersistedConnectionStatus(str, Enum):

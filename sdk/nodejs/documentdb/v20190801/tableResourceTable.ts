@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Table.
- *
- * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class TableResourceTable extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class TableResourceTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TableResourceTable {
-        pulumi.log.warn("TableResourceTable is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         return new TableResourceTable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class TableResourceTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: TableResourceTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TableResourceTable is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -100,7 +95,7 @@ export class TableResourceTable extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:TableResourceTable" }, { type: "azure-native:documentdb/v20150401:TableResourceTable" }, { type: "azure-native:documentdb/v20150408:TableResourceTable" }, { type: "azure-native:documentdb/v20151106:TableResourceTable" }, { type: "azure-native:documentdb/v20160319:TableResourceTable" }, { type: "azure-native:documentdb/v20160331:TableResourceTable" }, { type: "azure-native:documentdb/v20191212:TableResourceTable" }, { type: "azure-native:documentdb/v20200301:TableResourceTable" }, { type: "azure-native:documentdb/v20200401:TableResourceTable" }, { type: "azure-native:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-native:documentdb/v20200901:TableResourceTable" }, { type: "azure-native:documentdb/v20210115:TableResourceTable" }, { type: "azure-native:documentdb/v20210301preview:TableResourceTable" }, { type: "azure-native:documentdb/v20210315:TableResourceTable" }, { type: "azure-native:documentdb/v20210401preview:TableResourceTable" }, { type: "azure-native:documentdb/v20210415:TableResourceTable" }, { type: "azure-native:documentdb/v20210515:TableResourceTable" }, { type: "azure-native:documentdb/v20210615:TableResourceTable" }, { type: "azure-native:documentdb/v20210701preview:TableResourceTable" }, { type: "azure-native:documentdb/v20211015:TableResourceTable" }, { type: "azure-native:documentdb/v20211015preview:TableResourceTable" }, { type: "azure-native:documentdb/v20211115preview:TableResourceTable" }, { type: "azure-native:documentdb/v20220215preview:TableResourceTable" }, { type: "azure-native:documentdb/v20220515:TableResourceTable" }, { type: "azure-native:documentdb/v20220515preview:TableResourceTable" }, { type: "azure-native:documentdb/v20220815:TableResourceTable" }, { type: "azure-native:documentdb/v20220815preview:TableResourceTable" }, { type: "azure-native:documentdb/v20221115:TableResourceTable" }, { type: "azure-native:documentdb/v20230315:TableResourceTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:TableResourceTable" }, { type: "azure-native:documentdb/v20150401:TableResourceTable" }, { type: "azure-native:documentdb/v20150408:TableResourceTable" }, { type: "azure-native:documentdb/v20151106:TableResourceTable" }, { type: "azure-native:documentdb/v20160319:TableResourceTable" }, { type: "azure-native:documentdb/v20160331:TableResourceTable" }, { type: "azure-native:documentdb/v20191212:TableResourceTable" }, { type: "azure-native:documentdb/v20200301:TableResourceTable" }, { type: "azure-native:documentdb/v20200401:TableResourceTable" }, { type: "azure-native:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-native:documentdb/v20200901:TableResourceTable" }, { type: "azure-native:documentdb/v20210115:TableResourceTable" }, { type: "azure-native:documentdb/v20210301preview:TableResourceTable" }, { type: "azure-native:documentdb/v20210315:TableResourceTable" }, { type: "azure-native:documentdb/v20210401preview:TableResourceTable" }, { type: "azure-native:documentdb/v20210415:TableResourceTable" }, { type: "azure-native:documentdb/v20210515:TableResourceTable" }, { type: "azure-native:documentdb/v20210615:TableResourceTable" }, { type: "azure-native:documentdb/v20210701preview:TableResourceTable" }, { type: "azure-native:documentdb/v20211015:TableResourceTable" }, { type: "azure-native:documentdb/v20211015preview:TableResourceTable" }, { type: "azure-native:documentdb/v20211115preview:TableResourceTable" }, { type: "azure-native:documentdb/v20220215preview:TableResourceTable" }, { type: "azure-native:documentdb/v20220515:TableResourceTable" }, { type: "azure-native:documentdb/v20220515preview:TableResourceTable" }, { type: "azure-native:documentdb/v20220815:TableResourceTable" }, { type: "azure-native:documentdb/v20220815preview:TableResourceTable" }, { type: "azure-native:documentdb/v20221115:TableResourceTable" }, { type: "azure-native:documentdb/v20221115preview:TableResourceTable" }, { type: "azure-native:documentdb/v20230301preview:TableResourceTable" }, { type: "azure-native:documentdb/v20230315:TableResourceTable" }, { type: "azure-native:documentdb/v20230415:TableResourceTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TableResourceTable.__pulumiType, name, resourceInputs, opts);
     }

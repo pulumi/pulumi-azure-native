@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Details of a particular extension in HCI Cluster.
- * API Version: 2021-01-01-preview.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Extension extends pulumi.CustomResource {
     /**
@@ -47,33 +48,13 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
-     * The timestamp of resource creation (UTC).
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that created the resource.
-     */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that created the resource.
-     */
-    public readonly createdByType!: pulumi.Output<string | undefined>;
+    public readonly enableAutomaticUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that last modified the resource.
-     */
-    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -99,11 +80,15 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly settings!: pulumi.Output<any | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Specifies the version of the script handler.
+     * Specifies the version of the script handler. Latest version would be used if not specified.
      */
     public readonly typeHandlerVersion!: pulumi.Output<string | undefined>;
 
@@ -130,14 +115,9 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["arcSettingName"] = args ? args.arcSettingName : undefined;
             resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
+            resourceInputs["enableAutomaticUpgrade"] = args ? args.enableAutomaticUpgrade : undefined;
             resourceInputs["extensionName"] = args ? args.extensionName : undefined;
             resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -148,27 +128,24 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeExtensionDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
         } else {
             resourceInputs["aggregateState"] = undefined /*out*/;
             resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdByType"] = undefined /*out*/;
+            resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
-            resourceInputs["lastModifiedAt"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeExtensionDetails"] = undefined /*out*/;
             resourceInputs["protectedSettings"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisher"] = undefined /*out*/;
             resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:Extension" }, { type: "azure-native:azurestackhci/v20210901:Extension" }, { type: "azure-native:azurestackhci/v20210901preview:Extension" }, { type: "azure-native:azurestackhci/v20220101:Extension" }, { type: "azure-native:azurestackhci/v20220301:Extension" }, { type: "azure-native:azurestackhci/v20220501:Extension" }, { type: "azure-native:azurestackhci/v20220901:Extension" }, { type: "azure-native:azurestackhci/v20221001:Extension" }, { type: "azure-native:azurestackhci/v20221201:Extension" }, { type: "azure-native:azurestackhci/v20230201:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:Extension" }, { type: "azure-native:azurestackhci/v20210901:Extension" }, { type: "azure-native:azurestackhci/v20210901preview:Extension" }, { type: "azure-native:azurestackhci/v20220101:Extension" }, { type: "azure-native:azurestackhci/v20220301:Extension" }, { type: "azure-native:azurestackhci/v20220501:Extension" }, { type: "azure-native:azurestackhci/v20220901:Extension" }, { type: "azure-native:azurestackhci/v20221001:Extension" }, { type: "azure-native:azurestackhci/v20221201:Extension" }, { type: "azure-native:azurestackhci/v20230201:Extension" }, { type: "azure-native:azurestackhci/v20230301:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }
@@ -191,17 +168,9 @@ export interface ExtensionArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The timestamp of resource creation (UTC).
+     * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
      */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * The identity that created the resource.
-     */
-    createdBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that created the resource.
-     */
-    createdByType?: pulumi.Input<string | enums.azurestackhci.CreatedByType>;
+    enableAutomaticUpgrade?: pulumi.Input<boolean>;
     /**
      * The name of the machine extension.
      */
@@ -210,18 +179,6 @@ export interface ExtensionArgs {
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     forceUpdateTag?: pulumi.Input<string>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    lastModifiedAt?: pulumi.Input<string>;
-    /**
-     * The identity that last modified the resource.
-     */
-    lastModifiedBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    lastModifiedByType?: pulumi.Input<string | enums.azurestackhci.CreatedByType>;
     /**
      * Protected settings (may contain secrets).
      */
@@ -243,7 +200,7 @@ export interface ExtensionArgs {
      */
     type?: pulumi.Input<string>;
     /**
-     * Specifies the version of the script handler.
+     * Specifies the version of the script handler. Latest version would be used if not specified.
      */
     typeHandlerVersion?: pulumi.Input<string>;
 }

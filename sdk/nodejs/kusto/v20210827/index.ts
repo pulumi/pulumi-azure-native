@@ -5,26 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AttachedDatabaseConfigurationArgs } from "./attachedDatabaseConfiguration";
-export type AttachedDatabaseConfiguration = import("./attachedDatabaseConfiguration").AttachedDatabaseConfiguration;
-export const AttachedDatabaseConfiguration: typeof import("./attachedDatabaseConfiguration").AttachedDatabaseConfiguration = null as any;
-utilities.lazyLoad(exports, ["AttachedDatabaseConfiguration"], () => require("./attachedDatabaseConfiguration"));
-
-export { ClusterArgs } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-
-export { ClusterPrincipalAssignmentArgs } from "./clusterPrincipalAssignment";
-export type ClusterPrincipalAssignment = import("./clusterPrincipalAssignment").ClusterPrincipalAssignment;
-export const ClusterPrincipalAssignment: typeof import("./clusterPrincipalAssignment").ClusterPrincipalAssignment = null as any;
-utilities.lazyLoad(exports, ["ClusterPrincipalAssignment"], () => require("./clusterPrincipalAssignment"));
-
-export { DatabasePrincipalAssignmentArgs } from "./databasePrincipalAssignment";
-export type DatabasePrincipalAssignment = import("./databasePrincipalAssignment").DatabasePrincipalAssignment;
-export const DatabasePrincipalAssignment: typeof import("./databasePrincipalAssignment").DatabasePrincipalAssignment = null as any;
-utilities.lazyLoad(exports, ["DatabasePrincipalAssignment"], () => require("./databasePrincipalAssignment"));
-
 export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
 export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
 export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
@@ -34,26 +14,6 @@ export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
 export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
 export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
 utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
-
-export { GetAttachedDatabaseConfigurationArgs, GetAttachedDatabaseConfigurationResult, GetAttachedDatabaseConfigurationOutputArgs } from "./getAttachedDatabaseConfiguration";
-export const getAttachedDatabaseConfiguration: typeof import("./getAttachedDatabaseConfiguration").getAttachedDatabaseConfiguration = null as any;
-export const getAttachedDatabaseConfigurationOutput: typeof import("./getAttachedDatabaseConfiguration").getAttachedDatabaseConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getAttachedDatabaseConfiguration","getAttachedDatabaseConfigurationOutput"], () => require("./getAttachedDatabaseConfiguration"));
-
-export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
-export const getCluster: typeof import("./getCluster").getCluster = null as any;
-export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-
-export { GetClusterPrincipalAssignmentArgs, GetClusterPrincipalAssignmentResult, GetClusterPrincipalAssignmentOutputArgs } from "./getClusterPrincipalAssignment";
-export const getClusterPrincipalAssignment: typeof import("./getClusterPrincipalAssignment").getClusterPrincipalAssignment = null as any;
-export const getClusterPrincipalAssignmentOutput: typeof import("./getClusterPrincipalAssignment").getClusterPrincipalAssignmentOutput = null as any;
-utilities.lazyLoad(exports, ["getClusterPrincipalAssignment","getClusterPrincipalAssignmentOutput"], () => require("./getClusterPrincipalAssignment"));
-
-export { GetDatabasePrincipalAssignmentArgs, GetDatabasePrincipalAssignmentResult, GetDatabasePrincipalAssignmentOutputArgs } from "./getDatabasePrincipalAssignment";
-export const getDatabasePrincipalAssignment: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignment = null as any;
-export const getDatabasePrincipalAssignmentOutput: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignmentOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabasePrincipalAssignment","getDatabasePrincipalAssignmentOutput"], () => require("./getDatabasePrincipalAssignment"));
 
 export { GetEventGridDataConnectionArgs, GetEventGridDataConnectionResult, GetEventGridDataConnectionOutputArgs } from "./getEventGridDataConnection";
 export const getEventGridDataConnection: typeof import("./getEventGridDataConnection").getEventGridDataConnection = null as any;
@@ -148,14 +108,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:kusto/v20210827:AttachedDatabaseConfiguration":
-                return new AttachedDatabaseConfiguration(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210827:Cluster":
-                return new Cluster(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210827:ClusterPrincipalAssignment":
-                return new ClusterPrincipalAssignment(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20210827:DatabasePrincipalAssignment":
-                return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:kusto/v20210827:EventGridDataConnection":
                 return new EventGridDataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto/v20210827:EventHubDataConnection":

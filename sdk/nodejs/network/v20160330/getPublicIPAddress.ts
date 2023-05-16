@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
-    pulumi.log.warn("getPublicIPAddress is deprecated: Version 2016-03-30 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160330:getPublicIPAddress", {
@@ -98,7 +96,6 @@ export interface GetPublicIPAddressResult {
 /**
  * The Get publicIpAddress operation retrieves information about the specified pubicIpAddress
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPAddress(a, opts))
 }

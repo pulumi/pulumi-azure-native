@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
-    [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     public static class GetSecret
     {
         /// <summary>

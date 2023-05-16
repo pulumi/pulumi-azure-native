@@ -30,6 +30,14 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
+        /// Gets or sets the Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Gets or sets the target resource group name.
+        /// </summary>
+        public readonly string? TargetResourceGroupName;
+        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         public readonly string TargetResourceName;
@@ -42,11 +50,17 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string resourceType,
 
+            ImmutableDictionary<string, string>? tags,
+
+            string? targetResourceGroupName,
+
             string targetResourceName)
         {
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             IpConfigurations = ipConfigurations;
             ResourceType = resourceType;
+            Tags = tags;
+            TargetResourceGroupName = targetResourceGroupName;
             TargetResourceName = targetResourceName;
         }
     }

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
  */
-/** @deprecated Version 2019-08-02-preview will be removed in v2 of the provider. */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
-    pulumi.log.warn("getMachine is deprecated: Version 2019-08-02-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20190802preview:getMachine", {
@@ -129,7 +127,6 @@ export interface GetMachineResult {
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
  */
-/** @deprecated Version 2019-08-02-preview will be removed in v2 of the provider. */
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
     return pulumi.output(args).apply((a: any) => getMachine(a, opts))
 }

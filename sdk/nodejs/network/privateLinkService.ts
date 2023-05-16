@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Private link service resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateLinkService extends pulumi.CustomResource {
     /**
@@ -155,7 +156,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
             resourceInputs["visibility"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190401:PrivateLinkService" }, { type: "azure-native:network/v20190601:PrivateLinkService" }, { type: "azure-native:network/v20190701:PrivateLinkService" }, { type: "azure-native:network/v20190801:PrivateLinkService" }, { type: "azure-native:network/v20190901:PrivateLinkService" }, { type: "azure-native:network/v20191101:PrivateLinkService" }, { type: "azure-native:network/v20191201:PrivateLinkService" }, { type: "azure-native:network/v20200301:PrivateLinkService" }, { type: "azure-native:network/v20200401:PrivateLinkService" }, { type: "azure-native:network/v20200501:PrivateLinkService" }, { type: "azure-native:network/v20200601:PrivateLinkService" }, { type: "azure-native:network/v20200701:PrivateLinkService" }, { type: "azure-native:network/v20200801:PrivateLinkService" }, { type: "azure-native:network/v20201101:PrivateLinkService" }, { type: "azure-native:network/v20210201:PrivateLinkService" }, { type: "azure-native:network/v20210301:PrivateLinkService" }, { type: "azure-native:network/v20210501:PrivateLinkService" }, { type: "azure-native:network/v20210801:PrivateLinkService" }, { type: "azure-native:network/v20220101:PrivateLinkService" }, { type: "azure-native:network/v20220501:PrivateLinkService" }, { type: "azure-native:network/v20220701:PrivateLinkService" }, { type: "azure-native:network/v20220901:PrivateLinkService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190401:PrivateLinkService" }, { type: "azure-native:network/v20190601:PrivateLinkService" }, { type: "azure-native:network/v20190701:PrivateLinkService" }, { type: "azure-native:network/v20190801:PrivateLinkService" }, { type: "azure-native:network/v20190901:PrivateLinkService" }, { type: "azure-native:network/v20191101:PrivateLinkService" }, { type: "azure-native:network/v20191201:PrivateLinkService" }, { type: "azure-native:network/v20200301:PrivateLinkService" }, { type: "azure-native:network/v20200401:PrivateLinkService" }, { type: "azure-native:network/v20200501:PrivateLinkService" }, { type: "azure-native:network/v20200601:PrivateLinkService" }, { type: "azure-native:network/v20200701:PrivateLinkService" }, { type: "azure-native:network/v20200801:PrivateLinkService" }, { type: "azure-native:network/v20201101:PrivateLinkService" }, { type: "azure-native:network/v20210201:PrivateLinkService" }, { type: "azure-native:network/v20210301:PrivateLinkService" }, { type: "azure-native:network/v20210501:PrivateLinkService" }, { type: "azure-native:network/v20210801:PrivateLinkService" }, { type: "azure-native:network/v20220101:PrivateLinkService" }, { type: "azure-native:network/v20220501:PrivateLinkService" }, { type: "azure-native:network/v20220701:PrivateLinkService" }, { type: "azure-native:network/v20220901:PrivateLinkService" }, { type: "azure-native:network/v20221101:PrivateLinkService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkService.__pulumiType, name, resourceInputs, opts);
     }

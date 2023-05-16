@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns a resource belonging to a resource group.
  */
-/** @deprecated Version 2015-11-01 will be removed in v2 of the provider. */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-    pulumi.log.warn("getResource is deprecated: Version 2015-11-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20151101:getResource", {
@@ -83,7 +81,6 @@ export interface GetResourceResult {
 /**
  * Returns a resource belonging to a resource group.
  */
-/** @deprecated Version 2015-11-01 will be removed in v2 of the provider. */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply((a: any) => getResource(a, opts))
 }

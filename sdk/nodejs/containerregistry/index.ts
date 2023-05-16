@@ -5,51 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AgentPoolArgs } from "./agentPool";
-export type AgentPool = import("./agentPool").AgentPool;
-export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
-utilities.lazyLoad(exports, ["AgentPool"], () => require("./agentPool"));
-
-export { ConnectedRegistryArgs } from "./connectedRegistry";
-export type ConnectedRegistry = import("./connectedRegistry").ConnectedRegistry;
-export const ConnectedRegistry: typeof import("./connectedRegistry").ConnectedRegistry = null as any;
-utilities.lazyLoad(exports, ["ConnectedRegistry"], () => require("./connectedRegistry"));
-
-export { ExportPipelineArgs } from "./exportPipeline";
-export type ExportPipeline = import("./exportPipeline").ExportPipeline;
-export const ExportPipeline: typeof import("./exportPipeline").ExportPipeline = null as any;
-utilities.lazyLoad(exports, ["ExportPipeline"], () => require("./exportPipeline"));
-
-export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./getAgentPool";
-export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
-export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
-utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
-
-export { GetBuildLogLinkArgs, GetBuildLogLinkResult, GetBuildLogLinkOutputArgs } from "./getBuildLogLink";
-export const getBuildLogLink: typeof import("./getBuildLogLink").getBuildLogLink = null as any;
-export const getBuildLogLinkOutput: typeof import("./getBuildLogLink").getBuildLogLinkOutput = null as any;
-utilities.lazyLoad(exports, ["getBuildLogLink","getBuildLogLinkOutput"], () => require("./getBuildLogLink"));
-
-export { GetConnectedRegistryArgs, GetConnectedRegistryResult, GetConnectedRegistryOutputArgs } from "./getConnectedRegistry";
-export const getConnectedRegistry: typeof import("./getConnectedRegistry").getConnectedRegistry = null as any;
-export const getConnectedRegistryOutput: typeof import("./getConnectedRegistry").getConnectedRegistryOutput = null as any;
-utilities.lazyLoad(exports, ["getConnectedRegistry","getConnectedRegistryOutput"], () => require("./getConnectedRegistry"));
-
-export { GetExportPipelineArgs, GetExportPipelineResult, GetExportPipelineOutputArgs } from "./getExportPipeline";
-export const getExportPipeline: typeof import("./getExportPipeline").getExportPipeline = null as any;
-export const getExportPipelineOutput: typeof import("./getExportPipeline").getExportPipelineOutput = null as any;
-utilities.lazyLoad(exports, ["getExportPipeline","getExportPipelineOutput"], () => require("./getExportPipeline"));
-
-export { GetImportPipelineArgs, GetImportPipelineResult, GetImportPipelineOutputArgs } from "./getImportPipeline";
-export const getImportPipeline: typeof import("./getImportPipeline").getImportPipeline = null as any;
-export const getImportPipelineOutput: typeof import("./getImportPipeline").getImportPipelineOutput = null as any;
-utilities.lazyLoad(exports, ["getImportPipeline","getImportPipelineOutput"], () => require("./getImportPipeline"));
-
-export { GetPipelineRunArgs, GetPipelineRunResult, GetPipelineRunOutputArgs } from "./getPipelineRun";
-export const getPipelineRun: typeof import("./getPipelineRun").getPipelineRun = null as any;
-export const getPipelineRunOutput: typeof import("./getPipelineRun").getPipelineRunOutput = null as any;
-utilities.lazyLoad(exports, ["getPipelineRun","getPipelineRunOutput"], () => require("./getPipelineRun"));
-
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -59,16 +14,6 @@ export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./get
 export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
-
-export { GetRegistryBuildSourceUploadUrlArgs, GetRegistryBuildSourceUploadUrlResult, GetRegistryBuildSourceUploadUrlOutputArgs } from "./getRegistryBuildSourceUploadUrl";
-export const getRegistryBuildSourceUploadUrl: typeof import("./getRegistryBuildSourceUploadUrl").getRegistryBuildSourceUploadUrl = null as any;
-export const getRegistryBuildSourceUploadUrlOutput: typeof import("./getRegistryBuildSourceUploadUrl").getRegistryBuildSourceUploadUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getRegistryBuildSourceUploadUrl","getRegistryBuildSourceUploadUrlOutput"], () => require("./getRegistryBuildSourceUploadUrl"));
-
-export { GetRegistryCredentialsArgs, GetRegistryCredentialsResult, GetRegistryCredentialsOutputArgs } from "./getRegistryCredentials";
-export const getRegistryCredentials: typeof import("./getRegistryCredentials").getRegistryCredentials = null as any;
-export const getRegistryCredentialsOutput: typeof import("./getRegistryCredentials").getRegistryCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["getRegistryCredentials","getRegistryCredentialsOutput"], () => require("./getRegistryCredentials"));
 
 export { GetReplicationArgs, GetReplicationResult, GetReplicationOutputArgs } from "./getReplication";
 export const getReplication: typeof import("./getReplication").getReplication = null as any;
@@ -85,11 +30,6 @@ export const getTask: typeof import("./getTask").getTask = null as any;
 export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
 utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
 
-export { GetTaskRunArgs, GetTaskRunResult, GetTaskRunOutputArgs } from "./getTaskRun";
-export const getTaskRun: typeof import("./getTaskRun").getTaskRun = null as any;
-export const getTaskRunOutput: typeof import("./getTaskRun").getTaskRunOutput = null as any;
-utilities.lazyLoad(exports, ["getTaskRun","getTaskRunOutput"], () => require("./getTaskRun"));
-
 export { GetTokenArgs, GetTokenResult, GetTokenOutputArgs } from "./getToken";
 export const getToken: typeof import("./getToken").getToken = null as any;
 export const getTokenOutput: typeof import("./getToken").getTokenOutput = null as any;
@@ -104,26 +44,6 @@ export { GetWebhookCallbackConfigArgs, GetWebhookCallbackConfigResult, GetWebhoo
 export const getWebhookCallbackConfig: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfig = null as any;
 export const getWebhookCallbackConfigOutput: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getWebhookCallbackConfig","getWebhookCallbackConfigOutput"], () => require("./getWebhookCallbackConfig"));
-
-export { ImportPipelineArgs } from "./importPipeline";
-export type ImportPipeline = import("./importPipeline").ImportPipeline;
-export const ImportPipeline: typeof import("./importPipeline").ImportPipeline = null as any;
-utilities.lazyLoad(exports, ["ImportPipeline"], () => require("./importPipeline"));
-
-export { ListAgentPoolQueueStatusArgs, ListAgentPoolQueueStatusResult, ListAgentPoolQueueStatusOutputArgs } from "./listAgentPoolQueueStatus";
-export const listAgentPoolQueueStatus: typeof import("./listAgentPoolQueueStatus").listAgentPoolQueueStatus = null as any;
-export const listAgentPoolQueueStatusOutput: typeof import("./listAgentPoolQueueStatus").listAgentPoolQueueStatusOutput = null as any;
-utilities.lazyLoad(exports, ["listAgentPoolQueueStatus","listAgentPoolQueueStatusOutput"], () => require("./listAgentPoolQueueStatus"));
-
-export { ListBuildStepBuildArgumentsArgs, ListBuildStepBuildArgumentsResult, ListBuildStepBuildArgumentsOutputArgs } from "./listBuildStepBuildArguments";
-export const listBuildStepBuildArguments: typeof import("./listBuildStepBuildArguments").listBuildStepBuildArguments = null as any;
-export const listBuildStepBuildArgumentsOutput: typeof import("./listBuildStepBuildArguments").listBuildStepBuildArgumentsOutput = null as any;
-utilities.lazyLoad(exports, ["listBuildStepBuildArguments","listBuildStepBuildArgumentsOutput"], () => require("./listBuildStepBuildArguments"));
-
-export { ListBuildTaskSourceRepositoryPropertiesArgs, ListBuildTaskSourceRepositoryPropertiesResult, ListBuildTaskSourceRepositoryPropertiesOutputArgs } from "./listBuildTaskSourceRepositoryProperties";
-export const listBuildTaskSourceRepositoryProperties: typeof import("./listBuildTaskSourceRepositoryProperties").listBuildTaskSourceRepositoryProperties = null as any;
-export const listBuildTaskSourceRepositoryPropertiesOutput: typeof import("./listBuildTaskSourceRepositoryProperties").listBuildTaskSourceRepositoryPropertiesOutput = null as any;
-utilities.lazyLoad(exports, ["listBuildTaskSourceRepositoryProperties","listBuildTaskSourceRepositoryPropertiesOutput"], () => require("./listBuildTaskSourceRepositoryProperties"));
 
 export { ListRegistryBuildSourceUploadUrlArgs, ListRegistryBuildSourceUploadUrlResult, ListRegistryBuildSourceUploadUrlOutputArgs } from "./listRegistryBuildSourceUploadUrl";
 export const listRegistryBuildSourceUploadUrl: typeof import("./listRegistryBuildSourceUploadUrl").listRegistryBuildSourceUploadUrl = null as any;
@@ -145,20 +65,10 @@ export const listTaskDetails: typeof import("./listTaskDetails").listTaskDetails
 export const listTaskDetailsOutput: typeof import("./listTaskDetails").listTaskDetailsOutput = null as any;
 utilities.lazyLoad(exports, ["listTaskDetails","listTaskDetailsOutput"], () => require("./listTaskDetails"));
 
-export { ListTaskRunDetailsArgs, ListTaskRunDetailsResult, ListTaskRunDetailsOutputArgs } from "./listTaskRunDetails";
-export const listTaskRunDetails: typeof import("./listTaskRunDetails").listTaskRunDetails = null as any;
-export const listTaskRunDetailsOutput: typeof import("./listTaskRunDetails").listTaskRunDetailsOutput = null as any;
-utilities.lazyLoad(exports, ["listTaskRunDetails","listTaskRunDetailsOutput"], () => require("./listTaskRunDetails"));
-
 export { ListWebhookEventsArgs, ListWebhookEventsResult, ListWebhookEventsOutputArgs } from "./listWebhookEvents";
 export const listWebhookEvents: typeof import("./listWebhookEvents").listWebhookEvents = null as any;
 export const listWebhookEventsOutput: typeof import("./listWebhookEvents").listWebhookEventsOutput = null as any;
 utilities.lazyLoad(exports, ["listWebhookEvents","listWebhookEventsOutput"], () => require("./listWebhookEvents"));
-
-export { PipelineRunArgs } from "./pipelineRun";
-export type PipelineRun = import("./pipelineRun").PipelineRun;
-export const PipelineRun: typeof import("./pipelineRun").PipelineRun = null as any;
-utilities.lazyLoad(exports, ["PipelineRun"], () => require("./pipelineRun"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -185,11 +95,6 @@ export type Task = import("./task").Task;
 export const Task: typeof import("./task").Task = null as any;
 utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 
-export { TaskRunArgs } from "./taskRun";
-export type TaskRun = import("./taskRun").TaskRun;
-export const TaskRun: typeof import("./taskRun").TaskRun = null as any;
-utilities.lazyLoad(exports, ["TaskRun"], () => require("./taskRun"));
-
 export { TokenArgs } from "./token";
 export type Token = import("./token").Token;
 export const Token: typeof import("./token").Token = null as any;
@@ -213,7 +118,6 @@ import * as v20180201preview from "./v20180201preview";
 import * as v20180901 from "./v20180901";
 import * as v20190401 from "./v20190401";
 import * as v20190501 from "./v20190501";
-import * as v20190501preview from "./v20190501preview";
 import * as v20190601preview from "./v20190601preview";
 import * as v20191201preview from "./v20191201preview";
 import * as v20201101preview from "./v20201101preview";
@@ -234,7 +138,6 @@ export {
     v20180901,
     v20190401,
     v20190501,
-    v20190501preview,
     v20190601preview,
     v20191201preview,
     v20201101preview,
@@ -251,16 +154,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:containerregistry:AgentPool":
-                return new AgentPool(name, <any>undefined, { urn })
-            case "azure-native:containerregistry:ConnectedRegistry":
-                return new ConnectedRegistry(name, <any>undefined, { urn })
-            case "azure-native:containerregistry:ExportPipeline":
-                return new ExportPipeline(name, <any>undefined, { urn })
-            case "azure-native:containerregistry:ImportPipeline":
-                return new ImportPipeline(name, <any>undefined, { urn })
-            case "azure-native:containerregistry:PipelineRun":
-                return new PipelineRun(name, <any>undefined, { urn })
             case "azure-native:containerregistry:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:containerregistry:Registry":
@@ -271,8 +164,6 @@ const _module = {
                 return new ScopeMap(name, <any>undefined, { urn })
             case "azure-native:containerregistry:Task":
                 return new Task(name, <any>undefined, { urn })
-            case "azure-native:containerregistry:TaskRun":
-                return new TaskRun(name, <any>undefined, { urn })
             case "azure-native:containerregistry:Token":
                 return new Token(name, <any>undefined, { urn })
             case "azure-native:containerregistry:Webhook":

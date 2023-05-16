@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
     /// </summary>
-    [Obsolete(@"Version 2020-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200501preview:StorageAccount")]
     public partial class StorageAccount : global::Pulumi.CustomResource
     {

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified function.
- * API Version: 2016-03-01.
+ * API Version: 2020-03-01.
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
 
@@ -31,7 +31,7 @@ export interface GetFunctionArgs {
      */
     jobName: string;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -51,7 +51,7 @@ export interface GetFunctionResult {
     /**
      * The properties that are associated with a function.
      */
-    readonly properties: outputs.streamanalytics.ScalarFunctionPropertiesResponse;
+    readonly properties: outputs.streamanalytics.AggregateFunctionPropertiesResponse | outputs.streamanalytics.ScalarFunctionPropertiesResponse;
     /**
      * Resource type
      */
@@ -59,7 +59,7 @@ export interface GetFunctionResult {
 }
 /**
  * Gets details about the specified function.
- * API Version: 2016-03-01.
+ * API Version: 2020-03-01.
  */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
     return pulumi.output(args).apply((a: any) => getFunction(a, opts))
@@ -75,7 +75,7 @@ export interface GetFunctionOutputArgs {
      */
     jobName: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

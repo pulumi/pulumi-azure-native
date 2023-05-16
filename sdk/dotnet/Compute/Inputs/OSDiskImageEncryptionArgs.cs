@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
+        /// <summary>
+        /// This property specifies the security profile of an OS disk image.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.OSDiskImageSecurityProfileArgs>? SecurityProfile { get; set; }
+
         public OSDiskImageEncryptionArgs()
         {
         }

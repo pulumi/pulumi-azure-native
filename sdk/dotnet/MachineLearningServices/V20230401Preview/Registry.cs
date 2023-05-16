@@ -91,8 +91,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:Registry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

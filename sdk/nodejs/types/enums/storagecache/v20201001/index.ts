@@ -48,17 +48,6 @@ export const ProvisioningStateType = {
  */
 export type ProvisioningStateType = (typeof ProvisioningStateType)[keyof typeof ProvisioningStateType];
 
-export const StorageTargetType = {
-    Nfs3: "nfs3",
-    Clfs: "clfs",
-    Unknown: "unknown",
-} as const;
-
-/**
- * Type of the Storage Target.
- */
-export type StorageTargetType = (typeof StorageTargetType)[keyof typeof StorageTargetType];
-
 export const UsernameSource = {
     AD: "AD",
     LDAP: "LDAP",

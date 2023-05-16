@@ -10,11 +10,7 @@ from .export import *
 from .get_export import *
 from .get_scheduled_action import *
 from .get_scheduled_action_by_scope import *
-from .get_view import *
-from .get_view_by_scope import *
 from .scheduled_action import *
 from .scheduled_action_by_scope import *
-from .view import *
-from .view_by_scope import *
 from ._inputs import *
 from . import outputs

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20171001
     /// <summary>
     /// Represents an instance of a Dedicated Capacity resource.
     /// </summary>
-    [Obsolete(@"Version 2017-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:powerbidedicated/v20171001:CapacityDetails")]
     public partial class CapacityDetails : global::Pulumi.CustomResource
     {

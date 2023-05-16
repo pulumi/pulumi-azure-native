@@ -3,84 +3,30 @@
 
 // Export sub-modules:
 import * as v20160601 from "./v20160601";
-import * as v20160810 from "./v20160810";
-import * as v20161201 from "./v20161201";
-import * as v20170701 from "./v20170701";
-import * as v20180110 from "./v20180110";
 import * as v20180710 from "./v20180710";
-import * as v20190513 from "./v20190513";
-import * as v20190615 from "./v20190615";
 import * as v20200202 from "./v20200202";
-import * as v20201001 from "./v20201001";
-import * as v20201201 from "./v20201201";
 import * as v20210101 from "./v20210101";
 import * as v20210201 from "./v20210201";
-import * as v20210201preview from "./v20210201preview";
-import * as v20210210 from "./v20210210";
-import * as v20210301 from "./v20210301";
-import * as v20210401 from "./v20210401";
-import * as v20210601 from "./v20210601";
-import * as v20210701 from "./v20210701";
-import * as v20210801 from "./v20210801";
-import * as v20211001 from "./v20211001";
-import * as v20211101 from "./v20211101";
-import * as v20211101preview from "./v20211101preview";
-import * as v20211201 from "./v20211201";
-import * as v20220101 from "./v20220101";
-import * as v20220131preview from "./v20220131preview";
-import * as v20220201 from "./v20220201";
-import * as v20220301 from "./v20220301";
-import * as v20220401 from "./v20220401";
-import * as v20220501 from "./v20220501";
-import * as v20220601preview from "./v20220601preview";
-import * as v20220801 from "./v20220801";
-import * as v20220901preview from "./v20220901preview";
-import * as v20220910 from "./v20220910";
-import * as v20220930preview from "./v20220930preview";
-import * as v20221001 from "./v20221001";
-import * as v20230101 from "./v20230101";
 import * as v20230201 from "./v20230201";
 
 export {
     v20160601,
-    v20160810,
-    v20161201,
-    v20170701,
-    v20180110,
     v20180710,
-    v20190513,
-    v20190615,
     v20200202,
-    v20201001,
-    v20201201,
     v20210101,
     v20210201,
-    v20210201preview,
-    v20210210,
-    v20210301,
-    v20210401,
-    v20210601,
-    v20210701,
-    v20210801,
-    v20211001,
-    v20211101,
-    v20211101preview,
-    v20211201,
-    v20220101,
-    v20220131preview,
-    v20220201,
-    v20220301,
-    v20220401,
-    v20220501,
-    v20220601preview,
-    v20220801,
-    v20220901preview,
-    v20220910,
-    v20220930preview,
-    v20221001,
-    v20230101,
     v20230201,
 };
+
+export const AcquireStorageAccountLock = {
+    Acquire: "Acquire",
+    NotAcquire: "NotAcquire",
+} as const;
+
+/**
+ * Whether storage account lock is to be acquired for this container or not.
+ */
+export type AcquireStorageAccountLock = (typeof AcquireStorageAccountLock)[keyof typeof AcquireStorageAccountLock];
 
 export const AgentAutoUpdateStatus = {
     Disabled: "Disabled",
@@ -91,6 +37,23 @@ export const AgentAutoUpdateStatus = {
  * A value indicating whether the auto update is enabled.
  */
 export type AgentAutoUpdateStatus = (typeof AgentAutoUpdateStatus)[keyof typeof AgentAutoUpdateStatus];
+
+export const AlertsState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type AlertsState = (typeof AlertsState)[keyof typeof AlertsState];
+
+export const AutomationAccountAuthenticationType = {
+    RunAsAccount: "RunAsAccount",
+    SystemAssignedIdentity: "SystemAssignedIdentity",
+} as const;
+
+/**
+ * A value indicating the type authentication to use for automation Account.
+ */
+export type AutomationAccountAuthenticationType = (typeof AutomationAccountAuthenticationType)[keyof typeof AutomationAccountAuthenticationType];
 
 export const BackupItemType = {
     Invalid: "Invalid",
@@ -108,6 +71,7 @@ export const BackupItemType = {
     AzureFileShare: "AzureFileShare",
     SAPHanaDatabase: "SAPHanaDatabase",
     SAPAseDatabase: "SAPAseDatabase",
+    SAPHanaDBInstance: "SAPHanaDBInstance",
 } as const;
 
 /**
@@ -132,32 +96,6 @@ export const BackupManagementType = {
  */
 export type BackupManagementType = (typeof BackupManagementType)[keyof typeof BackupManagementType];
 
-export const ContainerType = {
-    Invalid: "Invalid",
-    Unknown: "Unknown",
-    IaasVMContainer: "IaasVMContainer",
-    IaasVMServiceContainer: "IaasVMServiceContainer",
-    DPMContainer: "DPMContainer",
-    AzureBackupServerContainer: "AzureBackupServerContainer",
-    MABContainer: "MABContainer",
-    Cluster: "Cluster",
-    AzureSqlContainer: "AzureSqlContainer",
-    Windows: "Windows",
-    VCenter: "VCenter",
-    VMAppContainer: "VMAppContainer",
-    SQLAGWorkLoadContainer: "SQLAGWorkLoadContainer",
-    StorageContainer: "StorageContainer",
-    GenericContainer: "GenericContainer",
-} as const;
-
-/**
- * Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
- * Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
- * Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
- * Backup is VMAppContainer
- */
-export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
-
 export const CreateMode = {
     Invalid: "Invalid",
     Default: "Default",
@@ -169,28 +107,13 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
-export const DataSourceType = {
-    Invalid: "Invalid",
-    VM: "VM",
-    FileFolder: "FileFolder",
-    AzureSqlDb: "AzureSqlDb",
-    SQLDB: "SQLDB",
-    Exchange: "Exchange",
-    Sharepoint: "Sharepoint",
-    VMwareVM: "VMwareVM",
-    SystemState: "SystemState",
-    Client: "Client",
-    GenericDataSource: "GenericDataSource",
-    SQLDataBase: "SQLDataBase",
-    AzureFileShare: "AzureFileShare",
-    SAPHanaDatabase: "SAPHanaDatabase",
-    SAPAseDatabase: "SAPAseDatabase",
+export const CrossSubscriptionRestoreState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    PermanentlyDisabled: "PermanentlyDisabled",
 } as const;
 
-/**
- * Type of workload this item represents.
- */
-export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+export type CrossSubscriptionRestoreState = (typeof CrossSubscriptionRestoreState)[keyof typeof CrossSubscriptionRestoreState];
 
 export const DayOfWeek = {
     Sunday: "Sunday",
@@ -215,6 +138,15 @@ export const DiskAccountType = {
  */
 export type DiskAccountType = (typeof DiskAccountType)[keyof typeof DiskAccountType];
 
+export const ExtendedLocationType = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The extended location type.
+ */
+export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
+
 export const FailoverDeploymentModel = {
     NotApplicable: "NotApplicable",
     Classic: "Classic",
@@ -226,17 +158,21 @@ export const FailoverDeploymentModel = {
  */
 export type FailoverDeploymentModel = (typeof FailoverDeploymentModel)[keyof typeof FailoverDeploymentModel];
 
-export const HealthStatus = {
-    Passed: "Passed",
-    ActionRequired: "ActionRequired",
-    ActionSuggested: "ActionSuggested",
+export const IAASVMPolicyType = {
     Invalid: "Invalid",
+    V1: "V1",
+    V2: "V2",
 } as const;
 
-/**
- * Health status of protected item.
- */
-export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
+export type IAASVMPolicyType = (typeof IAASVMPolicyType)[keyof typeof IAASVMPolicyType];
+
+export const ImmutabilityState = {
+    Disabled: "Disabled",
+    Unlocked: "Unlocked",
+    Locked: "Locked",
+} as const;
+
+export type ImmutabilityState = (typeof ImmutabilityState)[keyof typeof ImmutabilityState];
 
 export const InfrastructureEncryptionState = {
     Enabled: "Enabled",
@@ -307,6 +243,8 @@ export const PolicyType = {
     Log: "Log",
     CopyOnlyFull: "CopyOnlyFull",
     Incremental: "Incremental",
+    SnapshotFull: "SnapshotFull",
+    SnapshotCopyOnlyFull: "SnapshotCopyOnlyFull",
 } as const;
 
 /**
@@ -333,6 +271,35 @@ export const PrivateEndpointConnectionStatus = {
  */
 export type PrivateEndpointConnectionStatus = (typeof PrivateEndpointConnectionStatus)[keyof typeof PrivateEndpointConnectionStatus];
 
+export const ProtectableContainerType = {
+    Invalid: "Invalid",
+    Unknown: "Unknown",
+    IaasVMContainer: "IaasVMContainer",
+    IaasVMServiceContainer: "IaasVMServiceContainer",
+    DPMContainer: "DPMContainer",
+    AzureBackupServerContainer: "AzureBackupServerContainer",
+    MABContainer: "MABContainer",
+    Cluster: "Cluster",
+    AzureSqlContainer: "AzureSqlContainer",
+    Windows: "Windows",
+    VCenter: "VCenter",
+    VMAppContainer: "VMAppContainer",
+    SQLAGWorkLoadContainer: "SQLAGWorkLoadContainer",
+    StorageContainer: "StorageContainer",
+    GenericContainer: "GenericContainer",
+    Microsoft_ClassicCompute_virtualMachines: "Microsoft.ClassicCompute/virtualMachines",
+    Microsoft_Compute_virtualMachines: "Microsoft.Compute/virtualMachines",
+    AzureWorkloadContainer: "AzureWorkloadContainer",
+} as const;
+
+/**
+ * Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+ * Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+ * Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+ * Backup is VMAppContainer
+ */
+export type ProtectableContainerType = (typeof ProtectableContainerType)[keyof typeof ProtectableContainerType];
+
 export const ProtectedItemHealthStatus = {
     Invalid: "Invalid",
     Healthy: "Healthy",
@@ -353,12 +320,27 @@ export const ProtectedItemState = {
     ProtectionError: "ProtectionError",
     ProtectionStopped: "ProtectionStopped",
     ProtectionPaused: "ProtectionPaused",
+    BackupsSuspended: "BackupsSuspended",
 } as const;
 
 /**
  * Protection state of the backup engine
  */
 export type ProtectedItemState = (typeof ProtectedItemState)[keyof typeof ProtectedItemState];
+
+export const ProtectionIntentItemType = {
+    Invalid: "Invalid",
+    AzureResourceItem: "AzureResourceItem",
+    RecoveryServiceVaultItem: "RecoveryServiceVaultItem",
+    AzureWorkloadContainerAutoProtectionIntent: "AzureWorkloadContainerAutoProtectionIntent",
+    AzureWorkloadAutoProtectionIntent: "AzureWorkloadAutoProtectionIntent",
+    AzureWorkloadSQLAutoProtectionIntent: "AzureWorkloadSQLAutoProtectionIntent",
+} as const;
+
+/**
+ * backup protectionIntent type.
+ */
+export type ProtectionIntentItemType = (typeof ProtectionIntentItemType)[keyof typeof ProtectionIntentItemType];
 
 export const ProtectionState = {
     Invalid: "Invalid",
@@ -367,6 +349,7 @@ export const ProtectionState = {
     ProtectionError: "ProtectionError",
     ProtectionStopped: "ProtectionStopped",
     ProtectionPaused: "ProtectionPaused",
+    BackupsSuspended: "BackupsSuspended",
 } as const;
 
 /**
@@ -399,6 +382,26 @@ export const ProvisioningState = {
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * property to enable or disable resource provider inbound network traffic from public clients
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const RecoveryPlanActionLocation = {
+    Primary: "Primary",
+    Recovery: "Recovery",
+} as const;
+
+/**
+ * The fabric location.
+ */
+export type RecoveryPlanActionLocation = (typeof RecoveryPlanActionLocation)[keyof typeof RecoveryPlanActionLocation];
+
 export const RecoveryPlanGroupType = {
     Shutdown: "Shutdown",
     Boot: "Boot",
@@ -420,6 +423,7 @@ export const ReplicationProtectedItemOperation = {
     TestFailoverCleanup: "TestFailoverCleanup",
     Failback: "Failback",
     FinalizeFailback: "FinalizeFailback",
+    CancelFailover: "CancelFailover",
     ChangePit: "ChangePit",
     RepairReplication: "RepairReplication",
     SwitchProtection: "SwitchProtection",
@@ -463,7 +467,8 @@ export const RetentionDurationType = {
 } as const;
 
 /**
- * Retention duration type of retention policy.
+ * Retention duration type: days/weeks/months/years
+ * Used only if TieringMode is set to TierAfter
  */
 export type RetentionDurationType = (typeof RetentionDurationType)[keyof typeof RetentionDurationType];
 
@@ -482,12 +487,24 @@ export const ScheduleRunType = {
     Invalid: "Invalid",
     Daily: "Daily",
     Weekly: "Weekly",
+    Hourly: "Hourly",
 } as const;
 
 /**
  * Frequency of the schedule operation of this policy.
  */
 export type ScheduleRunType = (typeof ScheduleRunType)[keyof typeof ScheduleRunType];
+
+export const SecurityType = {
+    None: "None",
+    TrustedLaunch: "TrustedLaunch",
+    ConfidentialVM: "ConfidentialVM",
+} as const;
+
+/**
+ * The target VM security type.
+ */
+export type SecurityType = (typeof SecurityType)[keyof typeof SecurityType];
 
 export const SetMultiVmSyncStatus = {
     Enable: "Enable",
@@ -505,9 +522,47 @@ export const SkuName = {
 } as const;
 
 /**
- * The Sku name.
+ * Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const SqlServerLicenseType = {
+    NotSpecified: "NotSpecified",
+    NoLicenseType: "NoLicenseType",
+    PAYG: "PAYG",
+    AHUB: "AHUB",
+} as const;
+
+/**
+ * The SQL Server license type.
+ */
+export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
+
+export const TieringMode = {
+    Invalid: "Invalid",
+    TierRecommended: "TierRecommended",
+    TierAfter: "TierAfter",
+    DoNotTier: "DoNotTier",
+} as const;
+
+/**
+ * Tiering Mode to control automatic tiering of recovery points. Supported values are:
+ * 1. TierRecommended: Tier all recovery points recommended to be tiered
+ * 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+ * 3. DoNotTier: Do not tier any recovery points
+ */
+export type TieringMode = (typeof TieringMode)[keyof typeof TieringMode];
+
+export const VaultSubResourceType = {
+    AzureBackup: "AzureBackup",
+    AzureBackup_secondary: "AzureBackup_secondary",
+    AzureSiteRecovery: "AzureSiteRecovery",
+} as const;
+
+/**
+ * GroupId for the PrivateEndpointConnection - AzureBackup, AzureBackup_secondary or AzureSiteRecovery
+ */
+export type VaultSubResourceType = (typeof VaultSubResourceType)[keyof typeof VaultSubResourceType];
 
 export const WeekOfMonth = {
     First: "First",
@@ -528,6 +583,7 @@ export const WorkloadItemType = {
     SAPHanaDatabase: "SAPHanaDatabase",
     SAPAseSystem: "SAPAseSystem",
     SAPAseDatabase: "SAPAseDatabase",
+    SAPHanaDBInstance: "SAPHanaDBInstance",
 } as const;
 
 /**
@@ -551,6 +607,7 @@ export const WorkloadType = {
     AzureFileShare: "AzureFileShare",
     SAPHanaDatabase: "SAPHanaDatabase",
     SAPAseDatabase: "SAPAseDatabase",
+    SAPHanaDBInstance: "SAPHanaDBInstance",
 } as const;
 
 /**

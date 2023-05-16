@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
 {
     /// <summary>
     /// Resource information with extended details.
-    /// API Version: 2018-10-31-preview.
+    /// API Version: 2021-11-30.
+    /// Previous API Version: 2018-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:DedicatedHsm")]
     public partial class DedicatedHsm : global::Pulumi.CustomResource
@@ -21,6 +22,12 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the management network interfaces of the dedicated hsm.
+        /// </summary>
+        [Output("managementNetworkProfile")]
+        public Output<Outputs.NetworkProfileResponse?> ManagementNetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// The name of the dedicated HSM.
@@ -57,6 +64,12 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -131,6 +144,12 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Specifies the management network interfaces of the dedicated hsm.
+        /// </summary>
+        [Input("managementNetworkProfile")]
+        public Input<Inputs.NetworkProfileArgs>? ManagementNetworkProfile { get; set; }
 
         /// <summary>
         /// Name of the dedicated Hsm

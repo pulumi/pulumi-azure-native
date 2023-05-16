@@ -145,7 +145,8 @@ class CapacityReservation(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the capacity reservation.
-        API Version: 2021-04-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2021-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +166,8 @@ class CapacityReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the capacity reservation.
-        API Version: 2021-04-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2021-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.
@@ -213,9 +215,11 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["zones"] = zones
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["platform_fault_domain_count"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["provisioning_time"] = None
             __props__.__dict__["reservation_id"] = None
+            __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210401:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20210701:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20211101:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20220301:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20220801:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20221101:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20230301:CapacityReservation")])
@@ -245,11 +249,13 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["platform_fault_domain_count"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["provisioning_time"] = None
         __props__.__dict__["reservation_id"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machines_associated"] = None
         __props__.__dict__["zones"] = None
@@ -278,6 +284,14 @@ class CapacityReservation(pulumi.CustomResource):
         Resource name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="platformFaultDomainCount")
+    def platform_fault_domain_count(self) -> pulumi.Output[int]:
+        """
+        Specifies the value of fault domain count that Capacity Reservation supports for requested VM size.<br>NOTE: The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation.<br><br>Minimum api-version: 2022-08-01.
+        """
+        return pulumi.get(self, "platform_fault_domain_count")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -318,6 +332,14 @@ class CapacityReservation(pulumi.CustomResource):
         Resource tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> pulumi.Output[str]:
+        """
+        Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
 
     @property
     @pulumi.getter

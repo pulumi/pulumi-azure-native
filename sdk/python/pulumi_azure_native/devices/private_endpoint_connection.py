@@ -95,7 +95,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The private endpoint connection of an IotHub
-        API Version: 2020-08-31.
+        API Version: 2021-07-02.
+        Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +113,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection of an IotHub
-        API Version: 2020-08-31.
+        API Version: 2021-07-02.
+        Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +156,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200615:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200710preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200831:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200831preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210303preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210331:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210702:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210702preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20220430preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200615:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200710preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200831:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200831preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210303preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210331:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210702:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20210702preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20220430preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20221115preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:devices:PrivateEndpointConnection',

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// Site REST Resource.
-    /// API Version: 2020-01-01.
+    /// API Version: 2020-07-07.
+    /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:Site")]
     public partial class Site : global::Pulumi.CustomResource
@@ -39,6 +40,12 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         [Output("properties")]
         public Output<Outputs.SitePropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;

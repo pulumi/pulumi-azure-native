@@ -13,7 +13,9 @@ from ._enums import *
 __all__ = [
     'CheckpointArgs',
     'ExtendedLocationArgs',
+    'GuestCredentialArgs',
     'HardwareProfileArgs',
+    'HttpProxyConfigurationArgs',
     'NetworkInterfacesArgs',
     'NetworkProfileArgs',
     'OsProfileArgs',
@@ -137,6 +139,46 @@ class ExtendedLocationArgs:
 
 
 @pulumi.input_type
+class GuestCredentialArgs:
+    def __init__(__self__, *,
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Username / Password Credentials to connect to guest.
+        :param pulumi.Input[str] password: Gets or sets the password to connect with the guest.
+        :param pulumi.Input[str] username: Gets or sets username to connect with the guest.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the password to connect with the guest.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets username to connect with the guest.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
 class HardwareProfileArgs:
     def __init__(__self__, *,
                  cpu_count: Optional[pulumi.Input[int]] = None,
@@ -254,6 +296,30 @@ class HardwareProfileArgs:
     @memory_mb.setter
     def memory_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "memory_mb", value)
+
+
+@pulumi.input_type
+class HttpProxyConfigurationArgs:
+    def __init__(__self__, *,
+                 https_proxy: Optional[pulumi.Input[str]] = None):
+        """
+        HTTP Proxy configuration for the VM.
+        :param pulumi.Input[str] https_proxy: Gets or sets httpsProxy url.
+        """
+        if https_proxy is not None:
+            pulumi.set(__self__, "https_proxy", https_proxy)
+
+    @property
+    @pulumi.getter(name="httpsProxy")
+    def https_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets httpsProxy url.
+        """
+        return pulumi.get(self, "https_proxy")
+
+    @https_proxy.setter
+    def https_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_proxy", value)
 
 
 @pulumi.input_type

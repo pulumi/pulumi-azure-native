@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// Properties of the table, including Id, resource name, resource type.
-    /// API Version: 2021-02-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Table")]
     public partial class Table : global::Pulumi.CustomResource
@@ -21,6 +22,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// List of stored access policies specified on the table.
+        /// </summary>
+        [Output("signedIdentifiers")]
+        public Output<ImmutableArray<Outputs.TableSignedIdentifierResponse>> SignedIdentifiers { get; private set; } = null!;
 
         /// <summary>
         /// Table name under the specified account
@@ -103,6 +110,18 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("signedIdentifiers")]
+        private InputList<Inputs.TableSignedIdentifierArgs>? _signedIdentifiers;
+
+        /// <summary>
+        /// List of stored access policies specified on the table.
+        /// </summary>
+        public InputList<Inputs.TableSignedIdentifierArgs> SignedIdentifiers
+        {
+            get => _signedIdentifiers ?? (_signedIdentifiers = new InputList<Inputs.TableSignedIdentifierArgs>());
+            set => _signedIdentifiers = value;
+        }
 
         /// <summary>
         /// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.

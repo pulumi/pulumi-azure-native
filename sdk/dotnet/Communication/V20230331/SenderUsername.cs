@@ -80,6 +80,11 @@ namespace Pulumi.AzureNative.Communication.V20230331
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:communication:SenderUsername"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:SenderUsername"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

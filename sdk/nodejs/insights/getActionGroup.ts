@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an action group.
- * API Version: 2019-06-01.
+ * API Version: 2023-01-01.
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
 
@@ -60,6 +60,10 @@ export interface GetActionGroupResult {
      */
     readonly enabled: boolean;
     /**
+     * The list of event hub receivers that are part of this action group.
+     */
+    readonly eventHubReceivers?: outputs.insights.EventHubReceiverResponse[];
+    /**
      * The short name of the action group. This will be used in SMS messages.
      */
     readonly groupShortName: string;
@@ -106,7 +110,7 @@ export interface GetActionGroupResult {
 }
 /**
  * Get an action group.
- * API Version: 2019-06-01.
+ * API Version: 2023-01-01.
  */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
     return pulumi.output(args).apply((a: any) => getActionGroup(a, opts))

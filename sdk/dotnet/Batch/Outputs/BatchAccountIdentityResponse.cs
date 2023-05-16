@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
 {
 
     /// <summary>
-    /// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+    /// The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
     /// </summary>
     [OutputType]
     public sealed class BatchAccountIdentityResponse
@@ -29,9 +29,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The list of user identities associated with the Batch account.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.BatchAccountIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private BatchAccountIdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             string type,
 
-            ImmutableDictionary<string, Outputs.BatchAccountIdentityResponseUserAssignedIdentities>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

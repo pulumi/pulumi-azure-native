@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a RedisEnterprise cluster
- * API Version: 2021-03-01.
+ * API Version: 2022-01-01.
  */
 export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisEnterpriseResult> {
 
@@ -90,7 +90,7 @@ export interface GetRedisEnterpriseResult {
 }
 /**
  * Gets information about a RedisEnterprise cluster
- * API Version: 2021-03-01.
+ * API Version: 2022-01-01.
  */
 export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisEnterpriseResult> {
     return pulumi.output(args).apply((a: any) => getRedisEnterprise(a, opts))

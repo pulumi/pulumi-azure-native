@@ -30,7 +30,6 @@ __all__ = [
     'FormulaPropertiesFromVmResponse',
     'GalleryImageReferenceResponse',
     'HourDetailsResponse',
-    'IdentityPropertiesResponse',
     'InboundNatRuleResponse',
     'LabVhdResponse',
     'LabVirtualMachineCreationParameterResponse',
@@ -1144,86 +1143,6 @@ class HourDetailsResponse(dict):
         Minutes of the hour the schedule will run.
         """
         return pulumi.get(self, "minute")
-
-
-@pulumi.output_type
-class IdentityPropertiesResponse(dict):
-    """
-    Properties of a managed identity
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientSecretUrl":
-            suggest = "client_secret_url"
-        elif key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IdentityPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IdentityPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_secret_url: Optional[str] = None,
-                 principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        Properties of a managed identity
-        :param str client_secret_url: The client secret URL of the identity.
-        :param str principal_id: The principal id of resource identity.
-        :param str tenant_id: The tenant identifier of resource.
-        :param str type: Managed identity.
-        """
-        if client_secret_url is not None:
-            pulumi.set(__self__, "client_secret_url", client_secret_url)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="clientSecretUrl")
-    def client_secret_url(self) -> Optional[str]:
-        """
-        The client secret URL of the identity.
-        """
-        return pulumi.get(self, "client_secret_url")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
-        """
-        The principal id of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        """
-        The tenant identifier of resource.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Managed identity.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

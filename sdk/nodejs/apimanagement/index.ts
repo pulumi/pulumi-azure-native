@@ -15,11 +15,6 @@ export type ApiDiagnostic = import("./apiDiagnostic").ApiDiagnostic;
 export const ApiDiagnostic: typeof import("./apiDiagnostic").ApiDiagnostic = null as any;
 utilities.lazyLoad(exports, ["ApiDiagnostic"], () => require("./apiDiagnostic"));
 
-export { ApiDiagnosticLoggerArgs } from "./apiDiagnosticLogger";
-export type ApiDiagnosticLogger = import("./apiDiagnosticLogger").ApiDiagnosticLogger;
-export const ApiDiagnosticLogger: typeof import("./apiDiagnosticLogger").ApiDiagnosticLogger = null as any;
-utilities.lazyLoad(exports, ["ApiDiagnosticLogger"], () => require("./apiDiagnosticLogger"));
-
 export { ApiIssueArgs } from "./apiIssue";
 export type ApiIssue = import("./apiIssue").ApiIssue;
 export const ApiIssue: typeof import("./apiIssue").ApiIssue = null as any;
@@ -75,6 +70,26 @@ export type ApiVersionSet = import("./apiVersionSet").ApiVersionSet;
 export const ApiVersionSet: typeof import("./apiVersionSet").ApiVersionSet = null as any;
 utilities.lazyLoad(exports, ["ApiVersionSet"], () => require("./apiVersionSet"));
 
+export { ApiWikiArgs } from "./apiWiki";
+export type ApiWiki = import("./apiWiki").ApiWiki;
+export const ApiWiki: typeof import("./apiWiki").ApiWiki = null as any;
+utilities.lazyLoad(exports, ["ApiWiki"], () => require("./apiWiki"));
+
+export { AuthorizationArgs } from "./authorization";
+export type Authorization = import("./authorization").Authorization;
+export const Authorization: typeof import("./authorization").Authorization = null as any;
+utilities.lazyLoad(exports, ["Authorization"], () => require("./authorization"));
+
+export { AuthorizationAccessPolicyArgs } from "./authorizationAccessPolicy";
+export type AuthorizationAccessPolicy = import("./authorizationAccessPolicy").AuthorizationAccessPolicy;
+export const AuthorizationAccessPolicy: typeof import("./authorizationAccessPolicy").AuthorizationAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["AuthorizationAccessPolicy"], () => require("./authorizationAccessPolicy"));
+
+export { AuthorizationProviderArgs } from "./authorizationProvider";
+export type AuthorizationProvider = import("./authorizationProvider").AuthorizationProvider;
+export const AuthorizationProvider: typeof import("./authorizationProvider").AuthorizationProvider = null as any;
+utilities.lazyLoad(exports, ["AuthorizationProvider"], () => require("./authorizationProvider"));
+
 export { AuthorizationServerArgs } from "./authorizationServer";
 export type AuthorizationServer = import("./authorizationServer").AuthorizationServer;
 export const AuthorizationServer: typeof import("./authorizationServer").AuthorizationServer = null as any;
@@ -110,10 +125,10 @@ export type Diagnostic = import("./diagnostic").Diagnostic;
 export const Diagnostic: typeof import("./diagnostic").Diagnostic = null as any;
 utilities.lazyLoad(exports, ["Diagnostic"], () => require("./diagnostic"));
 
-export { DiagnosticLoggerArgs } from "./diagnosticLogger";
-export type DiagnosticLogger = import("./diagnosticLogger").DiagnosticLogger;
-export const DiagnosticLogger: typeof import("./diagnosticLogger").DiagnosticLogger = null as any;
-utilities.lazyLoad(exports, ["DiagnosticLogger"], () => require("./diagnosticLogger"));
+export { DocumentationArgs } from "./documentation";
+export type Documentation = import("./documentation").Documentation;
+export const Documentation: typeof import("./documentation").Documentation = null as any;
+utilities.lazyLoad(exports, ["Documentation"], () => require("./documentation"));
 
 export { EmailTemplateArgs } from "./emailTemplate";
 export type EmailTemplate = import("./emailTemplate").EmailTemplate;
@@ -214,6 +229,31 @@ export const getApiVersionSet: typeof import("./getApiVersionSet").getApiVersion
 export const getApiVersionSetOutput: typeof import("./getApiVersionSet").getApiVersionSetOutput = null as any;
 utilities.lazyLoad(exports, ["getApiVersionSet","getApiVersionSetOutput"], () => require("./getApiVersionSet"));
 
+export { GetApiWikiArgs, GetApiWikiResult, GetApiWikiOutputArgs } from "./getApiWiki";
+export const getApiWiki: typeof import("./getApiWiki").getApiWiki = null as any;
+export const getApiWikiOutput: typeof import("./getApiWiki").getApiWikiOutput = null as any;
+utilities.lazyLoad(exports, ["getApiWiki","getApiWikiOutput"], () => require("./getApiWiki"));
+
+export { GetAuthorizationArgs, GetAuthorizationResult, GetAuthorizationOutputArgs } from "./getAuthorization";
+export const getAuthorization: typeof import("./getAuthorization").getAuthorization = null as any;
+export const getAuthorizationOutput: typeof import("./getAuthorization").getAuthorizationOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorization","getAuthorizationOutput"], () => require("./getAuthorization"));
+
+export { GetAuthorizationAccessPolicyArgs, GetAuthorizationAccessPolicyResult, GetAuthorizationAccessPolicyOutputArgs } from "./getAuthorizationAccessPolicy";
+export const getAuthorizationAccessPolicy: typeof import("./getAuthorizationAccessPolicy").getAuthorizationAccessPolicy = null as any;
+export const getAuthorizationAccessPolicyOutput: typeof import("./getAuthorizationAccessPolicy").getAuthorizationAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationAccessPolicy","getAuthorizationAccessPolicyOutput"], () => require("./getAuthorizationAccessPolicy"));
+
+export { GetAuthorizationLoginLinkPostArgs, GetAuthorizationLoginLinkPostResult, GetAuthorizationLoginLinkPostOutputArgs } from "./getAuthorizationLoginLinkPost";
+export const getAuthorizationLoginLinkPost: typeof import("./getAuthorizationLoginLinkPost").getAuthorizationLoginLinkPost = null as any;
+export const getAuthorizationLoginLinkPostOutput: typeof import("./getAuthorizationLoginLinkPost").getAuthorizationLoginLinkPostOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationLoginLinkPost","getAuthorizationLoginLinkPostOutput"], () => require("./getAuthorizationLoginLinkPost"));
+
+export { GetAuthorizationProviderArgs, GetAuthorizationProviderResult, GetAuthorizationProviderOutputArgs } from "./getAuthorizationProvider";
+export const getAuthorizationProvider: typeof import("./getAuthorizationProvider").getAuthorizationProvider = null as any;
+export const getAuthorizationProviderOutput: typeof import("./getAuthorizationProvider").getAuthorizationProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationProvider","getAuthorizationProviderOutput"], () => require("./getAuthorizationProvider"));
+
 export { GetAuthorizationServerArgs, GetAuthorizationServerResult, GetAuthorizationServerOutputArgs } from "./getAuthorizationServer";
 export const getAuthorizationServer: typeof import("./getAuthorizationServer").getAuthorizationServer = null as any;
 export const getAuthorizationServerOutput: typeof import("./getAuthorizationServer").getAuthorizationServerOutput = null as any;
@@ -249,6 +289,11 @@ export const getDiagnostic: typeof import("./getDiagnostic").getDiagnostic = nul
 export const getDiagnosticOutput: typeof import("./getDiagnostic").getDiagnosticOutput = null as any;
 utilities.lazyLoad(exports, ["getDiagnostic","getDiagnosticOutput"], () => require("./getDiagnostic"));
 
+export { GetDocumentationArgs, GetDocumentationResult, GetDocumentationOutputArgs } from "./getDocumentation";
+export const getDocumentation: typeof import("./getDocumentation").getDocumentation = null as any;
+export const getDocumentationOutput: typeof import("./getDocumentation").getDocumentationOutput = null as any;
+utilities.lazyLoad(exports, ["getDocumentation","getDocumentationOutput"], () => require("./getDocumentation"));
+
 export { GetEmailTemplateArgs, GetEmailTemplateResult, GetEmailTemplateOutputArgs } from "./getEmailTemplate";
 export const getEmailTemplate: typeof import("./getEmailTemplate").getEmailTemplate = null as any;
 export const getEmailTemplateOutput: typeof import("./getEmailTemplate").getEmailTemplateOutput = null as any;
@@ -268,6 +313,21 @@ export { GetGatewayHostnameConfigurationArgs, GetGatewayHostnameConfigurationRes
 export const getGatewayHostnameConfiguration: typeof import("./getGatewayHostnameConfiguration").getGatewayHostnameConfiguration = null as any;
 export const getGatewayHostnameConfigurationOutput: typeof import("./getGatewayHostnameConfiguration").getGatewayHostnameConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getGatewayHostnameConfiguration","getGatewayHostnameConfigurationOutput"], () => require("./getGatewayHostnameConfiguration"));
+
+export { GetGlobalSchemaArgs, GetGlobalSchemaResult, GetGlobalSchemaOutputArgs } from "./getGlobalSchema";
+export const getGlobalSchema: typeof import("./getGlobalSchema").getGlobalSchema = null as any;
+export const getGlobalSchemaOutput: typeof import("./getGlobalSchema").getGlobalSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getGlobalSchema","getGlobalSchemaOutput"], () => require("./getGlobalSchema"));
+
+export { GetGraphQLApiResolverArgs, GetGraphQLApiResolverResult, GetGraphQLApiResolverOutputArgs } from "./getGraphQLApiResolver";
+export const getGraphQLApiResolver: typeof import("./getGraphQLApiResolver").getGraphQLApiResolver = null as any;
+export const getGraphQLApiResolverOutput: typeof import("./getGraphQLApiResolver").getGraphQLApiResolverOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQLApiResolver","getGraphQLApiResolverOutput"], () => require("./getGraphQLApiResolver"));
+
+export { GetGraphQLApiResolverPolicyArgs, GetGraphQLApiResolverPolicyResult, GetGraphQLApiResolverPolicyOutputArgs } from "./getGraphQLApiResolverPolicy";
+export const getGraphQLApiResolverPolicy: typeof import("./getGraphQLApiResolverPolicy").getGraphQLApiResolverPolicy = null as any;
+export const getGraphQLApiResolverPolicyOutput: typeof import("./getGraphQLApiResolverPolicy").getGraphQLApiResolverPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQLApiResolverPolicy","getGraphQLApiResolverPolicyOutput"], () => require("./getGraphQLApiResolverPolicy"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
@@ -319,15 +379,10 @@ export const getProductPolicy: typeof import("./getProductPolicy").getProductPol
 export const getProductPolicyOutput: typeof import("./getProductPolicy").getProductPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getProductPolicy","getProductPolicyOutput"], () => require("./getProductPolicy"));
 
-export { GetPropertyArgs, GetPropertyResult, GetPropertyOutputArgs } from "./getProperty";
-export const getProperty: typeof import("./getProperty").getProperty = null as any;
-export const getPropertyOutput: typeof import("./getProperty").getPropertyOutput = null as any;
-utilities.lazyLoad(exports, ["getProperty","getPropertyOutput"], () => require("./getProperty"));
-
-export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
-export const getSchema: typeof import("./getSchema").getSchema = null as any;
-export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
-utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
+export { GetProductWikiArgs, GetProductWikiResult, GetProductWikiOutputArgs } from "./getProductWiki";
+export const getProductWiki: typeof import("./getProductWiki").getProductWiki = null as any;
+export const getProductWikiOutput: typeof import("./getProductWiki").getProductWikiOutput = null as any;
+utilities.lazyLoad(exports, ["getProductWiki","getProductWikiOutput"], () => require("./getProductWiki"));
 
 export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
 export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
@@ -363,6 +418,21 @@ export { GetUserSharedAccessTokenArgs, GetUserSharedAccessTokenResult, GetUserSh
 export const getUserSharedAccessToken: typeof import("./getUserSharedAccessToken").getUserSharedAccessToken = null as any;
 export const getUserSharedAccessTokenOutput: typeof import("./getUserSharedAccessToken").getUserSharedAccessTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getUserSharedAccessToken","getUserSharedAccessTokenOutput"], () => require("./getUserSharedAccessToken"));
+
+export { GlobalSchemaArgs } from "./globalSchema";
+export type GlobalSchema = import("./globalSchema").GlobalSchema;
+export const GlobalSchema: typeof import("./globalSchema").GlobalSchema = null as any;
+utilities.lazyLoad(exports, ["GlobalSchema"], () => require("./globalSchema"));
+
+export { GraphQLApiResolverArgs } from "./graphQLApiResolver";
+export type GraphQLApiResolver = import("./graphQLApiResolver").GraphQLApiResolver;
+export const GraphQLApiResolver: typeof import("./graphQLApiResolver").GraphQLApiResolver = null as any;
+utilities.lazyLoad(exports, ["GraphQLApiResolver"], () => require("./graphQLApiResolver"));
+
+export { GraphQLApiResolverPolicyArgs } from "./graphQLApiResolverPolicy";
+export type GraphQLApiResolverPolicy = import("./graphQLApiResolverPolicy").GraphQLApiResolverPolicy;
+export const GraphQLApiResolverPolicy: typeof import("./graphQLApiResolverPolicy").GraphQLApiResolverPolicy = null as any;
+utilities.lazyLoad(exports, ["GraphQLApiResolverPolicy"], () => require("./graphQLApiResolverPolicy"));
 
 export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
@@ -418,11 +488,6 @@ export { ListSubscriptionSecretsArgs, ListSubscriptionSecretsResult, ListSubscri
 export const listSubscriptionSecrets: typeof import("./listSubscriptionSecrets").listSubscriptionSecrets = null as any;
 export const listSubscriptionSecretsOutput: typeof import("./listSubscriptionSecrets").listSubscriptionSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listSubscriptionSecrets","listSubscriptionSecretsOutput"], () => require("./listSubscriptionSecrets"));
-
-export { ListTenantAccessGitSecretsArgs, ListTenantAccessGitSecretsResult, ListTenantAccessGitSecretsOutputArgs } from "./listTenantAccessGitSecrets";
-export const listTenantAccessGitSecrets: typeof import("./listTenantAccessGitSecrets").listTenantAccessGitSecrets = null as any;
-export const listTenantAccessGitSecretsOutput: typeof import("./listTenantAccessGitSecrets").listTenantAccessGitSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listTenantAccessGitSecrets","listTenantAccessGitSecretsOutput"], () => require("./listTenantAccessGitSecrets"));
 
 export { ListTenantAccessSecretsArgs, ListTenantAccessSecretsResult, ListTenantAccessSecretsOutputArgs } from "./listTenantAccessSecrets";
 export const listTenantAccessSecrets: typeof import("./listTenantAccessSecrets").listTenantAccessSecrets = null as any;
@@ -489,15 +554,10 @@ export type ProductPolicy = import("./productPolicy").ProductPolicy;
 export const ProductPolicy: typeof import("./productPolicy").ProductPolicy = null as any;
 utilities.lazyLoad(exports, ["ProductPolicy"], () => require("./productPolicy"));
 
-export { PropertyArgs } from "./property";
-export type Property = import("./property").Property;
-export const Property: typeof import("./property").Property = null as any;
-utilities.lazyLoad(exports, ["Property"], () => require("./property"));
-
-export { SchemaArgs } from "./schema";
-export type Schema = import("./schema").Schema;
-export const Schema: typeof import("./schema").Schema = null as any;
-utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
+export { ProductWikiArgs } from "./productWiki";
+export type ProductWiki = import("./productWiki").ProductWiki;
+export const ProductWiki: typeof import("./productWiki").ProductWiki = null as any;
+utilities.lazyLoad(exports, ["ProductWiki"], () => require("./productWiki"));
 
 export { SubscriptionArgs } from "./subscription";
 export type Subscription = import("./subscription").Subscription;
@@ -550,6 +610,7 @@ import * as v20210801 from "./v20210801";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20220801 from "./v20220801";
+import * as v20220901preview from "./v20220901preview";
 
 export {
     v20160707,
@@ -568,6 +629,7 @@ export {
     v20211201preview,
     v20220401preview,
     v20220801,
+    v20220901preview,
 };
 
 const _module = {
@@ -578,8 +640,6 @@ const _module = {
                 return new Api(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiDiagnostic":
                 return new ApiDiagnostic(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:ApiDiagnosticLogger":
-                return new ApiDiagnosticLogger(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiIssue":
                 return new ApiIssue(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiIssueAttachment":
@@ -602,6 +662,14 @@ const _module = {
                 return new ApiTagDescription(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiVersionSet":
                 return new ApiVersionSet(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ApiWiki":
+                return new ApiWiki(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:Authorization":
+                return new Authorization(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:AuthorizationAccessPolicy":
+                return new AuthorizationAccessPolicy(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:AuthorizationProvider":
+                return new AuthorizationProvider(name, <any>undefined, { urn })
             case "azure-native:apimanagement:AuthorizationServer":
                 return new AuthorizationServer(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Backend":
@@ -616,8 +684,8 @@ const _module = {
                 return new ContentType(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Diagnostic":
                 return new Diagnostic(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:DiagnosticLogger":
-                return new DiagnosticLogger(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:Documentation":
+                return new Documentation(name, <any>undefined, { urn })
             case "azure-native:apimanagement:EmailTemplate":
                 return new EmailTemplate(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Gateway":
@@ -628,6 +696,12 @@ const _module = {
                 return new GatewayCertificateAuthority(name, <any>undefined, { urn })
             case "azure-native:apimanagement:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:GlobalSchema":
+                return new GlobalSchema(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:GraphQLApiResolver":
+                return new GraphQLApiResolver(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:GraphQLApiResolverPolicy":
+                return new GraphQLApiResolverPolicy(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure-native:apimanagement:GroupUser":
@@ -658,10 +732,8 @@ const _module = {
                 return new ProductGroup(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ProductPolicy":
                 return new ProductPolicy(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:Property":
-                return new Property(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:Schema":
-                return new Schema(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ProductWiki":
+                return new ProductWiki(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Tag":

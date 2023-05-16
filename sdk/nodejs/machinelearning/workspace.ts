@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- * API Version: 2016-04-01.
+ * API Version: 2019-10-01.
+ * Previous API Version: 2016-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -55,6 +59,10 @@ export class Workspace extends pulumi.CustomResource {
      * The email id of the owner for this workspace.
      */
     public readonly ownerEmail!: pulumi.Output<string>;
+    /**
+     * The sku of the workspace.
+     */
+    public readonly sku!: pulumi.Output<outputs.machinelearning.SkuResponse | undefined>;
     /**
      * The regional endpoint for the machine learning studio service which hosts this workspace.
      */
@@ -108,6 +116,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["ownerEmail"] = args ? args.ownerEmail : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
@@ -124,6 +133,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ownerEmail"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["studioEndpoint"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -159,6 +169,10 @@ export interface WorkspaceArgs {
      * The name of the resource group to which the machine learning workspace belongs.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The sku of the workspace.
+     */
+    sku?: pulumi.Input<inputs.machinelearning.SkuArgs>;
     /**
      * The tags of the resource.
      */

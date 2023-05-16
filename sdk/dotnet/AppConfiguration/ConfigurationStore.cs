@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-    /// API Version: 2020-06-01.
+    /// API Version: 2022-05-01.
+    /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:ConfigurationStore")]
     public partial class ConfigurationStore : global::Pulumi.CustomResource
@@ -21,6 +22,18 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Disables all authentication methods other than AAD authentication.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
+        /// Property specifying whether protection against purge is enabled for this configuration store.
+        /// </summary>
+        [Output("enablePurgeProtection")]
+        public Output<bool?> EnablePurgeProtection { get; private set; } = null!;
 
         /// <summary>
         /// The encryption settings of the configuration store.
@@ -41,13 +54,13 @@ namespace Pulumi.AzureNative.AppConfiguration
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the resource. This cannot be changed after the resource is created.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -77,13 +90,25 @@ namespace Pulumi.AzureNative.AppConfiguration
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The tags of the resource.
+        /// The amount of time in days that the configuration store will be retained when it is soft deleted.
+        /// </summary>
+        [Output("softDeleteRetentionInDays")]
+        public Output<int?> SoftDeleteRetentionInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource system metadata.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -153,6 +178,24 @@ namespace Pulumi.AzureNative.AppConfiguration
         public Input<string>? ConfigStoreName { get; set; }
 
         /// <summary>
+        /// Indicates whether the configuration store need to be recovered.
+        /// </summary>
+        [Input("createMode")]
+        public Input<Pulumi.AzureNative.AppConfiguration.CreateMode>? CreateMode { get; set; }
+
+        /// <summary>
+        /// Disables all authentication methods other than AAD authentication.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
+        /// Property specifying whether protection against purge is enabled for this configuration store.
+        /// </summary>
+        [Input("enablePurgeProtection")]
+        public Input<bool>? EnablePurgeProtection { get; set; }
+
+        /// <summary>
         /// The encryption settings of the configuration store.
         /// </summary>
         [Input("encryption")]
@@ -165,7 +208,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The location of the resource. This cannot be changed after the resource is created.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -188,11 +231,17 @@ namespace Pulumi.AzureNative.AppConfiguration
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of time in days that the configuration store will be retained when it is soft deleted.
+        /// </summary>
+        [Input("softDeleteRetentionInDays")]
+        public Input<int>? SoftDeleteRetentionInDays { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags of the resource.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -202,6 +251,9 @@ namespace Pulumi.AzureNative.AppConfiguration
 
         public ConfigurationStoreArgs()
         {
+            DisableLocalAuth = false;
+            EnablePurgeProtection = false;
+            SoftDeleteRetentionInDays = 7;
         }
         public static new ConfigurationStoreArgs Empty => new ConfigurationStoreArgs();
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a job step in a job's current version.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getJobStep(args: GetJobStepArgs, opts?: pulumi.InvokeOptions): Promise<GetJobStepResult> {
 
@@ -89,7 +89,7 @@ export interface GetJobStepResult {
 }
 /**
  * Gets a job step in a job's current version.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getJobStepOutput(args: GetJobStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobStepResult> {
     return pulumi.output(args).apply((a: any) => getJobStep(a, opts))

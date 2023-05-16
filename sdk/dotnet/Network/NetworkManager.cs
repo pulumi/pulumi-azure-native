@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Managed Network resource
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkManager")]
     public partial class NetworkManager : global::Pulumi.CustomResource
@@ -21,12 +22,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the network manager.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -56,10 +51,10 @@ namespace Pulumi.AzureNative.Network
         /// Scope of Network Manager.
         /// </summary>
         [Output("networkManagerScopes")]
-        public Output<Outputs.NetworkManagerPropertiesResponseNetworkManagerScopes?> NetworkManagerScopes { get; private set; } = null!;
+        public Output<Outputs.NetworkManagerPropertiesResponseNetworkManagerScopes> NetworkManagerScopes { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the scope assignment resource.
+        /// The provisioning state of the network manager resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -115,6 +110,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkManager"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkManager"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:NetworkManager"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkManager"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,12 +141,6 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A friendly name for the network manager.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -168,7 +158,7 @@ namespace Pulumi.AzureNative.Network
         [Input("networkManagerName")]
         public Input<string>? NetworkManagerName { get; set; }
 
-        [Input("networkManagerScopeAccesses")]
+        [Input("networkManagerScopeAccesses", required: true)]
         private InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>? _networkManagerScopeAccesses;
 
         /// <summary>
@@ -183,8 +173,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Scope of Network Manager.
         /// </summary>
-        [Input("networkManagerScopes")]
-        public Input<Inputs.NetworkManagerPropertiesNetworkManagerScopesArgs>? NetworkManagerScopes { get; set; }
+        [Input("networkManagerScopes", required: true)]
+        public Input<Inputs.NetworkManagerPropertiesNetworkManagerScopesArgs> NetworkManagerScopes { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

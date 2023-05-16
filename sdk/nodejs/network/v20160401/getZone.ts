@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  */
-/** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
-    pulumi.log.warn("getZone is deprecated: Version 2016-04-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160401:getZone", {
@@ -81,7 +79,6 @@ export interface GetZoneResult {
 /**
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  */
-/** @deprecated Version 2016-04-01 will be removed in v2 of the provider. */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
     return pulumi.output(args).apply((a: any) => getZone(a, opts))
 }

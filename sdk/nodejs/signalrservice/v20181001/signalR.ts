@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A class represent a SignalR service resource.
- *
- * @deprecated Version 2018-10-01 will be removed in v2 of the provider.
  */
 export class SignalR extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SignalR extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SignalR {
-        pulumi.log.warn("SignalR is deprecated: Version 2018-10-01 will be removed in v2 of the provider.")
         return new SignalR(name, undefined as any, { ...opts, id: id });
     }
 
@@ -110,9 +107,7 @@ export class SignalR extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
     constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SignalR is deprecated: Version 2018-10-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -153,7 +148,7 @@ export class SignalR extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalR" }, { type: "azure-native:signalrservice/v20180301preview:SignalR" }, { type: "azure-native:signalrservice/v20200501:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-native:signalrservice/v20210401preview:SignalR" }, { type: "azure-native:signalrservice/v20210601preview:SignalR" }, { type: "azure-native:signalrservice/v20210901preview:SignalR" }, { type: "azure-native:signalrservice/v20211001:SignalR" }, { type: "azure-native:signalrservice/v20220201:SignalR" }, { type: "azure-native:signalrservice/v20220801preview:SignalR" }, { type: "azure-native:signalrservice/v20230201:SignalR" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalR" }, { type: "azure-native:signalrservice/v20180301preview:SignalR" }, { type: "azure-native:signalrservice/v20200501:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-native:signalrservice/v20210401preview:SignalR" }, { type: "azure-native:signalrservice/v20210601preview:SignalR" }, { type: "azure-native:signalrservice/v20210901preview:SignalR" }, { type: "azure-native:signalrservice/v20211001:SignalR" }, { type: "azure-native:signalrservice/v20220201:SignalR" }, { type: "azure-native:signalrservice/v20220801preview:SignalR" }, { type: "azure-native:signalrservice/v20230201:SignalR" }, { type: "azure-native:signalrservice/v20230301preview:SignalR" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalR.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the custom domain of one lifecycle application.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
 
@@ -58,13 +58,17 @@ export interface GetCustomDomainResult {
      */
     readonly properties: outputs.appplatform.CustomDomainPropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Get the custom domain of one lifecycle application.
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
  */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getCustomDomain(a, opts))

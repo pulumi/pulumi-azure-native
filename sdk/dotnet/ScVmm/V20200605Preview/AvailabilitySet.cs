@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm:AvailabilitySet"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:AvailabilitySet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

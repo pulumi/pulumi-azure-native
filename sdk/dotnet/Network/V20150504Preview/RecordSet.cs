@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
     /// </summary>
-    [Obsolete(@"Version 2015-05-04-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20150504preview:RecordSet")]
     public partial class RecordSet : global::Pulumi.CustomResource
     {

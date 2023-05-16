@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// Gets or sets actions required
         /// </summary>
-        [Input("actionRequired")]
-        public Input<string>? ActionRequired { get; set; }
+        [Input("actionsRequired")]
+        public Input<string>? ActionsRequired { get; set; }
 
         /// <summary>
         /// Gets or sets description

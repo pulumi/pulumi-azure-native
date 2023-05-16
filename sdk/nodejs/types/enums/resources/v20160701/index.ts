@@ -11,12 +11,3 @@ export const DeploymentMode = {
  * The deployment mode.
  */
 export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
-
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-} as const;
-
-/**
- * The identity type.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

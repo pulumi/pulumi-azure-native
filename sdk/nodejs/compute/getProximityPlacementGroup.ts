@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a proximity placement group .
- * API Version: 2020-12-01.
+ * API Version: 2022-11-01.
  */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
 
@@ -53,6 +53,10 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly id: string;
     /**
+     * Specifies the user intent of the proximity placement group.
+     */
+    readonly intent?: outputs.compute.ProximityPlacementGroupPropertiesResponseIntent;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -80,10 +84,14 @@ export interface GetProximityPlacementGroupResult {
      * A list of references to all virtual machines in the proximity placement group.
      */
     readonly virtualMachines: outputs.compute.SubResourceWithColocationStatusResponse[];
+    /**
+     * Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+     */
+    readonly zones?: string[];
 }
 /**
  * Retrieves information about a proximity placement group .
- * API Version: 2020-12-01.
+ * API Version: 2022-11-01.
  */
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
     return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))

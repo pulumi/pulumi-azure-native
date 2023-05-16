@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the proximity placement group.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-11-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:ProximityPlacementGroup")]
     public partial class ProximityPlacementGroup : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("colocationStatus")]
         public Output<Outputs.InstanceViewStatusResponse?> ColocationStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the user intent of the proximity placement group.
+        /// </summary>
+        [Output("intent")]
+        public Output<Outputs.ProximityPlacementGroupPropertiesResponseIntent?> Intent { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -69,6 +76,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("virtualMachines")]
         public Output<ImmutableArray<Outputs.SubResourceWithColocationStatusResponse>> VirtualMachines { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,6 +154,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.InstanceViewStatusArgs>? ColocationStatus { get; set; }
 
         /// <summary>
+        /// Specifies the user intent of the proximity placement group.
+        /// </summary>
+        [Input("intent")]
+        public Input<Inputs.ProximityPlacementGroupPropertiesIntentArgs>? Intent { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
@@ -174,6 +193,18 @@ namespace Pulumi.AzureNative.Compute
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
         }
 
         public ProximityPlacementGroupArgs()

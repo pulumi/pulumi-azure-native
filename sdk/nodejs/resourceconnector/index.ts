@@ -15,15 +15,15 @@ export const getAppliance: typeof import("./getAppliance").getAppliance = null a
 export const getApplianceOutput: typeof import("./getAppliance").getApplianceOutput = null as any;
 utilities.lazyLoad(exports, ["getAppliance","getApplianceOutput"], () => require("./getAppliance"));
 
-export { ListApplianceClusterCustomerUserCredentialArgs, ListApplianceClusterCustomerUserCredentialResult, ListApplianceClusterCustomerUserCredentialOutputArgs } from "./listApplianceClusterCustomerUserCredential";
-export const listApplianceClusterCustomerUserCredential: typeof import("./listApplianceClusterCustomerUserCredential").listApplianceClusterCustomerUserCredential = null as any;
-export const listApplianceClusterCustomerUserCredentialOutput: typeof import("./listApplianceClusterCustomerUserCredential").listApplianceClusterCustomerUserCredentialOutput = null as any;
-utilities.lazyLoad(exports, ["listApplianceClusterCustomerUserCredential","listApplianceClusterCustomerUserCredentialOutput"], () => require("./listApplianceClusterCustomerUserCredential"));
-
 export { ListApplianceClusterUserCredentialArgs, ListApplianceClusterUserCredentialResult, ListApplianceClusterUserCredentialOutputArgs } from "./listApplianceClusterUserCredential";
 export const listApplianceClusterUserCredential: typeof import("./listApplianceClusterUserCredential").listApplianceClusterUserCredential = null as any;
 export const listApplianceClusterUserCredentialOutput: typeof import("./listApplianceClusterUserCredential").listApplianceClusterUserCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["listApplianceClusterUserCredential","listApplianceClusterUserCredentialOutput"], () => require("./listApplianceClusterUserCredential"));
+
+export { ListApplianceKeysArgs, ListApplianceKeysResult, ListApplianceKeysOutputArgs } from "./listApplianceKeys";
+export const listApplianceKeys: typeof import("./listApplianceKeys").listApplianceKeys = null as any;
+export const listApplianceKeysOutput: typeof import("./listApplianceKeys").listApplianceKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listApplianceKeys","listApplianceKeysOutput"], () => require("./listApplianceKeys"));
 
 
 // Export enums:

@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Time of the last operation.
         /// </summary>
         public readonly string? OperationTime;
+        /// <summary>
+        /// Trigger of operation.
+        /// </summary>
+        public readonly string? OperationTrigger;
 
         [OutputConstructor]
         private ComputeInstanceLastOperationResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? operationStatus,
 
-            string? operationTime)
+            string? operationTime,
+
+            string? operationTrigger)
         {
             OperationName = operationName;
             OperationStatus = operationStatus;
             OperationTime = operationTime;
+            OperationTrigger = operationTrigger;
         }
     }
 }

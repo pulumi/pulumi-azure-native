@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'EndpointType',
-    'PoolServiceLevel',
     'ReplicationSchedule',
     'VolumeServiceLevel',
 ]
@@ -18,24 +17,6 @@ class EndpointType(str, Enum):
     """
     SRC = "src"
     DST = "dst"
-
-
-class PoolServiceLevel(str, Enum):
-    """
-    The service level of the file system
-    """
-    STANDARD = "Standard"
-    """
-    Standard service level
-    """
-    PREMIUM = "Premium"
-    """
-    Premium service level
-    """
-    ULTRA = "Ultra"
-    """
-    Ultra service level
-    """
 
 
 class ReplicationSchedule(str, Enum):

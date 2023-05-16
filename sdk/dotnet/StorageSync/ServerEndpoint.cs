@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Server Endpoint object.
-    /// API Version: 2020-03-01.
+    /// API Version: 2022-06-01.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:ServerEndpoint")]
     public partial class ServerEndpoint : global::Pulumi.CustomResource
@@ -39,6 +40,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("initialDownloadPolicy")]
         public Output<string?> InitialDownloadPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy for how the initial upload sync session is performed.
+        /// </summary>
+        [Output("initialUploadPolicy")]
+        public Output<string?> InitialUploadPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Resource Last Operation Name
@@ -107,6 +114,12 @@ namespace Pulumi.AzureNative.StorageSync
         public Output<string?> ServerLocalPath { get; private set; } = null!;
 
         /// <summary>
+        /// Server name
+        /// </summary>
+        [Output("serverName")]
+        public Output<string> ServerName { get; private set; } = null!;
+
+        /// <summary>
         /// Server Resource Id.
         /// </summary>
         [Output("serverResourceId")]
@@ -117,6 +130,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("syncStatus")]
         public Output<Outputs.ServerEndpointSyncStatusResponse> SyncStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tier files older than days.
@@ -214,6 +233,12 @@ namespace Pulumi.AzureNative.StorageSync
         public InputUnion<string, Pulumi.AzureNative.StorageSync.InitialDownloadPolicy>? InitialDownloadPolicy { get; set; }
 
         /// <summary>
+        /// Policy for how the initial upload sync session is performed.
+        /// </summary>
+        [Input("initialUploadPolicy")]
+        public InputUnion<string, Pulumi.AzureNative.StorageSync.InitialUploadPolicy>? InitialUploadPolicy { get; set; }
+
+        /// <summary>
         /// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
         /// </summary>
         [Input("localCacheMode")]
@@ -282,6 +307,7 @@ namespace Pulumi.AzureNative.StorageSync
         public ServerEndpointArgs()
         {
             InitialDownloadPolicy = "NamespaceThenModifiedFiles";
+            InitialUploadPolicy = "Merge";
             LocalCacheMode = "UpdateLocallyCachedFiles";
             TierFilesOlderThanDays = 0;
             VolumeFreeSpacePercent = 20;

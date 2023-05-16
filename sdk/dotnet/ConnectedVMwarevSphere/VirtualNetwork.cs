@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Define the virtualNetwork.
-    /// API Version: 2020-10-01-preview.
+    /// API Version: 2022-07-15-preview.
+    /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource

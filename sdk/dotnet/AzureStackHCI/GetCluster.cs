@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get HCI cluster.
-        /// API Version: 2020-10-01.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get HCI cluster.
-        /// API Version: 2020-10-01.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -72,13 +72,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// Object id of cluster AAD identity.
+        /// </summary>
+        public readonly string? AadApplicationObjectId;
+        /// <summary>
         /// App id of cluster AAD identity.
         /// </summary>
-        public readonly string AadClientId;
+        public readonly string? AadClientId;
+        /// <summary>
+        /// Id of cluster identity service principal.
+        /// </summary>
+        public readonly string? AadServicePrincipalObjectId;
         /// <summary>
         /// Tenant id of cluster AAD identity.
         /// </summary>
-        public readonly string AadTenantId;
+        public readonly string? AadTenantId;
         /// <summary>
         /// Type of billing applied to the resource.
         /// </summary>
@@ -88,17 +96,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string CloudId;
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Endpoint configured for management from the Azure portal.
         /// </summary>
-        public readonly string? CreatedAt;
+        public readonly string? CloudManagementEndpoint;
         /// <summary>
-        /// The identity that created the resource.
+        /// Desired properties of the cluster.
         /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
+        public readonly Outputs.ClusterDesiredPropertiesResponse? DesiredProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -107,18 +111,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Most recent billing meter timestamp.
         /// </summary>
         public readonly string LastBillingTimestamp;
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        public readonly string? LastModifiedAt;
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
         /// <summary>
         /// Most recent cluster sync timestamp.
         /// </summary>
@@ -132,6 +124,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        /// </summary>
+        public readonly string PrincipalId;
+        /// <summary>
         /// Provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
@@ -142,15 +138,35 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Properties reported by cluster agent.
         /// </summary>
-        public readonly Outputs.ClusterReportedPropertiesResponse? ReportedProperties;
+        public readonly Outputs.ClusterReportedPropertiesResponse ReportedProperties;
+        /// <summary>
+        /// Object id of RP Service Principal
+        /// </summary>
+        public readonly string ResourceProviderObjectId;
+        /// <summary>
+        /// Region specific DataPath Endpoint of the cluster.
+        /// </summary>
+        public readonly string ServiceEndpoint;
+        /// <summary>
+        /// Software Assurance properties of the cluster.
+        /// </summary>
+        public readonly Outputs.SoftwareAssurancePropertiesResponse? SoftwareAssuranceProperties;
         /// <summary>
         /// Status of the cluster agent.
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Number of days remaining in the trial period.
         /// </summary>
@@ -159,32 +175,32 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private GetClusterResult(
-            string aadClientId,
+            string? aadApplicationObjectId,
 
-            string aadTenantId,
+            string? aadClientId,
+
+            string? aadServicePrincipalObjectId,
+
+            string? aadTenantId,
 
             string billingModel,
 
             string cloudId,
 
-            string? createdAt,
+            string? cloudManagementEndpoint,
 
-            string? createdBy,
-
-            string? createdByType,
+            Outputs.ClusterDesiredPropertiesResponse? desiredProperties,
 
             string id,
 
             string lastBillingTimestamp,
-
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
 
             string lastSyncTimestamp,
 
@@ -192,42 +208,61 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string name,
 
+            string principalId,
+
             string provisioningState,
 
             string registrationTimestamp,
 
-            Outputs.ClusterReportedPropertiesResponse? reportedProperties,
+            Outputs.ClusterReportedPropertiesResponse reportedProperties,
+
+            string resourceProviderObjectId,
+
+            string serviceEndpoint,
+
+            Outputs.SoftwareAssurancePropertiesResponse? softwareAssuranceProperties,
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
+
+            string tenantId,
 
             double trialDaysRemaining,
 
-            string type)
+            string type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
+            AadApplicationObjectId = aadApplicationObjectId;
             AadClientId = aadClientId;
+            AadServicePrincipalObjectId = aadServicePrincipalObjectId;
             AadTenantId = aadTenantId;
             BillingModel = billingModel;
             CloudId = cloudId;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
+            CloudManagementEndpoint = cloudManagementEndpoint;
+            DesiredProperties = desiredProperties;
             Id = id;
             LastBillingTimestamp = lastBillingTimestamp;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
             LastSyncTimestamp = lastSyncTimestamp;
             Location = location;
             Name = name;
+            PrincipalId = principalId;
             ProvisioningState = provisioningState;
             RegistrationTimestamp = registrationTimestamp;
             ReportedProperties = reportedProperties;
+            ResourceProviderObjectId = resourceProviderObjectId;
+            ServiceEndpoint = serviceEndpoint;
+            SoftwareAssuranceProperties = softwareAssuranceProperties;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
+            TenantId = tenantId;
             TrialDaysRemaining = trialDaysRemaining;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

@@ -33,17 +33,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.devcenter.v20220801preview as __v20220801preview
-    v20220801preview = __v20220801preview
     import pulumi_azure_native.devcenter.v20220901preview as __v20220901preview
     v20220901preview = __v20220901preview
-    import pulumi_azure_native.devcenter.v20221012preview as __v20221012preview
-    v20221012preview = __v20221012preview
     import pulumi_azure_native.devcenter.v20221111preview as __v20221111preview
     v20221111preview = __v20221111preview
+    import pulumi_azure_native.devcenter.v20230101preview as __v20230101preview
+    v20230101preview = __v20230101preview
 else:
-    v20220801preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20220801preview')
     v20220901preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20220901preview')
-    v20221012preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20221012preview')
     v20221111preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20221111preview')
+    v20230101preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20230101preview')
 

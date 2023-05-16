@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// Private endpoint connection proxy details.
-    /// API Version: 2020-03-01-preview.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:PrivateEndpointConnectionProxy")]
     public partial class PrivateEndpointConnectionProxy : global::Pulumi.CustomResource

@@ -16,8 +16,6 @@ __all__ = [
     'get_site_host_name_binding_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSiteHostNameBindingResult:
     """
@@ -190,7 +188,6 @@ def get_site_host_name_binding(host_name: Optional[str] = None,
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
-    pulumi.log.warn("""get_site_host_name_binding is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['hostName'] = host_name
     __args__['name'] = name
@@ -226,5 +223,4 @@ def get_site_host_name_binding_output(host_name: Optional[pulumi.Input[str]] = N
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
-    pulumi.log.warn("""get_site_host_name_binding is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

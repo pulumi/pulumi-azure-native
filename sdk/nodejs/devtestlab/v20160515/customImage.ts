@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom image.
- *
- * @deprecated Version 2016-05-15 will be removed in v2 of the provider.
  */
 export class CustomImage extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class CustomImage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomImage {
-        pulumi.log.warn("CustomImage is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
         return new CustomImage(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +93,7 @@ export class CustomImage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
     constructor(name: string, args: CustomImageArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CustomImage is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

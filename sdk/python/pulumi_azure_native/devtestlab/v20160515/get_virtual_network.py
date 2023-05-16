@@ -17,8 +17,6 @@ __all__ = [
     'get_virtual_network_output',
 ]
 
-warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetVirtualNetworkResult:
     """
@@ -205,7 +203,6 @@ def get_virtual_network(expand: Optional[str] = None,
     :param str name: The name of the virtual network.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_virtual_network is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name
@@ -245,5 +242,4 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str name: The name of the virtual network.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_virtual_network is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
     ...

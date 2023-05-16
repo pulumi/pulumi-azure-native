@@ -9,12 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'AlexaChannelPropertiesResponse',
     'AlexaChannelResponse',
-    'BotPropertiesResponse',
     'ConnectionSettingParameterResponse',
     'ConnectionSettingPropertiesResponse',
     'DirectLineChannelPropertiesResponse',
@@ -56,29 +54,6 @@ class AlexaChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Alexa channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alexaSkillId":
-            suggest = "alexa_skill_id"
-        elif key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "serviceEndpointUri":
-            suggest = "service_endpoint_uri"
-        elif key == "urlFragment":
-            suggest = "url_fragment"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlexaChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlexaChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlexaChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  alexa_skill_id: str,
                  is_enabled: bool,
@@ -134,23 +109,6 @@ class AlexaChannelResponse(dict):
     """
     Alexa channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlexaChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlexaChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlexaChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.AlexaChannelPropertiesResponse'] = None):
@@ -180,232 +138,6 @@ class AlexaChannelResponse(dict):
         The set of properties specific to Alexa channel resource
         """
         return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
-class BotPropertiesResponse(dict):
-    """
-    The parameters to provide for the Bot.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "configuredChannels":
-            suggest = "configured_channels"
-        elif key == "displayName":
-            suggest = "display_name"
-        elif key == "enabledChannels":
-            suggest = "enabled_channels"
-        elif key == "endpointVersion":
-            suggest = "endpoint_version"
-        elif key == "msaAppId":
-            suggest = "msa_app_id"
-        elif key == "cmekKeyVaultUrl":
-            suggest = "cmek_key_vault_url"
-        elif key == "developerAppInsightKey":
-            suggest = "developer_app_insight_key"
-        elif key == "developerAppInsightsApiKey":
-            suggest = "developer_app_insights_api_key"
-        elif key == "developerAppInsightsApplicationId":
-            suggest = "developer_app_insights_application_id"
-        elif key == "iconUrl":
-            suggest = "icon_url"
-        elif key == "isCmekEnabled":
-            suggest = "is_cmek_enabled"
-        elif key == "luisAppIds":
-            suggest = "luis_app_ids"
-        elif key == "luisKey":
-            suggest = "luis_key"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BotPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BotPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 configured_channels: Sequence[str],
-                 display_name: str,
-                 enabled_channels: Sequence[str],
-                 endpoint: str,
-                 endpoint_version: str,
-                 msa_app_id: str,
-                 cmek_key_vault_url: Optional[str] = None,
-                 description: Optional[str] = None,
-                 developer_app_insight_key: Optional[str] = None,
-                 developer_app_insights_api_key: Optional[str] = None,
-                 developer_app_insights_application_id: Optional[str] = None,
-                 icon_url: Optional[str] = None,
-                 is_cmek_enabled: Optional[bool] = None,
-                 luis_app_ids: Optional[Sequence[str]] = None,
-                 luis_key: Optional[str] = None):
-        """
-        The parameters to provide for the Bot.
-        :param Sequence[str] configured_channels: Collection of channels for which the bot is configured
-        :param str display_name: The Name of the bot
-        :param Sequence[str] enabled_channels: Collection of channels for which the bot is enabled
-        :param str endpoint: The bot's endpoint
-        :param str endpoint_version: The bot's endpoint version
-        :param str msa_app_id: Microsoft App Id for the bot
-        :param str cmek_key_vault_url: The CMK Url
-        :param str description: The description of the bot
-        :param str developer_app_insight_key: The Application Insights key
-        :param str developer_app_insights_api_key: The Application Insights Api Key
-        :param str developer_app_insights_application_id: The Application Insights App Id
-        :param str icon_url: The Icon Url of the bot
-        :param bool is_cmek_enabled: Whether Cmek is enabled
-        :param Sequence[str] luis_app_ids: Collection of LUIS App Ids
-        :param str luis_key: The LUIS Key
-        """
-        pulumi.set(__self__, "configured_channels", configured_channels)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "enabled_channels", enabled_channels)
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "endpoint_version", endpoint_version)
-        pulumi.set(__self__, "msa_app_id", msa_app_id)
-        if cmek_key_vault_url is not None:
-            pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if developer_app_insight_key is not None:
-            pulumi.set(__self__, "developer_app_insight_key", developer_app_insight_key)
-        if developer_app_insights_api_key is not None:
-            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
-        if developer_app_insights_application_id is not None:
-            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
-        if icon_url is not None:
-            pulumi.set(__self__, "icon_url", icon_url)
-        if is_cmek_enabled is not None:
-            pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
-        if luis_app_ids is not None:
-            pulumi.set(__self__, "luis_app_ids", luis_app_ids)
-        if luis_key is not None:
-            pulumi.set(__self__, "luis_key", luis_key)
-
-    @property
-    @pulumi.getter(name="configuredChannels")
-    def configured_channels(self) -> Sequence[str]:
-        """
-        Collection of channels for which the bot is configured
-        """
-        return pulumi.get(self, "configured_channels")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
-        """
-        The Name of the bot
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter(name="enabledChannels")
-    def enabled_channels(self) -> Sequence[str]:
-        """
-        Collection of channels for which the bot is enabled
-        """
-        return pulumi.get(self, "enabled_channels")
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> str:
-        """
-        The bot's endpoint
-        """
-        return pulumi.get(self, "endpoint")
-
-    @property
-    @pulumi.getter(name="endpointVersion")
-    def endpoint_version(self) -> str:
-        """
-        The bot's endpoint version
-        """
-        return pulumi.get(self, "endpoint_version")
-
-    @property
-    @pulumi.getter(name="msaAppId")
-    def msa_app_id(self) -> str:
-        """
-        Microsoft App Id for the bot
-        """
-        return pulumi.get(self, "msa_app_id")
-
-    @property
-    @pulumi.getter(name="cmekKeyVaultUrl")
-    def cmek_key_vault_url(self) -> Optional[str]:
-        """
-        The CMK Url
-        """
-        return pulumi.get(self, "cmek_key_vault_url")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the bot
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="developerAppInsightKey")
-    def developer_app_insight_key(self) -> Optional[str]:
-        """
-        The Application Insights key
-        """
-        return pulumi.get(self, "developer_app_insight_key")
-
-    @property
-    @pulumi.getter(name="developerAppInsightsApiKey")
-    def developer_app_insights_api_key(self) -> Optional[str]:
-        """
-        The Application Insights Api Key
-        """
-        return pulumi.get(self, "developer_app_insights_api_key")
-
-    @property
-    @pulumi.getter(name="developerAppInsightsApplicationId")
-    def developer_app_insights_application_id(self) -> Optional[str]:
-        """
-        The Application Insights App Id
-        """
-        return pulumi.get(self, "developer_app_insights_application_id")
-
-    @property
-    @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> Optional[str]:
-        """
-        The Icon Url of the bot
-        """
-        return pulumi.get(self, "icon_url")
-
-    @property
-    @pulumi.getter(name="isCmekEnabled")
-    def is_cmek_enabled(self) -> Optional[bool]:
-        """
-        Whether Cmek is enabled
-        """
-        return pulumi.get(self, "is_cmek_enabled")
-
-    @property
-    @pulumi.getter(name="luisAppIds")
-    def luis_app_ids(self) -> Optional[Sequence[str]]:
-        """
-        Collection of LUIS App Ids
-        """
-        return pulumi.get(self, "luis_app_ids")
-
-    @property
-    @pulumi.getter(name="luisKey")
-    def luis_key(self) -> Optional[str]:
-        """
-        The LUIS Key
-        """
-        return pulumi.get(self, "luis_key")
 
 
 @pulumi.output_type
@@ -448,31 +180,6 @@ class ConnectionSettingPropertiesResponse(dict):
     """
     Properties for a Connection Setting Item
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "settingId":
-            suggest = "setting_id"
-        elif key == "clientId":
-            suggest = "client_id"
-        elif key == "clientSecret":
-            suggest = "client_secret"
-        elif key == "serviceProviderDisplayName":
-            suggest = "service_provider_display_name"
-        elif key == "serviceProviderId":
-            suggest = "service_provider_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectionSettingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectionSettingPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectionSettingPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  setting_id: str,
                  client_id: Optional[str] = None,
@@ -590,23 +297,6 @@ class DirectLineChannelResponse(dict):
     """
     Direct Line channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DirectLineChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DirectLineChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DirectLineChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.DirectLineChannelPropertiesResponse'] = None):
@@ -643,35 +333,6 @@ class DirectLineSiteResponse(dict):
     """
     A site for the Direct Line channel
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "isV1Enabled":
-            suggest = "is_v1_enabled"
-        elif key == "isV3Enabled":
-            suggest = "is_v3_enabled"
-        elif key == "siteId":
-            suggest = "site_id"
-        elif key == "siteName":
-            suggest = "site_name"
-        elif key == "isSecureSiteEnabled":
-            suggest = "is_secure_site_enabled"
-        elif key == "trustedOrigins":
-            suggest = "trusted_origins"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DirectLineSiteResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DirectLineSiteResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DirectLineSiteResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  is_enabled: bool,
                  is_v1_enabled: bool,
@@ -784,31 +445,6 @@ class DirectLineSpeechChannelPropertiesResponse(dict):
     """
     The parameters to provide for the DirectLine Speech channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "cognitiveServicesSubscriptionId":
-            suggest = "cognitive_services_subscription_id"
-        elif key == "customSpeechModelId":
-            suggest = "custom_speech_model_id"
-        elif key == "customVoiceDeploymentId":
-            suggest = "custom_voice_deployment_id"
-        elif key == "isDefaultBotForCogSvcAccount":
-            suggest = "is_default_bot_for_cog_svc_account"
-        elif key == "isEnabled":
-            suggest = "is_enabled"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DirectLineSpeechChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DirectLineSpeechChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DirectLineSpeechChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  cognitive_services_subscription_id: str,
                  custom_speech_model_id: Optional[str] = None,
@@ -879,23 +515,6 @@ class DirectLineSpeechChannelResponse(dict):
     """
     DirectLine Speech channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DirectLineSpeechChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DirectLineSpeechChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DirectLineSpeechChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.DirectLineSpeechChannelPropertiesResponse'] = None):
@@ -932,25 +551,6 @@ class EmailChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Email channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "emailAddress":
-            suggest = "email_address"
-        elif key == "isEnabled":
-            suggest = "is_enabled"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EmailChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EmailChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EmailChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  email_address: str,
                  is_enabled: bool,
@@ -996,23 +596,6 @@ class EmailChannelResponse(dict):
     """
     Email channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EmailChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EmailChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EmailChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.EmailChannelPropertiesResponse'] = None):
@@ -1049,31 +632,6 @@ class FacebookChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Facebook channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "appId":
-            suggest = "app_id"
-        elif key == "callbackUrl":
-            suggest = "callback_url"
-        elif key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "verifyToken":
-            suggest = "verify_token"
-        elif key == "appSecret":
-            suggest = "app_secret"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FacebookChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FacebookChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FacebookChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  app_id: str,
                  callback_url: str,
@@ -1153,23 +711,6 @@ class FacebookChannelResponse(dict):
     """
     Facebook channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FacebookChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FacebookChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FacebookChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.FacebookChannelPropertiesResponse'] = None):
@@ -1206,23 +747,6 @@ class FacebookPageResponse(dict):
     """
     A Facebook page for Facebook channel registration
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accessToken":
-            suggest = "access_token"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FacebookPageResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FacebookPageResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FacebookPageResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  id: str,
                  access_token: Optional[str] = None):
@@ -1257,29 +781,6 @@ class KikChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Kik channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "userName":
-            suggest = "user_name"
-        elif key == "apiKey":
-            suggest = "api_key"
-        elif key == "isValidated":
-            suggest = "is_validated"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KikChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KikChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KikChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  is_enabled: bool,
                  user_name: str,
@@ -1337,23 +838,6 @@ class KikChannelResponse(dict):
     """
     Kik channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KikChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KikChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KikChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.KikChannelPropertiesResponse'] = None):
@@ -1390,27 +874,6 @@ class LineChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Line channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "callbackUrl":
-            suggest = "callback_url"
-        elif key == "isValidated":
-            suggest = "is_validated"
-        elif key == "lineRegistrations":
-            suggest = "line_registrations"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LineChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LineChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LineChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  callback_url: str,
                  is_validated: bool,
@@ -1455,23 +918,6 @@ class LineChannelResponse(dict):
     """
     Line channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LineChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LineChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LineChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.LineChannelPropertiesResponse'] = None):
@@ -1508,27 +954,6 @@ class LineRegistrationResponse(dict):
     """
     The properties corresponding to a line channel registration
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "generatedId":
-            suggest = "generated_id"
-        elif key == "channelAccessToken":
-            suggest = "channel_access_token"
-        elif key == "channelSecret":
-            suggest = "channel_secret"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LineRegistrationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LineRegistrationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LineRegistrationResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  generated_id: str,
                  channel_access_token: Optional[str] = None,
@@ -1575,27 +1000,6 @@ class MsTeamsChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Microsoft Teams channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "callingWebHook":
-            suggest = "calling_web_hook"
-        elif key == "enableCalling":
-            suggest = "enable_calling"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MsTeamsChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MsTeamsChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MsTeamsChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  is_enabled: bool,
                  calling_web_hook: Optional[str] = None,
@@ -1642,23 +1046,6 @@ class MsTeamsChannelResponse(dict):
     """
     Microsoft Teams channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MsTeamsChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MsTeamsChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MsTeamsChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.MsTeamsChannelPropertiesResponse'] = None):
@@ -1906,39 +1293,6 @@ class SkypeChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Microsoft Teams channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "callingWebHook":
-            suggest = "calling_web_hook"
-        elif key == "enableCalling":
-            suggest = "enable_calling"
-        elif key == "enableGroups":
-            suggest = "enable_groups"
-        elif key == "enableMediaCards":
-            suggest = "enable_media_cards"
-        elif key == "enableMessaging":
-            suggest = "enable_messaging"
-        elif key == "enableScreenSharing":
-            suggest = "enable_screen_sharing"
-        elif key == "enableVideo":
-            suggest = "enable_video"
-        elif key == "groupsMode":
-            suggest = "groups_mode"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SkypeChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SkypeChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SkypeChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  is_enabled: bool,
                  calling_web_hook: Optional[str] = None,
@@ -2057,23 +1411,6 @@ class SkypeChannelResponse(dict):
     """
     Skype channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SkypeChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SkypeChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SkypeChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.SkypeChannelPropertiesResponse'] = None):
@@ -2110,41 +1447,6 @@ class SlackChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Slack channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "isValidated":
-            suggest = "is_validated"
-        elif key == "lastSubmissionId":
-            suggest = "last_submission_id"
-        elif key == "redirectAction":
-            suggest = "redirect_action"
-        elif key == "registerBeforeOAuthFlow":
-            suggest = "register_before_o_auth_flow"
-        elif key == "clientId":
-            suggest = "client_id"
-        elif key == "clientSecret":
-            suggest = "client_secret"
-        elif key == "landingPageUrl":
-            suggest = "landing_page_url"
-        elif key == "signingSecret":
-            suggest = "signing_secret"
-        elif key == "verificationToken":
-            suggest = "verification_token"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SlackChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SlackChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SlackChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  is_enabled: bool,
                  is_validated: bool,
@@ -2271,23 +1573,6 @@ class SlackChannelResponse(dict):
     """
     Slack channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SlackChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SlackChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SlackChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.SlackChannelPropertiesResponse'] = None):
@@ -2324,29 +1609,6 @@ class SmsChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Sms channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accountSID":
-            suggest = "account_sid"
-        elif key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "authToken":
-            suggest = "auth_token"
-        elif key == "isValidated":
-            suggest = "is_validated"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SmsChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SmsChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SmsChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  account_sid: str,
                  is_enabled: bool,
@@ -2415,23 +1677,6 @@ class SmsChannelResponse(dict):
     """
     Sms channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SmsChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SmsChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SmsChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.SmsChannelPropertiesResponse'] = None):
@@ -2468,27 +1713,6 @@ class TelegramChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Telegram channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "accessToken":
-            suggest = "access_token"
-        elif key == "isValidated":
-            suggest = "is_validated"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TelegramChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TelegramChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TelegramChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  is_enabled: bool,
                  access_token: Optional[str] = None,
@@ -2535,23 +1759,6 @@ class TelegramChannelResponse(dict):
     """
     Telegram channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TelegramChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TelegramChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TelegramChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.TelegramChannelPropertiesResponse'] = None):
@@ -2588,23 +1795,6 @@ class WebChatChannelPropertiesResponse(dict):
     """
     The parameters to provide for the Web Chat channel.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "webChatEmbedCode":
-            suggest = "web_chat_embed_code"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebChatChannelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebChatChannelPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebChatChannelPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  web_chat_embed_code: str,
                  sites: Optional[Sequence['outputs.WebChatSiteResponse']] = None):
@@ -2639,23 +1829,6 @@ class WebChatChannelResponse(dict):
     """
     Web Chat channel definition
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "channelName":
-            suggest = "channel_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebChatChannelResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebChatChannelResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebChatChannelResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  channel_name: str,
                  properties: Optional['outputs.WebChatChannelPropertiesResponse'] = None):
@@ -2692,29 +1865,6 @@ class WebChatSiteResponse(dict):
     """
     A site for the Webchat channel
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "enablePreview":
-            suggest = "enable_preview"
-        elif key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "siteId":
-            suggest = "site_id"
-        elif key == "siteName":
-            suggest = "site_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebChatSiteResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebChatSiteResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebChatSiteResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  enable_preview: bool,
                  is_enabled: bool,

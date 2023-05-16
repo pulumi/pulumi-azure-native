@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountSqlContainer(args: GetDatabaseAccountSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlContainerResult> {
-    pulumi.log.warn("getDatabaseAccountSqlContainer is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20160331:getDatabaseAccountSqlContainer", {
@@ -102,7 +100,6 @@ export interface GetDatabaseAccountSqlContainerResult {
 /**
  * Gets the SQL container under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountSqlContainerOutput(args: GetDatabaseAccountSqlContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountSqlContainerResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountSqlContainer(a, opts))
 }

@@ -17,8 +17,6 @@ __all__ = [
     'get_profile_output',
 ]
 
-warnings.warn("""Version 2018-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetProfileResult:
     """
@@ -177,7 +175,6 @@ def get_profile(profile_name: Optional[str] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager profile.
     """
-    pulumi.log.warn("""get_profile is deprecated: Version 2018-02-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
@@ -209,5 +206,4 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager profile.
     """
-    pulumi.log.warn("""get_profile is deprecated: Version 2018-02-01 will be removed in v2 of the provider.""")
     ...

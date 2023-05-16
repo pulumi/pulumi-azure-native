@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a database.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getReadOnlyFollowingDatabase(args: GetReadOnlyFollowingDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadOnlyFollowingDatabaseResult> {
 
@@ -45,6 +45,10 @@ export interface GetReadOnlyFollowingDatabaseResult {
      */
     readonly attachedDatabaseConfigurationName: string;
     /**
+     * The origin of the following setup.
+     */
+    readonly databaseShareOrigin: string;
+    /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
     readonly hotCachePeriod?: string;
@@ -70,6 +74,10 @@ export interface GetReadOnlyFollowingDatabaseResult {
      */
     readonly name: string;
     /**
+     * The original database name, before databaseNameOverride or databaseNamePrefix where applied.
+     */
+    readonly originalDatabaseName: string;
+    /**
      * The principals modification kind of the database
      */
     readonly principalsModificationKind: string;
@@ -86,13 +94,17 @@ export interface GetReadOnlyFollowingDatabaseResult {
      */
     readonly statistics: outputs.kusto.DatabaseStatisticsResponse;
     /**
+     * Table level sharing specifications
+     */
+    readonly tableLevelSharingProperties: outputs.kusto.TableLevelSharingPropertiesResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Returns a database.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getReadOnlyFollowingDatabase(a, opts))

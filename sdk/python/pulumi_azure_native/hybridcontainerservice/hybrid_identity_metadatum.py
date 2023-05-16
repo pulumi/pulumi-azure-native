@@ -17,23 +17,23 @@ __all__ = ['HybridIdentityMetadatumArgs', 'HybridIdentityMetadatum']
 @pulumi.input_type
 class HybridIdentityMetadatumArgs:
     def __init__(__self__, *,
-                 provisioned_clusters_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 resource_name: pulumi.Input[str],
                  hybrid_identity_metadata_resource_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
                  resource_uid: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HybridIdentityMetadatum resource.
-        :param pulumi.Input[str] provisioned_clusters_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[str] hybrid_identity_metadata_resource_name: Parameter for the name of the hybrid identity metadata resource.
         :param pulumi.Input['ProvisionedClusterIdentityArgs'] identity: The identity of the provisioned cluster.
         :param pulumi.Input[str] public_key: Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
         :param pulumi.Input[str] resource_uid: Unique id of the parent provisioned cluster resource.
         """
-        pulumi.set(__self__, "provisioned_clusters_name", provisioned_clusters_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_name", resource_name)
         if hybrid_identity_metadata_resource_name is not None:
             pulumi.set(__self__, "hybrid_identity_metadata_resource_name", hybrid_identity_metadata_resource_name)
         if identity is not None:
@@ -42,18 +42,6 @@ class HybridIdentityMetadatumArgs:
             pulumi.set(__self__, "public_key", public_key)
         if resource_uid is not None:
             pulumi.set(__self__, "resource_uid", resource_uid)
-
-    @property
-    @pulumi.getter(name="provisionedClustersName")
-    def provisioned_clusters_name(self) -> pulumi.Input[str]:
-        """
-        Parameter for the name of the provisioned cluster
-        """
-        return pulumi.get(self, "provisioned_clusters_name")
-
-    @provisioned_clusters_name.setter
-    def provisioned_clusters_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provisioned_clusters_name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -66,6 +54,18 @@ class HybridIdentityMetadatumArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        Parameter for the name of the provisioned cluster
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
 
     @property
     @pulumi.getter(name="hybridIdentityMetadataResourceName")
@@ -123,22 +123,23 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hybrid_identity_metadata_resource_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ProvisionedClusterIdentityArgs']]] = None,
-                 provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  resource_uid: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Defines the hybridIdentityMetadata.
-        API Version: 2022-05-01-preview.
+        API Version: 2022-09-01-preview.
+        Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hybrid_identity_metadata_resource_name: Parameter for the name of the hybrid identity metadata resource.
         :param pulumi.Input[pulumi.InputType['ProvisionedClusterIdentityArgs']] identity: The identity of the provisioned cluster.
-        :param pulumi.Input[str] provisioned_clusters_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[str] public_key: Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name_: Parameter for the name of the provisioned cluster
         :param pulumi.Input[str] resource_uid: Unique id of the parent provisioned cluster resource.
         """
         ...
@@ -149,7 +150,8 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the hybridIdentityMetadata.
-        API Version: 2022-05-01-preview.
+        API Version: 2022-09-01-preview.
+        Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param HybridIdentityMetadatumArgs args: The arguments to use to populate this resource's properties.
@@ -168,9 +170,9 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hybrid_identity_metadata_resource_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ProvisionedClusterIdentityArgs']]] = None,
-                 provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  resource_uid: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -183,19 +185,19 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
 
             __props__.__dict__["hybrid_identity_metadata_resource_name"] = hybrid_identity_metadata_resource_name
             __props__.__dict__["identity"] = identity
-            if provisioned_clusters_name is None and not opts.urn:
-                raise TypeError("Missing required property 'provisioned_clusters_name'")
-            __props__.__dict__["provisioned_clusters_name"] = provisioned_clusters_name
             __props__.__dict__["public_key"] = public_key
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if resource_name_ is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["resource_uid"] = resource_uid
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:HybridIdentityMetadatum")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HybridIdentityMetadatum, __self__).__init__(
             'azure-native:hybridcontainerservice:HybridIdentityMetadatum',

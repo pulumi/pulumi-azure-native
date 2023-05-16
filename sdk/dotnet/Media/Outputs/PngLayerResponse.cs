@@ -25,11 +25,6 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.PngLayer'.
-        /// </summary>
-        public readonly string OdataType;
-        /// <summary>
         /// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         /// </summary>
         public readonly string? Width;
@@ -40,13 +35,10 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             string? label,
 
-            string odataType,
-
             string? width)
         {
             Height = height;
             Label = label;
-            OdataType = odataType;
             Width = width;
         }
     }

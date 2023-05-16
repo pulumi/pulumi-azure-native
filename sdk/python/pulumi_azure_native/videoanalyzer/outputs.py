@@ -19,13 +19,17 @@ __all__ = [
     'EncoderProcessorResponse',
     'EncoderSystemPresetResponse',
     'EndpointResponse',
+    'GroupLevelAccessControlResponse',
+    'IotHubResponse',
     'JwtAuthenticationResponse',
     'KeyVaultPropertiesResponse',
+    'NetworkAccessControlResponse',
     'NodeInputResponse',
     'ParameterDeclarationResponse',
     'ParameterDefinitionResponse',
     'PemCertificateListResponse',
     'PipelineJobErrorResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ResourceIdentityResponse',
@@ -42,16 +46,18 @@ __all__ = [
     'UserAssignedManagedIdentityResponse',
     'UsernamePasswordCredentialsResponse',
     'VideoAnalyzerIdentityResponse',
+    'VideoArchivalResponse',
+    'VideoContentUrlsResponse',
     'VideoCreationPropertiesResponse',
     'VideoEncoderH264Response',
     'VideoFlagsResponse',
     'VideoMediaInfoResponse',
+    'VideoPreviewImageUrlsResponse',
     'VideoPublishingOptionsResponse',
     'VideoScaleResponse',
     'VideoSequenceAbsoluteTimeMarkersResponse',
     'VideoSinkResponse',
     'VideoSourceResponse',
-    'VideoStreamingResponse',
 ]
 
 @pulumi.output_type
@@ -460,6 +466,90 @@ class EndpointResponse(dict):
 
 
 @pulumi.output_type
+class GroupLevelAccessControlResponse(dict):
+    """
+    Group level network access control.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicNetworkAccess":
+            suggest = "public_network_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupLevelAccessControlResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupLevelAccessControlResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupLevelAccessControlResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_network_access: Optional[str] = None):
+        """
+        Group level network access control.
+        :param str public_network_access: Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+        """
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+        """
+        return pulumi.get(self, "public_network_access")
+
+
+@pulumi.output_type
+class IotHubResponse(dict):
+    """
+    The IoT Hub details.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 identity: 'outputs.ResourceIdentityResponse',
+                 status: str):
+        """
+        The IoT Hub details.
+        :param str id: The IoT Hub resource identifier.
+        :param 'ResourceIdentityResponse' identity: The IoT Hub identity.
+        :param str status: The current status of the Iot Hub mapping.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The IoT Hub resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> 'outputs.ResourceIdentityResponse':
+        """
+        The IoT Hub identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The current status of the Iot Hub mapping.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class JwtAuthenticationResponse(dict):
     """
     Properties for access validation based on JSON Web Tokens (JWT).
@@ -581,6 +671,53 @@ class KeyVaultPropertiesResponse(dict):
         The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         """
         return pulumi.get(self, "key_identifier")
+
+
+@pulumi.output_type
+class NetworkAccessControlResponse(dict):
+    """
+    Network access control for video analyzer account.
+    """
+    def __init__(__self__, *,
+                 consumption: Optional['outputs.GroupLevelAccessControlResponse'] = None,
+                 ingestion: Optional['outputs.GroupLevelAccessControlResponse'] = None,
+                 integration: Optional['outputs.GroupLevelAccessControlResponse'] = None):
+        """
+        Network access control for video analyzer account.
+        :param 'GroupLevelAccessControlResponse' consumption: Public network access for consumption group.
+        :param 'GroupLevelAccessControlResponse' ingestion: Public network access for ingestion group.
+        :param 'GroupLevelAccessControlResponse' integration: Public network access for integration group.
+        """
+        if consumption is not None:
+            pulumi.set(__self__, "consumption", consumption)
+        if ingestion is not None:
+            pulumi.set(__self__, "ingestion", ingestion)
+        if integration is not None:
+            pulumi.set(__self__, "integration", integration)
+
+    @property
+    @pulumi.getter
+    def consumption(self) -> Optional['outputs.GroupLevelAccessControlResponse']:
+        """
+        Public network access for consumption group.
+        """
+        return pulumi.get(self, "consumption")
+
+    @property
+    @pulumi.getter
+    def ingestion(self) -> Optional['outputs.GroupLevelAccessControlResponse']:
+        """
+        Public network access for ingestion group.
+        """
+        return pulumi.get(self, "ingestion")
+
+    @property
+    @pulumi.getter
+    def integration(self) -> Optional['outputs.GroupLevelAccessControlResponse']:
+        """
+        Public network access for integration group.
+        """
+        return pulumi.get(self, "integration")
 
 
 @pulumi.output_type
@@ -781,6 +918,118 @@ class PipelineJobErrorResponse(dict):
         The error message.
         """
         return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The Private Endpoint Connection resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
 
 
 @pulumi.output_type
@@ -1138,20 +1387,27 @@ class StorageAccountResponse(dict):
     The details about the associated storage account.
     """
     def __init__(__self__, *,
+                 id: str,
                  status: str,
-                 id: Optional[str] = None,
                  identity: Optional['outputs.ResourceIdentityResponse'] = None):
         """
         The details about the associated storage account.
-        :param str status: The current status of the storage account mapping.
         :param str id: The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
+        :param str status: The current status of the storage account mapping.
         :param 'ResourceIdentityResponse' identity: A managed identity that Video Analyzer will use to access the storage account.
         """
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "status", status)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1160,14 +1416,6 @@ class StorageAccountResponse(dict):
         The current status of the storage account mapping.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1684,6 +1932,140 @@ class VideoAnalyzerIdentityResponse(dict):
 
 
 @pulumi.output_type
+class VideoArchivalResponse(dict):
+    """
+    Video archival properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPeriod":
+            suggest = "retention_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoArchivalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoArchivalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoArchivalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retention_period: Optional[str] = None):
+        """
+        Video archival properties.
+        :param str retention_period: Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+        """
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[str]:
+        """
+        Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+        """
+        return pulumi.get(self, "retention_period")
+
+
+@pulumi.output_type
+class VideoContentUrlsResponse(dict):
+    """
+    Set of URLs to the video content.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveBaseUrl":
+            suggest = "archive_base_url"
+        elif key == "downloadUrl":
+            suggest = "download_url"
+        elif key == "previewImageUrls":
+            suggest = "preview_image_urls"
+        elif key == "rtspTunnelUrl":
+            suggest = "rtsp_tunnel_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoContentUrlsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoContentUrlsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoContentUrlsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archive_base_url: Optional[str] = None,
+                 download_url: Optional[str] = None,
+                 preview_image_urls: Optional['outputs.VideoPreviewImageUrlsResponse'] = None,
+                 rtsp_tunnel_url: Optional[str] = None):
+        """
+        Set of URLs to the video content.
+        :param str archive_base_url: Video archive streaming base URL. The archived content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token on any compatible DASH or HLS players by appending the following to the base URL:
+               
+                   - HLSv4:     /manifest(format=m3u8-aapl).m3u8
+                   - HLS CMAF:  /manifest(format=m3u8-cmaf)
+                   - DASH CMAF: /manifest(format=mpd-time-cmaf)
+               
+                   Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length. It is available when the video type is 'archive' and video archiving is enabled.
+        :param str download_url: Video file download URL. This URL can be used in conjunction with the video content authorization token to download the video MP4 file. The resulting MP4 file can be played on any standard media player. It is available when the video type is 'file' and video file is available for consumption.
+        :param 'VideoPreviewImageUrlsResponse' preview_image_urls: Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
+        :param str rtsp_tunnel_url: Video low-latency streaming URL. The live content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token to expose a WebSocket tunneled RTSP stream. It is available when the video type is 'archive' and a live, low-latency feed is available from the source.
+        """
+        if archive_base_url is not None:
+            pulumi.set(__self__, "archive_base_url", archive_base_url)
+        if download_url is not None:
+            pulumi.set(__self__, "download_url", download_url)
+        if preview_image_urls is not None:
+            pulumi.set(__self__, "preview_image_urls", preview_image_urls)
+        if rtsp_tunnel_url is not None:
+            pulumi.set(__self__, "rtsp_tunnel_url", rtsp_tunnel_url)
+
+    @property
+    @pulumi.getter(name="archiveBaseUrl")
+    def archive_base_url(self) -> Optional[str]:
+        """
+        Video archive streaming base URL. The archived content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token on any compatible DASH or HLS players by appending the following to the base URL:
+        
+            - HLSv4:     /manifest(format=m3u8-aapl).m3u8
+            - HLS CMAF:  /manifest(format=m3u8-cmaf)
+            - DASH CMAF: /manifest(format=mpd-time-cmaf)
+        
+            Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length. It is available when the video type is 'archive' and video archiving is enabled.
+        """
+        return pulumi.get(self, "archive_base_url")
+
+    @property
+    @pulumi.getter(name="downloadUrl")
+    def download_url(self) -> Optional[str]:
+        """
+        Video file download URL. This URL can be used in conjunction with the video content authorization token to download the video MP4 file. The resulting MP4 file can be played on any standard media player. It is available when the video type is 'file' and video file is available for consumption.
+        """
+        return pulumi.get(self, "download_url")
+
+    @property
+    @pulumi.getter(name="previewImageUrls")
+    def preview_image_urls(self) -> Optional['outputs.VideoPreviewImageUrlsResponse']:
+        """
+        Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
+        """
+        return pulumi.get(self, "preview_image_urls")
+
+    @property
+    @pulumi.getter(name="rtspTunnelUrl")
+    def rtsp_tunnel_url(self) -> Optional[str]:
+        """
+        Video low-latency streaming URL. The live content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token to expose a WebSocket tunneled RTSP stream. It is available when the video type is 'archive' and a live, low-latency feed is available from the source.
+        """
+        return pulumi.get(self, "rtsp_tunnel_url")
+
+
+@pulumi.output_type
 class VideoCreationPropertiesResponse(dict):
     """
     Optional properties to be used in case a new video resource needs to be created on the service. These will not take effect if the video already exists.
@@ -1852,8 +2234,8 @@ class VideoFlagsResponse(dict):
             suggest = "can_stream"
         elif key == "hasData":
             suggest = "has_data"
-        elif key == "isRecording":
-            suggest = "is_recording"
+        elif key == "isInUse":
+            suggest = "is_in_use"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VideoFlagsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1869,16 +2251,16 @@ class VideoFlagsResponse(dict):
     def __init__(__self__, *,
                  can_stream: bool,
                  has_data: bool,
-                 is_recording: bool):
+                 is_in_use: bool):
         """
         Video flags contain information about the available video actions and its dynamic properties based on the current video state.
         :param bool can_stream: Value indicating whether or not the video can be streamed. Only "archive" type videos can be streamed.
         :param bool has_data: Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
-        :param bool is_recording: Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
+        :param bool is_in_use: Value indicating whether or not the video is currently being referenced be an active pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
         """
         pulumi.set(__self__, "can_stream", can_stream)
         pulumi.set(__self__, "has_data", has_data)
-        pulumi.set(__self__, "is_recording", is_recording)
+        pulumi.set(__self__, "is_in_use", is_in_use)
 
     @property
     @pulumi.getter(name="canStream")
@@ -1897,12 +2279,12 @@ class VideoFlagsResponse(dict):
         return pulumi.get(self, "has_data")
 
     @property
-    @pulumi.getter(name="isRecording")
-    def is_recording(self) -> bool:
+    @pulumi.getter(name="isInUse")
+    def is_in_use(self) -> bool:
         """
-        Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
+        Value indicating whether or not the video is currently being referenced be an active pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
         """
-        return pulumi.get(self, "is_recording")
+        return pulumi.get(self, "is_in_use")
 
 
 @pulumi.output_type
@@ -1928,20 +2310,68 @@ class VideoMediaInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 segment_length: str):
+                 segment_length: Optional[str] = None):
         """
         Contains information about the video and audio content.
         :param str segment_length: Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
         """
-        pulumi.set(__self__, "segment_length", segment_length)
+        if segment_length is not None:
+            pulumi.set(__self__, "segment_length", segment_length)
 
     @property
     @pulumi.getter(name="segmentLength")
-    def segment_length(self) -> str:
+    def segment_length(self) -> Optional[str]:
         """
         Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
         """
         return pulumi.get(self, "segment_length")
+
+
+@pulumi.output_type
+class VideoPreviewImageUrlsResponse(dict):
+    """
+    Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
+    """
+    def __init__(__self__, *,
+                 large: Optional[str] = None,
+                 medium: Optional[str] = None,
+                 small: Optional[str] = None):
+        """
+        Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
+        :param str large: High resolution preview image URL.
+        :param str medium: Medium resolution preview image URL.
+        :param str small: Low resolution preview image URL.
+        """
+        if large is not None:
+            pulumi.set(__self__, "large", large)
+        if medium is not None:
+            pulumi.set(__self__, "medium", medium)
+        if small is not None:
+            pulumi.set(__self__, "small", small)
+
+    @property
+    @pulumi.getter
+    def large(self) -> Optional[str]:
+        """
+        High resolution preview image URL.
+        """
+        return pulumi.get(self, "large")
+
+    @property
+    @pulumi.getter
+    def medium(self) -> Optional[str]:
+        """
+        Medium resolution preview image URL.
+        """
+        return pulumi.get(self, "medium")
+
+    @property
+    @pulumi.getter
+    def small(self) -> Optional[str]:
+        """
+        Low resolution preview image URL.
+        """
+        return pulumi.get(self, "small")
 
 
 @pulumi.output_type
@@ -2256,57 +2686,5 @@ class VideoSourceResponse(dict):
         Name of the Video Analyzer video resource to be used as the source.
         """
         return pulumi.get(self, "video_name")
-
-
-@pulumi.output_type
-class VideoStreamingResponse(dict):
-    """
-    Video streaming holds information about video streaming URLs.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "archiveBaseUrl":
-            suggest = "archive_base_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VideoStreamingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VideoStreamingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VideoStreamingResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 archive_base_url: Optional[str] = None):
-        """
-        Video streaming holds information about video streaming URLs.
-        :param str archive_base_url: Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:
-               
-                 - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-                 - HLS CMAF:  /manifest(format=m3u8-cmaf)
-                 - DASH CMAF: /manifest(format=mpd-time-cmaf)
-               
-               Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
-        """
-        if archive_base_url is not None:
-            pulumi.set(__self__, "archive_base_url", archive_base_url)
-
-    @property
-    @pulumi.getter(name="archiveBaseUrl")
-    def archive_base_url(self) -> Optional[str]:
-        """
-        Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:
-        
-          - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-          - HLS CMAF:  /manifest(format=m3u8-cmaf)
-          - DASH CMAF: /manifest(format=mpd-time-cmaf)
-        
-        Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
-        """
-        return pulumi.get(self, "archive_base_url")
 
 

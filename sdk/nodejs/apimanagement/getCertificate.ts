@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the certificate specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -27,7 +27,7 @@ export interface GetCertificateArgs {
      */
     certificateId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -45,7 +45,7 @@ export interface GetCertificateResult {
      */
     readonly expirationDate: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -53,7 +53,7 @@ export interface GetCertificateResult {
      */
     readonly keyVault?: outputs.apimanagement.KeyVaultContractPropertiesResponse;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -65,13 +65,13 @@ export interface GetCertificateResult {
      */
     readonly thumbprint: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the details of the certificate specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
@@ -83,7 +83,7 @@ export interface GetCertificateOutputArgs {
      */
     certificateId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

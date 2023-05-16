@@ -6,16 +6,16 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20210901preview from "./v20210901preview";
 import * as v20211001 from "./v20211001";
-import * as v20220801preview from "./v20220801preview";
 import * as v20230201 from "./v20230201";
+import * as v20230301preview from "./v20230301preview";
 
 export {
     v20210401preview,
     v20210601preview,
     v20210901preview,
     v20211001,
-    v20220801preview,
     v20230201,
+    v20230301preview,
 };
 
 export const ACLAction = {
@@ -24,24 +24,21 @@ export const ACLAction = {
 } as const;
 
 /**
- * Default action when no other rule matches
+ * Azure Networking ACL Action.
  */
 export type ACLAction = (typeof ACLAction)[keyof typeof ACLAction];
 
-export const FeatureFlags = {
-    EnableConnectivityLogs: "EnableConnectivityLogs",
-    EnableMessagingLogs: "EnableMessagingLogs",
-    EnableLiveTrace: "EnableLiveTrace",
+export const EventListenerEndpointDiscriminator = {
+    EventHub: "EventHub",
 } as const;
 
-/**
- * FeatureFlags is the supported features of Azure SignalR service.
- *  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
- *  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
- *  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
- *  
- */
-export type FeatureFlags = (typeof FeatureFlags)[keyof typeof FeatureFlags];
+export type EventListenerEndpointDiscriminator = (typeof EventListenerEndpointDiscriminator)[keyof typeof EventListenerEndpointDiscriminator];
+
+export const EventListenerFilterDiscriminator = {
+    EventName: "EventName",
+} as const;
+
+export type EventListenerFilterDiscriminator = (typeof EventListenerFilterDiscriminator)[keyof typeof EventListenerFilterDiscriminator];
 
 export const ManagedIdentityType = {
     None: "None",
@@ -50,7 +47,7 @@ export const ManagedIdentityType = {
 } as const;
 
 /**
- * Represent the identity type: systemAssigned, userAssigned, None
+ * Represents the identity type: systemAssigned, userAssigned, None
  */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
 
@@ -84,7 +81,7 @@ export const WebPubSubRequestType = {
 } as const;
 
 /**
- * Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+ * The incoming request type to the service
  */
 export type WebPubSubRequestType = (typeof WebPubSubRequestType)[keyof typeof WebPubSubRequestType];
 

@@ -17,8 +17,6 @@ __all__ = [
     'get_role_assignment_output',
 ]
 
-warnings.warn("""Version 2015-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetRoleAssignmentResult:
     """
@@ -93,7 +91,6 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.
     """
-    pulumi.log.warn("""get_role_assignment is deprecated: Version 2015-07-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['roleAssignmentName'] = role_assignment_name
     __args__['scope'] = scope
@@ -118,5 +115,4 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
     :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.
     """
-    pulumi.log.warn("""get_role_assignment is deprecated: Version 2015-07-01 will be removed in v2 of the provider.""")
     ...

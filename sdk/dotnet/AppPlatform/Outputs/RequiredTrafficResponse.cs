@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 {
 
     /// <summary>
-    /// Required inbound or outbound traffic for Azure Spring Cloud instance.
+    /// Required inbound or outbound traffic for Azure Spring Apps resource.
     /// </summary>
     [OutputType]
     public sealed class RequiredTrafficResponse

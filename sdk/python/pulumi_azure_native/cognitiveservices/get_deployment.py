@@ -111,7 +111,7 @@ def get_deployment(account_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Gets the specified deployments associated with the Cognitive Services account.
-    API Version: 2021-10-01.
+    API Version: 2022-12-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -141,7 +141,7 @@ def get_deployment_output(account_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Gets the specified deployments associated with the Cognitive Services account.
-    API Version: 2021-10-01.
+    API Version: 2022-12-01.
 
 
     :param str account_name: The name of Cognitive Services account.

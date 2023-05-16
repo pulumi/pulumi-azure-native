@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
-        /// API Version: 2021-01-01-preview.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetArcSettingResult> InvokeAsync(GetArcSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get ArcSetting resource details of HCI Cluster.
-        /// API Version: 2021-01-01-preview.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetArcSettingResult> Invoke(GetArcSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcSettingResult>("azure-native:azurestackhci:getArcSetting", args ?? new GetArcSettingInvokeArgs(), options.WithDefaults());
@@ -88,37 +88,33 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string AggregateState;
         /// <summary>
+        /// App id of arc AAD identity.
+        /// </summary>
+        public readonly string? ArcApplicationClientId;
+        /// <summary>
+        /// Object id of arc AAD identity.
+        /// </summary>
+        public readonly string? ArcApplicationObjectId;
+        /// <summary>
+        /// Tenant id of arc AAD identity.
+        /// </summary>
+        public readonly string? ArcApplicationTenantId;
+        /// <summary>
         /// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
         /// </summary>
-        public readonly string ArcInstanceResourceGroup;
+        public readonly string? ArcInstanceResourceGroup;
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Object id of arc AAD service principal.
         /// </summary>
-        public readonly string? CreatedAt;
+        public readonly string? ArcServicePrincipalObjectId;
         /// <summary>
-        /// The identity that created the resource.
+        /// contains connectivity related configuration for ARC resources
         /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
+        public readonly ImmutableArray<Outputs.ArcConnectivityPropertiesResponse> ConnectivityProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        public readonly string? LastModifiedAt;
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -132,6 +128,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -140,21 +140,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
         private GetArcSettingResult(
             string aggregateState,
 
-            string arcInstanceResourceGroup,
+            string? arcApplicationClientId,
 
-            string? createdAt,
+            string? arcApplicationObjectId,
 
-            string? createdBy,
+            string? arcApplicationTenantId,
 
-            string? createdByType,
+            string? arcInstanceResourceGroup,
+
+            string? arcServicePrincipalObjectId,
+
+            ImmutableArray<Outputs.ArcConnectivityPropertiesResponse> connectivityProperties,
 
             string id,
-
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
 
             string name,
 
@@ -162,20 +160,22 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AggregateState = aggregateState;
+            ArcApplicationClientId = arcApplicationClientId;
+            ArcApplicationObjectId = arcApplicationObjectId;
+            ArcApplicationTenantId = arcApplicationTenantId;
             ArcInstanceResourceGroup = arcInstanceResourceGroup;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
+            ArcServicePrincipalObjectId = arcServicePrincipalObjectId;
+            ConnectivityProperties = connectivityProperties;
             Id = id;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
             Name = name;
             PerNodeDetails = perNodeDetails;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

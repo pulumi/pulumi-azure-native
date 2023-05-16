@@ -22,7 +22,7 @@ class GetPolicyAssignmentResult:
     """
     The policy assignment.
     """
-    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, type=None):
+    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, overrides=None, parameters=None, policy_definition_id=None, resource_selectors=None, scope=None, system_data=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -53,15 +53,24 @@ class GetPolicyAssignmentResult:
         if not_scopes and not isinstance(not_scopes, list):
             raise TypeError("Expected argument 'not_scopes' to be a list")
         pulumi.set(__self__, "not_scopes", not_scopes)
+        if overrides and not isinstance(overrides, list):
+            raise TypeError("Expected argument 'overrides' to be a list")
+        pulumi.set(__self__, "overrides", overrides)
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
         if policy_definition_id and not isinstance(policy_definition_id, str):
             raise TypeError("Expected argument 'policy_definition_id' to be a str")
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if resource_selectors and not isinstance(resource_selectors, list):
+            raise TypeError("Expected argument 'resource_selectors' to be a list")
+        pulumi.set(__self__, "resource_selectors", resource_selectors)
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -148,6 +157,14 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
+    def overrides(self) -> Optional[Sequence['outputs.OverrideResponse']]:
+        """
+        The policy property value override.
+        """
+        return pulumi.get(self, "overrides")
+
+    @property
+    @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterValuesValueResponse']]:
         """
         The parameter values for the assigned policy rule. The keys are the parameter names.
@@ -163,12 +180,28 @@ class GetPolicyAssignmentResult:
         return pulumi.get(self, "policy_definition_id")
 
     @property
+    @pulumi.getter(name="resourceSelectors")
+    def resource_selectors(self) -> Optional[Sequence['outputs.ResourceSelectorResponse']]:
+        """
+        The resource selector list to filter policies by resource properties.
+        """
+        return pulumi.get(self, "resource_selectors")
+
+    @property
     @pulumi.getter
     def scope(self) -> str:
         """
         The scope for the policy assignment.
         """
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -195,9 +228,12 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
             name=self.name,
             non_compliance_messages=self.non_compliance_messages,
             not_scopes=self.not_scopes,
+            overrides=self.overrides,
             parameters=self.parameters,
             policy_definition_id=self.policy_definition_id,
+            resource_selectors=self.resource_selectors,
             scope=self.scope,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -206,7 +242,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentResult:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
-    API Version: 2020-09-01.
+    API Version: 2022-06-01.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.
@@ -229,9 +265,12 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
         name=__ret__.name,
         non_compliance_messages=__ret__.non_compliance_messages,
         not_scopes=__ret__.not_scopes,
+        overrides=__ret__.overrides,
         parameters=__ret__.parameters,
         policy_definition_id=__ret__.policy_definition_id,
+        resource_selectors=__ret__.resource_selectors,
         scope=__ret__.scope,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -241,7 +280,7 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
-    API Version: 2020-09-01.
+    API Version: 2022-06-01.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.

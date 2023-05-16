@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * OpenShift Managed cluster.
  * API Version: 2019-04-30.
+ * Previous API Version: 2019-04-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**

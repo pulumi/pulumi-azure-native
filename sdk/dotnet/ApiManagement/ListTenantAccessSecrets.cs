@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get tenant access information details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-08-01.
         /// </summary>
         public static Task<ListTenantAccessSecretsResult> InvokeAsync(ListTenantAccessSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessSecretsResult>("azure-native:apimanagement:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get tenant access information details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-08-01.
         /// </summary>
         public static Output<ListTenantAccessSecretsResult> Invoke(ListTenantAccessSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTenantAccessSecretsResult>("azure-native:apimanagement:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public string AccessName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> AccessName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

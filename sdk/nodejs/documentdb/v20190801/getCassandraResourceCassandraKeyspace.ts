@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getCassandraResourceCassandraKeyspace(args: GetCassandraResourceCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraKeyspaceResult> {
-    pulumi.log.warn("getCassandraResourceCassandraKeyspace is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20190801:getCassandraResourceCassandraKeyspace", {
@@ -66,7 +64,6 @@ export interface GetCassandraResourceCassandraKeyspaceResult {
 /**
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getCassandraResourceCassandraKeyspaceOutput(args: GetCassandraResourceCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraKeyspaceResult> {
     return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraKeyspace(a, opts))
 }

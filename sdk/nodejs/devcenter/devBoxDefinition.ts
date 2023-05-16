@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a definition for a Developer Machine.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
+ * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DevBoxDefinition extends pulumi.CustomResource {
     /**
@@ -42,6 +43,10 @@ export class DevBoxDefinition extends pulumi.CustomResource {
      * Image reference information for the currently active image (only populated during updates).
      */
     public /*out*/ readonly activeImageReference!: pulumi.Output<outputs.devcenter.ImageReferenceResponse>;
+    /**
+     * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+     */
+    public readonly hibernateSupport!: pulumi.Output<string | undefined>;
     /**
      * Image reference information.
      */
@@ -115,6 +120,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             }
             resourceInputs["devBoxDefinitionName"] = args ? args.devBoxDefinitionName : undefined;
             resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
+            resourceInputs["hibernateSupport"] = args ? args.hibernateSupport : undefined;
             resourceInputs["imageReference"] = args ? args.imageReference : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["osStorageType"] = args ? args.osStorageType : undefined;
@@ -130,6 +136,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activeImageReference"] = undefined /*out*/;
+            resourceInputs["hibernateSupport"] = undefined /*out*/;
             resourceInputs["imageReference"] = undefined /*out*/;
             resourceInputs["imageValidationErrorDetails"] = undefined /*out*/;
             resourceInputs["imageValidationStatus"] = undefined /*out*/;
@@ -143,7 +150,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20220901preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221012preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221111preview:DevBoxDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20220901preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221012preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221111preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20230101preview:DevBoxDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevBoxDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -162,6 +169,10 @@ export interface DevBoxDefinitionArgs {
      */
     devCenterName: pulumi.Input<string>;
     /**
+     * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+     */
+    hibernateSupport?: pulumi.Input<string | enums.devcenter.HibernateSupport>;
+    /**
      * Image reference information.
      */
     imageReference: pulumi.Input<inputs.devcenter.ImageReferenceArgs>;
@@ -174,7 +185,7 @@ export interface DevBoxDefinitionArgs {
      */
     osStorageType: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

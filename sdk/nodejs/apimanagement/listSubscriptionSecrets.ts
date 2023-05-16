@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Subscription keys.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function listSubscriptionSecrets(args: ListSubscriptionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubscriptionSecretsResult> {
 
@@ -20,7 +20,7 @@ export function listSubscriptionSecrets(args: ListSubscriptionSecretsArgs, opts?
 
 export interface ListSubscriptionSecretsArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -48,7 +48,7 @@ export interface ListSubscriptionSecretsResult {
 }
 /**
  * Gets the specified Subscription keys.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function listSubscriptionSecretsOutput(args: ListSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubscriptionSecretsResult> {
     return pulumi.output(args).apply((a: any) => listSubscriptionSecrets(a, opts))
@@ -56,7 +56,7 @@ export function listSubscriptionSecretsOutput(args: ListSubscriptionSecretsOutpu
 
 export interface ListSubscriptionSecretsOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

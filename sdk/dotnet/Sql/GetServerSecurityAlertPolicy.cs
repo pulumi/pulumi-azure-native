@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Get a server's security alert policy.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetServerSecurityAlertPolicyResult> InvokeAsync(GetServerSecurityAlertPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerSecurityAlertPolicyResult>("azure-native:sql:getServerSecurityAlertPolicy", args ?? new GetServerSecurityAlertPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a server's security alert policy.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetServerSecurityAlertPolicyResult> Invoke(GetServerSecurityAlertPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerSecurityAlertPolicyResult>("azure-native:sql:getServerSecurityAlertPolicy", args ?? new GetServerSecurityAlertPolicyInvokeArgs(), options.WithDefaults());

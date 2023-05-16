@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
-    [Obsolete(@"Version 2020-05-01-preview will be removed in v2 of the provider.")]
     public static class GetStorageAccount
     {
         /// <summary>

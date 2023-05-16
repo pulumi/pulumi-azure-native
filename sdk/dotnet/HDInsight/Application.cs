@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HDInsight
 {
     /// <summary>
     /// The HDInsight cluster application
-    /// API Version: 2018-06-01-preview.
+    /// API Version: 2021-06-01.
+    /// Previous API Version: 2018-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:Application")]
     public partial class Application : global::Pulumi.CustomResource
@@ -35,13 +36,19 @@ namespace Pulumi.AzureNative.HDInsight
         public Output<Outputs.ApplicationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tags for the application.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

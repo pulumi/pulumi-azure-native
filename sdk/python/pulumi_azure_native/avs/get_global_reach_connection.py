@@ -21,7 +21,7 @@ class GetGlobalReachConnectionResult:
     """
     A global reach connection resource
     """
-    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, id=None, name=None, peer_express_route_circuit=None, provisioning_state=None, type=None):
+    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, express_route_id=None, id=None, name=None, peer_express_route_circuit=None, provisioning_state=None, type=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -31,6 +31,9 @@ class GetGlobalReachConnectionResult:
         if circuit_connection_status and not isinstance(circuit_connection_status, str):
             raise TypeError("Expected argument 'circuit_connection_status' to be a str")
         pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
+        if express_route_id and not isinstance(express_route_id, str):
+            raise TypeError("Expected argument 'express_route_id' to be a str")
+        pulumi.set(__self__, "express_route_id", express_route_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -70,6 +73,14 @@ class GetGlobalReachConnectionResult:
         The connection status of the global reach connection
         """
         return pulumi.get(self, "circuit_connection_status")
+
+    @property
+    @pulumi.getter(name="expressRouteId")
+    def express_route_id(self) -> Optional[str]:
+        """
+        The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+        """
+        return pulumi.get(self, "express_route_id")
 
     @property
     @pulumi.getter
@@ -121,6 +132,7 @@ class AwaitableGetGlobalReachConnectionResult(GetGlobalReachConnectionResult):
             address_prefix=self.address_prefix,
             authorization_key=self.authorization_key,
             circuit_connection_status=self.circuit_connection_status,
+            express_route_id=self.express_route_id,
             id=self.id,
             name=self.name,
             peer_express_route_circuit=self.peer_express_route_circuit,
@@ -134,7 +146,7 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalReachConnectionResult:
     """
     A global reach connection resource
-    API Version: 2020-07-17-preview.
+    API Version: 2022-05-01.
 
 
     :param str global_reach_connection_name: Name of the global reach connection in the private cloud
@@ -152,6 +164,7 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
         address_prefix=__ret__.address_prefix,
         authorization_key=__ret__.authorization_key,
         circuit_connection_status=__ret__.circuit_connection_status,
+        express_route_id=__ret__.express_route_id,
         id=__ret__.id,
         name=__ret__.name,
         peer_express_route_circuit=__ret__.peer_express_route_circuit,
@@ -166,7 +179,7 @@ def get_global_reach_connection_output(global_reach_connection_name: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalReachConnectionResult]:
     """
     A global reach connection resource
-    API Version: 2020-07-17-preview.
+    API Version: 2022-05-01.
 
 
     :param str global_reach_connection_name: Name of the global reach connection in the private cloud

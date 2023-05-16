@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
-    /// Customer error of an application gateway.
+    /// Custom error of an application gateway.
     /// </summary>
     public sealed class ApplicationGatewayCustomErrorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Error page URL of the application gateway customer error.
+        /// Error page URL of the application gateway custom error.
         /// </summary>
         [Input("customErrorPageUrl")]
         public Input<string>? CustomErrorPageUrl { get; set; }
 
         /// <summary>
-        /// Status code of the application gateway customer error.
+        /// Status code of the application gateway custom error.
         /// </summary>
         [Input("statusCode")]
         public InputUnion<string, Pulumi.AzureNative.Network.ApplicationGatewayCustomErrorStatusCode>? StatusCode { get; set; }

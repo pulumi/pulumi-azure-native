@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Represents a Configuration.
- * API Version: 2017-12-01.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Configuration extends pulumi.CustomResource {
     /**
@@ -52,6 +56,22 @@ export class Configuration extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
+     * Configuration documentation link.
+     */
+    public /*out*/ readonly documentationLink!: pulumi.Output<string>;
+    /**
+     * Configuration is pending restart or not.
+     */
+    public /*out*/ readonly isConfigPendingRestart!: pulumi.Output<boolean>;
+    /**
+     * Configuration dynamic or static.
+     */
+    public /*out*/ readonly isDynamicConfig!: pulumi.Output<boolean>;
+    /**
+     * Configuration read-only or not.
+     */
+    public /*out*/ readonly isReadOnly!: pulumi.Output<boolean>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -60,9 +80,17 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Configuration unit.
+     */
+    public /*out*/ readonly unit!: pulumi.Output<string>;
     /**
      * Value of the configuration.
      */
@@ -94,20 +122,32 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationLink"] = undefined /*out*/;
+            resourceInputs["isConfigPendingRestart"] = undefined /*out*/;
+            resourceInputs["isDynamicConfig"] = undefined /*out*/;
+            resourceInputs["isReadOnly"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["unit"] = undefined /*out*/;
         } else {
             resourceInputs["allowedValues"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationLink"] = undefined /*out*/;
+            resourceInputs["isConfigPendingRestart"] = undefined /*out*/;
+            resourceInputs["isDynamicConfig"] = undefined /*out*/;
+            resourceInputs["isReadOnly"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["unit"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:Configuration" }, { type: "azure-native:dbforpostgresql/v20171201preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220120preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220308preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20221201:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }

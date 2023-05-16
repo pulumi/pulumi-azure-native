@@ -36,11 +36,11 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Protocol to use for the redirect. The default value is MatchRequest
         /// </summary>
         public readonly string? DestinationProtocol;
-        public readonly string OdataType;
         /// <summary>
         /// The redirect type the rule will use when redirecting traffic.
         /// </summary>
         public readonly string RedirectType;
+        public readonly string TypeName;
 
         [OutputConstructor]
         private UrlRedirectActionParametersResponse(
@@ -54,17 +54,17 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
             string? destinationProtocol,
 
-            string odataType,
+            string redirectType,
 
-            string redirectType)
+            string typeName)
         {
             CustomFragment = customFragment;
             CustomHostname = customHostname;
             CustomPath = customPath;
             CustomQueryString = customQueryString;
             DestinationProtocol = destinationProtocol;
-            OdataType = odataType;
             RedirectType = redirectType;
+            TypeName = typeName;
         }
     }
 }

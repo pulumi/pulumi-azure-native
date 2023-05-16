@@ -17,8 +17,6 @@ __all__ = [
     'get_user_output',
 ]
 
-warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetUserResult:
     """
@@ -107,7 +105,6 @@ def get_user(device_name: Optional[str] = None,
     :param str name: The user name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_user is deprecated: Version 2019-07-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -136,5 +133,4 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The user name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_user is deprecated: Version 2019-07-01 will be removed in v2 of the provider.""")
     ...

@@ -55,11 +55,6 @@ export const getFavorite: typeof import("./getFavorite").getFavorite = null as a
 export const getFavoriteOutput: typeof import("./getFavorite").getFavoriteOutput = null as any;
 utilities.lazyLoad(exports, ["getFavorite","getFavoriteOutput"], () => require("./getFavorite"));
 
-export { GetMyWorkbookArgs, GetMyWorkbookResult, GetMyWorkbookOutputArgs } from "./getMyWorkbook";
-export const getMyWorkbook: typeof import("./getMyWorkbook").getMyWorkbook = null as any;
-export const getMyWorkbookOutput: typeof import("./getMyWorkbook").getMyWorkbookOutput = null as any;
-utilities.lazyLoad(exports, ["getMyWorkbook","getMyWorkbookOutput"], () => require("./getMyWorkbook"));
-
 export { GetProactiveDetectionConfigurationArgs, GetProactiveDetectionConfigurationResult, GetProactiveDetectionConfigurationOutputArgs } from "./getProactiveDetectionConfiguration";
 export const getProactiveDetectionConfiguration: typeof import("./getProactiveDetectionConfiguration").getProactiveDetectionConfiguration = null as any;
 export const getProactiveDetectionConfigurationOutput: typeof import("./getProactiveDetectionConfiguration").getProactiveDetectionConfigurationOutput = null as any;
@@ -74,11 +69,6 @@ export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./get
 export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
 export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
-
-export { MyWorkbookArgs } from "./myWorkbook";
-export type MyWorkbook = import("./myWorkbook").MyWorkbook;
-export const MyWorkbook: typeof import("./myWorkbook").MyWorkbook = null as any;
-utilities.lazyLoad(exports, ["MyWorkbook"], () => require("./myWorkbook"));
 
 export { ProactiveDetectionConfigurationArgs } from "./proactiveDetectionConfiguration";
 export type ProactiveDetectionConfiguration = import("./proactiveDetectionConfiguration").ProactiveDetectionConfiguration;
@@ -113,8 +103,6 @@ const _module = {
                 return new ExportConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:Favorite":
                 return new Favorite(name, <any>undefined, { urn })
-            case "azure-native:insights/v20150501:MyWorkbook":
-                return new MyWorkbook(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:ProactiveDetectionConfiguration":
                 return new ProactiveDetectionConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:WebTest":

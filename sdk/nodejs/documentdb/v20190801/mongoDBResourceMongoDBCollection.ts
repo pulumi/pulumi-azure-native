@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB MongoDB collection.
- *
- * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MongoDBResourceMongoDBCollection {
-        pulumi.log.warn("MongoDBResourceMongoDBCollection is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         return new MongoDBResourceMongoDBCollection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: MongoDBResourceMongoDBCollectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MongoDBResourceMongoDBCollection is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -104,7 +99,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20150401:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20150408:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20151106:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20160319:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20160331:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200901:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210301preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210315:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210401preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210415:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210515:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210615:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20211015:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220215preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220515:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220515preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220815:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20221115:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20230315:MongoDBResourceMongoDBCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20150401:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20150408:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20151106:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20160319:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20160331:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200901:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210301preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210315:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210401preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210415:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210515:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210615:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210701preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20211015:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220215preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220515:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220515preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220815:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20221115:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20221115preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20230301preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20230315:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20230415:MongoDBResourceMongoDBCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoDBResourceMongoDBCollection.__pulumiType, name, resourceInputs, opts);
     }

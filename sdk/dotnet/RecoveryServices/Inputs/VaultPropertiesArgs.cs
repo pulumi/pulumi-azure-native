@@ -21,6 +21,30 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("encryption")]
         public Input<Inputs.VaultPropertiesEncryptionArgs>? Encryption { get; set; }
 
+        /// <summary>
+        /// Monitoring Settings of the vault
+        /// </summary>
+        [Input("monitoringSettings")]
+        public Input<Inputs.MonitoringSettingsArgs>? MonitoringSettings { get; set; }
+
+        /// <summary>
+        /// property to enable or disable resource provider inbound network traffic from public clients
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// Restore Settings of the vault
+        /// </summary>
+        [Input("restoreSettings")]
+        public Input<Inputs.RestoreSettingsArgs>? RestoreSettings { get; set; }
+
+        /// <summary>
+        /// Security Settings of the vault
+        /// </summary>
+        [Input("securitySettings")]
+        public Input<Inputs.SecuritySettingsArgs>? SecuritySettings { get; set; }
+
         public VaultPropertiesArgs()
         {
         }

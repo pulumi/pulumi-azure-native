@@ -3,12 +3,10 @@
 
 // Export sub-modules:
 import * as v20200101preview from "./v20200101preview";
-import * as v20210501 from "./v20210501";
 import * as v20220101preview from "./v20220101preview";
 
 export {
     v20200101preview,
-    v20210501,
     v20220101preview,
 };
 
@@ -62,6 +60,17 @@ export const NetworkFunctionRoleConfigurationType = {
  * Role type.
  */
 export type NetworkFunctionRoleConfigurationType = (typeof NetworkFunctionRoleConfigurationType)[keyof typeof NetworkFunctionRoleConfigurationType];
+
+export const NetworkFunctionType = {
+    Unknown: "Unknown",
+    VirtualNetworkFunction: "VirtualNetworkFunction",
+    ContainerizedNetworkFunction: "ContainerizedNetworkFunction",
+} as const;
+
+/**
+ * The network function type.
+ */
+export type NetworkFunctionType = (typeof NetworkFunctionType)[keyof typeof NetworkFunctionType];
 
 export const OperatingSystemTypes = {
     Unknown: "Unknown",

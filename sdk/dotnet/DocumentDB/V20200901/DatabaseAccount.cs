@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
     /// <summary>
     /// An Azure Cosmos DB database account.
     /// </summary>
-    [Obsolete(@"Version 2020-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20200901:DatabaseAccount")]
     public partial class DatabaseAccount : global::Pulumi.CustomResource
     {
@@ -249,7 +248,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:DatabaseAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:DatabaseAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:DatabaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:DatabaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:DatabaseAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:DatabaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:DatabaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

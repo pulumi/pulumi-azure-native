@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Push settings for the App.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSitePushSettings")]
     public partial class WebAppSitePushSettings : global::Pulumi.CustomResource
@@ -41,7 +42,7 @@ namespace Pulumi.AzureNative.Web
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         /// </summary>
         [Output("tagWhitelistJson")]
         public Output<string?> TagWhitelistJson { get; private set; } = null!;
@@ -154,7 +155,7 @@ namespace Pulumi.AzureNative.Web
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         /// </summary>
         [Input("tagWhitelistJson")]
         public Input<string>? TagWhitelistJson { get; set; }

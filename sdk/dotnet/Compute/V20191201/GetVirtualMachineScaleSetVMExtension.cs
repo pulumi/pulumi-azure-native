@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20191201
 {
-    [Obsolete(@"Version 2019-12-01 will be removed in v2 of the provider.")]
     public static class GetVirtualMachineScaleSetVMExtension
     {
         /// <summary>

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class TimeInWeekArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A day in a week.
+        /// The day of the week.
         /// </summary>
         [Input("day")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.WeekDay>? Day { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<int>? _hourSlots;
 
         /// <summary>
-        /// hour slots in a day.
+        /// Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
         /// </summary>
         public InputList<int> HourSlots
         {

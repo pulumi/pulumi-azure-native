@@ -27,6 +27,7 @@ class WebAppArgs:
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
@@ -37,7 +38,9 @@ class WebAppArgs:
                  key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  redundancy_mode: Optional[pulumi.Input['RedundancyMode']] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
@@ -45,7 +48,10 @@ class WebAppArgs:
                  site_config: Optional[pulumi.Input['SiteConfigArgs']] = None,
                  storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_content_share_enabled: Optional[pulumi.Input[bool]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a WebApp resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -61,6 +67,7 @@ class WebAppArgs:
         :param pulumi.Input[str] custom_domain_verification_id: Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
         :param pulumi.Input[int] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         :param pulumi.Input[bool] host_names_disabled: <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
                 If <code>true</code>, the app is only accessible via API management process.
@@ -73,7 +80,9 @@ class WebAppArgs:
         :param pulumi.Input[str] key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
+        :param pulumi.Input[str] managed_environment_id: Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
         :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
+        :param pulumi.Input[str] public_network_access: Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
         :param pulumi.Input['RedundancyMode'] redundancy_mode: Site redundancy mode
         :param pulumi.Input[bool] reserved: <code>true</code> if reserved; otherwise, <code>false</code>.
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
@@ -83,6 +92,9 @@ class WebAppArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
                This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        :param pulumi.Input[bool] vnet_content_share_enabled: To enable accessing content over virtual network
+        :param pulumi.Input[bool] vnet_image_pull_enabled: To enable pulling image over Virtual Network
+        :param pulumi.Input[bool] vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if client_affinity_enabled is not None:
@@ -103,6 +115,8 @@ class WebAppArgs:
             pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
         if host_name_ssl_states is not None:
             pulumi.set(__self__, "host_name_ssl_states", host_name_ssl_states)
         if host_names_disabled is not None:
@@ -127,8 +141,12 @@ class WebAppArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_environment_id is not None:
+            pulumi.set(__self__, "managed_environment_id", managed_environment_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if redundancy_mode is not None:
             pulumi.set(__self__, "redundancy_mode", redundancy_mode)
         if reserved is None:
@@ -149,6 +167,12 @@ class WebAppArgs:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_content_share_enabled is not None:
+            pulumi.set(__self__, "vnet_content_share_enabled", vnet_content_share_enabled)
+        if vnet_image_pull_enabled is not None:
+            pulumi.set(__self__, "vnet_image_pull_enabled", vnet_image_pull_enabled)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -274,6 +298,18 @@ class WebAppArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        Extended Location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @property
     @pulumi.getter(name="hostNameSslStates")
     def host_name_ssl_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]]]:
         """
@@ -396,6 +432,18 @@ class WebAppArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="managedEnvironmentId")
+    def managed_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+        """
+        return pulumi.get(self, "managed_environment_id")
+
+    @managed_environment_id.setter
+    def managed_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_environment_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -406,6 +454,18 @@ class WebAppArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="redundancyMode")
@@ -504,6 +564,42 @@ class WebAppArgs:
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="vnetContentShareEnabled")
+    def vnet_content_share_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To enable accessing content over virtual network
+        """
+        return pulumi.get(self, "vnet_content_share_enabled")
+
+    @vnet_content_share_enabled.setter
+    def vnet_content_share_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_content_share_enabled", value)
+
+    @property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To enable pulling image over Virtual Network
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
+
+    @vnet_image_pull_enabled.setter
+    def vnet_image_pull_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_image_pull_enabled", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
 
 class WebApp(pulumi.CustomResource):
     @overload
@@ -519,6 +615,7 @@ class WebApp(pulumi.CustomResource):
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
@@ -529,7 +626,9 @@ class WebApp(pulumi.CustomResource):
                  key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  redundancy_mode: Optional[pulumi.Input['RedundancyMode']] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -539,10 +638,14 @@ class WebApp(pulumi.CustomResource):
                  storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_content_share_enabled: Optional[pulumi.Input[bool]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         A web app, a mobile app backend, or an API app.
-        API Version: 2020-12-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -558,6 +661,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[str] custom_domain_verification_id: Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
         :param pulumi.Input[int] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         :param pulumi.Input[bool] host_names_disabled: <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
                 If <code>true</code>, the app is only accessible via API management process.
@@ -570,7 +674,9 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
+        :param pulumi.Input[str] managed_environment_id: Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
         :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
+        :param pulumi.Input[str] public_network_access: Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
         :param pulumi.Input['RedundancyMode'] redundancy_mode: Site redundancy mode
         :param pulumi.Input[bool] reserved: <code>true</code> if reserved; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -581,6 +687,9 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
                This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        :param pulumi.Input[bool] vnet_content_share_enabled: To enable accessing content over virtual network
+        :param pulumi.Input[bool] vnet_image_pull_enabled: To enable pulling image over Virtual Network
+        :param pulumi.Input[bool] vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         """
         ...
     @overload
@@ -590,7 +699,8 @@ class WebApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A web app, a mobile app backend, or an API app.
-        API Version: 2020-12-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WebAppArgs args: The arguments to use to populate this resource's properties.
@@ -616,6 +726,7 @@ class WebApp(pulumi.CustomResource):
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
@@ -626,7 +737,9 @@ class WebApp(pulumi.CustomResource):
                  key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  redundancy_mode: Optional[pulumi.Input['RedundancyMode']] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -636,6 +749,9 @@ class WebApp(pulumi.CustomResource):
                  storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_content_share_enabled: Optional[pulumi.Input[bool]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -654,6 +770,7 @@ class WebApp(pulumi.CustomResource):
             __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["host_name_ssl_states"] = host_name_ssl_states
             __props__.__dict__["host_names_disabled"] = host_names_disabled
             __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
@@ -668,7 +785,9 @@ class WebApp(pulumi.CustomResource):
             __props__.__dict__["key_vault_reference_identity"] = key_vault_reference_identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_environment_id"] = managed_environment_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["redundancy_mode"] = redundancy_mode
             if reserved is None:
                 reserved = False
@@ -684,6 +803,9 @@ class WebApp(pulumi.CustomResource):
             __props__.__dict__["storage_account_required"] = storage_account_required
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["vnet_content_share_enabled"] = vnet_content_share_enabled
+            __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
+            __props__.__dict__["vnet_route_all_enabled"] = vnet_route_all_enabled
             __props__.__dict__["availability_state"] = None
             __props__.__dict__["default_host_name"] = None
             __props__.__dict__["enabled_host_names"] = None
@@ -738,6 +860,7 @@ class WebApp(pulumi.CustomResource):
         __props__.__dict__["default_host_name"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["enabled_host_names"] = None
+        __props__.__dict__["extended_location"] = None
         __props__.__dict__["host_name_ssl_states"] = None
         __props__.__dict__["host_names"] = None
         __props__.__dict__["host_names_disabled"] = None
@@ -752,10 +875,12 @@ class WebApp(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["last_modified_time_utc"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_environment_id"] = None
         __props__.__dict__["max_number_of_workers"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["outbound_ip_addresses"] = None
         __props__.__dict__["possible_outbound_ip_addresses"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["redundancy_mode"] = None
         __props__.__dict__["repository_site_name"] = None
         __props__.__dict__["reserved"] = None
@@ -773,6 +898,9 @@ class WebApp(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["usage_state"] = None
         __props__.__dict__["virtual_network_subnet_id"] = None
+        __props__.__dict__["vnet_content_share_enabled"] = None
+        __props__.__dict__["vnet_image_pull_enabled"] = None
+        __props__.__dict__["vnet_route_all_enabled"] = None
         return WebApp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -866,6 +994,14 @@ class WebApp(pulumi.CustomResource):
         the app is not served on those hostnames.
         """
         return pulumi.get(self, "enabled_host_names")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        Extended Location.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hostNameSslStates")
@@ -982,6 +1118,14 @@ class WebApp(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedEnvironmentId")
+    def managed_environment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+        """
+        return pulumi.get(self, "managed_environment_id")
+
+    @property
     @pulumi.getter(name="maxNumberOfWorkers")
     def max_number_of_workers(self) -> pulumi.Output[int]:
         """
@@ -1013,6 +1157,14 @@ class WebApp(pulumi.CustomResource):
         List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="redundancyMode")
@@ -1150,4 +1302,28 @@ class WebApp(pulumi.CustomResource):
         This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
         """
         return pulumi.get(self, "virtual_network_subnet_id")
+
+    @property
+    @pulumi.getter(name="vnetContentShareEnabled")
+    def vnet_content_share_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        To enable accessing content over virtual network
+        """
+        return pulumi.get(self, "vnet_content_share_enabled")
+
+    @property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        To enable pulling image over Virtual Network
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
 

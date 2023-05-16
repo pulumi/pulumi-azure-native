@@ -50,7 +50,7 @@ def list_datastore_secrets(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatastoreSecretsResult:
     """
     Base definition for datastore secrets.
-    API Version: 2021-03-01-preview.
+    API Version: 2022-10-01.
 
 
     :param str name: Datastore name.
@@ -75,7 +75,7 @@ def list_datastore_secrets_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatastoreSecretsResult]:
     """
     Base definition for datastore secrets.
-    API Version: 2021-03-01-preview.
+    API Version: 2022-10-01.
 
 
     :param str name: Datastore name.

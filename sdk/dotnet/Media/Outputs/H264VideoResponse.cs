@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly string OdataType;
         /// <summary>
+        /// The video rate control mode
+        /// </summary>
+        public readonly string? RateControlMode;
+        /// <summary>
         /// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
         /// </summary>
         public readonly bool? SceneChangeDetection;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             string odataType,
 
+            string? rateControlMode,
+
             bool? sceneChangeDetection,
 
             string? stretchMode,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.Media.Outputs
             Label = label;
             Layers = layers;
             OdataType = odataType;
+            RateControlMode = rateControlMode;
             SceneChangeDetection = sceneChangeDetection;
             StretchMode = stretchMode;
             SyncMode = syncMode;

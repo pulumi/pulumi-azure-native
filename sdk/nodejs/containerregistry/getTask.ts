@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of a specified task.
- * API Version: 2019-06-01-preview.
+ * API Version: 2019-04-01.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
 
@@ -46,10 +46,6 @@ export interface GetTaskResult {
      */
     readonly agentConfiguration?: outputs.containerregistry.AgentPropertiesResponse;
     /**
-     * The dedicated agent pool for the task.
-     */
-    readonly agentPoolName?: string;
-    /**
      * The creation date of task.
      */
     readonly creationDate: string;
@@ -66,17 +62,9 @@ export interface GetTaskResult {
      */
     readonly identity?: outputs.containerregistry.IdentityPropertiesResponse;
     /**
-     * The value of this property indicates whether the task resource is system task or not.
-     */
-    readonly isSystemTask?: boolean;
-    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: string;
-    /**
-     * The template that describes the repository and tag information for run log artifact.
-     */
-    readonly logTemplate?: string;
     /**
      * The name of the resource.
      */
@@ -84,7 +72,7 @@ export interface GetTaskResult {
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform?: outputs.containerregistry.PlatformPropertiesResponse;
+    readonly platform: outputs.containerregistry.PlatformPropertiesResponse;
     /**
      * The provisioning state of the task.
      */
@@ -96,11 +84,7 @@ export interface GetTaskResult {
     /**
      * The properties of a task step.
      */
-    readonly step?: outputs.containerregistry.DockerBuildStepResponse | outputs.containerregistry.EncodedTaskStepResponse | outputs.containerregistry.FileTaskStepResponse;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.containerregistry.SystemDataResponse;
+    readonly step: outputs.containerregistry.DockerBuildStepResponse | outputs.containerregistry.EncodedTaskStepResponse | outputs.containerregistry.FileTaskStepResponse;
     /**
      * The tags of the resource.
      */
@@ -120,7 +104,7 @@ export interface GetTaskResult {
 }
 /**
  * Get the properties of a specified task.
- * API Version: 2019-06-01-preview.
+ * API Version: 2019-04-01.
  */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
     return pulumi.output(args).apply((a: any) => getTask(a, opts))

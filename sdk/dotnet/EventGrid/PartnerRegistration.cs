@@ -11,44 +11,17 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Information about a partner registration.
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2022-06-15.
+    /// Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerRegistration")]
     public partial class PartnerRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of Azure subscription Ids that are authorized to create a partner namespace
-        /// associated with this partner registration. This is an optional property. Creating
-        /// partner namespaces is always permitted under the same Azure subscription as the one used
-        /// for creating the partner registration.
-        /// </summary>
-        [Output("authorizedAzureSubscriptionIds")]
-        public Output<ImmutableArray<string>> AuthorizedAzureSubscriptionIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The extension of the customer service URI of the publisher.
-        /// </summary>
-        [Output("customerServiceUri")]
-        public Output<string?> CustomerServiceUri { get; private set; } = null!;
-
-        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// URI of the logo.
-        /// </summary>
-        [Output("logoUri")]
-        public Output<string?> LogoUri { get; private set; } = null!;
-
-        /// <summary>
-        /// Long description for the custom scenarios and integration to be displayed in the portal if needed.
-        /// Length of this description should not exceed 2048 characters.
-        /// </summary>
-        [Output("longDescription")]
-        public Output<string?> LongDescription { get; private set; } = null!;
 
         /// <summary>
         /// Name of the resource.
@@ -57,56 +30,17 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
+        /// The immutableId of the corresponding partner registration.
+        /// Note: This property is marked for deprecation and is not supported in any future GA API version
         /// </summary>
-        [Output("partnerCustomerServiceExtension")]
-        public Output<string?> PartnerCustomerServiceExtension { get; private set; } = null!;
-
-        /// <summary>
-        /// The customer service number of the publisher. The expected phone format should start with a '+' sign 
-        /// followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-        /// length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-        /// +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-        /// </summary>
-        [Output("partnerCustomerServiceNumber")]
-        public Output<string?> PartnerCustomerServiceNumber { get; private set; } = null!;
-
-        /// <summary>
-        /// Official name of the partner name. For example: "Contoso".
-        /// </summary>
-        [Output("partnerName")]
-        public Output<string?> PartnerName { get; private set; } = null!;
-
-        /// <summary>
-        /// Short description of the partner resource type. The length of this description should not exceed 256 characters.
-        /// </summary>
-        [Output("partnerResourceTypeDescription")]
-        public Output<string?> PartnerResourceTypeDescription { get; private set; } = null!;
-
-        /// <summary>
-        /// Display name of the partner resource type.
-        /// </summary>
-        [Output("partnerResourceTypeDisplayName")]
-        public Output<string?> PartnerResourceTypeDisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of the partner resource type.
-        /// </summary>
-        [Output("partnerResourceTypeName")]
-        public Output<string?> PartnerResourceTypeName { get; private set; } = null!;
+        [Output("partnerRegistrationImmutableId")]
+        public Output<string?> PartnerRegistrationImmutableId { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the partner registration.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// URI of the partner website that can be used by Azure customers to setup Event Grid
-        /// integration on an event source.
-        /// </summary>
-        [Output("setupUri")]
-        public Output<string?> SetupUri { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata relating to Partner Registration resource.
@@ -125,12 +59,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Visibility state of the partner registration.
-        /// </summary>
-        [Output("visibilityState")]
-        public Output<string?> VisibilityState { get; private set; } = null!;
 
 
         /// <summary>
@@ -185,27 +113,6 @@ namespace Pulumi.AzureNative.EventGrid
 
     public sealed class PartnerRegistrationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authorizedAzureSubscriptionIds")]
-        private InputList<string>? _authorizedAzureSubscriptionIds;
-
-        /// <summary>
-        /// List of Azure subscription Ids that are authorized to create a partner namespace
-        /// associated with this partner registration. This is an optional property. Creating
-        /// partner namespaces is always permitted under the same Azure subscription as the one used
-        /// for creating the partner registration.
-        /// </summary>
-        public InputList<string> AuthorizedAzureSubscriptionIds
-        {
-            get => _authorizedAzureSubscriptionIds ?? (_authorizedAzureSubscriptionIds = new InputList<string>());
-            set => _authorizedAzureSubscriptionIds = value;
-        }
-
-        /// <summary>
-        /// The extension of the customer service URI of the publisher.
-        /// </summary>
-        [Input("customerServiceUri")]
-        public Input<string>? CustomerServiceUri { get; set; }
-
         /// <summary>
         /// Location of the resource.
         /// </summary>
@@ -213,38 +120,11 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// URI of the logo.
+        /// The immutableId of the corresponding partner registration.
+        /// Note: This property is marked for deprecation and is not supported in any future GA API version
         /// </summary>
-        [Input("logoUri")]
-        public Input<string>? LogoUri { get; set; }
-
-        /// <summary>
-        /// Long description for the custom scenarios and integration to be displayed in the portal if needed.
-        /// Length of this description should not exceed 2048 characters.
-        /// </summary>
-        [Input("longDescription")]
-        public Input<string>? LongDescription { get; set; }
-
-        /// <summary>
-        /// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
-        /// </summary>
-        [Input("partnerCustomerServiceExtension")]
-        public Input<string>? PartnerCustomerServiceExtension { get; set; }
-
-        /// <summary>
-        /// The customer service number of the publisher. The expected phone format should start with a '+' sign 
-        /// followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
-        /// length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
-        /// +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
-        /// </summary>
-        [Input("partnerCustomerServiceNumber")]
-        public Input<string>? PartnerCustomerServiceNumber { get; set; }
-
-        /// <summary>
-        /// Official name of the partner name. For example: "Contoso".
-        /// </summary>
-        [Input("partnerName")]
-        public Input<string>? PartnerName { get; set; }
+        [Input("partnerRegistrationImmutableId")]
+        public Input<string>? PartnerRegistrationImmutableId { get; set; }
 
         /// <summary>
         /// Name of the partner registration.
@@ -253,35 +133,10 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<string>? PartnerRegistrationName { get; set; }
 
         /// <summary>
-        /// Short description of the partner resource type. The length of this description should not exceed 256 characters.
-        /// </summary>
-        [Input("partnerResourceTypeDescription")]
-        public Input<string>? PartnerResourceTypeDescription { get; set; }
-
-        /// <summary>
-        /// Display name of the partner resource type.
-        /// </summary>
-        [Input("partnerResourceTypeDisplayName")]
-        public Input<string>? PartnerResourceTypeDisplayName { get; set; }
-
-        /// <summary>
-        /// Name of the partner resource type.
-        /// </summary>
-        [Input("partnerResourceTypeName")]
-        public Input<string>? PartnerResourceTypeName { get; set; }
-
-        /// <summary>
         /// The name of the resource group within the user's subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// URI of the partner website that can be used by Azure customers to setup Event Grid
-        /// integration on an event source.
-        /// </summary>
-        [Input("setupUri")]
-        public Input<string>? SetupUri { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -294,12 +149,6 @@ namespace Pulumi.AzureNative.EventGrid
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Visibility state of the partner registration.
-        /// </summary>
-        [Input("visibilityState")]
-        public InputUnion<string, Pulumi.AzureNative.EventGrid.PartnerRegistrationVisibilityState>? VisibilityState { get; set; }
 
         public PartnerRegistrationArgs()
         {

@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// </summary>
         public readonly string? DbPasswordUri;
         /// <summary>
-        /// Gets or sets the blob URI to SSL certificate for the DB.
-        /// </summary>
-        public readonly string? DbSslCertificateUri;
-        /// <summary>
         /// Gets or sets the database user name.
         /// </summary>
         public readonly string? DbUsername;
@@ -49,6 +45,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// Expected value is 'SapHana'.
         /// </summary>
         public readonly string ProviderType;
+        /// <summary>
+        /// Gets or sets the SAP System Identifier.
+        /// </summary>
+        public readonly string? SapSid;
         /// <summary>
         /// Gets or sets the database sql port.
         /// </summary>
@@ -74,8 +74,6 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             string? dbPasswordUri,
 
-            string? dbSslCertificateUri,
-
             string? dbUsername,
 
             string? hostname,
@@ -83,6 +81,8 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             string? instanceNumber,
 
             string providerType,
+
+            string? sapSid,
 
             string? sqlPort,
 
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.Workloads.Outputs
             DbName = dbName;
             DbPassword = dbPassword;
             DbPasswordUri = dbPasswordUri;
-            DbSslCertificateUri = dbSslCertificateUri;
             DbUsername = dbUsername;
             Hostname = hostname;
             InstanceNumber = instanceNumber;
             ProviderType = providerType;
+            SapSid = sapSid;
             SqlPort = sqlPort;
             SslCertificateUri = sslCertificateUri;
             SslHostNameInCertificate = sslHostNameInCertificate;

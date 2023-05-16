@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AccessConnectorArgs } from "./accessConnector";
-export type AccessConnector = import("./accessConnector").AccessConnector;
-export const AccessConnector: typeof import("./accessConnector").AccessConnector = null as any;
-utilities.lazyLoad(exports, ["AccessConnector"], () => require("./accessConnector"));
-
-export { GetAccessConnectorArgs, GetAccessConnectorResult, GetAccessConnectorOutputArgs } from "./getAccessConnector";
-export const getAccessConnector: typeof import("./getAccessConnector").getAccessConnector = null as any;
-export const getAccessConnectorOutput: typeof import("./getAccessConnector").getAccessConnectorOutput = null as any;
-utilities.lazyLoad(exports, ["getAccessConnector","getAccessConnectorOutput"], () => require("./getAccessConnector"));
-
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -51,14 +41,12 @@ export * from "../types/enums/databricks";
 
 // Export sub-modules:
 import * as v20180401 from "./v20180401";
-import * as v20210401preview from "./v20210401preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230201 from "./v20230201";
 
 export {
     v20180401,
-    v20210401preview,
     v20220401preview,
     v20221001preview,
     v20230201,
@@ -68,8 +56,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:databricks:AccessConnector":
-                return new AccessConnector(name, <any>undefined, { urn })
             case "azure-native:databricks:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:databricks:VNetPeering":

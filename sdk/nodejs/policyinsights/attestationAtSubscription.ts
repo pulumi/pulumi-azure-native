@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * An attestation resource.
- * API Version: 2021-01-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AttestationAtSubscription extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * The time the evidence was assessed
+     */
+    public readonly assessmentDate!: pulumi.Output<string | undefined>;
+    /**
      * Comments describing why this attestation was created.
      */
     public readonly comments!: pulumi.Output<string | undefined>;
@@ -58,6 +63,10 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
      * The time the compliance state was last changed in this attestation.
      */
     public /*out*/ readonly lastComplianceStateChangeAt!: pulumi.Output<string>;
+    /**
+     * Additional metadata for this attestation
+     */
+    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * The name of the resource
      */
@@ -101,11 +110,13 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
             if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
+            resourceInputs["assessmentDate"] = args ? args.assessmentDate : undefined;
             resourceInputs["attestationName"] = args ? args.attestationName : undefined;
             resourceInputs["comments"] = args ? args.comments : undefined;
             resourceInputs["complianceState"] = args ? args.complianceState : undefined;
             resourceInputs["evidence"] = args ? args.evidence : undefined;
             resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
@@ -115,11 +126,13 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["assessmentDate"] = undefined /*out*/;
             resourceInputs["comments"] = undefined /*out*/;
             resourceInputs["complianceState"] = undefined /*out*/;
             resourceInputs["evidence"] = undefined /*out*/;
             resourceInputs["expiresOn"] = undefined /*out*/;
             resourceInputs["lastComplianceStateChangeAt"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["policyAssignmentId"] = undefined /*out*/;
@@ -140,6 +153,10 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
  */
 export interface AttestationAtSubscriptionArgs {
     /**
+     * The time the evidence was assessed
+     */
+    assessmentDate?: pulumi.Input<string>;
+    /**
      * The name of the attestation.
      */
     attestationName?: pulumi.Input<string>;
@@ -159,6 +176,10 @@ export interface AttestationAtSubscriptionArgs {
      * The time the compliance state should expire.
      */
     expiresOn?: pulumi.Input<string>;
+    /**
+     * Additional metadata for this attestation
+     */
+    metadata?: any;
     /**
      * The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
      */

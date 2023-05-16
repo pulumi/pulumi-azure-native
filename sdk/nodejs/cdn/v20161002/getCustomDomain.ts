@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing custom domain within an endpoint.
  */
-/** @deprecated Version 2016-10-02 will be removed in v2 of the provider. */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
-    pulumi.log.warn("getCustomDomain is deprecated: Version 2016-10-02 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20161002:getCustomDomain", {
@@ -87,7 +85,6 @@ export interface GetCustomDomainResult {
 /**
  * Gets an existing custom domain within an endpoint.
  */
-/** @deprecated Version 2016-10-02 will be removed in v2 of the provider. */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getCustomDomain(a, opts))
 }

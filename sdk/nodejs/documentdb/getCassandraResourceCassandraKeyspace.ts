@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
- * API Version: 2021-03-15.
+ * API Version: 2022-11-15.
  */
 export function getCassandraResourceCassandraKeyspace(args: GetCassandraResourceCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraKeyspaceResult> {
 
@@ -65,7 +65,7 @@ export interface GetCassandraResourceCassandraKeyspaceResult {
 }
 /**
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
- * API Version: 2021-03-15.
+ * API Version: 2022-11-15.
  */
 export function getCassandraResourceCassandraKeyspaceOutput(args: GetCassandraResourceCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraKeyspaceResult> {
     return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraKeyspace(a, opts))

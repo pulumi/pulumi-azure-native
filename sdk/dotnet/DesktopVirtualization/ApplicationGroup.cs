@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a ApplicationGroup definition.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2022-09-09.
+    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ApplicationGroup")]
     public partial class ApplicationGroup : global::Pulumi.CustomResource
@@ -74,12 +75,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string?> ManagedBy { get; private set; } = null!;
 
         /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        [Output("migrationRequest")]
-        public Output<Outputs.MigrationRequestPropertiesResponse?> MigrationRequest { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -96,6 +91,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [Output("sku")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -230,12 +231,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }
-
-        /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        [Input("migrationRequest")]
-        public Input<Inputs.MigrationRequestPropertiesArgs>? MigrationRequest { get; set; }
 
         [Input("plan")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }

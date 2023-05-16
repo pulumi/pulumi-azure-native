@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets details of the specified Data Lake Analytics account.
  */
-/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20151001preview:getAccount", {
@@ -168,7 +166,6 @@ export interface GetAccountResult {
 /**
  * Gets details of the specified Data Lake Analytics account.
  */
-/** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }

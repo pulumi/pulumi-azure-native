@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         /// </summary>
         public readonly double? MessageRetentionInDays;
@@ -116,7 +120,11 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -132,6 +140,8 @@ namespace Pulumi.AzureNative.EventHub
 
             string id,
 
+            string location,
+
             double? messageRetentionInDays,
 
             string name,
@@ -142,6 +152,8 @@ namespace Pulumi.AzureNative.EventHub
 
             string? status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string updatedAt)
@@ -149,11 +161,13 @@ namespace Pulumi.AzureNative.EventHub
             CaptureDescription = captureDescription;
             CreatedAt = createdAt;
             Id = id;
+            Location = location;
             MessageRetentionInDays = messageRetentionInDays;
             Name = name;
             PartitionCount = partitionCount;
             PartitionIds = partitionIds;
             Status = status;
+            SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
         }

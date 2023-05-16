@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
     /// <summary>
     /// Agent Pool.
     /// </summary>
-    [Obsolete(@"Version 2019-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20190201:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
     {
@@ -170,6 +169,10 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221102preview:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230101:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230102preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230201:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230202preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230301:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230302preview:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -17,20 +17,27 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class SharingProfileResponse
     {
         /// <summary>
+        /// Information of community gallery if current gallery is shared to community.
+        /// </summary>
+        public readonly Outputs.CommunityGalleryInfoResponse? CommunityGalleryInfo;
+        /// <summary>
         /// A list of sharing profile groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.SharingProfileGroupResponse> Groups;
         /// <summary>
-        /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups**
+        /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups** &lt;br&gt;&lt;br&gt; **Community**
         /// </summary>
         public readonly string? Permissions;
 
         [OutputConstructor]
         private SharingProfileResponse(
+            Outputs.CommunityGalleryInfoResponse? communityGalleryInfo,
+
             ImmutableArray<Outputs.SharingProfileGroupResponse> groups,
 
             string? permissions)
         {
+            CommunityGalleryInfo = communityGalleryInfo;
             Groups = groups;
             Permissions = permissions;
         }

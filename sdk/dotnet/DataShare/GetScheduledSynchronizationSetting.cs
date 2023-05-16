@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a synchronizationSetting in a share
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<GetScheduledSynchronizationSettingResult> InvokeAsync(GetScheduledSynchronizationSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledSynchronizationSettingResult>("azure-native:datashare:getScheduledSynchronizationSetting", args ?? new GetScheduledSynchronizationSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a synchronizationSetting in a share
-        /// API Version: 2020-09-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<GetScheduledSynchronizationSettingResult> Invoke(GetScheduledSynchronizationSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledSynchronizationSettingResult>("azure-native:datashare:getScheduledSynchronizationSetting", args ?? new GetScheduledSynchronizationSettingInvokeArgs(), options.WithDefaults());

@@ -22,7 +22,7 @@ class GetFileResult:
     """
     A file resource
     """
-    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -35,6 +35,9 @@ class GetFileResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -72,6 +75,14 @@ class GetFileResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -90,6 +101,7 @@ class AwaitableGetFileResult(GetFileResult):
             id=self.id,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -100,7 +112,7 @@ def get_file(file_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileResult:
     """
     The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-    API Version: 2018-07-15-preview.
+    API Version: 2021-06-30.
 
 
     :param str file_name: Name of the File
@@ -121,6 +133,7 @@ def get_file(file_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -132,7 +145,7 @@ def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
     """
     The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-    API Version: 2018-07-15-preview.
+    API Version: 2021-06-30.
 
 
     :param str file_name: Name of the File

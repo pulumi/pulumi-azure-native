@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceResult> InvokeAsync(GetNetworkVirtualApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceResult> Invoke(GetNetworkVirtualApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,14 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<string> CloudInitConfigurationBlobs;
         /// <summary>
+        /// The delegation for the Virtual Appliance
+        /// </summary>
+        public readonly Outputs.DelegationPropertiesResponse? Delegation;
+        /// <summary>
+        /// The deployment type. PartnerManaged for the SaaS NVA
+        /// </summary>
+        public readonly string DeploymentType;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -128,9 +136,17 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.VirtualApplianceSkuPropertiesResponse? NvaSku;
         /// <summary>
+        /// The delegation for the Virtual Appliance
+        /// </summary>
+        public readonly Outputs.PartnerManagedResourcePropertiesResponse? PartnerManagedResource;
+        /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Public key for SSH login.
+        /// </summary>
+        public readonly string? SshPublicKey;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -140,7 +156,7 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// VirtualAppliance ASN.
+        /// VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         /// </summary>
         public readonly double? VirtualApplianceAsn;
         /// <summary>
@@ -166,6 +182,10 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<string> cloudInitConfigurationBlobs,
 
+            Outputs.DelegationPropertiesResponse? delegation,
+
+            string deploymentType,
+
             string etag,
 
             string? id,
@@ -180,7 +200,11 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.VirtualApplianceSkuPropertiesResponse? nvaSku,
 
+            Outputs.PartnerManagedResourcePropertiesResponse? partnerManagedResource,
+
             string provisioningState,
+
+            string? sshPublicKey,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -198,6 +222,8 @@ namespace Pulumi.AzureNative.Network
             BootStrapConfigurationBlobs = bootStrapConfigurationBlobs;
             CloudInitConfiguration = cloudInitConfiguration;
             CloudInitConfigurationBlobs = cloudInitConfigurationBlobs;
+            Delegation = delegation;
+            DeploymentType = deploymentType;
             Etag = etag;
             Id = id;
             Identity = identity;
@@ -205,7 +231,9 @@ namespace Pulumi.AzureNative.Network
             Location = location;
             Name = name;
             NvaSku = nvaSku;
+            PartnerManagedResource = partnerManagedResource;
             ProvisioningState = provisioningState;
+            SshPublicKey = sshPublicKey;
             Tags = tags;
             Type = type;
             VirtualApplianceAsn = virtualApplianceAsn;

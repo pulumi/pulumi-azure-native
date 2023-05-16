@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:machinelearningservices:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<ListWorkspaceKeysResult> Invoke(ListWorkspaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceKeysResult>("azure-native:machinelearningservices:listWorkspaceKeys", args ?? new ListWorkspaceKeysInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class ListWorkspaceKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class ListWorkspaceKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the peer ASN with the specified name under the given subscription.
  */
-/** @deprecated Version 2019-09-01-preview will be removed in v2 of the provider. */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
-    pulumi.log.warn("getPeerAsn is deprecated: Version 2019-09-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20190901preview:getPeerAsn", {
@@ -67,7 +65,6 @@ export interface GetPeerAsnResult {
 /**
  * Gets the peer ASN with the specified name under the given subscription.
  */
-/** @deprecated Version 2019-09-01-preview will be removed in v2 of the provider. */
 export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
     return pulumi.output(args).apply((a: any) => getPeerAsn(a, opts))
 }

@@ -11,11 +11,30 @@ namespace Pulumi.AzureNative.Search
 {
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
-    /// API Version: 2020-08-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:search:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        /// </summary>
+        [Output("authOptions")]
+        public Output<Outputs.DataPlaneAuthOptionsResponse?> AuthOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+        /// </summary>
+        [Output("encryptionWithCmk")]
+        public Output<Outputs.EncryptionWithCmkResponse?> EncryptionWithCmk { get; private set; } = null!;
+
         /// <summary>
         /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         /// </summary>
@@ -168,6 +187,24 @@ namespace Pulumi.AzureNative.Search
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        /// </summary>
+        [Input("authOptions")]
+        public Input<Inputs.DataPlaneAuthOptionsArgs>? AuthOptions { get; set; }
+
+        /// <summary>
+        /// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
+        /// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+        /// </summary>
+        [Input("encryptionWithCmk")]
+        public Input<Inputs.EncryptionWithCmkArgs>? EncryptionWithCmk { get; set; }
+
+        /// <summary>
         /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         /// </summary>
         [Input("hostingMode")]
@@ -241,7 +278,7 @@ namespace Pulumi.AzureNative.Search
 
         public ServiceArgs()
         {
-            HostingMode = Pulumi.AzureNative.Search.HostingMode.@Default;
+            HostingMode = Pulumi.AzureNative.Search.HostingMode.Default;
             PartitionCount = 1;
             PublicNetworkAccess = Pulumi.AzureNative.Search.PublicNetworkAccess.Enabled;
             ReplicaCount = 1;

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly string? Publisher;
         /// <summary>
-        /// For example, 18.04-LTS or 2019-Datacenter.
+        /// For example, 18.04-LTS or 2022-datacenter.
         /// </summary>
         public readonly string? Sku;
         /// <summary>

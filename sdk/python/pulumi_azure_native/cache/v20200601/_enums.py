@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'DayOfWeek',
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'ReplicationRole',
     'SkuFamily',
@@ -28,15 +27,6 @@ class DayOfWeek(str, Enum):
     SUNDAY = "Sunday"
     EVERYDAY = "Everyday"
     WEEKEND = "Weekend"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 class PublicNetworkAccess(str, Enum):

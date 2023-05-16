@@ -17,8 +17,6 @@ __all__ = [
     'get_host_pool_output',
 ]
 
-warnings.warn("""Version 2020-11-02-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetHostPoolResult:
     """
@@ -333,7 +331,6 @@ def get_host_pool(host_pool_name: Optional[str] = None,
     :param str host_pool_name: The name of the host pool within the specified resource group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_host_pool is deprecated: Version 2020-11-02-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['hostPoolName'] = host_pool_name
     __args__['resourceGroupName'] = resource_group_name
@@ -378,5 +375,4 @@ def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     :param str host_pool_name: The name of the host pool within the specified resource group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_host_pool is deprecated: Version 2020-11-02-preview will be removed in v2 of the provider.""")
     ...

@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
-export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
-export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
-
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -25,11 +20,6 @@ export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspa
 export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
 
-export { MachineLearningComputeArgs } from "./machineLearningCompute";
-export type MachineLearningCompute = import("./machineLearningCompute").MachineLearningCompute;
-export const MachineLearningCompute: typeof import("./machineLearningCompute").MachineLearningCompute = null as any;
-utilities.lazyLoad(exports, ["MachineLearningCompute"], () => require("./machineLearningCompute"));
-
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -43,8 +33,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:machinelearningservices/v20180301preview:MachineLearningCompute":
-                return new MachineLearningCompute(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20180301preview:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

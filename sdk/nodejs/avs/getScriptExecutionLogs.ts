@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Return the logs for a script execution resource
- * API Version: 2021-06-01.
+ * API Version: 2022-05-01.
  */
 export function getScriptExecutionLogs(args: GetScriptExecutionLogsArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionLogsResult> {
 
@@ -115,7 +115,7 @@ export interface GetScriptExecutionLogsResult {
 }
 /**
  * Return the logs for a script execution resource
- * API Version: 2021-06-01.
+ * API Version: 2022-05-01.
  */
 export function getScriptExecutionLogsOutput(args: GetScriptExecutionLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionLogsResult> {
     return pulumi.output(args).apply((a: any) => getScriptExecutionLogs(a, opts))

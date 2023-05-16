@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a guest configuration assignment
- * API Version: 2020-06-25.
+ * API Version: 2022-01-25.
  */
 export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentResult> {
 
@@ -57,13 +57,17 @@ export interface GetGuestConfigurationAssignmentResult {
      */
     readonly properties: outputs.guestconfiguration.GuestConfigurationAssignmentPropertiesResponse;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.guestconfiguration.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Get information about a guest configuration assignment
- * API Version: 2020-06-25.
+ * API Version: 2022-01-25.
  */
 export function getGuestConfigurationAssignmentOutput(args: GetGuestConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGuestConfigurationAssignment(a, opts))

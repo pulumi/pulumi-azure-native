@@ -17,8 +17,6 @@ __all__ = [
     'get_cluster_output',
 ]
 
-warnings.warn("""Version 2017-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetClusterResult:
     """
@@ -367,7 +365,6 @@ def get_cluster(cluster_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str subscription_id: The customer subscription identifier
     """
-    pulumi.log.warn("""get_cluster is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
@@ -416,5 +413,4 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str subscription_id: The customer subscription identifier
     """
-    pulumi.log.warn("""get_cluster is deprecated: Version 2017-07-01-preview will be removed in v2 of the provider.""")
     ...

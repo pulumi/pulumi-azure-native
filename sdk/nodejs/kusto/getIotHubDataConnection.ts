@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
 
@@ -51,6 +51,10 @@ export interface GetIotHubDataConnectionResult {
      */
     readonly dataFormat?: string;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    readonly databaseRouting?: string;
+    /**
      * System properties of the iot hub
      */
     readonly eventSystemProperties?: string[];
@@ -84,6 +88,10 @@ export interface GetIotHubDataConnectionResult {
      */
     readonly provisioningState: string;
     /**
+     * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+     */
+    readonly retrievalStartDate?: string;
+    /**
      * The name of the share access policy
      */
     readonly sharedAccessPolicyName: string;
@@ -98,7 +106,7 @@ export interface GetIotHubDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getIotHubDataConnection(a, opts))

@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * A stored credential that can be used by a job to connect to target databases.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class JobCredential extends pulumi.CustomResource {
     /**

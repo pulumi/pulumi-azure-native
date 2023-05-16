@@ -5,23 +5,29 @@
 from enum import Enum
 
 __all__ = [
+    'AuthenticationMode',
+    'AutoStorageAuthenticationMode',
     'AutoUserScope',
     'CachingType',
-    'CertificateFormat',
     'CertificateStoreLocation',
     'CertificateVisibility',
     'ComputeNodeDeallocationOption',
     'ComputeNodeFillType',
     'ContainerType',
     'ContainerWorkingDirectory',
+    'DiffDiskPlacement',
     'DiskEncryptionTarget',
+    'DynamicVNetAssignmentScope',
     'ElevationLevel',
+    'EndpointAccessDefaultAction',
     'IPAddressProvisioningType',
+    'IPRuleAction',
     'InboundEndpointProtocol',
     'InterNodeCommunicationState',
     'KeySource',
     'LoginMode',
     'NetworkSecurityGroupRuleAccess',
+    'NodeCommunicationMode',
     'NodePlacementPolicyType',
     'PoolAllocationMode',
     'PoolIdentityType',
@@ -29,6 +35,38 @@ __all__ = [
     'ResourceIdentityType',
     'StorageAccountType',
 ]
+
+
+class AuthenticationMode(str, Enum):
+    """
+    The authentication mode for the Batch account.
+    """
+    SHARED_KEY = "SharedKey"
+    """
+    The authentication mode using shared keys.
+    """
+    AAD = "AAD"
+    """
+    The authentication mode using Azure Active Directory.
+    """
+    TASK_AUTHENTICATION_TOKEN = "TaskAuthenticationToken"
+    """
+    The authentication mode using task authentication tokens.
+    """
+
+
+class AutoStorageAuthenticationMode(str, Enum):
+    """
+    The authentication mode which the Batch service will use to manage the auto-storage account.
+    """
+    STORAGE_KEYS = "StorageKeys"
+    """
+    The Batch service will authenticate requests to auto-storage using storage account keys.
+    """
+    BATCH_ACCOUNT_MANAGED_IDENTITY = "BatchAccountManagedIdentity"
+    """
+    The Batch service will authenticate requests to auto-storage using the managed identity assigned to the Batch account.
+    """
 
 
 class AutoUserScope(str, Enum):
@@ -66,20 +104,6 @@ class CachingType(str, Enum):
     READ_WRITE = "ReadWrite"
     """
     The caching mode for the disk is read and write.
-    """
-
-
-class CertificateFormat(str, Enum):
-    """
-    The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-    """
-    PFX = "Pfx"
-    """
-    The certificate is a PFX (PKCS#12) formatted certificate or certificate chain.
-    """
-    CER = "Cer"
-    """
-    The certificate is a base64-encoded X.509 certificate.
     """
 
 
@@ -163,6 +187,16 @@ class ContainerWorkingDirectory(str, Enum):
     """
 
 
+class DiffDiskPlacement(str, Enum):
+    """
+    This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+    """
+    CACHE_DISK = "CacheDisk"
+    """
+    The Ephemeral OS Disk is stored on the VM cache.
+    """
+
+
 class DiskEncryptionTarget(str, Enum):
     """
     If omitted, no disks on the compute nodes in the pool will be encrypted.
@@ -177,6 +211,17 @@ class DiskEncryptionTarget(str, Enum):
     """
 
 
+class DynamicVNetAssignmentScope(str, Enum):
+    NONE = "none"
+    """
+    No dynamic VNet assignment is enabled.
+    """
+    JOB = "job"
+    """
+    Dynamic VNet assignment is done per-job. If this value is set, the network configuration subnet ID must also be set. This feature requires approval before use, please contact support
+    """
+
+
 class ElevationLevel(str, Enum):
     """
     nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -188,6 +233,20 @@ class ElevationLevel(str, Enum):
     ADMIN = "Admin"
     """
     The user is a user with elevated access and operates with full Administrator permissions.
+    """
+
+
+class EndpointAccessDefaultAction(str, Enum):
+    """
+    Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+    """
+    ALLOW = "Allow"
+    """
+    Allow client access.
+    """
+    DENY = "Deny"
+    """
+    Deny client access.
     """
 
 
@@ -206,6 +265,16 @@ class IPAddressProvisioningType(str, Enum):
     NO_PUBLIC_IP_ADDRESSES = "NoPublicIPAddresses"
     """
     No public IP Address will be created for the Compute Nodes in the Pool.
+    """
+
+
+class IPRuleAction(str, Enum):
+    """
+    Action when client IP address is matched.
+    """
+    ALLOW = "Allow"
+    """
+    Allow access for the matched client IP address.
     """
 
 
@@ -270,6 +339,24 @@ class NetworkSecurityGroupRuleAccess(str, Enum):
     DENY = "Deny"
     """
     Deny access.
+    """
+
+
+class NodeCommunicationMode(str, Enum):
+    """
+    If omitted, the default value is Default.
+    """
+    DEFAULT = "Default"
+    """
+    The node communication mode is automatically set by the Batch service.
+    """
+    CLASSIC = "Classic"
+    """
+    Nodes using the Classic communication mode require inbound TCP communication on ports 29876 and 29877 from the "BatchNodeManagement.{region}" service tag and outbound TCP communication on port 443 to the "Storage.region" and "BatchNodeManagement.{region}" service tags.
+    """
+    SIMPLIFIED = "Simplified"
+    """
+    Nodes using the Simplified communication mode require outbound TCP communication on port 443 to the "BatchNodeManagement.{region}" service tag. No open inbound ports are required.
     """
 
 

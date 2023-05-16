@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageSync.V20170605Preview
 {
-    [Obsolete(@"Version 2017-06-05-preview will be removed in v2 of the provider.")]
     public static class GetSyncGroup
     {
         /// <summary>

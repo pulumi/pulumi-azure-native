@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents an automation rule.
- * API Version: 2019-01-01-preview.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AutomationRule extends pulumi.CustomResource {
     /**
@@ -39,19 +39,19 @@ export class AutomationRule extends pulumi.CustomResource {
     }
 
     /**
-     * The actions to execute when the automation rule is triggered
+     * The actions to execute when the automation rule is triggered.
      */
     public readonly actions!: pulumi.Output<(outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[]>;
     /**
-     * Describes the client that created the automation rule
+     * Information on the client (user or application) that made some action
      */
     public /*out*/ readonly createdBy!: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
     /**
-     * The time the automation rule was created
+     * The time the automation rule was created.
      */
     public /*out*/ readonly createdTimeUtc!: pulumi.Output<string>;
     /**
-     * The display name of the automation  rule
+     * The display name of the automation rule.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -59,27 +59,31 @@ export class AutomationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * Describes the client that last updated the automation rule
+     * Information on the client (user or application) that made some action
      */
     public /*out*/ readonly lastModifiedBy!: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
     /**
-     * The last time the automation rule was updated
+     * The last time the automation rule was updated.
      */
     public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The order of execution of the automation rule
+     * The order of execution of the automation rule.
      */
     public readonly order!: pulumi.Output<number>;
     /**
-     * The triggering logic of the automation rule
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
+     * Describes automation rule triggering logic.
      */
     public readonly triggeringLogic!: pulumi.Output<outputs.securityinsights.AutomationRuleTriggeringLogicResponse>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -100,9 +104,6 @@ export class AutomationRule extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.order === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
@@ -118,7 +119,6 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["automationRuleId"] = args ? args.automationRuleId : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["order"] = args ? args.order : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["triggeringLogic"] = args ? args.triggeringLogic : undefined;
@@ -129,6 +129,7 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
@@ -140,11 +141,12 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["order"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["triggeringLogic"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20210901preview:AutomationRule" }, { type: "azure-native:securityinsights/v20211001:AutomationRule" }, { type: "azure-native:securityinsights/v20211001preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220401preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220501preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220601preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220701preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220801:AutomationRule" }, { type: "azure-native:securityinsights/v20220801preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220901preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221001preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221101:AutomationRule" }, { type: "azure-native:securityinsights/v20221101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221201preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230201:AutomationRule" }, { type: "azure-native:securityinsights/v20230201preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230401preview:AutomationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20210901preview:AutomationRule" }, { type: "azure-native:securityinsights/v20211001:AutomationRule" }, { type: "azure-native:securityinsights/v20211001preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220401preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220501preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220601preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220701preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220801:AutomationRule" }, { type: "azure-native:securityinsights/v20220801preview:AutomationRule" }, { type: "azure-native:securityinsights/v20220901preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221001preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221101:AutomationRule" }, { type: "azure-native:securityinsights/v20221101preview:AutomationRule" }, { type: "azure-native:securityinsights/v20221201preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230201:AutomationRule" }, { type: "azure-native:securityinsights/v20230201preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230301preview:AutomationRule" }, { type: "azure-native:securityinsights/v20230401preview:AutomationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutomationRule.__pulumiType, name, resourceInputs, opts);
     }
@@ -155,7 +157,7 @@ export class AutomationRule extends pulumi.CustomResource {
  */
 export interface AutomationRuleArgs {
     /**
-     * The actions to execute when the automation rule is triggered
+     * The actions to execute when the automation rule is triggered.
      */
     actions: pulumi.Input<pulumi.Input<inputs.securityinsights.AutomationRuleModifyPropertiesActionArgs | inputs.securityinsights.AutomationRuleRunPlaybookActionArgs>[]>;
     /**
@@ -163,23 +165,19 @@ export interface AutomationRuleArgs {
      */
     automationRuleId?: pulumi.Input<string>;
     /**
-     * The display name of the automation  rule
+     * The display name of the automation rule.
      */
     displayName: pulumi.Input<string>;
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
-    /**
-     * The order of execution of the automation rule
+     * The order of execution of the automation rule.
      */
     order: pulumi.Input<number>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The triggering logic of the automation rule
+     * Describes automation rule triggering logic.
      */
     triggeringLogic: pulumi.Input<inputs.securityinsights.AutomationRuleTriggeringLogicArgs>;
     /**

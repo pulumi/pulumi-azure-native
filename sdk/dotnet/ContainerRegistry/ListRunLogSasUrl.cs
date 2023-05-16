@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets a link to download the run logs.
-        /// API Version: 2019-06-01-preview.
+        /// API Version: 2019-04-01.
         /// </summary>
         public static Task<ListRunLogSasUrlResult> InvokeAsync(ListRunLogSasUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-native:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a link to download the run logs.
-        /// API Version: 2019-06-01-preview.
+        /// API Version: 2019-04-01.
         /// </summary>
         public static Output<ListRunLogSasUrlResult> Invoke(ListRunLogSasUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRunLogSasUrlResult>("azure-native:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlInvokeArgs(), options.WithDefaults());
@@ -84,21 +84,13 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public sealed class ListRunLogSasUrlResult
     {
         /// <summary>
-        /// The link to logs in registry for a run on a azure container registry.
-        /// </summary>
-        public readonly string? LogArtifactLink;
-        /// <summary>
         /// The link to logs for a run on a azure container registry.
         /// </summary>
         public readonly string? LogLink;
 
         [OutputConstructor]
-        private ListRunLogSasUrlResult(
-            string? logArtifactLink,
-
-            string? logLink)
+        private ListRunLogSasUrlResult(string? logLink)
         {
-            LogArtifactLink = logArtifactLink;
             LogLink = logLink;
         }
     }

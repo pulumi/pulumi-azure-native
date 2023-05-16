@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * IpConfigurations.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualHubIpConfiguration extends pulumi.CustomResource {
     /**
@@ -111,7 +112,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200801:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20201101:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210201:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210301:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210801:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220101:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220701:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220901:VirtualHubIpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200801:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20201101:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210201:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210301:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210801:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220101:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220701:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220901:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20221101:VirtualHubIpConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHubIpConfiguration.__pulumiType, name, resourceInputs, opts);
     }

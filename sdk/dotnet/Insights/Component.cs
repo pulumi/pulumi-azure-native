@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Application Insights component definition.
-    /// API Version: 2015-05-01.
+    /// API Version: 2020-02-02.
+    /// Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:Component")]
     public partial class Component : global::Pulumi.CustomResource
@@ -53,10 +54,28 @@ namespace Pulumi.AzureNative.Insights
         public Output<bool?> DisableIpMasking { get; private set; } = null!;
 
         /// <summary>
+        /// Disable Non-AAD based Auth.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource etag
+        /// </summary>
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         [Output("flowType")]
         public Output<string?> FlowType { get; private set; } = null!;
+
+        /// <summary>
+        /// Force users to create their own storage account for profiler and debugger.
+        /// </summary>
+        [Output("forceCustomerStorageForProfiler")]
+        public Output<bool?> ForceCustomerStorageForProfiler { get; private set; } = null!;
 
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -95,6 +114,12 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// The date which the component got migrated to LA, in ISO 8601 format.
+        /// </summary>
+        [Output("laMigrationDate")]
+        public Output<string> LaMigrationDate { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -117,6 +142,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        [Output("publicNetworkAccessForIngestion")]
+        public Output<string?> PublicNetworkAccessForIngestion { get; private set; } = null!;
+
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        [Output("publicNetworkAccessForQuery")]
+        public Output<string?> PublicNetworkAccessForQuery { get; private set; } = null!;
 
         /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
@@ -153,6 +190,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+        /// </summary>
+        [Output("workspaceResourceId")]
+        public Output<string?> WorkspaceResourceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -219,10 +262,22 @@ namespace Pulumi.AzureNative.Insights
         public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
+        /// Disable Non-AAD based Auth.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         [Input("flowType")]
         public InputUnion<string, Pulumi.AzureNative.Insights.FlowType>? FlowType { get; set; }
+
+        /// <summary>
+        /// Force users to create their own storage account for profiler and debugger.
+        /// </summary>
+        [Input("forceCustomerStorageForProfiler")]
+        public Input<bool>? ForceCustomerStorageForProfiler { get; set; }
 
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -253,6 +308,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        [Input("publicNetworkAccessForIngestion")]
+        public InputUnion<string, Pulumi.AzureNative.Insights.PublicNetworkAccessType>? PublicNetworkAccessForIngestion { get; set; }
+
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        [Input("publicNetworkAccessForQuery")]
+        public InputUnion<string, Pulumi.AzureNative.Insights.PublicNetworkAccessType>? PublicNetworkAccessForQuery { get; set; }
 
         /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
@@ -296,13 +363,18 @@ namespace Pulumi.AzureNative.Insights
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+        /// </summary>
+        [Input("workspaceResourceId")]
+        public Input<string>? WorkspaceResourceId { get; set; }
+
         public ComponentArgs()
         {
             ApplicationType = "web";
             FlowType = "Bluefield";
-            IngestionMode = "ApplicationInsights";
+            IngestionMode = "LogAnalytics";
             RequestSource = "rest";
-            RetentionInDays = 90;
         }
         public static new ComponentArgs Empty => new ComponentArgs();
     }

@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Property"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Property"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Property"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Property"},

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
     /// <summary>
     /// Information about appliance definition.
     /// </summary>
-    [Obsolete(@"Version 2016-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20160901preview:ApplianceDefinition")]
     public partial class ApplianceDefinition : global::Pulumi.CustomResource
     {

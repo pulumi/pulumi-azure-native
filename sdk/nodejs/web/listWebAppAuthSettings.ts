@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the Authentication/Authorization settings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the Authentication/Authorization settings of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsResult> {
 
@@ -42,7 +42,7 @@ export interface ListWebAppAuthSettingsResult {
      */
     readonly additionalLoginParams?: string[];
     /**
-     * Allowed audience values to consider when validating JWTs issued by 
+     * Allowed audience values to consider when validating JSON Web Tokens issued by 
      * Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
      * allowed audience, regardless of this setting.
      */
@@ -254,8 +254,8 @@ export interface ListWebAppAuthSettingsResult {
     readonly validateIssuer?: boolean;
 }
 /**
- * Gets the Authentication/Authorization settings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the Authentication/Authorization settings of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppAuthSettingsOutput(args: ListWebAppAuthSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppAuthSettings(a, opts))

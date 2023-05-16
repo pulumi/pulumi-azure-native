@@ -16,23 +16,43 @@ class ContentTypeArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
-                 content_type_id: Optional[pulumi.Input[str]] = None):
+                 content_type_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[Any] = None,
+                 version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContentType resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] content_type_id: Content type identifier.
+        :param pulumi.Input[str] description: Content type description.
+        :param pulumi.Input[str] id: Content type identifier
+        :param pulumi.Input[str] name: Content type name. Must be 1 to 250 characters long.
+        :param Any schema: Content type schema.
+        :param pulumi.Input[str] version: Content type version.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if content_type_id is not None:
             pulumi.set(__self__, "content_type_id", content_type_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -64,6 +84,66 @@ class ContentTypeArgs:
     def content_type_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_type_id", value)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content type description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content type identifier
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content type name. Must be 1 to 250 characters long.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Content type schema.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[Any]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content type version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
 
 class ContentType(pulumi.CustomResource):
     @overload
@@ -71,18 +151,29 @@ class ContentType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[Any] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Content type contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type_id: Content type identifier.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] description: Content type description.
+        :param pulumi.Input[str] id: Content type identifier
+        :param pulumi.Input[str] name: Content type name. Must be 1 to 250 characters long.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param Any schema: Content type schema.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] version: Content type version.
         """
         ...
     @overload
@@ -92,7 +183,8 @@ class ContentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Content type contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ContentTypeArgs args: The arguments to use to populate this resource's properties.
@@ -110,8 +202,13 @@ class ContentType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[Any] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -122,18 +219,19 @@ class ContentType(pulumi.CustomResource):
             __props__ = ContentTypeArgs.__new__(ContentTypeArgs)
 
             __props__.__dict__["content_type_id"] = content_type_id
+            __props__.__dict__["description"] = description
+            __props__.__dict__["id"] = id
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["schema"] = schema
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
-            __props__.__dict__["description"] = None
-            __props__.__dict__["name"] = None
-            __props__.__dict__["schema"] = None
+            __props__.__dict__["version"] = version
             __props__.__dict__["type"] = None
-            __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ContentType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ContentType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContentType, __self__).__init__(
             'azure-native:apimanagement:ContentType',
@@ -176,7 +274,7 @@ class ContentType(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -192,7 +290,7 @@ class ContentType(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

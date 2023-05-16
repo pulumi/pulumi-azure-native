@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getKustoDatabaseDataSet(args: GetKustoDatabaseDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoDatabaseDataSetResult> {
 
@@ -85,7 +85,7 @@ export interface GetKustoDatabaseDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getKustoDatabaseDataSetOutput(args: GetKustoDatabaseDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoDatabaseDataSetResult> {
     return pulumi.output(args).apply((a: any) => getKustoDatabaseDataSet(a, opts))

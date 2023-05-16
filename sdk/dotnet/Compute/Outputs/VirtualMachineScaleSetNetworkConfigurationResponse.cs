@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? DeleteOption;
         /// <summary>
+        /// Specifies whether the network interface is disabled for tcp state tracking.
+        /// </summary>
+        public readonly bool? DisableTcpStateTracking;
+        /// <summary>
         /// The dns settings to be applied on the network interfaces.
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse? DnsSettings;
@@ -36,10 +40,6 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Whether IP forwarding enabled on this NIC.
         /// </summary>
         public readonly bool? EnableIPForwarding;
-        /// <summary>
-        /// Resource Id
-        /// </summary>
-        public readonly string? Id;
         /// <summary>
         /// Specifies the IP configurations of the network interface.
         /// </summary>
@@ -61,6 +61,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private VirtualMachineScaleSetNetworkConfigurationResponse(
             string? deleteOption,
 
+            bool? disableTcpStateTracking,
+
             Outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse? dnsSettings,
 
             bool? enableAcceleratedNetworking,
@@ -68,8 +70,6 @@ namespace Pulumi.AzureNative.Compute.Outputs
             bool? enableFpga,
 
             bool? enableIPForwarding,
-
-            string? id,
 
             ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponse> ipConfigurations,
 
@@ -80,11 +80,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
             bool? primary)
         {
             DeleteOption = deleteOption;
+            DisableTcpStateTracking = disableTcpStateTracking;
             DnsSettings = dnsSettings;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             EnableFpga = enableFpga;
             EnableIPForwarding = enableIPForwarding;
-            Id = id;
             IpConfigurations = ipConfigurations;
             Name = name;
             NetworkSecurityGroup = networkSecurityGroup;

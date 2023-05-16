@@ -8,38 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Security
 {
     /// <summary>
-    /// The type of the action that will be triggered by the Automation
-    /// </summary>
-    [EnumType]
-    public readonly struct ActionType : IEquatable<ActionType>
-    {
-        private readonly string _value;
-
-        private ActionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ActionType LogicApp { get; } = new ActionType("LogicApp");
-        public static ActionType EventHub { get; } = new ActionType("EventHub");
-        public static ActionType Workspace { get; } = new ActionType("Workspace");
-
-        public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
-        public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
-
-        public static explicit operator string(ActionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ActionType other && Equals(other);
-        public bool Equals(ActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Data types sent to workspace.
     /// </summary>
     [EnumType]
@@ -220,84 +188,6 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-    /// </summary>
-    [EnumType]
-    public readonly struct AuthenticationType : IEquatable<AuthenticationType>
-    {
-        private readonly string _value;
-
-        private AuthenticationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// AWS cloud account connector user credentials authentication
-        /// </summary>
-        public static AuthenticationType AwsCreds { get; } = new AuthenticationType("awsCreds");
-        /// <summary>
-        /// AWS account connector assume role authentication
-        /// </summary>
-        public static AuthenticationType AwsAssumeRole { get; } = new AuthenticationType("awsAssumeRole");
-        /// <summary>
-        /// GCP account connector service to service authentication
-        /// </summary>
-        public static AuthenticationType GcpCredentials { get; } = new AuthenticationType("gcpCredentials");
-
-        public static bool operator ==(AuthenticationType left, AuthenticationType right) => left.Equals(right);
-        public static bool operator !=(AuthenticationType left, AuthenticationType right) => !left.Equals(right);
-
-        public static explicit operator string(AuthenticationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AuthenticationType other && Equals(other);
-        public bool Equals(AuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-    /// </summary>
-    [EnumType]
-    public readonly struct AutoProvision : IEquatable<AutoProvision>
-    {
-        private readonly string _value;
-
-        private AutoProvision(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Install missing Azure Arc agents on machines automatically
-        /// </summary>
-        public static AutoProvision On { get; } = new AutoProvision("On");
-        /// <summary>
-        /// Do not install Azure Arc agent on the machines automatically
-        /// </summary>
-        public static AutoProvision Off { get; } = new AutoProvision("Off");
-
-        public static bool operator ==(AutoProvision left, AutoProvision right) => left.Equals(right);
-        public static bool operator !=(AutoProvision left, AutoProvision right) => !left.Equals(right);
-
-        public static explicit operator string(AutoProvision value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AutoProvision other && Equals(other);
-        public bool Equals(AutoProvision other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The categories of resource that is at risk when the assessment is unhealthy
     /// </summary>
     [EnumType]
@@ -347,6 +237,8 @@ namespace Pulumi.AzureNative.Security
         public static CloudName Azure { get; } = new CloudName("Azure");
         public static CloudName AWS { get; } = new CloudName("AWS");
         public static CloudName GCP { get; } = new CloudName("GCP");
+        public static CloudName Github { get; } = new CloudName("Github");
+        public static CloudName AzureDevOps { get; } = new CloudName("AzureDevOps");
 
         public static bool operator ==(CloudName left, CloudName right) => left.Equals(right);
         public static bool operator !=(CloudName left, CloudName right) => !left.Equals(right);
@@ -394,38 +286,31 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// A valid event source type.
+    /// The type of the environment data.
     /// </summary>
     [EnumType]
-    public readonly struct EventSource : IEquatable<EventSource>
+    public readonly struct EnvironmentType : IEquatable<EnvironmentType>
     {
         private readonly string _value;
 
-        private EventSource(string value)
+        private EnvironmentType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static EventSource Assessments { get; } = new EventSource("Assessments");
-        public static EventSource AssessmentsSnapshot { get; } = new EventSource("AssessmentsSnapshot");
-        public static EventSource SubAssessments { get; } = new EventSource("SubAssessments");
-        public static EventSource SubAssessmentsSnapshot { get; } = new EventSource("SubAssessmentsSnapshot");
-        public static EventSource Alerts { get; } = new EventSource("Alerts");
-        public static EventSource SecureScores { get; } = new EventSource("SecureScores");
-        public static EventSource SecureScoresSnapshot { get; } = new EventSource("SecureScoresSnapshot");
-        public static EventSource SecureScoreControls { get; } = new EventSource("SecureScoreControls");
-        public static EventSource SecureScoreControlsSnapshot { get; } = new EventSource("SecureScoreControlsSnapshot");
-        public static EventSource RegulatoryComplianceAssessment { get; } = new EventSource("RegulatoryComplianceAssessment");
-        public static EventSource RegulatoryComplianceAssessmentSnapshot { get; } = new EventSource("RegulatoryComplianceAssessmentSnapshot");
+        public static EnvironmentType AwsAccount { get; } = new EnvironmentType("AwsAccount");
+        public static EnvironmentType GcpProject { get; } = new EnvironmentType("GcpProject");
+        public static EnvironmentType GithubScope { get; } = new EnvironmentType("GithubScope");
+        public static EnvironmentType AzureDevOpsScope { get; } = new EnvironmentType("AzureDevOpsScope");
 
-        public static bool operator ==(EventSource left, EventSource right) => left.Equals(right);
-        public static bool operator !=(EventSource left, EventSource right) => !left.Equals(right);
+        public static bool operator ==(EnvironmentType left, EnvironmentType right) => left.Equals(right);
+        public static bool operator !=(EnvironmentType left, EnvironmentType right) => !left.Equals(right);
 
-        public static explicit operator string(EventSource value) => value._value;
+        public static explicit operator string(EnvironmentType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventSource other && Equals(other);
-        public bool Equals(EventSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is EnvironmentType other && Equals(other);
+        public bool Equals(EnvironmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -496,47 +381,6 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// Defines the minimal alert severity which will be sent as email notifications
-    /// </summary>
-    [EnumType]
-    public readonly struct MinimalSeverity : IEquatable<MinimalSeverity>
-    {
-        private readonly string _value;
-
-        private MinimalSeverity(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Get notifications on new alerts with High severity
-        /// </summary>
-        public static MinimalSeverity High { get; } = new MinimalSeverity("High");
-        /// <summary>
-        /// Get notifications on new alerts with medium or high severity
-        /// </summary>
-        public static MinimalSeverity Medium { get; } = new MinimalSeverity("Medium");
-        /// <summary>
-        /// Don't get notifications on new alerts with low, medium or high severity
-        /// </summary>
-        public static MinimalSeverity Low { get; } = new MinimalSeverity("Low");
-
-        public static bool operator ==(MinimalSeverity left, MinimalSeverity right) => left.Equals(right);
-        public static bool operator !=(MinimalSeverity left, MinimalSeverity right) => !left.Equals(right);
-
-        public static explicit operator string(MinimalSeverity value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MinimalSeverity other && Equals(other);
-        public bool Equals(MinimalSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of the security offering.
     /// </summary>
     [EnumType]
@@ -552,7 +396,18 @@ namespace Pulumi.AzureNative.Security
         public static OfferingType CspmMonitorAws { get; } = new OfferingType("CspmMonitorAws");
         public static OfferingType DefenderForContainersAws { get; } = new OfferingType("DefenderForContainersAws");
         public static OfferingType DefenderForServersAws { get; } = new OfferingType("DefenderForServersAws");
+        public static OfferingType DefenderForDatabasesAws { get; } = new OfferingType("DefenderForDatabasesAws");
         public static OfferingType InformationProtectionAws { get; } = new OfferingType("InformationProtectionAws");
+        public static OfferingType CspmMonitorGcp { get; } = new OfferingType("CspmMonitorGcp");
+        public static OfferingType CspmMonitorGithub { get; } = new OfferingType("CspmMonitorGithub");
+        public static OfferingType CspmMonitorAzureDevOps { get; } = new OfferingType("CspmMonitorAzureDevOps");
+        public static OfferingType DefenderForServersGcp { get; } = new OfferingType("DefenderForServersGcp");
+        public static OfferingType DefenderForContainersGcp { get; } = new OfferingType("DefenderForContainersGcp");
+        public static OfferingType DefenderForDatabasesGcp { get; } = new OfferingType("DefenderForDatabasesGcp");
+        public static OfferingType DefenderCspmAws { get; } = new OfferingType("DefenderCspmAws");
+        public static OfferingType DefenderCspmGcp { get; } = new OfferingType("DefenderCspmGcp");
+        public static OfferingType DefenderForDevOpsGithub { get; } = new OfferingType("DefenderForDevOpsGithub");
+        public static OfferingType DefenderForDevOpsAzureDevOps { get; } = new OfferingType("DefenderForDevOpsAzureDevOps");
 
         public static bool operator ==(OfferingType left, OfferingType right) => left.Equals(right);
         public static bool operator !=(OfferingType left, OfferingType right) => !left.Equals(right);
@@ -562,71 +417,6 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OfferingType other && Equals(other);
         public bool Equals(OfferingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-    /// </summary>
-    [EnumType]
-    public readonly struct Operator : IEquatable<Operator>
-    {
-        private readonly string _value;
-
-        private Operator(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Applies for decimal and non-decimal operands
-        /// </summary>
-        public static Operator EqualsValue { get; } = new Operator("Equals");
-        /// <summary>
-        /// Applies only for decimal operands
-        /// </summary>
-        public static Operator GreaterThan { get; } = new Operator("GreaterThan");
-        /// <summary>
-        /// Applies only for decimal operands
-        /// </summary>
-        public static Operator GreaterThanOrEqualTo { get; } = new Operator("GreaterThanOrEqualTo");
-        /// <summary>
-        /// Applies only for decimal operands
-        /// </summary>
-        public static Operator LesserThan { get; } = new Operator("LesserThan");
-        /// <summary>
-        /// Applies only for decimal operands
-        /// </summary>
-        public static Operator LesserThanOrEqualTo { get; } = new Operator("LesserThanOrEqualTo");
-        /// <summary>
-        /// Applies  for decimal and non-decimal operands
-        /// </summary>
-        public static Operator NotEquals { get; } = new Operator("NotEquals");
-        /// <summary>
-        /// Applies only for non-decimal operands
-        /// </summary>
-        public static Operator Contains { get; } = new Operator("Contains");
-        /// <summary>
-        /// Applies only for non-decimal operands
-        /// </summary>
-        public static Operator StartsWith { get; } = new Operator("StartsWith");
-        /// <summary>
-        /// Applies only for non-decimal operands
-        /// </summary>
-        public static Operator EndsWith { get; } = new Operator("EndsWith");
-
-        public static bool operator ==(Operator left, Operator right) => left.Equals(right);
-        public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
-
-        public static explicit operator string(Operator value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Operator other && Equals(other);
-        public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -658,39 +448,6 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OrganizationMembershipType other && Equals(other);
         public bool Equals(OrganizationMembershipType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-    /// </summary>
-    [EnumType]
-    public readonly struct PropertyType : IEquatable<PropertyType>
-    {
-        private readonly string _value;
-
-        private PropertyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PropertyType String { get; } = new PropertyType("String");
-        public static PropertyType Integer { get; } = new PropertyType("Integer");
-        public static PropertyType Number { get; } = new PropertyType("Number");
-        public static PropertyType Boolean { get; } = new PropertyType("Boolean");
-
-        public static bool operator ==(PropertyType left, PropertyType right) => left.Equals(right);
-        public static bool operator !=(PropertyType left, PropertyType right) => !left.Equals(right);
-
-        public static explicit operator string(PropertyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PropertyType other && Equals(other);
-        public bool Equals(PropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -852,75 +609,28 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// A possible role to configure sending security notification alerts to
+    /// The scanning mode for the vm scan.
     /// </summary>
     [EnumType]
-    public readonly struct Roles : IEquatable<Roles>
+    public readonly struct ScanningMode : IEquatable<ScanningMode>
     {
         private readonly string _value;
 
-        private Roles(string value)
+        private ScanningMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// If enabled, send notification on new alerts to the account admins
-        /// </summary>
-        public static Roles AccountAdmin { get; } = new Roles("AccountAdmin");
-        /// <summary>
-        /// If enabled, send notification on new alerts to the service admins
-        /// </summary>
-        public static Roles ServiceAdmin { get; } = new Roles("ServiceAdmin");
-        /// <summary>
-        /// If enabled, send notification on new alerts to the subscription owners
-        /// </summary>
-        public static Roles Owner { get; } = new Roles("Owner");
-        /// <summary>
-        /// If enabled, send notification on new alerts to the subscription contributors
-        /// </summary>
-        public static Roles Contributor { get; } = new Roles("Contributor");
+        public static ScanningMode Default { get; } = new ScanningMode("Default");
 
-        public static bool operator ==(Roles left, Roles right) => left.Equals(right);
-        public static bool operator !=(Roles left, Roles right) => !left.Equals(right);
+        public static bool operator ==(ScanningMode left, ScanningMode right) => left.Equals(right);
+        public static bool operator !=(ScanningMode left, ScanningMode right) => !left.Equals(right);
 
-        public static explicit operator string(Roles value) => value._value;
+        public static explicit operator string(ScanningMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Roles other && Equals(other);
-        public bool Equals(Roles other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Possible states of the rule
-    /// </summary>
-    [EnumType]
-    public readonly struct RuleState : IEquatable<RuleState>
-    {
-        private readonly string _value;
-
-        private RuleState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RuleState Enabled { get; } = new RuleState("Enabled");
-        public static RuleState Disabled { get; } = new RuleState("Disabled");
-        public static RuleState Expired { get; } = new RuleState("Expired");
-
-        public static bool operator ==(RuleState left, RuleState right) => left.Equals(right);
-        public static bool operator !=(RuleState left, RuleState right) => !left.Equals(right);
-
-        public static explicit operator string(RuleState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RuleState other && Equals(other);
-        public bool Equals(RuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ScanningMode other && Equals(other);
+        public bool Equals(ScanningMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -992,38 +702,6 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// The severity to relate to the assessments generated by this assessment automation.
-    /// </summary>
-    [EnumType]
-    public readonly struct SeverityEnum : IEquatable<SeverityEnum>
-    {
-        private readonly string _value;
-
-        private SeverityEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SeverityEnum High { get; } = new SeverityEnum("High");
-        public static SeverityEnum Medium { get; } = new SeverityEnum("Medium");
-        public static SeverityEnum Low { get; } = new SeverityEnum("Low");
-
-        public static bool operator ==(SeverityEnum left, SeverityEnum right) => left.Equals(right);
-        public static bool operator !=(SeverityEnum left, SeverityEnum right) => !left.Equals(right);
-
-        public static explicit operator string(SeverityEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SeverityEnum other && Equals(other);
-        public bool Equals(SeverityEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The platform where the assessed resource resides
     /// </summary>
     [EnumType]
@@ -1057,74 +735,6 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Source other && Equals(other);
         public bool Equals(Source other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The cloud that the standard is supported on.
-    /// </summary>
-    [EnumType]
-    public readonly struct StandardSupportedClouds : IEquatable<StandardSupportedClouds>
-    {
-        private readonly string _value;
-
-        private StandardSupportedClouds(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StandardSupportedClouds AWS { get; } = new StandardSupportedClouds("AWS");
-        public static StandardSupportedClouds GCP { get; } = new StandardSupportedClouds("GCP");
-
-        public static bool operator ==(StandardSupportedClouds left, StandardSupportedClouds right) => left.Equals(right);
-        public static bool operator !=(StandardSupportedClouds left, StandardSupportedClouds right) => !left.Equals(right);
-
-        public static explicit operator string(StandardSupportedClouds value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StandardSupportedClouds other && Equals(other);
-        public bool Equals(StandardSupportedClouds other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
-    /// </summary>
-    [EnumType]
-    public readonly struct State : IEquatable<State>
-    {
-        private readonly string _value;
-
-        private State(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Send notification on new alerts to the subscription's admins
-        /// </summary>
-        public static State On { get; } = new State("On");
-        /// <summary>
-        /// Don't send notification on new alerts to the subscription's admins
-        /// </summary>
-        public static State Off { get; } = new State("Off");
-
-        public static bool operator ==(State left, State right) => left.Equals(right);
-        public static bool operator !=(State left, State right) => !left.Equals(right);
-
-        public static explicit operator string(State value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is State other && Equals(other);
-        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1196,29 +806,205 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// Relevant cloud for the custom assessment automation.
+    /// The available sub plans
     /// </summary>
     [EnumType]
-    public readonly struct SupportedCloudEnum : IEquatable<SupportedCloudEnum>
+    public readonly struct SubPlan : IEquatable<SubPlan>
     {
         private readonly string _value;
 
-        private SupportedCloudEnum(string value)
+        private SubPlan(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SupportedCloudEnum AWS { get; } = new SupportedCloudEnum("AWS");
-        public static SupportedCloudEnum GCP { get; } = new SupportedCloudEnum("GCP");
+        public static SubPlan P1 { get; } = new SubPlan("P1");
+        public static SubPlan P2 { get; } = new SubPlan("P2");
 
-        public static bool operator ==(SupportedCloudEnum left, SupportedCloudEnum right) => left.Equals(right);
-        public static bool operator !=(SupportedCloudEnum left, SupportedCloudEnum right) => !left.Equals(right);
+        public static bool operator ==(SubPlan left, SubPlan right) => left.Equals(right);
+        public static bool operator !=(SubPlan left, SubPlan right) => !left.Equals(right);
 
-        public static explicit operator string(SupportedCloudEnum value) => value._value;
+        public static explicit operator string(SubPlan value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SupportedCloudEnum other && Equals(other);
-        public bool Equals(SupportedCloudEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is SubPlan other && Equals(other);
+        public bool Equals(SubPlan other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tactic of the assessment
+    /// </summary>
+    [EnumType]
+    public readonly struct Tactics : IEquatable<Tactics>
+    {
+        private readonly string _value;
+
+        private Tactics(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Tactics Reconnaissance { get; } = new Tactics("Reconnaissance");
+        public static Tactics Resource_Development { get; } = new Tactics("Resource Development");
+        public static Tactics Initial_Access { get; } = new Tactics("Initial Access");
+        public static Tactics Execution { get; } = new Tactics("Execution");
+        public static Tactics Persistence { get; } = new Tactics("Persistence");
+        public static Tactics Privilege_Escalation { get; } = new Tactics("Privilege Escalation");
+        public static Tactics Defense_Evasion { get; } = new Tactics("Defense Evasion");
+        public static Tactics Credential_Access { get; } = new Tactics("Credential Access");
+        public static Tactics Discovery { get; } = new Tactics("Discovery");
+        public static Tactics Lateral_Movement { get; } = new Tactics("Lateral Movement");
+        public static Tactics Collection { get; } = new Tactics("Collection");
+        public static Tactics Command_and_Control { get; } = new Tactics("Command and Control");
+        public static Tactics Exfiltration { get; } = new Tactics("Exfiltration");
+        public static Tactics Impact { get; } = new Tactics("Impact");
+
+        public static bool operator ==(Tactics left, Tactics right) => left.Equals(right);
+        public static bool operator !=(Tactics left, Tactics right) => !left.Equals(right);
+
+        public static explicit operator string(Tactics value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Tactics other && Equals(other);
+        public bool Equals(Tactics other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Techniques of the assessment
+    /// </summary>
+    [EnumType]
+    public readonly struct Techniques : IEquatable<Techniques>
+    {
+        private readonly string _value;
+
+        private Techniques(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Techniques Abuse_Elevation_Control_Mechanism { get; } = new Techniques("Abuse Elevation Control Mechanism");
+        public static Techniques Access_Token_Manipulation { get; } = new Techniques("Access Token Manipulation");
+        public static Techniques Account_Discovery { get; } = new Techniques("Account Discovery");
+        public static Techniques Account_Manipulation { get; } = new Techniques("Account Manipulation");
+        public static Techniques Active_Scanning { get; } = new Techniques("Active Scanning");
+        public static Techniques Application_Layer_Protocol { get; } = new Techniques("Application Layer Protocol");
+        public static Techniques Audio_Capture { get; } = new Techniques("Audio Capture");
+        public static Techniques Boot_or_Logon_Autostart_Execution { get; } = new Techniques("Boot or Logon Autostart Execution");
+        public static Techniques Boot_or_Logon_Initialization_Scripts { get; } = new Techniques("Boot or Logon Initialization Scripts");
+        public static Techniques Brute_Force { get; } = new Techniques("Brute Force");
+        public static Techniques Cloud_Infrastructure_Discovery { get; } = new Techniques("Cloud Infrastructure Discovery");
+        public static Techniques Cloud_Service_Dashboard { get; } = new Techniques("Cloud Service Dashboard");
+        public static Techniques Cloud_Service_Discovery { get; } = new Techniques("Cloud Service Discovery");
+        public static Techniques Command_and_Scripting_Interpreter { get; } = new Techniques("Command and Scripting Interpreter");
+        public static Techniques Compromise_Client_Software_Binary { get; } = new Techniques("Compromise Client Software Binary");
+        public static Techniques Compromise_Infrastructure { get; } = new Techniques("Compromise Infrastructure");
+        public static Techniques Container_and_Resource_Discovery { get; } = new Techniques("Container and Resource Discovery");
+        public static Techniques Create_Account { get; } = new Techniques("Create Account");
+        public static Techniques Create_or_Modify_System_Process { get; } = new Techniques("Create or Modify System Process");
+        public static Techniques Credentials_from_Password_Stores { get; } = new Techniques("Credentials from Password Stores");
+        public static Techniques Data_Destruction { get; } = new Techniques("Data Destruction");
+        public static Techniques Data_Encrypted_for_Impact { get; } = new Techniques("Data Encrypted for Impact");
+        public static Techniques Data_from_Cloud_Storage_Object { get; } = new Techniques("Data from Cloud Storage Object");
+        public static Techniques Data_from_Configuration_Repository { get; } = new Techniques("Data from Configuration Repository");
+        public static Techniques Data_from_Information_Repositories { get; } = new Techniques("Data from Information Repositories");
+        public static Techniques Data_from_Local_System { get; } = new Techniques("Data from Local System");
+        public static Techniques Data_Manipulation { get; } = new Techniques("Data Manipulation");
+        public static Techniques Data_Staged { get; } = new Techniques("Data Staged");
+        public static Techniques Defacement { get; } = new Techniques("Defacement");
+        public static Techniques Deobfuscate_Decode_Files_or_Information { get; } = new Techniques("Deobfuscate/Decode Files or Information");
+        public static Techniques Disk_Wipe { get; } = new Techniques("Disk Wipe");
+        public static Techniques Domain_Trust_Discovery { get; } = new Techniques("Domain Trust Discovery");
+        public static Techniques Drive_by_Compromise { get; } = new Techniques("Drive-by Compromise");
+        public static Techniques Dynamic_Resolution { get; } = new Techniques("Dynamic Resolution");
+        public static Techniques Endpoint_Denial_of_Service { get; } = new Techniques("Endpoint Denial of Service");
+        public static Techniques Event_Triggered_Execution { get; } = new Techniques("Event Triggered Execution");
+        public static Techniques Exfiltration_Over_Alternative_Protocol { get; } = new Techniques("Exfiltration Over Alternative Protocol");
+        public static Techniques Exploit_Public_Facing_Application { get; } = new Techniques("Exploit Public-Facing Application");
+        public static Techniques Exploitation_for_Client_Execution { get; } = new Techniques("Exploitation for Client Execution");
+        public static Techniques Exploitation_for_Credential_Access { get; } = new Techniques("Exploitation for Credential Access");
+        public static Techniques Exploitation_for_Defense_Evasion { get; } = new Techniques("Exploitation for Defense Evasion");
+        public static Techniques Exploitation_for_Privilege_Escalation { get; } = new Techniques("Exploitation for Privilege Escalation");
+        public static Techniques Exploitation_of_Remote_Services { get; } = new Techniques("Exploitation of Remote Services");
+        public static Techniques External_Remote_Services { get; } = new Techniques("External Remote Services");
+        public static Techniques Fallback_Channels { get; } = new Techniques("Fallback Channels");
+        public static Techniques File_and_Directory_Discovery { get; } = new Techniques("File and Directory Discovery");
+        public static Techniques Gather_Victim_Network_Information { get; } = new Techniques("Gather Victim Network Information");
+        public static Techniques Hide_Artifacts { get; } = new Techniques("Hide Artifacts");
+        public static Techniques Hijack_Execution_Flow { get; } = new Techniques("Hijack Execution Flow");
+        public static Techniques Impair_Defenses { get; } = new Techniques("Impair Defenses");
+        public static Techniques Implant_Container_Image { get; } = new Techniques("Implant Container Image");
+        public static Techniques Indicator_Removal_on_Host { get; } = new Techniques("Indicator Removal on Host");
+        public static Techniques Indirect_Command_Execution { get; } = new Techniques("Indirect Command Execution");
+        public static Techniques Ingress_Tool_Transfer { get; } = new Techniques("Ingress Tool Transfer");
+        public static Techniques Input_Capture { get; } = new Techniques("Input Capture");
+        public static Techniques Inter_Process_Communication { get; } = new Techniques("Inter-Process Communication");
+        public static Techniques Lateral_Tool_Transfer { get; } = new Techniques("Lateral Tool Transfer");
+        public static Techniques Man_in_the_Middle { get; } = new Techniques("Man-in-the-Middle");
+        public static Techniques Masquerading { get; } = new Techniques("Masquerading");
+        public static Techniques Modify_Authentication_Process { get; } = new Techniques("Modify Authentication Process");
+        public static Techniques Modify_Registry { get; } = new Techniques("Modify Registry");
+        public static Techniques Network_Denial_of_Service { get; } = new Techniques("Network Denial of Service");
+        public static Techniques Network_Service_Scanning { get; } = new Techniques("Network Service Scanning");
+        public static Techniques Network_Sniffing { get; } = new Techniques("Network Sniffing");
+        public static Techniques Non_Application_Layer_Protocol { get; } = new Techniques("Non-Application Layer Protocol");
+        public static Techniques Non_Standard_Port { get; } = new Techniques("Non-Standard Port");
+        public static Techniques Obtain_Capabilities { get; } = new Techniques("Obtain Capabilities");
+        public static Techniques Obfuscated_Files_or_Information { get; } = new Techniques("Obfuscated Files or Information");
+        public static Techniques Office_Application_Startup { get; } = new Techniques("Office Application Startup");
+        public static Techniques OS_Credential_Dumping { get; } = new Techniques("OS Credential Dumping");
+        public static Techniques Permission_Groups_Discovery { get; } = new Techniques("Permission Groups Discovery");
+        public static Techniques Phishing { get; } = new Techniques("Phishing");
+        public static Techniques Pre_OS_Boot { get; } = new Techniques("Pre-OS Boot");
+        public static Techniques Process_Discovery { get; } = new Techniques("Process Discovery");
+        public static Techniques Process_Injection { get; } = new Techniques("Process Injection");
+        public static Techniques Protocol_Tunneling { get; } = new Techniques("Protocol Tunneling");
+        public static Techniques Proxy { get; } = new Techniques("Proxy");
+        public static Techniques Query_Registry { get; } = new Techniques("Query Registry");
+        public static Techniques Remote_Access_Software { get; } = new Techniques("Remote Access Software");
+        public static Techniques Remote_Service_Session_Hijacking { get; } = new Techniques("Remote Service Session Hijacking");
+        public static Techniques Remote_Services { get; } = new Techniques("Remote Services");
+        public static Techniques Remote_System_Discovery { get; } = new Techniques("Remote System Discovery");
+        public static Techniques Resource_Hijacking { get; } = new Techniques("Resource Hijacking");
+        public static Techniques Scheduled_Task_Job { get; } = new Techniques("Scheduled Task/Job");
+        public static Techniques Screen_Capture { get; } = new Techniques("Screen Capture");
+        public static Techniques Search_Victim_Owned_Websites { get; } = new Techniques("Search Victim-Owned Websites");
+        public static Techniques Server_Software_Component { get; } = new Techniques("Server Software Component");
+        public static Techniques Service_Stop { get; } = new Techniques("Service Stop");
+        public static Techniques Signed_Binary_Proxy_Execution { get; } = new Techniques("Signed Binary Proxy Execution");
+        public static Techniques Software_Deployment_Tools { get; } = new Techniques("Software Deployment Tools");
+        public static Techniques SQL_Stored_Procedures { get; } = new Techniques("SQL Stored Procedures");
+        public static Techniques Steal_or_Forge_Kerberos_Tickets { get; } = new Techniques("Steal or Forge Kerberos Tickets");
+        public static Techniques Subvert_Trust_Controls { get; } = new Techniques("Subvert Trust Controls");
+        public static Techniques Supply_Chain_Compromise { get; } = new Techniques("Supply Chain Compromise");
+        public static Techniques System_Information_Discovery { get; } = new Techniques("System Information Discovery");
+        public static Techniques Taint_Shared_Content { get; } = new Techniques("Taint Shared Content");
+        public static Techniques Traffic_Signaling { get; } = new Techniques("Traffic Signaling");
+        public static Techniques Transfer_Data_to_Cloud_Account { get; } = new Techniques("Transfer Data to Cloud Account");
+        public static Techniques Trusted_Relationship { get; } = new Techniques("Trusted Relationship");
+        public static Techniques Unsecured_Credentials { get; } = new Techniques("Unsecured Credentials");
+        public static Techniques User_Execution { get; } = new Techniques("User Execution");
+        public static Techniques Valid_Accounts { get; } = new Techniques("Valid Accounts");
+        public static Techniques Windows_Management_Instrumentation { get; } = new Techniques("Windows Management Instrumentation");
+        public static Techniques File_and_Directory_Permissions_Modification { get; } = new Techniques("File and Directory Permissions Modification");
+
+        public static bool operator ==(Techniques left, Techniques right) => left.Equals(right);
+        public static bool operator !=(Techniques left, Techniques right) => !left.Equals(right);
+
+        public static explicit operator string(Techniques value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Techniques other && Equals(other);
+        public bool Equals(Techniques other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1256,6 +1042,37 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Threats other && Equals(other);
         public bool Equals(Threats other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+    /// </summary>
+    [EnumType]
+    public readonly struct Type : IEquatable<Type>
+    {
+        private readonly string _value;
+
+        private Type(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Type Qualys { get; } = new Type("Qualys");
+        public static Type TVM { get; } = new Type("TVM");
+
+        public static bool operator ==(Type left, Type right) => left.Equals(right);
+        public static bool operator !=(Type left, Type right) => !left.Equals(right);
+
+        public static explicit operator string(Type value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Type other && Equals(other);
+        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

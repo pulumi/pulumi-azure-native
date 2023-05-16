@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20160330
     /// <summary>
     /// Subnet in a VirtualNetwork resource
     /// </summary>
-    [Obsolete(@"Version 2016-03-30 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20160330:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource
     {
@@ -127,6 +126,7 @@ namespace Pulumi.AzureNative.Network.V20160330
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:Subnet"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:Subnet"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:Subnet"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:Subnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

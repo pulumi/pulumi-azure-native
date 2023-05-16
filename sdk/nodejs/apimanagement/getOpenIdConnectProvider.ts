@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets specific OpenID Connect Provider without secrets.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
 
@@ -24,7 +24,7 @@ export interface GetOpenIdConnectProviderArgs {
      */
     opid: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -54,7 +54,7 @@ export interface GetOpenIdConnectProviderResult {
      */
     readonly displayName: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -62,17 +62,25 @@ export interface GetOpenIdConnectProviderResult {
      */
     readonly metadataEndpoint: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+     */
+    readonly useInApiDocumentation?: boolean;
+    /**
+     * If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
+     */
+    readonly useInTestConsole?: boolean;
 }
 /**
  * Gets specific OpenID Connect Provider without secrets.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
     return pulumi.output(args).apply((a: any) => getOpenIdConnectProvider(a, opts))
@@ -84,7 +92,7 @@ export interface GetOpenIdConnectProviderOutputArgs {
      */
     opid: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

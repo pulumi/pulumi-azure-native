@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -38,6 +39,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * Group IDs.
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
     /**
      * Resource name.
      */
@@ -81,10 +86,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;

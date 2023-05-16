@@ -30,11 +30,15 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly string? FilePath;
         /// <summary>
-        /// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        /// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.
         /// </summary>
         public readonly string? HttpUrl;
         /// <summary>
-        /// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        /// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+        /// </summary>
+        public readonly Outputs.ComputeNodeIdentityReferenceResponse? IdentityReference;
+        /// <summary>
+        /// The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.
         /// </summary>
         public readonly string? StorageContainerUrl;
 
@@ -50,6 +54,8 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             string? httpUrl,
 
+            Outputs.ComputeNodeIdentityReferenceResponse? identityReference,
+
             string? storageContainerUrl)
         {
             AutoStorageContainerName = autoStorageContainerName;
@@ -57,6 +63,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
             FileMode = fileMode;
             FilePath = filePath;
             HttpUrl = httpUrl;
+            IdentityReference = identityReference;
             StorageContainerUrl = storageContainerUrl;
         }
     }

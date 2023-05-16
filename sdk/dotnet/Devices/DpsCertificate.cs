@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The X509 Certificate.
-    /// API Version: 2020-03-01.
+    /// API Version: 2022-12-12.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:DpsCertificate")]
     public partial class DpsCertificate : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         [Output("properties")]
         public Output<Outputs.CertificatePropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -99,22 +106,16 @@ namespace Pulumi.AzureNative.Devices
     public sealed class DpsCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
-        /// </summary>
-        [Input("certificate")]
-        public Input<string>? Certificate { get; set; }
-
-        /// <summary>
         /// The name of the certificate create or update.
         /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
 
         /// <summary>
-        /// True indicates that the certificate will be created in verified state and proof of possession will not be required.
+        /// properties of a certificate
         /// </summary>
-        [Input("isVerified")]
-        public Input<bool>? IsVerified { get; set; }
+        [Input("properties")]
+        public Input<Inputs.CertificatePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the provisioning service.

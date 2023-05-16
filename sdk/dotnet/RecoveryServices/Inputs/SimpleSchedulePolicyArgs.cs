@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class SimpleSchedulePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Hourly Schedule of this Policy
+        /// </summary>
+        [Input("hourlySchedule")]
+        public Input<Inputs.HourlyScheduleArgs>? HourlySchedule { get; set; }
+
+        /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// Expected value is 'SimpleSchedulePolicy'.
         /// </summary>

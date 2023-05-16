@@ -22,7 +22,7 @@ class GetManagedInstanceResult:
     """
     An Azure SQL managed instance.
     """
-    def __init__(__self__, administrator_login=None, administrators=None, collation=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, key_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, sku=None, state=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, zone_redundant=None):
+    def __init__(__self__, administrator_login=None, administrators=None, collation=None, current_backup_storage_redundancy=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, key_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, requested_backup_storage_redundancy=None, service_principal=None, sku=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, zone_redundant=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -32,6 +32,9 @@ class GetManagedInstanceResult:
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
+        if current_backup_storage_redundancy and not isinstance(current_backup_storage_redundancy, str):
+            raise TypeError("Expected argument 'current_backup_storage_redundancy' to be a str")
+        pulumi.set(__self__, "current_backup_storage_redundancy", current_backup_storage_redundancy)
         if dns_zone and not isinstance(dns_zone, str):
             raise TypeError("Expected argument 'dns_zone' to be a str")
         pulumi.set(__self__, "dns_zone", dns_zone)
@@ -80,15 +83,18 @@ class GetManagedInstanceResult:
         if public_data_endpoint_enabled and not isinstance(public_data_endpoint_enabled, bool):
             raise TypeError("Expected argument 'public_data_endpoint_enabled' to be a bool")
         pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
+        if requested_backup_storage_redundancy and not isinstance(requested_backup_storage_redundancy, str):
+            raise TypeError("Expected argument 'requested_backup_storage_redundancy' to be a str")
+        pulumi.set(__self__, "requested_backup_storage_redundancy", requested_backup_storage_redundancy)
+        if service_principal and not isinstance(service_principal, dict):
+            raise TypeError("Expected argument 'service_principal' to be a dict")
+        pulumi.set(__self__, "service_principal", service_principal)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
-        if storage_account_type and not isinstance(storage_account_type, str):
-            raise TypeError("Expected argument 'storage_account_type' to be a str")
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
         if storage_size_in_gb and not isinstance(storage_size_in_gb, int):
             raise TypeError("Expected argument 'storage_size_in_gb' to be a int")
         pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
@@ -134,6 +140,14 @@ class GetManagedInstanceResult:
         Collation of the managed instance.
         """
         return pulumi.get(self, "collation")
+
+    @property
+    @pulumi.getter(name="currentBackupStorageRedundancy")
+    def current_backup_storage_redundancy(self) -> str:
+        """
+        The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        """
+        return pulumi.get(self, "current_backup_storage_redundancy")
 
     @property
     @pulumi.getter(name="dnsZone")
@@ -261,10 +275,26 @@ class GetManagedInstanceResult:
         return pulumi.get(self, "public_data_endpoint_enabled")
 
     @property
+    @pulumi.getter(name="requestedBackupStorageRedundancy")
+    def requested_backup_storage_redundancy(self) -> Optional[str]:
+        """
+        The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        """
+        return pulumi.get(self, "requested_backup_storage_redundancy")
+
+    @property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional['outputs.ServicePrincipalResponse']:
+        """
+        The managed instance's service principal.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+        Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         """
         return pulumi.get(self, "sku")
 
@@ -277,18 +307,10 @@ class GetManagedInstanceResult:
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[str]:
-        """
-        The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @property
     @pulumi.getter(name="storageSizeInGB")
     def storage_size_in_gb(self) -> Optional[int]:
         """
-        Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         """
         return pulumi.get(self, "storage_size_in_gb")
 
@@ -355,6 +377,7 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             administrator_login=self.administrator_login,
             administrators=self.administrators,
             collation=self.collation,
+            current_backup_storage_redundancy=self.current_backup_storage_redundancy,
             dns_zone=self.dns_zone,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
@@ -371,9 +394,10 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             provisioning_state=self.provisioning_state,
             proxy_override=self.proxy_override,
             public_data_endpoint_enabled=self.public_data_endpoint_enabled,
+            requested_backup_storage_redundancy=self.requested_backup_storage_redundancy,
+            service_principal=self.service_principal,
             sku=self.sku,
             state=self.state,
-            storage_account_type=self.storage_account_type,
             storage_size_in_gb=self.storage_size_in_gb,
             subnet_id=self.subnet_id,
             tags=self.tags,
@@ -389,7 +413,7 @@ def get_managed_instance(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
     Gets a managed instance.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str expand: The child resources to include in the response.
@@ -407,6 +431,7 @@ def get_managed_instance(expand: Optional[str] = None,
         administrator_login=__ret__.administrator_login,
         administrators=__ret__.administrators,
         collation=__ret__.collation,
+        current_backup_storage_redundancy=__ret__.current_backup_storage_redundancy,
         dns_zone=__ret__.dns_zone,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         id=__ret__.id,
@@ -423,9 +448,10 @@ def get_managed_instance(expand: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         proxy_override=__ret__.proxy_override,
         public_data_endpoint_enabled=__ret__.public_data_endpoint_enabled,
+        requested_backup_storage_redundancy=__ret__.requested_backup_storage_redundancy,
+        service_principal=__ret__.service_principal,
         sku=__ret__.sku,
         state=__ret__.state,
-        storage_account_type=__ret__.storage_account_type,
         storage_size_in_gb=__ret__.storage_size_in_gb,
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags,
@@ -442,7 +468,7 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
     Gets a managed instance.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str expand: The child resources to include in the response.

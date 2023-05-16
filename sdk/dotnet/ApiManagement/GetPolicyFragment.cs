@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets a policy fragment.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2022-08-01.
         /// </summary>
         public static Task<GetPolicyFragmentResult> InvokeAsync(GetPolicyFragmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyFragmentResult>("azure-native:apimanagement:getPolicyFragment", args ?? new GetPolicyFragmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a policy fragment.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2022-08-01.
         /// </summary>
         public static Output<GetPolicyFragmentResult> Invoke(GetPolicyFragmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyFragmentResult>("azure-native:apimanagement:getPolicyFragment", args ?? new GetPolicyFragmentInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public string Id { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

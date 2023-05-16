@@ -16,8 +16,6 @@ __all__ = [
     'get_storage_account_output',
 ]
 
-warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetStorageAccountResult:
     """
@@ -154,7 +152,6 @@ def get_storage_account(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The storage account name.
     """
-    pulumi.log.warn("""get_storage_account is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
@@ -187,5 +184,4 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The storage account name.
     """
-    pulumi.log.warn("""get_storage_account is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.""")
     ...

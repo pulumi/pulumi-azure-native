@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2021-08-27.
+    /// API Version: 2022-12-29.
+    /// Previous API Version: 2021-08-27. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

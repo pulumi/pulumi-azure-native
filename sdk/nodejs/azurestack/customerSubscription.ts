@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Customer subscription.
- * API Version: 2017-06-01.
+ * API Version: 2022-06-01.
+ * Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class CustomerSubscription extends pulumi.CustomResource {
     /**

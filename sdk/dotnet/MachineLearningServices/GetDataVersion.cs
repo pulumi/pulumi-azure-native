@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetDataVersionResult> InvokeAsync(GetDataVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataVersionResult>("azure-native:machinelearningservices:getDataVersion", args ?? new GetDataVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetDataVersionResult> Invoke(GetDataVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataVersionResult>("azure-native:machinelearningservices:getDataVersion", args ?? new GetDataVersionInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetDataVersionResult
     {
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly object DataVersionBaseProperties;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -104,11 +108,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.DataVersionResponse Properties;
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -118,19 +118,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetDataVersionResult(
+            object dataVersionBaseProperties,
+
             string id,
 
             string name,
-
-            Outputs.DataVersionResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            DataVersionBaseProperties = dataVersionBaseProperties;
             Id = id;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

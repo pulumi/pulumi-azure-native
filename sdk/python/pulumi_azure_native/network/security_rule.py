@@ -20,6 +20,7 @@ class SecurityRuleInitArgs:
                  access: pulumi.Input[Union[str, 'SecurityRuleAccess']],
                  direction: pulumi.Input[Union[str, 'SecurityRuleDirection']],
                  network_security_group_name: pulumi.Input[str],
+                 priority: pulumi.Input[int],
                  protocol: pulumi.Input[Union[str, 'SecurityRuleProtocol']],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,6 @@ class SecurityRuleInitArgs:
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
                  security_rule_name: Optional[pulumi.Input[str]] = None,
                  source_address_prefix: Optional[pulumi.Input[str]] = None,
                  source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -43,6 +43,7 @@ class SecurityRuleInitArgs:
         :param pulumi.Input[Union[str, 'SecurityRuleAccess']] access: The network traffic is allowed or denied.
         :param pulumi.Input[Union[str, 'SecurityRuleDirection']] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
+        :param pulumi.Input[int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[Union[str, 'SecurityRuleProtocol']] protocol: Network protocol this rule applies to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
@@ -53,7 +54,6 @@ class SecurityRuleInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[str] security_rule_name: The name of the security rule.
         :param pulumi.Input[str] source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_address_prefixes: The CIDR or source IP ranges.
@@ -65,6 +65,7 @@ class SecurityRuleInitArgs:
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "network_security_group_name", network_security_group_name)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
@@ -83,8 +84,6 @@ class SecurityRuleInitArgs:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
         if security_rule_name is not None:
             pulumi.set(__self__, "security_rule_name", security_rule_name)
         if source_address_prefix is not None:
@@ -135,6 +134,18 @@ class SecurityRuleInitArgs:
     @network_security_group_name.setter
     def network_security_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "network_security_group_name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter
@@ -257,18 +268,6 @@ class SecurityRuleInitArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
-        """
-        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "priority", value)
-
-    @property
     @pulumi.getter(name="securityRuleName")
     def security_rule_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -382,7 +381,8 @@ class SecurityRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network security rule.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -416,7 +416,8 @@ class SecurityRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security rule.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SecurityRuleInitArgs args: The arguments to use to populate this resource's properties.
@@ -480,6 +481,8 @@ class SecurityRule(pulumi.CustomResource):
             if network_security_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_group_name'")
             __props__.__dict__["network_security_group_name"] = network_security_group_name
+            if priority is None and not opts.urn:
+                raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
@@ -496,7 +499,7 @@ class SecurityRule(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20201101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20201101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20221101:SecurityRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityRule, __self__).__init__(
             'azure-native:network:SecurityRule',
@@ -623,7 +626,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[int]]:
+    def priority(self) -> pulumi.Output[int]:
         """
         The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """

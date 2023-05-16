@@ -11,10 +11,16 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// The Defender for Containers AWS offering configurations
+    /// The Defender for Containers AWS offering
     /// </summary>
     public sealed class DefenderForContainersAwsOfferingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is audit logs pipeline auto provisioning enabled
+        /// </summary>
+        [Input("autoProvisioning")]
+        public Input<bool>? AutoProvisioning { get; set; }
+
         /// <summary>
         /// The cloudwatch to kinesis connection configuration
         /// </summary>
@@ -22,10 +28,34 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<Inputs.DefenderForContainersAwsOfferingCloudWatchToKinesisArgs>? CloudWatchToKinesis { get; set; }
 
         /// <summary>
+        /// The container vulnerability assessment configuration
+        /// </summary>
+        [Input("containerVulnerabilityAssessment")]
+        public Input<Inputs.DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentArgs>? ContainerVulnerabilityAssessment { get; set; }
+
+        /// <summary>
+        /// The container vulnerability assessment task configuration
+        /// </summary>
+        [Input("containerVulnerabilityAssessmentTask")]
+        public Input<Inputs.DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTaskArgs>? ContainerVulnerabilityAssessmentTask { get; set; }
+
+        /// <summary>
+        /// Enable container vulnerability assessment feature
+        /// </summary>
+        [Input("enableContainerVulnerabilityAssessment")]
+        public Input<bool>? EnableContainerVulnerabilityAssessment { get; set; }
+
+        /// <summary>
         /// The kinesis to s3 connection configuration
         /// </summary>
         [Input("kinesisToS3")]
         public Input<Inputs.DefenderForContainersAwsOfferingKinesisToS3Args>? KinesisToS3 { get; set; }
+
+        /// <summary>
+        /// The retention time in days of kube audit logs set on the CloudWatch log group
+        /// </summary>
+        [Input("kubeAuditRetentionTime")]
+        public Input<double>? KubeAuditRetentionTime { get; set; }
 
         /// <summary>
         /// The kubernetes to scuba connection configuration
@@ -45,6 +75,12 @@ namespace Pulumi.AzureNative.Security.Inputs
         /// </summary>
         [Input("offeringType", required: true)]
         public Input<string> OfferingType { get; set; } = null!;
+
+        /// <summary>
+        /// The externalId used by the data reader to prevent the confused deputy attack
+        /// </summary>
+        [Input("scubaExternalId")]
+        public Input<string>? ScubaExternalId { get; set; }
 
         public DefenderForContainersAwsOfferingArgs()
         {

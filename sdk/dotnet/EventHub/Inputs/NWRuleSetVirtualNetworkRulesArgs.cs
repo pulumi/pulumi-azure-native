@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.EventHub.Inputs
 {
 
     /// <summary>
-    /// Description of VirtualNetworkRules - NetworkRules resource.
+    /// The response from the List namespace operation.
     /// </summary>
     public sealed class NWRuleSetVirtualNetworkRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value that indicates whether to ignore missing VNet Service Endpoint
+        /// Value that indicates whether to ignore missing Vnet Service Endpoint
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
-__all__ = ['VirtualMachineScaleSetExtensionInitArgs', 'VirtualMachineScaleSetExtension']
+__all__ = ['VirtualMachineScaleSetExtensionArgs', 'VirtualMachineScaleSetExtension']
 
 @pulumi.input_type
-class VirtualMachineScaleSetExtensionInitArgs:
+class VirtualMachineScaleSetExtensionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  vm_scale_set_name: pulumi.Input[str],
@@ -303,18 +303,18 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualMachineScaleSetExtensionInitArgs,
+                 args: VirtualMachineScaleSetExtensionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Scale Set Extension.
 
         :param str resource_name: The name of the resource.
-        :param VirtualMachineScaleSetExtensionInitArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualMachineScaleSetExtensionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineScaleSetExtensionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineScaleSetExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -345,7 +345,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualMachineScaleSetExtensionInitArgs.__new__(VirtualMachineScaleSetExtensionInitArgs)
+            __props__ = VirtualMachineScaleSetExtensionArgs.__new__(VirtualMachineScaleSetExtensionArgs)
 
             __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
             __props__.__dict__["enable_automatic_upgrade"] = enable_automatic_upgrade
@@ -389,7 +389,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualMachineScaleSetExtensionInitArgs.__new__(VirtualMachineScaleSetExtensionInitArgs)
+        __props__ = VirtualMachineScaleSetExtensionArgs.__new__(VirtualMachineScaleSetExtensionArgs)
 
         __props__.__dict__["auto_upgrade_minor_version"] = None
         __props__.__dict__["enable_automatic_upgrade"] = None

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Cloud Endpoint object.
-    /// API Version: 2020-03-01.
+    /// API Version: 2022-06-01.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:CloudEndpoint")]
     public partial class CloudEndpoint : global::Pulumi.CustomResource
@@ -27,6 +28,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("backupEnabled")]
         public Output<string> BackupEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Cloud endpoint change enumeration status
+        /// </summary>
+        [Output("changeEnumerationStatus")]
+        public Output<Outputs.CloudEndpointChangeEnumerationStatusResponse> ChangeEnumerationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Friendly Name
@@ -75,6 +82,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("storageAccountTenantId")]
         public Output<string?> StorageAccountTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

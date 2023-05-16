@@ -129,7 +129,8 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Private Endpoint connection on an application gateway.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +149,8 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private Endpoint connection on an application gateway.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApplicationGatewayPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +197,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210201:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210301:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210501:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220101:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210201:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210301:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210501:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220101:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:network/v20221101:ApplicationGatewayPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGatewayPrivateEndpointConnection, __self__).__init__(
             'azure-native:network:ApplicationGatewayPrivateEndpointConnection',

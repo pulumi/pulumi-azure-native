@@ -9,14 +9,14 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
- * API Version: 2020-08-02.
+ * API Version: 2022-11-10.
  */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute:getMachine", {
         "expand": args.expand,
-        "name": args.name,
+        "machineName": args.machineName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,9 +29,9 @@ export interface GetMachineArgs {
     /**
      * The name of the hybrid machine.
      */
-    name: string;
+    machineName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,6 +45,10 @@ export interface GetMachineResult {
      */
     readonly adFqdn: string;
     /**
+     * Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+     */
+    readonly agentConfiguration: outputs.hybridcompute.AgentConfigurationResponse;
+    /**
      * The hybrid machine agent full version.
      */
     readonly agentVersion: string;
@@ -52,6 +56,14 @@ export interface GetMachineResult {
      * Public Key that the client provides to be used during initial resource onboarding
      */
     readonly clientPublicKey?: string;
+    /**
+     * The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+     */
+    readonly cloudMetadata?: outputs.hybridcompute.CloudMetadataResponse;
+    /**
+     * Detected properties from the machine.
+     */
+    readonly detectedProperties: {[key: string]: string};
     /**
      * Specifies the hybrid machine display name.
      */
@@ -69,14 +81,17 @@ export interface GetMachineResult {
      */
     readonly errorDetails: outputs.hybridcompute.ErrorDetailResponse[];
     /**
-     * Machine Extensions information
+     * Machine Extensions information (deprecated field)
      */
-    readonly extensions: outputs.hybridcompute.MachineExtensionInstanceViewResponse[];
+    readonly extensions?: outputs.hybridcompute.MachineExtensionInstanceViewResponse[];
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    readonly identity?: outputs.hybridcompute.MachineResponseIdentity;
+    /**
+     * Identity for the resource.
+     */
+    readonly identity?: outputs.hybridcompute.IdentityResponse;
     /**
      * The time of the last status change.
      */
@@ -94,6 +109,10 @@ export interface GetMachineResult {
      */
     readonly machineFqdn: string;
     /**
+     * Specifies whether any MS SQL instance is discovered on the machine.
+     */
+    readonly mssqlDiscovered?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -104,23 +123,47 @@ export interface GetMachineResult {
     /**
      * Specifies the operating system settings for the hybrid machine.
      */
-    readonly osProfile?: outputs.hybridcompute.MachinePropertiesResponseOsProfile;
+    readonly osProfile?: outputs.hybridcompute.OSProfileResponse;
     /**
      * Specifies the Operating System product SKU.
      */
     readonly osSku: string;
     /**
+     * The type of Operating System (windows/linux).
+     */
+    readonly osType?: string;
+    /**
      * The version of Operating System running on the hybrid machine.
      */
     readonly osVersion: string;
+    /**
+     * The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+     */
+    readonly parentClusterResourceId?: string;
+    /**
+     * The resource id of the private link scope this machine is assigned to, if any.
+     */
+    readonly privateLinkScopeResourceId?: string;
     /**
      * The provisioning state, which only appears in the response.
      */
     readonly provisioningState: string;
     /**
+     * The list of extensions affiliated to the machine
+     */
+    readonly resources: outputs.hybridcompute.MachineExtensionResponse[];
+    /**
+     * Statuses of dependent services that are reported back to ARM.
+     */
+    readonly serviceStatuses?: outputs.hybridcompute.ServiceStatusesResponse;
+    /**
      * The status of the hybrid machine agent.
      */
     readonly status: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.hybridcompute.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -140,7 +183,7 @@ export interface GetMachineResult {
 }
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
- * API Version: 2020-08-02.
+ * API Version: 2022-11-10.
  */
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
     return pulumi.output(args).apply((a: any) => getMachine(a, opts))
@@ -154,9 +197,9 @@ export interface GetMachineOutputArgs {
     /**
      * The name of the hybrid machine.
      */
-    name: pulumi.Input<string>;
+    machineName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The Get RouteTables operation retrieves information about the specified route table.
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
-    pulumi.log.warn("getRouteTable is deprecated: Version 2016-03-30 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20160330:getRouteTable", {
@@ -81,7 +79,6 @@ export interface GetRouteTableResult {
 /**
  * The Get RouteTables operation retrieves information about the specified route table.
  */
-/** @deprecated Version 2016-03-30 will be removed in v2 of the provider. */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))
 }

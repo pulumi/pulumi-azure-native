@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets details of the Source Control Configuration.
  */
-/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
-    pulumi.log.warn("getSourceControlConfiguration is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration/v20191101preview:getSourceControlConfiguration", {
@@ -111,7 +109,6 @@ export interface GetSourceControlConfigurationResult {
 /**
  * Gets details of the Source Control Configuration.
  */
-/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
 export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSourceControlConfiguration(a, opts))
 }

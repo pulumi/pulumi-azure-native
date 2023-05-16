@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Policy fragment contract details.
-    /// API Version: 2021-12-01-preview.
+    /// API Version: 2022-08-01.
+    /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:PolicyFragment")]
     public partial class PolicyFragment : global::Pulumi.CustomResource
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PolicyFragment"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:PolicyFragment"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:PolicyFragment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:PolicyFragment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +118,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

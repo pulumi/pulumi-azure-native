@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
-    /// API Version: 2021-03-01.
+    /// API Version: 2022-01-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Database")]
     public partial class Database : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional set of properties to configure geo replication for this database.
+        /// </summary>
+        [Output("geoReplication")]
+        public Output<Outputs.DatabasePropertiesResponseGeoReplication?> GeoReplication { get; private set; } = null!;
 
         /// <summary>
         /// Optional set of redis modules to enable in this database - modules can only be added at creation time.
@@ -160,6 +167,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Input("evictionPolicy")]
         public InputUnion<string, Pulumi.AzureNative.Cache.EvictionPolicy>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Optional set of properties to configure geo replication for this database.
+        /// </summary>
+        [Input("geoReplication")]
+        public Input<Inputs.DatabasePropertiesGeoReplicationArgs>? GeoReplication { get; set; }
 
         [Input("modules")]
         private InputList<Inputs.ModuleArgs>? _modules;

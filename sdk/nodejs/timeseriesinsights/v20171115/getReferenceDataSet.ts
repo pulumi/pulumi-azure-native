@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the reference data set with the specified name in the specified environment.
  */
-/** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
 export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReferenceDataSetResult> {
-    pulumi.log.warn("getReferenceDataSet is deprecated: Version 2017-11-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20171115:getReferenceDataSet", {
@@ -81,7 +79,6 @@ export interface GetReferenceDataSetResult {
 /**
  * Gets the reference data set with the specified name in the specified environment.
  */
-/** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
 export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceDataSetResult> {
     return pulumi.output(args).apply((a: any) => getReferenceDataSet(a, opts))
 }

@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:OfficeIRMDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:OfficeIRMDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:OfficeIRMDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:OfficeIRMDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector"},
                 },
             };

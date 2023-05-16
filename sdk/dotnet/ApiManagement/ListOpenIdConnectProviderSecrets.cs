@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the client secret details of the OpenID Connect Provider.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-08-01.
         /// </summary>
         public static Task<ListOpenIdConnectProviderSecretsResult> InvokeAsync(ListOpenIdConnectProviderSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOpenIdConnectProviderSecretsResult>("azure-native:apimanagement:listOpenIdConnectProviderSecrets", args ?? new ListOpenIdConnectProviderSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the client secret details of the OpenID Connect Provider.
-        /// API Version: 2020-12-01.
+        /// API Version: 2022-08-01.
         /// </summary>
         public static Output<ListOpenIdConnectProviderSecretsResult> Invoke(ListOpenIdConnectProviderSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOpenIdConnectProviderSecretsResult>("azure-native:apimanagement:listOpenIdConnectProviderSecrets", args ?? new ListOpenIdConnectProviderSecretsInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public string Opid { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> Opid { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

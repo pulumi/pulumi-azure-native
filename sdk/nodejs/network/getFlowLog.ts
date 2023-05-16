@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a flow log resource by name.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
 
@@ -99,7 +99,7 @@ export interface GetFlowLogResult {
 }
 /**
  * Gets a flow log resource by name.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {
     return pulumi.output(args).apply((a: any) => getFlowLog(a, opts))

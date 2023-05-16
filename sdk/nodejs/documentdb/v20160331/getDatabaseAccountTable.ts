@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountTable(args: GetDatabaseAccountTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountTableResult> {
-    pulumi.log.warn("getDatabaseAccountTable is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20160331:getDatabaseAccountTable", {
@@ -62,7 +60,6 @@ export interface GetDatabaseAccountTableResult {
 /**
  * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountTableOutput(args: GetDatabaseAccountTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountTableResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountTable(a, opts))
 }

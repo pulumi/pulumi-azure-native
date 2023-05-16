@@ -8,13 +8,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from ._enums import *
 
 __all__ = [
     'IdentityArgs',
     'PrePostStepArgs',
-    'SasAuthenticationArgs',
-    'ServiceUnitArtifactsArgs',
     'StepArgs',
     'WaitStepAttributesArgs',
     'WaitStepPropertiesArgs',
@@ -79,118 +76,6 @@ class PrePostStepArgs:
     @step_id.setter
     def step_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "step_id", value)
-
-
-@pulumi.input_type
-class SasAuthenticationArgs:
-    def __init__(__self__, *,
-                 sas_uri: pulumi.Input[str],
-                 type: pulumi.Input[str]):
-        """
-        Defines the properties to access the artifacts using an Azure Storage SAS URI.
-        :param pulumi.Input[str] sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
-        :param pulumi.Input[str] type: The authentication type
-               Expected value is 'Sas'.
-        """
-        pulumi.set(__self__, "sas_uri", sas_uri)
-        pulumi.set(__self__, "type", 'Sas')
-
-    @property
-    @pulumi.getter(name="sasUri")
-    def sas_uri(self) -> pulumi.Input[str]:
-        """
-        The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
-        """
-        return pulumi.get(self, "sas_uri")
-
-    @sas_uri.setter
-    def sas_uri(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sas_uri", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The authentication type
-        Expected value is 'Sas'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ServiceUnitArtifactsArgs:
-    def __init__(__self__, *,
-                 parameters_artifact_source_relative_path: Optional[pulumi.Input[str]] = None,
-                 parameters_uri: Optional[pulumi.Input[str]] = None,
-                 template_artifact_source_relative_path: Optional[pulumi.Input[str]] = None,
-                 template_uri: Optional[pulumi.Input[str]] = None):
-        """
-        Defines the artifacts of a service unit.
-        :param pulumi.Input[str] parameters_artifact_source_relative_path: The path to the ARM parameters file relative to the artifact source.
-        :param pulumi.Input[str] parameters_uri: The full URI of the ARM parameters file with the SAS token.
-        :param pulumi.Input[str] template_artifact_source_relative_path: The path to the ARM template file relative to the artifact source.
-        :param pulumi.Input[str] template_uri: The full URI of the ARM template file with the SAS token.
-        """
-        if parameters_artifact_source_relative_path is not None:
-            pulumi.set(__self__, "parameters_artifact_source_relative_path", parameters_artifact_source_relative_path)
-        if parameters_uri is not None:
-            pulumi.set(__self__, "parameters_uri", parameters_uri)
-        if template_artifact_source_relative_path is not None:
-            pulumi.set(__self__, "template_artifact_source_relative_path", template_artifact_source_relative_path)
-        if template_uri is not None:
-            pulumi.set(__self__, "template_uri", template_uri)
-
-    @property
-    @pulumi.getter(name="parametersArtifactSourceRelativePath")
-    def parameters_artifact_source_relative_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the ARM parameters file relative to the artifact source.
-        """
-        return pulumi.get(self, "parameters_artifact_source_relative_path")
-
-    @parameters_artifact_source_relative_path.setter
-    def parameters_artifact_source_relative_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "parameters_artifact_source_relative_path", value)
-
-    @property
-    @pulumi.getter(name="parametersUri")
-    def parameters_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The full URI of the ARM parameters file with the SAS token.
-        """
-        return pulumi.get(self, "parameters_uri")
-
-    @parameters_uri.setter
-    def parameters_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "parameters_uri", value)
-
-    @property
-    @pulumi.getter(name="templateArtifactSourceRelativePath")
-    def template_artifact_source_relative_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the ARM template file relative to the artifact source.
-        """
-        return pulumi.get(self, "template_artifact_source_relative_path")
-
-    @template_artifact_source_relative_path.setter
-    def template_artifact_source_relative_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "template_artifact_source_relative_path", value)
-
-    @property
-    @pulumi.getter(name="templateUri")
-    def template_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The full URI of the ARM template file with the SAS token.
-        """
-        return pulumi.get(self, "template_uri")
-
-    @template_uri.setter
-    def template_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "template_uri", value)
 
 
 @pulumi.input_type

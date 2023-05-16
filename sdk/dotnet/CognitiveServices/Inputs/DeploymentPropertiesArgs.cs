@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public Input<Inputs.DeploymentModelArgs>? Model { get; set; }
 
         /// <summary>
+        /// The name of RAI policy.
+        /// </summary>
+        [Input("raiPolicyName")]
+        public Input<string>? RaiPolicyName { get; set; }
+
+        /// <summary>
         /// Properties of Cognitive Services account deployment model.
         /// </summary>
         [Input("scaleSettings")]

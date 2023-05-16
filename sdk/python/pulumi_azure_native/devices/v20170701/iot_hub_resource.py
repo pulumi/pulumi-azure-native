@@ -146,12 +146,7 @@ class IotHubResourceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2017-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class IotHubResource(pulumi.CustomResource):
-    warnings.warn("""Version 2017-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -212,7 +207,6 @@ class IotHubResource(pulumi.CustomResource):
                  subscriptionid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""IotHubResource is deprecated: Version 2017-07-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -240,7 +234,7 @@ class IotHubResource(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20160203:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20170119:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20180122:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20180401:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20181201preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20190322:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20190322preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20190701preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20191104:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200301:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200401:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200615:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200710preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200801:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200831:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200831preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210201preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210303preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210331:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210701:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210701preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210702:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210702preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20220430preview:IotHubResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20160203:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20170119:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20180122:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20180401:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20181201preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20190322:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20190322preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20190701preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20191104:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200301:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200401:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200615:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200710preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200801:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200831:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20200831preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210201preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210303preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210331:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210701:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210701preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210702:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20210702preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20220430preview:IotHubResource"), pulumi.Alias(type_="azure-native:devices/v20221115preview:IotHubResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotHubResource, __self__).__init__(
             'azure-native:devices/v20170701:IotHubResource',

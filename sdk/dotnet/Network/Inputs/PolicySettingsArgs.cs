@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class PolicySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        /// </summary>
+        [Input("customBlockResponseBody")]
+        public Input<string>? CustomBlockResponseBody { get; set; }
+
+        /// <summary>
+        /// If the action type is block, customer can override the response status code.
+        /// </summary>
+        [Input("customBlockResponseStatusCode")]
+        public Input<int>? CustomBlockResponseStatusCode { get; set; }
+
+        /// <summary>
         /// Maximum file upload size in Mb for WAF.
         /// </summary>
         [Input("fileUploadLimitInMb")]

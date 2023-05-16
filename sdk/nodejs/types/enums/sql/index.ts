@@ -5,7 +5,6 @@
 import * as v20140401 from "./v20140401";
 import * as v20150501preview from "./v20150501preview";
 import * as v20170301preview from "./v20170301preview";
-import * as v20171001preview from "./v20171001preview";
 import * as v20180601preview from "./v20180601preview";
 import * as v20190601preview from "./v20190601preview";
 import * as v20200202preview from "./v20200202preview";
@@ -13,18 +12,12 @@ import * as v20200801preview from "./v20200801preview";
 import * as v20201101preview from "./v20201101preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210501preview from "./v20210501preview";
-import * as v20210801preview from "./v20210801preview";
-import * as v20211101 from "./v20211101";
-import * as v20211101preview from "./v20211101preview";
-import * as v20220201preview from "./v20220201preview";
-import * as v20220501preview from "./v20220501preview";
 import * as v20220801preview from "./v20220801preview";
 
 export {
     v20140401,
     v20150501preview,
     v20170301preview,
-    v20171001preview,
     v20180601preview,
     v20190601preview,
     v20200202preview,
@@ -32,11 +25,6 @@ export {
     v20201101preview,
     v20210201preview,
     v20210501preview,
-    v20210801preview,
-    v20211101,
-    v20211101preview,
-    v20220201preview,
-    v20220501preview,
     v20220801preview,
 };
 
@@ -59,6 +47,18 @@ export const AutoExecuteStatus = {
  * Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
  */
 export type AutoExecuteStatus = (typeof AutoExecuteStatus)[keyof typeof AutoExecuteStatus];
+
+export const BackupStorageRedundancy = {
+    Geo: "Geo",
+    Local: "Local",
+    Zone: "Zone",
+    GeoZone: "GeoZone",
+} as const;
+
+/**
+ * The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+ */
+export type BackupStorageRedundancy = (typeof BackupStorageRedundancy)[keyof typeof BackupStorageRedundancy];
 
 export const BlobAuditingPolicyState = {
     Enabled: "Enabled",
@@ -115,14 +115,24 @@ export const CreateMode = {
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const DataMaskingState = {
-    Disabled: "Disabled",
     Enabled: "Enabled",
+    Disabled: "Disabled",
 } as const;
 
 /**
  * The state of the data masking policy.
  */
 export type DataMaskingState = (typeof DataMaskingState)[keyof typeof DataMaskingState];
+
+export const DatabaseIdentityType = {
+    None: "None",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The identity type
+ */
+export type DatabaseIdentityType = (typeof DatabaseIdentityType)[keyof typeof DatabaseIdentityType];
 
 export const DatabaseLicenseType = {
     LicenseIncluded: "LicenseIncluded",
@@ -140,7 +150,7 @@ export const DatabaseReadScale = {
 } as const;
 
 /**
- * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+ * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
  */
 export type DatabaseReadScale = (typeof DatabaseReadScale)[keyof typeof DatabaseReadScale];
 
@@ -155,8 +165,8 @@ export const ElasticPoolLicenseType = {
 export type ElasticPoolLicenseType = (typeof ElasticPoolLicenseType)[keyof typeof ElasticPoolLicenseType];
 
 export const GeoBackupPolicyState = {
-    Disabled: "Disabled",
     Enabled: "Enabled",
+    Disabled: "Disabled",
 } as const;
 
 /**
@@ -356,17 +366,6 @@ export const ReplicationMode = {
  */
 export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
 
-export const RequestedBackupStorageRedundancy = {
-    Geo: "Geo",
-    Local: "Local",
-    Zone: "Zone",
-} as const;
-
-/**
- * The storage account type to be used to store backups for this database.
- */
-export type RequestedBackupStorageRedundancy = (typeof RequestedBackupStorageRedundancy)[keyof typeof RequestedBackupStorageRedundancy];
-
 export const SampleName = {
     AdventureWorksLT: "AdventureWorksLT",
     WideWorldImportersStd: "WideWorldImportersStd",
@@ -418,26 +417,25 @@ export const ServerKeyType = {
  */
 export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
 
-export const ServerPublicNetworkAccess = {
+export const ServerNetworkAccessFlag = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
  */
-export type ServerPublicNetworkAccess = (typeof ServerPublicNetworkAccess)[keyof typeof ServerPublicNetworkAccess];
+export type ServerNetworkAccessFlag = (typeof ServerNetworkAccessFlag)[keyof typeof ServerNetworkAccessFlag];
 
-export const StorageAccountType = {
-    GRS: "GRS",
-    LRS: "LRS",
-    ZRS: "ZRS",
+export const ServicePrincipalType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
 } as const;
 
 /**
- * The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
+ * Service principal type.
  */
-export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
+export type ServicePrincipalType = (typeof ServicePrincipalType)[keyof typeof ServicePrincipalType];
 
 export const SyncConflictResolutionPolicy = {
     HubWin: "HubWin",
@@ -470,12 +468,12 @@ export const SyncMemberDbType = {
  */
 export type SyncMemberDbType = (typeof SyncMemberDbType)[keyof typeof SyncMemberDbType];
 
-export const TransparentDataEncryptionStatus = {
+export const TransparentDataEncryptionState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * The status of the database transparent data encryption.
+ * Specifies the state of the transparent data encryption.
  */
-export type TransparentDataEncryptionStatus = (typeof TransparentDataEncryptionStatus)[keyof typeof TransparentDataEncryptionStatus];
+export type TransparentDataEncryptionState = (typeof TransparentDataEncryptionState)[keyof typeof TransparentDataEncryptionState];

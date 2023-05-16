@@ -15,6 +15,11 @@ export type CommitmentPlan = import("./commitmentPlan").CommitmentPlan;
 export const CommitmentPlan: typeof import("./commitmentPlan").CommitmentPlan = null as any;
 utilities.lazyLoad(exports, ["CommitmentPlan"], () => require("./commitmentPlan"));
 
+export { CommitmentPlanAssociationArgs } from "./commitmentPlanAssociation";
+export type CommitmentPlanAssociation = import("./commitmentPlanAssociation").CommitmentPlanAssociation;
+export const CommitmentPlanAssociation: typeof import("./commitmentPlanAssociation").CommitmentPlanAssociation = null as any;
+utilities.lazyLoad(exports, ["CommitmentPlanAssociation"], () => require("./commitmentPlanAssociation"));
+
 export { DeploymentArgs } from "./deployment";
 export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
@@ -29,6 +34,11 @@ export { GetCommitmentPlanArgs, GetCommitmentPlanResult, GetCommitmentPlanOutput
 export const getCommitmentPlan: typeof import("./getCommitmentPlan").getCommitmentPlan = null as any;
 export const getCommitmentPlanOutput: typeof import("./getCommitmentPlan").getCommitmentPlanOutput = null as any;
 utilities.lazyLoad(exports, ["getCommitmentPlan","getCommitmentPlanOutput"], () => require("./getCommitmentPlan"));
+
+export { GetCommitmentPlanAssociationArgs, GetCommitmentPlanAssociationResult, GetCommitmentPlanAssociationOutputArgs } from "./getCommitmentPlanAssociation";
+export const getCommitmentPlanAssociation: typeof import("./getCommitmentPlanAssociation").getCommitmentPlanAssociation = null as any;
+export const getCommitmentPlanAssociationOutput: typeof import("./getCommitmentPlanAssociation").getCommitmentPlanAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getCommitmentPlanAssociation","getCommitmentPlanAssociationOutput"], () => require("./getCommitmentPlanAssociation"));
 
 export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
 export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
@@ -81,6 +91,8 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:CommitmentPlan":
                 return new CommitmentPlan(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:CommitmentPlanAssociation":
+                return new CommitmentPlanAssociation(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:PrivateEndpointConnection":

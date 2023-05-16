@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Gremlin database.
- *
- * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GremlinResourceGremlinDatabase {
-        pulumi.log.warn("GremlinResourceGremlinDatabase is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         return new GremlinResourceGremlinDatabase(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: GremlinResourceGremlinDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GremlinResourceGremlinDatabase is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -100,7 +95,7 @@ export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20150401:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20150408:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20151106:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20160319:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20160331:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20191212:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200301:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200401:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200601preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200901:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210115:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210301preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210315:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210401preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210415:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210515:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210615:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210701preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20211015:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20211015preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220215preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220515:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220515preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220815:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20221115:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20230315:GremlinResourceGremlinDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20150401:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20150408:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20151106:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20160319:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20160331:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20191212:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200301:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200401:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200601preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20200901:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210115:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210301preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210315:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210401preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210415:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210515:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210615:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20210701preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20211015:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20211015preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220215preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220515:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220515preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220815:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20221115:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20221115preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20230301preview:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20230315:GremlinResourceGremlinDatabase" }, { type: "azure-native:documentdb/v20230415:GremlinResourceGremlinDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GremlinResourceGremlinDatabase.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a custom domain.
- * API Version: 2022-02-01.
+ * API Version: 2023-02-01.
  */
 export function getSignalRCustomDomain(args: GetSignalRCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRCustomDomainResult> {
 
@@ -71,7 +71,7 @@ export interface GetSignalRCustomDomainResult {
 }
 /**
  * Get a custom domain.
- * API Version: 2022-02-01.
+ * API Version: 2023-02-01.
  */
 export function getSignalRCustomDomainOutput(args: GetSignalRCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getSignalRCustomDomain(a, opts))

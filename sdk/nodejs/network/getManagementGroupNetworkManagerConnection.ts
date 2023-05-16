@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specified connection created by this management group.
- * API Version: 2021-05-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getManagementGroupNetworkManagerConnection(args: GetManagementGroupNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupNetworkManagerConnectionResult> {
 
@@ -36,7 +36,7 @@ export interface GetManagementGroupNetworkManagerConnectionArgs {
  */
 export interface GetManagementGroupNetworkManagerConnectionResult {
     /**
-     * A description of the scope connection.
+     * A description of the network manager connection.
      */
     readonly description?: string;
     /**
@@ -66,7 +66,7 @@ export interface GetManagementGroupNetworkManagerConnectionResult {
 }
 /**
  * Get a specified connection created by this management group.
- * API Version: 2021-05-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getManagementGroupNetworkManagerConnectionOutput(args: GetManagementGroupNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupNetworkManagerConnectionResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroupNetworkManagerConnection(a, opts))

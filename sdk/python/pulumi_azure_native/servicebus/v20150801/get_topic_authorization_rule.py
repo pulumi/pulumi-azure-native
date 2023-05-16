@@ -16,8 +16,6 @@ __all__ = [
     'get_topic_authorization_rule_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetTopicAuthorizationRuleResult:
     """
@@ -108,7 +106,6 @@ def get_topic_authorization_rule(authorization_rule_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
-    pulumi.log.warn("""get_topic_authorization_rule is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name
@@ -140,5 +137,4 @@ def get_topic_authorization_rule_output(authorization_rule_name: Optional[pulumi
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
-    pulumi.log.warn("""get_topic_authorization_rule is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

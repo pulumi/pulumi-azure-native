@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Subnet in a VirtualNetwork resource
- *
- * @deprecated Version 2015-05-01-preview will be removed in v2 of the provider.
  */
 export class Subnet extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Subnet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Subnet {
-        pulumi.log.warn("Subnet is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
         return new Subnet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +73,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Subnet is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -112,7 +107,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["routeTable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:Subnet" }, { type: "azure-native:network/v20150615:Subnet" }, { type: "azure-native:network/v20160330:Subnet" }, { type: "azure-native:network/v20160601:Subnet" }, { type: "azure-native:network/v20160901:Subnet" }, { type: "azure-native:network/v20161201:Subnet" }, { type: "azure-native:network/v20170301:Subnet" }, { type: "azure-native:network/v20170601:Subnet" }, { type: "azure-native:network/v20170801:Subnet" }, { type: "azure-native:network/v20170901:Subnet" }, { type: "azure-native:network/v20171001:Subnet" }, { type: "azure-native:network/v20171101:Subnet" }, { type: "azure-native:network/v20180101:Subnet" }, { type: "azure-native:network/v20180201:Subnet" }, { type: "azure-native:network/v20180401:Subnet" }, { type: "azure-native:network/v20180601:Subnet" }, { type: "azure-native:network/v20180701:Subnet" }, { type: "azure-native:network/v20180801:Subnet" }, { type: "azure-native:network/v20181001:Subnet" }, { type: "azure-native:network/v20181101:Subnet" }, { type: "azure-native:network/v20181201:Subnet" }, { type: "azure-native:network/v20190201:Subnet" }, { type: "azure-native:network/v20190401:Subnet" }, { type: "azure-native:network/v20190601:Subnet" }, { type: "azure-native:network/v20190701:Subnet" }, { type: "azure-native:network/v20190801:Subnet" }, { type: "azure-native:network/v20190901:Subnet" }, { type: "azure-native:network/v20191101:Subnet" }, { type: "azure-native:network/v20191201:Subnet" }, { type: "azure-native:network/v20200301:Subnet" }, { type: "azure-native:network/v20200401:Subnet" }, { type: "azure-native:network/v20200501:Subnet" }, { type: "azure-native:network/v20200601:Subnet" }, { type: "azure-native:network/v20200701:Subnet" }, { type: "azure-native:network/v20200801:Subnet" }, { type: "azure-native:network/v20201101:Subnet" }, { type: "azure-native:network/v20210201:Subnet" }, { type: "azure-native:network/v20210301:Subnet" }, { type: "azure-native:network/v20210501:Subnet" }, { type: "azure-native:network/v20210801:Subnet" }, { type: "azure-native:network/v20220101:Subnet" }, { type: "azure-native:network/v20220501:Subnet" }, { type: "azure-native:network/v20220701:Subnet" }, { type: "azure-native:network/v20220901:Subnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:Subnet" }, { type: "azure-native:network/v20150615:Subnet" }, { type: "azure-native:network/v20160330:Subnet" }, { type: "azure-native:network/v20160601:Subnet" }, { type: "azure-native:network/v20160901:Subnet" }, { type: "azure-native:network/v20161201:Subnet" }, { type: "azure-native:network/v20170301:Subnet" }, { type: "azure-native:network/v20170601:Subnet" }, { type: "azure-native:network/v20170801:Subnet" }, { type: "azure-native:network/v20170901:Subnet" }, { type: "azure-native:network/v20171001:Subnet" }, { type: "azure-native:network/v20171101:Subnet" }, { type: "azure-native:network/v20180101:Subnet" }, { type: "azure-native:network/v20180201:Subnet" }, { type: "azure-native:network/v20180401:Subnet" }, { type: "azure-native:network/v20180601:Subnet" }, { type: "azure-native:network/v20180701:Subnet" }, { type: "azure-native:network/v20180801:Subnet" }, { type: "azure-native:network/v20181001:Subnet" }, { type: "azure-native:network/v20181101:Subnet" }, { type: "azure-native:network/v20181201:Subnet" }, { type: "azure-native:network/v20190201:Subnet" }, { type: "azure-native:network/v20190401:Subnet" }, { type: "azure-native:network/v20190601:Subnet" }, { type: "azure-native:network/v20190701:Subnet" }, { type: "azure-native:network/v20190801:Subnet" }, { type: "azure-native:network/v20190901:Subnet" }, { type: "azure-native:network/v20191101:Subnet" }, { type: "azure-native:network/v20191201:Subnet" }, { type: "azure-native:network/v20200301:Subnet" }, { type: "azure-native:network/v20200401:Subnet" }, { type: "azure-native:network/v20200501:Subnet" }, { type: "azure-native:network/v20200601:Subnet" }, { type: "azure-native:network/v20200701:Subnet" }, { type: "azure-native:network/v20200801:Subnet" }, { type: "azure-native:network/v20201101:Subnet" }, { type: "azure-native:network/v20210201:Subnet" }, { type: "azure-native:network/v20210301:Subnet" }, { type: "azure-native:network/v20210501:Subnet" }, { type: "azure-native:network/v20210801:Subnet" }, { type: "azure-native:network/v20220101:Subnet" }, { type: "azure-native:network/v20220501:Subnet" }, { type: "azure-native:network/v20220701:Subnet" }, { type: "azure-native:network/v20220901:Subnet" }, { type: "azure-native:network/v20221101:Subnet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Subnet.__pulumiType, name, resourceInputs, opts);
     }

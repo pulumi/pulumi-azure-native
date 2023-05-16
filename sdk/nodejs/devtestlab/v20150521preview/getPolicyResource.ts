@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get policy.
  */
-/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getPolicyResource(args: GetPolicyResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResourceResult> {
-    pulumi.log.warn("getPolicyResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20150521preview:getPolicyResource", {
@@ -95,7 +93,6 @@ export interface GetPolicyResourceResult {
 /**
  * Get policy.
  */
-/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getPolicyResourceOutput(args: GetPolicyResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResourceResult> {
     return pulumi.output(args).apply((a: any) => getPolicyResource(a, opts))
 }

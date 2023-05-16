@@ -25,6 +25,7 @@ __all__ = [
     'EnvironmentVariableResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorResponseResponse',
+    'ExtendedLocationResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
     'LinkedTemplateArtifactResponse',
@@ -987,6 +988,41 @@ class ErrorResponseResponse(dict):
 
 
 @pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    Resource extended location.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Resource extended location.
+        :param str name: The extended location name.
+        :param str type: The extended location type.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The extended location name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
@@ -1644,6 +1680,8 @@ class ProviderResponse(dict):
             suggest = "registration_state"
         elif key == "resourceTypes":
             suggest = "resource_types"
+        elif key == "providerAuthorizationConsentState":
+            suggest = "provider_authorization_consent_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ProviderResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1661,7 +1699,8 @@ class ProviderResponse(dict):
                  registration_policy: str,
                  registration_state: str,
                  resource_types: Sequence['outputs.ProviderResourceTypeResponse'],
-                 namespace: Optional[str] = None):
+                 namespace: Optional[str] = None,
+                 provider_authorization_consent_state: Optional[str] = None):
         """
         Resource provider information.
         :param str id: The provider ID.
@@ -1669,6 +1708,7 @@ class ProviderResponse(dict):
         :param str registration_state: The registration state of the resource provider.
         :param Sequence['ProviderResourceTypeResponse'] resource_types: The collection of provider resource types.
         :param str namespace: The namespace of the resource provider.
+        :param str provider_authorization_consent_state: The provider authorization consent state.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "registration_policy", registration_policy)
@@ -1676,6 +1716,8 @@ class ProviderResponse(dict):
         pulumi.set(__self__, "resource_types", resource_types)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if provider_authorization_consent_state is not None:
+            pulumi.set(__self__, "provider_authorization_consent_state", provider_authorization_consent_state)
 
     @property
     @pulumi.getter
@@ -1716,6 +1758,14 @@ class ProviderResponse(dict):
         The namespace of the resource provider.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="providerAuthorizationConsentState")
+    def provider_authorization_consent_state(self) -> Optional[str]:
+        """
+        The provider authorization consent state.
+        """
+        return pulumi.get(self, "provider_authorization_consent_state")
 
 
 @pulumi.output_type

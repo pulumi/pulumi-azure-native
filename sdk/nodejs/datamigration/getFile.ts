@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
- * API Version: 2018-07-15-preview.
+ * API Version: 2021-06-30.
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
 
@@ -62,13 +62,17 @@ export interface GetFileResult {
      */
     readonly properties: outputs.datamigration.ProjectFilePropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.datamigration.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;
 }
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
- * API Version: 2018-07-15-preview.
+ * API Version: 2021-06-30.
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
     return pulumi.output(args).apply((a: any) => getFile(a, opts))

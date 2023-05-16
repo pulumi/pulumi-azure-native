@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Resources.V20180201
     /// <summary>
     /// Resource group information.
     /// </summary>
-    [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:resources/v20180201:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource
     {

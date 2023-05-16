@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The storageSpaces resource definition.
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
+ * Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class StorageSpaceRetrieve extends pulumi.CustomResource {
     /**
@@ -97,7 +98,7 @@ export class StorageSpaceRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:storageSpaceRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220501preview:StorageSpaceRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220501preview:storageSpaceRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:storageSpaceRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220501preview:StorageSpaceRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220501preview:storageSpaceRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220901preview:StorageSpaceRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220901preview:storageSpaceRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageSpaceRetrieve.__pulumiType, name, resourceInputs, opts);
     }

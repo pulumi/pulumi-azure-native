@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Backup Vault Resource
- * API Version: 2021-01-01.
+ * API Version: 2023-01-01.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class BackupVault extends pulumi.CustomResource {
     /**
@@ -136,7 +137,7 @@ export interface BackupVaultArgs {
      */
     properties: pulumi.Input<inputs.dataprotection.BackupVaultArgs>;
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

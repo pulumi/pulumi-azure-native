@@ -17,8 +17,6 @@ __all__ = [
     'get_operationalization_cluster_output',
 ]
 
-warnings.warn("""Version 2017-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetOperationalizationClusterResult:
     """
@@ -225,7 +223,6 @@ def get_operationalization_cluster(cluster_name: Optional[str] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: Name of the resource group in which the cluster is located.
     """
-    pulumi.log.warn("""get_operationalization_cluster is deprecated: Version 2017-06-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
@@ -261,5 +258,4 @@ def get_operationalization_cluster_output(cluster_name: Optional[pulumi.Input[st
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: Name of the resource group in which the cluster is located.
     """
-    pulumi.log.warn("""get_operationalization_cluster is deprecated: Version 2017-06-01-preview will be removed in v2 of the provider.""")
     ...

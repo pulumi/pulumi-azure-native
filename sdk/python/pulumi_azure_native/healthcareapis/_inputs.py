@@ -17,6 +17,8 @@ __all__ = [
     'FhirServiceAuthenticationConfigurationArgs',
     'FhirServiceCorsConfigurationArgs',
     'FhirServiceExportConfigurationArgs',
+    'FhirServiceImportConfigurationArgs',
+    'ImplementationGuidesConfigurationArgs',
     'IotEventHubIngestionEndpointConfigurationArgs',
     'IotMappingPropertiesArgs',
     'PrivateEndpointConnectionArgs',
@@ -28,6 +30,7 @@ __all__ = [
     'ServiceCorsConfigurationInfoArgs',
     'ServiceCosmosDbConfigurationInfoArgs',
     'ServiceExportConfigurationInfoArgs',
+    'ServiceImportConfigurationInfoArgs',
     'ServiceManagedIdentityIdentityArgs',
     'ServiceOciArtifactEntryArgs',
     'ServicesPropertiesArgs',
@@ -351,6 +354,86 @@ class FhirServiceExportConfigurationArgs:
     @storage_account_name.setter
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
+
+
+@pulumi.input_type
+class FhirServiceImportConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 initial_import_mode: Optional[pulumi.Input[bool]] = None,
+                 integration_data_store: Optional[pulumi.Input[str]] = None):
+        """
+        Import operation configuration information
+        :param pulumi.Input[bool] enabled: If the import operation is enabled.
+        :param pulumi.Input[bool] initial_import_mode: If the FHIR service is in InitialImportMode.
+        :param pulumi.Input[str] integration_data_store: The name of the default integration storage account.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if initial_import_mode is not None:
+            pulumi.set(__self__, "initial_import_mode", initial_import_mode)
+        if integration_data_store is not None:
+            pulumi.set(__self__, "integration_data_store", integration_data_store)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the import operation is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="initialImportMode")
+    def initial_import_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the FHIR service is in InitialImportMode.
+        """
+        return pulumi.get(self, "initial_import_mode")
+
+    @initial_import_mode.setter
+    def initial_import_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "initial_import_mode", value)
+
+    @property
+    @pulumi.getter(name="integrationDataStore")
+    def integration_data_store(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the default integration storage account.
+        """
+        return pulumi.get(self, "integration_data_store")
+
+    @integration_data_store.setter
+    def integration_data_store(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_data_store", value)
+
+
+@pulumi.input_type
+class ImplementationGuidesConfigurationArgs:
+    def __init__(__self__, *,
+                 us_core_missing_data: Optional[pulumi.Input[bool]] = None):
+        """
+        The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
+        :param pulumi.Input[bool] us_core_missing_data: If US Core Missing Data requirement is enabled.
+        """
+        if us_core_missing_data is not None:
+            pulumi.set(__self__, "us_core_missing_data", us_core_missing_data)
+
+    @property
+    @pulumi.getter(name="usCoreMissingData")
+    def us_core_missing_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If US Core Missing Data requirement is enabled.
+        """
+        return pulumi.get(self, "us_core_missing_data")
+
+    @us_core_missing_data.setter
+    def us_core_missing_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "us_core_missing_data", value)
 
 
 @pulumi.input_type
@@ -824,6 +907,62 @@ class ServiceExportConfigurationInfoArgs:
 
 
 @pulumi.input_type
+class ServiceImportConfigurationInfoArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 initial_import_mode: Optional[pulumi.Input[bool]] = None,
+                 integration_data_store: Optional[pulumi.Input[str]] = None):
+        """
+        Import operation configuration information
+        :param pulumi.Input[bool] enabled: If the import operation is enabled.
+        :param pulumi.Input[bool] initial_import_mode: If the FHIR service is in InitialImportMode.
+        :param pulumi.Input[str] integration_data_store: The name of the default integration storage account.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if initial_import_mode is not None:
+            pulumi.set(__self__, "initial_import_mode", initial_import_mode)
+        if integration_data_store is not None:
+            pulumi.set(__self__, "integration_data_store", integration_data_store)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the import operation is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="initialImportMode")
+    def initial_import_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the FHIR service is in InitialImportMode.
+        """
+        return pulumi.get(self, "initial_import_mode")
+
+    @initial_import_mode.setter
+    def initial_import_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "initial_import_mode", value)
+
+    @property
+    @pulumi.getter(name="integrationDataStore")
+    def integration_data_store(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the default integration storage account.
+        """
+        return pulumi.get(self, "integration_data_store")
+
+    @integration_data_store.setter
+    def integration_data_store(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_data_store", value)
+
+
+@pulumi.input_type
 class ServiceManagedIdentityIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ServiceManagedIdentityType']],
@@ -927,6 +1066,7 @@ class ServicesPropertiesArgs:
                  cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationInfoArgs']] = None,
                  cosmos_db_configuration: Optional[pulumi.Input['ServiceCosmosDbConfigurationInfoArgs']] = None,
                  export_configuration: Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']] = None,
+                 import_configuration: Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None):
         """
@@ -937,6 +1077,7 @@ class ServicesPropertiesArgs:
         :param pulumi.Input['ServiceCorsConfigurationInfoArgs'] cors_configuration: The settings for the CORS configuration of the service instance.
         :param pulumi.Input['ServiceCosmosDbConfigurationInfoArgs'] cosmos_db_configuration: The settings for the Cosmos DB database backing the service.
         :param pulumi.Input['ServiceExportConfigurationInfoArgs'] export_configuration: The settings for the export operation of the service instance.
+        :param pulumi.Input['ServiceImportConfigurationInfoArgs'] import_configuration: The settings for the import operation of the service instance.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
@@ -952,6 +1093,8 @@ class ServicesPropertiesArgs:
             pulumi.set(__self__, "cosmos_db_configuration", cosmos_db_configuration)
         if export_configuration is not None:
             pulumi.set(__self__, "export_configuration", export_configuration)
+        if import_configuration is not None:
+            pulumi.set(__self__, "import_configuration", import_configuration)
         if private_endpoint_connections is not None:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
@@ -1028,6 +1171,18 @@ class ServicesPropertiesArgs:
     @export_configuration.setter
     def export_configuration(self, value: Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']]):
         pulumi.set(self, "export_configuration", value)
+
+    @property
+    @pulumi.getter(name="importConfiguration")
+    def import_configuration(self) -> Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']]:
+        """
+        The settings for the import operation of the service instance.
+        """
+        return pulumi.get(self, "import_configuration")
+
+    @import_configuration.setter
+    def import_configuration(self, value: Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']]):
+        pulumi.set(self, "import_configuration", value)
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

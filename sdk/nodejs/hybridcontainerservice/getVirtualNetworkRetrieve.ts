@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Hybrid AKS virtual network
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
  */
 export function getVirtualNetworkRetrieve(args: GetVirtualNetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRetrieveResult> {
 
@@ -67,7 +67,7 @@ export interface GetVirtualNetworkRetrieveResult {
 }
 /**
  * Gets the Hybrid AKS virtual network
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
  */
 export function getVirtualNetworkRetrieveOutput(args: GetVirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkRetrieve(a, opts))

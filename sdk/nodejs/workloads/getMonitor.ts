@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
 
@@ -48,7 +48,7 @@ export interface GetMonitorResult {
      */
     readonly id: string;
     /**
-     * Managed service identity (user assigned identities)
+     * [currently not in use] Managed service identity(user assigned identities)
      */
     readonly identity?: outputs.workloads.UserAssignedServiceIdentityResponse;
     /**
@@ -106,7 +106,7 @@ export interface GetMonitorResult {
 }
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
     return pulumi.output(args).apply((a: any) => getMonitor(a, opts))

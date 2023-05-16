@@ -16,37 +16,30 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_size: pulumi.Input[int],
                  private_cloud_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
-                 cluster_name: Optional[pulumi.Input[str]] = None):
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_size: Optional[pulumi.Input[int]] = None,
+                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[int] cluster_size: The cluster size
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The cluster SKU
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
+        :param pulumi.Input[int] cluster_size: The cluster size
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: The hosts
         """
-        pulumi.set(__self__, "cluster_size", cluster_size)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
-
-    @property
-    @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> pulumi.Input[int]:
-        """
-        The cluster size
-        """
-        return pulumi.get(self, "cluster_size")
-
-    @cluster_size.setter
-    def cluster_size(self, value: pulumi.Input[int]):
-        pulumi.set(self, "cluster_size", value)
+        if cluster_size is not None:
+            pulumi.set(__self__, "cluster_size", cluster_size)
+        if hosts is not None:
+            pulumi.set(__self__, "hosts", hosts)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -96,6 +89,30 @@ class ClusterArgs:
     def cluster_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_name", value)
 
+    @property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The cluster size
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @cluster_size.setter
+    def cluster_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cluster_size", value)
+
+    @property
+    @pulumi.getter
+    def hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The hosts
+        """
+        return pulumi.get(self, "hosts")
+
+    @hosts.setter
+    def hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "hosts", value)
+
 
 class Cluster(pulumi.CustomResource):
     @overload
@@ -104,18 +121,21 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_size: Optional[pulumi.Input[int]] = None,
+                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
         """
         A cluster resource
-        API Version: 2020-03-20.
+        API Version: 2022-05-01.
+        Previous API Version: 2020-03-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
         :param pulumi.Input[int] cluster_size: The cluster size
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: The hosts
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The cluster SKU
@@ -128,7 +148,8 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A cluster resource
-        API Version: 2020-03-20.
+        API Version: 2022-05-01.
+        Previous API Version: 2020-03-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -147,6 +168,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_size: Optional[pulumi.Input[int]] = None,
+                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -160,9 +182,8 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["cluster_name"] = cluster_name
-            if cluster_size is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_size'")
             __props__.__dict__["cluster_size"] = cluster_size
+            __props__.__dict__["hosts"] = hosts
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__.__dict__["private_cloud_name"] = private_cloud_name
@@ -173,7 +194,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["cluster_id"] = None
-            __props__.__dict__["hosts"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -220,7 +240,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> pulumi.Output[int]:
+    def cluster_size(self) -> pulumi.Output[Optional[int]]:
         """
         The cluster size
         """
@@ -228,7 +248,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hosts(self) -> pulumi.Output[Sequence[str]]:
+    def hosts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The hosts
         """

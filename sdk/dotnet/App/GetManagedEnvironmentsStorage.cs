@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Get storage for a managedEnvironment.
-        /// API Version: 2022-03-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetManagedEnvironmentsStorageResult> InvokeAsync(GetManagedEnvironmentsStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentsStorageResult>("azure-native:app:getManagedEnvironmentsStorage", args ?? new GetManagedEnvironmentsStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get storage for a managedEnvironment.
-        /// API Version: 2022-03-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetManagedEnvironmentsStorageResult> Invoke(GetManagedEnvironmentsStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentsStorageResult>("azure-native:app:getManagedEnvironmentsStorage", args ?? new GetManagedEnvironmentsStorageInvokeArgs(), options.WithDefaults());

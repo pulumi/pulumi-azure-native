@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
-    /// Api Operation details.
-    /// API Version: 2020-12-01.
+    /// API Operation details.
+    /// API Version: 2022-08-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiOperation")]
     public partial class ApiOperation : global::Pulumi.CustomResource
@@ -35,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> Method { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -65,7 +66,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<ImmutableArray<Outputs.ParameterContractResponse>> TemplateParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -117,6 +118,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiOperation"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ApiOperation"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:ApiOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ApiOperation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,7 +185,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<Inputs.RequestContractArgs>? Request { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

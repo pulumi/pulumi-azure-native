@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
- * API Version: 2021-02-01.
+ * API Version: 2023-02-01.
  */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
 
@@ -65,7 +65,7 @@ export interface GetProtectionIntentResult {
     /**
      * ProtectionIntentResource properties
      */
-    readonly properties: outputs.recoveryservices.AzureRecoveryServiceVaultProtectionIntentResponse | outputs.recoveryservices.AzureResourceProtectionIntentResponse | outputs.recoveryservices.AzureWorkloadAutoProtectionIntentResponse | outputs.recoveryservices.AzureWorkloadSQLAutoProtectionIntentResponse;
+    readonly properties: outputs.recoveryservices.AzureRecoveryServiceVaultProtectionIntentResponse | outputs.recoveryservices.AzureResourceProtectionIntentResponse | outputs.recoveryservices.AzureWorkloadAutoProtectionIntentResponse | outputs.recoveryservices.AzureWorkloadContainerAutoProtectionIntentResponse | outputs.recoveryservices.AzureWorkloadSQLAutoProtectionIntentResponse;
     /**
      * Resource tags.
      */
@@ -78,7 +78,7 @@ export interface GetProtectionIntentResult {
 /**
  * Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
- * API Version: 2021-02-01.
+ * API Version: 2023-02-01.
  */
 export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionIntentResult> {
     return pulumi.output(args).apply((a: any) => getProtectionIntent(a, opts))

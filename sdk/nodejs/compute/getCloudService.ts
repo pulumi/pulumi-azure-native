@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Display information about a cloud service.
- * API Version: 2021-03-01.
+ * API Version: 2022-09-04.
  */
 export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServiceResult> {
 
@@ -52,6 +52,10 @@ export interface GetCloudServiceResult {
      */
     readonly properties: outputs.compute.CloudServicePropertiesResponse;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData?: outputs.compute.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -59,10 +63,14 @@ export interface GetCloudServiceResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
+     */
+    readonly zones?: string[];
 }
 /**
  * Display information about a cloud service.
- * API Version: 2021-03-01.
+ * API Version: 2022-09-04.
  */
 export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServiceResult> {
     return pulumi.output(args).apply((a: any) => getCloudService(a, opts))

@@ -20,9 +20,9 @@ __all__ = [
 @pulumi.output_type
 class GetAccountResult:
     """
-    An Azure Video Analyzer for Media account.
+    An Azure Video Indexer account.
     """
-    def __init__(__self__, account_id=None, account_name=None, id=None, identity=None, location=None, media_services=None, name=None, provisioning_state=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, account_id=None, account_name=None, id=None, identity=None, location=None, media_services=None, name=None, provisioning_state=None, system_data=None, tags=None, tenant_id=None, total_seconds_indexed=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -56,6 +56,9 @@ class GetAccountResult:
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
+        if total_seconds_indexed and not isinstance(total_seconds_indexed, int):
+            raise TypeError("Expected argument 'total_seconds_indexed' to be a int")
+        pulumi.set(__self__, "total_seconds_indexed", total_seconds_indexed)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -149,6 +152,14 @@ class GetAccountResult:
         return pulumi.get(self, "tenant_id")
 
     @property
+    @pulumi.getter(name="totalSecondsIndexed")
+    def total_seconds_indexed(self) -> int:
+        """
+        An integer representing the total seconds that have been indexed on the account
+        """
+        return pulumi.get(self, "total_seconds_indexed")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -174,6 +185,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             system_data=self.system_data,
             tags=self.tags,
             tenant_id=self.tenant_id,
+            total_seconds_indexed=self.total_seconds_indexed,
             type=self.type)
 
 
@@ -181,11 +193,11 @@ def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Gets the properties of an Azure Video Analyzer for Media account.
-    API Version: 2021-10-18-preview.
+    Gets the properties of an Azure Video Indexer account.
+    API Version: 2022-08-01.
 
 
-    :param str account_name: The name of the Azure Video Analyzer for Media account.
+    :param str account_name: The name of the Azure Video Indexer account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -206,6 +218,7 @@ def get_account(account_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
+        total_seconds_indexed=__ret__.total_seconds_indexed,
         type=__ret__.type)
 
 
@@ -214,11 +227,11 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    Gets the properties of an Azure Video Analyzer for Media account.
-    API Version: 2021-10-18-preview.
+    Gets the properties of an Azure Video Indexer account.
+    API Version: 2022-08-01.
 
 
-    :param str account_name: The name of the Azure Video Analyzer for Media account.
+    :param str account_name: The name of the Azure Video Indexer account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

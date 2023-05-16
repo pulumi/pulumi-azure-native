@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Table.
- *
- * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountTable extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountTable {
-        pulumi.log.warn("DatabaseAccountTable is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         return new DatabaseAccountTable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +61,7 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
     constructor(name: string, args: DatabaseAccountTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountTable is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -98,7 +93,7 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20221115preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20230301preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20230415:DatabaseAccountTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountTable.__pulumiType, name, resourceInputs, opts);
     }

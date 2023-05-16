@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// Define the SAP Application Server Instance resource.
-    /// API Version: 2021-12-01-preview.
+    /// API Version: 2023-04-01.
+    /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPApplicationServerInstance")]
     public partial class SAPApplicationServerInstance : global::Pulumi.CustomResource
@@ -77,6 +78,12 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> KernelVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The Load Balancer details such as LoadBalancer ID attached to Application Server Virtual Machines
+        /// </summary>
+        [Output("loadBalancerDetails")]
+        public Output<Outputs.LoadBalancerDetailsResponse> LoadBalancerDetails { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -99,12 +106,6 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
-        /// </summary>
-        [Output("storageDetails")]
-        public Output<ImmutableArray<Outputs.StorageInformationResponse>> StorageDetails { get; private set; } = null!;
 
         /// <summary>
         /// Application server Subnet.
@@ -131,10 +132,10 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual machine.
+        /// The list of virtual machines.
         /// </summary>
-        [Output("virtualMachineId")]
-        public Output<string> VirtualMachineId { get; private set; } = null!;
+        [Output("vmDetails")]
+        public Output<ImmutableArray<Outputs.ApplicationServerVmDetailsResponse>> VmDetails { get; private set; } = null!;
 
 
         /// <summary>

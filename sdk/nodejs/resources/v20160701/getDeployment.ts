@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a deployment.
  */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
-    pulumi.log.warn("getDeployment is deprecated: Version 2016-07-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20160701:getDeployment", {
@@ -52,7 +50,6 @@ export interface GetDeploymentResult {
 /**
  * Get a deployment.
  */
-/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }

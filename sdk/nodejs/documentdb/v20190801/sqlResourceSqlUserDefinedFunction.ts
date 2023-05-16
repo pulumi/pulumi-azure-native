@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB userDefinedFunction.
- *
- * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlUserDefinedFunction {
-        pulumi.log.warn("SqlResourceSqlUserDefinedFunction is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         return new SqlResourceSqlUserDefinedFunction(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: SqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlResourceSqlUserDefinedFunction is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -108,7 +103,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210315:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20211115preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220215preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220515:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220515preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220815:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20221115:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20230315:SqlResourceSqlUserDefinedFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210315:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20211115preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220215preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220515:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220515preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220815:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20221115:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20221115preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20230301preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20230315:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20230415:SqlResourceSqlUserDefinedFunction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlUserDefinedFunction.__pulumiType, name, resourceInputs, opts);
     }

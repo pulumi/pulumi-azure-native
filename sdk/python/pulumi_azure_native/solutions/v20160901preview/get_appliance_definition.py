@@ -17,8 +17,6 @@ __all__ = [
     'get_appliance_definition_output',
 ]
 
-warnings.warn("""Version 2016-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetApplianceDefinitionResult:
     """
@@ -213,7 +211,6 @@ def get_appliance_definition(appliance_definition_name: Optional[str] = None,
     :param str appliance_definition_name: The name of the appliance definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_appliance_definition is deprecated: Version 2016-09-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['applianceDefinitionName'] = appliance_definition_name
     __args__['resourceGroupName'] = resource_group_name
@@ -248,5 +245,4 @@ def get_appliance_definition_output(appliance_definition_name: Optional[pulumi.I
     :param str appliance_definition_name: The name of the appliance definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_appliance_definition is deprecated: Version 2016-09-01-preview will be removed in v2 of the provider.""")
     ...

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// A SqlServerInstance.
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2023-03-15-preview.
+    /// Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerInstance")]
     public partial class SqlServerInstance : global::Pulumi.CustomResource
@@ -35,7 +36,7 @@ namespace Pulumi.AzureNative.AzureArcData
         public Output<Outputs.SqlServerInstancePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -47,7 +48,7 @@ namespace Pulumi.AzureNative.AzureArcData
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -83,6 +84,8 @@ namespace Pulumi.AzureNative.AzureArcData
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20211101:SqlServerInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:SqlServerInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:SqlServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230315preview:SqlServerInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,7 +128,7 @@ namespace Pulumi.AzureNative.AzureArcData
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of SQL Server Instance
+        /// Name of SQL Server Instance
         /// </summary>
         [Input("sqlServerInstanceName")]
         public Input<string>? SqlServerInstanceName { get; set; }

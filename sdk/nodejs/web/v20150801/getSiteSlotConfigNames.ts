@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Slot Config names azure resource
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteSlotConfigNames(args: GetSiteSlotConfigNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteSlotConfigNamesResult> {
-    pulumi.log.warn("getSiteSlotConfigNames is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteSlotConfigNames", {
@@ -69,7 +67,6 @@ export interface GetSiteSlotConfigNamesResult {
 /**
  * Slot Config names azure resource
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteSlotConfigNamesOutput(args: GetSiteSlotConfigNamesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSlotConfigNamesResult> {
     return pulumi.output(args).apply((a: any) => getSiteSlotConfigNames(a, opts))
 }

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
     /// </summary>
-    [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20190801:MongoDBResourceMongoDBCollection")]
     public partial class MongoDBResourceMongoDBCollection : global::Pulumi.CustomResource
     {
@@ -96,7 +95,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:MongoDBResourceMongoDBCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:MongoDBResourceMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:MongoDBResourceMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:MongoDBResourceMongoDBCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:MongoDBResourceMongoDBCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:MongoDBResourceMongoDBCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

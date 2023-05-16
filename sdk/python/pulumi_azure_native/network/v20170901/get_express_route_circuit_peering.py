@@ -17,8 +17,6 @@ __all__ = [
     'get_express_route_circuit_peering_output',
 ]
 
-warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetExpressRouteCircuitPeeringResult:
     """
@@ -287,7 +285,6 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_circuit_peering is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['circuitName'] = circuit_name
     __args__['peeringName'] = peering_name
@@ -331,5 +328,4 @@ def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_circuit_peering is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
     ...

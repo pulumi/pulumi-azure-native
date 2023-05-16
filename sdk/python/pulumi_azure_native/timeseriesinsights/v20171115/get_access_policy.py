@@ -16,8 +16,6 @@ __all__ = [
     'get_access_policy_output',
 ]
 
-warnings.warn("""Version 2017-11-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetAccessPolicyResult:
     """
@@ -118,7 +116,6 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_access_policy is deprecated: Version 2017-11-15 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accessPolicyName'] = access_policy_name
     __args__['environmentName'] = environment_name
@@ -148,5 +145,4 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_access_policy is deprecated: Version 2017-11-15 will be removed in v2 of the provider.""")
     ...

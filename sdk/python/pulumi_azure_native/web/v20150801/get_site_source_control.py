@@ -16,8 +16,6 @@ __all__ = [
     'get_site_source_control_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSiteSourceControlResult:
     """
@@ -176,7 +174,6 @@ def get_site_source_control(name: Optional[str] = None,
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
-    pulumi.log.warn("""get_site_source_control is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -208,5 +205,4 @@ def get_site_source_control_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
-    pulumi.log.warn("""get_site_source_control is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

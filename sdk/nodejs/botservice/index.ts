@@ -20,11 +20,6 @@ export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
 utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
-export { EnterpriseChannelArgs } from "./enterpriseChannel";
-export type EnterpriseChannel = import("./enterpriseChannel").EnterpriseChannel;
-export const EnterpriseChannel: typeof import("./enterpriseChannel").EnterpriseChannel = null as any;
-utilities.lazyLoad(exports, ["EnterpriseChannel"], () => require("./enterpriseChannel"));
-
 export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
 export const getBot: typeof import("./getBot").getBot = null as any;
 export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
@@ -39,11 +34,6 @@ export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getCha
 export const getChannel: typeof import("./getChannel").getChannel = null as any;
 export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
 utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
-
-export { GetEnterpriseChannelArgs, GetEnterpriseChannelResult, GetEnterpriseChannelOutputArgs } from "./getEnterpriseChannel";
-export const getEnterpriseChannel: typeof import("./getEnterpriseChannel").getEnterpriseChannel = null as any;
-export const getEnterpriseChannelOutput: typeof import("./getEnterpriseChannel").getEnterpriseChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getEnterpriseChannel","getEnterpriseChannelOutput"], () => require("./getEnterpriseChannel"));
 
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
@@ -63,6 +53,11 @@ export { ListChannelWithKeysArgs, ListChannelWithKeysResult, ListChannelWithKeys
 export const listChannelWithKeys: typeof import("./listChannelWithKeys").listChannelWithKeys = null as any;
 export const listChannelWithKeysOutput: typeof import("./listChannelWithKeys").listChannelWithKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listChannelWithKeys","listChannelWithKeysOutput"], () => require("./listChannelWithKeys"));
+
+export { ListQnAMakerEndpointKeyArgs, ListQnAMakerEndpointKeyResult, ListQnAMakerEndpointKeyOutputArgs } from "./listQnAMakerEndpointKey";
+export const listQnAMakerEndpointKey: typeof import("./listQnAMakerEndpointKey").listQnAMakerEndpointKey = null as any;
+export const listQnAMakerEndpointKeyOutput: typeof import("./listQnAMakerEndpointKey").listQnAMakerEndpointKeyOutput = null as any;
+utilities.lazyLoad(exports, ["listQnAMakerEndpointKey","listQnAMakerEndpointKeyOutput"], () => require("./listQnAMakerEndpointKey"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -102,8 +97,6 @@ const _module = {
                 return new BotConnection(name, <any>undefined, { urn })
             case "azure-native:botservice:Channel":
                 return new Channel(name, <any>undefined, { urn })
-            case "azure-native:botservice:EnterpriseChannel":
-                return new EnterpriseChannel(name, <any>undefined, { urn })
             case "azure-native:botservice:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:

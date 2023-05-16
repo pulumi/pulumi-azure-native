@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid System Topic.
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2022-06-15.
+    /// Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopic")]
     public partial class SystemTopic : global::Pulumi.CustomResource

@@ -159,7 +159,8 @@ class ArcAddon(pulumi.CustomResource):
                  __props__=None):
         """
         Arc Addon.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +182,8 @@ class ArcAddon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Arc Addon.
-        API Version: 2020-12-01.
+        API Version: 2022-03-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ArcAddonArgs args: The arguments to use to populate this resource's properties.
@@ -359,7 +361,7 @@ class ArcAddon(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Addon type
+        Metadata pertaining to creation and last modification of Addon
         """
         return pulumi.get(self, "system_data")
 

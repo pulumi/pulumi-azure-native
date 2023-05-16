@@ -25,8 +25,10 @@ class VirtualMachineScaleSetVMExtensionArgs:
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input['VirtualMachineExtensionInstanceViewArgs']] = None,
                  protected_settings: Optional[Any] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['KeyVaultSecretReferenceArgs']] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[Any] = None,
+                 suppress_failures: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  vm_extension_name: Optional[pulumi.Input[str]] = None):
@@ -40,8 +42,10 @@ class VirtualMachineScaleSetVMExtensionArgs:
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input['VirtualMachineExtensionInstanceViewArgs'] instance_view: The virtual machine extension instance view.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param pulumi.Input['KeyVaultSecretReferenceArgs'] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
+        :param pulumi.Input[bool] suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         :param pulumi.Input[str] vm_extension_name: The name of the virtual machine extension.
@@ -59,10 +63,14 @@ class VirtualMachineScaleSetVMExtensionArgs:
             pulumi.set(__self__, "instance_view", instance_view)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault is not None:
+            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
         if publisher is not None:
             pulumi.set(__self__, "publisher", publisher)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
+        if suppress_failures is not None:
+            pulumi.set(__self__, "suppress_failures", suppress_failures)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if type_handler_version is not None:
@@ -167,6 +175,18 @@ class VirtualMachineScaleSetVMExtensionArgs:
         pulumi.set(self, "protected_settings", value)
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['KeyVaultSecretReferenceArgs']]:
+        """
+        The extensions protected settings that are passed by reference, and consumed from key vault
+        """
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @protected_settings_from_key_vault.setter
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['KeyVaultSecretReferenceArgs']]):
+        pulumi.set(self, "protected_settings_from_key_vault", value)
+
+    @property
     @pulumi.getter
     def publisher(self) -> Optional[pulumi.Input[str]]:
         """
@@ -189,6 +209,18 @@ class VirtualMachineScaleSetVMExtensionArgs:
     @settings.setter
     def settings(self, value: Optional[Any]):
         pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter(name="suppressFailures")
+    def suppress_failures(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        """
+        return pulumi.get(self, "suppress_failures")
+
+    @suppress_failures.setter
+    def suppress_failures(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suppress_failures", value)
 
     @property
     @pulumi.getter
@@ -238,9 +270,11 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']]] = None,
                  protected_settings: Optional[Any] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultSecretReferenceArgs']]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[Any] = None,
+                 suppress_failures: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  vm_extension_name: Optional[pulumi.Input[str]] = None,
@@ -248,7 +282,8 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a VMSS VM Extension.
-        API Version: 2021-03-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,9 +293,11 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']] instance_view: The virtual machine extension instance view.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param pulumi.Input[pulumi.InputType['KeyVaultSecretReferenceArgs']] protected_settings_from_key_vault: The extensions protected settings that are passed by reference, and consumed from key vault
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param Any settings: Json formatted public settings for the extension.
+        :param pulumi.Input[bool] suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         :param pulumi.Input[str] vm_extension_name: The name of the virtual machine extension.
@@ -274,7 +311,8 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a VMSS VM Extension.
-        API Version: 2021-03-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -297,9 +335,11 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']]] = None,
                  protected_settings: Optional[Any] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultSecretReferenceArgs']]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[Any] = None,
+                 suppress_failures: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  vm_extension_name: Optional[pulumi.Input[str]] = None,
@@ -321,11 +361,13 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["instance_view"] = instance_view
             __props__.__dict__["protected_settings"] = protected_settings
+            __props__.__dict__["protected_settings_from_key_vault"] = protected_settings_from_key_vault
             __props__.__dict__["publisher"] = publisher
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["settings"] = settings
+            __props__.__dict__["suppress_failures"] = suppress_failures
             __props__.__dict__["type"] = type
             __props__.__dict__["type_handler_version"] = type_handler_version
             __props__.__dict__["vm_extension_name"] = vm_extension_name
@@ -364,9 +406,11 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["protected_settings"] = None
+        __props__.__dict__["protected_settings_from_key_vault"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["publisher"] = None
         __props__.__dict__["settings"] = None
+        __props__.__dict__["suppress_failures"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["type_handler_version"] = None
         return VirtualMachineScaleSetVMExtension(resource_name, opts=opts, __props__=__props__)
@@ -420,6 +464,14 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         return pulumi.get(self, "protected_settings")
 
     @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> pulumi.Output[Optional['outputs.KeyVaultSecretReferenceResponse']]:
+        """
+        The extensions protected settings that are passed by reference, and consumed from key vault
+        """
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -442,6 +494,14 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter(name="suppressFailures")
+    def suppress_failures(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        """
+        return pulumi.get(self, "suppress_failures")
 
     @property
     @pulumi.getter

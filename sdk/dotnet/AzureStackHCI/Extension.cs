@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Details of a particular extension in HCI Cluster.
-    /// API Version: 2021-01-01-preview.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
@@ -29,46 +30,16 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Output("createdByType")]
-        public Output<string?> CreatedByType { get; private set; } = null!;
+        [Output("enableAutomaticUpgrade")]
+        public Output<bool?> EnableAutomaticUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
         [Output("forceUpdateTag")]
         public Output<string?> ForceUpdateTag { get; private set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Output("lastModifiedAt")]
-        public Output<string?> LastModifiedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedByType")]
-        public Output<string?> LastModifiedByType { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -107,13 +78,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<object?> Settings { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the script handler.
+        /// Specifies the version of the script handler. Latest version would be used if not specified.
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string?> TypeHandlerVersion { get; private set; } = null!;
@@ -153,6 +130,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221001:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,22 +173,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Input("createdByType")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CreatedByType>? CreatedByType { get; set; }
+        [Input("enableAutomaticUpgrade")]
+        public Input<bool>? EnableAutomaticUpgrade { get; set; }
 
         /// <summary>
         /// The name of the machine extension.
@@ -223,24 +189,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("forceUpdateTag")]
         public Input<string>? ForceUpdateTag { get; set; }
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Input("lastModifiedAt")]
-        public Input<string>? LastModifiedAt { get; set; }
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<string>? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedByType")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
         /// Protected settings (may contain secrets).
@@ -273,7 +221,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Specifies the version of the script handler.
+        /// Specifies the version of the script handler. Latest version would be used if not specified.
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }

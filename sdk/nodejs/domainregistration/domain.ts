@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a domain.
- * API Version: 2020-10-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -105,10 +106,6 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly registrationStatus!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.domainregistration.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -176,7 +173,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readyForDnsRecordManagement"] = undefined /*out*/;
             resourceInputs["registrationStatus"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authCode"] = undefined /*out*/;
@@ -196,7 +192,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readyForDnsRecordManagement"] = undefined /*out*/;
             resourceInputs["registrationStatus"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetDnsType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

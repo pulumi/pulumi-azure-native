@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster database principalAssignment.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
 
@@ -42,6 +42,10 @@ export interface GetDatabasePrincipalAssignmentArgs {
  * Class representing a database principal assignment.
  */
 export interface GetDatabasePrincipalAssignmentResult {
+    /**
+     * The service principal object id in AAD (Azure active directory)
+     */
+    readonly aadObjectId: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -85,7 +89,7 @@ export interface GetDatabasePrincipalAssignmentResult {
 }
 /**
  * Gets a Kusto cluster database principalAssignment.
- * API Version: 2021-01-01.
+ * API Version: 2022-12-29.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))

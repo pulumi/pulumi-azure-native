@@ -132,12 +132,7 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2020-03-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Service(pulumi.CustomResource):
-    warnings.warn("""Version 2020-03-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -195,7 +190,6 @@ class Service(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Service is deprecated: Version 2020-03-15 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -218,7 +212,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20200330:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20210111:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20180820preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20190916:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20200330:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20210111:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:Service"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:healthcareapis/v20200315:Service',

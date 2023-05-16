@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get HCI cluster.
- * API Version: 2020-10-01.
+ * API Version: 2023-02-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -36,13 +36,21 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * Object id of cluster AAD identity.
+     */
+    readonly aadApplicationObjectId?: string;
+    /**
      * App id of cluster AAD identity.
      */
-    readonly aadClientId: string;
+    readonly aadClientId?: string;
+    /**
+     * Id of cluster identity service principal.
+     */
+    readonly aadServicePrincipalObjectId?: string;
     /**
      * Tenant id of cluster AAD identity.
      */
-    readonly aadTenantId: string;
+    readonly aadTenantId?: string;
     /**
      * Type of billing applied to the resource.
      */
@@ -52,17 +60,13 @@ export interface GetClusterResult {
      */
     readonly cloudId: string;
     /**
-     * The timestamp of resource creation (UTC).
+     * Endpoint configured for management from the Azure portal.
      */
-    readonly createdAt?: string;
+    readonly cloudManagementEndpoint?: string;
     /**
-     * The identity that created the resource.
+     * Desired properties of the cluster.
      */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
+    readonly desiredProperties?: outputs.azurestackhci.ClusterDesiredPropertiesResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -71,18 +75,6 @@ export interface GetClusterResult {
      * Most recent billing meter timestamp.
      */
     readonly lastBillingTimestamp: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * Most recent cluster sync timestamp.
      */
@@ -96,6 +88,10 @@ export interface GetClusterResult {
      */
     readonly name: string;
     /**
+     * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+     */
+    readonly principalId: string;
+    /**
      * Provisioning state.
      */
     readonly provisioningState: string;
@@ -106,15 +102,35 @@ export interface GetClusterResult {
     /**
      * Properties reported by cluster agent.
      */
-    readonly reportedProperties?: outputs.azurestackhci.ClusterReportedPropertiesResponse;
+    readonly reportedProperties: outputs.azurestackhci.ClusterReportedPropertiesResponse;
+    /**
+     * Object id of RP Service Principal
+     */
+    readonly resourceProviderObjectId: string;
+    /**
+     * Region specific DataPath Endpoint of the cluster.
+     */
+    readonly serviceEndpoint: string;
+    /**
+     * Software Assurance properties of the cluster.
+     */
+    readonly softwareAssuranceProperties?: outputs.azurestackhci.SoftwareAssurancePropertiesResponse;
     /**
      * Status of the cluster agent.
      */
     readonly status: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.azurestackhci.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+     */
+    readonly tenantId: string;
     /**
      * Number of days remaining in the trial period.
      */
@@ -123,10 +139,14 @@ export interface GetClusterResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+     */
+    readonly userAssignedIdentities?: {[key: string]: outputs.azurestackhci.UserAssignedIdentityResponse};
 }
 /**
  * Get HCI cluster.
- * API Version: 2020-10-01.
+ * API Version: 2023-02-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

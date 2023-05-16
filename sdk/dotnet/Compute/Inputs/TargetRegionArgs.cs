@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.EncryptionImagesArgs>? Encryption { get; set; }
 
         /// <summary>
+        /// Contains the flag setting to hide an image when users specify version='latest'
+        /// </summary>
+        [Input("excludeFromLatest")]
+        public Input<bool>? ExcludeFromLatest { get; set; }
+
+        /// <summary>
         /// The name of the region.
         /// </summary>
         [Input("name", required: true)]

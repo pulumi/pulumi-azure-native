@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Extension resource.
- * API Version: 2020-05-12-preview.
+ * API Version: 2021-09-01-preview.
+ * Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Extension extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class Extension extends pulumi.CustomResource {
     }
 
     /**
+     * Additional api properties.
+     */
+    public readonly additionalApiProperties!: pulumi.Output<{[key: string]: outputs.agfoodplatform.ApiPropertiesResponse}>;
+    /**
      * The ETag value to implement optimistic concurrency.
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
@@ -67,7 +72,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.agfoodplatform.SystemDataResponse>;
     /**
@@ -92,7 +97,9 @@ export class Extension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["additionalApiProperties"] = args ? args.additionalApiProperties : undefined;
             resourceInputs["extensionId"] = args ? args.extensionId : undefined;
+            resourceInputs["extensionVersion"] = args ? args.extensionVersion : undefined;
             resourceInputs["farmBeatsResourceName"] = args ? args.farmBeatsResourceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["eTag"] = undefined /*out*/;
@@ -104,6 +111,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalApiProperties"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["extensionApiDocsLink"] = undefined /*out*/;
             resourceInputs["extensionAuthLink"] = undefined /*out*/;
@@ -126,9 +134,17 @@ export class Extension extends pulumi.CustomResource {
  */
 export interface ExtensionArgs {
     /**
+     * Additional Api Properties.
+     */
+    additionalApiProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.agfoodplatform.ApiPropertiesArgs>}>;
+    /**
      * Id of extension resource.
      */
     extensionId?: pulumi.Input<string>;
+    /**
+     * Extension Version.
+     */
+    extensionVersion?: pulumi.Input<string>;
     /**
      * FarmBeats resource name.
      */

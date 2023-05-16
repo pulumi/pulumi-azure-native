@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Devices.V20170701
     /// <summary>
     /// The description of the IoT hub.
     /// </summary>
-    [Obsolete(@"Version 2017-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devices/v20170701:IotHubResource")]
     public partial class IotHubResource : global::Pulumi.CustomResource
     {
@@ -120,6 +119,7 @@ namespace Pulumi.AzureNative.Devices.V20170701
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:IotHubResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:IotHubResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:IotHubResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:IotHubResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

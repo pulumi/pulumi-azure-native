@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CostManagement.V20180531
 {
-    [Obsolete(@"Version 2018-05-31 will be removed in v2 of the provider.")]
     public static class GetReportConfigByResourceGroupName
     {
         /// <summary>

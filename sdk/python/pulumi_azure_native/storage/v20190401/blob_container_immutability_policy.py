@@ -95,12 +95,7 @@ class BlobContainerImmutabilityPolicyArgs:
         pulumi.set(self, "immutability_policy_name", value)
 
 
-warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
-    warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,7 +147,6 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""BlobContainerImmutabilityPolicy is deprecated: Version 2019-04-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -7,9 +7,7 @@ from enum import Enum
 __all__ = [
     'DeploymentMode',
     'ExpressionEvaluationOptionsScopeType',
-    'ExtendedLocationType',
     'OnErrorDeploymentType',
-    'ResourceIdentityType',
 ]
 
 
@@ -30,26 +28,9 @@ class ExpressionEvaluationOptionsScopeType(str, Enum):
     INNER = "Inner"
 
 
-class ExtendedLocationType(str, Enum):
-    """
-    The extended location type.
-    """
-    EDGE_ZONE = "EdgeZone"
-
-
 class OnErrorDeploymentType(str, Enum):
     """
     The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
     """
     LAST_SUCCESSFUL = "LastSuccessful"
     SPECIFIC_DEPLOYMENT = "SpecificDeployment"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-    NONE = "None"

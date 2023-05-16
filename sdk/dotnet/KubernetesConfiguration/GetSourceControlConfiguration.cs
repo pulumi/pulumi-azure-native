@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     {
         /// <summary>
         /// Gets details of the Source Control Configuration.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details of the Source Control Configuration.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetSourceControlConfigurationResult> Invoke(GetSourceControlConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithDefaults());
@@ -36,19 +36,19 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         /// </summary>
         [Input("clusterResourceName", required: true)]
         public string ClusterResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         /// </summary>
         [Input("clusterRp", required: true)]
         public string ClusterRp { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -74,19 +74,19 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         /// </summary>
         [Input("clusterResourceName", required: true)]
         public Input<string> ClusterResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         /// </summary>
         [Input("clusterRp", required: true)]
         public Input<string> ClusterRp { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a connection monitor by name.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetConnectionMonitorResult> InvokeAsync(GetConnectionMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorResult>("azure-native:network:getConnectionMonitor", args ?? new GetConnectionMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a connection monitor by name.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetConnectionMonitorResult> Invoke(GetConnectionMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorResult>("azure-native:network:getConnectionMonitor", args ?? new GetConnectionMonitorInvokeArgs(), options.WithDefaults());

@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified iSCSI server name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiServer(args: GetIscsiServerArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiServerResult> {
-    pulumi.log.warn("getIscsiServer is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getIscsiServer", {
@@ -79,7 +77,6 @@ export interface GetIscsiServerResult {
 /**
  * Returns the properties of the specified iSCSI server name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiServerOutput(args: GetIscsiServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiServerResult> {
     return pulumi.output(args).apply((a: any) => getIscsiServer(a, opts))
 }

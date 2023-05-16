@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
+        /// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// SKU details
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
@@ -73,7 +77,7 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The URI of the vault for performing operations on keys and secrets. This property is readonly
+        /// The URI of the vault for performing operations on keys and secrets.
         /// </summary>
         public readonly string? VaultUri;
 
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
 
             string? provisioningState,
 
+            string? publicNetworkAccess,
+
             Outputs.SkuResponse sku,
 
             int? softDeleteRetentionInDays,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
             NetworkAcls = networkAcls;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             SoftDeleteRetentionInDays = softDeleteRetentionInDays;
             TenantId = tenantId;

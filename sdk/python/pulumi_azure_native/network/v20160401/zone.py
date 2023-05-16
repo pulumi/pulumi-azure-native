@@ -133,12 +133,7 @@ class ZoneArgs:
         pulumi.set(self, "zone_type", value)
 
 
-warnings.warn("""Version 2016-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Zone(pulumi.CustomResource):
-    warnings.warn("""Version 2016-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -196,7 +191,6 @@ class Zone(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  zone_type: Optional[pulumi.Input['ZoneType']] = None,
                  __props__=None):
-        pulumi.log.warn("""Zone is deprecated: Version 2016-04-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OffAzure
     /// <summary>
     /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
     /// API Version: 2020-07-07.
+    /// Previous API Version: 2020-07-07. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

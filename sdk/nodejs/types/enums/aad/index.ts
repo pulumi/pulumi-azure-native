@@ -2,23 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170101 from "./v20170101";
 import * as v20170601 from "./v20170601";
-import * as v20200101 from "./v20200101";
 import * as v20210301 from "./v20210301";
-import * as v20210501 from "./v20210501";
-import * as v20220901 from "./v20220901";
 import * as v20221201 from "./v20221201";
 
 export {
-    v20170101,
     v20170601,
-    v20200101,
     v20210301,
-    v20210501,
-    v20220901,
     v20221201,
 };
+
+export const ChannelBinding = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * A flag to determine whether or not ChannelBinding is enabled or disabled.
+ */
+export type ChannelBinding = (typeof ChannelBinding)[keyof typeof ChannelBinding];
 
 export const ExternalAccess = {
     Enabled: "Enabled",
@@ -60,6 +62,16 @@ export const KerberosRc4Encryption = {
  */
 export type KerberosRc4Encryption = (typeof KerberosRc4Encryption)[keyof typeof KerberosRc4Encryption];
 
+export const LdapSigning = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * A flag to determine whether or not LdapSigning is enabled or disabled.
+ */
+export type LdapSigning = (typeof LdapSigning)[keyof typeof LdapSigning];
+
 export const Ldaps = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -100,6 +112,20 @@ export const NtlmV1 = {
  */
 export type NtlmV1 = (typeof NtlmV1)[keyof typeof NtlmV1];
 
+export const Status = {
+    None: "None",
+    Running: "Running",
+    OK: "OK",
+    Failure: "Failure",
+    Warning: "Warning",
+    Skipped: "Skipped",
+} as const;
+
+/**
+ * Status for individual validator after running diagnostics.
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
 export const SyncKerberosPasswords = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -129,6 +155,16 @@ export const SyncOnPremPasswords = {
  * A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
  */
 export type SyncOnPremPasswords = (typeof SyncOnPremPasswords)[keyof typeof SyncOnPremPasswords];
+
+export const SyncScope = {
+    All: "All",
+    CloudOnly: "CloudOnly",
+} as const;
+
+/**
+ * All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+ */
+export type SyncScope = (typeof SyncScope)[keyof typeof SyncScope];
 
 export const TlsV1 = {
     Enabled: "Enabled",

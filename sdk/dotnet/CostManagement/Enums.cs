@@ -73,106 +73,6 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// Connector billing model
-    /// </summary>
-    [EnumType]
-    public readonly struct ConnectorBillingModel : IEquatable<ConnectorBillingModel>
-    {
-        private readonly string _value;
-
-        private ConnectorBillingModel(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConnectorBillingModel Trial { get; } = new ConnectorBillingModel("trial");
-        public static ConnectorBillingModel AutoUpgrade { get; } = new ConnectorBillingModel("autoUpgrade");
-        public static ConnectorBillingModel Premium { get; } = new ConnectorBillingModel("premium");
-        public static ConnectorBillingModel Expired { get; } = new ConnectorBillingModel("expired");
-
-        public static bool operator ==(ConnectorBillingModel left, ConnectorBillingModel right) => left.Equals(right);
-        public static bool operator !=(ConnectorBillingModel left, ConnectorBillingModel right) => !left.Equals(right);
-
-        public static explicit operator string(ConnectorBillingModel value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectorBillingModel other && Equals(other);
-        public bool Equals(ConnectorBillingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Method of cost allocation for the rule
-    /// </summary>
-    [EnumType]
-    public readonly struct CostAllocationPolicyType : IEquatable<CostAllocationPolicyType>
-    {
-        private readonly string _value;
-
-        private CostAllocationPolicyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CostAllocationPolicyType FixedProportion { get; } = new CostAllocationPolicyType("FixedProportion");
-
-        public static bool operator ==(CostAllocationPolicyType left, CostAllocationPolicyType right) => left.Equals(right);
-        public static bool operator !=(CostAllocationPolicyType left, CostAllocationPolicyType right) => !left.Equals(right);
-
-        public static explicit operator string(CostAllocationPolicyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CostAllocationPolicyType other && Equals(other);
-        public bool Equals(CostAllocationPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of resources contained in this cost allocation rule
-    /// </summary>
-    [EnumType]
-    public readonly struct CostAllocationResourceType : IEquatable<CostAllocationResourceType>
-    {
-        private readonly string _value;
-
-        private CostAllocationResourceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.
-        /// </summary>
-        public static CostAllocationResourceType Dimension { get; } = new CostAllocationResourceType("Dimension");
-        /// <summary>
-        /// Allocates cost based on Azure Tag key value pairs.
-        /// </summary>
-        public static CostAllocationResourceType Tag { get; } = new CostAllocationResourceType("Tag");
-
-        public static bool operator ==(CostAllocationResourceType left, CostAllocationResourceType right) => left.Equals(right);
-        public static bool operator !=(CostAllocationResourceType left, CostAllocationResourceType right) => !left.Equals(right);
-
-        public static explicit operator string(CostAllocationResourceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CostAllocationResourceType other && Equals(other);
-        public bool Equals(CostAllocationResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Days of Week.
     /// </summary>
     [EnumType]
@@ -241,7 +141,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// Destination of the view data. Currently only csv format is supported.
+    /// Destination of the view data. Currently only CSV format is supported.
     /// </summary>
     [EnumType]
     public readonly struct FileFormat : IEquatable<FileFormat>
@@ -271,7 +171,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// The format of the report being delivered.
+    /// The format of the export being delivered. Currently only 'Csv' is supported.
     /// </summary>
     [EnumType]
     public readonly struct FormatType : IEquatable<FormatType>
@@ -313,9 +213,6 @@ namespace Pulumi.AzureNative.CostManagement
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FunctionType Avg { get; } = new FunctionType("Avg");
-        public static FunctionType Max { get; } = new FunctionType("Max");
-        public static FunctionType Min { get; } = new FunctionType("Min");
         public static FunctionType Sum { get; } = new FunctionType("Sum");
 
         public static bool operator ==(FunctionType left, FunctionType right) => left.Equals(right);
@@ -334,7 +231,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// The granularity of rows in the report.
+    /// The granularity of rows in the export. Currently only 'Daily' is supported.
     /// </summary>
     [EnumType]
     public readonly struct GranularityType : IEquatable<GranularityType>
@@ -347,7 +244,6 @@ namespace Pulumi.AzureNative.CostManagement
         }
 
         public static GranularityType Daily { get; } = new GranularityType("Daily");
-        public static GranularityType Hourly { get; } = new GranularityType("Hourly");
 
         public static bool operator ==(GranularityType left, GranularityType right) => left.Equals(right);
         public static bool operator !=(GranularityType left, GranularityType right) => !left.Equals(right);
@@ -490,6 +386,43 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
+    /// Has type of the column to group.
+    /// </summary>
+    [EnumType]
+    public readonly struct QueryColumnType : IEquatable<QueryColumnType>
+    {
+        private readonly string _value;
+
+        private QueryColumnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The tag associated with the cost data.
+        /// </summary>
+        public static QueryColumnType TagKey { get; } = new QueryColumnType("TagKey");
+        /// <summary>
+        /// The dimension of cost data.
+        /// </summary>
+        public static QueryColumnType Dimension { get; } = new QueryColumnType("Dimension");
+
+        public static bool operator ==(QueryColumnType left, QueryColumnType right) => left.Equals(right);
+        public static bool operator !=(QueryColumnType left, QueryColumnType right) => !left.Equals(right);
+
+        public static explicit operator string(QueryColumnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QueryColumnType other && Equals(other);
+        public bool Equals(QueryColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The schedule recurrence.
     /// </summary>
     [EnumType]
@@ -523,60 +456,29 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// Has type of the column to group.
+    /// Direction of sort.
     /// </summary>
     [EnumType]
-    public readonly struct ReportColumnType : IEquatable<ReportColumnType>
+    public readonly struct ReportConfigSortingType : IEquatable<ReportConfigSortingType>
     {
         private readonly string _value;
 
-        private ReportColumnType(string value)
+        private ReportConfigSortingType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ReportColumnType Tag { get; } = new ReportColumnType("Tag");
-        public static ReportColumnType Dimension { get; } = new ReportColumnType("Dimension");
+        public static ReportConfigSortingType Ascending { get; } = new ReportConfigSortingType("Ascending");
+        public static ReportConfigSortingType Descending { get; } = new ReportConfigSortingType("Descending");
 
-        public static bool operator ==(ReportColumnType left, ReportColumnType right) => left.Equals(right);
-        public static bool operator !=(ReportColumnType left, ReportColumnType right) => !left.Equals(right);
+        public static bool operator ==(ReportConfigSortingType left, ReportConfigSortingType right) => left.Equals(right);
+        public static bool operator !=(ReportConfigSortingType left, ReportConfigSortingType right) => !left.Equals(right);
 
-        public static explicit operator string(ReportColumnType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReportColumnType other && Equals(other);
-        public bool Equals(ReportColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(ReportConfigSortingType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Has type of the column to group.
-    /// </summary>
-    [EnumType]
-    public readonly struct ReportConfigColumnType : IEquatable<ReportConfigColumnType>
-    {
-        private readonly string _value;
-
-        private ReportConfigColumnType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ReportConfigColumnType Tag { get; } = new ReportConfigColumnType("Tag");
-        public static ReportConfigColumnType Dimension { get; } = new ReportConfigColumnType("Dimension");
-
-        public static bool operator ==(ReportConfigColumnType left, ReportConfigColumnType right) => left.Equals(right);
-        public static bool operator !=(ReportConfigColumnType left, ReportConfigColumnType right) => !left.Equals(right);
-
-        public static explicit operator string(ReportConfigColumnType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReportConfigColumnType other && Equals(other);
-        public bool Equals(ReportConfigColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ReportConfigSortingType other && Equals(other);
+        public bool Equals(ReportConfigSortingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -679,47 +581,6 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// Status of the rule
-    /// </summary>
-    [EnumType]
-    public readonly struct RuleStatus : IEquatable<RuleStatus>
-    {
-        private readonly string _value;
-
-        private RuleStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Rule is saved but not used to allocate costs.
-        /// </summary>
-        public static RuleStatus NotActive { get; } = new RuleStatus("NotActive");
-        /// <summary>
-        /// Rule is saved and impacting cost allocation.
-        /// </summary>
-        public static RuleStatus Active { get; } = new RuleStatus("Active");
-        /// <summary>
-        /// Rule is saved and cost allocation is being updated. Readonly value that cannot be submitted in a put request.
-        /// </summary>
-        public static RuleStatus Processing { get; } = new RuleStatus("Processing");
-
-        public static bool operator ==(RuleStatus left, RuleStatus right) => left.Equals(right);
-        public static bool operator !=(RuleStatus left, RuleStatus right) => !left.Equals(right);
-
-        public static explicit operator string(RuleStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RuleStatus other && Equals(other);
-        public bool Equals(RuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Frequency of the schedule.
     /// </summary>
     [EnumType]
@@ -777,6 +638,10 @@ namespace Pulumi.AzureNative.CostManagement
         /// Cost analysis data will be emailed.
         /// </summary>
         public static ScheduledActionKind Email { get; } = new ScheduledActionKind("Email");
+        /// <summary>
+        /// Cost anomaly information will be emailed. Available only on subscription scope at daily frequency. If no anomaly is detected on the resource, an email won't be sent.
+        /// </summary>
+        public static ScheduledActionKind InsightAlert { get; } = new ScheduledActionKind("InsightAlert");
 
         public static bool operator ==(ScheduledActionKind left, ScheduledActionKind right) => left.Equals(right);
         public static bool operator !=(ScheduledActionKind left, ScheduledActionKind right) => !left.Equals(right);
@@ -807,13 +672,17 @@ namespace Pulumi.AzureNative.CostManagement
         }
 
         /// <summary>
-        /// Scheduled action is saved but will not be executed.
+        /// Scheduled action is saved but will not be run.
         /// </summary>
         public static ScheduledActionStatus Disabled { get; } = new ScheduledActionStatus("Disabled");
         /// <summary>
-        /// Scheduled action is saved and will be executed.
+        /// Scheduled action is saved and will be run.
         /// </summary>
         public static ScheduledActionStatus Enabled { get; } = new ScheduledActionStatus("Enabled");
+        /// <summary>
+        /// Scheduled action is expired.
+        /// </summary>
+        public static ScheduledActionStatus Expired { get; } = new ScheduledActionStatus("Expired");
 
         public static bool operator ==(ScheduledActionStatus left, ScheduledActionStatus right) => left.Equals(right);
         public static bool operator !=(ScheduledActionStatus left, ScheduledActionStatus right) => !left.Equals(right);
@@ -831,7 +700,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+    /// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
     /// </summary>
     [EnumType]
     public readonly struct StatusType : IEquatable<StatusType>
@@ -862,7 +731,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+    /// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
     /// </summary>
     [EnumType]
     public readonly struct TimeframeType : IEquatable<TimeframeType>
@@ -874,8 +743,11 @@ namespace Pulumi.AzureNative.CostManagement
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TimeframeType WeekToDate { get; } = new TimeframeType("WeekToDate");
         public static TimeframeType MonthToDate { get; } = new TimeframeType("MonthToDate");
+        public static TimeframeType BillingMonthToDate { get; } = new TimeframeType("BillingMonthToDate");
+        public static TimeframeType TheLastMonth { get; } = new TimeframeType("TheLastMonth");
+        public static TimeframeType TheLastBillingMonth { get; } = new TimeframeType("TheLastBillingMonth");
+        public static TimeframeType WeekToDate { get; } = new TimeframeType("WeekToDate");
         public static TimeframeType Custom { get; } = new TimeframeType("Custom");
 
         public static bool operator ==(TimeframeType left, TimeframeType right) => left.Equals(right);

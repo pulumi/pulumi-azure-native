@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Trigger details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-03-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:PeriodicTimerEventTrigger")]
     public partial class PeriodicTimerEventTrigger : global::Pulumi.CustomResource
@@ -48,7 +49,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<Outputs.PeriodicTimerSourceInfoResponse> SourceInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Trigger in DataBoxEdge Resource
+        /// Metadata pertaining to creation and last modification of Trigger
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

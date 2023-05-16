@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A storage system being cached by a Cache.
- *
- * @deprecated Version 2019-11-01 will be removed in v2 of the provider.
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageTarget {
-        pulumi.log.warn("StorageTarget is deprecated: Version 2019-11-01 will be removed in v2 of the provider.")
         return new StorageTarget(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
     constructor(name: string, args: StorageTargetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("StorageTarget is deprecated: Version 2019-11-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -114,7 +109,7 @@ export class StorageTarget extends pulumi.CustomResource {
             resourceInputs["unknown"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache:StorageTarget" }, { type: "azure-native:storagecache/v20190801preview:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-native:storagecache/v20210301:StorageTarget" }, { type: "azure-native:storagecache/v20210501:StorageTarget" }, { type: "azure-native:storagecache/v20210901:StorageTarget" }, { type: "azure-native:storagecache/v20220101:StorageTarget" }, { type: "azure-native:storagecache/v20220501:StorageTarget" }, { type: "azure-native:storagecache/v20230101:StorageTarget" }, { type: "azure-native:storagecache/v20230301preview:StorageTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache:StorageTarget" }, { type: "azure-native:storagecache/v20190801preview:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-native:storagecache/v20210301:StorageTarget" }, { type: "azure-native:storagecache/v20210501:StorageTarget" }, { type: "azure-native:storagecache/v20210901:StorageTarget" }, { type: "azure-native:storagecache/v20220101:StorageTarget" }, { type: "azure-native:storagecache/v20220501:StorageTarget" }, { type: "azure-native:storagecache/v20230101:StorageTarget" }, { type: "azure-native:storagecache/v20230301preview:StorageTarget" }, { type: "azure-native:storagecache/v20230501:StorageTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageTarget.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a SqlDatabase.
  */
-/** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlDatabase(args: GetSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDatabaseResult> {
-    pulumi.log.warn("getSqlDatabase is deprecated: Version 2020-04-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20200401preview:getSqlDatabase", {
@@ -89,7 +87,6 @@ export interface GetSqlDatabaseResult {
 /**
  * Gets a SqlDatabase.
  */
-/** @deprecated Version 2020-04-01-preview will be removed in v2 of the provider. */
 export function getSqlDatabaseOutput(args: GetSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getSqlDatabase(a, opts))
 }

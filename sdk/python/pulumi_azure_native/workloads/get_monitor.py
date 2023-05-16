@@ -103,7 +103,7 @@ class GetMonitorResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.UserAssignedServiceIdentityResponse']:
         """
-        Managed service identity (user assigned identities)
+        [currently not in use] Managed service identity(user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -242,7 +242,7 @@ def get_monitor(monitor_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-    API Version: 2021-12-01-preview.
+    API Version: 2023-04-01.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -280,7 +280,7 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-    API Version: 2021-12-01-preview.
+    API Version: 2023-04-01.
 
 
     :param str monitor_name: Name of the SAP monitor resource.

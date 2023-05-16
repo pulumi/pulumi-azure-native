@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the capacity reservation.
-    /// API Version: 2021-04-01.
+    /// API Version: 2022-11-01.
+    /// Previous API Version: 2021-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservation")]
     public partial class CapacityReservation : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the value of fault domain count that Capacity Reservation supports for requested VM size.&lt;br&gt;NOTE: The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation.&lt;br&gt;&lt;br&gt;Minimum api-version: 2022-08-01.
+        /// </summary>
+        [Output("platformFaultDomainCount")]
+        public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state, which only appears in the response.
@@ -63,6 +70,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the time at which the Capacity Reservation resource was created.&lt;br&gt;&lt;br&gt;Minimum api-version: 2021-11-01.
+        /// </summary>
+        [Output("timeCreated")]
+        public Output<string> TimeCreated { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

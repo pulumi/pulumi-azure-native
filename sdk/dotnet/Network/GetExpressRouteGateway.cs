@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Fetches the details of a ExpressRoute gateway in a resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetExpressRouteGatewayResult> InvokeAsync(GetExpressRouteGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteGatewayResult>("azure-native:network:getExpressRouteGateway", args ?? new GetExpressRouteGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetches the details of a ExpressRoute gateway in a resource group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetExpressRouteGatewayResult> Invoke(GetExpressRouteGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteGatewayResult>("azure-native:network:getExpressRouteGateway", args ?? new GetExpressRouteGatewayInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetExpressRouteGatewayResult
     {
         /// <summary>
+        /// Configures this gateway to accept traffic from non Virtual WAN networks.
+        /// </summary>
+        public readonly bool? AllowNonVirtualWanTraffic;
+        /// <summary>
         /// Configuration for auto scaling.
         /// </summary>
         public readonly Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration? AutoScaleConfiguration;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetExpressRouteGatewayResult(
+            bool? allowNonVirtualWanTraffic,
+
             Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration? autoScaleConfiguration,
 
             string etag,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.VirtualHubIdResponse virtualHub)
         {
+            AllowNonVirtualWanTraffic = allowNonVirtualWanTraffic;
             AutoScaleConfiguration = autoScaleConfiguration;
             Etag = etag;
             ExpressRouteConnections = expressRouteConnections;

@@ -17,8 +17,6 @@ __all__ = [
     'get_machine_extension_output',
 ]
 
-warnings.warn("""Version 2019-08-02-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetMachineExtensionResult:
     """
@@ -227,7 +225,6 @@ def get_machine_extension(extension_name: Optional[str] = None,
     :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_machine_extension is deprecated: Version 2019-08-02-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['extensionName'] = extension_name
     __args__['name'] = name
@@ -266,5 +263,4 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
     :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_machine_extension is deprecated: Version 2019-08-02-preview will be removed in v2 of the provider.""")
     ...

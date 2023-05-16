@@ -105,8 +105,6 @@ export class EnterpriseChannel extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice:EnterpriseChannel" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnterpriseChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

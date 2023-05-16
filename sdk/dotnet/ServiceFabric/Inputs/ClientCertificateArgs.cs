@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
 {
 
     /// <summary>
-    /// Client Certificate definition.
+    /// Client certificate definition.
     /// </summary>
     public sealed class ClientCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Certificate Common name.
+        /// Certificate common name.
         /// </summary>
         [Input("commonName")]
         public Input<string>? CommonName { get; set; }
 
         /// <summary>
-        /// Whether the certificate is admin or not.
+        /// Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
         /// </summary>
         [Input("isAdmin", required: true)]
         public Input<bool> IsAdmin { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         public Input<string>? IssuerThumbprint { get; set; }
 
         /// <summary>
-        /// Certificate Thumbprint.
+        /// Certificate thumbprint.
         /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }

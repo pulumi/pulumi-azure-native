@@ -10,9 +10,11 @@ __all__ = [
     'EndPointProvisioningState',
     'EntityStatus',
     'FilterType',
-    'IPAction',
+    'KeySource',
+    'ManagedServiceIdentityType',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
+    'PublicNetworkAccessFlag',
     'SkuName',
     'SkuTier',
 ]
@@ -67,12 +69,21 @@ class FilterType(str, Enum):
     CORRELATION_FILTER = "CorrelationFilter"
 
 
-class IPAction(str, Enum):
+class KeySource(str, Enum):
     """
-    The IP Filter Action
+    Enumerates the possible value of keySource for Encryption
     """
-    ACCEPT = "Accept"
-    REJECT = "Reject"
+    MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
 
 
 class NetworkRuleIPAction(str, Enum):
@@ -90,6 +101,14 @@ class PrivateLinkConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class PublicNetworkAccessFlag(str, Enum):
+    """
+    This determines if traffic is allowed over public network. By default it is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SkuName(str, Enum):

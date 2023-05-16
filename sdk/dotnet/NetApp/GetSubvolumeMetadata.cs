@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get details of the specified subvolume
-        /// API Version: 2021-10-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetSubvolumeMetadataResult> InvokeAsync(GetSubvolumeMetadataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubvolumeMetadataResult>("azure-native:netapp:getSubvolumeMetadata", args ?? new GetSubvolumeMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of the specified subvolume
-        /// API Version: 2021-10-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetSubvolumeMetadataResult> Invoke(GetSubvolumeMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubvolumeMetadataResult>("azure-native:netapp:getSubvolumeMetadata", args ?? new GetSubvolumeMetadataInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.NetApp
         public string PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

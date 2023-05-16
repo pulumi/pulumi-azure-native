@@ -159,7 +159,8 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
                  __props__=None):
         """
         An ADLS Gen 1 folder data set.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
+        Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +182,8 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An ADLS Gen 1 folder data set.
-        API Version: 2020-09-01.
+        API Version: 2021-08-01.
+        Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ADLSGen1FolderDataSetArgs args: The arguments to use to populate this resource's properties.

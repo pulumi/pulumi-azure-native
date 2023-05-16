@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Application gateway IP configurations of virtual network resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIpConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIPConfigurations;
         /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
@@ -40,6 +40,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// An array of references to interface endpoints 
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InterfaceEndpointResponse> InterfaceEndpoints;
         /// <summary>
         /// Array of IpAllocation which reference this subnet.
         /// </summary>
@@ -115,13 +119,15 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<string> addressPrefixes,
 
-            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIpConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIPConfigurations,
 
             ImmutableArray<Outputs.DelegationResponse> delegations,
 
             string etag,
 
             string? id,
+
+            ImmutableArray<Outputs.InterfaceEndpointResponse> interfaceEndpoints,
 
             ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
 
@@ -159,10 +165,11 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
-            ApplicationGatewayIpConfigurations = applicationGatewayIpConfigurations;
+            ApplicationGatewayIPConfigurations = applicationGatewayIPConfigurations;
             Delegations = delegations;
             Etag = etag;
             Id = id;
+            InterfaceEndpoints = interfaceEndpoints;
             IpAllocations = ipAllocations;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AadIam
     /// <summary>
     /// PrivateLink Policy configuration object.
     /// API Version: 2020-03-01.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam:PrivateLinkForAzureAd")]
     public partial class PrivateLinkForAzureAd : global::Pulumi.CustomResource

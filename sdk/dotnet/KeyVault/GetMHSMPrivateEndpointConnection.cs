@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the managed HSM Pool.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetMHSMPrivateEndpointConnectionResult> InvokeAsync(GetMHSMPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMHSMPrivateEndpointConnectionResult>("azure-native:keyvault:getMHSMPrivateEndpointConnection", args ?? new GetMHSMPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the managed HSM Pool.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetMHSMPrivateEndpointConnectionResult> Invoke(GetMHSMPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMHSMPrivateEndpointConnectionResult>("azure-native:keyvault:getMHSMPrivateEndpointConnection", args ?? new GetMHSMPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

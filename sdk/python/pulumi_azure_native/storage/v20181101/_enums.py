@@ -14,9 +14,7 @@ __all__ = [
     'KeySource',
     'Kind',
     'Permissions',
-    'PublicAccess',
     'ReasonCode',
-    'RuleType',
     'Services',
     'SignedResource',
     'SignedResourceTypes',
@@ -106,28 +104,12 @@ class Permissions(str, Enum):
     P = "p"
 
 
-class PublicAccess(str, Enum):
-    """
-    Specifies whether data in the container may be accessed publicly and the level of access.
-    """
-    CONTAINER = "Container"
-    BLOB = "Blob"
-    NONE = "None"
-
-
 class ReasonCode(str, Enum):
     """
     The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
     """
     QUOTA_ID = "QuotaId"
     NOT_AVAILABLE_FOR_SUBSCRIPTION = "NotAvailableForSubscription"
-
-
-class RuleType(str, Enum):
-    """
-    The valid value is Lifecycle
-    """
-    LIFECYCLE = "Lifecycle"
 
 
 class Services(str, Enum):

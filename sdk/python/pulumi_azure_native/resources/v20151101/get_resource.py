@@ -17,8 +17,6 @@ __all__ = [
     'get_resource_output',
 ]
 
-warnings.warn("""Version 2015-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetResourceResult:
     """
@@ -135,7 +133,6 @@ def get_resource(parent_resource_path: Optional[str] = None,
     :param str resource_provider_namespace: Resource identity.
     :param str resource_type: Resource identity.
     """
-    pulumi.log.warn("""get_resource is deprecated: Version 2015-11-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['parentResourcePath'] = parent_resource_path
     __args__['resourceGroupName'] = resource_group_name
@@ -172,5 +169,4 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
     :param str resource_provider_namespace: Resource identity.
     :param str resource_type: Resource identity.
     """
-    pulumi.log.warn("""get_resource is deprecated: Version 2015-11-01 will be removed in v2 of the provider.""")
     ...

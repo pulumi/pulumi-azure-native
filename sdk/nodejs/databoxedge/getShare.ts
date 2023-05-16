@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
 
@@ -85,7 +85,7 @@ export interface GetShareResult {
      */
     readonly shareStatus: string;
     /**
-     * Share on ASE device
+     * Metadata pertaining to creation and last modification of Share
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
@@ -99,7 +99,7 @@ export interface GetShareResult {
 }
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
     return pulumi.output(args).apply((a: any) => getShare(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements vCenter GET method.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2022-07-15-preview.
         /// </summary>
         public static Task<GetVCenterResult> InvokeAsync(GetVCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements vCenter GET method.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2022-07-15-preview.
         /// </summary>
         public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());

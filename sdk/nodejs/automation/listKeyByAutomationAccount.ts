@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the automation keys for an account.
- * API Version: 2021-06-22.
+ * API Version: 2022-08-08.
  */
 export function listKeyByAutomationAccount(args: ListKeyByAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<ListKeyByAutomationAccountResult> {
 
@@ -39,7 +39,7 @@ export interface ListKeyByAutomationAccountResult {
 }
 /**
  * Retrieve the automation keys for an account.
- * API Version: 2021-06-22.
+ * API Version: 2022-08-08.
  */
 export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKeyByAutomationAccountResult> {
     return pulumi.output(args).apply((a: any) => listKeyByAutomationAccount(a, opts))

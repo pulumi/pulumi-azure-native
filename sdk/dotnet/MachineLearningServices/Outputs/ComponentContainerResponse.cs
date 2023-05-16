@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
+        /// Provisioning state for the component container.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// Tag dictionary. Tags can be added, removed, and updated.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -54,6 +58,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableDictionary<string, string>? properties,
 
+            string provisioningState,
+
             ImmutableDictionary<string, string>? tags)
         {
             Description = description;
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             LatestVersion = latestVersion;
             NextVersion = nextVersion;
             Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
         }
     }

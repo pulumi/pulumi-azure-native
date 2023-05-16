@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a channel.
-        /// API Version: 2021-10-15-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:eventgrid:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a channel.
-        /// API Version: 2021-10-15-preview.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:eventgrid:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetChannelResult
     {
         /// <summary>
-        /// The type of the event channel which represents the  direction flow of events.
+        /// The type of the event channel which represents the direction flow of events.
         /// </summary>
         public readonly string? ChannelType;
         /// <summary>
@@ -104,10 +104,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-        /// </summary>
-        public readonly Outputs.WebhookPartnerDestinationInfoResponse? PartnerDestinationInfo;
         /// <summary>
         /// This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
         /// </summary>
@@ -141,8 +137,6 @@ namespace Pulumi.AzureNative.EventGrid
 
             string name,
 
-            Outputs.WebhookPartnerDestinationInfoResponse? partnerDestinationInfo,
-
             Outputs.PartnerTopicInfoResponse? partnerTopicInfo,
 
             string? provisioningState,
@@ -158,7 +152,6 @@ namespace Pulumi.AzureNative.EventGrid
             Id = id;
             MessageForActivation = messageForActivation;
             Name = name;
-            PartnerDestinationInfo = partnerDestinationInfo;
             PartnerTopicInfo = partnerTopicInfo;
             ProvisioningState = provisioningState;
             ReadinessState = readinessState;

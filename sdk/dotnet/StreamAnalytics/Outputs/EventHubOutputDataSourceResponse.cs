@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class EventHubOutputDataSourceResponse
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
         /// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? EventHubName;
@@ -24,6 +28,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// The key/column that is used to determine to which partition to send event data.
         /// </summary>
         public readonly string? PartitionKey;
+        /// <summary>
+        /// The properties associated with this Event Hub output.
+        /// </summary>
+        public readonly ImmutableArray<string> PropertyColumns;
         /// <summary>
         /// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         /// </summary>
@@ -44,9 +52,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private EventHubOutputDataSourceResponse(
+            string? authenticationMode,
+
             string? eventHubName,
 
             string? partitionKey,
+
+            ImmutableArray<string> propertyColumns,
 
             string? serviceBusNamespace,
 
@@ -56,8 +68,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string type)
         {
+            AuthenticationMode = authenticationMode;
             EventHubName = eventHubName;
             PartitionKey = partitionKey;
+            PropertyColumns = propertyColumns;
             ServiceBusNamespace = serviceBusNamespace;
             SharedAccessPolicyKey = sharedAccessPolicyKey;
             SharedAccessPolicyName = sharedAccessPolicyName;

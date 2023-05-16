@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
  */
-/** @deprecated Version 2017-06-01-preview will be removed in v2 of the provider. */
 export function getOperationalizationCluster(args: GetOperationalizationClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOperationalizationClusterResult> {
-    pulumi.log.warn("getOperationalizationCluster is deprecated: Version 2017-06-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningcompute/v20170601preview:getOperationalizationCluster", {
@@ -100,7 +98,6 @@ export interface GetOperationalizationClusterResult {
 /**
  * Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
  */
-/** @deprecated Version 2017-06-01-preview will be removed in v2 of the provider. */
 export function getOperationalizationClusterOutput(args: GetOperationalizationClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperationalizationClusterResult> {
     return pulumi.output(args).apply((a: any) => getOperationalizationCluster(a, opts))
 }

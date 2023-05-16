@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the guest agent settings for the virtual machine.
     /// </summary>
     [OutputType]
     public sealed class GuestAgentProfileResponse
@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
         /// </summary>
         public readonly string AgentVersion;
         /// <summary>
+        /// Gets or sets the Public Key provided by the client for enabling guest management.
+        /// </summary>
+        public readonly string? ClientPublicKey;
+        /// <summary>
         /// Details about the error state.
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorDetailResponse> ErrorDetails;
@@ -28,6 +32,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
         /// The time of the last status change.
         /// </summary>
         public readonly string LastStatusChange;
+        /// <summary>
+        /// Specifies whether any MS SQL instance is discovered on the machine.
+        /// </summary>
+        public readonly string MssqlDiscovered;
         /// <summary>
         /// The status of the hybrid machine agent.
         /// </summary>
@@ -41,17 +49,23 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
         private GuestAgentProfileResponse(
             string agentVersion,
 
+            string? clientPublicKey,
+
             ImmutableArray<Outputs.ErrorDetailResponse> errorDetails,
 
             string lastStatusChange,
+
+            string mssqlDiscovered,
 
             string status,
 
             string vmUuid)
         {
             AgentVersion = agentVersion;
+            ClientPublicKey = clientPublicKey;
             ErrorDetails = errorDetails;
             LastStatusChange = lastStatusChange;
+            MssqlDiscovered = mssqlDiscovered;
             Status = status;
             VmUuid = vmUuid;
         }

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
  */
-/** @deprecated Version 2015-06-15 will be removed in v2 of the provider. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
-    pulumi.log.warn("getStorageAccount is deprecated: Version 2015-06-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20150615:getStorageAccount", {
@@ -104,7 +102,6 @@ export interface GetStorageAccountResult {
 /**
  * Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
  */
-/** @deprecated Version 2015-06-15 will be removed in v2 of the provider. */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
     return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
 }

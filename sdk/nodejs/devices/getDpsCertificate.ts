@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the certificate from the provisioning service.
- * API Version: 2020-03-01.
+ * API Version: 2022-12-12.
  */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
 
@@ -57,13 +57,17 @@ export interface GetDpsCertificateResult {
      */
     readonly properties: outputs.devices.CertificatePropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.devices.SystemDataResponse;
+    /**
      * The resource type.
      */
     readonly type: string;
 }
 /**
  * Get the certificate from the provisioning service.
- * API Version: 2020-03-01.
+ * API Version: 2022-12-12.
  */
 export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
     return pulumi.output(args).apply((a: any) => getDpsCertificate(a, opts))

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 {
-    [Obsolete(@"Version 2017-11-15 will be removed in v2 of the provider.")]
     public static class GetAccessPolicy
     {
         /// <summary>

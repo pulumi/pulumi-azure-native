@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a link to virtual network for a Private DNS zone.
- * API Version: 2020-06-01.
+ * Describes a virtual network link.
+ * API Version: 2022-07-01.
+ * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
@@ -39,41 +40,33 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
     }
 
     /**
-     * The ETag of the virtual network link.
+     * ETag of the virtual network link.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The Azure Region where the resource lives
+     * Metadata attached to the virtual network link.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+     * The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+     * Metadata pertaining to creation and last modification of the resource.
      */
-    public readonly registrationEnabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.network.SystemDataResponse>;
     /**
-     * Resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The reference of the virtual network.
+     * The reference to the virtual network. This cannot be changed after creation.
      */
-    public readonly virtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
-    /**
-     * The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
-     */
-    public /*out*/ readonly virtualNetworkLinkState!: pulumi.Output<string>;
+    public readonly virtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse>;
 
     /**
      * Create a VirtualNetworkLink resource with the given unique name, arguments, and options.
@@ -86,37 +79,36 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateZoneName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'privateZoneName'");
+            if ((!args || args.dnsForwardingRulesetName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dnsForwardingRulesetName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            resourceInputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
+            if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'virtualNetwork'");
+            }
+            resourceInputs["dnsForwardingRulesetName"] = args ? args.dnsForwardingRulesetName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
             resourceInputs["virtualNetworkLinkName"] = args ? args.virtualNetworkLinkName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["virtualNetworkLinkState"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["registrationEnabled"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetwork"] = undefined /*out*/;
-            resourceInputs["virtualNetworkLinkState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180901:VirtualNetworkLink" }, { type: "azure-native:network/v20200101:VirtualNetworkLink" }, { type: "azure-native:network/v20200601:VirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:VirtualNetworkLink" }, { type: "azure-native:network/v20220701:VirtualNetworkLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkLink.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,29 +119,21 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
  */
 export interface VirtualNetworkLinkArgs {
     /**
-     * The Azure Region where the resource lives
+     * The name of the DNS forwarding ruleset.
      */
-    location?: pulumi.Input<string>;
+    dnsForwardingRulesetName: pulumi.Input<string>;
     /**
-     * The name of the Private DNS zone (without a terminating dot).
+     * Metadata attached to the virtual network link.
      */
-    privateZoneName: pulumi.Input<string>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
-     */
-    registrationEnabled?: pulumi.Input<boolean>;
-    /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags.
+     * The reference to the virtual network. This cannot be changed after creation.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The reference of the virtual network.
-     */
-    virtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
+    virtualNetwork: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The name of the virtual network link.
      */

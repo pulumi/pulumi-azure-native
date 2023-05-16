@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("vmSize")]
         public InputUnion<string, Pulumi.AzureNative.Compute.VirtualMachineSizeTypes>? VmSize { get; set; }
 
+        /// <summary>
+        /// Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2021-07-01. &lt;br&gt;&lt;br&gt; This feature is still in preview mode and is not supported for VirtualMachineScaleSet. &lt;br&gt;&lt;br&gt; Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
+        /// </summary>
+        [Input("vmSizeProperties")]
+        public Input<Inputs.VMSizePropertiesArgs>? VmSizeProperties { get; set; }
+
         public HardwareProfileArgs()
         {
         }

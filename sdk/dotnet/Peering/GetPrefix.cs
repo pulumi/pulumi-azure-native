@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Peering
     {
         /// <summary>
         /// Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Task<GetPrefixResult> InvokeAsync(GetPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrefixResult>("azure-native:peering:getPrefix", args ?? new GetPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-10-01.
         /// </summary>
         public static Output<GetPrefixResult> Invoke(GetPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrefixResult>("azure-native:peering:getPrefix", args ?? new GetPrefixInvokeArgs(), options.WithDefaults());

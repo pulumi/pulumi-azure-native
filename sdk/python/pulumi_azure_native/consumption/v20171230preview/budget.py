@@ -130,12 +130,7 @@ class BudgetArgs:
         pulumi.set(self, "notifications", value)
 
 
-warnings.warn("""Version 2017-12-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Budget(pulumi.CustomResource):
-    warnings.warn("""Version 2017-12-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -193,7 +188,6 @@ class Budget(pulumi.CustomResource):
                  time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Budget is deprecated: Version 2017-12-30-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

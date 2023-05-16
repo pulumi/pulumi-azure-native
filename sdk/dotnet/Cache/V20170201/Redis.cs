@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Cache.V20170201
     /// <summary>
     /// A single Redis item in List or Get Operation.
     /// </summary>
-    [Obsolete(@"Version 2017-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cache/v20170201:Redis")]
     public partial class Redis : global::Pulumi.CustomResource
     {

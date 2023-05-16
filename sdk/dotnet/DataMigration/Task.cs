@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A task resource
-    /// API Version: 2018-04-19.
+    /// API Version: 2021-06-30.
+    /// Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Task")]
     public partial class Task : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         [Output("properties")]
         public Output<object> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

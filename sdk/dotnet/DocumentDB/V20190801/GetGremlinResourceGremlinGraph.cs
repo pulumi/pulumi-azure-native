@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20190801
 {
-    [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     public static class GetGremlinResourceGremlinGraph
     {
         /// <summary>

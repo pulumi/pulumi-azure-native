@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string PublicKeyHash;
         /// <summary>
+        /// Subject alternative names the certificate applies to.
+        /// </summary>
+        public readonly ImmutableArray<string> SubjectAlternativeNames;
+        /// <summary>
         /// Subject name of the certificate.
         /// </summary>
         public readonly string SubjectName;
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string publicKeyHash,
 
+            ImmutableArray<string> subjectAlternativeNames,
+
             string subjectName,
 
             string thumbprint,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.App.Outputs
             Issuer = issuer;
             ProvisioningState = provisioningState;
             PublicKeyHash = publicKeyHash;
+            SubjectAlternativeNames = subjectAlternativeNames;
             SubjectName = subjectName;
             Thumbprint = thumbprint;
             Valid = valid;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the current version of the specified key from the specified key vault.
- * API Version: 2019-09-01.
+ * API Version: 2023-02-01.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
 
@@ -78,6 +78,14 @@ export interface GetKeyResult {
      */
     readonly name: string;
     /**
+     * Key release policy in response. It will be used for both output and input. Omitted if empty
+     */
+    readonly releasePolicy?: outputs.keyvault.KeyReleasePolicyResponse;
+    /**
+     * Key rotation policy in response. It will be used for both output and input. Omitted if empty
+     */
+    readonly rotationPolicy?: outputs.keyvault.RotationPolicyResponse;
+    /**
      * Tags assigned to the key vault resource.
      */
     readonly tags: {[key: string]: string};
@@ -88,7 +96,7 @@ export interface GetKeyResult {
 }
 /**
  * Gets the current version of the specified key from the specified key vault.
- * API Version: 2019-09-01.
+ * API Version: 2023-02-01.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
     return pulumi.output(args).apply((a: any) => getKey(a, opts))

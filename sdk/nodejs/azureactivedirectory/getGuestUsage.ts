@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
- * API Version: 2020-05-01-preview.
+ * API Version: 2021-04-01.
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
 
@@ -23,7 +26,7 @@ export interface GetGuestUsageArgs {
      */
     resourceGroupName: string;
     /**
-     * The initial domain name of the AAD tenant.
+     * The initial domain name of the Azure AD B2C tenant.
      */
     resourceName: string;
 }
@@ -45,6 +48,10 @@ export interface GetGuestUsageResult {
      */
     readonly name: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.azureactivedirectory.SystemDataResponse;
+    /**
      * Key-value pairs of additional resource provisioning properties.
      */
     readonly tags?: {[key: string]: string};
@@ -59,7 +66,7 @@ export interface GetGuestUsageResult {
 }
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
- * API Version: 2020-05-01-preview.
+ * API Version: 2021-04-01.
  */
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
     return pulumi.output(args).apply((a: any) => getGuestUsage(a, opts))
@@ -71,7 +78,7 @@ export interface GetGuestUsageOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The initial domain name of the AAD tenant.
+     * The initial domain name of the Azure AD B2C tenant.
      */
     resourceName: pulumi.Input<string>;
 }

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot resource.
- *
- * @deprecated Version 2017-03-30 will be removed in v2 of the provider.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Snapshot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Snapshot {
-        pulumi.log.warn("Snapshot is deprecated: Version 2017-03-30 will be removed in v2 of the provider.")
         return new Snapshot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +93,7 @@ export class Snapshot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-03-30 will be removed in v2 of the provider. */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Snapshot is deprecated: Version 2017-03-30 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

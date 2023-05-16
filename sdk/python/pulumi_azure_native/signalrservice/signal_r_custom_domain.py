@@ -110,7 +110,8 @@ class SignalRCustomDomain(pulumi.CustomResource):
                  __props__=None):
         """
         A custom domain
-        API Version: 2022-02-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +129,8 @@ class SignalRCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A custom domain
-        API Version: 2022-02-01.
+        API Version: 2023-02-01.
+        Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SignalRCustomDomainArgs args: The arguments to use to populate this resource's properties.
@@ -175,7 +177,7 @@ class SignalRCustomDomain(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRCustomDomain"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRCustomDomain"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalRCustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRCustomDomain"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRCustomDomain"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalRCustomDomain"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRCustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRCustomDomain, __self__).__init__(
             'azure-native:signalrservice:SignalRCustomDomain',

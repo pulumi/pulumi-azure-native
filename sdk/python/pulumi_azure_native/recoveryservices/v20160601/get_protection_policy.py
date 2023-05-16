@@ -17,8 +17,6 @@ __all__ = [
     'get_protection_policy_output',
 ]
 
-warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetProtectionPolicyResult:
     """
@@ -131,7 +129,6 @@ def get_protection_policy(policy_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group associated with the Recovery Services vault.
     :param str vault_name: The name of the Recovery Services vault.
     """
-    pulumi.log.warn("""get_protection_policy is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
@@ -162,5 +159,4 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group associated with the Recovery Services vault.
     :param str vault_name: The name of the Recovery Services vault.
     """
-    pulumi.log.warn("""get_protection_policy is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
     ...

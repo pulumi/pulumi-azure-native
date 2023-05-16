@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.GuestConfiguration
 {
     /// <summary>
-    /// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-    /// </summary>
-    [EnumType]
-    public readonly struct ActionAfterReboot : IEquatable<ActionAfterReboot>
-    {
-        private readonly string _value;
-
-        private ActionAfterReboot(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ActionAfterReboot ContinueConfiguration { get; } = new ActionAfterReboot("ContinueConfiguration");
-        public static ActionAfterReboot StopConfiguration { get; } = new ActionAfterReboot("StopConfiguration");
-
-        public static bool operator ==(ActionAfterReboot left, ActionAfterReboot right) => left.Equals(right);
-        public static bool operator !=(ActionAfterReboot left, ActionAfterReboot right) => !left.Equals(right);
-
-        public static explicit operator string(ActionAfterReboot value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ActionAfterReboot other && Equals(other);
-        public bool Equals(ActionAfterReboot other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
     /// </summary>
     [EnumType]
@@ -64,38 +33,6 @@ namespace Pulumi.AzureNative.GuestConfiguration
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AssignmentType other && Equals(other);
         public bool Equals(AssignmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConfigurationMode : IEquatable<ConfigurationMode>
-    {
-        private readonly string _value;
-
-        private ConfigurationMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConfigurationMode ApplyOnly { get; } = new ConfigurationMode("ApplyOnly");
-        public static ConfigurationMode ApplyAndMonitor { get; } = new ConfigurationMode("ApplyAndMonitor");
-        public static ConfigurationMode ApplyAndAutoCorrect { get; } = new ConfigurationMode("ApplyAndAutoCorrect");
-
-        public static bool operator ==(ConfigurationMode left, ConfigurationMode right) => left.Equals(right);
-        public static bool operator !=(ConfigurationMode left, ConfigurationMode right) => !left.Equals(right);
-
-        public static explicit operator string(ConfigurationMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConfigurationMode other && Equals(other);
-        public bool Equals(ConfigurationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

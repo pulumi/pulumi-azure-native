@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets a virtual machine from a VM scale set.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMResult> InvokeAsync(GetVirtualMachineScaleSetVMArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-native:compute:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a virtual machine from a VM scale set.
-        /// API Version: 2021-03-01.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMResult> Invoke(GetVirtualMachineScaleSetVMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMResult>("azure-native:compute:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMInvokeArgs(), options.WithDefaults());
@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.Compute
         /// Resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity of the virtual machine, if configured.
+        /// </summary>
+        public readonly Outputs.VirtualMachineIdentityResponse? Identity;
         /// <summary>
         /// The virtual machine instance ID.
         /// </summary>
@@ -216,6 +220,8 @@ namespace Pulumi.AzureNative.Compute
 
             string id,
 
+            Outputs.VirtualMachineIdentityResponse? identity,
+
             string instanceId,
 
             Outputs.VirtualMachineScaleSetVMInstanceViewResponse instanceView,
@@ -265,6 +271,7 @@ namespace Pulumi.AzureNative.Compute
             DiagnosticsProfile = diagnosticsProfile;
             HardwareProfile = hardwareProfile;
             Id = id;
+            Identity = identity;
             InstanceId = instanceId;
             InstanceView = instanceView;
             LatestModelApplied = latestModelApplied;

@@ -85,12 +85,7 @@ class ManagementGroupArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""Version 2020-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class ManagementGroup(pulumi.CustomResource):
-    warnings.warn("""Version 2020-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -139,7 +134,6 @@ class ManagementGroup(pulumi.CustomResource):
                  group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagementGroup is deprecated: Version 2020-02-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

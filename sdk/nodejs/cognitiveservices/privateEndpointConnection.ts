@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2017-04-18.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -39,7 +40,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Entity Tag
+     * Resource Etag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
@@ -54,6 +55,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * Resource properties.
      */
     public readonly properties!: pulumi.Output<outputs.cognitiveservices.PrivateEndpointConnectionPropertiesResponse>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.cognitiveservices.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -83,12 +88,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

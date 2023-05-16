@@ -18,39 +18,71 @@ __all__ = ['CustomIPPrefixArgs', 'CustomIPPrefix']
 class CustomIPPrefixArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 asn: Optional[pulumi.Input[str]] = None,
+                 authorization_message: Optional[pulumi.Input[str]] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 custom_ip_prefix_parent: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 express_route_advertise: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 geo: Optional[pulumi.Input[Union[str, 'Geo']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 no_internet_advertise: Optional[pulumi.Input[bool]] = None,
+                 prefix_type: Optional[pulumi.Input[Union[str, 'CustomIpPrefixType']]] = None,
+                 signed_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CustomIPPrefix resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] asn: The ASN for CIDR advertising. Should be an integer as string.
+        :param pulumi.Input[str] authorization_message: Authorization message for WAN validation.
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
         :param pulumi.Input[Union[str, 'CommissionedState']] commissioned_state: The commissioned state of the Custom IP Prefix.
         :param pulumi.Input[str] custom_ip_prefix_name: The name of the custom IP prefix.
+        :param pulumi.Input['SubResourceArgs'] custom_ip_prefix_parent: The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        :param pulumi.Input[bool] express_route_advertise: Whether to do express route advertise.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the custom IP prefix.
+        :param pulumi.Input[Union[str, 'Geo']] geo: The Geo for CIDR advertising. Should be an Geo code.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[bool] no_internet_advertise: Whether to Advertise the range to Internet.
+        :param pulumi.Input[Union[str, 'CustomIpPrefixType']] prefix_type: Type of custom IP prefix. Should be Singular, Parent, or Child.
+        :param pulumi.Input[str] signed_message: Signed message for WAN validation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
+        if authorization_message is not None:
+            pulumi.set(__self__, "authorization_message", authorization_message)
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
         if commissioned_state is not None:
             pulumi.set(__self__, "commissioned_state", commissioned_state)
         if custom_ip_prefix_name is not None:
             pulumi.set(__self__, "custom_ip_prefix_name", custom_ip_prefix_name)
+        if custom_ip_prefix_parent is not None:
+            pulumi.set(__self__, "custom_ip_prefix_parent", custom_ip_prefix_parent)
+        if express_route_advertise is not None:
+            pulumi.set(__self__, "express_route_advertise", express_route_advertise)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
+        if geo is not None:
+            pulumi.set(__self__, "geo", geo)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if no_internet_advertise is not None:
+            pulumi.set(__self__, "no_internet_advertise", no_internet_advertise)
+        if prefix_type is not None:
+            pulumi.set(__self__, "prefix_type", prefix_type)
+        if signed_message is not None:
+            pulumi.set(__self__, "signed_message", signed_message)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
@@ -67,6 +99,30 @@ class CustomIPPrefixArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ASN for CIDR advertising. Should be an integer as string.
+        """
+        return pulumi.get(self, "asn")
+
+    @asn.setter
+    def asn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asn", value)
+
+    @property
+    @pulumi.getter(name="authorizationMessage")
+    def authorization_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authorization message for WAN validation.
+        """
+        return pulumi.get(self, "authorization_message")
+
+    @authorization_message.setter
+    def authorization_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_message", value)
 
     @property
     @pulumi.getter
@@ -105,6 +161,30 @@ class CustomIPPrefixArgs:
         pulumi.set(self, "custom_ip_prefix_name", value)
 
     @property
+    @pulumi.getter(name="customIpPrefixParent")
+    def custom_ip_prefix_parent(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        """
+        return pulumi.get(self, "custom_ip_prefix_parent")
+
+    @custom_ip_prefix_parent.setter
+    def custom_ip_prefix_parent(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "custom_ip_prefix_parent", value)
+
+    @property
+    @pulumi.getter(name="expressRouteAdvertise")
+    def express_route_advertise(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to do express route advertise.
+        """
+        return pulumi.get(self, "express_route_advertise")
+
+    @express_route_advertise.setter
+    def express_route_advertise(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "express_route_advertise", value)
+
+    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
         """
@@ -115,6 +195,18 @@ class CustomIPPrefixArgs:
     @extended_location.setter
     def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
+
+    @property
+    @pulumi.getter
+    def geo(self) -> Optional[pulumi.Input[Union[str, 'Geo']]]:
+        """
+        The Geo for CIDR advertising. Should be an Geo code.
+        """
+        return pulumi.get(self, "geo")
+
+    @geo.setter
+    def geo(self, value: Optional[pulumi.Input[Union[str, 'Geo']]]):
+        pulumi.set(self, "geo", value)
 
     @property
     @pulumi.getter
@@ -139,6 +231,42 @@ class CustomIPPrefixArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="noInternetAdvertise")
+    def no_internet_advertise(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to Advertise the range to Internet.
+        """
+        return pulumi.get(self, "no_internet_advertise")
+
+    @no_internet_advertise.setter
+    def no_internet_advertise(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_internet_advertise", value)
+
+    @property
+    @pulumi.getter(name="prefixType")
+    def prefix_type(self) -> Optional[pulumi.Input[Union[str, 'CustomIpPrefixType']]]:
+        """
+        Type of custom IP prefix. Should be Singular, Parent, or Child.
+        """
+        return pulumi.get(self, "prefix_type")
+
+    @prefix_type.setter
+    def prefix_type(self, value: Optional[pulumi.Input[Union[str, 'CustomIpPrefixType']]]):
+        pulumi.set(self, "prefix_type", value)
+
+    @property
+    @pulumi.getter(name="signedMessage")
+    def signed_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Signed message for WAN validation.
+        """
+        return pulumi.get(self, "signed_message")
+
+    @signed_message.setter
+    def signed_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signed_message", value)
 
     @property
     @pulumi.getter
@@ -170,29 +298,46 @@ class CustomIPPrefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asn: Optional[pulumi.Input[str]] = None,
+                 authorization_message: Optional[pulumi.Input[str]] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 custom_ip_prefix_parent: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 express_route_advertise: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 geo: Optional[pulumi.Input[Union[str, 'Geo']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 no_internet_advertise: Optional[pulumi.Input[bool]] = None,
+                 prefix_type: Optional[pulumi.Input[Union[str, 'CustomIpPrefixType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signed_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Custom IP prefix resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] asn: The ASN for CIDR advertising. Should be an integer as string.
+        :param pulumi.Input[str] authorization_message: Authorization message for WAN validation.
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
         :param pulumi.Input[Union[str, 'CommissionedState']] commissioned_state: The commissioned state of the Custom IP Prefix.
         :param pulumi.Input[str] custom_ip_prefix_name: The name of the custom IP prefix.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] custom_ip_prefix_parent: The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        :param pulumi.Input[bool] express_route_advertise: Whether to do express route advertise.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the custom IP prefix.
+        :param pulumi.Input[Union[str, 'Geo']] geo: The Geo for CIDR advertising. Should be an Geo code.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[bool] no_internet_advertise: Whether to Advertise the range to Internet.
+        :param pulumi.Input[Union[str, 'CustomIpPrefixType']] prefix_type: Type of custom IP prefix. Should be Singular, Parent, or Child.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] signed_message: Signed message for WAN validation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
@@ -204,7 +349,8 @@ class CustomIPPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom IP prefix resource.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CustomIPPrefixArgs args: The arguments to use to populate this resource's properties.
@@ -221,13 +367,21 @@ class CustomIPPrefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asn: Optional[pulumi.Input[str]] = None,
+                 authorization_message: Optional[pulumi.Input[str]] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+                 custom_ip_prefix_parent: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 express_route_advertise: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 geo: Optional[pulumi.Input[Union[str, 'Geo']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 no_internet_advertise: Optional[pulumi.Input[bool]] = None,
+                 prefix_type: Optional[pulumi.Input[Union[str, 'CustomIpPrefixType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signed_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -239,24 +393,34 @@ class CustomIPPrefix(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomIPPrefixArgs.__new__(CustomIPPrefixArgs)
 
+            __props__.__dict__["asn"] = asn
+            __props__.__dict__["authorization_message"] = authorization_message
             __props__.__dict__["cidr"] = cidr
             __props__.__dict__["commissioned_state"] = commissioned_state
             __props__.__dict__["custom_ip_prefix_name"] = custom_ip_prefix_name
+            __props__.__dict__["custom_ip_prefix_parent"] = custom_ip_prefix_parent
+            __props__.__dict__["express_route_advertise"] = express_route_advertise
             __props__.__dict__["extended_location"] = extended_location
+            __props__.__dict__["geo"] = geo
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
+            __props__.__dict__["no_internet_advertise"] = no_internet_advertise
+            __props__.__dict__["prefix_type"] = prefix_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["signed_message"] = signed_message
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["child_custom_ip_prefixes"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["failed_reason"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["public_ip_prefixes"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210201:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210301:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210801:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220701:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220901:CustomIPPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210201:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210301:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210801:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220701:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220901:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20221101:CustomIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomIPPrefix, __self__).__init__(
             'azure-native:network:CustomIPPrefix',
@@ -280,19 +444,53 @@ class CustomIPPrefix(pulumi.CustomResource):
 
         __props__ = CustomIPPrefixArgs.__new__(CustomIPPrefixArgs)
 
+        __props__.__dict__["asn"] = None
+        __props__.__dict__["authorization_message"] = None
+        __props__.__dict__["child_custom_ip_prefixes"] = None
         __props__.__dict__["cidr"] = None
         __props__.__dict__["commissioned_state"] = None
+        __props__.__dict__["custom_ip_prefix_parent"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["express_route_advertise"] = None
         __props__.__dict__["extended_location"] = None
+        __props__.__dict__["failed_reason"] = None
+        __props__.__dict__["geo"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["no_internet_advertise"] = None
+        __props__.__dict__["prefix_type"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_ip_prefixes"] = None
         __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["signed_message"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
         return CustomIPPrefix(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ASN for CIDR advertising. Should be an integer as string.
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="authorizationMessage")
+    def authorization_message(self) -> pulumi.Output[Optional[str]]:
+        """
+        Authorization message for WAN validation.
+        """
+        return pulumi.get(self, "authorization_message")
+
+    @property
+    @pulumi.getter(name="childCustomIpPrefixes")
+    def child_custom_ip_prefixes(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+        """
+        The list of all Children for IPv6 /48 CustomIpPrefix.
+        """
+        return pulumi.get(self, "child_custom_ip_prefixes")
 
     @property
     @pulumi.getter
@@ -311,6 +509,14 @@ class CustomIPPrefix(pulumi.CustomResource):
         return pulumi.get(self, "commissioned_state")
 
     @property
+    @pulumi.getter(name="customIpPrefixParent")
+    def custom_ip_prefix_parent(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
+        """
+        The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        """
+        return pulumi.get(self, "custom_ip_prefix_parent")
+
+    @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
@@ -319,12 +525,36 @@ class CustomIPPrefix(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="expressRouteAdvertise")
+    def express_route_advertise(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to do express route advertise.
+        """
+        return pulumi.get(self, "express_route_advertise")
+
+    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
         """
         The extended location of the custom IP prefix.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="failedReason")
+    def failed_reason(self) -> pulumi.Output[str]:
+        """
+        The reason why resource is in failed state.
+        """
+        return pulumi.get(self, "failed_reason")
+
+    @property
+    @pulumi.getter
+    def geo(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Geo for CIDR advertising. Should be an Geo code.
+        """
+        return pulumi.get(self, "geo")
 
     @property
     @pulumi.getter
@@ -341,6 +571,22 @@ class CustomIPPrefix(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="noInternetAdvertise")
+    def no_internet_advertise(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to Advertise the range to Internet.
+        """
+        return pulumi.get(self, "no_internet_advertise")
+
+    @property
+    @pulumi.getter(name="prefixType")
+    def prefix_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of custom IP prefix. Should be Singular, Parent, or Child.
+        """
+        return pulumi.get(self, "prefix_type")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -365,6 +611,14 @@ class CustomIPPrefix(pulumi.CustomResource):
         The resource GUID property of the custom IP prefix resource.
         """
         return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="signedMessage")
+    def signed_message(self) -> pulumi.Output[Optional[str]]:
+        """
+        Signed message for WAN validation.
+        """
+        return pulumi.get(self, "signed_message")
 
     @property
     @pulumi.getter

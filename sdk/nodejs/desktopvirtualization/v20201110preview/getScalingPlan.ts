@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a scaling plan.
  */
-/** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
-    pulumi.log.warn("getScalingPlan is deprecated: Version 2020-11-10-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20201110preview:getScalingPlan", {
@@ -88,7 +86,6 @@ export interface GetScalingPlanResult {
 /**
  * Get a scaling plan.
  */
-/** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
     return pulumi.output(args).apply((a: any) => getScalingPlan(a, opts))
 }

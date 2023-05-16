@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes a Machine Extension.
-    /// API Version: 2020-08-02.
+    /// API Version: 2022-11-10.
+    /// Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource
@@ -23,6 +24,12 @@ namespace Pulumi.AzureNative.HybridCompute
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        /// </summary>
+        [Output("enableAutomaticUpgrade")]
+        public Output<bool?> EnableAutomaticUpgrade { get; private set; } = null!;
+
+        /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
         [Output("forceUpdateTag")]
@@ -32,7 +39,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// The machine extension instance view.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.MachineExtensionPropertiesResponseInstanceView?> InstanceView { get; private set; } = null!;
+        public Output<Outputs.MachineExtensionInstanceViewResponse?> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -69,6 +76,12 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("settings")]
         public Output<object?> Settings { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -131,6 +144,7 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221110:MachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221227:MachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221227preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230315preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,6 +175,12 @@ namespace Pulumi.AzureNative.HybridCompute
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        /// </summary>
+        [Input("enableAutomaticUpgrade")]
+        public Input<bool>? EnableAutomaticUpgrade { get; set; }
+
+        /// <summary>
         /// The name of the machine extension.
         /// </summary>
         [Input("extensionName")]
@@ -173,6 +193,12 @@ namespace Pulumi.AzureNative.HybridCompute
         public Input<string>? ForceUpdateTag { get; set; }
 
         /// <summary>
+        /// The machine extension instance view.
+        /// </summary>
+        [Input("instanceView")]
+        public Input<Inputs.MachineExtensionInstanceViewArgs>? InstanceView { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -181,8 +207,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the machine where the extension should be created or updated.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("machineName", required: true)]
+        public Input<string> MachineName { get; set; } = null!;
 
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
@@ -197,7 +223,7 @@ namespace Pulumi.AzureNative.HybridCompute
         public Input<string>? Publisher { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

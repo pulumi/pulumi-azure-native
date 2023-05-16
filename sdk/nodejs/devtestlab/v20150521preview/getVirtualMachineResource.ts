@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get virtual machine.
  */
-/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getVirtualMachineResource(args: GetVirtualMachineResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResourceResult> {
-    pulumi.log.warn("getVirtualMachineResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20150521preview:getVirtualMachineResource", {
@@ -145,7 +143,6 @@ export interface GetVirtualMachineResourceResult {
 /**
  * Get virtual machine.
  */
-/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getVirtualMachineResourceOutput(args: GetVirtualMachineResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResourceResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineResource(a, opts))
 }

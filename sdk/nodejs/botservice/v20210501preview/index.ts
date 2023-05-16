@@ -5,36 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { BotArgs } from "./bot";
-export type Bot = import("./bot").Bot;
-export const Bot: typeof import("./bot").Bot = null as any;
-utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
-
-export { BotConnectionArgs } from "./botConnection";
-export type BotConnection = import("./botConnection").BotConnection;
-export const BotConnection: typeof import("./botConnection").BotConnection = null as any;
-utilities.lazyLoad(exports, ["BotConnection"], () => require("./botConnection"));
-
-export { ChannelArgs } from "./channel";
-export type Channel = import("./channel").Channel;
-export const Channel: typeof import("./channel").Channel = null as any;
-utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
-
-export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
-export const getBot: typeof import("./getBot").getBot = null as any;
-export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
-utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
-
-export { GetBotConnectionArgs, GetBotConnectionResult, GetBotConnectionOutputArgs } from "./getBotConnection";
-export const getBotConnection: typeof import("./getBotConnection").getBotConnection = null as any;
-export const getBotConnectionOutput: typeof import("./getBotConnection").getBotConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getBotConnection","getBotConnectionOutput"], () => require("./getBotConnection"));
-
-export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
-export const getChannel: typeof import("./getChannel").getChannel = null as any;
-export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
-
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -67,12 +37,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:botservice/v20210501preview:Bot":
-                return new Bot(name, <any>undefined, { urn })
-            case "azure-native:botservice/v20210501preview:BotConnection":
-                return new BotConnection(name, <any>undefined, { urn })
-            case "azure-native:botservice/v20210501preview:Channel":
-                return new Channel(name, <any>undefined, { urn })
             case "azure-native:botservice/v20210501preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:

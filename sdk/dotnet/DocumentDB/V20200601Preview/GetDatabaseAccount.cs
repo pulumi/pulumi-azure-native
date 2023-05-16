@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
 {
-    [Obsolete(@"Version 2020-06-01-preview will be removed in v2 of the provider.")]
     public static class GetDatabaseAccount
     {
         /// <summary>

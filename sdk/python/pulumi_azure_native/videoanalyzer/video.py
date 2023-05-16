@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['VideoArgs', 'Video']
 
@@ -17,21 +18,29 @@ class VideoArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 archival: Optional[pulumi.Input['VideoArchivalArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 media_info: Optional[pulumi.Input['VideoMediaInfoArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  video_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Video resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['VideoArchivalArgs'] archival: Video archival properties.
         :param pulumi.Input[str] description: Optional video description provided by the user. Value can be up to 2048 characters long.
+        :param pulumi.Input['VideoMediaInfoArgs'] media_info: Contains information about the video and audio content.
         :param pulumi.Input[str] title: Optional video title provided by the user. Value can be up to 256 characters long.
-        :param pulumi.Input[str] video_name: The name of the video to create or update.
+        :param pulumi.Input[str] video_name: The Video name.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if archival is not None:
+            pulumi.set(__self__, "archival", archival)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if media_info is not None:
+            pulumi.set(__self__, "media_info", media_info)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if video_name is not None:
@@ -63,6 +72,18 @@ class VideoArgs:
 
     @property
     @pulumi.getter
+    def archival(self) -> Optional[pulumi.Input['VideoArchivalArgs']]:
+        """
+        Video archival properties.
+        """
+        return pulumi.get(self, "archival")
+
+    @archival.setter
+    def archival(self, value: Optional[pulumi.Input['VideoArchivalArgs']]):
+        pulumi.set(self, "archival", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Optional video description provided by the user. Value can be up to 2048 characters long.
@@ -72,6 +93,18 @@ class VideoArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="mediaInfo")
+    def media_info(self) -> Optional[pulumi.Input['VideoMediaInfoArgs']]:
+        """
+        Contains information about the video and audio content.
+        """
+        return pulumi.get(self, "media_info")
+
+    @media_info.setter
+    def media_info(self, value: Optional[pulumi.Input['VideoMediaInfoArgs']]):
+        pulumi.set(self, "media_info", value)
 
     @property
     @pulumi.getter
@@ -89,7 +122,7 @@ class VideoArgs:
     @pulumi.getter(name="videoName")
     def video_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the video to create or update.
+        The Video name.
         """
         return pulumi.get(self, "video_name")
 
@@ -104,22 +137,27 @@ class Video(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 archival: Optional[pulumi.Input[pulumi.InputType['VideoArchivalArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 media_info: Optional[pulumi.Input[pulumi.InputType['VideoMediaInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  video_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        The representation of a single video in a Video Analyzer account.
-        API Version: 2021-05-01-preview.
+        Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+        API Version: 2021-11-01-preview.
+        Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
+        :param pulumi.Input[pulumi.InputType['VideoArchivalArgs']] archival: Video archival properties.
         :param pulumi.Input[str] description: Optional video description provided by the user. Value can be up to 2048 characters long.
+        :param pulumi.Input[pulumi.InputType['VideoMediaInfoArgs']] media_info: Contains information about the video and audio content.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] title: Optional video title provided by the user. Value can be up to 256 characters long.
-        :param pulumi.Input[str] video_name: The name of the video to create or update.
+        :param pulumi.Input[str] video_name: The Video name.
         """
         ...
     @overload
@@ -128,8 +166,9 @@ class Video(pulumi.CustomResource):
                  args: VideoArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The representation of a single video in a Video Analyzer account.
-        API Version: 2021-05-01-preview.
+        Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+        API Version: 2021-11-01-preview.
+        Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param VideoArgs args: The arguments to use to populate this resource's properties.
@@ -147,7 +186,9 @@ class Video(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 archival: Optional[pulumi.Input[pulumi.InputType['VideoArchivalArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 media_info: Optional[pulumi.Input[pulumi.InputType['VideoMediaInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  video_name: Optional[pulumi.Input[str]] = None,
@@ -163,16 +204,17 @@ class Video(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["archival"] = archival
             __props__.__dict__["description"] = description
+            __props__.__dict__["media_info"] = media_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["title"] = title
             __props__.__dict__["video_name"] = video_name
+            __props__.__dict__["content_urls"] = None
             __props__.__dict__["flags"] = None
-            __props__.__dict__["media_info"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["streaming"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoanalyzer/v20210501preview:Video"), pulumi.Alias(type_="azure-native:videoanalyzer/v20211101preview:Video")])
@@ -199,15 +241,32 @@ class Video(pulumi.CustomResource):
 
         __props__ = VideoArgs.__new__(VideoArgs)
 
+        __props__.__dict__["archival"] = None
+        __props__.__dict__["content_urls"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["flags"] = None
         __props__.__dict__["media_info"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["streaming"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["title"] = None
         __props__.__dict__["type"] = None
         return Video(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def archival(self) -> pulumi.Output[Optional['outputs.VideoArchivalResponse']]:
+        """
+        Video archival properties.
+        """
+        return pulumi.get(self, "archival")
+
+    @property
+    @pulumi.getter(name="contentUrls")
+    def content_urls(self) -> pulumi.Output['outputs.VideoContentUrlsResponse']:
+        """
+        Set of URLs to the video content.
+        """
+        return pulumi.get(self, "content_urls")
 
     @property
     @pulumi.getter
@@ -227,7 +286,7 @@ class Video(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mediaInfo")
-    def media_info(self) -> pulumi.Output['outputs.VideoMediaInfoResponse']:
+    def media_info(self) -> pulumi.Output[Optional['outputs.VideoMediaInfoResponse']]:
         """
         Contains information about the video and audio content.
         """
@@ -242,18 +301,10 @@ class Video(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def streaming(self) -> pulumi.Output['outputs.VideoStreamingResponse']:
-        """
-        Video streaming holds information about video streaming URLs.
-        """
-        return pulumi.get(self, "streaming")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

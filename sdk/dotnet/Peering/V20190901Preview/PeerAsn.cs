@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Peering.V20190901Preview
     /// <summary>
     /// The essential information related to the peer's ASN.
     /// </summary>
-    [Obsolete(@"Version 2019-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:peering/v20190901preview:PeerAsn")]
     public partial class PeerAsn : global::Pulumi.CustomResource
     {

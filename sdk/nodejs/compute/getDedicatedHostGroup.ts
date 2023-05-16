@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a dedicated host group.
- * API Version: 2020-12-01.
+ * API Version: 2022-11-01.
  */
 export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
 
@@ -23,7 +23,7 @@ export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pu
 
 export interface GetDedicatedHostGroupArgs {
     /**
-     * The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+     * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
      */
     expand?: string;
     /**
@@ -40,6 +40,10 @@ export interface GetDedicatedHostGroupArgs {
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
  */
 export interface GetDedicatedHostGroupResult {
+    /**
+     * Enables or disables a capability on the dedicated host group.<br><br>Minimum api-version: 2022-03-01.
+     */
+    readonly additionalCapabilities?: outputs.compute.DedicatedHostGroupPropertiesResponseAdditionalCapabilities;
     /**
      * A list of references to all dedicated hosts in the dedicated host group.
      */
@@ -83,7 +87,7 @@ export interface GetDedicatedHostGroupResult {
 }
 /**
  * Retrieves information about a dedicated host group.
- * API Version: 2020-12-01.
+ * API Version: 2022-11-01.
  */
 export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostGroupResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHostGroup(a, opts))
@@ -91,7 +95,7 @@ export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArg
 
 export interface GetDedicatedHostGroupOutputArgs {
     /**
-     * The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+     * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
      */
     expand?: pulumi.Input<string>;
     /**

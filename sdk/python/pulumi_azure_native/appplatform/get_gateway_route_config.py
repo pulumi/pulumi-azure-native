@@ -100,7 +100,7 @@ def get_gateway_route_config(gateway_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayRouteConfigResult:
     """
     Get the Spring Cloud Gateway route configs.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-12-01.
 
 
     :param str gateway_name: The name of Spring Cloud Gateway.
@@ -132,7 +132,7 @@ def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayRouteConfigResult]:
     """
     Get the Spring Cloud Gateway route configs.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-12-01.
 
 
     :param str gateway_name: The name of Spring Cloud Gateway.

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Media.Outputs
     public sealed class JobInputHttpResponse
     {
         /// <summary>
-        /// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+        /// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters. The query strings will not be returned in service responses to prevent sensitive data exposure.
         /// </summary>
         public readonly string? BaseUri;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly Union<Outputs.AbsoluteClipTimeResponse, Outputs.UtcClipTimeResponse>? End;
         /// <summary>
-        /// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        /// List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.
         /// </summary>
         public readonly ImmutableArray<string> Files;
         /// <summary>

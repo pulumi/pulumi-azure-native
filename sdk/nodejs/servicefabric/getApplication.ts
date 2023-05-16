@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
- * API Version: 2020-03-01.
+ * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
+ * API Version: 2023-02-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -41,10 +41,6 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
-     * Azure resource etag.
-     */
-    readonly etag: string;
-    /**
      * Azure resource identifier.
      */
     readonly id: string;
@@ -53,25 +49,13 @@ export interface GetApplicationResult {
      */
     readonly identity?: outputs.servicefabric.ManagedIdentityResponse;
     /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     readonly location?: string;
     /**
      * List of user assigned identities for the application, each mapped to a friendly name.
      */
     readonly managedIdentities?: outputs.servicefabric.ApplicationUserAssignedIdentityResponse[];
-    /**
-     * The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-     */
-    readonly maximumNodes?: number;
-    /**
-     * List of application capacity metric description.
-     */
-    readonly metrics?: outputs.servicefabric.ApplicationMetricDescriptionResponse[];
-    /**
-     * The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-     */
-    readonly minimumNodes?: number;
     /**
      * Azure resource name.
      */
@@ -85,9 +69,9 @@ export interface GetApplicationResult {
      */
     readonly provisioningState: string;
     /**
-     * Remove the current application capacity settings.
+     * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly removeApplicationCapacity?: boolean;
+    readonly systemData: outputs.servicefabric.SystemDataResponse;
     /**
      * Azure resource tags.
      */
@@ -97,21 +81,18 @@ export interface GetApplicationResult {
      */
     readonly type: string;
     /**
-     * The application type name as defined in the application manifest.
-     */
-    readonly typeName?: string;
-    /**
-     * The version of the application type as defined in the application manifest.
-     */
-    readonly typeVersion?: string;
-    /**
      * Describes the policy for a monitored application upgrade.
      */
     readonly upgradePolicy?: outputs.servicefabric.ApplicationUpgradePolicyResponse;
+    /**
+     * The version of the application type as defined in the application manifest.
+     * This name must be the full Arm Resource ID for the referenced application type version.
+     */
+    readonly version?: string;
 }
 /**
- * Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
- * API Version: 2020-03-01.
+ * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
+ * API Version: 2023-02-01-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

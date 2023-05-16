@@ -27,7 +27,7 @@ class NamedValueArgs:
         """
         The set of arguments for constructing a NamedValue resource.
         :param pulumi.Input[str] display_name: Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input['KeyVaultContractCreatePropertiesArgs'] key_vault: KeyVault location details of the namedValue.
         :param pulumi.Input[str] named_value_id: Identifier of the NamedValue.
@@ -65,7 +65,7 @@ class NamedValueArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -162,14 +162,15 @@ class NamedValue(pulumi.CustomResource):
                  __props__=None):
         """
         NamedValue details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
         :param pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']] key_vault: KeyVault location details of the namedValue.
         :param pulumi.Input[str] named_value_id: Identifier of the NamedValue.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] secret: Determines whether the value is a secret and should be encrypted or not. Default value is false.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Optional tags that when provided can be used to filter the NamedValue list.
@@ -183,7 +184,8 @@ class NamedValue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NamedValue details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param NamedValueArgs args: The arguments to use to populate this resource's properties.
@@ -233,7 +235,7 @@ class NamedValue(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:NamedValue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:NamedValue"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:NamedValue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamedValue, __self__).__init__(
             'azure-native:apimanagement:NamedValue',
@@ -286,7 +288,7 @@ class NamedValue(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -310,7 +312,7 @@ class NamedValue(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

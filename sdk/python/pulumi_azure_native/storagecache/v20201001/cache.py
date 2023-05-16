@@ -229,12 +229,7 @@ class CacheArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2020-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Cache(pulumi.CustomResource):
-    warnings.warn("""Version 2020-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -310,7 +305,6 @@ class Cache(pulumi.CustomResource):
                  subnet: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Cache is deprecated: Version 2020-10-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -340,7 +334,7 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["upgrade_status"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20190801preview:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20191101:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20200301:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20210301:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20210501:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20210901:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20220101:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20220501:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20230101:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:Cache")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20190801preview:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20191101:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20200301:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20210301:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20210501:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20210901:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20220101:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20220501:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20230101:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:Cache"), pulumi.Alias(type_="azure-native:storagecache/v20230501:Cache")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cache, __self__).__init__(
             'azure-native:storagecache/v20201001:Cache',

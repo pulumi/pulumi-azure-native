@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing attestation at resource scope.
- * API Version: 2021-01-01.
+ * API Version: 2022-09-01.
  */
 export function getAttestationAtResource(args: GetAttestationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtResourceResult> {
 
@@ -36,6 +36,10 @@ export interface GetAttestationAtResourceArgs {
  */
 export interface GetAttestationAtResourceResult {
     /**
+     * The time the evidence was assessed
+     */
+    readonly assessmentDate?: string;
+    /**
      * Comments describing why this attestation was created.
      */
     readonly comments?: string;
@@ -59,6 +63,10 @@ export interface GetAttestationAtResourceResult {
      * The time the compliance state was last changed in this attestation.
      */
     readonly lastComplianceStateChangeAt: string;
+    /**
+     * Additional metadata for this attestation
+     */
+    readonly metadata?: any;
     /**
      * The name of the resource
      */
@@ -90,7 +98,7 @@ export interface GetAttestationAtResourceResult {
 }
 /**
  * Gets an existing attestation at resource scope.
- * API Version: 2021-01-01.
+ * API Version: 2022-09-01.
  */
 export function getAttestationAtResourceOutput(args: GetAttestationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceResult> {
     return pulumi.output(args).apply((a: any) => getAttestationAtResource(a, opts))

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Traffic Collector resource.
- * API Version: 2022-05-01.
+ * API Version: 2022-11-01.
+ * Previous API Version: 2022-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AzureTrafficCollector extends pulumi.CustomResource {
     /**
@@ -41,7 +42,7 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
     /**
      * Collector Policies for Azure Traffic Collector.
      */
-    public readonly collectorPolicies!: pulumi.Output<outputs.networkfunction.CollectorPolicyResponse[] | undefined>;
+    public /*out*/ readonly collectorPolicies!: pulumi.Output<outputs.networkfunction.ResourceReferenceResponse[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -49,7 +50,7 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Resource name.
      */
@@ -90,10 +91,10 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["azureTrafficCollectorName"] = args ? args.azureTrafficCollectorName : undefined;
-            resourceInputs["collectorPolicies"] = args ? args.collectorPolicies : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collectorPolicies"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -126,10 +127,6 @@ export interface AzureTrafficCollectorArgs {
      * Azure Traffic Collector name
      */
     azureTrafficCollectorName?: pulumi.Input<string>;
-    /**
-     * Collector Policies for Azure Traffic Collector.
-     */
-    collectorPolicies?: pulumi.Input<pulumi.Input<inputs.networkfunction.CollectorPolicyArgs>[]>;
     /**
      * Resource location.
      */

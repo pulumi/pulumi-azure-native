@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The remediation definition.
- *
- * @deprecated Version 2018-07-01-preview will be removed in v2 of the provider.
  */
 export class RemediationAtResourceGroup extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RemediationAtResourceGroup {
-        pulumi.log.warn("RemediationAtResourceGroup is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.")
         return new RemediationAtResourceGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +81,7 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RemediationAtResourceGroup is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

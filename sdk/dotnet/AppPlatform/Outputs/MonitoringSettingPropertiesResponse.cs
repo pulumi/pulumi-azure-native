@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class MonitoringSettingPropertiesResponse
     {
         /// <summary>
-        /// Target application insight instrumentation key
+        /// Indicates the versions of application insight agent
+        /// </summary>
+        public readonly Outputs.ApplicationInsightsAgentVersionsResponse? AppInsightsAgentVersions;
+        /// <summary>
+        /// Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
         /// </summary>
         public readonly string? AppInsightsInstrumentationKey;
+        /// <summary>
+        /// Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
+        /// </summary>
+        public readonly double? AppInsightsSamplingRate;
         /// <summary>
         /// Error when apply Monitoring Setting changes.
         /// </summary>
@@ -29,13 +37,17 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Indicates whether enable the trace functionality
+        /// Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not
         /// </summary>
         public readonly bool? TraceEnabled;
 
         [OutputConstructor]
         private MonitoringSettingPropertiesResponse(
+            Outputs.ApplicationInsightsAgentVersionsResponse? appInsightsAgentVersions,
+
             string? appInsightsInstrumentationKey,
+
+            double? appInsightsSamplingRate,
 
             Outputs.ErrorResponse? error,
 
@@ -43,7 +55,9 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             bool? traceEnabled)
         {
+            AppInsightsAgentVersions = appInsightsAgentVersions;
             AppInsightsInstrumentationKey = appInsightsInstrumentationKey;
+            AppInsightsSamplingRate = appInsightsSamplingRate;
             Error = error;
             ProvisioningState = provisioningState;
             TraceEnabled = traceEnabled;

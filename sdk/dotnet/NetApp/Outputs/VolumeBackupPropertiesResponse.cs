@@ -28,10 +28,6 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// Policy Enforced
         /// </summary>
         public readonly bool? PolicyEnforced;
-        /// <summary>
-        /// Vault Resource ID
-        /// </summary>
-        public readonly string? VaultId;
 
         [OutputConstructor]
         private VolumeBackupPropertiesResponse(
@@ -39,14 +35,11 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? backupPolicyId,
 
-            bool? policyEnforced,
-
-            string? vaultId)
+            bool? policyEnforced)
         {
             BackupEnabled = backupEnabled;
             BackupPolicyId = backupPolicyId;
             PolicyEnforced = policyEnforced;
-            VaultId = vaultId;
         }
     }
 }

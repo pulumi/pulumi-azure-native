@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the data policy rules associated with the specified storage account.
  */
-/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
-    pulumi.log.warn("getManagementPolicy is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20180301preview:getManagementPolicy", {
@@ -62,7 +60,6 @@ export interface GetManagementPolicyResult {
 /**
  * Gets the data policy rules associated with the specified storage account.
  */
-/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
 export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {
     return pulumi.output(args).apply((a: any) => getManagementPolicy(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// Security Application over a given scope
     /// API Version: 2022-07-01-preview.
+    /// Previous API Version: 2022-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityConnectorApplication")]
     public partial class SecurityConnectorApplication : global::Pulumi.CustomResource

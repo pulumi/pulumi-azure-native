@@ -19,7 +19,6 @@ from .get_integration_service_environment import *
 from .get_integration_service_environment_managed_api import *
 from .get_rosetta_net_process_configuration import *
 from .get_workflow import *
-from .get_workflow_access_key import *
 from .integration_account import *
 from .integration_account_agreement import *
 from .integration_account_assembly import *
@@ -38,15 +37,14 @@ from .list_integration_account_key_vault_keys import *
 from .list_integration_account_map_content_callback_url import *
 from .list_integration_account_partner_content_callback_url import *
 from .list_integration_account_schema_content_callback_url import *
-from .list_workflow_access_key_secret_keys import *
 from .list_workflow_callback_url import *
 from .list_workflow_run_action_expression_traces import *
 from .list_workflow_run_action_repetition_expression_traces import *
 from .list_workflow_trigger_callback_url import *
+from .list_workflow_version_callback_url import *
 from .list_workflow_version_trigger_callback_url import *
 from .rosetta_net_process_configuration import *
 from .workflow import *
-from .workflow_access_key import *
 from ._inputs import *
 from . import outputs
 

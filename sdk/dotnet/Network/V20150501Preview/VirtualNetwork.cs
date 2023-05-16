@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     /// <summary>
     /// Virtual Network resource
     /// </summary>
-    [Obsolete(@"Version 2015-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20150501preview:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource
     {
@@ -145,6 +144,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetwork"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

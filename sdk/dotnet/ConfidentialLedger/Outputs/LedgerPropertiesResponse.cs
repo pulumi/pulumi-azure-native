@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
         /// </summary>
         public readonly string LedgerName;
         /// <summary>
-        /// Name of the Blob Storage Account for saving ledger files
-        /// </summary>
-        public readonly string? LedgerStorageAccount;
-        /// <summary>
         /// Type of Confidential Ledger
         /// </summary>
         public readonly string? LedgerType;
@@ -65,8 +61,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
 
             string ledgerName,
 
-            string? ledgerStorageAccount,
-
             string? ledgerType,
 
             string ledgerUri,
@@ -78,7 +72,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
             IdentityServiceUri = identityServiceUri;
             LedgerInternalNamespace = ledgerInternalNamespace;
             LedgerName = ledgerName;
-            LedgerStorageAccount = ledgerStorageAccount;
             LedgerType = ledgerType;
             LedgerUri = ledgerUri;
             ProvisioningState = provisioningState;

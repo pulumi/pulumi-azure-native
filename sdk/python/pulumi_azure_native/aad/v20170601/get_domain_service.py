@@ -17,8 +17,6 @@ __all__ = [
     'get_domain_service_output',
 ]
 
-warnings.warn("""Version 2017-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetDomainServiceResult:
     """
@@ -357,7 +355,6 @@ def get_domain_service(domain_service_name: Optional[str] = None,
     :param str domain_service_name: The name of the domain service.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_domain_service is deprecated: Version 2017-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -404,5 +401,4 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
     :param str domain_service_name: The name of the domain service.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_domain_service is deprecated: Version 2017-06-01 will be removed in v2 of the provider.""")
     ...

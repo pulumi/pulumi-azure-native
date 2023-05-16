@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The VirtualMachines resource definition.
  * API Version: 2020-06-05-preview.
+ * Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -193,7 +194,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualMachine" }, { type: "azure-native:scvmm/v20220521preview:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

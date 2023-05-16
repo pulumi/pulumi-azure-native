@@ -280,7 +280,7 @@ def get_anomaly_security_ml_analytics_settings(resource_group_name: Optional[str
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnomalySecurityMLAnalyticsSettingsResult:
     """
     Gets the Security ML Analytics Settings.
-    API Version: 2022-05-01-preview.
+    API Version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -324,7 +324,7 @@ def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optio
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalySecurityMLAnalyticsSettingsResult]:
     """
     Gets the Security ML Analytics Settings.
-    API Version: 2022-05-01-preview.
+    API Version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

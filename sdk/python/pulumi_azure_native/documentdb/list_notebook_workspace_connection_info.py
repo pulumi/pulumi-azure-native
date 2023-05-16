@@ -62,7 +62,7 @@ def list_notebook_workspace_connection_info(account_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotebookWorkspaceConnectionInfoResult:
     """
     Retrieves the connection info for the notebook workspace
-    API Version: 2021-03-15.
+    API Version: 2022-11-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -88,7 +88,7 @@ def list_notebook_workspace_connection_info_output(account_name: Optional[pulumi
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNotebookWorkspaceConnectionInfoResult]:
     """
     Retrieves the connection info for the notebook workspace
-    API Version: 2021-03-15.
+    API Version: 2022-11-15.
 
 
     :param str account_name: Cosmos DB database account name.

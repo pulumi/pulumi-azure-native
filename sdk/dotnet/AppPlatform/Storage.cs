@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Storage resource payload.
-    /// API Version: 2021-09-01-preview.
+    /// API Version: 2022-12-01.
+    /// Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Storage")]
     public partial class Storage : global::Pulumi.CustomResource
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:Storage"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:Storage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

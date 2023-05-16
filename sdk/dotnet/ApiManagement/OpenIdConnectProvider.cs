@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// OpenId Connect Provider details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-08-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : global::Pulumi.CustomResource
@@ -47,16 +48,28 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> MetadataEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+        /// </summary>
+        [Output("useInApiDocumentation")]
+        public Output<bool?> UseInApiDocumentation { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
+        /// </summary>
+        [Output("useInTestConsole")]
+        public Output<bool?> UseInTestConsole { get; private set; } = null!;
 
 
         /// <summary>
@@ -99,6 +112,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:OpenIdConnectProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -159,7 +173,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? Opid { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -169,6 +183,18 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+        /// </summary>
+        [Input("useInApiDocumentation")]
+        public Input<bool>? UseInApiDocumentation { get; set; }
+
+        /// <summary>
+        /// If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
+        /// </summary>
+        [Input("useInTestConsole")]
+        public Input<bool>? UseInTestConsole { get; set; }
 
         public OpenIdConnectProviderArgs()
         {

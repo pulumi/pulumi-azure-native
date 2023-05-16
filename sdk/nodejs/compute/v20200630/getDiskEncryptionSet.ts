@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a disk encryption set.
  */
-/** @deprecated Version 2020-06-30 will be removed in v2 of the provider. */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
-    pulumi.log.warn("getDiskEncryptionSet is deprecated: Version 2020-06-30 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20200630:getDiskEncryptionSet", {
@@ -80,7 +78,6 @@ export interface GetDiskEncryptionSetResult {
 /**
  * Gets information about a disk encryption set.
  */
-/** @deprecated Version 2020-06-30 will be removed in v2 of the provider. */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
     return pulumi.output(args).apply((a: any) => getDiskEncryptionSet(a, opts))
 }

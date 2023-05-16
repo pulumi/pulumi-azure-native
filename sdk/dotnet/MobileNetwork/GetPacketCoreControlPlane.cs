@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified packet core control plane.
-        /// API Version: 2022-04-01-preview.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Task<GetPacketCoreControlPlaneResult> InvokeAsync(GetPacketCoreControlPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified packet core control plane.
-        /// API Version: 2022-04-01-preview.
+        /// API Version: 2022-11-01.
         /// </summary>
         public static Output<GetPacketCoreControlPlaneResult> Invoke(GetPacketCoreControlPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneInvokeArgs(), options.WithDefaults());
@@ -80,18 +80,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string? CoreNetworkTechnology;
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        public readonly string? CreatedAt;
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -100,33 +88,21 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
+        /// The installation state of the packet core control plane resource.
+        /// </summary>
+        public readonly Outputs.InstallationResponse Installation;
+        /// <summary>
         /// Settings to allow interoperability with third party components e.g. RANs and UEs.
         /// </summary>
         public readonly object? InteropSettings;
         /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        public readonly string? LastModifiedAt;
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
-        /// <summary>
         /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
         /// </summary>
-        public readonly Outputs.LocalDiagnosticsAccessConfigurationResponse? LocalDiagnosticsAccess;
+        public readonly Outputs.LocalDiagnosticsAccessConfigurationResponse LocalDiagnosticsAccess;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// Mobile network in which this packet core control plane is deployed.
-        /// </summary>
-        public readonly Outputs.MobileNetworkResourceIdResponse MobileNetwork;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -134,11 +110,19 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// The platform where the packet core is deployed.
         /// </summary>
-        public readonly Outputs.PlatformConfigurationResponse? Platform;
+        public readonly Outputs.PlatformConfigurationResponse Platform;
         /// <summary>
         /// The provisioning state of the packet core control plane resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The previous version of the packet core software that was deployed. Used when performing the rollback action.
+        /// </summary>
+        public readonly string RollbackVersion;
+        /// <summary>
+        /// Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SiteResourceIdResponse> Sites;
         /// <summary>
         /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
         /// </summary>
@@ -156,6 +140,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
+        /// </summary>
+        public readonly int? UeMtu;
+        /// <summary>
         /// The version of the packet core software that is deployed.
         /// </summary>
         public readonly string? Version;
@@ -166,35 +154,27 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string? coreNetworkTechnology,
 
-            string? createdAt,
-
-            string? createdBy,
-
-            string? createdByType,
-
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
 
+            Outputs.InstallationResponse installation,
+
             object? interopSettings,
 
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
-
-            Outputs.LocalDiagnosticsAccessConfigurationResponse? localDiagnosticsAccess,
+            Outputs.LocalDiagnosticsAccessConfigurationResponse localDiagnosticsAccess,
 
             string location,
 
-            Outputs.MobileNetworkResourceIdResponse mobileNetwork,
-
             string name,
 
-            Outputs.PlatformConfigurationResponse? platform,
+            Outputs.PlatformConfigurationResponse platform,
 
             string provisioningState,
+
+            string rollbackVersion,
+
+            ImmutableArray<Outputs.SiteResourceIdResponse> sites,
 
             string sku,
 
@@ -204,29 +184,28 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string type,
 
+            int? ueMtu,
+
             string? version)
         {
             ControlPlaneAccessInterface = controlPlaneAccessInterface;
             CoreNetworkTechnology = coreNetworkTechnology;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
             Id = id;
             Identity = identity;
+            Installation = installation;
             InteropSettings = interopSettings;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
             LocalDiagnosticsAccess = localDiagnosticsAccess;
             Location = location;
-            MobileNetwork = mobileNetwork;
             Name = name;
             Platform = platform;
             ProvisioningState = provisioningState;
+            RollbackVersion = rollbackVersion;
+            Sites = sites;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            UeMtu = ueMtu;
             Version = version;
         }
     }

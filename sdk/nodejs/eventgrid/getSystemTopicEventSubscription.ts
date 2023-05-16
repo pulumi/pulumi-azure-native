@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an event subscription.
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getSystemTopicEventSubscription(args: GetSystemTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionResult> {
 
@@ -107,7 +107,7 @@ export interface GetSystemTopicEventSubscriptionResult {
 }
 /**
  * Get an event subscription.
- * API Version: 2020-04-01-preview.
+ * API Version: 2022-06-15.
  */
 export function getSystemTopicEventSubscriptionOutput(args: GetSystemTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscription(a, opts))

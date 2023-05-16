@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
     /// </summary>
-    [Obsolete(@"Version 2016-04-30-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20160430preview:VirtualMachineScaleSet")]
     public partial class VirtualMachineScaleSet : global::Pulumi.CustomResource
     {

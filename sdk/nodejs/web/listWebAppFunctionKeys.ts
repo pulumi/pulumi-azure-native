@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get function keys for a function in a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get function keys for a function in a web site, or a deployment slot.
+ * API Version: 2022-09-01.
  */
 export function listWebAppFunctionKeys(args: ListWebAppFunctionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionKeysResult> {
 
@@ -59,8 +59,8 @@ export interface ListWebAppFunctionKeysResult {
     readonly type: string;
 }
 /**
- * Get function keys for a function in a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get function keys for a function in a web site, or a deployment slot.
+ * API Version: 2022-09-01.
  */
 export function listWebAppFunctionKeysOutput(args: ListWebAppFunctionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysResult> {
     return pulumi.output(args).apply((a: any) => listWebAppFunctionKeys(a, opts))

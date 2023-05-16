@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-02-01-preview.
+ * API Version: 2023-02-01.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ResourceGuardProxy extends pulumi.CustomResource {
     /**
@@ -40,11 +41,11 @@ export class ResourceGuardProxy extends pulumi.CustomResource {
     /**
      * Optional ETag.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string | undefined>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name associated with the resource.
      */
@@ -52,11 +53,11 @@ export class ResourceGuardProxy extends pulumi.CustomResource {
     /**
      * ResourceGuardProxyBaseResource properties
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.recoveryservices.ResourceGuardProxyBaseResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.ResourceGuardProxyBaseResponse>;
     /**
      * Resource tags.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
@@ -79,14 +80,14 @@ export class ResourceGuardProxy extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceGuardProxyName"] = args ? args.resourceGuardProxyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
-            resourceInputs["eTag"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["eTag"] = undefined /*out*/;
@@ -108,10 +109,26 @@ export class ResourceGuardProxy extends pulumi.CustomResource {
  */
 export interface ResourceGuardProxyArgs {
     /**
+     * Optional ETag.
+     */
+    eTag?: pulumi.Input<string>;
+    /**
+     * Resource location.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * ResourceGuardProxyBaseResource properties
+     */
+    properties?: pulumi.Input<inputs.recoveryservices.ResourceGuardProxyBaseArgs>;
+    /**
      * The name of the resource group where the recovery services vault is present.
      */
     resourceGroupName: pulumi.Input<string>;
     resourceGuardProxyName?: pulumi.Input<string>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */

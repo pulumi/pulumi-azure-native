@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     /// <summary>
     /// NetworkSecurityGroup resource
     /// </summary>
-    [Obsolete(@"Version 2015-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20150501preview:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
     {
@@ -151,6 +150,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkSecurityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkSecurityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:NetworkSecurityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 {
 
     /// <summary>
-    /// Git repository property payload
+    /// Git repository property payload for config server
     /// </summary>
     [OutputType]
     public sealed class GitPatternRepositoryResponse

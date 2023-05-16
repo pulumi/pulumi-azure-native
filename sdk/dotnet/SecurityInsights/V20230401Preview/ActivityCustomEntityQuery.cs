@@ -144,7 +144,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ActivityCustomEntityQuery"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery"},
@@ -159,6 +158,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:ActivityCustomEntityQuery"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:ActivityCustomEntityQuery"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:ActivityCustomEntityQuery"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:ActivityCustomEntityQuery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

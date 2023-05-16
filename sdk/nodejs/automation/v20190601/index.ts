@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AutomationAccountArgs } from "./automationAccount";
-export type AutomationAccount = import("./automationAccount").AutomationAccount;
-export const AutomationAccount: typeof import("./automationAccount").AutomationAccount = null as any;
-utilities.lazyLoad(exports, ["AutomationAccount"], () => require("./automationAccount"));
-
 export { CertificateArgs } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
@@ -39,11 +34,6 @@ export { DscNodeConfigurationArgs } from "./dscNodeConfiguration";
 export type DscNodeConfiguration = import("./dscNodeConfiguration").DscNodeConfiguration;
 export const DscNodeConfiguration: typeof import("./dscNodeConfiguration").DscNodeConfiguration = null as any;
 utilities.lazyLoad(exports, ["DscNodeConfiguration"], () => require("./dscNodeConfiguration"));
-
-export { GetAutomationAccountArgs, GetAutomationAccountResult, GetAutomationAccountOutputArgs } from "./getAutomationAccount";
-export const getAutomationAccount: typeof import("./getAutomationAccount").getAutomationAccount = null as any;
-export const getAutomationAccountOutput: typeof import("./getAutomationAccount").getAutomationAccountOutput = null as any;
-utilities.lazyLoad(exports, ["getAutomationAccount","getAutomationAccountOutput"], () => require("./getAutomationAccount"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
@@ -178,8 +168,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:automation/v20190601:AutomationAccount":
-                return new AutomationAccount(name, <any>undefined, { urn })
             case "azure-native:automation/v20190601:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "azure-native:automation/v20190601:Connection":

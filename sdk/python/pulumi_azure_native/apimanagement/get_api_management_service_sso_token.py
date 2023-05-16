@@ -49,10 +49,10 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceSsoTokenResult:
     """
     Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -71,10 +71,10 @@ def get_api_management_service_sso_token_output(resource_group_name: Optional[pu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceSsoTokenResult]:
     """
     Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

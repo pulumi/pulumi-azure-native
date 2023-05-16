@@ -16,8 +16,6 @@ __all__ = [
     'get_snapshot_output',
 ]
 
-warnings.warn("""Version 2019-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSnapshotResult:
     """
@@ -158,7 +156,6 @@ def get_snapshot(account_name: Optional[str] = None,
     :param str snapshot_name: The name of the snapshot
     :param str volume_name: The name of the volume
     """
-    pulumi.log.warn("""get_snapshot is deprecated: Version 2019-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -197,5 +194,4 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str snapshot_name: The name of the snapshot
     :param str volume_name: The name of the volume
     """
-    pulumi.log.warn("""get_snapshot is deprecated: Version 2019-10-01 will be removed in v2 of the provider.""")
     ...

@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified iSCSI disk name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiDiskResult> {
-    pulumi.log.warn("getIscsiDisk is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getIscsiDisk", {
@@ -96,7 +94,6 @@ export interface GetIscsiDiskResult {
 /**
  * Returns the properties of the specified iSCSI disk name.
  */
-/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getIscsiDiskOutput(args: GetIscsiDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiDiskResult> {
     return pulumi.output(args).apply((a: any) => getIscsiDisk(a, opts))
 }

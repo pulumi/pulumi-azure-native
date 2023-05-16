@@ -20,33 +20,15 @@ __all__ = [
 @pulumi.output_type
 class GetAttachedDataNetworkResult:
     """
-    Attached data network resource.
+    Attached data network resource. Must be created in the same location as its parent packet core data plane.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, dns_addresses=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, napt_configuration=None, provisioning_state=None, system_data=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
-        if created_by and not isinstance(created_by, str):
-            raise TypeError("Expected argument 'created_by' to be a str")
-        pulumi.set(__self__, "created_by", created_by)
-        if created_by_type and not isinstance(created_by_type, str):
-            raise TypeError("Expected argument 'created_by_type' to be a str")
-        pulumi.set(__self__, "created_by_type", created_by_type)
+    def __init__(__self__, dns_addresses=None, id=None, location=None, name=None, napt_configuration=None, provisioning_state=None, system_data=None, tags=None, type=None, user_equipment_address_pool_prefix=None, user_equipment_static_address_pool_prefix=None, user_plane_data_interface=None):
         if dns_addresses and not isinstance(dns_addresses, list):
             raise TypeError("Expected argument 'dns_addresses' to be a list")
         pulumi.set(__self__, "dns_addresses", dns_addresses)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_modified_at and not isinstance(last_modified_at, str):
-            raise TypeError("Expected argument 'last_modified_at' to be a str")
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type and not isinstance(last_modified_by_type, str):
-            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -79,34 +61,10 @@ class GetAttachedDataNetworkResult:
         pulumi.set(__self__, "user_plane_data_interface", user_plane_data_interface)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
     @pulumi.getter(name="dnsAddresses")
-    def dns_addresses(self) -> Optional[Sequence[str]]:
+    def dns_addresses(self) -> Sequence[str]:
         """
-        The DNS servers to signal to UEs to use for this attached data network.
+        The DNS servers to signal to UEs to use for this attached data network. This configuration is mandatory - if you don't want DNS servers, you must provide an empty array.
         """
         return pulumi.get(self, "dns_addresses")
 
@@ -117,30 +75,6 @@ class GetAttachedDataNetworkResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter
@@ -234,14 +168,8 @@ class AwaitableGetAttachedDataNetworkResult(GetAttachedDataNetworkResult):
         if False:
             yield self
         return GetAttachedDataNetworkResult(
-            created_at=self.created_at,
-            created_by=self.created_by,
-            created_by_type=self.created_by_type,
             dns_addresses=self.dns_addresses,
             id=self.id,
-            last_modified_at=self.last_modified_at,
-            last_modified_by=self.last_modified_by,
-            last_modified_by_type=self.last_modified_by_type,
             location=self.location,
             name=self.name,
             napt_configuration=self.napt_configuration,
@@ -261,7 +189,7 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDataNetworkResult:
     """
     Gets information about the specified attached data network.
-    API Version: 2022-04-01-preview.
+    API Version: 2022-11-01.
 
 
     :param str attached_data_network_name: The name of the attached data network.
@@ -278,14 +206,8 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getAttachedDataNetwork', __args__, opts=opts, typ=GetAttachedDataNetworkResult).value
 
     return AwaitableGetAttachedDataNetworkResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
         dns_addresses=__ret__.dns_addresses,
         id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
         name=__ret__.name,
         napt_configuration=__ret__.napt_configuration,
@@ -306,7 +228,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDataNetworkResult]:
     """
     Gets information about the specified attached data network.
-    API Version: 2022-04-01-preview.
+    API Version: 2022-11-01.
 
 
     :param str attached_data_network_name: The name of the attached data network.

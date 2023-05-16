@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the client secret details of the authorization server.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function listAuthorizationServerSecrets(args: ListAuthorizationServerSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListAuthorizationServerSecretsResult> {
 
@@ -24,7 +24,7 @@ export interface ListAuthorizationServerSecretsArgs {
      */
     authsid: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -52,7 +52,7 @@ export interface ListAuthorizationServerSecretsResult {
 }
 /**
  * Gets the client secret details of the authorization server.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function listAuthorizationServerSecretsOutput(args: ListAuthorizationServerSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAuthorizationServerSecretsResult> {
     return pulumi.output(args).apply((a: any) => listAuthorizationServerSecrets(a, opts))
@@ -64,7 +64,7 @@ export interface ListAuthorizationServerSecretsOutputArgs {
      */
     authsid: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

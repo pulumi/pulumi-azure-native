@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
- * API Version: 2016-03-01.
+ * API Version: 2020-03-01.
+ * Previous API Version: 2016-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Function extends pulumi.CustomResource {
     /**
@@ -45,7 +46,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * The properties that are associated with a function.
      */
-    public readonly properties!: pulumi.Output<outputs.streamanalytics.ScalarFunctionPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.streamanalytics.AggregateFunctionPropertiesResponse | outputs.streamanalytics.ScalarFunctionPropertiesResponse>;
     /**
      * Resource type
      */
@@ -105,9 +106,9 @@ export interface FunctionArgs {
     /**
      * The properties that are associated with a function.
      */
-    properties?: pulumi.Input<inputs.streamanalytics.ScalarFunctionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.streamanalytics.AggregateFunctionPropertiesArgs | inputs.streamanalytics.ScalarFunctionPropertiesArgs>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

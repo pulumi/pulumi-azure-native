@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A private endpoint connection for a project.
  * API Version: 2019-10-01.
+ * Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

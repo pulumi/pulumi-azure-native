@@ -22,7 +22,7 @@ class GetDataCollectionEndpointResult:
     """
     Definition of ARM tracked top level resource.
     """
-    def __init__(__self__, configuration_access=None, description=None, etag=None, id=None, immutable_id=None, kind=None, location=None, logs_ingestion=None, name=None, network_acls=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, configuration_access=None, description=None, etag=None, failover_configuration=None, id=None, identity=None, immutable_id=None, kind=None, location=None, logs_ingestion=None, metadata=None, metrics_ingestion=None, name=None, network_acls=None, private_link_scoped_resources=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if configuration_access and not isinstance(configuration_access, dict):
             raise TypeError("Expected argument 'configuration_access' to be a dict")
         pulumi.set(__self__, "configuration_access", configuration_access)
@@ -32,9 +32,15 @@ class GetDataCollectionEndpointResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if failover_configuration and not isinstance(failover_configuration, dict):
+            raise TypeError("Expected argument 'failover_configuration' to be a dict")
+        pulumi.set(__self__, "failover_configuration", failover_configuration)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if immutable_id and not isinstance(immutable_id, str):
             raise TypeError("Expected argument 'immutable_id' to be a str")
         pulumi.set(__self__, "immutable_id", immutable_id)
@@ -47,12 +53,21 @@ class GetDataCollectionEndpointResult:
         if logs_ingestion and not isinstance(logs_ingestion, dict):
             raise TypeError("Expected argument 'logs_ingestion' to be a dict")
         pulumi.set(__self__, "logs_ingestion", logs_ingestion)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
+        if metrics_ingestion and not isinstance(metrics_ingestion, dict):
+            raise TypeError("Expected argument 'metrics_ingestion' to be a dict")
+        pulumi.set(__self__, "metrics_ingestion", metrics_ingestion)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if network_acls and not isinstance(network_acls, dict):
             raise TypeError("Expected argument 'network_acls' to be a dict")
         pulumi.set(__self__, "network_acls", network_acls)
+        if private_link_scoped_resources and not isinstance(private_link_scoped_resources, list):
+            raise TypeError("Expected argument 'private_link_scoped_resources' to be a list")
+        pulumi.set(__self__, "private_link_scoped_resources", private_link_scoped_resources)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -91,12 +106,28 @@ class GetDataCollectionEndpointResult:
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="failoverConfiguration")
+    def failover_configuration(self) -> 'outputs.DataCollectionEndpointResponseFailoverConfiguration':
+        """
+        Failover configuration on this endpoint. This property is READ-ONLY.
+        """
+        return pulumi.get(self, "failover_configuration")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified ID of the resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.DataCollectionEndpointResourceResponseIdentity']:
+        """
+        Managed service identity of the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="immutableId")
@@ -132,6 +163,22 @@ class GetDataCollectionEndpointResult:
 
     @property
     @pulumi.getter
+    def metadata(self) -> 'outputs.DataCollectionEndpointResponseMetadata':
+        """
+        Metadata for the resource. This property is READ-ONLY.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="metricsIngestion")
+    def metrics_ingestion(self) -> Optional['outputs.DataCollectionEndpointResponseMetricsIngestion']:
+        """
+        The endpoint used by clients to ingest metrics.
+        """
+        return pulumi.get(self, "metrics_ingestion")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource.
@@ -145,6 +192,14 @@ class GetDataCollectionEndpointResult:
         Network access control rules for the endpoints.
         """
         return pulumi.get(self, "network_acls")
+
+    @property
+    @pulumi.getter(name="privateLinkScopedResources")
+    def private_link_scoped_resources(self) -> Sequence['outputs.PrivateLinkScopedResourceResponse']:
+        """
+        List of Azure Monitor Private Link Scope Resources to which this data collection endpoint resource is associated. This property is READ-ONLY.
+        """
+        return pulumi.get(self, "private_link_scoped_resources")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -188,13 +243,18 @@ class AwaitableGetDataCollectionEndpointResult(GetDataCollectionEndpointResult):
             configuration_access=self.configuration_access,
             description=self.description,
             etag=self.etag,
+            failover_configuration=self.failover_configuration,
             id=self.id,
+            identity=self.identity,
             immutable_id=self.immutable_id,
             kind=self.kind,
             location=self.location,
             logs_ingestion=self.logs_ingestion,
+            metadata=self.metadata,
+            metrics_ingestion=self.metrics_ingestion,
             name=self.name,
             network_acls=self.network_acls,
+            private_link_scoped_resources=self.private_link_scoped_resources,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
@@ -206,7 +266,7 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionEndpointResult:
     """
     Definition of ARM tracked top level resource.
-    API Version: 2021-09-01-preview.
+    API Version: 2022-06-01.
 
 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
@@ -222,13 +282,18 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
         configuration_access=__ret__.configuration_access,
         description=__ret__.description,
         etag=__ret__.etag,
+        failover_configuration=__ret__.failover_configuration,
         id=__ret__.id,
+        identity=__ret__.identity,
         immutable_id=__ret__.immutable_id,
         kind=__ret__.kind,
         location=__ret__.location,
         logs_ingestion=__ret__.logs_ingestion,
+        metadata=__ret__.metadata,
+        metrics_ingestion=__ret__.metrics_ingestion,
         name=__ret__.name,
         network_acls=__ret__.network_acls,
+        private_link_scoped_resources=__ret__.private_link_scoped_resources,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
@@ -241,7 +306,7 @@ def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
     """
     Definition of ARM tracked top level resource.
-    API Version: 2021-09-01-preview.
+    API Version: 2022-06-01.
 
 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.

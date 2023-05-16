@@ -10,85 +10,20 @@ export type ApplicationGateway = import("./applicationGateway").ApplicationGatew
 export const ApplicationGateway: typeof import("./applicationGateway").ApplicationGateway = null as any;
 utilities.lazyLoad(exports, ["ApplicationGateway"], () => require("./applicationGateway"));
 
-export { ApplicationSecurityGroupArgs } from "./applicationSecurityGroup";
-export type ApplicationSecurityGroup = import("./applicationSecurityGroup").ApplicationSecurityGroup;
-export const ApplicationSecurityGroup: typeof import("./applicationSecurityGroup").ApplicationSecurityGroup = null as any;
-utilities.lazyLoad(exports, ["ApplicationSecurityGroup"], () => require("./applicationSecurityGroup"));
-
-export { AzureFirewallArgs } from "./azureFirewall";
-export type AzureFirewall = import("./azureFirewall").AzureFirewall;
-export const AzureFirewall: typeof import("./azureFirewall").AzureFirewall = null as any;
-utilities.lazyLoad(exports, ["AzureFirewall"], () => require("./azureFirewall"));
-
-export { BastionHostArgs } from "./bastionHost";
-export type BastionHost = import("./bastionHost").BastionHost;
-export const BastionHost: typeof import("./bastionHost").BastionHost = null as any;
-utilities.lazyLoad(exports, ["BastionHost"], () => require("./bastionHost"));
-
-export { ConnectionMonitorArgs } from "./connectionMonitor";
-export type ConnectionMonitor = import("./connectionMonitor").ConnectionMonitor;
-export const ConnectionMonitor: typeof import("./connectionMonitor").ConnectionMonitor = null as any;
-utilities.lazyLoad(exports, ["ConnectionMonitor"], () => require("./connectionMonitor"));
-
-export { DdosCustomPolicyArgs } from "./ddosCustomPolicy";
-export type DdosCustomPolicy = import("./ddosCustomPolicy").DdosCustomPolicy;
-export const DdosCustomPolicy: typeof import("./ddosCustomPolicy").DdosCustomPolicy = null as any;
-utilities.lazyLoad(exports, ["DdosCustomPolicy"], () => require("./ddosCustomPolicy"));
-
-export { DdosProtectionPlanArgs } from "./ddosProtectionPlan";
-export type DdosProtectionPlan = import("./ddosProtectionPlan").DdosProtectionPlan;
-export const DdosProtectionPlan: typeof import("./ddosProtectionPlan").DdosProtectionPlan = null as any;
-utilities.lazyLoad(exports, ["DdosProtectionPlan"], () => require("./ddosProtectionPlan"));
-
-export { ExpressRouteCircuitArgs } from "./expressRouteCircuit";
-export type ExpressRouteCircuit = import("./expressRouteCircuit").ExpressRouteCircuit;
-export const ExpressRouteCircuit: typeof import("./expressRouteCircuit").ExpressRouteCircuit = null as any;
-utilities.lazyLoad(exports, ["ExpressRouteCircuit"], () => require("./expressRouteCircuit"));
-
-export { ExpressRouteCircuitAuthorizationArgs } from "./expressRouteCircuitAuthorization";
-export type ExpressRouteCircuitAuthorization = import("./expressRouteCircuitAuthorization").ExpressRouteCircuitAuthorization;
-export const ExpressRouteCircuitAuthorization: typeof import("./expressRouteCircuitAuthorization").ExpressRouteCircuitAuthorization = null as any;
-utilities.lazyLoad(exports, ["ExpressRouteCircuitAuthorization"], () => require("./expressRouteCircuitAuthorization"));
-
-export { ExpressRouteCircuitConnectionArgs } from "./expressRouteCircuitConnection";
-export type ExpressRouteCircuitConnection = import("./expressRouteCircuitConnection").ExpressRouteCircuitConnection;
-export const ExpressRouteCircuitConnection: typeof import("./expressRouteCircuitConnection").ExpressRouteCircuitConnection = null as any;
-utilities.lazyLoad(exports, ["ExpressRouteCircuitConnection"], () => require("./expressRouteCircuitConnection"));
-
 export { ExpressRouteCircuitPeeringArgs } from "./expressRouteCircuitPeering";
 export type ExpressRouteCircuitPeering = import("./expressRouteCircuitPeering").ExpressRouteCircuitPeering;
 export const ExpressRouteCircuitPeering: typeof import("./expressRouteCircuitPeering").ExpressRouteCircuitPeering = null as any;
 utilities.lazyLoad(exports, ["ExpressRouteCircuitPeering"], () => require("./expressRouteCircuitPeering"));
-
-export { ExpressRouteConnectionArgs } from "./expressRouteConnection";
-export type ExpressRouteConnection = import("./expressRouteConnection").ExpressRouteConnection;
-export const ExpressRouteConnection: typeof import("./expressRouteConnection").ExpressRouteConnection = null as any;
-utilities.lazyLoad(exports, ["ExpressRouteConnection"], () => require("./expressRouteConnection"));
 
 export { ExpressRouteCrossConnectionPeeringArgs } from "./expressRouteCrossConnectionPeering";
 export type ExpressRouteCrossConnectionPeering = import("./expressRouteCrossConnectionPeering").ExpressRouteCrossConnectionPeering;
 export const ExpressRouteCrossConnectionPeering: typeof import("./expressRouteCrossConnectionPeering").ExpressRouteCrossConnectionPeering = null as any;
 utilities.lazyLoad(exports, ["ExpressRouteCrossConnectionPeering"], () => require("./expressRouteCrossConnectionPeering"));
 
-export { ExpressRouteGatewayArgs } from "./expressRouteGateway";
-export type ExpressRouteGateway = import("./expressRouteGateway").ExpressRouteGateway;
-export const ExpressRouteGateway: typeof import("./expressRouteGateway").ExpressRouteGateway = null as any;
-utilities.lazyLoad(exports, ["ExpressRouteGateway"], () => require("./expressRouteGateway"));
-
 export { ExpressRoutePortArgs } from "./expressRoutePort";
 export type ExpressRoutePort = import("./expressRoutePort").ExpressRoutePort;
 export const ExpressRoutePort: typeof import("./expressRoutePort").ExpressRoutePort = null as any;
 utilities.lazyLoad(exports, ["ExpressRoutePort"], () => require("./expressRoutePort"));
-
-export { FirewallPolicyArgs } from "./firewallPolicy";
-export type FirewallPolicy = import("./firewallPolicy").FirewallPolicy;
-export const FirewallPolicy: typeof import("./firewallPolicy").FirewallPolicy = null as any;
-utilities.lazyLoad(exports, ["FirewallPolicy"], () => require("./firewallPolicy"));
-
-export { FirewallPolicyRuleGroupArgs } from "./firewallPolicyRuleGroup";
-export type FirewallPolicyRuleGroup = import("./firewallPolicyRuleGroup").FirewallPolicyRuleGroup;
-export const FirewallPolicyRuleGroup: typeof import("./firewallPolicyRuleGroup").FirewallPolicyRuleGroup = null as any;
-utilities.lazyLoad(exports, ["FirewallPolicyRuleGroup"], () => require("./firewallPolicyRuleGroup"));
 
 export { GetApplicationGatewayArgs, GetApplicationGatewayResult, GetApplicationGatewayOutputArgs } from "./getApplicationGateway";
 export const getApplicationGateway: typeof import("./getApplicationGateway").getApplicationGateway = null as any;
@@ -100,90 +35,20 @@ export const getApplicationGatewayBackendHealthOnDemand: typeof import("./getApp
 export const getApplicationGatewayBackendHealthOnDemandOutput: typeof import("./getApplicationGatewayBackendHealthOnDemand").getApplicationGatewayBackendHealthOnDemandOutput = null as any;
 utilities.lazyLoad(exports, ["getApplicationGatewayBackendHealthOnDemand","getApplicationGatewayBackendHealthOnDemandOutput"], () => require("./getApplicationGatewayBackendHealthOnDemand"));
 
-export { GetApplicationSecurityGroupArgs, GetApplicationSecurityGroupResult, GetApplicationSecurityGroupOutputArgs } from "./getApplicationSecurityGroup";
-export const getApplicationSecurityGroup: typeof import("./getApplicationSecurityGroup").getApplicationSecurityGroup = null as any;
-export const getApplicationSecurityGroupOutput: typeof import("./getApplicationSecurityGroup").getApplicationSecurityGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getApplicationSecurityGroup","getApplicationSecurityGroupOutput"], () => require("./getApplicationSecurityGroup"));
-
-export { GetAzureFirewallArgs, GetAzureFirewallResult, GetAzureFirewallOutputArgs } from "./getAzureFirewall";
-export const getAzureFirewall: typeof import("./getAzureFirewall").getAzureFirewall = null as any;
-export const getAzureFirewallOutput: typeof import("./getAzureFirewall").getAzureFirewallOutput = null as any;
-utilities.lazyLoad(exports, ["getAzureFirewall","getAzureFirewallOutput"], () => require("./getAzureFirewall"));
-
-export { GetBastionHostArgs, GetBastionHostResult, GetBastionHostOutputArgs } from "./getBastionHost";
-export const getBastionHost: typeof import("./getBastionHost").getBastionHost = null as any;
-export const getBastionHostOutput: typeof import("./getBastionHost").getBastionHostOutput = null as any;
-utilities.lazyLoad(exports, ["getBastionHost","getBastionHostOutput"], () => require("./getBastionHost"));
-
-export { GetConnectionMonitorArgs, GetConnectionMonitorResult, GetConnectionMonitorOutputArgs } from "./getConnectionMonitor";
-export const getConnectionMonitor: typeof import("./getConnectionMonitor").getConnectionMonitor = null as any;
-export const getConnectionMonitorOutput: typeof import("./getConnectionMonitor").getConnectionMonitorOutput = null as any;
-utilities.lazyLoad(exports, ["getConnectionMonitor","getConnectionMonitorOutput"], () => require("./getConnectionMonitor"));
-
-export { GetDdosCustomPolicyArgs, GetDdosCustomPolicyResult, GetDdosCustomPolicyOutputArgs } from "./getDdosCustomPolicy";
-export const getDdosCustomPolicy: typeof import("./getDdosCustomPolicy").getDdosCustomPolicy = null as any;
-export const getDdosCustomPolicyOutput: typeof import("./getDdosCustomPolicy").getDdosCustomPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getDdosCustomPolicy","getDdosCustomPolicyOutput"], () => require("./getDdosCustomPolicy"));
-
-export { GetDdosProtectionPlanArgs, GetDdosProtectionPlanResult, GetDdosProtectionPlanOutputArgs } from "./getDdosProtectionPlan";
-export const getDdosProtectionPlan: typeof import("./getDdosProtectionPlan").getDdosProtectionPlan = null as any;
-export const getDdosProtectionPlanOutput: typeof import("./getDdosProtectionPlan").getDdosProtectionPlanOutput = null as any;
-utilities.lazyLoad(exports, ["getDdosProtectionPlan","getDdosProtectionPlanOutput"], () => require("./getDdosProtectionPlan"));
-
-export { GetExpressRouteCircuitArgs, GetExpressRouteCircuitResult, GetExpressRouteCircuitOutputArgs } from "./getExpressRouteCircuit";
-export const getExpressRouteCircuit: typeof import("./getExpressRouteCircuit").getExpressRouteCircuit = null as any;
-export const getExpressRouteCircuitOutput: typeof import("./getExpressRouteCircuit").getExpressRouteCircuitOutput = null as any;
-utilities.lazyLoad(exports, ["getExpressRouteCircuit","getExpressRouteCircuitOutput"], () => require("./getExpressRouteCircuit"));
-
-export { GetExpressRouteCircuitAuthorizationArgs, GetExpressRouteCircuitAuthorizationResult, GetExpressRouteCircuitAuthorizationOutputArgs } from "./getExpressRouteCircuitAuthorization";
-export const getExpressRouteCircuitAuthorization: typeof import("./getExpressRouteCircuitAuthorization").getExpressRouteCircuitAuthorization = null as any;
-export const getExpressRouteCircuitAuthorizationOutput: typeof import("./getExpressRouteCircuitAuthorization").getExpressRouteCircuitAuthorizationOutput = null as any;
-utilities.lazyLoad(exports, ["getExpressRouteCircuitAuthorization","getExpressRouteCircuitAuthorizationOutput"], () => require("./getExpressRouteCircuitAuthorization"));
-
-export { GetExpressRouteCircuitConnectionArgs, GetExpressRouteCircuitConnectionResult, GetExpressRouteCircuitConnectionOutputArgs } from "./getExpressRouteCircuitConnection";
-export const getExpressRouteCircuitConnection: typeof import("./getExpressRouteCircuitConnection").getExpressRouteCircuitConnection = null as any;
-export const getExpressRouteCircuitConnectionOutput: typeof import("./getExpressRouteCircuitConnection").getExpressRouteCircuitConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getExpressRouteCircuitConnection","getExpressRouteCircuitConnectionOutput"], () => require("./getExpressRouteCircuitConnection"));
-
 export { GetExpressRouteCircuitPeeringArgs, GetExpressRouteCircuitPeeringResult, GetExpressRouteCircuitPeeringOutputArgs } from "./getExpressRouteCircuitPeering";
 export const getExpressRouteCircuitPeering: typeof import("./getExpressRouteCircuitPeering").getExpressRouteCircuitPeering = null as any;
 export const getExpressRouteCircuitPeeringOutput: typeof import("./getExpressRouteCircuitPeering").getExpressRouteCircuitPeeringOutput = null as any;
 utilities.lazyLoad(exports, ["getExpressRouteCircuitPeering","getExpressRouteCircuitPeeringOutput"], () => require("./getExpressRouteCircuitPeering"));
-
-export { GetExpressRouteConnectionArgs, GetExpressRouteConnectionResult, GetExpressRouteConnectionOutputArgs } from "./getExpressRouteConnection";
-export const getExpressRouteConnection: typeof import("./getExpressRouteConnection").getExpressRouteConnection = null as any;
-export const getExpressRouteConnectionOutput: typeof import("./getExpressRouteConnection").getExpressRouteConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getExpressRouteConnection","getExpressRouteConnectionOutput"], () => require("./getExpressRouteConnection"));
 
 export { GetExpressRouteCrossConnectionPeeringArgs, GetExpressRouteCrossConnectionPeeringResult, GetExpressRouteCrossConnectionPeeringOutputArgs } from "./getExpressRouteCrossConnectionPeering";
 export const getExpressRouteCrossConnectionPeering: typeof import("./getExpressRouteCrossConnectionPeering").getExpressRouteCrossConnectionPeering = null as any;
 export const getExpressRouteCrossConnectionPeeringOutput: typeof import("./getExpressRouteCrossConnectionPeering").getExpressRouteCrossConnectionPeeringOutput = null as any;
 utilities.lazyLoad(exports, ["getExpressRouteCrossConnectionPeering","getExpressRouteCrossConnectionPeeringOutput"], () => require("./getExpressRouteCrossConnectionPeering"));
 
-export { GetExpressRouteGatewayArgs, GetExpressRouteGatewayResult, GetExpressRouteGatewayOutputArgs } from "./getExpressRouteGateway";
-export const getExpressRouteGateway: typeof import("./getExpressRouteGateway").getExpressRouteGateway = null as any;
-export const getExpressRouteGatewayOutput: typeof import("./getExpressRouteGateway").getExpressRouteGatewayOutput = null as any;
-utilities.lazyLoad(exports, ["getExpressRouteGateway","getExpressRouteGatewayOutput"], () => require("./getExpressRouteGateway"));
-
 export { GetExpressRoutePortArgs, GetExpressRoutePortResult, GetExpressRoutePortOutputArgs } from "./getExpressRoutePort";
 export const getExpressRoutePort: typeof import("./getExpressRoutePort").getExpressRoutePort = null as any;
 export const getExpressRoutePortOutput: typeof import("./getExpressRoutePort").getExpressRoutePortOutput = null as any;
 utilities.lazyLoad(exports, ["getExpressRoutePort","getExpressRoutePortOutput"], () => require("./getExpressRoutePort"));
-
-export { GetFirewallPolicyArgs, GetFirewallPolicyResult, GetFirewallPolicyOutputArgs } from "./getFirewallPolicy";
-export const getFirewallPolicy: typeof import("./getFirewallPolicy").getFirewallPolicy = null as any;
-export const getFirewallPolicyOutput: typeof import("./getFirewallPolicy").getFirewallPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getFirewallPolicy","getFirewallPolicyOutput"], () => require("./getFirewallPolicy"));
-
-export { GetFirewallPolicyRuleGroupArgs, GetFirewallPolicyRuleGroupResult, GetFirewallPolicyRuleGroupOutputArgs } from "./getFirewallPolicyRuleGroup";
-export const getFirewallPolicyRuleGroup: typeof import("./getFirewallPolicyRuleGroup").getFirewallPolicyRuleGroup = null as any;
-export const getFirewallPolicyRuleGroupOutput: typeof import("./getFirewallPolicyRuleGroup").getFirewallPolicyRuleGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getFirewallPolicyRuleGroup","getFirewallPolicyRuleGroupOutput"], () => require("./getFirewallPolicyRuleGroup"));
-
-export { GetInboundNatRuleArgs, GetInboundNatRuleResult, GetInboundNatRuleOutputArgs } from "./getInboundNatRule";
-export const getInboundNatRule: typeof import("./getInboundNatRule").getInboundNatRule = null as any;
-export const getInboundNatRuleOutput: typeof import("./getInboundNatRule").getInboundNatRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getInboundNatRule","getInboundNatRuleOutput"], () => require("./getInboundNatRule"));
 
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
@@ -205,11 +70,6 @@ export const getNetworkInterface: typeof import("./getNetworkInterface").getNetw
 export const getNetworkInterfaceOutput: typeof import("./getNetworkInterface").getNetworkInterfaceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkInterface","getNetworkInterfaceOutput"], () => require("./getNetworkInterface"));
 
-export { GetNetworkInterfaceTapConfigurationArgs, GetNetworkInterfaceTapConfigurationResult, GetNetworkInterfaceTapConfigurationOutputArgs } from "./getNetworkInterfaceTapConfiguration";
-export const getNetworkInterfaceTapConfiguration: typeof import("./getNetworkInterfaceTapConfiguration").getNetworkInterfaceTapConfiguration = null as any;
-export const getNetworkInterfaceTapConfigurationOutput: typeof import("./getNetworkInterfaceTapConfiguration").getNetworkInterfaceTapConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkInterfaceTapConfiguration","getNetworkInterfaceTapConfigurationOutput"], () => require("./getNetworkInterfaceTapConfiguration"));
-
 export { GetNetworkProfileArgs, GetNetworkProfileResult, GetNetworkProfileOutputArgs } from "./getNetworkProfile";
 export const getNetworkProfile: typeof import("./getNetworkProfile").getNetworkProfile = null as any;
 export const getNetworkProfileOutput: typeof import("./getNetworkProfile").getNetworkProfileOutput = null as any;
@@ -220,16 +80,6 @@ export const getNetworkSecurityGroup: typeof import("./getNetworkSecurityGroup")
 export const getNetworkSecurityGroupOutput: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkSecurityGroup","getNetworkSecurityGroupOutput"], () => require("./getNetworkSecurityGroup"));
 
-export { GetNetworkWatcherArgs, GetNetworkWatcherResult, GetNetworkWatcherOutputArgs } from "./getNetworkWatcher";
-export const getNetworkWatcher: typeof import("./getNetworkWatcher").getNetworkWatcher = null as any;
-export const getNetworkWatcherOutput: typeof import("./getNetworkWatcher").getNetworkWatcherOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkWatcher","getNetworkWatcherOutput"], () => require("./getNetworkWatcher"));
-
-export { GetP2sVpnGatewayArgs, GetP2sVpnGatewayResult, GetP2sVpnGatewayOutputArgs } from "./getP2sVpnGateway";
-export const getP2sVpnGateway: typeof import("./getP2sVpnGateway").getP2sVpnGateway = null as any;
-export const getP2sVpnGatewayOutput: typeof import("./getP2sVpnGateway").getP2sVpnGatewayOutput = null as any;
-utilities.lazyLoad(exports, ["getP2sVpnGateway","getP2sVpnGatewayOutput"], () => require("./getP2sVpnGateway"));
-
 export { GetP2sVpnGatewayP2sVpnConnectionHealthArgs, GetP2sVpnGatewayP2sVpnConnectionHealthResult, GetP2sVpnGatewayP2sVpnConnectionHealthOutputArgs } from "./getP2sVpnGatewayP2sVpnConnectionHealth";
 export const getP2sVpnGatewayP2sVpnConnectionHealth: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealth").getP2sVpnGatewayP2sVpnConnectionHealth = null as any;
 export const getP2sVpnGatewayP2sVpnConnectionHealthOutput: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealth").getP2sVpnGatewayP2sVpnConnectionHealthOutput = null as any;
@@ -239,16 +89,6 @@ export { GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, GetP2sVpnGatewayP2s
 export const getP2sVpnGatewayP2sVpnConnectionHealthDetailed: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed").getP2sVpnGatewayP2sVpnConnectionHealthDetailed = null as any;
 export const getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput: typeof import("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed").getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput = null as any;
 utilities.lazyLoad(exports, ["getP2sVpnGatewayP2sVpnConnectionHealthDetailed","getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput"], () => require("./getP2sVpnGatewayP2sVpnConnectionHealthDetailed"));
-
-export { GetPacketCaptureArgs, GetPacketCaptureResult, GetPacketCaptureOutputArgs } from "./getPacketCapture";
-export const getPacketCapture: typeof import("./getPacketCapture").getPacketCapture = null as any;
-export const getPacketCaptureOutput: typeof import("./getPacketCapture").getPacketCaptureOutput = null as any;
-utilities.lazyLoad(exports, ["getPacketCapture","getPacketCaptureOutput"], () => require("./getPacketCapture"));
-
-export { GetPrivateEndpointArgs, GetPrivateEndpointResult, GetPrivateEndpointOutputArgs } from "./getPrivateEndpoint";
-export const getPrivateEndpoint: typeof import("./getPrivateEndpoint").getPrivateEndpoint = null as any;
-export const getPrivateEndpointOutput: typeof import("./getPrivateEndpoint").getPrivateEndpointOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpoint","getPrivateEndpointOutput"], () => require("./getPrivateEndpoint"));
 
 export { GetPrivateLinkServiceArgs, GetPrivateLinkServiceResult, GetPrivateLinkServiceOutputArgs } from "./getPrivateLinkService";
 export const getPrivateLinkService: typeof import("./getPrivateLinkService").getPrivateLinkService = null as any;
@@ -265,50 +105,15 @@ export const getPublicIPPrefix: typeof import("./getPublicIPPrefix").getPublicIP
 export const getPublicIPPrefixOutput: typeof import("./getPublicIPPrefix").getPublicIPPrefixOutput = null as any;
 utilities.lazyLoad(exports, ["getPublicIPPrefix","getPublicIPPrefixOutput"], () => require("./getPublicIPPrefix"));
 
-export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
-export const getRoute: typeof import("./getRoute").getRoute = null as any;
-export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
-utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
-
 export { GetRouteFilterArgs, GetRouteFilterResult, GetRouteFilterOutputArgs } from "./getRouteFilter";
 export const getRouteFilter: typeof import("./getRouteFilter").getRouteFilter = null as any;
 export const getRouteFilterOutput: typeof import("./getRouteFilter").getRouteFilterOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteFilter","getRouteFilterOutput"], () => require("./getRouteFilter"));
 
-export { GetRouteFilterRuleArgs, GetRouteFilterRuleResult, GetRouteFilterRuleOutputArgs } from "./getRouteFilterRule";
-export const getRouteFilterRule: typeof import("./getRouteFilterRule").getRouteFilterRule = null as any;
-export const getRouteFilterRuleOutput: typeof import("./getRouteFilterRule").getRouteFilterRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getRouteFilterRule","getRouteFilterRuleOutput"], () => require("./getRouteFilterRule"));
-
-export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
-export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
-export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
-utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
-
-export { GetSecurityRuleArgs, GetSecurityRuleResult, GetSecurityRuleOutputArgs } from "./getSecurityRule";
-export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule = null as any;
-export const getSecurityRuleOutput: typeof import("./getSecurityRule").getSecurityRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getSecurityRule","getSecurityRuleOutput"], () => require("./getSecurityRule"));
-
-export { GetServiceEndpointPolicyArgs, GetServiceEndpointPolicyResult, GetServiceEndpointPolicyOutputArgs } from "./getServiceEndpointPolicy";
-export const getServiceEndpointPolicy: typeof import("./getServiceEndpointPolicy").getServiceEndpointPolicy = null as any;
-export const getServiceEndpointPolicyOutput: typeof import("./getServiceEndpointPolicy").getServiceEndpointPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getServiceEndpointPolicy","getServiceEndpointPolicyOutput"], () => require("./getServiceEndpointPolicy"));
-
-export { GetServiceEndpointPolicyDefinitionArgs, GetServiceEndpointPolicyDefinitionResult, GetServiceEndpointPolicyDefinitionOutputArgs } from "./getServiceEndpointPolicyDefinition";
-export const getServiceEndpointPolicyDefinition: typeof import("./getServiceEndpointPolicyDefinition").getServiceEndpointPolicyDefinition = null as any;
-export const getServiceEndpointPolicyDefinitionOutput: typeof import("./getServiceEndpointPolicyDefinition").getServiceEndpointPolicyDefinitionOutput = null as any;
-utilities.lazyLoad(exports, ["getServiceEndpointPolicyDefinition","getServiceEndpointPolicyDefinitionOutput"], () => require("./getServiceEndpointPolicyDefinition"));
-
 export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet";
 export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
 export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
-
-export { GetVirtualHubArgs, GetVirtualHubResult, GetVirtualHubOutputArgs } from "./getVirtualHub";
-export const getVirtualHub: typeof import("./getVirtualHub").getVirtualHub = null as any;
-export const getVirtualHubOutput: typeof import("./getVirtualHub").getVirtualHubOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualHub","getVirtualHubOutput"], () => require("./getVirtualHub"));
 
 export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
 export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
@@ -350,61 +155,6 @@ export const getVirtualNetworkGatewayVpnclientIpsecParameters: typeof import("./
 export const getVirtualNetworkGatewayVpnclientIpsecParametersOutput: typeof import("./getVirtualNetworkGatewayVpnclientIpsecParameters").getVirtualNetworkGatewayVpnclientIpsecParametersOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnclientIpsecParameters","getVirtualNetworkGatewayVpnclientIpsecParametersOutput"], () => require("./getVirtualNetworkGatewayVpnclientIpsecParameters"));
 
-export { GetVirtualNetworkPeeringArgs, GetVirtualNetworkPeeringResult, GetVirtualNetworkPeeringOutputArgs } from "./getVirtualNetworkPeering";
-export const getVirtualNetworkPeering: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeering = null as any;
-export const getVirtualNetworkPeeringOutput: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeeringOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkPeering","getVirtualNetworkPeeringOutput"], () => require("./getVirtualNetworkPeering"));
-
-export { GetVirtualNetworkTapArgs, GetVirtualNetworkTapResult, GetVirtualNetworkTapOutputArgs } from "./getVirtualNetworkTap";
-export const getVirtualNetworkTap: typeof import("./getVirtualNetworkTap").getVirtualNetworkTap = null as any;
-export const getVirtualNetworkTapOutput: typeof import("./getVirtualNetworkTap").getVirtualNetworkTapOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkTap","getVirtualNetworkTapOutput"], () => require("./getVirtualNetworkTap"));
-
-export { GetVirtualRouterArgs, GetVirtualRouterResult, GetVirtualRouterOutputArgs } from "./getVirtualRouter";
-export const getVirtualRouter: typeof import("./getVirtualRouter").getVirtualRouter = null as any;
-export const getVirtualRouterOutput: typeof import("./getVirtualRouter").getVirtualRouterOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualRouter","getVirtualRouterOutput"], () => require("./getVirtualRouter"));
-
-export { GetVirtualRouterPeeringArgs, GetVirtualRouterPeeringResult, GetVirtualRouterPeeringOutputArgs } from "./getVirtualRouterPeering";
-export const getVirtualRouterPeering: typeof import("./getVirtualRouterPeering").getVirtualRouterPeering = null as any;
-export const getVirtualRouterPeeringOutput: typeof import("./getVirtualRouterPeering").getVirtualRouterPeeringOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualRouterPeering","getVirtualRouterPeeringOutput"], () => require("./getVirtualRouterPeering"));
-
-export { GetVirtualWanArgs, GetVirtualWanResult, GetVirtualWanOutputArgs } from "./getVirtualWan";
-export const getVirtualWan: typeof import("./getVirtualWan").getVirtualWan = null as any;
-export const getVirtualWanOutput: typeof import("./getVirtualWan").getVirtualWanOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualWan","getVirtualWanOutput"], () => require("./getVirtualWan"));
-
-export { GetVpnConnectionArgs, GetVpnConnectionResult, GetVpnConnectionOutputArgs } from "./getVpnConnection";
-export const getVpnConnection: typeof import("./getVpnConnection").getVpnConnection = null as any;
-export const getVpnConnectionOutput: typeof import("./getVpnConnection").getVpnConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getVpnConnection","getVpnConnectionOutput"], () => require("./getVpnConnection"));
-
-export { GetVpnGatewayArgs, GetVpnGatewayResult, GetVpnGatewayOutputArgs } from "./getVpnGateway";
-export const getVpnGateway: typeof import("./getVpnGateway").getVpnGateway = null as any;
-export const getVpnGatewayOutput: typeof import("./getVpnGateway").getVpnGatewayOutput = null as any;
-utilities.lazyLoad(exports, ["getVpnGateway","getVpnGatewayOutput"], () => require("./getVpnGateway"));
-
-export { GetVpnServerConfigurationArgs, GetVpnServerConfigurationResult, GetVpnServerConfigurationOutputArgs } from "./getVpnServerConfiguration";
-export const getVpnServerConfiguration: typeof import("./getVpnServerConfiguration").getVpnServerConfiguration = null as any;
-export const getVpnServerConfigurationOutput: typeof import("./getVpnServerConfiguration").getVpnServerConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getVpnServerConfiguration","getVpnServerConfigurationOutput"], () => require("./getVpnServerConfiguration"));
-
-export { GetVpnSiteArgs, GetVpnSiteResult, GetVpnSiteOutputArgs } from "./getVpnSite";
-export const getVpnSite: typeof import("./getVpnSite").getVpnSite = null as any;
-export const getVpnSiteOutput: typeof import("./getVpnSite").getVpnSiteOutput = null as any;
-utilities.lazyLoad(exports, ["getVpnSite","getVpnSiteOutput"], () => require("./getVpnSite"));
-
-export { GetWebApplicationFirewallPolicyArgs, GetWebApplicationFirewallPolicyResult, GetWebApplicationFirewallPolicyOutputArgs } from "./getWebApplicationFirewallPolicy";
-export const getWebApplicationFirewallPolicy: typeof import("./getWebApplicationFirewallPolicy").getWebApplicationFirewallPolicy = null as any;
-export const getWebApplicationFirewallPolicyOutput: typeof import("./getWebApplicationFirewallPolicy").getWebApplicationFirewallPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getWebApplicationFirewallPolicy","getWebApplicationFirewallPolicyOutput"], () => require("./getWebApplicationFirewallPolicy"));
-
-export { InboundNatRuleArgs } from "./inboundNatRule";
-export type InboundNatRule = import("./inboundNatRule").InboundNatRule;
-export const InboundNatRule: typeof import("./inboundNatRule").InboundNatRule = null as any;
-utilities.lazyLoad(exports, ["InboundNatRule"], () => require("./inboundNatRule"));
-
 export { LoadBalancerArgs } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
 export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
@@ -425,11 +175,6 @@ export type NetworkInterface = import("./networkInterface").NetworkInterface;
 export const NetworkInterface: typeof import("./networkInterface").NetworkInterface = null as any;
 utilities.lazyLoad(exports, ["NetworkInterface"], () => require("./networkInterface"));
 
-export { NetworkInterfaceTapConfigurationArgs } from "./networkInterfaceTapConfiguration";
-export type NetworkInterfaceTapConfiguration = import("./networkInterfaceTapConfiguration").NetworkInterfaceTapConfiguration;
-export const NetworkInterfaceTapConfiguration: typeof import("./networkInterfaceTapConfiguration").NetworkInterfaceTapConfiguration = null as any;
-utilities.lazyLoad(exports, ["NetworkInterfaceTapConfiguration"], () => require("./networkInterfaceTapConfiguration"));
-
 export { NetworkProfileArgs } from "./networkProfile";
 export type NetworkProfile = import("./networkProfile").NetworkProfile;
 export const NetworkProfile: typeof import("./networkProfile").NetworkProfile = null as any;
@@ -439,26 +184,6 @@ export { NetworkSecurityGroupArgs } from "./networkSecurityGroup";
 export type NetworkSecurityGroup = import("./networkSecurityGroup").NetworkSecurityGroup;
 export const NetworkSecurityGroup: typeof import("./networkSecurityGroup").NetworkSecurityGroup = null as any;
 utilities.lazyLoad(exports, ["NetworkSecurityGroup"], () => require("./networkSecurityGroup"));
-
-export { NetworkWatcherArgs } from "./networkWatcher";
-export type NetworkWatcher = import("./networkWatcher").NetworkWatcher;
-export const NetworkWatcher: typeof import("./networkWatcher").NetworkWatcher = null as any;
-utilities.lazyLoad(exports, ["NetworkWatcher"], () => require("./networkWatcher"));
-
-export { P2sVpnGatewayArgs } from "./p2sVpnGateway";
-export type P2sVpnGateway = import("./p2sVpnGateway").P2sVpnGateway;
-export const P2sVpnGateway: typeof import("./p2sVpnGateway").P2sVpnGateway = null as any;
-utilities.lazyLoad(exports, ["P2sVpnGateway"], () => require("./p2sVpnGateway"));
-
-export { PacketCaptureArgs } from "./packetCapture";
-export type PacketCapture = import("./packetCapture").PacketCapture;
-export const PacketCapture: typeof import("./packetCapture").PacketCapture = null as any;
-utilities.lazyLoad(exports, ["PacketCapture"], () => require("./packetCapture"));
-
-export { PrivateEndpointArgs } from "./privateEndpoint";
-export type PrivateEndpoint = import("./privateEndpoint").PrivateEndpoint;
-export const PrivateEndpoint: typeof import("./privateEndpoint").PrivateEndpoint = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpoint"], () => require("./privateEndpoint"));
 
 export { PrivateLinkServiceArgs } from "./privateLinkService";
 export type PrivateLinkService = import("./privateLinkService").PrivateLinkService;
@@ -475,50 +200,15 @@ export type PublicIPPrefix = import("./publicIPPrefix").PublicIPPrefix;
 export const PublicIPPrefix: typeof import("./publicIPPrefix").PublicIPPrefix = null as any;
 utilities.lazyLoad(exports, ["PublicIPPrefix"], () => require("./publicIPPrefix"));
 
-export { RouteArgs } from "./route";
-export type Route = import("./route").Route;
-export const Route: typeof import("./route").Route = null as any;
-utilities.lazyLoad(exports, ["Route"], () => require("./route"));
-
 export { RouteFilterArgs } from "./routeFilter";
 export type RouteFilter = import("./routeFilter").RouteFilter;
 export const RouteFilter: typeof import("./routeFilter").RouteFilter = null as any;
 utilities.lazyLoad(exports, ["RouteFilter"], () => require("./routeFilter"));
 
-export { RouteFilterRuleArgs } from "./routeFilterRule";
-export type RouteFilterRule = import("./routeFilterRule").RouteFilterRule;
-export const RouteFilterRule: typeof import("./routeFilterRule").RouteFilterRule = null as any;
-utilities.lazyLoad(exports, ["RouteFilterRule"], () => require("./routeFilterRule"));
-
-export { RouteTableArgs } from "./routeTable";
-export type RouteTable = import("./routeTable").RouteTable;
-export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
-utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
-
-export { SecurityRuleArgs } from "./securityRule";
-export type SecurityRule = import("./securityRule").SecurityRule;
-export const SecurityRule: typeof import("./securityRule").SecurityRule = null as any;
-utilities.lazyLoad(exports, ["SecurityRule"], () => require("./securityRule"));
-
-export { ServiceEndpointPolicyArgs } from "./serviceEndpointPolicy";
-export type ServiceEndpointPolicy = import("./serviceEndpointPolicy").ServiceEndpointPolicy;
-export const ServiceEndpointPolicy: typeof import("./serviceEndpointPolicy").ServiceEndpointPolicy = null as any;
-utilities.lazyLoad(exports, ["ServiceEndpointPolicy"], () => require("./serviceEndpointPolicy"));
-
-export { ServiceEndpointPolicyDefinitionArgs } from "./serviceEndpointPolicyDefinition";
-export type ServiceEndpointPolicyDefinition = import("./serviceEndpointPolicyDefinition").ServiceEndpointPolicyDefinition;
-export const ServiceEndpointPolicyDefinition: typeof import("./serviceEndpointPolicyDefinition").ServiceEndpointPolicyDefinition = null as any;
-utilities.lazyLoad(exports, ["ServiceEndpointPolicyDefinition"], () => require("./serviceEndpointPolicyDefinition"));
-
 export { SubnetArgs } from "./subnet";
 export type Subnet = import("./subnet").Subnet;
 export const Subnet: typeof import("./subnet").Subnet = null as any;
 utilities.lazyLoad(exports, ["Subnet"], () => require("./subnet"));
-
-export { VirtualHubArgs } from "./virtualHub";
-export type VirtualHub = import("./virtualHub").VirtualHub;
-export const VirtualHub: typeof import("./virtualHub").VirtualHub = null as any;
-utilities.lazyLoad(exports, ["VirtualHub"], () => require("./virtualHub"));
 
 export { VirtualNetworkArgs } from "./virtualNetwork";
 export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
@@ -535,56 +225,6 @@ export type VirtualNetworkGatewayConnection = import("./virtualNetworkGatewayCon
 export const VirtualNetworkGatewayConnection: typeof import("./virtualNetworkGatewayConnection").VirtualNetworkGatewayConnection = null as any;
 utilities.lazyLoad(exports, ["VirtualNetworkGatewayConnection"], () => require("./virtualNetworkGatewayConnection"));
 
-export { VirtualNetworkPeeringArgs } from "./virtualNetworkPeering";
-export type VirtualNetworkPeering = import("./virtualNetworkPeering").VirtualNetworkPeering;
-export const VirtualNetworkPeering: typeof import("./virtualNetworkPeering").VirtualNetworkPeering = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkPeering"], () => require("./virtualNetworkPeering"));
-
-export { VirtualNetworkTapArgs } from "./virtualNetworkTap";
-export type VirtualNetworkTap = import("./virtualNetworkTap").VirtualNetworkTap;
-export const VirtualNetworkTap: typeof import("./virtualNetworkTap").VirtualNetworkTap = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkTap"], () => require("./virtualNetworkTap"));
-
-export { VirtualRouterArgs } from "./virtualRouter";
-export type VirtualRouter = import("./virtualRouter").VirtualRouter;
-export const VirtualRouter: typeof import("./virtualRouter").VirtualRouter = null as any;
-utilities.lazyLoad(exports, ["VirtualRouter"], () => require("./virtualRouter"));
-
-export { VirtualRouterPeeringArgs } from "./virtualRouterPeering";
-export type VirtualRouterPeering = import("./virtualRouterPeering").VirtualRouterPeering;
-export const VirtualRouterPeering: typeof import("./virtualRouterPeering").VirtualRouterPeering = null as any;
-utilities.lazyLoad(exports, ["VirtualRouterPeering"], () => require("./virtualRouterPeering"));
-
-export { VirtualWanArgs } from "./virtualWan";
-export type VirtualWan = import("./virtualWan").VirtualWan;
-export const VirtualWan: typeof import("./virtualWan").VirtualWan = null as any;
-utilities.lazyLoad(exports, ["VirtualWan"], () => require("./virtualWan"));
-
-export { VpnConnectionArgs } from "./vpnConnection";
-export type VpnConnection = import("./vpnConnection").VpnConnection;
-export const VpnConnection: typeof import("./vpnConnection").VpnConnection = null as any;
-utilities.lazyLoad(exports, ["VpnConnection"], () => require("./vpnConnection"));
-
-export { VpnGatewayArgs } from "./vpnGateway";
-export type VpnGateway = import("./vpnGateway").VpnGateway;
-export const VpnGateway: typeof import("./vpnGateway").VpnGateway = null as any;
-utilities.lazyLoad(exports, ["VpnGateway"], () => require("./vpnGateway"));
-
-export { VpnServerConfigurationArgs } from "./vpnServerConfiguration";
-export type VpnServerConfiguration = import("./vpnServerConfiguration").VpnServerConfiguration;
-export const VpnServerConfiguration: typeof import("./vpnServerConfiguration").VpnServerConfiguration = null as any;
-utilities.lazyLoad(exports, ["VpnServerConfiguration"], () => require("./vpnServerConfiguration"));
-
-export { VpnSiteArgs } from "./vpnSite";
-export type VpnSite = import("./vpnSite").VpnSite;
-export const VpnSite: typeof import("./vpnSite").VpnSite = null as any;
-utilities.lazyLoad(exports, ["VpnSite"], () => require("./vpnSite"));
-
-export { WebApplicationFirewallPolicyArgs } from "./webApplicationFirewallPolicy";
-export type WebApplicationFirewallPolicy = import("./webApplicationFirewallPolicy").WebApplicationFirewallPolicy;
-export const WebApplicationFirewallPolicy: typeof import("./webApplicationFirewallPolicy").WebApplicationFirewallPolicy = null as any;
-utilities.lazyLoad(exports, ["WebApplicationFirewallPolicy"], () => require("./webApplicationFirewallPolicy"));
-
 
 // Export enums:
 export * from "../../types/enums/network/v20190801";
@@ -595,40 +235,12 @@ const _module = {
         switch (type) {
             case "azure-native:network/v20190801:ApplicationGateway":
                 return new ApplicationGateway(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ApplicationSecurityGroup":
-                return new ApplicationSecurityGroup(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:AzureFirewall":
-                return new AzureFirewall(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:BastionHost":
-                return new BastionHost(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ConnectionMonitor":
-                return new ConnectionMonitor(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:DdosCustomPolicy":
-                return new DdosCustomPolicy(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:DdosProtectionPlan":
-                return new DdosProtectionPlan(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ExpressRouteCircuit":
-                return new ExpressRouteCircuit(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ExpressRouteCircuitAuthorization":
-                return new ExpressRouteCircuitAuthorization(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ExpressRouteCircuitConnection":
-                return new ExpressRouteCircuitConnection(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:ExpressRouteCircuitPeering":
                 return new ExpressRouteCircuitPeering(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ExpressRouteConnection":
-                return new ExpressRouteConnection(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:ExpressRouteCrossConnectionPeering":
                 return new ExpressRouteCrossConnectionPeering(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ExpressRouteGateway":
-                return new ExpressRouteGateway(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:ExpressRoutePort":
                 return new ExpressRoutePort(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:FirewallPolicy":
-                return new FirewallPolicy(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:FirewallPolicyRuleGroup":
-                return new FirewallPolicyRuleGroup(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:InboundNatRule":
-                return new InboundNatRule(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:LocalNetworkGateway":
@@ -637,70 +249,26 @@ const _module = {
                 return new NatGateway(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:NetworkInterfaceTapConfiguration":
-                return new NetworkInterfaceTapConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:NetworkProfile":
                 return new NetworkProfile(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:NetworkWatcher":
-                return new NetworkWatcher(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:P2sVpnGateway":
-                return new P2sVpnGateway(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:PacketCapture":
-                return new PacketCapture(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:PrivateEndpoint":
-                return new PrivateEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:PrivateLinkService":
                 return new PrivateLinkService(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:PublicIPAddress":
                 return new PublicIPAddress(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:PublicIPPrefix":
                 return new PublicIPPrefix(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:Route":
-                return new Route(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:RouteFilter":
                 return new RouteFilter(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:RouteFilterRule":
-                return new RouteFilterRule(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:RouteTable":
-                return new RouteTable(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:SecurityRule":
-                return new SecurityRule(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ServiceEndpointPolicy":
-                return new ServiceEndpointPolicy(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:ServiceEndpointPolicyDefinition":
-                return new ServiceEndpointPolicyDefinition(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VirtualHub":
-                return new VirtualHub(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:VirtualNetwork":
                 return new VirtualNetwork(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:VirtualNetworkGateway":
                 return new VirtualNetworkGateway(name, <any>undefined, { urn })
             case "azure-native:network/v20190801:VirtualNetworkGatewayConnection":
                 return new VirtualNetworkGatewayConnection(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VirtualNetworkPeering":
-                return new VirtualNetworkPeering(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VirtualNetworkTap":
-                return new VirtualNetworkTap(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VirtualRouter":
-                return new VirtualRouter(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VirtualRouterPeering":
-                return new VirtualRouterPeering(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VirtualWan":
-                return new VirtualWan(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VpnConnection":
-                return new VpnConnection(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VpnGateway":
-                return new VpnGateway(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VpnServerConfiguration":
-                return new VpnServerConfiguration(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:VpnSite":
-                return new VpnSite(name, <any>undefined, { urn })
-            case "azure-native:network/v20190801:WebApplicationFirewallPolicy":
-                return new WebApplicationFirewallPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

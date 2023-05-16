@@ -50,7 +50,7 @@ def list_linker_configurations(linker_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLinkerConfigurationsResult:
     """
     list source configurations for a linker.
-    API Version: 2021-11-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str linker_name: The name Linker resource.
@@ -72,7 +72,7 @@ def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] =
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
     """
     list source configurations for a linker.
-    API Version: 2021-11-01-preview.
+    API Version: 2022-05-01.
 
 
     :param str linker_name: The name Linker resource.

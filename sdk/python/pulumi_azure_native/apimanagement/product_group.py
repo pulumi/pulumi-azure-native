@@ -21,7 +21,7 @@ class ProductGroupArgs:
         """
         The set of arguments for constructing a ProductGroup resource.
         :param pulumi.Input[str] product_id: Product identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] group_id: Group identifier. Must be unique in the current API Management service instance.
         """
@@ -47,7 +47,7 @@ class ProductGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -92,13 +92,14 @@ class ProductGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Group identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] product_id: Product identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
         ...
@@ -109,7 +110,8 @@ class ProductGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ProductGroupArgs args: The arguments to use to populate this resource's properties.
@@ -155,7 +157,7 @@ class ProductGroup(pulumi.CustomResource):
             __props__.__dict__["external_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ProductGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ProductGroup"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ProductGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProductGroup, __self__).__init__(
             'azure-native:apimanagement:ProductGroup',
@@ -223,7 +225,7 @@ class ProductGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -231,7 +233,7 @@ class ProductGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

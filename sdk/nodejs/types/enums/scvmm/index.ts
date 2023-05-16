@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20200605preview from "./v20200605preview";
+import * as v20220521preview from "./v20220521preview";
 
 export {
     v20200605preview,
+    v20220521preview,
 };
 
 export const AllocationMethod = {
@@ -59,3 +61,14 @@ export const LimitCpuForMigration = {
  * Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
  */
 export type LimitCpuForMigration = (typeof LimitCpuForMigration)[keyof typeof LimitCpuForMigration];
+
+export const ProvisioningAction = {
+    Install: "install",
+    Uninstall: "uninstall",
+    Repair: "repair",
+} as const;
+
+/**
+ * Gets or sets the guest agent provisioning action.
+ */
+export type ProvisioningAction = (typeof ProvisioningAction)[keyof typeof ProvisioningAction];

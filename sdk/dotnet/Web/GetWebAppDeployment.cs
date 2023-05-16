@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppDeployment
     {
         /// <summary>
-        /// Get a deployment by its ID for an app, or a deployment slot.
-        /// API Version: 2020-12-01.
+        /// Description for Get a deployment by its ID for an app, or a deployment slot.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetWebAppDeploymentResult> InvokeAsync(GetWebAppDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentResult>("azure-native:web:getWebAppDeployment", args ?? new GetWebAppDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a deployment by its ID for an app, or a deployment slot.
-        /// API Version: 2020-12-01.
+        /// Description for Get a deployment by its ID for an app, or a deployment slot.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetWebAppDeploymentResult> Invoke(GetWebAppDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentResult>("azure-native:web:getWebAppDeployment", args ?? new GetWebAppDeploymentInvokeArgs(), options.WithDefaults());

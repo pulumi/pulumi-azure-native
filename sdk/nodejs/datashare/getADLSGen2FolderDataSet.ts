@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getADLSGen2FolderDataSet(args: GetADLSGen2FolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetResult> {
 
@@ -93,7 +93,7 @@ export interface GetADLSGen2FolderDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getADLSGen2FolderDataSetOutput(args: GetADLSGen2FolderDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen2FolderDataSet(a, opts))

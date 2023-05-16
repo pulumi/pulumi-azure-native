@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// </summary>
         public readonly Outputs.SqlConnectivityUpdateSettingsResponse? SqlConnectivityUpdateSettings;
         /// <summary>
+        /// SQL Instance settings.
+        /// </summary>
+        public readonly Outputs.SQLInstanceSettingsResponse? SqlInstanceSettings;
+        /// <summary>
         /// SQL storage update settings.
         /// </summary>
         public readonly Outputs.SqlStorageUpdateSettingsResponse? SqlStorageUpdateSettings;
@@ -39,12 +43,15 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
             Outputs.SqlConnectivityUpdateSettingsResponse? sqlConnectivityUpdateSettings,
 
+            Outputs.SQLInstanceSettingsResponse? sqlInstanceSettings,
+
             Outputs.SqlStorageUpdateSettingsResponse? sqlStorageUpdateSettings,
 
             Outputs.SqlWorkloadTypeUpdateSettingsResponse? sqlWorkloadTypeUpdateSettings)
         {
             AdditionalFeaturesServerConfigurations = additionalFeaturesServerConfigurations;
             SqlConnectivityUpdateSettings = sqlConnectivityUpdateSettings;
+            SqlInstanceSettings = sqlInstanceSettings;
             SqlStorageUpdateSettings = sqlStorageUpdateSettings;
             SqlWorkloadTypeUpdateSettings = sqlWorkloadTypeUpdateSettings;
         }

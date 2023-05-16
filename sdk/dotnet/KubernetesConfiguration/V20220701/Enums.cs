@@ -71,67 +71,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701
     }
 
     /// <summary>
-    /// Scope at which the operator will be installed.
-    /// </summary>
-    [EnumType]
-    public readonly struct OperatorScopeType : IEquatable<OperatorScopeType>
-    {
-        private readonly string _value;
-
-        private OperatorScopeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OperatorScopeType Cluster { get; } = new OperatorScopeType("cluster");
-        public static OperatorScopeType @Namespace { get; } = new OperatorScopeType("namespace");
-
-        public static bool operator ==(OperatorScopeType left, OperatorScopeType right) => left.Equals(right);
-        public static bool operator !=(OperatorScopeType left, OperatorScopeType right) => !left.Equals(right);
-
-        public static explicit operator string(OperatorScopeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OperatorScopeType other && Equals(other);
-        public bool Equals(OperatorScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of the operator
-    /// </summary>
-    [EnumType]
-    public readonly struct OperatorType : IEquatable<OperatorType>
-    {
-        private readonly string _value;
-
-        private OperatorType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OperatorType Flux { get; } = new OperatorType("Flux");
-
-        public static bool operator ==(OperatorType left, OperatorType right) => left.Equals(right);
-        public static bool operator !=(OperatorType left, OperatorType right) => !left.Equals(right);
-
-        public static explicit operator string(OperatorType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OperatorType other && Equals(other);
-        public bool Equals(OperatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The identity type.
     /// </summary>
     [EnumType]
@@ -154,69 +93,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Scope at which the operator will be installed.
-    /// </summary>
-    [EnumType]
-    public readonly struct ScopeType : IEquatable<ScopeType>
-    {
-        private readonly string _value;
-
-        private ScopeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ScopeType Cluster { get; } = new ScopeType("cluster");
-        public static ScopeType @Namespace { get; } = new ScopeType("namespace");
-
-        public static bool operator ==(ScopeType left, ScopeType right) => left.Equals(right);
-        public static bool operator !=(ScopeType left, ScopeType right) => !left.Equals(right);
-
-        public static explicit operator string(ScopeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ScopeType other && Equals(other);
-        public bool Equals(ScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Source Kind to pull the configuration data from.
-    /// </summary>
-    [EnumType]
-    public readonly struct SourceKindType : IEquatable<SourceKindType>
-    {
-        private readonly string _value;
-
-        private SourceKindType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SourceKindType GitRepository { get; } = new SourceKindType("GitRepository");
-        public static SourceKindType Bucket { get; } = new SourceKindType("Bucket");
-        public static SourceKindType AzureBlob { get; } = new SourceKindType("AzureBlob");
-
-        public static bool operator ==(SourceKindType left, SourceKindType right) => left.Equals(right);
-        public static bool operator !=(SourceKindType left, SourceKindType right) => !left.Equals(right);
-
-        public static explicit operator string(SourceKindType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SourceKindType other && Equals(other);
-        public bool Equals(SourceKindType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

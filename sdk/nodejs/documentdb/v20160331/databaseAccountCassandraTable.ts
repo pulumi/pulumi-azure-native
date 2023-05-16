@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Cassandra table.
- *
- * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountCassandraTable {
-        pulumi.log.warn("DatabaseAccountCassandraTable is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         return new DatabaseAccountCassandraTable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +69,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
     constructor(name: string, args: DatabaseAccountCassandraTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountCassandraTable is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -114,7 +109,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountCassandraTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20211115preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220215preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220515:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220515preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220815:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20220815preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20221115:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20221115preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20230301preview:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20230315:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20230415:DatabaseAccountCassandraTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountCassandraTable.__pulumiType, name, resourceInputs, opts);
     }

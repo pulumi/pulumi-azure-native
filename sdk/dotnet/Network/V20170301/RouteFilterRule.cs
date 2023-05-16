@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20170301
     /// <summary>
     /// Route Filter Rule Resource
     /// </summary>
-    [Obsolete(@"Version 2017-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170301:RouteFilterRule")]
     public partial class RouteFilterRule : global::Pulumi.CustomResource
     {
@@ -128,6 +127,7 @@ namespace Pulumi.AzureNative.Network.V20170301
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RouteFilterRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:RouteFilterRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:RouteFilterRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:RouteFilterRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

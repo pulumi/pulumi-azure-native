@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// Response for list of user's role for Logz.io account.
-        /// API Version: 2020-10-01.
+        /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<ListMonitorUserRolesResult> InvokeAsync(ListMonitorUserRolesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorUserRolesResult>("azure-native:logz:listMonitorUserRoles", args ?? new ListMonitorUserRolesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for list of user's role for Logz.io account.
-        /// API Version: 2020-10-01.
+        /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<ListMonitorUserRolesResult> Invoke(ListMonitorUserRolesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorUserRolesResult>("azure-native:logz:listMonitorUserRoles", args ?? new ListMonitorUserRolesInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Endpoint resource.
- * API Version: 2022-07-01-preview.
+ * API Version: 2023-03-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -63,7 +63,7 @@ export interface GetEndpointResult {
 }
 /**
  * Gets an Endpoint resource.
- * API Version: 2022-07-01-preview.
+ * API Version: 2023-03-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

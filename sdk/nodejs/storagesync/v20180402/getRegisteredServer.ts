@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a given registered server.
  */
-/** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
-    pulumi.log.warn("getRegisteredServer is deprecated: Version 2018-04-02 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync/v20180402:getRegisteredServer", {
@@ -126,7 +124,6 @@ export interface GetRegisteredServerResult {
 /**
  * Get a given registered server.
  */
-/** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
     return pulumi.output(args).apply((a: any) => getRegisteredServer(a, opts))
 }

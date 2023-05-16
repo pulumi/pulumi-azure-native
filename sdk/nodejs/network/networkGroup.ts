@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The network group resource
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkGroup extends pulumi.CustomResource {
     /**
@@ -39,29 +40,13 @@ export class NetworkGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Network group conditional filter.
-     */
-    public readonly conditionalMembership!: pulumi.Output<string | undefined>;
-    /**
      * A description of the network group.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A friendly name for the network group.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
-    /**
-     * Group members of network group.
-     */
-    public readonly groupMembers!: pulumi.Output<outputs.network.GroupMembersItemResponse[] | undefined>;
-    /**
-     * Group member type.
-     */
-    public readonly memberType!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -96,11 +81,7 @@ export class NetworkGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["conditionalMembership"] = args ? args.conditionalMembership : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["groupMembers"] = args ? args.groupMembers : undefined;
-            resourceInputs["memberType"] = args ? args.memberType : undefined;
             resourceInputs["networkGroupName"] = args ? args.networkGroupName : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -110,19 +91,15 @@ export class NetworkGroup extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["conditionalMembership"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["groupMembers"] = undefined /*out*/;
-            resourceInputs["memberType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkGroup" }, { type: "azure-native:network/v20210501preview:NetworkGroup" }, { type: "azure-native:network/v20220101:NetworkGroup" }, { type: "azure-native:network/v20220201preview:NetworkGroup" }, { type: "azure-native:network/v20220401preview:NetworkGroup" }, { type: "azure-native:network/v20220501:NetworkGroup" }, { type: "azure-native:network/v20220701:NetworkGroup" }, { type: "azure-native:network/v20220901:NetworkGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkGroup" }, { type: "azure-native:network/v20210501preview:NetworkGroup" }, { type: "azure-native:network/v20220101:NetworkGroup" }, { type: "azure-native:network/v20220201preview:NetworkGroup" }, { type: "azure-native:network/v20220401preview:NetworkGroup" }, { type: "azure-native:network/v20220501:NetworkGroup" }, { type: "azure-native:network/v20220701:NetworkGroup" }, { type: "azure-native:network/v20220901:NetworkGroup" }, { type: "azure-native:network/v20221101:NetworkGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -133,27 +110,11 @@ export class NetworkGroup extends pulumi.CustomResource {
  */
 export interface NetworkGroupArgs {
     /**
-     * Network group conditional filter.
-     */
-    conditionalMembership?: pulumi.Input<string>;
-    /**
      * A description of the network group.
      */
     description?: pulumi.Input<string>;
     /**
-     * A friendly name for the network group.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
-     * Group members of network group.
-     */
-    groupMembers?: pulumi.Input<pulumi.Input<inputs.network.GroupMembersItemArgs>[]>;
-    /**
-     * Group member type.
-     */
-    memberType?: pulumi.Input<string>;
-    /**
-     * The name of the network group to get.
+     * The name of the network group.
      */
     networkGroupName?: pulumi.Input<string>;
     /**

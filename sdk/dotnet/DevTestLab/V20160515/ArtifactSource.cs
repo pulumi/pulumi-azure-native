@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// <summary>
     /// Properties of an artifact source.
     /// </summary>
-    [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:ArtifactSource")]
     public partial class ArtifactSource : global::Pulumi.CustomResource
     {

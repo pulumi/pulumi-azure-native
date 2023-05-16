@@ -131,12 +131,7 @@ class MachineArgs:
         pulumi.set(self, "type", value)
 
 
-warnings.warn("""Version 2019-03-18-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Machine(pulumi.CustomResource):
-    warnings.warn("""Version 2019-03-18-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -194,7 +189,6 @@ class Machine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Machine is deprecated: Version 2019-03-18-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -225,7 +219,7 @@ class Machine(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["vm_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20190802preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20191212:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200730preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200802:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:Machine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20190802preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20191212:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200730preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200802:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:Machine"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:Machine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Machine, __self__).__init__(
             'azure-native:hybridcompute/v20190318preview:Machine',

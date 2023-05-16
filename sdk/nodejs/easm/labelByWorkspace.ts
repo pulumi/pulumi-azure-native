@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Label details
  * API Version: 2022-04-01-preview.
+ * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class LabelByWorkspace extends pulumi.CustomResource {
     /**
@@ -98,7 +99,7 @@ export class LabelByWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:easm/v20220401preview:LabelByWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:easm/v20220401preview:LabelByWorkspace" }, { type: "azure-native:easm/v20230401preview:LabelByWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabelByWorkspace.__pulumiType, name, resourceInputs, opts);
     }

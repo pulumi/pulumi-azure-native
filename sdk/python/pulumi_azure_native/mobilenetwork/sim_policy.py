@@ -22,12 +22,6 @@ class SimPolicyArgs:
                  resource_group_name: pulumi.Input[str],
                  slice_configurations: pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]],
                  ue_ambr: pulumi.Input['AmbrArgs'],
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  registration_timer: Optional[pulumi.Input[int]] = None,
                  rfsp_index: Optional[pulumi.Input[int]] = None,
@@ -35,17 +29,11 @@ class SimPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SimPolicy resource.
-        :param pulumi.Input['SliceResourceIdArgs'] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        :param pulumi.Input['SliceResourceIdArgs'] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]] slice_configurations: The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         :param pulumi.Input['AmbrArgs'] ue_ambr: Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] registration_timer: Interval for the UE periodic registration update procedure, in seconds.
         :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
@@ -57,18 +45,6 @@ class SimPolicyArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "slice_configurations", slice_configurations)
         pulumi.set(__self__, "ue_ambr", ue_ambr)
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if registration_timer is None:
@@ -86,7 +62,7 @@ class SimPolicyArgs:
     @pulumi.getter(name="defaultSlice")
     def default_slice(self) -> pulumi.Input['SliceResourceIdArgs']:
         """
-        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         """
         return pulumi.get(self, "default_slice")
 
@@ -141,78 +117,6 @@ class SimPolicyArgs:
     @ue_ambr.setter
     def ue_ambr(self, value: pulumi.Input['AmbrArgs']):
         pulumi.set(self, "ue_ambr", value)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_at", value)
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_by", value)
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @created_by_type.setter
-    def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "created_by_type", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @last_modified_at.setter
-    def last_modified_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_at", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_by", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @last_modified_by_type.setter
-    def last_modified_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "last_modified_by_type", value)
 
     @property
     @pulumi.getter
@@ -280,13 +184,7 @@ class SimPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  default_slice: Optional[pulumi.Input[pulumi.InputType['SliceResourceIdArgs']]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
                  registration_timer: Optional[pulumi.Input[int]] = None,
@@ -299,17 +197,12 @@ class SimPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         SIM policy resource.
-        API Version: 2022-04-01-preview.
+        API Version: 2022-11-01.
+        Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
-        :param pulumi.Input[pulumi.InputType['SliceResourceIdArgs']] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
+        :param pulumi.Input[pulumi.InputType['SliceResourceIdArgs']] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
         :param pulumi.Input[int] registration_timer: Interval for the UE periodic registration update procedure, in seconds.
@@ -328,7 +221,8 @@ class SimPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SIM policy resource.
-        API Version: 2022-04-01-preview.
+        API Version: 2022-11-01.
+        Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SimPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -345,13 +239,7 @@ class SimPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  default_slice: Optional[pulumi.Input[pulumi.InputType['SliceResourceIdArgs']]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_name: Optional[pulumi.Input[str]] = None,
                  registration_timer: Optional[pulumi.Input[int]] = None,
@@ -370,15 +258,9 @@ class SimPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SimPolicyArgs.__new__(SimPolicyArgs)
 
-            __props__.__dict__["created_at"] = created_at
-            __props__.__dict__["created_by"] = created_by
-            __props__.__dict__["created_by_type"] = created_by_type
             if default_slice is None and not opts.urn:
                 raise TypeError("Missing required property 'default_slice'")
             __props__.__dict__["default_slice"] = default_slice
-            __props__.__dict__["last_modified_at"] = last_modified_at
-            __props__.__dict__["last_modified_by"] = last_modified_by
-            __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             __props__.__dict__["location"] = location
             if mobile_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'mobile_network_name'")
@@ -400,6 +282,7 @@ class SimPolicy(pulumi.CustomResource):
             __props__.__dict__["ue_ambr"] = ue_ambr
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["site_provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:SimPolicy")])
@@ -426,18 +309,13 @@ class SimPolicy(pulumi.CustomResource):
 
         __props__ = SimPolicyArgs.__new__(SimPolicyArgs)
 
-        __props__.__dict__["created_at"] = None
-        __props__.__dict__["created_by"] = None
-        __props__.__dict__["created_by_type"] = None
         __props__.__dict__["default_slice"] = None
-        __props__.__dict__["last_modified_at"] = None
-        __props__.__dict__["last_modified_by"] = None
-        __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["registration_timer"] = None
         __props__.__dict__["rfsp_index"] = None
+        __props__.__dict__["site_provisioning_state"] = None
         __props__.__dict__["slice_configurations"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -446,60 +324,12 @@ class SimPolicy(pulumi.CustomResource):
         return SimPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
     @pulumi.getter(name="defaultSlice")
     def default_slice(self) -> pulumi.Output['outputs.SliceResourceIdResponse']:
         """
-        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         """
         return pulumi.get(self, "default_slice")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter
@@ -540,6 +370,14 @@ class SimPolicy(pulumi.CustomResource):
         RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         """
         return pulumi.get(self, "rfsp_index")
+
+    @property
+    @pulumi.getter(name="siteProvisioningState")
+    def site_provisioning_state(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A dictionary of sites to the provisioning state of this SIM policy on that site.
+        """
+        return pulumi.get(self, "site_provisioning_state")
 
     @property
     @pulumi.getter(name="sliceConfigurations")

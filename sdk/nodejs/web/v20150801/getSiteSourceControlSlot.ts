@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Describes the source control configuration for web app
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteSourceControlSlot(args: GetSiteSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteSourceControlSlotResult> {
-    pulumi.log.warn("getSiteSourceControlSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteSourceControlSlot", {
@@ -86,7 +84,6 @@ export interface GetSiteSourceControlSlotResult {
 /**
  * Describes the source control configuration for web app
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteSourceControlSlotOutput(args: GetSiteSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteSourceControlSlotResult> {
     return pulumi.output(args).apply((a: any) => getSiteSourceControlSlot(a, opts))
 }

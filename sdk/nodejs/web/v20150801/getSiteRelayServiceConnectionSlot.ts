@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Class that represents a BizTalk Hybrid Connection
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteRelayServiceConnectionSlot(args: GetSiteRelayServiceConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteRelayServiceConnectionSlotResult> {
-    pulumi.log.warn("getSiteRelayServiceConnectionSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", {
@@ -78,7 +76,6 @@ export interface GetSiteRelayServiceConnectionSlotResult {
 /**
  * Class that represents a BizTalk Hybrid Connection
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteRelayServiceConnectionSlotOutput(args: GetSiteRelayServiceConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteRelayServiceConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getSiteRelayServiceConnectionSlot(a, opts))
 }

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the information about the application resource with a given name. The information includes the information about the application's services and other runtime properties.
  */
-/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    pulumi.log.warn("getApplication is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180701preview:getApplication", {
@@ -100,7 +98,6 @@ export interface GetApplicationResult {
 /**
  * Gets the information about the application resource with a given name. The information includes the information about the application's services and other runtime properties.
  */
-/** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }

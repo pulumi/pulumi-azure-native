@@ -6,17 +6,11 @@ from enum import Enum
 
 __all__ = [
     'ComputeEnvironmentType',
-    'ComputeType',
     'DatasetType',
     'DatastoreTypeArm',
-    'EncryptionStatus',
     'Header',
-    'PrivateEndpointServiceConnectionStatus',
-    'RemoteLoginPortPublicAccess',
-    'ResourceIdentityType',
     'SourceType',
     'VariantType',
-    'VmPriority',
 ]
 
 
@@ -26,19 +20,6 @@ class ComputeEnvironmentType(str, Enum):
     """
     ACI = "ACI"
     AKS = "AKS"
-
-
-class ComputeType(str, Enum):
-    """
-    The type of compute
-    """
-    AKS = "AKS"
-    AML_COMPUTE = "AmlCompute"
-    DATA_FACTORY = "DataFactory"
-    VIRTUAL_MACHINE = "VirtualMachine"
-    HD_INSIGHT = "HDInsight"
-    DATABRICKS = "Databricks"
-    DATA_LAKE_ANALYTICS = "DataLakeAnalytics"
 
 
 class DatasetType(str, Enum):
@@ -63,14 +44,6 @@ class DatastoreTypeArm(str, Enum):
     PSQLDB = "psqldb"
 
 
-class EncryptionStatus(str, Enum):
-    """
-    Indicates whether or not the encryption is enabled for the workspace.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class Header(str, Enum):
     """
     Header type.
@@ -79,36 +52,6 @@ class Header(str, Enum):
     ONLY_FIRST_FILE_HAS_HEADERS = "only_first_file_has_headers"
     NO_HEADERS = "no_headers"
     COMBINE_ALL_FILES_HEADERS = "combine_all_files_headers"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
-    TIMEOUT = "Timeout"
-
-
-class RemoteLoginPortPublicAccess(str, Enum):
-    """
-    State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-    NOT_SPECIFIED = "NotSpecified"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    NONE = "None"
 
 
 class SourceType(str, Enum):
@@ -126,11 +69,3 @@ class VariantType(str, Enum):
     """
     CONTROL = "Control"
     TREATMENT = "Treatment"
-
-
-class VmPriority(str, Enum):
-    """
-    Virtual Machine priority
-    """
-    DEDICATED = "Dedicated"
-    LOW_PRIORITY = "LowPriority"

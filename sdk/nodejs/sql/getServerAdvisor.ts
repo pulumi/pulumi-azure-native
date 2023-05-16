@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a server advisor.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getServerAdvisor(args: GetServerAdvisorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdvisorResult> {
 
@@ -87,7 +87,7 @@ export interface GetServerAdvisorResult {
 }
 /**
  * Gets a server advisor.
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getServerAdvisorOutput(args: GetServerAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdvisorResult> {
     return pulumi.output(args).apply((a: any) => getServerAdvisor(a, opts))

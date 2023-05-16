@@ -2,19 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ComputeType = {
-    AKS: "AKS",
-    BatchAI: "BatchAI",
-    DataFactory: "DataFactory",
-    VirtualMachine: "VirtualMachine",
-    HDInsight: "HDInsight",
-} as const;
-
-/**
- * The type of compute
- */
-export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
-
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;

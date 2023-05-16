@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Linker of source and target resource
- * API Version: 2021-11-01-preview.
+ * API Version: 2022-05-01.
+ * Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Linker extends pulumi.CustomResource {
     /**
@@ -55,6 +56,10 @@ export class Linker extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * connection scope in source service.
+     */
+    public readonly scope!: pulumi.Output<string | undefined>;
+    /**
      * An option to store secret value in secure place
      */
     public readonly secretStore!: pulumi.Output<outputs.servicelinker.SecretStoreResponse | undefined>;
@@ -63,9 +68,9 @@ export class Linker extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.servicelinker.SystemDataResponse>;
     /**
-     * The resource Id of target service.
+     * The target service properties
      */
-    public readonly targetId!: pulumi.Output<string | undefined>;
+    public readonly targetService!: pulumi.Output<outputs.servicelinker.AzureResourceResponse | outputs.servicelinker.ConfluentBootstrapServerResponse | outputs.servicelinker.ConfluentSchemaRegistryResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -93,8 +98,9 @@ export class Linker extends pulumi.CustomResource {
             resourceInputs["clientType"] = args ? args.clientType : undefined;
             resourceInputs["linkerName"] = args ? args.linkerName : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["secretStore"] = args ? args.secretStore : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["targetService"] = args ? args.targetService : undefined;
             resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -105,9 +111,10 @@ export class Linker extends pulumi.CustomResource {
             resourceInputs["clientType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["secretStore"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["targetId"] = undefined /*out*/;
+            resourceInputs["targetService"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vNetSolution"] = undefined /*out*/;
         }
@@ -139,13 +146,17 @@ export interface LinkerArgs {
      */
     resourceUri: pulumi.Input<string>;
     /**
+     * connection scope in source service.
+     */
+    scope?: pulumi.Input<string>;
+    /**
      * An option to store secret value in secure place
      */
     secretStore?: pulumi.Input<inputs.servicelinker.SecretStoreArgs>;
     /**
-     * The resource Id of target service.
+     * The target service properties
      */
-    targetId?: pulumi.Input<string>;
+    targetService?: pulumi.Input<inputs.servicelinker.AzureResourceArgs | inputs.servicelinker.ConfluentBootstrapServerArgs | inputs.servicelinker.ConfluentSchemaRegistryArgs>;
     /**
      * The VNet solution.
      */

@@ -146,7 +146,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A private endpoint connection
-        API Version: 2021-03-15.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +167,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection
-        API Version: 2021-03-15.
+        API Version: 2022-11-15.
+        Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -212,7 +214,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20190801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210115:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210315:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210415:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210515:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210615:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20211015:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220515:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220815:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20221115:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20230315:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20190801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210115:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210315:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210415:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210515:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210615:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20211015:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220515:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220815:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20221115:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20230315:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20230415:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:documentdb:PrivateEndpointConnection',

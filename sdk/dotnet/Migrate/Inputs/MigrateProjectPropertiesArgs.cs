@@ -11,27 +11,27 @@ namespace Pulumi.AzureNative.Migrate.Inputs
 {
 
     /// <summary>
-    /// Class for migrate project properties.
+    /// Properties of a migrate project.
     /// </summary>
     public sealed class MigrateProjectPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Provisioning state of the migrate project.
+        /// Gets or sets the state of public network access.
         /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.Migrate.ProvisioningState>? ProvisioningState { get; set; }
-
-        [Input("registeredTools")]
-        private InputList<string>? _registeredTools;
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// Gets or sets the list of tools registered with the migrate project.
+        /// Service endpoint.
         /// </summary>
-        public InputList<string> RegisteredTools
-        {
-            get => _registeredTools ?? (_registeredTools = new InputList<string>());
-            set => _registeredTools = value;
-        }
+        [Input("serviceEndpoint")]
+        public Input<string>? ServiceEndpoint { get; set; }
+
+        /// <summary>
+        /// Utility storage account id.
+        /// </summary>
+        [Input("utilityStorageAccountId")]
+        public Input<string>? UtilityStorageAccountId { get; set; }
 
         public MigrateProjectPropertiesArgs()
         {

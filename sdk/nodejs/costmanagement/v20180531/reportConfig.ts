@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A report config resource.
- *
- * @deprecated Version 2018-05-31 will be removed in v2 of the provider.
  */
 export class ReportConfig extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ReportConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReportConfig {
-        pulumi.log.warn("ReportConfig is deprecated: Version 2018-05-31 will be removed in v2 of the provider.")
         return new ReportConfig(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +73,7 @@ export class ReportConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2018-05-31 will be removed in v2 of the provider. */
     constructor(name: string, args: ReportConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReportConfig is deprecated: Version 2018-05-31 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

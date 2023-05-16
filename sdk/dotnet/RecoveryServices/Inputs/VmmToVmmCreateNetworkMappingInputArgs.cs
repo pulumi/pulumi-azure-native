@@ -19,8 +19,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The instance type.
         /// Expected value is 'VmmToVmm'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
 
         public VmmToVmmCreateNetworkMappingInputArgs()
         {

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// A list of service resources.
         /// </summary>
         public readonly ImmutableArray<string> ServiceResources;
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private ServiceEndpointPolicyDefinitionResponse(
@@ -59,7 +63,9 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? service,
 
-            ImmutableArray<string> serviceResources)
+            ImmutableArray<string> serviceResources,
+
+            string? type)
         {
             Description = description;
             Etag = etag;
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             ProvisioningState = provisioningState;
             Service = service;
             ServiceResources = serviceResources;
+            Type = type;
         }
     }
 }

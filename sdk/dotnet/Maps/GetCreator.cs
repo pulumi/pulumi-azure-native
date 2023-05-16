@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// Get a Maps Creator resource.
-        /// API Version: 2020-02-01-preview.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetCreatorResult> InvokeAsync(GetCreatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azure-native:maps:getCreator", args ?? new GetCreatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Maps Creator resource.
-        /// API Version: 2020-02-01-preview.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetCreatorResult> Invoke(GetCreatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCreatorResult>("azure-native:maps:getCreator", args ?? new GetCreatorInvokeArgs(), options.WithDefaults());

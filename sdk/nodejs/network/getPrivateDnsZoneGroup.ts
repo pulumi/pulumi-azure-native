@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsZoneGroupResult> {
 
@@ -63,7 +63,7 @@ export interface GetPrivateDnsZoneGroupResult {
 }
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getPrivateDnsZoneGroupOutput(args: GetPrivateDnsZoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsZoneGroupResult> {
     return pulumi.output(args).apply((a: any) => getPrivateDnsZoneGroup(a, opts))

@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * An addon resource
- * API Version: 2020-07-17-preview.
+ * API Version: 2022-05-01.
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
 
@@ -38,25 +41,17 @@ export interface GetAddonArgs {
  */
 export interface GetAddonResult {
     /**
-     * The type of private cloud addon
-     */
-    readonly addonType?: string;
-    /**
      * Resource ID.
      */
     readonly id: string;
-    /**
-     * The SRM license
-     */
-    readonly licenseKey?: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The state of the addon provisioning
+     * The properties of an addon resource
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.avs.AddonArcPropertiesResponse | outputs.avs.AddonHcxPropertiesResponse | outputs.avs.AddonSrmPropertiesResponse | outputs.avs.AddonVrPropertiesResponse;
     /**
      * Resource type.
      */
@@ -64,7 +59,7 @@ export interface GetAddonResult {
 }
 /**
  * An addon resource
- * API Version: 2020-07-17-preview.
+ * API Version: 2022-05-01.
  */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
     return pulumi.output(args).apply((a: any) => getAddon(a, opts))

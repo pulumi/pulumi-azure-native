@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a lab.
- * API Version: 2018-10-15.
+ * The lab resource.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -39,65 +40,69 @@ export class Lab extends pulumi.CustomResource {
     }
 
     /**
-     * Object id of the user that created the lab.
+     * The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
      */
-    public /*out*/ readonly createdByObjectId!: pulumi.Output<string>;
+    public readonly autoShutdownProfile!: pulumi.Output<outputs.labservices.AutoShutdownProfileResponse>;
     /**
-     * Lab creator name
+     * The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
      */
-    public /*out*/ readonly createdByUserPrincipalName!: pulumi.Output<string>;
+    public readonly connectionProfile!: pulumi.Output<outputs.labservices.ConnectionProfileResponse>;
     /**
-     * Creation date for the lab
+     * The description of the lab.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Invitation code that users can use to join a lab.
+     * The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
      */
-    public /*out*/ readonly invitationCode!: pulumi.Output<string>;
+    public readonly labPlanId!: pulumi.Output<string | undefined>;
     /**
-     * The details of the latest operation. ex: status, error
+     * The geo-location where the resource lives
      */
-    public /*out*/ readonly latestOperationResult!: pulumi.Output<outputs.labservices.LatestOperationResultResponse>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * The location of the resource.
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * Maximum number of users allowed in the lab.
-     */
-    public readonly maxUsersInLab!: pulumi.Output<number | undefined>;
-    /**
-     * The name of the resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning status of the resource.
+     * The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly networkProfile!: pulumi.Output<outputs.labservices.LabNetworkProfileResponse | undefined>;
     /**
-     * The tags of the resource.
+     * Current provisioning state of the lab.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The lab user list management profile.
+     */
+    public readonly rosterProfile!: pulumi.Output<outputs.labservices.RosterProfileResponse | undefined>;
+    /**
+     * The lab security profile.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.labservices.SecurityProfileResponse>;
+    /**
+     * The lab state.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the lab.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.labservices.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The title of the lab.
+     */
+    public readonly title!: pulumi.Output<string | undefined>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The unique immutable identifier of a resource (Guid).
+     * The profile used for creating lab virtual machines.
      */
-    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
-    /**
-     * Maximum duration a user can use an environment for in the lab.
-     */
-    public readonly usageQuota!: pulumi.Output<string | undefined>;
-    /**
-     * Lab user access mode (open to all vs. restricted to those listed on the lab).
-     */
-    public readonly userAccessMode!: pulumi.Output<string | undefined>;
-    /**
-     * Maximum value MaxUsersInLab can be set to, as specified by the service
-     */
-    public /*out*/ readonly userQuota!: pulumi.Output<number>;
+    public readonly virtualMachineProfile!: pulumi.Output<outputs.labservices.VirtualMachineProfileResponse>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -110,49 +115,59 @@ export class Lab extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'labAccountName'");
+            if ((!args || args.autoShutdownProfile === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'autoShutdownProfile'");
+            }
+            if ((!args || args.connectionProfile === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'connectionProfile'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["labAccountName"] = args ? args.labAccountName : undefined;
+            if ((!args || args.securityProfile === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'securityProfile'");
+            }
+            if ((!args || args.virtualMachineProfile === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'virtualMachineProfile'");
+            }
+            resourceInputs["autoShutdownProfile"] = args ? (args.autoShutdownProfile ? pulumi.output(args.autoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["connectionProfile"] = args ? (args.connectionProfile ? pulumi.output(args.connectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["labPlanId"] = args ? args.labPlanId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxUsersInLab"] = args ? args.maxUsersInLab : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rosterProfile"] = args ? args.rosterProfile : undefined;
+            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            resourceInputs["usageQuota"] = args ? args.usageQuota : undefined;
-            resourceInputs["userAccessMode"] = args ? args.userAccessMode : undefined;
-            resourceInputs["createdByObjectId"] = undefined /*out*/;
-            resourceInputs["createdByUserPrincipalName"] = undefined /*out*/;
-            resourceInputs["createdDate"] = undefined /*out*/;
-            resourceInputs["invitationCode"] = undefined /*out*/;
-            resourceInputs["latestOperationResult"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userQuota"] = undefined /*out*/;
-        } else {
-            resourceInputs["createdByObjectId"] = undefined /*out*/;
-            resourceInputs["createdByUserPrincipalName"] = undefined /*out*/;
-            resourceInputs["createdDate"] = undefined /*out*/;
-            resourceInputs["invitationCode"] = undefined /*out*/;
-            resourceInputs["latestOperationResult"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["maxUsersInLab"] = undefined /*out*/;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["virtualMachineProfile"] = args ? (args.virtualMachineProfile ? pulumi.output(args.virtualMachineProfile).apply(inputs.labservices.virtualMachineProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
-            resourceInputs["usageQuota"] = undefined /*out*/;
-            resourceInputs["userAccessMode"] = undefined /*out*/;
-            resourceInputs["userQuota"] = undefined /*out*/;
+        } else {
+            resourceInputs["autoShutdownProfile"] = undefined /*out*/;
+            resourceInputs["connectionProfile"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["labPlanId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["rosterProfile"] = undefined /*out*/;
+            resourceInputs["securityProfile"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachineProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:Lab" }, { type: "azure-native:labservices/v20211115preview:Lab" }, { type: "azure-native:labservices/v20220801:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lab.__pulumiType, name, resourceInputs, opts);
     }
@@ -163,43 +178,55 @@ export class Lab extends pulumi.CustomResource {
  */
 export interface LabArgs {
     /**
-     * The name of the lab Account.
+     * The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
      */
-    labAccountName: pulumi.Input<string>;
+    autoShutdownProfile: pulumi.Input<inputs.labservices.AutoShutdownProfileArgs>;
     /**
-     * The name of the lab.
+     * The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+     */
+    connectionProfile: pulumi.Input<inputs.labservices.ConnectionProfileArgs>;
+    /**
+     * The description of the lab.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
     labName?: pulumi.Input<string>;
     /**
-     * The location of the resource.
+     * The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+     */
+    labPlanId?: pulumi.Input<string>;
+    /**
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Maximum number of users allowed in the lab.
+     * The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
      */
-    maxUsersInLab?: pulumi.Input<number>;
+    networkProfile?: pulumi.Input<inputs.labservices.LabNetworkProfileArgs>;
     /**
-     * The provisioning status of the resource.
-     */
-    provisioningState?: pulumi.Input<string>;
-    /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The tags of the resource.
+     * The lab user list management profile.
+     */
+    rosterProfile?: pulumi.Input<inputs.labservices.RosterProfileArgs>;
+    /**
+     * The lab security profile.
+     */
+    securityProfile: pulumi.Input<inputs.labservices.SecurityProfileArgs>;
+    /**
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The unique immutable identifier of a resource (Guid).
+     * The title of the lab.
      */
-    uniqueIdentifier?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
-     * Maximum duration a user can use an environment for in the lab.
+     * The profile used for creating lab virtual machines.
      */
-    usageQuota?: pulumi.Input<string>;
-    /**
-     * Lab user access mode (open to all vs. restricted to those listed on the lab).
-     */
-    userAccessMode?: pulumi.Input<string | enums.labservices.LabUserAccessMode>;
+    virtualMachineProfile: pulumi.Input<inputs.labservices.VirtualMachineProfileArgs>;
 }

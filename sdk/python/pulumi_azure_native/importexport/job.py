@@ -114,7 +114,8 @@ class Job(pulumi.CustomResource):
                  __props__=None):
         """
         Contains the job information.
-        API Version: 2020-08-01.
+        API Version: 2021-01-01.
+        Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +133,8 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains the job information.
-        API Version: 2020-08-01.
+        API Version: 2021-01-01.
+        Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

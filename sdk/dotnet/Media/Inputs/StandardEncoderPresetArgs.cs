@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Media.Inputs
             set => _codecs = value;
         }
 
+        [Input("experimentalOptions")]
+        private InputMap<string>? _experimentalOptions;
+
+        /// <summary>
+        /// Dictionary containing key value pairs for parameters not exposed in the preset itself
+        /// </summary>
+        public InputMap<string> ExperimentalOptions
+        {
+            get => _experimentalOptions ?? (_experimentalOptions = new InputMap<string>());
+            set => _experimentalOptions = value;
+        }
+
         /// <summary>
         /// One or more filtering operations that are applied to the input media before encoding.
         /// </summary>

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Define the host.
-    /// API Version: 2020-10-01-preview.
+    /// API Version: 2022-07-15-preview.
+    /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:Host")]
     public partial class Host : global::Pulumi.CustomResource
@@ -21,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Output("customResourceName")]
         public Output<string> CustomResourceName { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the datastore ARM ids.
+        /// </summary>
+        [Output("datastoreIds")]
+        public Output<ImmutableArray<string>> DatastoreIds { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the extended location.
@@ -63,6 +70,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the network ARM ids.
+        /// </summary>
+        [Output("networkIds")]
+        public Output<ImmutableArray<string>> NetworkIds { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the provisioning state.

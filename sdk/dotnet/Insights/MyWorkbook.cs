@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Application Insights private workbook definition.
-    /// API Version: 2020-10-20.
+    /// API Version: 2021-03-08.
+    /// Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:MyWorkbook")]
     public partial class MyWorkbook : global::Pulumi.CustomResource
@@ -75,6 +76,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("storageUri")]
         public Output<string?> StorageUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

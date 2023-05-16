@@ -16,8 +16,6 @@ __all__ = [
     'get_share_subscription_output',
 ]
 
-warnings.warn("""Version 2018-11-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetShareSubscriptionResult:
     """
@@ -238,7 +236,6 @@ def get_share_subscription(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
-    pulumi.log.warn("""get_share_subscription is deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -278,5 +275,4 @@ def get_share_subscription_output(account_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
-    pulumi.log.warn("""get_share_subscription is deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.""")
     ...

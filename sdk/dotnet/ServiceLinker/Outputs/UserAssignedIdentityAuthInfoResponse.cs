@@ -24,19 +24,19 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         /// <summary>
         /// Client Id for userAssignedIdentity.
         /// </summary>
-        public readonly string ClientId;
+        public readonly string? ClientId;
         /// <summary>
         /// Subscription id for userAssignedIdentity.
         /// </summary>
-        public readonly string SubscriptionId;
+        public readonly string? SubscriptionId;
 
         [OutputConstructor]
         private UserAssignedIdentityAuthInfoResponse(
             string authType,
 
-            string clientId,
+            string? clientId,
 
-            string subscriptionId)
+            string? subscriptionId)
         {
             AuthType = authType;
             ClientId = clientId;

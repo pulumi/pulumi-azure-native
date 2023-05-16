@@ -93,7 +93,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:PrivateLinkScope" }, { type: "azure-native:insights/v20210701preview:PrivateLinkScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210701preview:PrivateLinkScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScope.__pulumiType, name, resourceInputs, opts);
     }

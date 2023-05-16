@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the workspace.
- * API Version: 2018-04-01.
+ * API Version: 2023-02-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -48,6 +48,14 @@ export interface GetWorkspaceResult {
      */
     readonly createdDateTime: string;
     /**
+     * The resource Id of the managed disk encryption set.
+     */
+    readonly diskEncryptionSetId: string;
+    /**
+     * Encryption properties for databricks workspace
+     */
+    readonly encryption?: outputs.databricks.WorkspacePropertiesResponseEncryption;
+    /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -55,6 +63,10 @@ export interface GetWorkspaceResult {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+     */
+    readonly managedDiskIdentity?: outputs.databricks.ManagedIdentityConfigurationResponse;
     /**
      * The managed resource group Id.
      */
@@ -68,9 +80,21 @@ export interface GetWorkspaceResult {
      */
     readonly parameters?: outputs.databricks.WorkspaceCustomParametersResponse;
     /**
+     * Private endpoint connections created on the workspace
+     */
+    readonly privateEndpointConnections: outputs.databricks.PrivateEndpointConnectionResponse[];
+    /**
      * The workspace provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+     */
+    readonly requiredNsgRules?: string;
     /**
      * The SKU of the resource.
      */
@@ -79,6 +103,10 @@ export interface GetWorkspaceResult {
      * The details of Managed Identity of Storage Account
      */
     readonly storageAccountIdentity?: outputs.databricks.ManagedIdentityConfigurationResponse;
+    /**
+     * The system metadata relating to this resource
+     */
+    readonly systemData: outputs.databricks.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -106,7 +134,7 @@ export interface GetWorkspaceResult {
 }
 /**
  * Gets the workspace.
- * API Version: 2018-04-01.
+ * API Version: 2023-02-01.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

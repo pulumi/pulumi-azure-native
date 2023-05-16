@@ -8,35 +8,29 @@ using Pulumi;
 namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
-    /// The activation Mode of the service package
+    /// The network traffic is allowed or denied.
     /// </summary>
     [EnumType]
-    public readonly struct ArmServicePackageActivationMode : IEquatable<ArmServicePackageActivationMode>
+    public readonly struct Access : IEquatable<Access>
     {
         private readonly string _value;
 
-        private ArmServicePackageActivationMode(string value)
+        private Access(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// Indicates the application package activation mode will use shared process.
-        /// </summary>
-        public static ArmServicePackageActivationMode SharedProcess { get; } = new ArmServicePackageActivationMode("SharedProcess");
-        /// <summary>
-        /// Indicates the application package activation mode will use exclusive process.
-        /// </summary>
-        public static ArmServicePackageActivationMode ExclusiveProcess { get; } = new ArmServicePackageActivationMode("ExclusiveProcess");
+        public static Access Allow { get; } = new Access("allow");
+        public static Access Deny { get; } = new Access("deny");
 
-        public static bool operator ==(ArmServicePackageActivationMode left, ArmServicePackageActivationMode right) => left.Equals(right);
-        public static bool operator !=(ArmServicePackageActivationMode left, ArmServicePackageActivationMode right) => !left.Equals(right);
+        public static bool operator ==(Access left, Access right) => left.Equals(right);
+        public static bool operator !=(Access left, Access right) => !left.Equals(right);
 
-        public static explicit operator string(ArmServicePackageActivationMode value) => value._value;
+        public static explicit operator string(Access value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ArmServicePackageActivationMode other && Equals(other);
-        public bool Equals(ArmServicePackageActivationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Access other && Equals(other);
+        public bool Equals(Access other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -45,14 +39,201 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
-    /// The activation Mode of the service package
+    /// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
     /// </summary>
     [EnumType]
-    public readonly struct ArmUpgradeFailureAction : IEquatable<ArmUpgradeFailureAction>
+    public readonly struct ClusterUpgradeCadence : IEquatable<ClusterUpgradeCadence>
     {
         private readonly string _value;
 
-        private ArmUpgradeFailureAction(string value)
+        private ClusterUpgradeCadence(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Cluster upgrade starts immediately after a new version is rolled out. Recommended for Test/Dev clusters.
+        /// </summary>
+        public static ClusterUpgradeCadence Wave0 { get; } = new ClusterUpgradeCadence("Wave0");
+        /// <summary>
+        /// Cluster upgrade starts 7 days after a new version is rolled out. Recommended for Pre-prod clusters.
+        /// </summary>
+        public static ClusterUpgradeCadence Wave1 { get; } = new ClusterUpgradeCadence("Wave1");
+        /// <summary>
+        /// Cluster upgrade starts 14 days after a new version is rolled out. Recommended for Production clusters.
+        /// </summary>
+        public static ClusterUpgradeCadence Wave2 { get; } = new ClusterUpgradeCadence("Wave2");
+
+        public static bool operator ==(ClusterUpgradeCadence left, ClusterUpgradeCadence right) => left.Equals(right);
+        public static bool operator !=(ClusterUpgradeCadence left, ClusterUpgradeCadence right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterUpgradeCadence value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterUpgradeCadence other && Equals(other);
+        public bool Equals(ClusterUpgradeCadence other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterUpgradeMode : IEquatable<ClusterUpgradeMode>
+    {
+        private readonly string _value;
+
+        private ClusterUpgradeMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The cluster will be automatically upgraded to the latest Service Fabric runtime version, **clusterUpgradeCadence** will determine when the upgrade starts after the new version becomes available.
+        /// </summary>
+        public static ClusterUpgradeMode Automatic { get; } = new ClusterUpgradeMode("Automatic");
+        /// <summary>
+        /// The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
+        /// </summary>
+        public static ClusterUpgradeMode Manual { get; } = new ClusterUpgradeMode("Manual");
+
+        public static bool operator ==(ClusterUpgradeMode left, ClusterUpgradeMode right) => left.Equals(right);
+        public static bool operator !=(ClusterUpgradeMode left, ClusterUpgradeMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterUpgradeMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterUpgradeMode other && Equals(other);
+        public bool Equals(ClusterUpgradeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network security rule direction.
+    /// </summary>
+    [EnumType]
+    public readonly struct Direction : IEquatable<Direction>
+    {
+        private readonly string _value;
+
+        private Direction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Direction Inbound { get; } = new Direction("inbound");
+        public static Direction Outbound { get; } = new Direction("outbound");
+
+        public static bool operator ==(Direction left, Direction right) => left.Equals(right);
+        public static bool operator !=(Direction left, Direction right) => !left.Equals(right);
+
+        public static explicit operator string(Direction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Direction other && Equals(other);
+        public bool Equals(Direction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Managed data disk type. Specifies the storage account type for the managed disk
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskType : IEquatable<DiskType>
+    {
+        private readonly string _value;
+
+        private DiskType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
+        /// </summary>
+        public static DiskType Standard_LRS { get; } = new DiskType("Standard_LRS");
+        /// <summary>
+        /// Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
+        /// </summary>
+        public static DiskType StandardSSD_LRS { get; } = new DiskType("StandardSSD_LRS");
+        /// <summary>
+        /// Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
+        /// </summary>
+        public static DiskType Premium_LRS { get; } = new DiskType("Premium_LRS");
+
+        public static bool operator ==(DiskType left, DiskType right) => left.Equals(right);
+        public static bool operator !=(DiskType left, DiskType right) => !left.Equals(right);
+
+        public static explicit operator string(DiskType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskType other && Equals(other);
+        public bool Equals(DiskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvictionPolicyType : IEquatable<EvictionPolicyType>
+    {
+        private readonly string _value;
+
+        private EvictionPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Eviction policy will be Delete for SPOT vms.
+        /// </summary>
+        public static EvictionPolicyType Delete { get; } = new EvictionPolicyType("Delete");
+        /// <summary>
+        /// Eviction policy will be Deallocate for SPOT vms.
+        /// </summary>
+        public static EvictionPolicyType Deallocate { get; } = new EvictionPolicyType("Deallocate");
+
+        public static bool operator ==(EvictionPolicyType left, EvictionPolicyType right) => left.Equals(right);
+        public static bool operator !=(EvictionPolicyType left, EvictionPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(EvictionPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvictionPolicyType other && Equals(other);
+        public bool Equals(EvictionPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct FailureAction : IEquatable<FailureAction>
+    {
+        private readonly string _value;
+
+        private FailureAction(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -60,20 +241,98 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// Indicates that a rollback of the upgrade will be performed by Service Fabric if the upgrade fails.
         /// </summary>
-        public static ArmUpgradeFailureAction Rollback { get; } = new ArmUpgradeFailureAction("Rollback");
+        public static FailureAction Rollback { get; } = new FailureAction("Rollback");
         /// <summary>
         /// Indicates that a manual repair will need to be performed by the administrator if the upgrade fails. Service Fabric will not proceed to the next upgrade domain automatically.
         /// </summary>
-        public static ArmUpgradeFailureAction Manual { get; } = new ArmUpgradeFailureAction("Manual");
+        public static FailureAction Manual { get; } = new FailureAction("Manual");
 
-        public static bool operator ==(ArmUpgradeFailureAction left, ArmUpgradeFailureAction right) => left.Equals(right);
-        public static bool operator !=(ArmUpgradeFailureAction left, ArmUpgradeFailureAction right) => !left.Equals(right);
+        public static bool operator ==(FailureAction left, FailureAction right) => left.Equals(right);
+        public static bool operator !=(FailureAction left, FailureAction right) => !left.Equals(right);
 
-        public static explicit operator string(ArmUpgradeFailureAction value) => value._value;
+        public static explicit operator string(FailureAction value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ArmUpgradeFailureAction other && Equals(other);
-        public bool Equals(ArmUpgradeFailureAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is FailureAction other && Equals(other);
+        public bool Equals(FailureAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP address type of this frontend configuration. If omitted the default value is IPv4.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAddressType : IEquatable<IPAddressType>
+    {
+        private readonly string _value;
+
+        private IPAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// IPv4 address type.
+        /// </summary>
+        public static IPAddressType IPv4 { get; } = new IPAddressType("IPv4");
+        /// <summary>
+        /// IPv6 address type.
+        /// </summary>
+        public static IPAddressType IPv6 { get; } = new IPAddressType("IPv6");
+
+        public static bool operator ==(IPAddressType left, IPAddressType right) => left.Equals(right);
+        public static bool operator !=(IPAddressType left, IPAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(IPAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAddressType other && Equals(other);
+        public bool Equals(IPAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Available cluster add-on features
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedClusterAddOnFeature : IEquatable<ManagedClusterAddOnFeature>
+    {
+        private readonly string _value;
+
+        private ManagedClusterAddOnFeature(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Dns service
+        /// </summary>
+        public static ManagedClusterAddOnFeature DnsService { get; } = new ManagedClusterAddOnFeature("DnsService");
+        /// <summary>
+        /// Backup and restore service
+        /// </summary>
+        public static ManagedClusterAddOnFeature BackupRestoreService { get; } = new ManagedClusterAddOnFeature("BackupRestoreService");
+        /// <summary>
+        /// Resource monitor service
+        /// </summary>
+        public static ManagedClusterAddOnFeature ResourceMonitorService { get; } = new ManagedClusterAddOnFeature("ResourceMonitorService");
+
+        public static bool operator ==(ManagedClusterAddOnFeature left, ManagedClusterAddOnFeature right) => left.Equals(right);
+        public static bool operator !=(ManagedClusterAddOnFeature left, ManagedClusterAddOnFeature right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedClusterAddOnFeature value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedClusterAddOnFeature other && Equals(other);
+        public bool Equals(ManagedClusterAddOnFeature other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -95,6 +354,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
+        /// Indicates that no identity is associated with the resource.
+        /// </summary>
+        public static ManagedIdentityType None { get; } = new ManagedIdentityType("None");
+        /// <summary>
         /// Indicates that system assigned identity is associated with the resource.
         /// </summary>
         public static ManagedIdentityType SystemAssigned { get; } = new ManagedIdentityType("SystemAssigned");
@@ -106,10 +369,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Indicates that both system assigned and user assigned identity are associated with the resource.
         /// </summary>
         public static ManagedIdentityType SystemAssigned_UserAssigned { get; } = new ManagedIdentityType("SystemAssigned, UserAssigned");
-        /// <summary>
-        /// Indicates that no identity is associated with the resource.
-        /// </summary>
-        public static ManagedIdentityType None { get; } = new ManagedIdentityType("None");
 
         public static bool operator ==(ManagedIdentityType left, ManagedIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedIdentityType left, ManagedIdentityType right) => !left.Equals(right);
@@ -172,6 +431,42 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
+    /// Network protocol this rule applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct NsgProtocol : IEquatable<NsgProtocol>
+    {
+        private readonly string _value;
+
+        private NsgProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NsgProtocol Http { get; } = new NsgProtocol("http");
+        public static NsgProtocol Https { get; } = new NsgProtocol("https");
+        public static NsgProtocol Tcp { get; } = new NsgProtocol("tcp");
+        public static NsgProtocol Udp { get; } = new NsgProtocol("udp");
+        public static NsgProtocol Icmp { get; } = new NsgProtocol("icmp");
+        public static NsgProtocol Ah { get; } = new NsgProtocol("ah");
+        public static NsgProtocol Esp { get; } = new NsgProtocol("esp");
+
+        public static bool operator ==(NsgProtocol left, NsgProtocol right) => left.Equals(right);
+        public static bool operator !=(NsgProtocol left, NsgProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(NsgProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NsgProtocol other && Equals(other);
+        public bool Equals(NsgProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies how the service is partitioned.
     /// </summary>
     [EnumType]
@@ -185,19 +480,15 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
-        /// Indicates the partition kind is invalid. All Service Fabric enumerations have the invalid type. The value is zero.
-        /// </summary>
-        public static PartitionScheme Invalid { get; } = new PartitionScheme("Invalid");
-        /// <summary>
-        /// Indicates that the partition is based on string names, and is a SingletonPartitionSchemeDescription object, The value is 1.
+        /// Indicates that the partition is based on string names, and is a SingletonPartitionScheme object, The value is 0.
         /// </summary>
         public static PartitionScheme Singleton { get; } = new PartitionScheme("Singleton");
         /// <summary>
-        /// Indicates that the partition is based on Int64 key ranges, and is a UniformInt64RangePartitionSchemeDescription object. The value is 2.
+        /// Indicates that the partition is based on Int64 key ranges, and is a UniformInt64RangePartitionScheme object. The value is 1.
         /// </summary>
         public static PartitionScheme UniformInt64Range { get; } = new PartitionScheme("UniformInt64Range");
         /// <summary>
-        /// Indicates that the partition is based on string names, and is a NamedPartitionSchemeDescription object. The value is 3
+        /// Indicates that the partition is based on string names, and is a NamedPartitionScheme object. The value is 2.
         /// </summary>
         public static PartitionScheme Named { get; } = new PartitionScheme("Named");
 
@@ -209,6 +500,68 @@ namespace Pulumi.AzureNative.ServiceFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PartitionScheme other && Equals(other);
         public bool Equals(PartitionScheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable or Disable apply network policies on private end point in the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointNetworkPolicies : IEquatable<PrivateEndpointNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointNetworkPolicies Enabled { get; } = new PrivateEndpointNetworkPolicies("enabled");
+        public static PrivateEndpointNetworkPolicies Disabled { get; } = new PrivateEndpointNetworkPolicies("disabled");
+
+        public static bool operator ==(PrivateEndpointNetworkPolicies left, PrivateEndpointNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointNetworkPolicies left, PrivateEndpointNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointNetworkPolicies other && Equals(other);
+        public bool Equals(PrivateEndpointNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable or Disable apply network policies on private link service in the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateLinkServiceNetworkPolicies : IEquatable<PrivateLinkServiceNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private PrivateLinkServiceNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateLinkServiceNetworkPolicies Enabled { get; } = new PrivateLinkServiceNetworkPolicies("enabled");
+        public static PrivateLinkServiceNetworkPolicies Disabled { get; } = new PrivateLinkServiceNetworkPolicies("disabled");
+
+        public static bool operator ==(PrivateLinkServiceNetworkPolicies left, PrivateLinkServiceNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(PrivateLinkServiceNetworkPolicies left, PrivateLinkServiceNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateLinkServiceNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateLinkServiceNetworkPolicies other && Equals(other);
+        public bool Equals(PrivateLinkServiceNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -280,7 +633,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
-    /// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+    /// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
     /// </summary>
     [EnumType]
     public readonly struct RollingUpgradeMode : IEquatable<RollingUpgradeMode>
@@ -293,21 +646,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
-        /// Indicates the upgrade mode is invalid. All Service Fabric enumerations have the invalid type. The value is zero.
-        /// </summary>
-        public static RollingUpgradeMode Invalid { get; } = new RollingUpgradeMode("Invalid");
-        /// <summary>
-        /// The upgrade will proceed automatically without performing any health monitoring. The value is 1
-        /// </summary>
-        public static RollingUpgradeMode UnmonitoredAuto { get; } = new RollingUpgradeMode("UnmonitoredAuto");
-        /// <summary>
-        /// The upgrade will stop after completing each upgrade domain, giving the opportunity to manually monitor health before proceeding. The value is 2
-        /// </summary>
-        public static RollingUpgradeMode UnmonitoredManual { get; } = new RollingUpgradeMode("UnmonitoredManual");
-        /// <summary>
-        /// The upgrade will stop after completing each upgrade domain and automatically monitor health before proceeding. The value is 3
+        /// The upgrade will stop after completing each upgrade domain and automatically monitor health before proceeding. The value is 0.
         /// </summary>
         public static RollingUpgradeMode Monitored { get; } = new RollingUpgradeMode("Monitored");
+        /// <summary>
+        /// The upgrade will proceed automatically without performing any health monitoring. The value is 1.
+        /// </summary>
+        public static RollingUpgradeMode UnmonitoredAuto { get; } = new RollingUpgradeMode("UnmonitoredAuto");
 
         public static bool operator ==(RollingUpgradeMode left, RollingUpgradeMode right) => left.Equals(right);
         public static bool operator !=(RollingUpgradeMode left, RollingUpgradeMode right) => !left.Equals(right);
@@ -317,6 +662,39 @@ namespace Pulumi.AzureNative.ServiceFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RollingUpgradeMode other && Equals(other);
         public bool Equals(RollingUpgradeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityType : IEquatable<SecurityType>
+    {
+        private readonly string _value;
+
+        private SecurityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Trusted Launch is a security type that secures generation 2 virtual machines.
+        /// </summary>
+        public static SecurityType TrustedLaunch { get; } = new SecurityType("TrustedLaunch");
+
+        public static bool operator ==(SecurityType left, SecurityType right) => left.Equals(right);
+        public static bool operator !=(SecurityType left, SecurityType right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityType other && Equals(other);
+        public bool Equals(SecurityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -338,19 +716,11 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
-        /// An invalid correlation scheme. Cannot be used. The value is zero.
-        /// </summary>
-        public static ServiceCorrelationScheme Invalid { get; } = new ServiceCorrelationScheme("Invalid");
-        /// <summary>
-        /// Indicates that this service has an affinity relationship with another service. Provided for backwards compatibility, consider preferring the Aligned or NonAlignedAffinity options. The value is 1.
-        /// </summary>
-        public static ServiceCorrelationScheme Affinity { get; } = new ServiceCorrelationScheme("Affinity");
-        /// <summary>
-        /// Aligned affinity ensures that the primaries of the partitions of the affinitized services are collocated on the same nodes. This is the default and is the same as selecting the Affinity scheme. The value is 2.
+        /// Aligned affinity ensures that the primaries of the partitions of the affinitized services are collocated on the same nodes. This is the default and is the same as selecting the Affinity scheme. The value is 0.
         /// </summary>
         public static ServiceCorrelationScheme AlignedAffinity { get; } = new ServiceCorrelationScheme("AlignedAffinity");
         /// <summary>
-        /// Non-Aligned affinity guarantees that all replicas of each service will be placed on the same nodes. Unlike Aligned Affinity, this does not guarantee that replicas of particular role will be collocated. The value is 3.
+        /// Non-Aligned affinity guarantees that all replicas of each service will be placed on the same nodes. Unlike Aligned Affinity, this does not guarantee that replicas of particular role will be collocated. The value is 1.
         /// </summary>
         public static ServiceCorrelationScheme NonAlignedAffinity { get; } = new ServiceCorrelationScheme("NonAlignedAffinity");
 
@@ -383,15 +753,11 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
-        /// Indicates the service kind is invalid. All Service Fabric enumerations have the invalid type. The value is zero.
-        /// </summary>
-        public static ServiceKind Invalid { get; } = new ServiceKind("Invalid");
-        /// <summary>
-        /// Does not use Service Fabric to make its state highly available or reliable. The value is 1.
+        /// Does not use Service Fabric to make its state highly available or reliable. The value is 0.
         /// </summary>
         public static ServiceKind Stateless { get; } = new ServiceKind("Stateless");
         /// <summary>
-        /// Uses Service Fabric to make its state or part of its state highly available and reliable. The value is 2.
+        /// Uses Service Fabric to make its state or part of its state highly available and reliable. The value is 1.
         /// </summary>
         public static ServiceKind Stateful { get; } = new ServiceKind("Stateful");
 
@@ -456,6 +822,43 @@ namespace Pulumi.AzureNative.ServiceFabric
     }
 
     /// <summary>
+    /// The activation Mode of the service package
+    /// </summary>
+    [EnumType]
+    public readonly struct ServicePackageActivationMode : IEquatable<ServicePackageActivationMode>
+    {
+        private readonly string _value;
+
+        private ServicePackageActivationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates the application package activation mode will use shared process.
+        /// </summary>
+        public static ServicePackageActivationMode SharedProcess { get; } = new ServicePackageActivationMode("SharedProcess");
+        /// <summary>
+        /// Indicates the application package activation mode will use exclusive process.
+        /// </summary>
+        public static ServicePackageActivationMode ExclusiveProcess { get; } = new ServicePackageActivationMode("ExclusiveProcess");
+
+        public static bool operator ==(ServicePackageActivationMode left, ServicePackageActivationMode right) => left.Equals(right);
+        public static bool operator !=(ServicePackageActivationMode left, ServicePackageActivationMode right) => !left.Equals(right);
+
+        public static explicit operator string(ServicePackageActivationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServicePackageActivationMode other && Equals(other);
+        public bool Equals(ServicePackageActivationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of placement policy for a service fabric service. Following are the possible values.
     /// </summary>
     [EnumType]
@@ -469,27 +872,23 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
-        /// Indicates the type of the placement policy is invalid. All Service Fabric enumerations have the invalid type. The value is zero.
-        /// </summary>
-        public static ServicePlacementPolicyType Invalid { get; } = new ServicePlacementPolicyType("Invalid");
-        /// <summary>
-        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementInvalidDomainPolicyDescription, which indicates that a particular fault or upgrade domain cannot be used for placement of this service. The value is 1.
+        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementInvalidDomainPolicyDescription, which indicates that a particular fault or upgrade domain cannot be used for placement of this service. The value is 0.
         /// </summary>
         public static ServicePlacementPolicyType InvalidDomain { get; } = new ServicePlacementPolicyType("InvalidDomain");
         /// <summary>
-        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementRequireDomainDistributionPolicyDescription indicating that the replicas of the service must be placed in a specific domain. The value is 2.
+        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementRequireDomainDistributionPolicyDescription indicating that the replicas of the service must be placed in a specific domain. The value is 1.
         /// </summary>
         public static ServicePlacementPolicyType RequiredDomain { get; } = new ServicePlacementPolicyType("RequiredDomain");
         /// <summary>
-        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementPreferPrimaryDomainPolicyDescription, which indicates that if possible the Primary replica for the partitions of the service should be located in a particular domain as an optimization. The value is 3.
+        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementPreferPrimaryDomainPolicyDescription, which indicates that if possible the Primary replica for the partitions of the service should be located in a particular domain as an optimization. The value is 2.
         /// </summary>
         public static ServicePlacementPolicyType PreferredPrimaryDomain { get; } = new ServicePlacementPolicyType("PreferredPrimaryDomain");
         /// <summary>
-        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementRequireDomainDistributionPolicyDescription, indicating that the system will disallow placement of any two replicas from the same partition in the same domain at any time. The value is 4.
+        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementRequireDomainDistributionPolicyDescription, indicating that the system will disallow placement of any two replicas from the same partition in the same domain at any time. The value is 3.
         /// </summary>
         public static ServicePlacementPolicyType RequiredDomainDistribution { get; } = new ServicePlacementPolicyType("RequiredDomainDistribution");
         /// <summary>
-        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementNonPartiallyPlaceServicePolicyDescription, which indicates that if possible all replicas of a particular partition of the service should be placed atomically. The value is 5.
+        /// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementNonPartiallyPlaceServicePolicyDescription, which indicates that if possible all replicas of a particular partition of the service should be placed atomically. The value is 4.
         /// </summary>
         public static ServicePlacementPolicyType NonPartiallyPlaceService { get; } = new ServicePlacementPolicyType("NonPartiallyPlaceService");
 
@@ -501,6 +900,191 @@ namespace Pulumi.AzureNative.ServiceFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServicePlacementPolicyType other && Equals(other);
         public bool Equals(ServicePlacementPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mechanism associated with this scaling policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceScalingMechanismKind : IEquatable<ServiceScalingMechanismKind>
+    {
+        private readonly string _value;
+
+        private ServiceScalingMechanismKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Represents a scaling mechanism for adding or removing instances of stateless service partition. The value is 0.
+        /// </summary>
+        public static ServiceScalingMechanismKind ScalePartitionInstanceCount { get; } = new ServiceScalingMechanismKind("ScalePartitionInstanceCount");
+        /// <summary>
+        /// Represents a scaling mechanism for adding or removing named partitions of a stateless service. The value is 1.
+        /// </summary>
+        public static ServiceScalingMechanismKind AddRemoveIncrementalNamedPartition { get; } = new ServiceScalingMechanismKind("AddRemoveIncrementalNamedPartition");
+
+        public static bool operator ==(ServiceScalingMechanismKind left, ServiceScalingMechanismKind right) => left.Equals(right);
+        public static bool operator !=(ServiceScalingMechanismKind left, ServiceScalingMechanismKind right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceScalingMechanismKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceScalingMechanismKind other && Equals(other);
+        public bool Equals(ServiceScalingMechanismKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the trigger associated with this scaling policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceScalingTriggerKind : IEquatable<ServiceScalingTriggerKind>
+    {
+        private readonly string _value;
+
+        private ServiceScalingTriggerKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Represents a scaling trigger related to an average load of a metric/resource of a partition. The value is 0.
+        /// </summary>
+        public static ServiceScalingTriggerKind AveragePartitionLoadTrigger { get; } = new ServiceScalingTriggerKind("AveragePartitionLoadTrigger");
+        /// <summary>
+        /// Represents a scaling policy related to an average load of a metric/resource of a service. The value is 1.
+        /// </summary>
+        public static ServiceScalingTriggerKind AverageServiceLoadTrigger { get; } = new ServiceScalingTriggerKind("AverageServiceLoadTrigger");
+
+        public static bool operator ==(ServiceScalingTriggerKind left, ServiceScalingTriggerKind right) => left.Equals(right);
+        public static bool operator !=(ServiceScalingTriggerKind left, ServiceScalingTriggerKind right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceScalingTriggerKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceScalingTriggerKind other && Equals(other);
+        public bool Equals(ServiceScalingTriggerKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sku Name.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuName : IEquatable<SkuName>
+    {
+        private readonly string _value;
+
+        private SkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Basic requires a minimum of 3 nodes and allows only 1 node type.
+        /// </summary>
+        public static SkuName Basic { get; } = new SkuName("Basic");
+        /// <summary>
+        /// Requires a minimum of 5 nodes and allows 1 or more node type.
+        /// </summary>
+        public static SkuName Standard { get; } = new SkuName("Standard");
+
+        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
+        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
+        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// action to be performed on the vms before bootstrapping the service fabric runtime.
+    /// </summary>
+    [EnumType]
+    public readonly struct VmSetupAction : IEquatable<VmSetupAction>
+    {
+        private readonly string _value;
+
+        private VmSetupAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enable windows containers feature.
+        /// </summary>
+        public static VmSetupAction EnableContainers { get; } = new VmSetupAction("EnableContainers");
+        /// <summary>
+        /// Enables windows HyperV feature.
+        /// </summary>
+        public static VmSetupAction EnableHyperV { get; } = new VmSetupAction("EnableHyperV");
+
+        public static bool operator ==(VmSetupAction left, VmSetupAction right) => left.Equals(right);
+        public static bool operator !=(VmSetupAction left, VmSetupAction right) => !left.Equals(right);
+
+        public static explicit operator string(VmSetupAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VmSetupAction other && Equals(other);
+        public bool Equals(VmSetupAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the update mode for Cross Az clusters.
+    /// </summary>
+    [EnumType]
+    public readonly struct ZonalUpdateMode : IEquatable<ZonalUpdateMode>
+    {
+        private readonly string _value;
+
+        private ZonalUpdateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The cluster will use 5 upgrade domains for Cross Az Node types.
+        /// </summary>
+        public static ZonalUpdateMode Standard { get; } = new ZonalUpdateMode("Standard");
+        /// <summary>
+        /// The cluster will use a maximum of 3 upgrade domains per zone instead of 5 for Cross Az Node types for faster deployments.
+        /// </summary>
+        public static ZonalUpdateMode Fast { get; } = new ZonalUpdateMode("Fast");
+
+        public static bool operator ==(ZonalUpdateMode left, ZonalUpdateMode right) => left.Equals(right);
+        public static bool operator !=(ZonalUpdateMode left, ZonalUpdateMode right) => !left.Equals(right);
+
+        public static explicit operator string(ZonalUpdateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ZonalUpdateMode other && Equals(other);
+        public bool Equals(ZonalUpdateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

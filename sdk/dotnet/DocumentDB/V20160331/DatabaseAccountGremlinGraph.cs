@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
     /// </summary>
-    [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph")]
     public partial class DatabaseAccountGremlinGraph : global::Pulumi.CustomResource
     {
@@ -141,7 +140,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:DatabaseAccountGremlinGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:DatabaseAccountGremlinGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:DatabaseAccountGremlinGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:DatabaseAccountGremlinGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:DatabaseAccountGremlinGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:DatabaseAccountGremlinGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:DatabaseAccountGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

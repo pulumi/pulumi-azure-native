@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public Input<string>? DbPasswordUri { get; set; }
 
         /// <summary>
-        /// Gets or sets the blob URI to SSL certificate for the DB.
-        /// </summary>
-        [Input("dbSslCertificateUri")]
-        public Input<string>? DbSslCertificateUri { get; set; }
-
-        /// <summary>
         /// Gets or sets the database user name.
         /// </summary>
         [Input("dbUsername")]
@@ -63,6 +57,12 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         /// </summary>
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the SAP System Identifier.
+        /// </summary>
+        [Input("sapSid")]
+        public Input<string>? SapSid { get; set; }
 
         /// <summary>
         /// Gets or sets the database sql port.

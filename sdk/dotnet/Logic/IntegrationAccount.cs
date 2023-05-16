@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Logic
     /// <summary>
     /// The integration account.
     /// API Version: 2019-05-01.
+    /// Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccount")]
     public partial class IntegrationAccount : global::Pulumi.CustomResource

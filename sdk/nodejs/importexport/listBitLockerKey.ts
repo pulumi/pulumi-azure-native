@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the BitLocker Keys for all drives in the specified job.
- * API Version: 2020-08-01.
+ * API Version: 2021-01-01.
  */
 export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListBitLockerKeyResult> {
 
@@ -42,7 +42,7 @@ export interface ListBitLockerKeyResult {
 }
 /**
  * Returns the BitLocker Keys for all drives in the specified job.
- * API Version: 2020-08-01.
+ * API Version: 2021-01-01.
  */
 export function listBitLockerKeyOutput(args: ListBitLockerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBitLockerKeyResult> {
     return pulumi.output(args).apply((a: any) => listBitLockerKey(a, opts))

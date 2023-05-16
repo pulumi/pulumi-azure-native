@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         private InputList<string>? _countryCodes;
 
         /// <summary>
-        /// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+        /// Two letter country or region codes defining user country or region access in a geo filter, e.g. AU, MX, US.
         /// </summary>
         public InputList<string> CountryCodes
         {

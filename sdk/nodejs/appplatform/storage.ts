@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Storage resource payload.
- * API Version: 2021-09-01-preview.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Storage extends pulumi.CustomResource {
     /**
@@ -86,7 +87,7 @@ export class Storage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20210901preview:Storage" }, { type: "azure-native:appplatform/v20220101preview:Storage" }, { type: "azure-native:appplatform/v20220301preview:Storage" }, { type: "azure-native:appplatform/v20220501preview:Storage" }, { type: "azure-native:appplatform/v20220901preview:Storage" }, { type: "azure-native:appplatform/v20221101preview:Storage" }, { type: "azure-native:appplatform/v20221201:Storage" }, { type: "azure-native:appplatform/v20230101preview:Storage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20210901preview:Storage" }, { type: "azure-native:appplatform/v20220101preview:Storage" }, { type: "azure-native:appplatform/v20220301preview:Storage" }, { type: "azure-native:appplatform/v20220501preview:Storage" }, { type: "azure-native:appplatform/v20220901preview:Storage" }, { type: "azure-native:appplatform/v20221101preview:Storage" }, { type: "azure-native:appplatform/v20221201:Storage" }, { type: "azure-native:appplatform/v20230101preview:Storage" }, { type: "azure-native:appplatform/v20230301preview:Storage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Storage.__pulumiType, name, resourceInputs, opts);
     }

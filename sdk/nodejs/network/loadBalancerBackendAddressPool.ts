@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Pool of backend IP addresses.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
@@ -43,9 +44,17 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly backendIPConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceIPConfigurationResponse[]>;
     /**
+     * Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+     */
+    public readonly drainPeriodInSeconds!: pulumi.Output<number | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * An array of references to inbound NAT rules that use this backend address pool.
+     */
+    public /*out*/ readonly inboundNatRules!: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * An array of backend addresses.
      */
@@ -54,6 +63,10 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      * An array of references to load balancing rules that use this backend address pool.
      */
     public /*out*/ readonly loadBalancingRules!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    /**
+     * The location of the backend address pool.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
@@ -71,9 +84,17 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * An array of gateway load balancer tunnel interfaces.
+     */
+    public readonly tunnelInterfaces!: pulumi.Output<outputs.network.GatewayLoadBalancerTunnelInterfaceResponse[] | undefined>;
+    /**
      * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A reference to a virtual network.
+     */
+    public readonly virtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
 
     /**
      * Create a LoadBalancerBackendAddressPool resource with the given unique name, arguments, and options.
@@ -93,13 +114,18 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["backendAddressPoolName"] = args ? args.backendAddressPoolName : undefined;
+            resourceInputs["drainPeriodInSeconds"] = args ? args.drainPeriodInSeconds : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["loadBalancerBackendAddresses"] = args ? args.loadBalancerBackendAddresses : undefined;
             resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
+            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
             resourceInputs["backendIPConfigurations"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["inboundNatRules"] = undefined /*out*/;
             resourceInputs["loadBalancingRules"] = undefined /*out*/;
             resourceInputs["outboundRule"] = undefined /*out*/;
             resourceInputs["outboundRules"] = undefined /*out*/;
@@ -107,17 +133,22 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["backendIPConfigurations"] = undefined /*out*/;
+            resourceInputs["drainPeriodInSeconds"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["inboundNatRules"] = undefined /*out*/;
             resourceInputs["loadBalancerBackendAddresses"] = undefined /*out*/;
             resourceInputs["loadBalancingRules"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundRule"] = undefined /*out*/;
             resourceInputs["outboundRules"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tunnelInterfaces"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200801:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20201101:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210201:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210301:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210801:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220101:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220901:LoadBalancerBackendAddressPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200801:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20201101:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210201:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210301:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210801:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220101:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20220901:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20221101:LoadBalancerBackendAddressPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadBalancerBackendAddressPool.__pulumiType, name, resourceInputs, opts);
     }
@@ -132,6 +163,10 @@ export interface LoadBalancerBackendAddressPoolArgs {
      */
     backendAddressPoolName?: pulumi.Input<string>;
     /**
+     * Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+     */
+    drainPeriodInSeconds?: pulumi.Input<number>;
+    /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
@@ -144,6 +179,10 @@ export interface LoadBalancerBackendAddressPoolArgs {
      */
     loadBalancerName: pulumi.Input<string>;
     /**
+     * The location of the backend address pool.
+     */
+    location?: pulumi.Input<string>;
+    /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
     name?: pulumi.Input<string>;
@@ -151,4 +190,12 @@ export interface LoadBalancerBackendAddressPoolArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * An array of gateway load balancer tunnel interfaces.
+     */
+    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.network.GatewayLoadBalancerTunnelInterfaceArgs>[]>;
+    /**
+     * A reference to a virtual network.
+     */
+    virtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
 }

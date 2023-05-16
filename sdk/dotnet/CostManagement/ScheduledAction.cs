@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// Scheduled action definition.
-    /// API Version: 2022-04-01-preview.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource
@@ -23,13 +24,13 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Etag.
+        /// Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
         /// </summary>
         [Output("eTag")]
         public Output<string> ETag { get; private set; } = null!;
 
         /// <summary>
-        /// Destination format of the view data.
+        /// Destination format of the view data. This is optional.
         /// </summary>
         [Output("fileDestination")]
         public Output<Outputs.FileDestinationResponse?> FileDestination { get; private set; } = null!;
@@ -41,7 +42,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -51,6 +52,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Output("notification")]
         public Output<Outputs.NotificationPropertiesResponse> Notification { get; private set; } = null!;
+
+        /// <summary>
+        /// Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        /// </summary>
+        [Output("notificationEmail")]
+        public Output<string?> NotificationEmail { get; private set; } = null!;
 
         /// <summary>
         /// Schedule of the scheduled action.
@@ -71,13 +78,13 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// Kind of the scheduled action.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -146,7 +153,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Destination format of the view data.
+        /// Destination format of the view data. This is optional.
         /// </summary>
         [Input("fileDestination")]
         public Input<Inputs.FileDestinationArgs>? FileDestination { get; set; }
@@ -168,6 +175,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Input("notification", required: true)]
         public Input<Inputs.NotificationPropertiesArgs> Notification { get; set; } = null!;
+
+        /// <summary>
+        /// Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        /// </summary>
+        [Input("notificationEmail")]
+        public Input<string>? NotificationEmail { get; set; }
 
         /// <summary>
         /// Schedule of the scheduled action.

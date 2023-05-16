@@ -37,36 +37,6 @@ namespace Pulumi.AzureNative.EventHub
     }
 
     /// <summary>
-    /// Application Group Policy types
-    /// </summary>
-    [EnumType]
-    public readonly struct ApplicationGroupPolicyType : IEquatable<ApplicationGroupPolicyType>
-    {
-        private readonly string _value;
-
-        private ApplicationGroupPolicyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ApplicationGroupPolicyType ThrottlingPolicy { get; } = new ApplicationGroupPolicyType("ThrottlingPolicy");
-
-        public static bool operator ==(ApplicationGroupPolicyType left, ApplicationGroupPolicyType right) => left.Equals(right);
-        public static bool operator !=(ApplicationGroupPolicyType left, ApplicationGroupPolicyType right) => !left.Equals(right);
-
-        public static explicit operator string(ApplicationGroupPolicyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ApplicationGroupPolicyType other && Equals(other);
-        public bool Equals(ApplicationGroupPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Name of this SKU.
     /// </summary>
     [EnumType]
@@ -232,29 +202,28 @@ namespace Pulumi.AzureNative.EventHub
     }
 
     /// <summary>
-    /// The IP Filter Action
+    /// Enumerates the possible value of keySource for Encryption
     /// </summary>
     [EnumType]
-    public readonly struct IPAction : IEquatable<IPAction>
+    public readonly struct KeySource : IEquatable<KeySource>
     {
         private readonly string _value;
 
-        private IPAction(string value)
+        private KeySource(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IPAction Accept { get; } = new IPAction("Accept");
-        public static IPAction Reject { get; } = new IPAction("Reject");
+        public static KeySource Microsoft_KeyVault { get; } = new KeySource("Microsoft.KeyVault");
 
-        public static bool operator ==(IPAction left, IPAction right) => left.Equals(right);
-        public static bool operator !=(IPAction left, IPAction right) => !left.Equals(right);
+        public static bool operator ==(KeySource left, KeySource right) => left.Equals(right);
+        public static bool operator !=(KeySource left, KeySource right) => !left.Equals(right);
 
-        public static explicit operator string(IPAction value) => value._value;
+        public static explicit operator string(KeySource value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IPAction other && Equals(other);
-        public bool Equals(IPAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
+        public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -263,31 +232,31 @@ namespace Pulumi.AzureNative.EventHub
     }
 
     /// <summary>
-    /// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+    /// Type of managed service identity.
     /// </summary>
     [EnumType]
-    public readonly struct MetricId : IEquatable<MetricId>
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
     {
         private readonly string _value;
 
-        private MetricId(string value)
+        private ManagedServiceIdentityType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static MetricId IncomingBytes { get; } = new MetricId("IncomingBytes");
-        public static MetricId OutgoingBytes { get; } = new MetricId("OutgoingBytes");
-        public static MetricId IncomingMessages { get; } = new MetricId("IncomingMessages");
-        public static MetricId OutgoingMessages { get; } = new MetricId("OutgoingMessages");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
 
-        public static bool operator ==(MetricId left, MetricId right) => left.Equals(right);
-        public static bool operator !=(MetricId left, MetricId right) => !left.Equals(right);
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
 
-        public static explicit operator string(MetricId value) => value._value;
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MetricId other && Equals(other);
-        public bool Equals(MetricId other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -351,6 +320,37 @@ namespace Pulumi.AzureNative.EventHub
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateLinkConnectionStatus other && Equals(other);
         public bool Equals(PrivateLinkConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This determines if traffic is allowed over public network. By default it is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccessFlag : IEquatable<PublicNetworkAccessFlag>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessFlag(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccessFlag Enabled { get; } = new PublicNetworkAccessFlag("Enabled");
+        public static PublicNetworkAccessFlag Disabled { get; } = new PublicNetworkAccessFlag("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessFlag left, PublicNetworkAccessFlag right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessFlag left, PublicNetworkAccessFlag right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessFlag value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessFlag other && Equals(other);
+        public bool Equals(PublicNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -430,6 +430,7 @@ namespace Pulumi.AzureNative.EventHub
 
         public static SkuName Basic { get; } = new SkuName("Basic");
         public static SkuName Standard { get; } = new SkuName("Standard");
+        public static SkuName Premium { get; } = new SkuName("Premium");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
@@ -461,6 +462,7 @@ namespace Pulumi.AzureNative.EventHub
 
         public static SkuTier Basic { get; } = new SkuTier("Basic");
         public static SkuTier Standard { get; } = new SkuTier("Standard");
+        public static SkuTier Premium { get; } = new SkuTier("Premium");
 
         public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
         public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);

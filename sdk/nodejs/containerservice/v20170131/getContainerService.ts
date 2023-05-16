@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.
  */
-/** @deprecated Version 2017-01-31 will be removed in v2 of the provider. */
 export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerServiceResult> {
-    pulumi.log.warn("getContainerService is deprecated: Version 2017-01-31 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20170131:getContainerService", {
@@ -96,7 +94,6 @@ export interface GetContainerServiceResult {
 /**
  * Gets the properties of the specified container service in the specified subscription and resource group. The operation returns the properties including state, orchestrator, number of masters and agents, and FQDNs of masters and agents.
  */
-/** @deprecated Version 2017-01-31 will be removed in v2 of the provider. */
 export function getContainerServiceOutput(args: GetContainerServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerServiceResult> {
     return pulumi.output(args).apply((a: any) => getContainerService(a, opts))
 }

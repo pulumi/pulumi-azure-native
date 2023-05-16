@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// A managed Cassandra data center.
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2022-11-15.
+    /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraDataCenter")]
     public partial class CassandraDataCenter : global::Pulumi.CustomResource
@@ -71,7 +72,10 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:CassandraDataCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:CassandraDataCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:CassandraDataCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:CassandraDataCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:CassandraDataCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:CassandraDataCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:CassandraDataCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -16,8 +16,6 @@ __all__ = [
     'get_file_share_output',
 ]
 
-warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetFileShareResult:
     """
@@ -182,7 +180,6 @@ def get_file_share(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name
     :param str share_name: The file share name.
     """
-    pulumi.log.warn("""get_file_share is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['fileServerName'] = file_server_name
@@ -223,5 +220,4 @@ def get_file_share_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name
     :param str share_name: The file share name.
     """
-    pulumi.log.warn("""get_file_share is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     ...

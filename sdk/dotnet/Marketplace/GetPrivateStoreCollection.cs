@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Marketplace
     {
         /// <summary>
         /// Gets private store collection
-        /// API Version: 2021-12-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetPrivateStoreCollectionResult> InvokeAsync(GetPrivateStoreCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionResult>("azure-native:marketplace:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets private store collection
-        /// API Version: 2021-12-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetPrivateStoreCollectionResult> Invoke(GetPrivateStoreCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionResult>("azure-native:marketplace:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionInvokeArgs(), options.WithDefaults());
@@ -76,6 +76,18 @@ namespace Pulumi.AzureNative.Marketplace
         /// </summary>
         public readonly bool? AllSubscriptions;
         /// <summary>
+        /// Gets list of collection rules
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleResponse> AppliedRules;
+        /// <summary>
+        /// Indicating whether all items are approved for this collection (=true) or not (=false).
+        /// </summary>
+        public readonly bool ApproveAllItems;
+        /// <summary>
+        /// Gets the modified date of all items approved.
+        /// </summary>
+        public readonly string ApproveAllItemsModifiedAt;
+        /// <summary>
         /// Gets or sets the association with Commercial's Billing Account.
         /// </summary>
         public readonly string? Claim;
@@ -120,6 +132,12 @@ namespace Pulumi.AzureNative.Marketplace
         private GetPrivateStoreCollectionResult(
             bool? allSubscriptions,
 
+            ImmutableArray<Outputs.RuleResponse> appliedRules,
+
+            bool approveAllItems,
+
+            string approveAllItemsModifiedAt,
+
             string? claim,
 
             string collectionId,
@@ -141,6 +159,9 @@ namespace Pulumi.AzureNative.Marketplace
             string type)
         {
             AllSubscriptions = allSubscriptions;
+            AppliedRules = appliedRules;
+            ApproveAllItems = approveAllItems;
+            ApproveAllItemsModifiedAt = approveAllItemsModifiedAt;
             Claim = claim;
             CollectionId = collectionId;
             CollectionName = collectionName;

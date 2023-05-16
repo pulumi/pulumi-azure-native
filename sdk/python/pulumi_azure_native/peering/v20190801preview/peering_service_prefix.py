@@ -114,12 +114,7 @@ class PeeringServicePrefixArgs:
         pulumi.set(self, "prefix_validation_state", value)
 
 
-warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class PeeringServicePrefix(pulumi.CustomResource):
-    warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -174,7 +169,6 @@ class PeeringServicePrefix(pulumi.CustomResource):
                  prefix_validation_state: Optional[pulumi.Input[Union[str, 'PrefixValidationState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PeeringServicePrefix is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

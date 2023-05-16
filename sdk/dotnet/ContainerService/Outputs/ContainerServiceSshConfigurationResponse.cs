@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ContainerServiceSshConfigurationResponse
     {
         /// <summary>
-        /// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        /// The list of SSH public keys used to authenticate with Linux-based VMs. A maximum of 1 key may be specified.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerServiceSshPublicKeyResponse> PublicKeys;
 

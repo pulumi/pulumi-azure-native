@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
- *
- * @deprecated Version 2017-11-15 will be removed in v2 of the provider.
  */
 export class ReferenceDataSet extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ReferenceDataSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReferenceDataSet {
-        pulumi.log.warn("ReferenceDataSet is deprecated: Version 2017-11-15 will be removed in v2 of the provider.")
         return new ReferenceDataSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
     constructor(name: string, args: ReferenceDataSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReferenceDataSet is deprecated: Version 2017-11-15 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

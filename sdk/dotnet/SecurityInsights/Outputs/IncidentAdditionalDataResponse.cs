@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// </summary>
         public readonly int CommentsCount;
         /// <summary>
+        /// The provider incident url to the incident in Microsoft 365 Defender portal
+        /// </summary>
+        public readonly string ProviderIncidentUrl;
+        /// <summary>
         /// The tactics associated with incident
         /// </summary>
         public readonly ImmutableArray<string> Tactics;
@@ -47,12 +51,15 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
             int commentsCount,
 
+            string providerIncidentUrl,
+
             ImmutableArray<string> tactics)
         {
             AlertProductNames = alertProductNames;
             AlertsCount = alertsCount;
             BookmarksCount = bookmarksCount;
             CommentsCount = commentsCount;
+            ProviderIncidentUrl = providerIncidentUrl;
             Tactics = tactics;
         }
     }

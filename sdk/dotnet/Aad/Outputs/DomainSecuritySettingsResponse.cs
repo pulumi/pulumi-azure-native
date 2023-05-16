@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Aad.Outputs
     public sealed class DomainSecuritySettingsResponse
     {
         /// <summary>
+        /// A flag to determine whether or not ChannelBinding is enabled or disabled.
+        /// </summary>
+        public readonly string? ChannelBinding;
+        /// <summary>
         /// A flag to determine whether or not KerberosArmoring is enabled or disabled.
         /// </summary>
         public readonly string? KerberosArmoring;
@@ -24,6 +28,10 @@ namespace Pulumi.AzureNative.Aad.Outputs
         /// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
         /// </summary>
         public readonly string? KerberosRc4Encryption;
+        /// <summary>
+        /// A flag to determine whether or not LdapSigning is enabled or disabled.
+        /// </summary>
+        public readonly string? LdapSigning;
         /// <summary>
         /// A flag to determine whether or not NtlmV1 is enabled or disabled.
         /// </summary>
@@ -47,9 +55,13 @@ namespace Pulumi.AzureNative.Aad.Outputs
 
         [OutputConstructor]
         private DomainSecuritySettingsResponse(
+            string? channelBinding,
+
             string? kerberosArmoring,
 
             string? kerberosRc4Encryption,
+
+            string? ldapSigning,
 
             string? ntlmV1,
 
@@ -61,8 +73,10 @@ namespace Pulumi.AzureNative.Aad.Outputs
 
             string? tlsV1)
         {
+            ChannelBinding = channelBinding;
             KerberosArmoring = kerberosArmoring;
             KerberosRc4Encryption = kerberosRc4Encryption;
+            LdapSigning = ldapSigning;
             NtlmV1 = ntlmV1;
             SyncKerberosPasswords = syncKerberosPasswords;
             SyncNtlmPasswords = syncNtlmPasswords;

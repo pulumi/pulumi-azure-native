@@ -29,6 +29,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Key;
         /// <summary>
+        /// Leaf domain label of public endpoint
+        /// </summary>
+        public readonly string? LeafDomainLabel;
+        /// <summary>
+        /// Indicates whether to overwrite existing domain label.
+        /// </summary>
+        public readonly bool? OverwriteExistingDomain;
+        /// <summary>
         /// Enable or disable ssl for scoring
         /// </summary>
         public readonly string? Status;
@@ -41,11 +49,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? key,
 
+            string? leafDomainLabel,
+
+            bool? overwriteExistingDomain,
+
             string? status)
         {
             Cert = cert;
             Cname = cname;
             Key = key;
+            LeafDomainLabel = leafDomainLabel;
+            OverwriteExistingDomain = overwriteExistingDomain;
             Status = status;
         }
     }

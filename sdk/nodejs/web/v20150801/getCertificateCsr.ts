@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Certificate signing request object
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getCertificateCsr(args: GetCertificateCsrArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateCsrResult> {
-    pulumi.log.warn("getCertificateCsr is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getCertificateCsr", {
@@ -85,7 +83,6 @@ export interface GetCertificateCsrResult {
 /**
  * Certificate signing request object
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getCertificateCsrOutput(args: GetCertificateCsrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateCsrResult> {
     return pulumi.output(args).apply((a: any) => getCertificateCsr(a, opts))
 }

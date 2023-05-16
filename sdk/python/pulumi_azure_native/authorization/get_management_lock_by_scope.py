@@ -22,7 +22,7 @@ class GetManagementLockByScopeResult:
     """
     The lock information.
     """
-    def __init__(__self__, id=None, level=None, name=None, notes=None, owners=None, type=None):
+    def __init__(__self__, id=None, level=None, name=None, notes=None, owners=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +38,9 @@ class GetManagementLockByScopeResult:
         if owners and not isinstance(owners, list):
             raise TypeError("Expected argument 'owners' to be a list")
         pulumi.set(__self__, "owners", owners)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -83,6 +86,14 @@ class GetManagementLockByScopeResult:
         return pulumi.get(self, "owners")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -102,6 +113,7 @@ class AwaitableGetManagementLockByScopeResult(GetManagementLockByScopeResult):
             name=self.name,
             notes=self.notes,
             owners=self.owners,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -110,7 +122,7 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockByScopeResult:
     """
     Get a management lock by scope.
-    API Version: 2017-04-01.
+    API Version: 2020-05-01.
 
 
     :param str lock_name: The name of lock.
@@ -128,6 +140,7 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
         name=__ret__.name,
         notes=__ret__.notes,
         owners=__ret__.owners,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -137,7 +150,7 @@ def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] =
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockByScopeResult]:
     """
     Get a management lock by scope.
-    API Version: 2017-04-01.
+    API Version: 2020-05-01.
 
 
     :param str lock_name: The name of lock.

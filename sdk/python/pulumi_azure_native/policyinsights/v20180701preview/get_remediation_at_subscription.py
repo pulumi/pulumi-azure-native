@@ -17,8 +17,6 @@ __all__ = [
     'get_remediation_at_subscription_output',
 ]
 
-warnings.warn("""Version 2018-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetRemediationAtSubscriptionResult:
     """
@@ -163,7 +161,6 @@ def get_remediation_at_subscription(remediation_name: Optional[str] = None,
 
     :param str remediation_name: The name of the remediation.
     """
-    pulumi.log.warn("""get_remediation_at_subscription is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -191,5 +188,4 @@ def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Inp
 
     :param str remediation_name: The name of the remediation.
     """
-    pulumi.log.warn("""get_remediation_at_subscription is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.""")
     ...

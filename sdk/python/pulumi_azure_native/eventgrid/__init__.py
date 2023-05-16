@@ -11,7 +11,6 @@ from .domain import *
 from .domain_event_subscription import *
 from .domain_topic import *
 from .domain_topic_event_subscription import *
-from .event_channel import *
 from .event_subscription import *
 from .get_channel import *
 from .get_channel_full_url import *
@@ -23,12 +22,10 @@ from .get_domain_topic import *
 from .get_domain_topic_event_subscription import *
 from .get_domain_topic_event_subscription_delivery_attributes import *
 from .get_domain_topic_event_subscription_full_url import *
-from .get_event_channel import *
 from .get_event_subscription import *
 from .get_event_subscription_delivery_attributes import *
 from .get_event_subscription_full_url import *
 from .get_partner_configuration import *
-from .get_partner_destination import *
 from .get_partner_namespace import *
 from .get_partner_registration import *
 from .get_partner_topic import *
@@ -48,7 +45,6 @@ from .list_domain_shared_access_keys import *
 from .list_partner_namespace_shared_access_keys import *
 from .list_topic_shared_access_keys import *
 from .partner_configuration import *
-from .partner_destination import *
 from .partner_namespace import *
 from .partner_registration import *
 from .partner_topic import *

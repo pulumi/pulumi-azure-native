@@ -6,8 +6,6 @@ from enum import Enum
 
 __all__ = [
     'InfrastructureEncryptionState',
-    'PrivateEndpointConnectionStatus',
-    'ProvisioningState',
     'ResourceIdentityType',
     'SkuName',
 ]
@@ -19,26 +17,6 @@ class InfrastructureEncryptionState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class PrivateEndpointConnectionStatus(str, Enum):
-    """
-    Gets or sets the status
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
-
-
-class ProvisioningState(str, Enum):
-    """
-    Gets or sets provisioning state of the private endpoint connection
-    """
-    SUCCEEDED = "Succeeded"
-    DELETING = "Deleting"
-    FAILED = "Failed"
-    PENDING = "Pending"
 
 
 class ResourceIdentityType(str, Enum):

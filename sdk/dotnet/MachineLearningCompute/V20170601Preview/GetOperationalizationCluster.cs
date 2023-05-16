@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview
 {
-    [Obsolete(@"Version 2017-06-01-preview will be removed in v2 of the provider.")]
     public static class GetOperationalizationCluster
     {
         /// <summary>

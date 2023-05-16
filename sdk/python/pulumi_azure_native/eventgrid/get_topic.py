@@ -22,13 +22,22 @@ class GetTopicResult:
     """
     EventGrid Topic
     """
-    def __init__(__self__, endpoint=None, id=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, data_residency_boundary=None, disable_local_auth=None, endpoint=None, id=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+        if data_residency_boundary and not isinstance(data_residency_boundary, str):
+            raise TypeError("Expected argument 'data_residency_boundary' to be a str")
+        pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules and not isinstance(inbound_ip_rules, list):
             raise TypeError("Expected argument 'inbound_ip_rules' to be a list")
         pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
@@ -67,6 +76,22 @@ class GetTopicResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> Optional[str]:
+        """
+        Data Residency Boundary of the resource.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
     @pulumi.getter
     def endpoint(self) -> str:
         """
@@ -81,6 +106,14 @@ class GetTopicResult:
         Fully qualified identifier of the resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityInfoResponse']:
+        """
+        Identity information for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -183,8 +216,11 @@ class AwaitableGetTopicResult(GetTopicResult):
         if False:
             yield self
         return GetTopicResult(
+            data_residency_boundary=self.data_residency_boundary,
+            disable_local_auth=self.disable_local_auth,
             endpoint=self.endpoint,
             id=self.id,
+            identity=self.identity,
             inbound_ip_rules=self.inbound_ip_rules,
             input_schema=self.input_schema,
             input_schema_mapping=self.input_schema_mapping,
@@ -204,7 +240,7 @@ def get_topic(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Get properties of a topic.
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -217,8 +253,11 @@ def get_topic(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
+        data_residency_boundary=__ret__.data_residency_boundary,
+        disable_local_auth=__ret__.disable_local_auth,
         endpoint=__ret__.endpoint,
         id=__ret__.id,
+        identity=__ret__.identity,
         inbound_ip_rules=__ret__.inbound_ip_rules,
         input_schema=__ret__.input_schema,
         input_schema_mapping=__ret__.input_schema_mapping,
@@ -239,7 +278,7 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Get properties of a topic.
-    API Version: 2020-06-01.
+    API Version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets an application control VM/server group.
  */
-/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
 export function getAdaptiveApplicationControl(args: GetAdaptiveApplicationControlArgs, opts?: pulumi.InvokeOptions): Promise<GetAdaptiveApplicationControlResult> {
-    pulumi.log.warn("getAdaptiveApplicationControl is deprecated: Version 2015-06-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20150601preview:getAdaptiveApplicationControl", {
@@ -76,7 +74,6 @@ export interface GetAdaptiveApplicationControlResult {
 /**
  * Gets an application control VM/server group.
  */
-/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
 export function getAdaptiveApplicationControlOutput(args: GetAdaptiveApplicationControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdaptiveApplicationControlResult> {
     return pulumi.output(args).apply((a: any) => getAdaptiveApplicationControl(a, opts))
 }

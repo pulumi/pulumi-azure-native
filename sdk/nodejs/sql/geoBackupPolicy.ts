@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A database geo backup policy.
- * API Version: 2014-04-01.
+ * A Geo backup policy.
+ * API Version: 2021-11-01.
+ * Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class GeoBackupPolicy extends pulumi.CustomResource {
     /**
@@ -120,7 +121,7 @@ export interface GeoBackupPolicyArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the geo backup policy.
+     * The name of the Geo backup policy. This should always be 'Default'.
      */
     geoBackupPolicyName?: pulumi.Input<string>;
     /**

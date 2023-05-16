@@ -245,6 +245,7 @@ class Link(pulumi.CustomResource):
         """
         The link resource format.
         API Version: 2017-04-26.
+        Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,6 +272,7 @@ class Link(pulumi.CustomResource):
         """
         The link resource format.
         API Version: 2017-04-26.
+        Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.

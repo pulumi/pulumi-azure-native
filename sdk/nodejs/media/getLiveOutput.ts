@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a live output.
- * API Version: 2020-05-01.
+ * API Version: 2022-11-01.
  */
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
 
@@ -94,13 +94,21 @@ export interface GetLiveOutputResult {
      */
     readonly resourceState: string;
     /**
+     * ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
+     */
+    readonly rewindWindowLength?: string;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a live output.
- * API Version: 2020-05-01.
+ * API Version: 2022-11-01.
  */
 export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {
     return pulumi.output(args).apply((a: any) => getLiveOutput(a, opts))

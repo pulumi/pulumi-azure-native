@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<Inputs.SubResourceArgs>? DefaultBackendHttpSettings { get; set; }
 
         /// <summary>
+        /// Default Load Distribution Policy resource of URL path map.
+        /// </summary>
+        [Input("defaultLoadDistributionPolicy")]
+        public Input<Inputs.SubResourceArgs>? DefaultLoadDistributionPolicy { get; set; }
+
+        /// <summary>
         /// Default redirect configuration resource of URL path map.
         /// </summary>
         [Input("defaultRedirectConfiguration")]

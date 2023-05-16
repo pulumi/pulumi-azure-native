@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents a web app
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
-    pulumi.log.warn("getSite is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSite", {
@@ -181,7 +179,6 @@ export interface GetSiteResult {
 /**
  * Represents a web app
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))
 }

@@ -22,7 +22,10 @@ class GetAttestationAtSubscriptionResult:
     """
     An attestation resource.
     """
-    def __init__(__self__, comments=None, compliance_state=None, evidence=None, expires_on=None, id=None, last_compliance_state_change_at=None, name=None, owner=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, assessment_date=None, comments=None, compliance_state=None, evidence=None, expires_on=None, id=None, last_compliance_state_change_at=None, metadata=None, name=None, owner=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, system_data=None, type=None):
+        if assessment_date and not isinstance(assessment_date, str):
+            raise TypeError("Expected argument 'assessment_date' to be a str")
+        pulumi.set(__self__, "assessment_date", assessment_date)
         if comments and not isinstance(comments, str):
             raise TypeError("Expected argument 'comments' to be a str")
         pulumi.set(__self__, "comments", comments)
@@ -41,6 +44,9 @@ class GetAttestationAtSubscriptionResult:
         if last_compliance_state_change_at and not isinstance(last_compliance_state_change_at, str):
             raise TypeError("Expected argument 'last_compliance_state_change_at' to be a str")
         pulumi.set(__self__, "last_compliance_state_change_at", last_compliance_state_change_at)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -62,6 +68,14 @@ class GetAttestationAtSubscriptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="assessmentDate")
+    def assessment_date(self) -> Optional[str]:
+        """
+        The time the evidence was assessed
+        """
+        return pulumi.get(self, "assessment_date")
 
     @property
     @pulumi.getter
@@ -110,6 +124,14 @@ class GetAttestationAtSubscriptionResult:
         The time the compliance state was last changed in this attestation.
         """
         return pulumi.get(self, "last_compliance_state_change_at")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        Additional metadata for this attestation
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -174,12 +196,14 @@ class AwaitableGetAttestationAtSubscriptionResult(GetAttestationAtSubscriptionRe
         if False:
             yield self
         return GetAttestationAtSubscriptionResult(
+            assessment_date=self.assessment_date,
             comments=self.comments,
             compliance_state=self.compliance_state,
             evidence=self.evidence,
             expires_on=self.expires_on,
             id=self.id,
             last_compliance_state_change_at=self.last_compliance_state_change_at,
+            metadata=self.metadata,
             name=self.name,
             owner=self.owner,
             policy_assignment_id=self.policy_assignment_id,
@@ -193,7 +217,7 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationAtSubscriptionResult:
     """
     Gets an existing attestation at subscription scope.
-    API Version: 2021-01-01.
+    API Version: 2022-09-01.
 
 
     :param str attestation_name: The name of the attestation.
@@ -204,12 +228,14 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:policyinsights:getAttestationAtSubscription', __args__, opts=opts, typ=GetAttestationAtSubscriptionResult).value
 
     return AwaitableGetAttestationAtSubscriptionResult(
+        assessment_date=__ret__.assessment_date,
         comments=__ret__.comments,
         compliance_state=__ret__.compliance_state,
         evidence=__ret__.evidence,
         expires_on=__ret__.expires_on,
         id=__ret__.id,
         last_compliance_state_change_at=__ret__.last_compliance_state_change_at,
+        metadata=__ret__.metadata,
         name=__ret__.name,
         owner=__ret__.owner,
         policy_assignment_id=__ret__.policy_assignment_id,
@@ -224,7 +250,7 @@ def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Inp
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationAtSubscriptionResult]:
     """
     Gets an existing attestation at subscription scope.
-    API Version: 2021-01-01.
+    API Version: 2022-09-01.
 
 
     :param str attestation_name: The name of the attestation.

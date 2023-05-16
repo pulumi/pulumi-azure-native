@@ -2,40 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ApplicationArtifactType = {
-    NotSpecified: "NotSpecified",
-    Template: "Template",
-    Custom: "Custom",
-} as const;
-
-/**
- * The managed application definition artifact type.
- */
-export type ApplicationArtifactType = (typeof ApplicationArtifactType)[keyof typeof ApplicationArtifactType];
-
-export const ApplicationDefinitionArtifactName = {
-    NotSpecified: "NotSpecified",
-    ApplicationResourceTemplate: "ApplicationResourceTemplate",
-    CreateUiDefinition: "CreateUiDefinition",
-    MainTemplateParameters: "MainTemplateParameters",
-} as const;
-
-/**
- * The managed application definition artifact name.
- */
-export type ApplicationDefinitionArtifactName = (typeof ApplicationDefinitionArtifactName)[keyof typeof ApplicationDefinitionArtifactName];
-
-export const ApplicationLockLevel = {
-    CanNotDelete: "CanNotDelete",
-    ReadOnly: "ReadOnly",
-    None: "None",
-} as const;
-
-/**
- * The managed application lock level.
- */
-export type ApplicationLockLevel = (typeof ApplicationLockLevel)[keyof typeof ApplicationLockLevel];
-
 export const JitApprovalMode = {
     NotSpecified: "NotSpecified",
     AutoApprove: "AutoApprove",
@@ -56,17 +22,6 @@ export const JitApproverType = {
  * The approver type.
  */
 export type JitApproverType = (typeof JitApproverType)[keyof typeof JitApproverType];
-
-export const JitSchedulingType = {
-    NotSpecified: "NotSpecified",
-    Once: "Once",
-    Recurring: "Recurring",
-} as const;
-
-/**
- * The type of JIT schedule.
- */
-export type JitSchedulingType = (typeof JitSchedulingType)[keyof typeof JitSchedulingType];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",

@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An application package which represents a particular version of an application.
- *
- * @deprecated Version 2017-09-01 will be removed in v2 of the provider.
  */
 export class ApplicationPackage extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ApplicationPackage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationPackage {
-        pulumi.log.warn("ApplicationPackage is deprecated: Version 2017-09-01 will be removed in v2 of the provider.")
         return new ApplicationPackage(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +66,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2017-09-01 will be removed in v2 of the provider. */
     constructor(name: string, args: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationPackage is deprecated: Version 2017-09-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

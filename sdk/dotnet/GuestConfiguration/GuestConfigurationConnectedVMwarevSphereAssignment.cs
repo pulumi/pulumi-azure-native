@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.GuestConfiguration
 {
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
-    /// API Version: 2020-06-25.
+    /// API Version: 2022-01-25.
+    /// Previous API Version: 2020-06-25. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment")]
     public partial class GuestConfigurationConnectedVMwarevSphereAssignment : global::Pulumi.CustomResource
@@ -33,6 +34,12 @@ namespace Pulumi.AzureNative.GuestConfiguration
         /// </summary>
         [Output("properties")]
         public Output<Outputs.GuestConfigurationAssignmentPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

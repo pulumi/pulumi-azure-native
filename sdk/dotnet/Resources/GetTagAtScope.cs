@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Wrapper resource for tags API requests and responses.
-        /// API Version: 2019-10-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetTagAtScopeResult> InvokeAsync(GetTagAtScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-native:resources:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Wrapper resource for tags API requests and responses.
-        /// API Version: 2019-10-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetTagAtScopeResult> Invoke(GetTagAtScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagAtScopeResult>("azure-native:resources:getTagAtScope", args ?? new GetTagAtScopeInvokeArgs(), options.WithDefaults());

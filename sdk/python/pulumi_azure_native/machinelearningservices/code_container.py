@@ -16,34 +16,34 @@ __all__ = ['CodeContainerInitArgs', 'CodeContainer']
 @pulumi.input_type
 class CodeContainerInitArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['CodeContainerArgs'],
+                 code_container_properties: pulumi.Input['CodeContainerArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CodeContainer resource.
-        :param pulumi.Input['CodeContainerArgs'] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['CodeContainerArgs'] code_container_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[str] name: Container name.
+        :param pulumi.Input[str] name: Container name. This is case-sensitive.
         """
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "code_container_properties", code_container_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['CodeContainerArgs']:
+    @pulumi.getter(name="codeContainerProperties")
+    def code_container_properties(self) -> pulumi.Input['CodeContainerArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "code_container_properties")
 
-    @properties.setter
-    def properties(self, value: pulumi.Input['CodeContainerArgs']):
-        pulumi.set(self, "properties", value)
+    @code_container_properties.setter
+    def code_container_properties(self, value: pulumi.Input['CodeContainerArgs']):
+        pulumi.set(self, "code_container_properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -73,7 +73,7 @@ class CodeContainerInitArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Container name.
+        Container name. This is case-sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -87,19 +87,20 @@ class CodeContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 code_container_properties: Optional[pulumi.Input[pulumi.InputType['CodeContainerArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CodeContainerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input[pulumi.InputType['CodeContainerArgs']] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['CodeContainerArgs']] code_container_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[str] name: Container name. This is case-sensitive.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -111,7 +112,8 @@ class CodeContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        API Version: 2022-10-01.
+        Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param CodeContainerInitArgs args: The arguments to use to populate this resource's properties.
@@ -128,8 +130,8 @@ class CodeContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 code_container_properties: Optional[pulumi.Input[pulumi.InputType['CodeContainerArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CodeContainerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -141,10 +143,10 @@ class CodeContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CodeContainerInitArgs.__new__(CodeContainerInitArgs)
 
+            if code_container_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'code_container_properties'")
+            __props__.__dict__["code_container_properties"] = code_container_properties
             __props__.__dict__["name"] = name
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -153,7 +155,7 @@ class CodeContainer(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:CodeContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:CodeContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:CodeContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CodeContainer, __self__).__init__(
             'azure-native:machinelearningservices:CodeContainer',
@@ -177,11 +179,19 @@ class CodeContainer(pulumi.CustomResource):
 
         __props__ = CodeContainerInitArgs.__new__(CodeContainerInitArgs)
 
+        __props__.__dict__["code_container_properties"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CodeContainer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="codeContainerProperties")
+    def code_container_properties(self) -> pulumi.Output['outputs.CodeContainerResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "code_container_properties")
 
     @property
     @pulumi.getter
@@ -192,18 +202,10 @@ class CodeContainer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.CodeContainerResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

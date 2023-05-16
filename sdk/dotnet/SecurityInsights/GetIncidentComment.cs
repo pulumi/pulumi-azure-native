@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class GetIncidentComment
     {
         /// <summary>
-        /// Gets an incident comment.
-        /// API Version: 2021-03-01-preview.
+        /// Gets a comment for a given incident.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetIncidentCommentResult> InvokeAsync(GetIncidentCommentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCommentResult>("azure-native:securityinsights:getIncidentComment", args ?? new GetIncidentCommentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an incident comment.
-        /// API Version: 2021-03-01-preview.
+        /// Gets a comment for a given incident.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetIncidentCommentResult> Invoke(GetIncidentCommentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithDefaults());
@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("incidentId", required: true)]
         public string IncidentId { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -78,12 +72,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("incidentId", required: true)]
         public Input<string> IncidentId { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -120,7 +108,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -132,7 +120,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Message;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -140,7 +128,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified relationship Link.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getRelationshipLink(args: GetRelationshipLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipLinkResult> {
-    pulumi.log.warn("getRelationshipLink is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getRelationshipLink", {
@@ -101,7 +99,6 @@ export interface GetRelationshipLinkResult {
 /**
  * Gets information about the specified relationship Link.
  */
-/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getRelationshipLinkOutput(args: GetRelationshipLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipLinkResult> {
     return pulumi.output(args).apply((a: any) => getRelationshipLink(a, opts))
 }

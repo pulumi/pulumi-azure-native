@@ -192,37 +192,6 @@ namespace Pulumi.AzureNative.Kusto.V20220707
     }
 
     /// <summary>
-    /// Cluster principal role.
-    /// </summary>
-    [EnumType]
-    public readonly struct ClusterPrincipalRole : IEquatable<ClusterPrincipalRole>
-    {
-        private readonly string _value;
-
-        private ClusterPrincipalRole(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ClusterPrincipalRole AllDatabasesAdmin { get; } = new ClusterPrincipalRole("AllDatabasesAdmin");
-        public static ClusterPrincipalRole AllDatabasesViewer { get; } = new ClusterPrincipalRole("AllDatabasesViewer");
-
-        public static bool operator ==(ClusterPrincipalRole left, ClusterPrincipalRole right) => left.Equals(right);
-        public static bool operator !=(ClusterPrincipalRole left, ClusterPrincipalRole right) => !left.Equals(right);
-
-        public static explicit operator string(ClusterPrincipalRole value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ClusterPrincipalRole other && Equals(other);
-        public bool Equals(ClusterPrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The event hub messages compression type
     /// </summary>
     [EnumType]
@@ -286,41 +255,6 @@ namespace Pulumi.AzureNative.Kusto.V20220707
     }
 
     /// <summary>
-    /// Database principal role.
-    /// </summary>
-    [EnumType]
-    public readonly struct DatabasePrincipalRole : IEquatable<DatabasePrincipalRole>
-    {
-        private readonly string _value;
-
-        private DatabasePrincipalRole(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DatabasePrincipalRole Admin { get; } = new DatabasePrincipalRole("Admin");
-        public static DatabasePrincipalRole Ingestor { get; } = new DatabasePrincipalRole("Ingestor");
-        public static DatabasePrincipalRole Monitor { get; } = new DatabasePrincipalRole("Monitor");
-        public static DatabasePrincipalRole User { get; } = new DatabasePrincipalRole("User");
-        public static DatabasePrincipalRole UnrestrictedViewer { get; } = new DatabasePrincipalRole("UnrestrictedViewer");
-        public static DatabasePrincipalRole Viewer { get; } = new DatabasePrincipalRole("Viewer");
-
-        public static bool operator ==(DatabasePrincipalRole left, DatabasePrincipalRole right) => left.Equals(right);
-        public static bool operator !=(DatabasePrincipalRole left, DatabasePrincipalRole right) => !left.Equals(right);
-
-        public static explicit operator string(DatabasePrincipalRole value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatabasePrincipalRole other && Equals(other);
-        public bool Equals(DatabasePrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indication for database routing information from the data connection, by default only database routing information is allowed
     /// </summary>
     [EnumType]
@@ -344,38 +278,6 @@ namespace Pulumi.AzureNative.Kusto.V20220707
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatabaseRouting other && Equals(other);
         public bool Equals(DatabaseRouting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The default principals modification kind
-    /// </summary>
-    [EnumType]
-    public readonly struct DefaultPrincipalsModificationKind : IEquatable<DefaultPrincipalsModificationKind>
-    {
-        private readonly string _value;
-
-        private DefaultPrincipalsModificationKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefaultPrincipalsModificationKind Union { get; } = new DefaultPrincipalsModificationKind("Union");
-        public static DefaultPrincipalsModificationKind Replace { get; } = new DefaultPrincipalsModificationKind("Replace");
-        public static DefaultPrincipalsModificationKind None { get; } = new DefaultPrincipalsModificationKind("None");
-
-        public static bool operator ==(DefaultPrincipalsModificationKind left, DefaultPrincipalsModificationKind right) => left.Equals(right);
-        public static bool operator !=(DefaultPrincipalsModificationKind left, DefaultPrincipalsModificationKind right) => !left.Equals(right);
-
-        public static explicit operator string(DefaultPrincipalsModificationKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefaultPrincipalsModificationKind other && Equals(other);
-        public bool Equals(DefaultPrincipalsModificationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -606,38 +508,6 @@ namespace Pulumi.AzureNative.Kusto.V20220707
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Kind other && Equals(other);
         public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Principal type.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrincipalType : IEquatable<PrincipalType>
-    {
-        private readonly string _value;
-
-        private PrincipalType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrincipalType App { get; } = new PrincipalType("App");
-        public static PrincipalType Group { get; } = new PrincipalType("Group");
-        public static PrincipalType User { get; } = new PrincipalType("User");
-
-        public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
-        public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);
-
-        public static explicit operator string(PrincipalType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrincipalType other && Equals(other);
-        public bool Equals(PrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

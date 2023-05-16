@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Consumption.V20190601
     /// <summary>
     /// A budget resource.
     /// </summary>
-    [Obsolete(@"Version 2019-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:consumption/v20190601:Budget")]
     public partial class Budget : global::Pulumi.CustomResource
     {
@@ -111,6 +110,7 @@ namespace Pulumi.AzureNative.Consumption.V20190601
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20210501:Budget"},
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20211001:Budget"},
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20220901:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20230301:Budget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -280,22 +280,22 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
 
 
 def get_agent_pool(agent_pool_name: Optional[str] = None,
-                   provisioned_clusters_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
+                   resource_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
     Gets the agent pool in the Hybrid AKS provisioned cluster
-    API Version: 2022-05-01-preview.
+    API Version: 2022-09-01-preview.
 
 
     :param str agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
-    :param str provisioned_clusters_name: Parameter for the name of the provisioned cluster
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: Parameter for the name of the provisioned cluster
     """
     __args__ = dict()
     __args__['agentPoolName'] = agent_pool_name
-    __args__['provisionedClustersName'] = provisioned_clusters_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcontainerservice:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult).value
 
@@ -325,16 +325,16 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_agent_pool)
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
-                          provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
+                          resource_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Gets the agent pool in the Hybrid AKS provisioned cluster
-    API Version: 2022-05-01-preview.
+    API Version: 2022-09-01-preview.
 
 
     :param str agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
-    :param str provisioned_clusters_name: Parameter for the name of the provisioned cluster
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_name: Parameter for the name of the provisioned cluster
     """
     ...

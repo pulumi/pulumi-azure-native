@@ -40,11 +40,6 @@ export const listDeviceRegistrationKey: typeof import("./listDeviceRegistrationK
 export const listDeviceRegistrationKeyOutput: typeof import("./listDeviceRegistrationKey").listDeviceRegistrationKeyOutput = null as any;
 utilities.lazyLoad(exports, ["listDeviceRegistrationKey","listDeviceRegistrationKeyOutput"], () => require("./listDeviceRegistrationKey"));
 
-export { ListVendorSkusCredentialArgs, ListVendorSkusCredentialResult, ListVendorSkusCredentialOutputArgs } from "./listVendorSkusCredential";
-export const listVendorSkusCredential: typeof import("./listVendorSkusCredential").listVendorSkusCredential = null as any;
-export const listVendorSkusCredentialOutput: typeof import("./listVendorSkusCredential").listVendorSkusCredentialOutput = null as any;
-utilities.lazyLoad(exports, ["listVendorSkusCredential","listVendorSkusCredentialOutput"], () => require("./listVendorSkusCredential"));
-
 export { NetworkFunctionArgs } from "./networkFunction";
 export type NetworkFunction = import("./networkFunction").NetworkFunction;
 export const NetworkFunction: typeof import("./networkFunction").NetworkFunction = null as any;

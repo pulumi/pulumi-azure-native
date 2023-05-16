@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'ActiveRevisionsMode',
     'ApiType',
     'AutoHealActionType',
     'AzureResourceType',
@@ -17,12 +18,15 @@ __all__ = [
     'CookieExpirationConvention',
     'CustomHostNameDnsRecordType',
     'DatabaseType',
+    'DefaultAction',
+    'EnterpriseGradeCdnStatus',
     'ForwardProxyConvention',
     'FrequencyUnit',
     'FrontEndServiceType',
     'FtpsState',
     'HostNameType',
     'HostType',
+    'IngressTransportMethod',
     'IpFilterTag',
     'LoadBalancingMode',
     'LogLevel',
@@ -39,8 +43,18 @@ __all__ = [
     'SupportedTlsVersions',
     'UnauthenticatedClientAction',
     'UnauthenticatedClientActionV2',
+    'UpgradePreference',
     'WsdlImportMethod',
 ]
+
+
+class ActiveRevisionsMode(str, Enum):
+    """
+    ActiveRevisionsMode controls how active revisions are handled for the Container app:
+    <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+    """
+    MULTIPLE = "multiple"
+    SINGLE = "single"
 
 
 class ApiType(str, Enum):
@@ -168,6 +182,24 @@ class DatabaseType(str, Enum):
     POSTGRE_SQL = "PostgreSql"
 
 
+class DefaultAction(str, Enum):
+    """
+    Default action for scm access restriction if no rules are matched.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class EnterpriseGradeCdnStatus(str, Enum):
+    """
+    State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+    """
+    ENABLED = "Enabled"
+    ENABLING = "Enabling"
+    DISABLED = "Disabled"
+    DISABLING = "Disabling"
+
+
 class ForwardProxyConvention(str, Enum):
     """
     The convention used to determine the url of the request made.
@@ -213,6 +245,15 @@ class HostType(str, Enum):
     """
     STANDARD = "Standard"
     REPOSITORY = "Repository"
+
+
+class IngressTransportMethod(str, Enum):
+    """
+    Ingress transport protocol
+    """
+    AUTO = "auto"
+    HTTP = "http"
+    HTTP2 = "http2"
 
 
 class IpFilterTag(str, Enum):
@@ -376,6 +417,28 @@ class UnauthenticatedClientActionV2(str, Enum):
     ALLOW_ANONYMOUS = "AllowAnonymous"
     RETURN401 = "Return401"
     RETURN403 = "Return403"
+
+
+class UpgradePreference(str, Enum):
+    """
+    Upgrade Preference
+    """
+    NONE = "None"
+    """
+    No preference on when this App Service Environment will be upgraded
+    """
+    EARLY = "Early"
+    """
+    This App Service Environment will be upgraded before others in the same region that have Upgrade Preference 'Late'
+    """
+    LATE = "Late"
+    """
+    This App Service Environment will be upgraded after others in the same region that have Upgrade Preference 'Early'
+    """
+    MANUAL = "Manual"
+    """
+    ASEv3 only. Once an upgrade is available, this App Service Environment will wait 10 days for the upgrade to be manually initiated. After 10 days the upgrade will begin automatically
+    """
 
 
 class WsdlImportMethod(str, Enum):

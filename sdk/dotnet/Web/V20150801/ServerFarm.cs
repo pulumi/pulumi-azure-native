@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// App Service Plan Model
     /// </summary>
-    [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:ServerFarm")]
     public partial class ServerFarm : global::Pulumi.CustomResource
     {

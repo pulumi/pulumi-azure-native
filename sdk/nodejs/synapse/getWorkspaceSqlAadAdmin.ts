@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workspace SQL active directory admin
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {
 
@@ -23,7 +23,7 @@ export interface GetWorkspaceSqlAadAdminArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -63,7 +63,7 @@ export interface GetWorkspaceSqlAadAdminResult {
 }
 /**
  * Gets a workspace SQL active directory admin
- * API Version: 2021-03-01.
+ * API Version: 2021-06-01.
  */
 export function getWorkspaceSqlAadAdminOutput(args: GetWorkspaceSqlAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSqlAadAdminResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceSqlAadAdmin(a, opts))
@@ -75,7 +75,7 @@ export interface GetWorkspaceSqlAadAdminOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

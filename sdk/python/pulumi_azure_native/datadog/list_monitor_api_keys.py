@@ -62,7 +62,7 @@ def list_monitor_api_keys(monitor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMonitorApiKeysResult:
     """
     Response of a list operation.
-    API Version: 2021-03-01.
+    API Version: 2022-06-01.
 
 
     :param str monitor_name: Monitor resource name
@@ -85,7 +85,7 @@ def list_monitor_api_keys_output(monitor_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorApiKeysResult]:
     """
     Response of a list operation.
-    API Version: 2021-03-01.
+    API Version: 2022-06-01.
 
 
     :param str monitor_name: Monitor resource name

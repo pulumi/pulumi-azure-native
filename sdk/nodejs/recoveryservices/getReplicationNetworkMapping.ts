@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the details of an ASR network mapping
- * API Version: 2018-07-10.
+ * Gets the details of an ASR network mapping.
+ * API Version: 2023-02-01.
  */
 export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationNetworkMappingResult> {
 
@@ -72,8 +72,8 @@ export interface GetReplicationNetworkMappingResult {
     readonly type: string;
 }
 /**
- * Gets the details of an ASR network mapping
- * API Version: 2018-07-10.
+ * Gets the details of an ASR network mapping.
+ * API Version: 2023-02-01.
  */
 export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationNetworkMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationNetworkMapping(a, opts))

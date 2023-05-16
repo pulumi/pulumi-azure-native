@@ -35,17 +35,6 @@ export const ComponentNames = {
  */
 export type ComponentNames = (typeof ComponentNames)[keyof typeof ComponentNames];
 
-export const DedicatedHostLicenseTypes = {
-    None: "None",
-    Windows_Server_Hybrid: "Windows_Server_Hybrid",
-    Windows_Server_Perpetual: "Windows_Server_Perpetual",
-} as const;
-
-/**
- * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
- */
-export type DedicatedHostLicenseTypes = (typeof DedicatedHostLicenseTypes)[keyof typeof DedicatedHostLicenseTypes];
-
 export const DeleteOptions = {
     Delete: "Delete",
     Detach: "Detach",
@@ -114,16 +103,6 @@ export const ExtendedLocationTypes = {
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
-export const HyperVGenerationTypes = {
-    V1: "V1",
-    V2: "V2",
-} as const;
-
-/**
- * Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
- */
-export type HyperVGenerationTypes = (typeof HyperVGenerationTypes)[keyof typeof HyperVGenerationTypes];
-
 export const IPVersion = {
     IPv4: "IPv4",
     IPv6: "IPv6",
@@ -185,22 +164,6 @@ export const NetworkApiVersion = {
  */
 export type NetworkApiVersion = (typeof NetworkApiVersion)[keyof typeof NetworkApiVersion];
 
-export const OperatingSystemStateTypes = {
-    /**
-     * Generalized image. Needs to be provisioned during deployment time.
-     */
-    Generalized: "Generalized",
-    /**
-     * Specialized image. Contains already provisioned OS Disk.
-     */
-    Specialized: "Specialized",
-} as const;
-
-/**
- * The OS State.
- */
-export type OperatingSystemStateTypes = (typeof OperatingSystemStateTypes)[keyof typeof OperatingSystemStateTypes];
-
 export const OperatingSystemTypes = {
     Windows: "Windows",
     Linux: "Linux",
@@ -239,16 +202,6 @@ export const ProtocolTypes = {
  * Specifies the protocol of WinRM listener. <br><br> Possible values are: <br>**http** <br><br> **https**
  */
 export type ProtocolTypes = (typeof ProtocolTypes)[keyof typeof ProtocolTypes];
-
-export const ProximityPlacementGroupType = {
-    Standard: "Standard",
-    Ultra: "Ultra",
-} as const;
-
-/**
- * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
- */
-export type ProximityPlacementGroupType = (typeof ProximityPlacementGroupType)[keyof typeof ProximityPlacementGroupType];
 
 export const PublicIPAddressSkuName = {
     Basic: "Basic",

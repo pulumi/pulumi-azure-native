@@ -25,7 +25,8 @@ class LiveOutputArgs:
                  hls: Optional[pulumi.Input['HlsArgs']] = None,
                  live_output_name: Optional[pulumi.Input[str]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
-                 output_snap_time: Optional[pulumi.Input[float]] = None):
+                 output_snap_time: Optional[pulumi.Input[float]] = None,
+                 rewind_window_length: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LiveOutput resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -38,6 +39,7 @@ class LiveOutputArgs:
         :param pulumi.Input[str] live_output_name: The name of the live output.
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically.
         :param pulumi.Input[float] output_snap_time: The initial timestamp that the live output will start at, any content before this value will not be archived.
+        :param pulumi.Input[str] rewind_window_length: ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "archive_window_length", archive_window_length)
@@ -54,6 +56,8 @@ class LiveOutputArgs:
             pulumi.set(__self__, "manifest_name", manifest_name)
         if output_snap_time is not None:
             pulumi.set(__self__, "output_snap_time", output_snap_time)
+        if rewind_window_length is not None:
+            pulumi.set(__self__, "rewind_window_length", rewind_window_length)
 
     @property
     @pulumi.getter(name="accountName")
@@ -175,6 +179,18 @@ class LiveOutputArgs:
     def output_snap_time(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "output_snap_time", value)
 
+    @property
+    @pulumi.getter(name="rewindWindowLength")
+    def rewind_window_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
+        """
+        return pulumi.get(self, "rewind_window_length")
+
+    @rewind_window_length.setter
+    def rewind_window_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rewind_window_length", value)
+
 
 class LiveOutput(pulumi.CustomResource):
     @overload
@@ -191,10 +207,12 @@ class LiveOutput(pulumi.CustomResource):
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  output_snap_time: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rewind_window_length: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The Live Output.
-        API Version: 2020-05-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,6 +226,7 @@ class LiveOutput(pulumi.CustomResource):
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically.
         :param pulumi.Input[float] output_snap_time: The initial timestamp that the live output will start at, any content before this value will not be archived.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] rewind_window_length: ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
         """
         ...
     @overload
@@ -217,7 +236,8 @@ class LiveOutput(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Live Output.
-        API Version: 2020-05-01.
+        API Version: 2022-11-01.
+        Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param LiveOutputArgs args: The arguments to use to populate this resource's properties.
@@ -244,6 +264,7 @@ class LiveOutput(pulumi.CustomResource):
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  output_snap_time: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rewind_window_length: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -273,11 +294,13 @@ class LiveOutput(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["rewind_window_length"] = rewind_window_length
             __props__.__dict__["created"] = None
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180601preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20190501preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20200501:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20210601:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20211101:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20220801:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20221101:LiveOutput")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -314,6 +337,8 @@ class LiveOutput(pulumi.CustomResource):
         __props__.__dict__["output_snap_time"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_state"] = None
+        __props__.__dict__["rewind_window_length"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return LiveOutput(resource_name, opts=opts, __props__=__props__)
 
@@ -404,6 +429,22 @@ class LiveOutput(pulumi.CustomResource):
         The resource state of the live output.
         """
         return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="rewindWindowLength")
+    def rewind_window_length(self) -> pulumi.Output[Optional[str]]:
+        """
+        ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
+        """
+        return pulumi.get(self, "rewind_window_length")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

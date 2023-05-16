@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified network group.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetNetworkGroupResult> InvokeAsync(GetNetworkGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkGroupResult>("azure-native:network:getNetworkGroup", args ?? new GetNetworkGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network group.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetNetworkGroupResult> Invoke(GetNetworkGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkGroupResult>("azure-native:network:getNetworkGroup", args ?? new GetNetworkGroupInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network group to get.
+        /// The name of the network group.
         /// </summary>
         [Input("networkGroupName", required: true)]
         public string NetworkGroupName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network group to get.
+        /// The name of the network group.
         /// </summary>
         [Input("networkGroupName", required: true)]
         public Input<string> NetworkGroupName { get; set; } = null!;
@@ -84,33 +84,17 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkGroupResult
     {
         /// <summary>
-        /// Network group conditional filter.
-        /// </summary>
-        public readonly string? ConditionalMembership;
-        /// <summary>
         /// A description of the network group.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// A friendly name for the network group.
-        /// </summary>
-        public readonly string? DisplayName;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// Group members of network group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GroupMembersItemResponse> GroupMembers;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Group member type.
-        /// </summary>
-        public readonly string? MemberType;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -130,19 +114,11 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetNetworkGroupResult(
-            string? conditionalMembership,
-
             string? description,
-
-            string? displayName,
 
             string etag,
 
-            ImmutableArray<Outputs.GroupMembersItemResponse> groupMembers,
-
             string id,
-
-            string? memberType,
 
             string name,
 
@@ -152,13 +128,9 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
-            ConditionalMembership = conditionalMembership;
             Description = description;
-            DisplayName = displayName;
             Etag = etag;
-            GroupMembers = groupMembers;
             Id = id;
-            MemberType = memberType;
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;

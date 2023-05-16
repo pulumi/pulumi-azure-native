@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the specified token.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2022-12-01.
         /// </summary>
         public static Task<GetTokenResult> InvokeAsync(GetTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-native:containerregistry:getToken", args ?? new GetTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified token.
-        /// API Version: 2020-11-01-preview.
+        /// API Version: 2022-12-01.
         /// </summary>
         public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

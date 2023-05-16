@@ -18,7 +18,12 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
+                 auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
+                 data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['IdentityInfoArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input['JsonInputSchemaMappingArgs']] = None,
@@ -28,18 +33,51 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[bool] auto_create_topic_with_first_subscription: This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+               In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+               When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+               created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+               by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+               flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+               domain topic on demand if needed.
+        :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+               In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+               When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+               of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+               (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+               control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+               resources by the user.
+        :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
+        :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
+        :param pulumi.Input['IdentityInfoArgs'] identity: Identity information for the Event Grid Domain resource.
         :param pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-        :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the domain.
+        :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
         :param pulumi.Input['JsonInputSchemaMappingArgs'] input_schema_mapping: Information about the InputSchemaMapping which specified the info about mapping event payload.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auto_create_topic_with_first_subscription is None:
+            auto_create_topic_with_first_subscription = True
+        if auto_create_topic_with_first_subscription is not None:
+            pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
+        if auto_delete_topic_with_last_subscription is None:
+            auto_delete_topic_with_last_subscription = True
+        if auto_delete_topic_with_last_subscription is not None:
+            pulumi.set(__self__, "auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
+        if data_residency_boundary is not None:
+            pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
+        if disable_local_auth is None:
+            disable_local_auth = False
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
             pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if input_schema is None:
@@ -70,6 +108,66 @@ class DomainArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="autoCreateTopicWithFirstSubscription")
+    def auto_create_topic_with_first_subscription(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+        created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+        by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+        flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+        domain topic on demand if needed.
+        """
+        return pulumi.get(self, "auto_create_topic_with_first_subscription")
+
+    @auto_create_topic_with_first_subscription.setter
+    def auto_create_topic_with_first_subscription(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_create_topic_with_first_subscription", value)
+
+    @property
+    @pulumi.getter(name="autoDeleteTopicWithLastSubscription")
+    def auto_delete_topic_with_last_subscription(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+        of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+        (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+        control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+        resources by the user.
+        """
+        return pulumi.get(self, "auto_delete_topic_with_last_subscription")
+
+    @auto_delete_topic_with_last_subscription.setter
+    def auto_delete_topic_with_last_subscription(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_delete_topic_with_last_subscription", value)
+
+    @property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]]:
+        """
+        Data Residency Boundary of the resource.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @data_residency_boundary.setter
+    def data_residency_boundary(self, value: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]]):
+        pulumi.set(self, "data_residency_boundary", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -80,6 +178,18 @@ class DomainArgs:
     @domain_name.setter
     def domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityInfoArgs']]:
+        """
+        Identity information for the Event Grid Domain resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityInfoArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -97,7 +207,7 @@ class DomainArgs:
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> Optional[pulumi.Input[Union[str, 'InputSchema']]]:
         """
-        This determines the format that Event Grid should expect for incoming events published to the domain.
+        This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
         """
         return pulumi.get(self, "input_schema")
 
@@ -133,7 +243,7 @@ class DomainArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
-        This determines if traffic is allowed over public network. By default it is enabled. 
+        This determines if traffic is allowed over public network. By default it is enabled.
         You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         """
         return pulumi.get(self, "public_network_access")
@@ -160,7 +270,12 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
+                 auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
+                 data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
@@ -171,16 +286,34 @@ class Domain(pulumi.CustomResource):
                  __props__=None):
         """
         EventGrid Domain.
-        API Version: 2020-06-01.
+        API Version: 2022-06-15.
+        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_create_topic_with_first_subscription: This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+               In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+               When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+               created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+               by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+               flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+               domain topic on demand if needed.
+        :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+               In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+               When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+               of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+               (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+               control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+               resources by the user.
+        :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
+        :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
+        :param pulumi.Input[pulumi.InputType['IdentityInfoArgs']] identity: Identity information for the Event Grid Domain resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-        :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the domain.
+        :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
         :param pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']] input_schema_mapping: Information about the InputSchemaMapping which specified the info about mapping event payload.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
@@ -193,7 +326,8 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Domain.
-        API Version: 2020-06-01.
+        API Version: 2022-06-15.
+        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -210,7 +344,12 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
+                 auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
+                 data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
@@ -227,7 +366,18 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
+            if auto_create_topic_with_first_subscription is None:
+                auto_create_topic_with_first_subscription = True
+            __props__.__dict__["auto_create_topic_with_first_subscription"] = auto_create_topic_with_first_subscription
+            if auto_delete_topic_with_last_subscription is None:
+                auto_delete_topic_with_last_subscription = True
+            __props__.__dict__["auto_delete_topic_with_last_subscription"] = auto_delete_topic_with_last_subscription
+            __props__.__dict__["data_residency_boundary"] = data_residency_boundary
+            if disable_local_auth is None:
+                disable_local_auth = False
+            __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             if input_schema is None:
                 input_schema = 'EventGridSchema'
@@ -272,7 +422,12 @@ class Domain(pulumi.CustomResource):
 
         __props__ = DomainArgs.__new__(DomainArgs)
 
+        __props__.__dict__["auto_create_topic_with_first_subscription"] = None
+        __props__.__dict__["auto_delete_topic_with_last_subscription"] = None
+        __props__.__dict__["data_residency_boundary"] = None
+        __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["endpoint"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["inbound_ip_rules"] = None
         __props__.__dict__["input_schema"] = None
         __props__.__dict__["input_schema_mapping"] = None
@@ -288,12 +443,64 @@ class Domain(pulumi.CustomResource):
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="autoCreateTopicWithFirstSubscription")
+    def auto_create_topic_with_first_subscription(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+        created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+        by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+        flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+        domain topic on demand if needed.
+        """
+        return pulumi.get(self, "auto_create_topic_with_first_subscription")
+
+    @property
+    @pulumi.getter(name="autoDeleteTopicWithLastSubscription")
+    def auto_delete_topic_with_last_subscription(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+        of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+        (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+        control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+        resources by the user.
+        """
+        return pulumi.get(self, "auto_delete_topic_with_last_subscription")
+
+    @property
+    @pulumi.getter(name="dataResidencyBoundary")
+    def data_residency_boundary(self) -> pulumi.Output[Optional[str]]:
+        """
+        Data Residency Boundary of the resource.
+        """
+        return pulumi.get(self, "data_residency_boundary")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
-        Endpoint for the domain.
+        Endpoint for the Event Grid Domain Resource which is used for publishing the events.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityInfoResponse']]:
+        """
+        Identity information for the Event Grid Domain resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -307,7 +514,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> pulumi.Output[Optional[str]]:
         """
-        This determines the format that Event Grid should expect for incoming events published to the domain.
+        This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
         """
         return pulumi.get(self, "input_schema")
 
@@ -331,7 +538,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="metricResourceId")
     def metric_resource_id(self) -> pulumi.Output[str]:
         """
-        Metric resource id for the domain.
+        Metric resource id for the Event Grid Domain Resource.
         """
         return pulumi.get(self, "metric_resource_id")
 
@@ -355,7 +562,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning state of the domain.
+        Provisioning state of the Event Grid Domain Resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -363,7 +570,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
-        This determines if traffic is allowed over public network. By default it is enabled. 
+        This determines if traffic is allowed over public network. By default it is enabled.
         You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         """
         return pulumi.get(self, "public_network_access")
@@ -372,7 +579,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Domain resource.
+        The system metadata relating to the Event Grid Domain resource.
         """
         return pulumi.get(self, "system_data")
 

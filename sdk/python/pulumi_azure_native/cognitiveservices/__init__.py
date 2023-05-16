@@ -8,9 +8,11 @@ import typing
 from ._enums import *
 from .account import *
 from .commitment_plan import *
+from .commitment_plan_association import *
 from .deployment import *
 from .get_account import *
 from .get_commitment_plan import *
+from .get_commitment_plan_association import *
 from .get_deployment import *
 from .get_private_endpoint_connection import *
 from .list_account_keys import *

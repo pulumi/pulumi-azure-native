@@ -91,6 +91,8 @@ export class FeaturestoreEntityVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:FeaturestoreEntityVersion" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FeaturestoreEntityVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

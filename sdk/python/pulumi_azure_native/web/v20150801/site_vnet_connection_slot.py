@@ -260,12 +260,7 @@ class SiteVNETConnectionSlotArgs:
         pulumi.set(self, "vnet_resource_id", value)
 
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class SiteVNETConnectionSlot(pulumi.CustomResource):
-    warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -348,7 +343,6 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
                  vnet_name: Optional[pulumi.Input[str]] = None,
                  vnet_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SiteVNETConnectionSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * App certificate
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    pulumi.log.warn("getCertificate is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getCertificate", {
@@ -124,7 +122,6 @@ export interface GetCertificateResult {
 /**
  * App certificate
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }

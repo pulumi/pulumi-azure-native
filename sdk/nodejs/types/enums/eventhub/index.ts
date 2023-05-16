@@ -2,24 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20140901 from "./v20140901";
 import * as v20150801 from "./v20150801";
 import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
-import * as v20210101preview from "./v20210101preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20211101 from "./v20211101";
 import * as v20220101preview from "./v20220101preview";
 import * as v20221001preview from "./v20221001preview";
 
 export {
-    v20140901,
     v20150801,
     v20170401,
     v20180101preview,
-    v20210101preview,
-    v20210601preview,
-    v20211101,
     v20220101preview,
     v20221001preview,
 };
@@ -31,15 +23,6 @@ export const AccessRights = {
 } as const;
 
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
-
-export const ApplicationGroupPolicyType = {
-    ThrottlingPolicy: "ThrottlingPolicy",
-} as const;
-
-/**
- * Application Group Policy types
- */
-export type ApplicationGroupPolicyType = (typeof ApplicationGroupPolicyType)[keyof typeof ApplicationGroupPolicyType];
 
 export const ClusterSkuName = {
     Dedicated: "Dedicated",
@@ -101,27 +84,26 @@ export const EntityStatus = {
  */
 export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
 
-export const IPAction = {
-    Accept: "Accept",
-    Reject: "Reject",
+export const KeySource = {
+    Microsoft_KeyVault: "Microsoft.KeyVault",
 } as const;
 
 /**
- * The IP Filter Action
+ * Enumerates the possible value of keySource for Encryption
  */
-export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
 
-export const MetricId = {
-    IncomingBytes: "IncomingBytes",
-    OutgoingBytes: "OutgoingBytes",
-    IncomingMessages: "IncomingMessages",
-    OutgoingMessages: "OutgoingMessages",
+export const ManagedServiceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
 } as const;
 
 /**
- * Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+ * Type of managed service identity.
  */
-export type MetricId = (typeof MetricId)[keyof typeof MetricId];
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const NetworkRuleIPAction = {
     Allow: "Allow",
@@ -144,6 +126,16 @@ export const PrivateLinkConnectionStatus = {
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
+export const PublicNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccessFlag = (typeof PublicNetworkAccessFlag)[keyof typeof PublicNetworkAccessFlag];
+
 export const SchemaCompatibility = {
     None: "None",
     Backward: "Backward",
@@ -162,6 +154,7 @@ export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
 export const SkuName = {
     Basic: "Basic",
     Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**
@@ -172,6 +165,7 @@ export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 export const SkuTier = {
     Basic: "Basic",
     Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**

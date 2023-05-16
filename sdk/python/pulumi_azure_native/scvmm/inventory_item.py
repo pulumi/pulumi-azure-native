@@ -112,6 +112,7 @@ class InventoryItem(pulumi.CustomResource):
         """
         Defines the inventory item.
         API Version: 2020-06-05-preview.
+        Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +131,7 @@ class InventoryItem(pulumi.CustomResource):
         """
         Defines the inventory item.
         API Version: 2020-06-05-preview.
+        Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.
@@ -177,7 +179,7 @@ class InventoryItem(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:InventoryItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:InventoryItem"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:InventoryItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InventoryItem, __self__).__init__(
             'azure-native:scvmm:InventoryItem',

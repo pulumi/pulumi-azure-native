@@ -22,10 +22,13 @@ class GetDevBoxDefinitionResult:
     """
     Represents a definition for a Developer Machine.
     """
-    def __init__(__self__, active_image_reference=None, id=None, image_reference=None, image_validation_error_details=None, image_validation_status=None, location=None, name=None, os_storage_type=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, active_image_reference=None, hibernate_support=None, id=None, image_reference=None, image_validation_error_details=None, image_validation_status=None, location=None, name=None, os_storage_type=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
         if active_image_reference and not isinstance(active_image_reference, dict):
             raise TypeError("Expected argument 'active_image_reference' to be a dict")
         pulumi.set(__self__, "active_image_reference", active_image_reference)
+        if hibernate_support and not isinstance(hibernate_support, str):
+            raise TypeError("Expected argument 'hibernate_support' to be a str")
+        pulumi.set(__self__, "hibernate_support", hibernate_support)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -70,6 +73,14 @@ class GetDevBoxDefinitionResult:
         Image reference information for the currently active image (only populated during updates).
         """
         return pulumi.get(self, "active_image_reference")
+
+    @property
+    @pulumi.getter(name="hibernateSupport")
+    def hibernate_support(self) -> Optional[str]:
+        """
+        Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+        """
+        return pulumi.get(self, "hibernate_support")
 
     @property
     @pulumi.getter
@@ -175,6 +186,7 @@ class AwaitableGetDevBoxDefinitionResult(GetDevBoxDefinitionResult):
             yield self
         return GetDevBoxDefinitionResult(
             active_image_reference=self.active_image_reference,
+            hibernate_support=self.hibernate_support,
             id=self.id,
             image_reference=self.image_reference,
             image_validation_error_details=self.image_validation_error_details,
@@ -195,12 +207,12 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevBoxDefinitionResult:
     """
     Gets a Dev Box definition
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
     :param str dev_center_name: The name of the devcenter.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['devBoxDefinitionName'] = dev_box_definition_name
@@ -211,6 +223,7 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
 
     return AwaitableGetDevBoxDefinitionResult(
         active_image_reference=__ret__.active_image_reference,
+        hibernate_support=__ret__.hibernate_support,
         id=__ret__.id,
         image_reference=__ret__.image_reference,
         image_validation_error_details=__ret__.image_validation_error_details,
@@ -232,11 +245,11 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevBoxDefinitionResult]:
     """
     Gets a Dev Box definition
-    API Version: 2022-09-01-preview.
+    API Version: 2022-11-11-preview.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
     :param str dev_center_name: The name of the devcenter.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

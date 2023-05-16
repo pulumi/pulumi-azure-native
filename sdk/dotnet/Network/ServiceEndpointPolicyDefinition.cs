@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Service Endpoint policy definitions.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ServiceEndpointPolicyDefinition")]
     public partial class ServiceEndpointPolicyDefinition : global::Pulumi.CustomResource
@@ -51,6 +52,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("serviceResources")]
         public Output<ImmutableArray<string>> ServiceResources { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,6 +112,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ServiceEndpointPolicyDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ServiceEndpointPolicyDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ServiceEndpointPolicyDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ServiceEndpointPolicyDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -181,6 +189,12 @@ namespace Pulumi.AzureNative.Network
             get => _serviceResources ?? (_serviceResources = new InputList<string>());
             set => _serviceResources = value;
         }
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ServiceEndpointPolicyDefinitionArgs()
         {

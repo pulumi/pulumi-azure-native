@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataDiskResponse> DataDisks;
         /// <summary>
+        /// Specifies the disk controller type configured for the VM. &lt;br&gt;&lt;br&gt;NOTE: This property will be set to the default disk controller type if not specified provided virtual machine is being created as a hyperVGeneration: V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. &lt;br&gt;You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. &lt;br&gt;&lt;br&gt; Minimum api-version: 2022-08-01
+        /// </summary>
+        public readonly string? DiskControllerType;
+        /// <summary>
         /// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         /// </summary>
         public readonly Outputs.ImageReferenceResponse? ImageReference;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private StorageProfileResponse(
             ImmutableArray<Outputs.DataDiskResponse> dataDisks,
 
+            string? diskControllerType,
+
             Outputs.ImageReferenceResponse? imageReference,
 
             Outputs.OSDiskResponse? osDisk)
         {
             DataDisks = dataDisks;
+            DiskControllerType = diskControllerType;
             ImageReference = imageReference;
             OsDisk = osDisk;
         }

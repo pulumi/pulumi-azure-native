@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Describes a Machine Extension.
-    /// API Version: 2020-10-01-preview.
+    /// API Version: 2022-07-15-preview.
+    /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource
@@ -21,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Output("autoUpgradeMinorVersion")]
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        /// </summary>
+        [Output("enableAutomaticUpgrade")]
+        public Output<bool?> EnableAutomaticUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
@@ -152,6 +159,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        /// </summary>
+        [Input("enableAutomaticUpgrade")]
+        public Input<bool>? EnableAutomaticUpgrade { get; set; }
+
+        /// <summary>
         /// The name of the machine extension.
         /// </summary>
         [Input("extensionName")]
@@ -168,12 +181,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the machine where the extension should be created or updated.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
@@ -222,6 +229,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }
+
+        /// <summary>
+        /// The name of the machine where the extension should be created or updated.
+        /// </summary>
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
 
         public MachineExtensionArgs()
         {

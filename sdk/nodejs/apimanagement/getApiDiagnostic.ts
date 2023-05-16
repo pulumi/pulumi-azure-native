@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the Diagnostic for an API specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiDiagnostic(args: GetApiDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDiagnosticResult> {
 
@@ -32,7 +32,7 @@ export interface GetApiDiagnosticArgs {
      */
     diagnosticId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -62,7 +62,7 @@ export interface GetApiDiagnosticResult {
      */
     readonly httpCorrelationProtocol?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -78,7 +78,7 @@ export interface GetApiDiagnosticResult {
      */
     readonly metrics?: boolean;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -90,7 +90,7 @@ export interface GetApiDiagnosticResult {
      */
     readonly sampling?: outputs.apimanagement.SamplingSettingsResponse;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -100,7 +100,7 @@ export interface GetApiDiagnosticResult {
 }
 /**
  * Gets the details of the Diagnostic for an API specified by its identifier.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiDiagnosticOutput(args: GetApiDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDiagnosticResult> {
     return pulumi.output(args).apply((a: any) => getApiDiagnostic(a, opts))
@@ -116,7 +116,7 @@ export interface GetApiDiagnosticOutputArgs {
      */
     diagnosticId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

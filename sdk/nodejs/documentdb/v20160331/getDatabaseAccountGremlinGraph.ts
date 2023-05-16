@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinGraph(args: GetDatabaseAccountGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountGremlinGraphResult> {
-    pulumi.log.warn("getDatabaseAccountGremlinGraph is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20160331:getDatabaseAccountGremlinGraph", {
@@ -102,7 +100,6 @@ export interface GetDatabaseAccountGremlinGraphResult {
 /**
  * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinGraphOutput(args: GetDatabaseAccountGremlinGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountGremlinGraphResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccountGremlinGraph(a, opts))
 }

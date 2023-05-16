@@ -60,8 +60,8 @@ def list_web_app_sync_function_triggers(name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSyncFunctionTriggersResult:
     """
-    This is to allow calling via powershell and ARM template.
-    API Version: 2020-12-01.
+    Description for This is to allow calling via powershell and ARM template.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -83,8 +83,8 @@ def list_web_app_sync_function_triggers_output(name: Optional[pulumi.Input[str]]
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersResult]:
     """
-    This is to allow calling via powershell and ARM template.
-    API Version: 2020-12-01.
+    Description for This is to allow calling via powershell and ARM template.
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the app.

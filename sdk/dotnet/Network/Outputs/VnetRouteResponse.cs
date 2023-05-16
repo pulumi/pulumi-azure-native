@@ -17,14 +17,29 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class VnetRouteResponse
     {
         /// <summary>
+        /// The list of references to HubBgpConnection objects.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> BgpConnections;
+        /// <summary>
         /// List of all Static Routes.
         /// </summary>
         public readonly ImmutableArray<Outputs.StaticRouteResponse> StaticRoutes;
+        /// <summary>
+        /// Configuration for static routes on this HubVnetConnection.
+        /// </summary>
+        public readonly Outputs.StaticRoutesConfigResponse? StaticRoutesConfig;
 
         [OutputConstructor]
-        private VnetRouteResponse(ImmutableArray<Outputs.StaticRouteResponse> staticRoutes)
+        private VnetRouteResponse(
+            ImmutableArray<Outputs.SubResourceResponse> bgpConnections,
+
+            ImmutableArray<Outputs.StaticRouteResponse> staticRoutes,
+
+            Outputs.StaticRoutesConfigResponse? staticRoutesConfig)
         {
+            BgpConnections = bgpConnections;
             StaticRoutes = staticRoutes;
+            StaticRoutesConfig = staticRoutesConfig;
         }
     }
 }

@@ -164,7 +164,8 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Defines web application firewall policy.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +186,8 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines web application firewall policy.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WebApplicationFirewallPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -239,7 +241,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20181201:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190201:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190401:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190601:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190701:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190801:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190901:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191101:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191201:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200301:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200401:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200501:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200601:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200701:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200801:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20201101:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210201:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210301:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210501:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210801:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220101:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220501:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220701:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220901:WebApplicationFirewallPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20181201:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190201:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190401:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190601:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190701:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190801:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190901:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191101:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191201:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200301:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200401:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200501:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200601:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200701:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200801:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20201101:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210201:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210301:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210501:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20210801:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220101:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220501:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220701:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20220901:WebApplicationFirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20221101:WebApplicationFirewallPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebApplicationFirewallPolicy, __self__).__init__(
             'azure-native:network:WebApplicationFirewallPolicy',

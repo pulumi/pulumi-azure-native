@@ -16,15 +16,11 @@ __all__ = [
     'ApplicationAuthorizationResponse',
     'ApplicationBillingDetailsDefinitionResponse',
     'ApplicationClientDetailsResponse',
-    'ApplicationDefinitionArtifactResponse',
     'ApplicationJitAccessPolicyResponse',
     'ApplicationPackageContactResponse',
     'ApplicationPackageSupportUrlsResponse',
-    'ApplicationPolicyResponse',
     'IdentityResponse',
     'JitApproverDefinitionResponse',
-    'JitAuthorizationPoliciesResponse',
-    'JitSchedulingPolicyResponse',
     'ManagedIdentityTokenResponse',
     'PlanResponse',
     'SkuResponse',
@@ -232,50 +228,6 @@ class ApplicationClientDetailsResponse(dict):
 
 
 @pulumi.output_type
-class ApplicationDefinitionArtifactResponse(dict):
-    """
-    Application definition artifact.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 type: str,
-                 uri: str):
-        """
-        Application definition artifact.
-        :param str name: The managed application definition artifact name.
-        :param str type: The managed application definition artifact type.
-        :param str uri: The managed application definition artifact blob uri.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The managed application definition artifact name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The managed application definition artifact type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> str:
-        """
-        The managed application definition artifact blob uri.
-        """
-        return pulumi.get(self, "uri")
-
-
-@pulumi.output_type
 class ApplicationJitAccessPolicyResponse(dict):
     """
     Managed application Jit access policy.
@@ -473,70 +425,6 @@ class ApplicationPackageSupportUrlsResponse(dict):
 
 
 @pulumi.output_type
-class ApplicationPolicyResponse(dict):
-    """
-    Managed application policy.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "policyDefinitionId":
-            suggest = "policy_definition_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationPolicyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationPolicyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationPolicyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 parameters: Optional[str] = None,
-                 policy_definition_id: Optional[str] = None):
-        """
-        Managed application policy.
-        :param str name: The policy name
-        :param str parameters: The policy parameters.
-        :param str policy_definition_id: The policy definition Id.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The policy name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[str]:
-        """
-        The policy parameters.
-        """
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="policyDefinitionId")
-    def policy_definition_id(self) -> Optional[str]:
-        """
-        The policy definition Id.
-        """
-        return pulumi.get(self, "policy_definition_id")
-
-
-@pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
@@ -673,115 +561,6 @@ class JitApproverDefinitionResponse(dict):
     def type(self) -> Optional[str]:
         """
         The approver type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class JitAuthorizationPoliciesResponse(dict):
-    """
-    The JIT authorization policies.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "roleDefinitionId":
-            suggest = "role_definition_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JitAuthorizationPoliciesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JitAuthorizationPoliciesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JitAuthorizationPoliciesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 role_definition_id: str):
-        """
-        The JIT authorization policies.
-        :param str principal_id: The the principal id that will be granted JIT access.
-        :param str role_definition_id: The role definition id that will be granted to the Principal.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The the principal id that will be granted JIT access.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> str:
-        """
-        The role definition id that will be granted to the Principal.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-
-@pulumi.output_type
-class JitSchedulingPolicyResponse(dict):
-    """
-    The JIT scheduling policies.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "startTime":
-            suggest = "start_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JitSchedulingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JitSchedulingPolicyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JitSchedulingPolicyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 duration: str,
-                 start_time: str,
-                 type: str):
-        """
-        The JIT scheduling policies.
-        :param str start_time: The start time of the request.
-        :param str type: The type of JIT schedule.
-        """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> str:
-        return pulumi.get(self, "duration")
-
-    @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
-        """
-        The start time of the request.
-        """
-        return pulumi.get(self, "start_time")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of JIT schedule.
         """
         return pulumi.get(self, "type")
 

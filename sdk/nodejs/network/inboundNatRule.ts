@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Inbound NAT rule of the load balancer.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class InboundNatRule extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class InboundNatRule extends pulumi.CustomResource {
     }
 
     /**
+     * A reference to backendAddressPool resource.
+     */
+    public readonly backendAddressPool!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    /**
      * A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
      */
     public /*out*/ readonly backendIPConfiguration!: pulumi.Output<outputs.network.NetworkInterfaceIPConfigurationResponse>;
@@ -66,6 +71,14 @@ export class InboundNatRule extends pulumi.CustomResource {
      * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
      */
     public readonly frontendPort!: pulumi.Output<number | undefined>;
+    /**
+     * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+     */
+    public readonly frontendPortRangeEnd!: pulumi.Output<number | undefined>;
+    /**
+     * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+     */
+    public readonly frontendPortRangeStart!: pulumi.Output<number | undefined>;
     /**
      * The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
      */
@@ -104,11 +117,14 @@ export class InboundNatRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["backendAddressPool"] = args ? args.backendAddressPool : undefined;
             resourceInputs["backendPort"] = args ? args.backendPort : undefined;
             resourceInputs["enableFloatingIP"] = args ? args.enableFloatingIP : undefined;
             resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
             resourceInputs["frontendIPConfiguration"] = args ? args.frontendIPConfiguration : undefined;
             resourceInputs["frontendPort"] = args ? args.frontendPort : undefined;
+            resourceInputs["frontendPortRangeEnd"] = args ? args.frontendPortRangeEnd : undefined;
+            resourceInputs["frontendPortRangeStart"] = args ? args.frontendPortRangeStart : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             resourceInputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
@@ -121,6 +137,7 @@ export class InboundNatRule extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["backendAddressPool"] = undefined /*out*/;
             resourceInputs["backendIPConfiguration"] = undefined /*out*/;
             resourceInputs["backendPort"] = undefined /*out*/;
             resourceInputs["enableFloatingIP"] = undefined /*out*/;
@@ -128,6 +145,8 @@ export class InboundNatRule extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["frontendIPConfiguration"] = undefined /*out*/;
             resourceInputs["frontendPort"] = undefined /*out*/;
+            resourceInputs["frontendPortRangeEnd"] = undefined /*out*/;
+            resourceInputs["frontendPortRangeStart"] = undefined /*out*/;
             resourceInputs["idleTimeoutInMinutes"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
@@ -135,7 +154,7 @@ export class InboundNatRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20170601:InboundNatRule" }, { type: "azure-native:network/v20170801:InboundNatRule" }, { type: "azure-native:network/v20170901:InboundNatRule" }, { type: "azure-native:network/v20171001:InboundNatRule" }, { type: "azure-native:network/v20171101:InboundNatRule" }, { type: "azure-native:network/v20180101:InboundNatRule" }, { type: "azure-native:network/v20180201:InboundNatRule" }, { type: "azure-native:network/v20180401:InboundNatRule" }, { type: "azure-native:network/v20180601:InboundNatRule" }, { type: "azure-native:network/v20180701:InboundNatRule" }, { type: "azure-native:network/v20180801:InboundNatRule" }, { type: "azure-native:network/v20181001:InboundNatRule" }, { type: "azure-native:network/v20181101:InboundNatRule" }, { type: "azure-native:network/v20181201:InboundNatRule" }, { type: "azure-native:network/v20190201:InboundNatRule" }, { type: "azure-native:network/v20190401:InboundNatRule" }, { type: "azure-native:network/v20190601:InboundNatRule" }, { type: "azure-native:network/v20190701:InboundNatRule" }, { type: "azure-native:network/v20190801:InboundNatRule" }, { type: "azure-native:network/v20190901:InboundNatRule" }, { type: "azure-native:network/v20191101:InboundNatRule" }, { type: "azure-native:network/v20191201:InboundNatRule" }, { type: "azure-native:network/v20200301:InboundNatRule" }, { type: "azure-native:network/v20200401:InboundNatRule" }, { type: "azure-native:network/v20200501:InboundNatRule" }, { type: "azure-native:network/v20200601:InboundNatRule" }, { type: "azure-native:network/v20200701:InboundNatRule" }, { type: "azure-native:network/v20200801:InboundNatRule" }, { type: "azure-native:network/v20201101:InboundNatRule" }, { type: "azure-native:network/v20210201:InboundNatRule" }, { type: "azure-native:network/v20210301:InboundNatRule" }, { type: "azure-native:network/v20210501:InboundNatRule" }, { type: "azure-native:network/v20210801:InboundNatRule" }, { type: "azure-native:network/v20220101:InboundNatRule" }, { type: "azure-native:network/v20220501:InboundNatRule" }, { type: "azure-native:network/v20220701:InboundNatRule" }, { type: "azure-native:network/v20220901:InboundNatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20170601:InboundNatRule" }, { type: "azure-native:network/v20170801:InboundNatRule" }, { type: "azure-native:network/v20170901:InboundNatRule" }, { type: "azure-native:network/v20171001:InboundNatRule" }, { type: "azure-native:network/v20171101:InboundNatRule" }, { type: "azure-native:network/v20180101:InboundNatRule" }, { type: "azure-native:network/v20180201:InboundNatRule" }, { type: "azure-native:network/v20180401:InboundNatRule" }, { type: "azure-native:network/v20180601:InboundNatRule" }, { type: "azure-native:network/v20180701:InboundNatRule" }, { type: "azure-native:network/v20180801:InboundNatRule" }, { type: "azure-native:network/v20181001:InboundNatRule" }, { type: "azure-native:network/v20181101:InboundNatRule" }, { type: "azure-native:network/v20181201:InboundNatRule" }, { type: "azure-native:network/v20190201:InboundNatRule" }, { type: "azure-native:network/v20190401:InboundNatRule" }, { type: "azure-native:network/v20190601:InboundNatRule" }, { type: "azure-native:network/v20190701:InboundNatRule" }, { type: "azure-native:network/v20190801:InboundNatRule" }, { type: "azure-native:network/v20190901:InboundNatRule" }, { type: "azure-native:network/v20191101:InboundNatRule" }, { type: "azure-native:network/v20191201:InboundNatRule" }, { type: "azure-native:network/v20200301:InboundNatRule" }, { type: "azure-native:network/v20200401:InboundNatRule" }, { type: "azure-native:network/v20200501:InboundNatRule" }, { type: "azure-native:network/v20200601:InboundNatRule" }, { type: "azure-native:network/v20200701:InboundNatRule" }, { type: "azure-native:network/v20200801:InboundNatRule" }, { type: "azure-native:network/v20201101:InboundNatRule" }, { type: "azure-native:network/v20210201:InboundNatRule" }, { type: "azure-native:network/v20210301:InboundNatRule" }, { type: "azure-native:network/v20210501:InboundNatRule" }, { type: "azure-native:network/v20210801:InboundNatRule" }, { type: "azure-native:network/v20220101:InboundNatRule" }, { type: "azure-native:network/v20220501:InboundNatRule" }, { type: "azure-native:network/v20220701:InboundNatRule" }, { type: "azure-native:network/v20220901:InboundNatRule" }, { type: "azure-native:network/v20221101:InboundNatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InboundNatRule.__pulumiType, name, resourceInputs, opts);
     }
@@ -145,6 +164,10 @@ export class InboundNatRule extends pulumi.CustomResource {
  * The set of arguments for constructing a InboundNatRule resource.
  */
 export interface InboundNatRuleArgs {
+    /**
+     * A reference to backendAddressPool resource.
+     */
+    backendAddressPool?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The port used for the internal endpoint. Acceptable values range from 1 to 65535.
      */
@@ -166,6 +189,14 @@ export interface InboundNatRuleArgs {
      */
     frontendPort?: pulumi.Input<number>;
     /**
+     * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+     */
+    frontendPortRangeEnd?: pulumi.Input<number>;
+    /**
+     * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+     */
+    frontendPortRangeStart?: pulumi.Input<number>;
+    /**
      * Resource ID.
      */
     id?: pulumi.Input<string>;
@@ -174,7 +205,7 @@ export interface InboundNatRuleArgs {
      */
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
-     * The name of the inbound nat rule.
+     * The name of the inbound NAT rule.
      */
     inboundNatRuleName?: pulumi.Input<string>;
     /**

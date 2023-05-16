@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// API Version: 2021-11-01-preview.
+    /// Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

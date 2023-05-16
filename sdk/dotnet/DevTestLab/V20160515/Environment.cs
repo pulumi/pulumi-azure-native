@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// <summary>
     /// An environment, which is essentially an ARM template deployment.
     /// </summary>
-    [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
     {

@@ -12,6 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessPolicyResponse',
+    'AccountImmutabilityPolicyPropertiesResponse',
     'ActiveDirectoryPropertiesResponse',
     'AzureFilesIdentityBasedAuthenticationResponse',
     'BlobInventoryPolicyDefinitionResponse',
@@ -39,6 +41,8 @@ __all__ = [
     'IPRuleResponse',
     'IdentityResponse',
     'ImmutabilityPolicyPropertiesResponse',
+    'ImmutableStorageAccountResponse',
+    'ImmutableStorageWithVersioningResponse',
     'KeyCreationTimeResponse',
     'KeyPolicyResponse',
     'KeyVaultPropertiesResponse',
@@ -60,24 +64,157 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ProtectedAppendWritesHistoryResponse',
     'ProtocolSettingsResponse',
     'ResourceAccessRuleResponse',
     'RestorePolicyPropertiesResponse',
     'RoutingPreferenceResponse',
     'SasPolicyResponse',
+    'SignedIdentifierResponse',
     'SkuResponse',
     'SmbSettingResponse',
     'SshPublicKeyResponse',
     'StorageAccountInternetEndpointsResponse',
     'StorageAccountKeyResponse',
     'StorageAccountMicrosoftEndpointsResponse',
+    'StorageAccountSkuConversionStatusResponse',
     'SystemDataResponse',
+    'TableAccessPolicyResponse',
+    'TableSignedIdentifierResponse',
     'TagFilterResponse',
     'TagPropertyResponse',
     'UpdateHistoryPropertyResponse',
     'UserAssignedIdentityResponse',
     'VirtualNetworkRuleResponse',
 ]
+
+@pulumi.output_type
+class AccessPolicyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expiry_time: Optional[str] = None,
+                 permission: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        :param str expiry_time: Expiry time of the access policy
+        :param str permission: List of abbreviated permissions.
+        :param str start_time: Start time of the access policy
+        """
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        """
+        Expiry time of the access policy
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[str]:
+        """
+        List of abbreviated permissions.
+        """
+        return pulumi.get(self, "permission")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Start time of the access policy
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class AccountImmutabilityPolicyPropertiesResponse(dict):
+    """
+    This defines account-level immutability policy properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowProtectedAppendWrites":
+            suggest = "allow_protected_append_writes"
+        elif key == "immutabilityPeriodSinceCreationInDays":
+            suggest = "immutability_period_since_creation_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountImmutabilityPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountImmutabilityPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountImmutabilityPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_protected_append_writes: Optional[bool] = None,
+                 immutability_period_since_creation_in_days: Optional[int] = None,
+                 state: Optional[str] = None):
+        """
+        This defines account-level immutability policy properties.
+        :param bool allow_protected_append_writes: This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param str state: The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+        """
+        if allow_protected_append_writes is not None:
+            pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+        if immutability_period_since_creation_in_days is not None:
+            pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWrites")
+    def allow_protected_append_writes(self) -> Optional[bool]:
+        """
+        This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        """
+        return pulumi.get(self, "allow_protected_append_writes")
+
+    @property
+    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
+    def immutability_period_since_creation_in_days(self) -> Optional[int]:
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+        """
+        return pulumi.get(self, "state")
+
 
 @pulumi.output_type
 class ActiveDirectoryPropertiesResponse(dict):
@@ -87,18 +224,22 @@ class ActiveDirectoryPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "azureStorageSid":
-            suggest = "azure_storage_sid"
-        elif key == "domainGuid":
+        if key == "domainGuid":
             suggest = "domain_guid"
         elif key == "domainName":
             suggest = "domain_name"
+        elif key == "accountType":
+            suggest = "account_type"
+        elif key == "azureStorageSid":
+            suggest = "azure_storage_sid"
         elif key == "domainSid":
             suggest = "domain_sid"
         elif key == "forestName":
             suggest = "forest_name"
         elif key == "netBiosDomainName":
             suggest = "net_bios_domain_name"
+        elif key == "samAccountName":
+            suggest = "sam_account_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ActiveDirectoryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -112,35 +253,39 @@ class ActiveDirectoryPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 azure_storage_sid: str,
                  domain_guid: str,
                  domain_name: str,
-                 domain_sid: str,
-                 forest_name: str,
-                 net_bios_domain_name: str):
+                 account_type: Optional[str] = None,
+                 azure_storage_sid: Optional[str] = None,
+                 domain_sid: Optional[str] = None,
+                 forest_name: Optional[str] = None,
+                 net_bios_domain_name: Optional[str] = None,
+                 sam_account_name: Optional[str] = None):
         """
         Settings properties for Active Directory (AD).
-        :param str azure_storage_sid: Specifies the security identifier (SID) for Azure Storage.
         :param str domain_guid: Specifies the domain GUID.
         :param str domain_name: Specifies the primary domain that the AD DNS server is authoritative for.
+        :param str account_type: Specifies the Active Directory account type for Azure Storage.
+        :param str azure_storage_sid: Specifies the security identifier (SID) for Azure Storage.
         :param str domain_sid: Specifies the security identifier (SID).
         :param str forest_name: Specifies the Active Directory forest to get.
         :param str net_bios_domain_name: Specifies the NetBIOS domain name.
+        :param str sam_account_name: Specifies the Active Directory SAMAccountName for Azure Storage.
         """
-        pulumi.set(__self__, "azure_storage_sid", azure_storage_sid)
         pulumi.set(__self__, "domain_guid", domain_guid)
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_sid", domain_sid)
-        pulumi.set(__self__, "forest_name", forest_name)
-        pulumi.set(__self__, "net_bios_domain_name", net_bios_domain_name)
-
-    @property
-    @pulumi.getter(name="azureStorageSid")
-    def azure_storage_sid(self) -> str:
-        """
-        Specifies the security identifier (SID) for Azure Storage.
-        """
-        return pulumi.get(self, "azure_storage_sid")
+        if account_type is not None:
+            pulumi.set(__self__, "account_type", account_type)
+        if azure_storage_sid is not None:
+            pulumi.set(__self__, "azure_storage_sid", azure_storage_sid)
+        if domain_sid is not None:
+            pulumi.set(__self__, "domain_sid", domain_sid)
+        if forest_name is not None:
+            pulumi.set(__self__, "forest_name", forest_name)
+        if net_bios_domain_name is not None:
+            pulumi.set(__self__, "net_bios_domain_name", net_bios_domain_name)
+        if sam_account_name is not None:
+            pulumi.set(__self__, "sam_account_name", sam_account_name)
 
     @property
     @pulumi.getter(name="domainGuid")
@@ -159,8 +304,24 @@ class ActiveDirectoryPropertiesResponse(dict):
         return pulumi.get(self, "domain_name")
 
     @property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> Optional[str]:
+        """
+        Specifies the Active Directory account type for Azure Storage.
+        """
+        return pulumi.get(self, "account_type")
+
+    @property
+    @pulumi.getter(name="azureStorageSid")
+    def azure_storage_sid(self) -> Optional[str]:
+        """
+        Specifies the security identifier (SID) for Azure Storage.
+        """
+        return pulumi.get(self, "azure_storage_sid")
+
+    @property
     @pulumi.getter(name="domainSid")
-    def domain_sid(self) -> str:
+    def domain_sid(self) -> Optional[str]:
         """
         Specifies the security identifier (SID).
         """
@@ -168,7 +329,7 @@ class ActiveDirectoryPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="forestName")
-    def forest_name(self) -> str:
+    def forest_name(self) -> Optional[str]:
         """
         Specifies the Active Directory forest to get.
         """
@@ -176,11 +337,19 @@ class ActiveDirectoryPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="netBiosDomainName")
-    def net_bios_domain_name(self) -> str:
+    def net_bios_domain_name(self) -> Optional[str]:
         """
         Specifies the NetBIOS domain name.
         """
         return pulumi.get(self, "net_bios_domain_name")
+
+    @property
+    @pulumi.getter(name="samAccountName")
+    def sam_account_name(self) -> Optional[str]:
+        """
+        Specifies the Active Directory SAMAccountName for Azure Storage.
+        """
+        return pulumi.get(self, "sam_account_name")
 
 
 @pulumi.output_type
@@ -195,6 +364,8 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
             suggest = "directory_service_options"
         elif key == "activeDirectoryProperties":
             suggest = "active_directory_properties"
+        elif key == "defaultSharePermission":
+            suggest = "default_share_permission"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureFilesIdentityBasedAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -209,21 +380,25 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
 
     def __init__(__self__, *,
                  directory_service_options: str,
-                 active_directory_properties: Optional['outputs.ActiveDirectoryPropertiesResponse'] = None):
+                 active_directory_properties: Optional['outputs.ActiveDirectoryPropertiesResponse'] = None,
+                 default_share_permission: Optional[str] = None):
         """
         Settings for Azure Files identity based authentication.
-        :param str directory_service_options: Indicates the directory service used.
-        :param 'ActiveDirectoryPropertiesResponse' active_directory_properties: Required if choose AD.
+        :param str directory_service_options: Indicates the directory service used. Note that this enum may be extended in the future.
+        :param 'ActiveDirectoryPropertiesResponse' active_directory_properties: Required if directoryServiceOptions are AD, optional if they are AADKERB.
+        :param str default_share_permission: Default share permission for users using Kerberos authentication if RBAC role is not assigned.
         """
         pulumi.set(__self__, "directory_service_options", directory_service_options)
         if active_directory_properties is not None:
             pulumi.set(__self__, "active_directory_properties", active_directory_properties)
+        if default_share_permission is not None:
+            pulumi.set(__self__, "default_share_permission", default_share_permission)
 
     @property
     @pulumi.getter(name="directoryServiceOptions")
     def directory_service_options(self) -> str:
         """
-        Indicates the directory service used.
+        Indicates the directory service used. Note that this enum may be extended in the future.
         """
         return pulumi.get(self, "directory_service_options")
 
@@ -231,27 +406,99 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
     @pulumi.getter(name="activeDirectoryProperties")
     def active_directory_properties(self) -> Optional['outputs.ActiveDirectoryPropertiesResponse']:
         """
-        Required if choose AD.
+        Required if directoryServiceOptions are AD, optional if they are AADKERB.
         """
         return pulumi.get(self, "active_directory_properties")
+
+    @property
+    @pulumi.getter(name="defaultSharePermission")
+    def default_share_permission(self) -> Optional[str]:
+        """
+        Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+        """
+        return pulumi.get(self, "default_share_permission")
 
 
 @pulumi.output_type
 class BlobInventoryPolicyDefinitionResponse(dict):
     """
-    An object that defines the blob inventory rule. Each definition consists of a set of filters.
+    An object that defines the blob inventory rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "schemaFields":
+            suggest = "schema_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobInventoryPolicyDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobInventoryPolicyDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobInventoryPolicyDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 filters: 'outputs.BlobInventoryPolicyFilterResponse'):
+                 format: str,
+                 object_type: str,
+                 schedule: str,
+                 schema_fields: Sequence[str],
+                 filters: Optional['outputs.BlobInventoryPolicyFilterResponse'] = None):
         """
-        An object that defines the blob inventory rule. Each definition consists of a set of filters.
+        An object that defines the blob inventory rule.
+        :param str format: This is a required field, it specifies the format for the inventory files.
+        :param str object_type: This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+        :param str schedule: This is a required field. This field is used to schedule an inventory formation.
+        :param Sequence[str] schema_fields: This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
         :param 'BlobInventoryPolicyFilterResponse' filters: An object that defines the filter set.
         """
-        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "object_type", object_type)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "schema_fields", schema_fields)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
-    def filters(self) -> 'outputs.BlobInventoryPolicyFilterResponse':
+    def format(self) -> str:
+        """
+        This is a required field, it specifies the format for the inventory files.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        """
+        This is a required field. This field is used to schedule an inventory formation.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="schemaFields")
+    def schema_fields(self) -> Sequence[str]:
+        """
+        This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
+        """
+        return pulumi.get(self, "schema_fields")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional['outputs.BlobInventoryPolicyFilterResponse']:
         """
         An object that defines the filter set.
         """
@@ -261,15 +508,19 @@ class BlobInventoryPolicyDefinitionResponse(dict):
 @pulumi.output_type
 class BlobInventoryPolicyFilterResponse(dict):
     """
-    An object that defines the blob inventory rule filter conditions.
+    An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "blobTypes":
             suggest = "blob_types"
+        elif key == "excludePrefix":
+            suggest = "exclude_prefix"
         elif key == "includeBlobVersions":
             suggest = "include_blob_versions"
+        elif key == "includeDeleted":
+            suggest = "include_deleted"
         elif key == "includeSnapshots":
             suggest = "include_snapshots"
         elif key == "prefixMatch":
@@ -287,20 +538,29 @@ class BlobInventoryPolicyFilterResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 blob_types: Sequence[str],
+                 blob_types: Optional[Sequence[str]] = None,
+                 exclude_prefix: Optional[Sequence[str]] = None,
                  include_blob_versions: Optional[bool] = None,
+                 include_deleted: Optional[bool] = None,
                  include_snapshots: Optional[bool] = None,
                  prefix_match: Optional[Sequence[str]] = None):
         """
-        An object that defines the blob inventory rule filter conditions.
-        :param Sequence[str] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
-        :param bool include_blob_versions: Includes blob versions in blob inventory when value set to true.
-        :param bool include_snapshots: Includes blob snapshots in blob inventory when value set to true.
-        :param Sequence[str] prefix_match: An array of strings for blob prefixes to be matched.
+        An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+        :param Sequence[str] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+        :param Sequence[str] exclude_prefix: An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+        :param bool include_blob_versions: Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+        :param bool include_deleted: For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+        :param bool include_snapshots: Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+        :param Sequence[str] prefix_match: An array of strings with maximum 10 blob prefixes to be included in the inventory.
         """
-        pulumi.set(__self__, "blob_types", blob_types)
+        if blob_types is not None:
+            pulumi.set(__self__, "blob_types", blob_types)
+        if exclude_prefix is not None:
+            pulumi.set(__self__, "exclude_prefix", exclude_prefix)
         if include_blob_versions is not None:
             pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+        if include_deleted is not None:
+            pulumi.set(__self__, "include_deleted", include_deleted)
         if include_snapshots is not None:
             pulumi.set(__self__, "include_snapshots", include_snapshots)
         if prefix_match is not None:
@@ -308,25 +568,41 @@ class BlobInventoryPolicyFilterResponse(dict):
 
     @property
     @pulumi.getter(name="blobTypes")
-    def blob_types(self) -> Sequence[str]:
+    def blob_types(self) -> Optional[Sequence[str]]:
         """
-        An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
         """
         return pulumi.get(self, "blob_types")
+
+    @property
+    @pulumi.getter(name="excludePrefix")
+    def exclude_prefix(self) -> Optional[Sequence[str]]:
+        """
+        An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+        """
+        return pulumi.get(self, "exclude_prefix")
 
     @property
     @pulumi.getter(name="includeBlobVersions")
     def include_blob_versions(self) -> Optional[bool]:
         """
-        Includes blob versions in blob inventory when value set to true.
+        Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
         """
         return pulumi.get(self, "include_blob_versions")
+
+    @property
+    @pulumi.getter(name="includeDeleted")
+    def include_deleted(self) -> Optional[bool]:
+        """
+        For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+        """
+        return pulumi.get(self, "include_deleted")
 
     @property
     @pulumi.getter(name="includeSnapshots")
     def include_snapshots(self) -> Optional[bool]:
         """
-        Includes blob snapshots in blob inventory when value set to true.
+        Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
         """
         return pulumi.get(self, "include_snapshots")
 
@@ -334,7 +610,7 @@ class BlobInventoryPolicyFilterResponse(dict):
     @pulumi.getter(name="prefixMatch")
     def prefix_match(self) -> Optional[Sequence[str]]:
         """
-        An array of strings for blob prefixes to be matched.
+        An array of strings with maximum 10 blob prefixes to be included in the inventory.
         """
         return pulumi.get(self, "prefix_match")
 
@@ -346,15 +622,18 @@ class BlobInventoryPolicyRuleResponse(dict):
     """
     def __init__(__self__, *,
                  definition: 'outputs.BlobInventoryPolicyDefinitionResponse',
+                 destination: str,
                  enabled: bool,
                  name: str):
         """
         An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
         :param 'BlobInventoryPolicyDefinitionResponse' definition: An object that defines the blob inventory policy rule.
+        :param str destination: Container name where blob inventory files are stored. Must be pre-created.
         :param bool enabled: Rule is enabled when set to true.
         :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         """
         pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "name", name)
 
@@ -365,6 +644,14 @@ class BlobInventoryPolicyRuleResponse(dict):
         An object that defines the blob inventory policy rule.
         """
         return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        Container name where blob inventory files are stored. Must be pre-created.
+        """
+        return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter
@@ -395,7 +682,7 @@ class BlobInventoryPolicySchemaResponse(dict):
                  type: str):
         """
         The storage account blob inventory policy rules.
-        :param str destination: Container name where blob inventory files are stored. Must be pre-created.
+        :param str destination: Deprecated Property from API version 2021-04-01 onwards, the required destination container name must be specified at the rule level 'policy.rule.destination'
         :param bool enabled: Policy is enabled if set to true.
         :param Sequence['BlobInventoryPolicyRuleResponse'] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
         :param str type: The valid value is Inventory
@@ -409,7 +696,7 @@ class BlobInventoryPolicySchemaResponse(dict):
     @pulumi.getter
     def destination(self) -> str:
         """
-        Container name where blob inventory files are stored. Must be pre-created.
+        Deprecated Property from API version 2021-04-01 onwards, the required destination container name must be specified at the rule level 'policy.rule.destination'
         """
         return pulumi.get(self, "destination")
 
@@ -853,13 +1140,15 @@ class CustomDomainResponse(dict):
 @pulumi.output_type
 class DateAfterCreationResponse(dict):
     """
-    Object to define the number of days after creation.
+    Object to define snapshot and version action conditions.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "daysAfterCreationGreaterThan":
             suggest = "days_after_creation_greater_than"
+        elif key == "daysAfterLastTierChangeGreaterThan":
+            suggest = "days_after_last_tier_change_greater_than"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DateAfterCreationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -873,12 +1162,16 @@ class DateAfterCreationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 days_after_creation_greater_than: float):
+                 days_after_creation_greater_than: float,
+                 days_after_last_tier_change_greater_than: Optional[float] = None):
         """
-        Object to define the number of days after creation.
+        Object to define snapshot and version action conditions.
         :param float days_after_creation_greater_than: Value indicating the age in days after creation
+        :param float days_after_last_tier_change_greater_than: Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
         """
         pulumi.set(__self__, "days_after_creation_greater_than", days_after_creation_greater_than)
+        if days_after_last_tier_change_greater_than is not None:
+            pulumi.set(__self__, "days_after_last_tier_change_greater_than", days_after_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="daysAfterCreationGreaterThan")
@@ -888,17 +1181,29 @@ class DateAfterCreationResponse(dict):
         """
         return pulumi.get(self, "days_after_creation_greater_than")
 
+    @property
+    @pulumi.getter(name="daysAfterLastTierChangeGreaterThan")
+    def days_after_last_tier_change_greater_than(self) -> Optional[float]:
+        """
+        Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+        """
+        return pulumi.get(self, "days_after_last_tier_change_greater_than")
+
 
 @pulumi.output_type
 class DateAfterModificationResponse(dict):
     """
-    Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+    Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "daysAfterLastAccessTimeGreaterThan":
+        if key == "daysAfterCreationGreaterThan":
+            suggest = "days_after_creation_greater_than"
+        elif key == "daysAfterLastAccessTimeGreaterThan":
             suggest = "days_after_last_access_time_greater_than"
+        elif key == "daysAfterLastTierChangeGreaterThan":
+            suggest = "days_after_last_tier_change_greater_than"
         elif key == "daysAfterModificationGreaterThan":
             suggest = "days_after_modification_greater_than"
 
@@ -914,17 +1219,33 @@ class DateAfterModificationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 days_after_creation_greater_than: Optional[float] = None,
                  days_after_last_access_time_greater_than: Optional[float] = None,
+                 days_after_last_tier_change_greater_than: Optional[float] = None,
                  days_after_modification_greater_than: Optional[float] = None):
         """
-        Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+        Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
+        :param float days_after_creation_greater_than: Value indicating the age in days after blob creation.
         :param float days_after_last_access_time_greater_than: Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+        :param float days_after_last_tier_change_greater_than: Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
         :param float days_after_modification_greater_than: Value indicating the age in days after last modification
         """
+        if days_after_creation_greater_than is not None:
+            pulumi.set(__self__, "days_after_creation_greater_than", days_after_creation_greater_than)
         if days_after_last_access_time_greater_than is not None:
             pulumi.set(__self__, "days_after_last_access_time_greater_than", days_after_last_access_time_greater_than)
+        if days_after_last_tier_change_greater_than is not None:
+            pulumi.set(__self__, "days_after_last_tier_change_greater_than", days_after_last_tier_change_greater_than)
         if days_after_modification_greater_than is not None:
             pulumi.set(__self__, "days_after_modification_greater_than", days_after_modification_greater_than)
+
+    @property
+    @pulumi.getter(name="daysAfterCreationGreaterThan")
+    def days_after_creation_greater_than(self) -> Optional[float]:
+        """
+        Value indicating the age in days after blob creation.
+        """
+        return pulumi.get(self, "days_after_creation_greater_than")
 
     @property
     @pulumi.getter(name="daysAfterLastAccessTimeGreaterThan")
@@ -933,6 +1254,14 @@ class DateAfterModificationResponse(dict):
         Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         """
         return pulumi.get(self, "days_after_last_access_time_greater_than")
+
+    @property
+    @pulumi.getter(name="daysAfterLastTierChangeGreaterThan")
+    def days_after_last_tier_change_greater_than(self) -> Optional[float]:
+        """
+        Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+        """
+        return pulumi.get(self, "days_after_last_tier_change_greater_than")
 
     @property
     @pulumi.getter(name="daysAfterModificationGreaterThan")
@@ -948,18 +1277,47 @@ class DeleteRetentionPolicyResponse(dict):
     """
     The service properties for soft delete.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPermanentDelete":
+            suggest = "allow_permanent_delete"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeleteRetentionPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeleteRetentionPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeleteRetentionPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 allow_permanent_delete: Optional[bool] = None,
                  days: Optional[int] = None,
                  enabled: Optional[bool] = None):
         """
         The service properties for soft delete.
+        :param bool allow_permanent_delete: This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
         :param int days: Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
         :param bool enabled: Indicates whether DeleteRetentionPolicy is enabled.
         """
+        if allow_permanent_delete is not None:
+            pulumi.set(__self__, "allow_permanent_delete", allow_permanent_delete)
         if days is not None:
             pulumi.set(__self__, "days", days)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="allowPermanentDelete")
+    def allow_permanent_delete(self) -> Optional[bool]:
+        """
+        This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+        """
+        return pulumi.get(self, "allow_permanent_delete")
 
     @property
     @pulumi.getter
@@ -986,7 +1344,9 @@ class EncryptionIdentityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "encryptionUserAssignedIdentity":
+        if key == "encryptionFederatedIdentityClientId":
+            suggest = "encryption_federated_identity_client_id"
+        elif key == "encryptionUserAssignedIdentity":
             suggest = "encryption_user_assigned_identity"
 
         if suggest:
@@ -1001,13 +1361,25 @@ class EncryptionIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 encryption_federated_identity_client_id: Optional[str] = None,
                  encryption_user_assigned_identity: Optional[str] = None):
         """
         Encryption identity for the storage account.
+        :param str encryption_federated_identity_client_id: ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param str encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
         """
+        if encryption_federated_identity_client_id is not None:
+            pulumi.set(__self__, "encryption_federated_identity_client_id", encryption_federated_identity_client_id)
         if encryption_user_assigned_identity is not None:
             pulumi.set(__self__, "encryption_user_assigned_identity", encryption_user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="encryptionFederatedIdentityClientId")
+    def encryption_federated_identity_client_id(self) -> Optional[str]:
+        """
+        ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        """
+        return pulumi.get(self, "encryption_federated_identity_client_id")
 
     @property
     @pulumi.getter(name="encryptionUserAssignedIdentity")
@@ -1026,10 +1398,10 @@ class EncryptionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keySource":
-            suggest = "key_source"
-        elif key == "encryptionIdentity":
+        if key == "encryptionIdentity":
             suggest = "encryption_identity"
+        elif key == "keySource":
+            suggest = "key_source"
         elif key == "keyVaultProperties":
             suggest = "key_vault_properties"
         elif key == "requireInfrastructureEncryption":
@@ -1047,24 +1419,25 @@ class EncryptionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_source: str,
                  encryption_identity: Optional['outputs.EncryptionIdentityResponse'] = None,
+                 key_source: Optional[str] = None,
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
                  require_infrastructure_encryption: Optional[bool] = None,
                  services: Optional['outputs.EncryptionServicesResponse'] = None):
         """
         The encryption settings on the storage account.
-        :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         :param 'EncryptionIdentityResponse' encryption_identity: The identity to be used with service-side encryption at rest.
+        :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
         :param bool require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
         :param 'EncryptionServicesResponse' services: List of services which support encryption.
         """
-        if key_source is None:
-            key_source = 'Microsoft.Storage'
-        pulumi.set(__self__, "key_source", key_source)
         if encryption_identity is not None:
             pulumi.set(__self__, "encryption_identity", encryption_identity)
+        if key_source is None:
+            key_source = 'Microsoft.Storage'
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         if require_infrastructure_encryption is not None:
@@ -1073,20 +1446,20 @@ class EncryptionResponse(dict):
             pulumi.set(__self__, "services", services)
 
     @property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> str:
-        """
-        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        """
-        return pulumi.get(self, "key_source")
-
-    @property
     @pulumi.getter(name="encryptionIdentity")
     def encryption_identity(self) -> Optional['outputs.EncryptionIdentityResponse']:
         """
         The identity to be used with service-side encryption at rest.
         """
         return pulumi.get(self, "encryption_identity")
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+        """
+        return pulumi.get(self, "key_source")
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -1209,8 +1582,8 @@ class EncryptionServiceResponse(dict):
                  key_type: Optional[str] = None):
         """
         A service that allows server-side encryption to be used.
-        :param str last_enabled_time: Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
-        :param bool enabled: A boolean indicating whether or not the service encrypts the data as it is stored.
+        :param str last_enabled_time: Gets a rough estimate of the date/time when the encryption was last enabled by the user. Data is encrypted at rest by default today and cannot be disabled.
+        :param bool enabled: A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
         :param str key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
         """
         pulumi.set(__self__, "last_enabled_time", last_enabled_time)
@@ -1223,7 +1596,7 @@ class EncryptionServiceResponse(dict):
     @pulumi.getter(name="lastEnabledTime")
     def last_enabled_time(self) -> str:
         """
-        Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+        Gets a rough estimate of the date/time when the encryption was last enabled by the user. Data is encrypted at rest by default today and cannot be disabled.
         """
         return pulumi.get(self, "last_enabled_time")
 
@@ -1231,7 +1604,7 @@ class EncryptionServiceResponse(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        A boolean indicating whether or not the service encrypts the data as it is stored.
+        A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -1663,6 +2036,8 @@ class ImmutabilityPolicyPropertiesResponse(dict):
             suggest = "update_history"
         elif key == "allowProtectedAppendWrites":
             suggest = "allow_protected_append_writes"
+        elif key == "allowProtectedAppendWritesAll":
+            suggest = "allow_protected_append_writes_all"
         elif key == "immutabilityPeriodSinceCreationInDays":
             suggest = "immutability_period_since_creation_in_days"
 
@@ -1682,13 +2057,15 @@ class ImmutabilityPolicyPropertiesResponse(dict):
                  state: str,
                  update_history: Sequence['outputs.UpdateHistoryPropertyResponse'],
                  allow_protected_append_writes: Optional[bool] = None,
+                 allow_protected_append_writes_all: Optional[bool] = None,
                  immutability_period_since_creation_in_days: Optional[int] = None):
         """
         The properties of an ImmutabilityPolicy of a blob container.
         :param str etag: ImmutabilityPolicy Etag.
         :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
         :param Sequence['UpdateHistoryPropertyResponse'] update_history: The ImmutabilityPolicy update history of the blob container.
-        :param bool allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        :param bool allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+        :param bool allow_protected_append_writes_all: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
         :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         """
         pulumi.set(__self__, "etag", etag)
@@ -1696,6 +2073,8 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         pulumi.set(__self__, "update_history", update_history)
         if allow_protected_append_writes is not None:
             pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+        if allow_protected_append_writes_all is not None:
+            pulumi.set(__self__, "allow_protected_append_writes_all", allow_protected_append_writes_all)
         if immutability_period_since_creation_in_days is not None:
             pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
 
@@ -1727,9 +2106,17 @@ class ImmutabilityPolicyPropertiesResponse(dict):
     @pulumi.getter(name="allowProtectedAppendWrites")
     def allow_protected_append_writes(self) -> Optional[bool]:
         """
-        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
         """
         return pulumi.get(self, "allow_protected_append_writes")
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWritesAll")
+    def allow_protected_append_writes_all(self) -> Optional[bool]:
+        """
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+        """
+        return pulumi.get(self, "allow_protected_append_writes_all")
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
@@ -1738,6 +2125,122 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         The immutability period for the blobs in the container since the policy creation, in days.
         """
         return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+
+@pulumi.output_type
+class ImmutableStorageAccountResponse(dict):
+    """
+    This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immutabilityPolicy":
+            suggest = "immutability_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImmutableStorageAccountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImmutableStorageAccountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImmutableStorageAccountResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 immutability_policy: Optional['outputs.AccountImmutabilityPolicyPropertiesResponse'] = None):
+        """
+        This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+        :param bool enabled: A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+        :param 'AccountImmutabilityPolicyPropertiesResponse' immutability_policy: Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if immutability_policy is not None:
+            pulumi.set(__self__, "immutability_policy", immutability_policy)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="immutabilityPolicy")
+    def immutability_policy(self) -> Optional['outputs.AccountImmutabilityPolicyPropertiesResponse']:
+        """
+        Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+        """
+        return pulumi.get(self, "immutability_policy")
+
+
+@pulumi.output_type
+class ImmutableStorageWithVersioningResponse(dict):
+    """
+    Object level immutability properties of the container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "migrationState":
+            suggest = "migration_state"
+        elif key == "timeStamp":
+            suggest = "time_stamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImmutableStorageWithVersioningResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImmutableStorageWithVersioningResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImmutableStorageWithVersioningResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 migration_state: str,
+                 time_stamp: str,
+                 enabled: Optional[bool] = None):
+        """
+        Object level immutability properties of the container.
+        :param str migration_state: This property denotes the container level immutability to object level immutability migration state.
+        :param str time_stamp: Returns the date and time the object level immutability was enabled.
+        :param bool enabled: This is an immutable property, when set to true it enables object level immutability at the container level.
+        """
+        pulumi.set(__self__, "migration_state", migration_state)
+        pulumi.set(__self__, "time_stamp", time_stamp)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> str:
+        """
+        This property denotes the container level immutability to object level immutability migration state.
+        """
+        return pulumi.get(self, "migration_state")
+
+    @property
+    @pulumi.getter(name="timeStamp")
+    def time_stamp(self) -> str:
+        """
+        Returns the date and time the object level immutability was enabled.
+        """
+        return pulumi.get(self, "time_stamp")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        This is an immutable property, when set to true it enables object level immutability at the container level.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -1814,7 +2317,9 @@ class KeyVaultPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "currentVersionedKeyIdentifier":
+        if key == "currentVersionedKeyExpirationTimestamp":
+            suggest = "current_versioned_key_expiration_timestamp"
+        elif key == "currentVersionedKeyIdentifier":
             suggest = "current_versioned_key_identifier"
         elif key == "lastKeyRotationTimestamp":
             suggest = "last_key_rotation_timestamp"
@@ -1837,6 +2342,7 @@ class KeyVaultPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 current_versioned_key_expiration_timestamp: str,
                  current_versioned_key_identifier: str,
                  last_key_rotation_timestamp: str,
                  key_name: Optional[str] = None,
@@ -1844,12 +2350,14 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: Optional[str] = None):
         """
         Properties of key vault.
+        :param str current_versioned_key_expiration_timestamp: This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
         :param str current_versioned_key_identifier: The object identifier of the current versioned Key Vault Key in use.
         :param str last_key_rotation_timestamp: Timestamp of last rotation of the Key Vault Key.
         :param str key_name: The name of KeyVault key.
         :param str key_vault_uri: The Uri of KeyVault.
         :param str key_version: The version of KeyVault key.
         """
+        pulumi.set(__self__, "current_versioned_key_expiration_timestamp", current_versioned_key_expiration_timestamp)
         pulumi.set(__self__, "current_versioned_key_identifier", current_versioned_key_identifier)
         pulumi.set(__self__, "last_key_rotation_timestamp", last_key_rotation_timestamp)
         if key_name is not None:
@@ -1858,6 +2366,14 @@ class KeyVaultPropertiesResponse(dict):
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="currentVersionedKeyExpirationTimestamp")
+    def current_versioned_key_expiration_timestamp(self) -> str:
+        """
+        This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
+        """
+        return pulumi.get(self, "current_versioned_key_expiration_timestamp")
 
     @property
     @pulumi.getter(name="currentVersionedKeyIdentifier")
@@ -1987,6 +2503,8 @@ class LegalHoldPropertiesResponse(dict):
         suggest = None
         if key == "hasLegalHold":
             suggest = "has_legal_hold"
+        elif key == "protectedAppendWritesHistory":
+            suggest = "protected_append_writes_history"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LegalHoldPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2001,13 +2519,17 @@ class LegalHoldPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  has_legal_hold: bool,
+                 protected_append_writes_history: Optional['outputs.ProtectedAppendWritesHistoryResponse'] = None,
                  tags: Optional[Sequence['outputs.TagPropertyResponse']] = None):
         """
         The LegalHold property of a blob container.
         :param bool has_legal_hold: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        :param 'ProtectedAppendWritesHistoryResponse' protected_append_writes_history: Protected append blob writes history.
         :param Sequence['TagPropertyResponse'] tags: The list of LegalHold tags of a blob container.
         """
         pulumi.set(__self__, "has_legal_hold", has_legal_hold)
+        if protected_append_writes_history is not None:
+            pulumi.set(__self__, "protected_append_writes_history", protected_append_writes_history)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -2018,6 +2540,14 @@ class LegalHoldPropertiesResponse(dict):
         The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
         """
         return pulumi.get(self, "has_legal_hold")
+
+    @property
+    @pulumi.getter(name="protectedAppendWritesHistory")
+    def protected_append_writes_history(self) -> Optional['outputs.ProtectedAppendWritesHistoryResponse']:
+        """
+        Protected append blob writes history.
+        """
+        return pulumi.get(self, "protected_append_writes_history")
 
     @property
     @pulumi.getter
@@ -2104,8 +2634,12 @@ class ManagementPolicyBaseBlobResponse(dict):
             suggest = "enable_auto_tier_to_hot_from_cool"
         elif key == "tierToArchive":
             suggest = "tier_to_archive"
+        elif key == "tierToCold":
+            suggest = "tier_to_cold"
         elif key == "tierToCool":
             suggest = "tier_to_cool"
+        elif key == "tierToHot":
+            suggest = "tier_to_hot"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyBaseBlobResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2122,13 +2656,17 @@ class ManagementPolicyBaseBlobResponse(dict):
                  delete: Optional['outputs.DateAfterModificationResponse'] = None,
                  enable_auto_tier_to_hot_from_cool: Optional[bool] = None,
                  tier_to_archive: Optional['outputs.DateAfterModificationResponse'] = None,
-                 tier_to_cool: Optional['outputs.DateAfterModificationResponse'] = None):
+                 tier_to_cold: Optional['outputs.DateAfterModificationResponse'] = None,
+                 tier_to_cool: Optional['outputs.DateAfterModificationResponse'] = None,
+                 tier_to_hot: Optional['outputs.DateAfterModificationResponse'] = None):
         """
         Management policy action for base blob.
         :param 'DateAfterModificationResponse' delete: The function to delete the blob
         :param bool enable_auto_tier_to_hot_from_cool: This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
-        :param 'DateAfterModificationResponse' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-        :param 'DateAfterModificationResponse' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
+        :param 'DateAfterModificationResponse' tier_to_archive: The function to tier blobs to archive storage.
+        :param 'DateAfterModificationResponse' tier_to_cold: The function to tier blobs to cold storage.
+        :param 'DateAfterModificationResponse' tier_to_cool: The function to tier blobs to cool storage.
+        :param 'DateAfterModificationResponse' tier_to_hot: The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -2136,8 +2674,12 @@ class ManagementPolicyBaseBlobResponse(dict):
             pulumi.set(__self__, "enable_auto_tier_to_hot_from_cool", enable_auto_tier_to_hot_from_cool)
         if tier_to_archive is not None:
             pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+        if tier_to_cold is not None:
+            pulumi.set(__self__, "tier_to_cold", tier_to_cold)
         if tier_to_cool is not None:
             pulumi.set(__self__, "tier_to_cool", tier_to_cool)
+        if tier_to_hot is not None:
+            pulumi.set(__self__, "tier_to_hot", tier_to_hot)
 
     @property
     @pulumi.getter
@@ -2159,17 +2701,33 @@ class ManagementPolicyBaseBlobResponse(dict):
     @pulumi.getter(name="tierToArchive")
     def tier_to_archive(self) -> Optional['outputs.DateAfterModificationResponse']:
         """
-        The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
+        The function to tier blobs to archive storage.
         """
         return pulumi.get(self, "tier_to_archive")
+
+    @property
+    @pulumi.getter(name="tierToCold")
+    def tier_to_cold(self) -> Optional['outputs.DateAfterModificationResponse']:
+        """
+        The function to tier blobs to cold storage.
+        """
+        return pulumi.get(self, "tier_to_cold")
 
     @property
     @pulumi.getter(name="tierToCool")
     def tier_to_cool(self) -> Optional['outputs.DateAfterModificationResponse']:
         """
-        The function to tier blobs to cool storage. Support blobs currently at Hot tier
+        The function to tier blobs to cool storage.
         """
         return pulumi.get(self, "tier_to_cool")
+
+    @property
+    @pulumi.getter(name="tierToHot")
+    def tier_to_hot(self) -> Optional['outputs.DateAfterModificationResponse']:
+        """
+        The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+        """
+        return pulumi.get(self, "tier_to_hot")
 
 
 @pulumi.output_type
@@ -2361,8 +2919,12 @@ class ManagementPolicySnapShotResponse(dict):
         suggest = None
         if key == "tierToArchive":
             suggest = "tier_to_archive"
+        elif key == "tierToCold":
+            suggest = "tier_to_cold"
         elif key == "tierToCool":
             suggest = "tier_to_cool"
+        elif key == "tierToHot":
+            suggest = "tier_to_hot"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagementPolicySnapShotResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2378,19 +2940,27 @@ class ManagementPolicySnapShotResponse(dict):
     def __init__(__self__, *,
                  delete: Optional['outputs.DateAfterCreationResponse'] = None,
                  tier_to_archive: Optional['outputs.DateAfterCreationResponse'] = None,
-                 tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
+                 tier_to_cold: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_hot: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for snapshot.
         :param 'DateAfterCreationResponse' delete: The function to delete the blob snapshot
-        :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
-        :param 'DateAfterCreationResponse' tier_to_cool: The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+        :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob snapshot to archive storage.
+        :param 'DateAfterCreationResponse' tier_to_cold: The function to tier blobs to cold storage.
+        :param 'DateAfterCreationResponse' tier_to_cool: The function to tier blob snapshot to cool storage.
+        :param 'DateAfterCreationResponse' tier_to_hot: The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
         if tier_to_archive is not None:
             pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+        if tier_to_cold is not None:
+            pulumi.set(__self__, "tier_to_cold", tier_to_cold)
         if tier_to_cool is not None:
             pulumi.set(__self__, "tier_to_cool", tier_to_cool)
+        if tier_to_hot is not None:
+            pulumi.set(__self__, "tier_to_hot", tier_to_hot)
 
     @property
     @pulumi.getter
@@ -2404,17 +2974,33 @@ class ManagementPolicySnapShotResponse(dict):
     @pulumi.getter(name="tierToArchive")
     def tier_to_archive(self) -> Optional['outputs.DateAfterCreationResponse']:
         """
-        The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        The function to tier blob snapshot to archive storage.
         """
         return pulumi.get(self, "tier_to_archive")
+
+    @property
+    @pulumi.getter(name="tierToCold")
+    def tier_to_cold(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blobs to cold storage.
+        """
+        return pulumi.get(self, "tier_to_cold")
 
     @property
     @pulumi.getter(name="tierToCool")
     def tier_to_cool(self) -> Optional['outputs.DateAfterCreationResponse']:
         """
-        The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+        The function to tier blob snapshot to cool storage.
         """
         return pulumi.get(self, "tier_to_cool")
+
+    @property
+    @pulumi.getter(name="tierToHot")
+    def tier_to_hot(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+        """
+        return pulumi.get(self, "tier_to_hot")
 
 
 @pulumi.output_type
@@ -2427,8 +3013,12 @@ class ManagementPolicyVersionResponse(dict):
         suggest = None
         if key == "tierToArchive":
             suggest = "tier_to_archive"
+        elif key == "tierToCold":
+            suggest = "tier_to_cold"
         elif key == "tierToCool":
             suggest = "tier_to_cool"
+        elif key == "tierToHot":
+            suggest = "tier_to_hot"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyVersionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2444,19 +3034,27 @@ class ManagementPolicyVersionResponse(dict):
     def __init__(__self__, *,
                  delete: Optional['outputs.DateAfterCreationResponse'] = None,
                  tier_to_archive: Optional['outputs.DateAfterCreationResponse'] = None,
-                 tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
+                 tier_to_cold: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_hot: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for blob version.
         :param 'DateAfterCreationResponse' delete: The function to delete the blob version
-        :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
-        :param 'DateAfterCreationResponse' tier_to_cool: The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob version to archive storage.
+        :param 'DateAfterCreationResponse' tier_to_cold: The function to tier blobs to cold storage.
+        :param 'DateAfterCreationResponse' tier_to_cool: The function to tier blob version to cool storage.
+        :param 'DateAfterCreationResponse' tier_to_hot: The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
         if tier_to_archive is not None:
             pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+        if tier_to_cold is not None:
+            pulumi.set(__self__, "tier_to_cold", tier_to_cold)
         if tier_to_cool is not None:
             pulumi.set(__self__, "tier_to_cool", tier_to_cool)
+        if tier_to_hot is not None:
+            pulumi.set(__self__, "tier_to_hot", tier_to_hot)
 
     @property
     @pulumi.getter
@@ -2470,17 +3068,33 @@ class ManagementPolicyVersionResponse(dict):
     @pulumi.getter(name="tierToArchive")
     def tier_to_archive(self) -> Optional['outputs.DateAfterCreationResponse']:
         """
-        The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+        The function to tier blob version to archive storage.
         """
         return pulumi.get(self, "tier_to_archive")
+
+    @property
+    @pulumi.getter(name="tierToCold")
+    def tier_to_cold(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blobs to cold storage.
+        """
+        return pulumi.get(self, "tier_to_cold")
 
     @property
     @pulumi.getter(name="tierToCool")
     def tier_to_cool(self) -> Optional['outputs.DateAfterCreationResponse']:
         """
-        The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        The function to tier blob version to cool storage.
         """
         return pulumi.get(self, "tier_to_cool")
+
+    @property
+    @pulumi.getter(name="tierToHot")
+    def tier_to_hot(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+        """
+        return pulumi.get(self, "tier_to_hot")
 
 
 @pulumi.output_type
@@ -2978,6 +3592,57 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ProtectedAppendWritesHistoryResponse(dict):
+    """
+    Protected append writes history setting for the blob container with Legal holds.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowProtectedAppendWritesAll":
+            suggest = "allow_protected_append_writes_all"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProtectedAppendWritesHistoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProtectedAppendWritesHistoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProtectedAppendWritesHistoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timestamp: str,
+                 allow_protected_append_writes_all: Optional[bool] = None):
+        """
+        Protected append writes history setting for the blob container with Legal holds.
+        :param str timestamp: Returns the date and time the tag was added.
+        :param bool allow_protected_append_writes_all: When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        """
+        pulumi.set(__self__, "timestamp", timestamp)
+        if allow_protected_append_writes_all is not None:
+            pulumi.set(__self__, "allow_protected_append_writes_all", allow_protected_append_writes_all)
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        Returns the date and time the tag was added.
+        """
+        return pulumi.get(self, "timestamp")
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWritesAll")
+    def allow_protected_append_writes_all(self) -> Optional[bool]:
+        """
+        When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        """
+        return pulumi.get(self, "allow_protected_append_writes_all")
+
+
+@pulumi.output_type
 class ProtocolSettingsResponse(dict):
     """
     Protocol settings for file service
@@ -3249,6 +3914,54 @@ class SasPolicyResponse(dict):
         The SAS expiration period, DD.HH:MM:SS.
         """
         return pulumi.get(self, "sas_expiration_period")
+
+
+@pulumi.output_type
+class SignedIdentifierResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPolicy":
+            suggest = "access_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignedIdentifierResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignedIdentifierResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignedIdentifierResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_policy: Optional['outputs.AccessPolicyResponse'] = None,
+                 id: Optional[str] = None):
+        """
+        :param 'AccessPolicyResponse' access_policy: Access policy
+        :param str id: An unique identifier of the stored access policy.
+        """
+        if access_policy is not None:
+            pulumi.set(__self__, "access_policy", access_policy)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="accessPolicy")
+    def access_policy(self) -> Optional['outputs.AccessPolicyResponse']:
+        """
+        Access policy
+        """
+        return pulumi.get(self, "access_policy")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        An unique identifier of the stored access policy.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -3595,6 +4308,85 @@ class StorageAccountMicrosoftEndpointsResponse(dict):
 
 
 @pulumi.output_type
+class StorageAccountSkuConversionStatusResponse(dict):
+    """
+    This defines the sku conversion status object for asynchronous sku conversions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "skuConversionStatus":
+            suggest = "sku_conversion_status"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "targetSkuName":
+            suggest = "target_sku_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountSkuConversionStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountSkuConversionStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountSkuConversionStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time: str,
+                 sku_conversion_status: str,
+                 start_time: str,
+                 target_sku_name: Optional[str] = None):
+        """
+        This defines the sku conversion status object for asynchronous sku conversions.
+        :param str end_time: This property represents the sku conversion end time.
+        :param str sku_conversion_status: This property indicates the current sku conversion status.
+        :param str start_time: This property represents the sku conversion start time.
+        :param str target_sku_name: This property represents the target sku name to which the account sku is being converted asynchronously.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "sku_conversion_status", sku_conversion_status)
+        pulumi.set(__self__, "start_time", start_time)
+        if target_sku_name is not None:
+            pulumi.set(__self__, "target_sku_name", target_sku_name)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        """
+        This property represents the sku conversion end time.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="skuConversionStatus")
+    def sku_conversion_status(self) -> str:
+        """
+        This property indicates the current sku conversion status.
+        """
+        return pulumi.get(self, "sku_conversion_status")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        This property represents the sku conversion start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="targetSkuName")
+    def target_sku_name(self) -> Optional[str]:
+        """
+        This property represents the target sku name to which the account sku is being converted asynchronously.
+        """
+        return pulumi.get(self, "target_sku_name")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -3702,6 +4494,122 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TableAccessPolicyResponse(dict):
+    """
+    Table Access Policy Properties Object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableAccessPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableAccessPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableAccessPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 permission: str,
+                 expiry_time: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        Table Access Policy Properties Object.
+        :param str permission: Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+        :param str expiry_time: Expiry time of the access policy
+        :param str start_time: Start time of the access policy
+        """
+        pulumi.set(__self__, "permission", permission)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> str:
+        """
+        Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+        """
+        return pulumi.get(self, "permission")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        """
+        Expiry time of the access policy
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Start time of the access policy
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class TableSignedIdentifierResponse(dict):
+    """
+    Object to set Table Access Policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPolicy":
+            suggest = "access_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSignedIdentifierResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSignedIdentifierResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSignedIdentifierResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 access_policy: Optional['outputs.TableAccessPolicyResponse'] = None):
+        """
+        Object to set Table Access Policy.
+        :param str id: unique-64-character-value of the stored access policy.
+        :param 'TableAccessPolicyResponse' access_policy: Access policy
+        """
+        pulumi.set(__self__, "id", id)
+        if access_policy is not None:
+            pulumi.set(__self__, "access_policy", access_policy)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        unique-64-character-value of the stored access policy.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="accessPolicy")
+    def access_policy(self) -> Optional['outputs.TableAccessPolicyResponse']:
+        """
+        Access policy
+        """
+        return pulumi.get(self, "access_policy")
 
 
 @pulumi.output_type
@@ -3847,6 +4755,10 @@ class UpdateHistoryPropertyResponse(dict):
             suggest = "object_identifier"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "allowProtectedAppendWrites":
+            suggest = "allow_protected_append_writes"
+        elif key == "allowProtectedAppendWritesAll":
+            suggest = "allow_protected_append_writes_all"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UpdateHistoryPropertyResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3865,7 +4777,9 @@ class UpdateHistoryPropertyResponse(dict):
                  tenant_id: str,
                  timestamp: str,
                  update: str,
-                 upn: str):
+                 upn: str,
+                 allow_protected_append_writes: Optional[bool] = None,
+                 allow_protected_append_writes_all: Optional[bool] = None):
         """
         An update history of the ImmutabilityPolicy of a blob container.
         :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
@@ -3874,6 +4788,8 @@ class UpdateHistoryPropertyResponse(dict):
         :param str timestamp: Returns the date and time the ImmutabilityPolicy was updated.
         :param str update: The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
         :param str upn: Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
+        :param bool allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+        :param bool allow_protected_append_writes_all: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
         """
         pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
         pulumi.set(__self__, "object_identifier", object_identifier)
@@ -3881,6 +4797,10 @@ class UpdateHistoryPropertyResponse(dict):
         pulumi.set(__self__, "timestamp", timestamp)
         pulumi.set(__self__, "update", update)
         pulumi.set(__self__, "upn", upn)
+        if allow_protected_append_writes is not None:
+            pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+        if allow_protected_append_writes_all is not None:
+            pulumi.set(__self__, "allow_protected_append_writes_all", allow_protected_append_writes_all)
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
@@ -3929,6 +4849,22 @@ class UpdateHistoryPropertyResponse(dict):
         Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
         """
         return pulumi.get(self, "upn")
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWrites")
+    def allow_protected_append_writes(self) -> Optional[bool]:
+        """
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
+        """
+        return pulumi.get(self, "allow_protected_append_writes")
+
+    @property
+    @pulumi.getter(name="allowProtectedAppendWritesAll")
+    def allow_protected_append_writes_all(self) -> Optional[bool]:
+        """
+        This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+        """
+        return pulumi.get(self, "allow_protected_append_writes_all")
 
 
 @pulumi.output_type

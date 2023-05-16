@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * VpnServerConfiguration Resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class VpnServerConfiguration extends pulumi.CustomResource {
     /**
@@ -42,6 +43,10 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      * The set of aad vpn authentication parameters.
      */
     public readonly aadAuthenticationParameters!: pulumi.Output<outputs.network.AadAuthenticationParametersResponse | undefined>;
+    /**
+     * List of all VpnServerConfigurationPolicyGroups.
+     */
+    public readonly configurationPolicyGroups!: pulumi.Output<outputs.network.VpnServerConfigurationPolicyGroupResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -126,6 +131,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
+            resourceInputs["configurationPolicyGroups"] = args ? args.configurationPolicyGroups : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -148,6 +154,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aadAuthenticationParameters"] = undefined /*out*/;
+            resourceInputs["configurationPolicyGroups"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -167,7 +174,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["vpnProtocols"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190801:VpnServerConfiguration" }, { type: "azure-native:network/v20190901:VpnServerConfiguration" }, { type: "azure-native:network/v20191101:VpnServerConfiguration" }, { type: "azure-native:network/v20191201:VpnServerConfiguration" }, { type: "azure-native:network/v20200301:VpnServerConfiguration" }, { type: "azure-native:network/v20200401:VpnServerConfiguration" }, { type: "azure-native:network/v20200501:VpnServerConfiguration" }, { type: "azure-native:network/v20200601:VpnServerConfiguration" }, { type: "azure-native:network/v20200701:VpnServerConfiguration" }, { type: "azure-native:network/v20200801:VpnServerConfiguration" }, { type: "azure-native:network/v20201101:VpnServerConfiguration" }, { type: "azure-native:network/v20210201:VpnServerConfiguration" }, { type: "azure-native:network/v20210301:VpnServerConfiguration" }, { type: "azure-native:network/v20210501:VpnServerConfiguration" }, { type: "azure-native:network/v20210801:VpnServerConfiguration" }, { type: "azure-native:network/v20220101:VpnServerConfiguration" }, { type: "azure-native:network/v20220501:VpnServerConfiguration" }, { type: "azure-native:network/v20220701:VpnServerConfiguration" }, { type: "azure-native:network/v20220901:VpnServerConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190801:VpnServerConfiguration" }, { type: "azure-native:network/v20190901:VpnServerConfiguration" }, { type: "azure-native:network/v20191101:VpnServerConfiguration" }, { type: "azure-native:network/v20191201:VpnServerConfiguration" }, { type: "azure-native:network/v20200301:VpnServerConfiguration" }, { type: "azure-native:network/v20200401:VpnServerConfiguration" }, { type: "azure-native:network/v20200501:VpnServerConfiguration" }, { type: "azure-native:network/v20200601:VpnServerConfiguration" }, { type: "azure-native:network/v20200701:VpnServerConfiguration" }, { type: "azure-native:network/v20200801:VpnServerConfiguration" }, { type: "azure-native:network/v20201101:VpnServerConfiguration" }, { type: "azure-native:network/v20210201:VpnServerConfiguration" }, { type: "azure-native:network/v20210301:VpnServerConfiguration" }, { type: "azure-native:network/v20210501:VpnServerConfiguration" }, { type: "azure-native:network/v20210801:VpnServerConfiguration" }, { type: "azure-native:network/v20220101:VpnServerConfiguration" }, { type: "azure-native:network/v20220501:VpnServerConfiguration" }, { type: "azure-native:network/v20220701:VpnServerConfiguration" }, { type: "azure-native:network/v20220901:VpnServerConfiguration" }, { type: "azure-native:network/v20221101:VpnServerConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VpnServerConfiguration.__pulumiType, name, resourceInputs, opts);
     }
@@ -181,6 +188,10 @@ export interface VpnServerConfigurationArgs {
      * The set of aad vpn authentication parameters.
      */
     aadAuthenticationParameters?: pulumi.Input<inputs.network.AadAuthenticationParametersArgs>;
+    /**
+     * List of all VpnServerConfigurationPolicyGroups.
+     */
+    configurationPolicyGroups?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationPolicyGroupArgs>[]>;
     /**
      * Resource ID.
      */

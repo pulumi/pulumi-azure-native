@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * RouteTable resource
- *
- * @deprecated Version 2015-05-01-preview will be removed in v2 of the provider.
  */
 export class RouteTable extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class RouteTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RouteTable {
-        pulumi.log.warn("RouteTable is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
         return new RouteTable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class RouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: RouteTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RouteTable is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -110,7 +105,7 @@ export class RouteTable extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:RouteTable" }, { type: "azure-native:network/v20150615:RouteTable" }, { type: "azure-native:network/v20160330:RouteTable" }, { type: "azure-native:network/v20160601:RouteTable" }, { type: "azure-native:network/v20160901:RouteTable" }, { type: "azure-native:network/v20161201:RouteTable" }, { type: "azure-native:network/v20170301:RouteTable" }, { type: "azure-native:network/v20170601:RouteTable" }, { type: "azure-native:network/v20170801:RouteTable" }, { type: "azure-native:network/v20170901:RouteTable" }, { type: "azure-native:network/v20171001:RouteTable" }, { type: "azure-native:network/v20171101:RouteTable" }, { type: "azure-native:network/v20180101:RouteTable" }, { type: "azure-native:network/v20180201:RouteTable" }, { type: "azure-native:network/v20180401:RouteTable" }, { type: "azure-native:network/v20180601:RouteTable" }, { type: "azure-native:network/v20180701:RouteTable" }, { type: "azure-native:network/v20180801:RouteTable" }, { type: "azure-native:network/v20181001:RouteTable" }, { type: "azure-native:network/v20181101:RouteTable" }, { type: "azure-native:network/v20181201:RouteTable" }, { type: "azure-native:network/v20190201:RouteTable" }, { type: "azure-native:network/v20190401:RouteTable" }, { type: "azure-native:network/v20190601:RouteTable" }, { type: "azure-native:network/v20190701:RouteTable" }, { type: "azure-native:network/v20190801:RouteTable" }, { type: "azure-native:network/v20190901:RouteTable" }, { type: "azure-native:network/v20191101:RouteTable" }, { type: "azure-native:network/v20191201:RouteTable" }, { type: "azure-native:network/v20200301:RouteTable" }, { type: "azure-native:network/v20200401:RouteTable" }, { type: "azure-native:network/v20200501:RouteTable" }, { type: "azure-native:network/v20200601:RouteTable" }, { type: "azure-native:network/v20200701:RouteTable" }, { type: "azure-native:network/v20200801:RouteTable" }, { type: "azure-native:network/v20201101:RouteTable" }, { type: "azure-native:network/v20210201:RouteTable" }, { type: "azure-native:network/v20210301:RouteTable" }, { type: "azure-native:network/v20210501:RouteTable" }, { type: "azure-native:network/v20210801:RouteTable" }, { type: "azure-native:network/v20220101:RouteTable" }, { type: "azure-native:network/v20220501:RouteTable" }, { type: "azure-native:network/v20220701:RouteTable" }, { type: "azure-native:network/v20220901:RouteTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:RouteTable" }, { type: "azure-native:network/v20150615:RouteTable" }, { type: "azure-native:network/v20160330:RouteTable" }, { type: "azure-native:network/v20160601:RouteTable" }, { type: "azure-native:network/v20160901:RouteTable" }, { type: "azure-native:network/v20161201:RouteTable" }, { type: "azure-native:network/v20170301:RouteTable" }, { type: "azure-native:network/v20170601:RouteTable" }, { type: "azure-native:network/v20170801:RouteTable" }, { type: "azure-native:network/v20170901:RouteTable" }, { type: "azure-native:network/v20171001:RouteTable" }, { type: "azure-native:network/v20171101:RouteTable" }, { type: "azure-native:network/v20180101:RouteTable" }, { type: "azure-native:network/v20180201:RouteTable" }, { type: "azure-native:network/v20180401:RouteTable" }, { type: "azure-native:network/v20180601:RouteTable" }, { type: "azure-native:network/v20180701:RouteTable" }, { type: "azure-native:network/v20180801:RouteTable" }, { type: "azure-native:network/v20181001:RouteTable" }, { type: "azure-native:network/v20181101:RouteTable" }, { type: "azure-native:network/v20181201:RouteTable" }, { type: "azure-native:network/v20190201:RouteTable" }, { type: "azure-native:network/v20190401:RouteTable" }, { type: "azure-native:network/v20190601:RouteTable" }, { type: "azure-native:network/v20190701:RouteTable" }, { type: "azure-native:network/v20190801:RouteTable" }, { type: "azure-native:network/v20190901:RouteTable" }, { type: "azure-native:network/v20191101:RouteTable" }, { type: "azure-native:network/v20191201:RouteTable" }, { type: "azure-native:network/v20200301:RouteTable" }, { type: "azure-native:network/v20200401:RouteTable" }, { type: "azure-native:network/v20200501:RouteTable" }, { type: "azure-native:network/v20200601:RouteTable" }, { type: "azure-native:network/v20200701:RouteTable" }, { type: "azure-native:network/v20200801:RouteTable" }, { type: "azure-native:network/v20201101:RouteTable" }, { type: "azure-native:network/v20210201:RouteTable" }, { type: "azure-native:network/v20210301:RouteTable" }, { type: "azure-native:network/v20210501:RouteTable" }, { type: "azure-native:network/v20210801:RouteTable" }, { type: "azure-native:network/v20220101:RouteTable" }, { type: "azure-native:network/v20220501:RouteTable" }, { type: "azure-native:network/v20220701:RouteTable" }, { type: "azure-native:network/v20220901:RouteTable" }, { type: "azure-native:network/v20221101:RouteTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RouteTable.__pulumiType, name, resourceInputs, opts);
     }

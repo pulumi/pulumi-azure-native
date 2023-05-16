@@ -212,12 +212,7 @@ class DiskArgs:
         pulumi.set(self, "zones", value)
 
 
-warnings.warn("""Version 2018-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Disk(pulumi.CustomResource):
-    warnings.warn("""Version 2018-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -290,7 +285,6 @@ class Disk(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Disk is deprecated: Version 2018-06-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

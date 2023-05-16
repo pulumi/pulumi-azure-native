@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified network group.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getNetworkGroup(args: GetNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkGroupResult> {
 
@@ -23,7 +23,7 @@ export function getNetworkGroup(args: GetNetworkGroupArgs, opts?: pulumi.InvokeO
 
 export interface GetNetworkGroupArgs {
     /**
-     * The name of the network group to get.
+     * The name of the network group.
      */
     networkGroupName: string;
     /**
@@ -41,33 +41,17 @@ export interface GetNetworkGroupArgs {
  */
 export interface GetNetworkGroupResult {
     /**
-     * Network group conditional filter.
-     */
-    readonly conditionalMembership?: string;
-    /**
      * A description of the network group.
      */
     readonly description?: string;
-    /**
-     * A friendly name for the network group.
-     */
-    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
     /**
-     * Group members of network group.
-     */
-    readonly groupMembers?: outputs.network.GroupMembersItemResponse[];
-    /**
      * Resource ID.
      */
     readonly id: string;
-    /**
-     * Group member type.
-     */
-    readonly memberType?: string;
     /**
      * Resource name.
      */
@@ -87,7 +71,7 @@ export interface GetNetworkGroupResult {
 }
 /**
  * Gets the specified network group.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-01.
  */
 export function getNetworkGroupOutput(args: GetNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkGroup(a, opts))
@@ -95,7 +79,7 @@ export function getNetworkGroupOutput(args: GetNetworkGroupOutputArgs, opts?: pu
 
 export interface GetNetworkGroupOutputArgs {
     /**
-     * The name of the network group to get.
+     * The name of the network group.
      */
     networkGroupName: pulumi.Input<string>;
     /**

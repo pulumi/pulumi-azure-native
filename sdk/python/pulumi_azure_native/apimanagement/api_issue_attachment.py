@@ -28,7 +28,7 @@ class ApiIssueAttachmentArgs:
         :param pulumi.Input[str] content: An HTTP link or Base64-encoded binary data.
         :param pulumi.Input[str] content_format: Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
         :param pulumi.Input[str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Filename by which the binary data will be saved.
         :param pulumi.Input[str] attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.
@@ -95,7 +95,7 @@ class ApiIssueAttachmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -156,7 +156,8 @@ class ApiIssueAttachment(pulumi.CustomResource):
                  __props__=None):
         """
         Issue Attachment Contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +166,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] content: An HTTP link or Base64-encoded binary data.
         :param pulumi.Input[str] content_format: Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
         :param pulumi.Input[str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Filename by which the binary data will be saved.
         """
@@ -177,7 +178,8 @@ class ApiIssueAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Issue Attachment Contract details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApiIssueAttachmentArgs args: The arguments to use to populate this resource's properties.
@@ -235,7 +237,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
             __props__.__dict__["title"] = title
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiIssueAttachment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiIssueAttachment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueAttachment, __self__).__init__(
             'azure-native:apimanagement:ApiIssueAttachment',
@@ -286,7 +288,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -302,7 +304,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

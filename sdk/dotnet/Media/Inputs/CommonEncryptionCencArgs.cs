@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.Media.Inputs
     /// </summary>
     public sealed class CommonEncryptionCencArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Optional configuration supporting ClearKey in CommonEncryptionCenc encryption scheme.
+        /// </summary>
+        [Input("clearKeyEncryptionConfiguration")]
+        public Input<Inputs.ClearKeyEncryptionConfigurationArgs>? ClearKeyEncryptionConfiguration { get; set; }
+
         [Input("clearTracks")]
         private InputList<Inputs.TrackSelectionArgs>? _clearTracks;
 

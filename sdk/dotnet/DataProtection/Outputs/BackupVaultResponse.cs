@@ -17,9 +17,33 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
     public sealed class BackupVaultResponse
     {
         /// <summary>
+        /// Feature Settings
+        /// </summary>
+        public readonly Outputs.FeatureSettingsResponse? FeatureSettings;
+        /// <summary>
+        /// Is vault protected by resource guard
+        /// </summary>
+        public readonly bool IsVaultProtectedByResourceGuard;
+        /// <summary>
+        /// Monitoring Settings
+        /// </summary>
+        public readonly Outputs.MonitoringSettingsResponse? MonitoringSettings;
+        /// <summary>
         /// Provisioning state of the BackupVault resource
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource move details for backup vault
+        /// </summary>
+        public readonly Outputs.ResourceMoveDetailsResponse ResourceMoveDetails;
+        /// <summary>
+        /// Resource move state for backup vault
+        /// </summary>
+        public readonly string ResourceMoveState;
+        /// <summary>
+        /// Security Settings
+        /// </summary>
+        public readonly Outputs.SecuritySettingsResponse? SecuritySettings;
         /// <summary>
         /// Storage Settings
         /// </summary>
@@ -27,11 +51,29 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
         [OutputConstructor]
         private BackupVaultResponse(
+            Outputs.FeatureSettingsResponse? featureSettings,
+
+            bool isVaultProtectedByResourceGuard,
+
+            Outputs.MonitoringSettingsResponse? monitoringSettings,
+
             string provisioningState,
+
+            Outputs.ResourceMoveDetailsResponse resourceMoveDetails,
+
+            string resourceMoveState,
+
+            Outputs.SecuritySettingsResponse? securitySettings,
 
             ImmutableArray<Outputs.StorageSettingResponse> storageSettings)
         {
+            FeatureSettings = featureSettings;
+            IsVaultProtectedByResourceGuard = isVaultProtectedByResourceGuard;
+            MonitoringSettings = monitoringSettings;
             ProvisioningState = provisioningState;
+            ResourceMoveDetails = resourceMoveDetails;
+            ResourceMoveState = resourceMoveState;
+            SecuritySettings = securitySettings;
             StorageSettings = storageSettings;
         }
     }

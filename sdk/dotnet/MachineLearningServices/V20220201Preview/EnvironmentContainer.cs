@@ -71,6 +71,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:EnvironmentContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:EnvironmentContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:EnvironmentContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:EnvironmentContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:EnvironmentContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:EnvironmentContainer"},
                 },
             };

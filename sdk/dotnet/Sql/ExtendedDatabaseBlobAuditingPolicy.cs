@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An extended database blob auditing policy.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ExtendedDatabaseBlobAuditingPolicy")]
     public partial class ExtendedDatabaseBlobAuditingPolicy : global::Pulumi.CustomResource
@@ -49,6 +50,10 @@ namespace Pulumi.AzureNative.Sql
         /// USER_CHANGE_PASSWORD_GROUP
         /// BATCH_STARTED_GROUP
         /// BATCH_COMPLETED_GROUP
+        /// DBCC_GROUP
+        /// DATABASE_OWNERSHIP_CHANGE_GROUP
+        /// DATABASE_CHANGE_GROUP
+        /// LEDGER_OPERATION_GROUP
         /// 
         /// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         /// 
@@ -93,6 +98,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("isAzureMonitorTargetEnabled")]
         public Output<bool?> IsAzureMonitorTargetEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether Managed Identity is used to access blob storage
+        /// </summary>
+        [Output("isManagedIdentityInUse")]
+        public Output<bool?> IsManagedIdentityInUse { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether storageAccountAccessKey value is the storage's secondary key.
@@ -245,6 +256,10 @@ namespace Pulumi.AzureNative.Sql
         /// USER_CHANGE_PASSWORD_GROUP
         /// BATCH_STARTED_GROUP
         /// BATCH_COMPLETED_GROUP
+        /// DBCC_GROUP
+        /// DATABASE_OWNERSHIP_CHANGE_GROUP
+        /// DATABASE_CHANGE_GROUP
+        /// LEDGER_OPERATION_GROUP
         /// 
         /// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         /// 
@@ -304,6 +319,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("isAzureMonitorTargetEnabled")]
         public Input<bool>? IsAzureMonitorTargetEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies whether Managed Identity is used to access blob storage
+        /// </summary>
+        [Input("isManagedIdentityInUse")]
+        public Input<bool>? IsManagedIdentityInUse { get; set; }
 
         /// <summary>
         /// Specifies whether storageAccountAccessKey value is the storage's secondary key.

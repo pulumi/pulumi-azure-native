@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double CapacityInBytes;
         /// <summary>
+        /// The DiskEncryptionSet ARM Id.
+        /// </summary>
+        public readonly string DiskEncryptionSetId;
+        /// <summary>
         /// The disk id.
         /// </summary>
         public readonly string DiskId;
@@ -49,9 +53,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string LogStorageAccountSasSecretName;
         /// <summary>
+        /// The uri of the seed blob.
+        /// </summary>
+        public readonly string SeedBlobUri;
+        /// <summary>
         /// The ARM Id of the seed managed disk.
         /// </summary>
         public readonly string SeedManagedDiskId;
+        /// <summary>
+        /// The uri of the target blob.
+        /// </summary>
+        public readonly string TargetBlobUri;
+        /// <summary>
+        /// The name for the target managed disk.
+        /// </summary>
+        public readonly string? TargetDiskName;
         /// <summary>
         /// The ARM Id of the target managed disk.
         /// </summary>
@@ -60,6 +76,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         [OutputConstructor]
         private VMwareCbtProtectedDiskDetailsResponse(
             double capacityInBytes,
+
+            string diskEncryptionSetId,
 
             string diskId,
 
@@ -75,11 +93,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string logStorageAccountSasSecretName,
 
+            string seedBlobUri,
+
             string seedManagedDiskId,
+
+            string targetBlobUri,
+
+            string? targetDiskName,
 
             string targetManagedDiskId)
         {
             CapacityInBytes = capacityInBytes;
+            DiskEncryptionSetId = diskEncryptionSetId;
             DiskId = diskId;
             DiskName = diskName;
             DiskPath = diskPath;
@@ -87,7 +112,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             IsOSDisk = isOSDisk;
             LogStorageAccountId = logStorageAccountId;
             LogStorageAccountSasSecretName = logStorageAccountSasSecretName;
+            SeedBlobUri = seedBlobUri;
             SeedManagedDiskId = seedManagedDiskId;
+            TargetBlobUri = targetBlobUri;
+            TargetDiskName = targetDiskName;
             TargetManagedDiskId = targetManagedDiskId;
         }
     }

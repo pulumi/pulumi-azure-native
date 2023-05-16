@@ -146,7 +146,8 @@ class HubRouteTable(pulumi.CustomResource):
                  __props__=None):
         """
         RouteTable resource in a virtual hub.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +167,8 @@ class HubRouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         RouteTable resource in a virtual hub.
-        API Version: 2020-11-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param HubRouteTableArgs args: The arguments to use to populate this resource's properties.
@@ -215,7 +217,7 @@ class HubRouteTable(pulumi.CustomResource):
             __props__.__dict__["propagating_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20200501:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20200601:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20200701:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20200801:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20201101:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20210201:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20210301:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20210501:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20210801:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20220101:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20220501:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20220701:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20220901:HubRouteTable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20200501:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20200601:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20200701:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20200801:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20201101:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20210201:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20210301:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20210501:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20210801:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20220101:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20220501:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20220701:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20220901:HubRouteTable"), pulumi.Alias(type_="azure-native:network/v20221101:HubRouteTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HubRouteTable, __self__).__init__(
             'azure-native:network:HubRouteTable',

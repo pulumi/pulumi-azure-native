@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Represents an instance of a DNC controller.
  * API Version: 2021-03-15.
+ * Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ControllerDetails extends pulumi.CustomResource {
     /**

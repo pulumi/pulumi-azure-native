@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Firewall Policy.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
 
@@ -57,6 +57,10 @@ export interface GetFirewallPolicyResult {
      */
     readonly etag: string;
     /**
+     * Explicit Proxy Settings definition.
+     */
+    readonly explicitProxy?: outputs.network.ExplicitProxyResponse;
+    /**
      * List of references to Azure Firewalls that this Firewall Policy is associated with.
      */
     readonly firewalls: outputs.network.SubResourceResponse[];
@@ -101,6 +105,10 @@ export interface GetFirewallPolicyResult {
      */
     readonly snat?: outputs.network.FirewallPolicySNATResponse;
     /**
+     * SQL Settings definition.
+     */
+    readonly sql?: outputs.network.FirewallPolicySQLResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -123,7 +131,7 @@ export interface GetFirewallPolicyResult {
 }
 /**
  * Gets the specified Firewall Policy.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
     return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))

@@ -34,7 +34,6 @@ __all__ = [
     'GetInsightsErrorResponse',
     'GetInsightsResultsMetadataResponse',
     'GroupingConfigurationResponse',
-    'IncidentAdditionalDataResponse',
     'IncidentConfigurationResponse',
     'IncidentInfoResponse',
     'IncidentLabelResponse',
@@ -1321,95 +1320,6 @@ class GroupingConfigurationResponse(dict):
         A list of entity types to group by (when entitiesMatchingMethod is Custom)
         """
         return pulumi.get(self, "group_by_entities")
-
-
-@pulumi.output_type
-class IncidentAdditionalDataResponse(dict):
-    """
-    Incident additional data property bag.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alertProductNames":
-            suggest = "alert_product_names"
-        elif key == "alertsCount":
-            suggest = "alerts_count"
-        elif key == "bookmarksCount":
-            suggest = "bookmarks_count"
-        elif key == "commentsCount":
-            suggest = "comments_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IncidentAdditionalDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IncidentAdditionalDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IncidentAdditionalDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 alert_product_names: Sequence[str],
-                 alerts_count: int,
-                 bookmarks_count: int,
-                 comments_count: int,
-                 tactics: Sequence[str]):
-        """
-        Incident additional data property bag.
-        :param Sequence[str] alert_product_names: List of product names of alerts in the incident
-        :param int alerts_count: The number of alerts in the incident
-        :param int bookmarks_count: The number of bookmarks in the incident
-        :param int comments_count: The number of comments in the incident
-        :param Sequence[str] tactics: The tactics associated with incident
-        """
-        pulumi.set(__self__, "alert_product_names", alert_product_names)
-        pulumi.set(__self__, "alerts_count", alerts_count)
-        pulumi.set(__self__, "bookmarks_count", bookmarks_count)
-        pulumi.set(__self__, "comments_count", comments_count)
-        pulumi.set(__self__, "tactics", tactics)
-
-    @property
-    @pulumi.getter(name="alertProductNames")
-    def alert_product_names(self) -> Sequence[str]:
-        """
-        List of product names of alerts in the incident
-        """
-        return pulumi.get(self, "alert_product_names")
-
-    @property
-    @pulumi.getter(name="alertsCount")
-    def alerts_count(self) -> int:
-        """
-        The number of alerts in the incident
-        """
-        return pulumi.get(self, "alerts_count")
-
-    @property
-    @pulumi.getter(name="bookmarksCount")
-    def bookmarks_count(self) -> int:
-        """
-        The number of bookmarks in the incident
-        """
-        return pulumi.get(self, "bookmarks_count")
-
-    @property
-    @pulumi.getter(name="commentsCount")
-    def comments_count(self) -> int:
-        """
-        The number of comments in the incident
-        """
-        return pulumi.get(self, "comments_count")
-
-    @property
-    @pulumi.getter
-    def tactics(self) -> Sequence[str]:
-        """
-        The tactics associated with incident
-        """
-        return pulumi.get(self, "tactics")
 
 
 @pulumi.output_type

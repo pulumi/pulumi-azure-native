@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Read only system data
+    /// Metadata pertaining to creation and last modification of the resource.
     /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC)
+        /// The timestamp of resource creation (UTC).
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// An identifier for the identity that created the resource
+        /// The identity that created the resource.
         /// </summary>
         public readonly string? CreatedBy;
         /// <summary>
-        /// The type of identity that created the resource
+        /// The type of identity that created the resource.
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
@@ -33,11 +33,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>
-        /// An identifier for the identity that last modified the resource
+        /// The identity that last modified the resource.
         /// </summary>
         public readonly string? LastModifiedBy;
         /// <summary>
-        /// The type of identity that last modified the resource
+        /// The type of identity that last modified the resource.
         /// </summary>
         public readonly string? LastModifiedByType;
 

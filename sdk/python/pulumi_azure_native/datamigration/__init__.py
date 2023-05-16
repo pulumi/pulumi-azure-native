@@ -6,19 +6,15 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .database_migrations_sql_db import *
 from .file import *
-from .get_database_migrations_sql_db import *
 from .get_file import *
 from .get_project import *
 from .get_service import *
-from .get_sql_migration_service import *
+from .get_service_task import *
 from .get_task import *
-from .list_sql_migration_service_auth_keys import *
-from .list_sql_migration_service_monitoring_data import *
 from .project import *
 from .service import *
-from .sql_migration_service import *
+from .service_task import *
 from .task import *
 from ._inputs import *
 from . import outputs
@@ -27,8 +23,6 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.datamigration.v20171115preview as __v20171115preview
     v20171115preview = __v20171115preview
-    import pulumi_azure_native.datamigration.v20180315preview as __v20180315preview
-    v20180315preview = __v20180315preview
     import pulumi_azure_native.datamigration.v20180331preview as __v20180331preview
     v20180331preview = __v20180331preview
     import pulumi_azure_native.datamigration.v20180419 as __v20180419
@@ -45,7 +39,6 @@ if typing.TYPE_CHECKING:
     v20220330preview = __v20220330preview
 else:
     v20171115preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20171115preview')
-    v20180315preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180315preview')
     v20180331preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180331preview')
     v20180419 = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180419')
     v20180715preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180715preview')

@@ -11,66 +11,327 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ConfigurationIdentityArgs',
-    'DependsOnDefinitionArgs',
+    'AzureBlobDefinitionArgs',
+    'BucketDefinitionArgs',
+    'ExtensionAksAssignedIdentityArgs',
     'ExtensionStatusArgs',
     'GitRepositoryDefinitionArgs',
     'HelmOperatorPropertiesArgs',
-    'KubernetesConfigurationPrivateLinkScopePropertiesArgs',
+    'IdentityArgs',
     'KustomizationDefinitionArgs',
-    'PrivateLinkServiceConnectionStateArgs',
+    'ManagedIdentityDefinitionArgs',
+    'PlanArgs',
     'RepositoryRefDefinitionArgs',
     'ScopeClusterArgs',
     'ScopeNamespaceArgs',
     'ScopeArgs',
+    'ServicePrincipalDefinitionArgs',
 ]
 
 @pulumi.input_type
-class ConfigurationIdentityArgs:
+class AzureBlobDefinitionArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 account_key: Optional[pulumi.Input[str]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 local_auth_ref: Optional[pulumi.Input[str]] = None,
+                 managed_identity: Optional[pulumi.Input['ManagedIdentityDefinitionArgs']] = None,
+                 sas_token: Optional[pulumi.Input[str]] = None,
+                 service_principal: Optional[pulumi.Input['ServicePrincipalDefinitionArgs']] = None,
+                 sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
         """
-        Identity for the managed cluster.
-        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+        Parameters to reconcile to the AzureBlob source kind type.
+        :param pulumi.Input[str] account_key: The account key (shared key) to access the storage account
+        :param pulumi.Input[str] container_name: The Azure Blob container name to sync from the url endpoint for the flux configuration.
+        :param pulumi.Input[str] local_auth_ref: Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        :param pulumi.Input['ManagedIdentityDefinitionArgs'] managed_identity: Parameters to authenticate using a Managed Identity.
+        :param pulumi.Input[str] sas_token: The Shared Access token to access the storage container
+        :param pulumi.Input['ServicePrincipalDefinitionArgs'] service_principal: Parameters to authenticate using Service Principal.
+        :param pulumi.Input[float] sync_interval_in_seconds: The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+        :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+        :param pulumi.Input[str] url: The URL to sync for the flux configuration Azure Blob storage account.
+        """
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if local_auth_ref is not None:
+            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
+        if sync_interval_in_seconds is None:
+            sync_interval_in_seconds = 600
+        if sync_interval_in_seconds is not None:
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+        if timeout_in_seconds is None:
+            timeout_in_seconds = 600
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account key (shared key) to access the storage account
+        """
+        return pulumi.get(self, "account_key")
+
+    @account_key.setter
+    def account_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_key", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Blob container name to sync from the url endpoint for the flux configuration.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="localAuthRef")
+    def local_auth_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        return pulumi.get(self, "local_auth_ref")
+
+    @local_auth_ref.setter
+    def local_auth_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_auth_ref", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input['ManagedIdentityDefinitionArgs']]:
+        """
+        Parameters to authenticate using a Managed Identity.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input['ManagedIdentityDefinitionArgs']]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Shared Access token to access the storage container
+        """
+        return pulumi.get(self, "sas_token")
+
+    @sas_token.setter
+    def sas_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sas_token", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional[pulumi.Input['ServicePrincipalDefinitionArgs']]:
+        """
+        Parameters to authenticate using Service Principal.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @service_principal.setter
+    def service_principal(self, value: Optional[pulumi.Input['ServicePrincipalDefinitionArgs']]):
+        pulumi.set(self, "service_principal", value)
+
+    @property
+    @pulumi.getter(name="syncIntervalInSeconds")
+    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The interval at which to re-reconcile the cluster Azure Blob source with the remote.
+        """
+        return pulumi.get(self, "sync_interval_in_seconds")
+
+    @sync_interval_in_seconds.setter
+    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sync_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to sync for the flux configuration Azure Blob storage account.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class BucketDefinitionArgs:
+    def __init__(__self__, *,
+                 access_key: Optional[pulumi.Input[str]] = None,
+                 bucket_name: Optional[pulumi.Input[str]] = None,
+                 insecure: Optional[pulumi.Input[bool]] = None,
+                 local_auth_ref: Optional[pulumi.Input[str]] = None,
+                 sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        Parameters to reconcile to the Bucket source kind type.
+        :param pulumi.Input[str] access_key: Plaintext access key used to securely access the S3 bucket
+        :param pulumi.Input[str] bucket_name: The bucket name to sync from the url endpoint for the flux configuration.
+        :param pulumi.Input[bool] insecure: Specify whether to use insecure communication when puling data from the S3 bucket.
+        :param pulumi.Input[str] local_auth_ref: Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        :param pulumi.Input[float] sync_interval_in_seconds: The interval at which to re-reconcile the cluster bucket source with the remote.
+        :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the cluster bucket source with the remote.
+        :param pulumi.Input[str] url: The URL to sync for the flux configuration S3 bucket.
+        """
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if insecure is None:
+            insecure = True
+        if insecure is not None:
+            pulumi.set(__self__, "insecure", insecure)
+        if local_auth_ref is not None:
+            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+        if sync_interval_in_seconds is None:
+            sync_interval_in_seconds = 600
+        if sync_interval_in_seconds is not None:
+            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+        if timeout_in_seconds is None:
+            timeout_in_seconds = 600
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plaintext access key used to securely access the S3 bucket
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bucket name to sync from the url endpoint for the flux configuration.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter
+    def insecure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify whether to use insecure communication when puling data from the S3 bucket.
+        """
+        return pulumi.get(self, "insecure")
+
+    @insecure.setter
+    def insecure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "insecure", value)
+
+    @property
+    @pulumi.getter(name="localAuthRef")
+    def local_auth_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        return pulumi.get(self, "local_auth_ref")
+
+    @local_auth_ref.setter
+    def local_auth_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_auth_ref", value)
+
+    @property
+    @pulumi.getter(name="syncIntervalInSeconds")
+    def sync_interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The interval at which to re-reconcile the cluster bucket source with the remote.
+        """
+        return pulumi.get(self, "sync_interval_in_seconds")
+
+    @sync_interval_in_seconds.setter
+    def sync_interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sync_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum time to attempt to reconcile the cluster bucket source with the remote.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to sync for the flux configuration S3 bucket.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class ExtensionAksAssignedIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['AKSIdentityType']] = None):
+        """
+        Identity of the Extension resource in an AKS cluster
+        :param pulumi.Input['AKSIdentityType'] type: The identity type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> Optional[pulumi.Input['AKSIdentityType']]:
         """
-        The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+        The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: Optional[pulumi.Input['AKSIdentityType']]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class DependsOnDefinitionArgs:
-    def __init__(__self__, *,
-                 kustomization_name: Optional[pulumi.Input[str]] = None):
-        """
-        Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
-        :param pulumi.Input[str] kustomization_name: Name of the kustomization to claim dependency on
-        """
-        if kustomization_name is not None:
-            pulumi.set(__self__, "kustomization_name", kustomization_name)
-
-    @property
-    @pulumi.getter(name="kustomizationName")
-    def kustomization_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the kustomization to claim dependency on
-        """
-        return pulumi.get(self, "kustomization_name")
-
-    @kustomization_name.setter
-    def kustomization_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kustomization_name", value)
 
 
 @pulumi.input_type
@@ -82,11 +343,11 @@ class ExtensionStatusArgs:
                  message: Optional[pulumi.Input[str]] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
-        Status from this instance of the extension.
+        Status from the extension.
         :param pulumi.Input[str] code: Status code provided by the Extension
-        :param pulumi.Input[str] display_status: Short description of status of this instance of the extension.
+        :param pulumi.Input[str] display_status: Short description of status of the extension.
         :param pulumi.Input[Union[str, 'LevelType']] level: Level of the status.
-        :param pulumi.Input[str] message: Detailed message of the status from the Extension instance.
+        :param pulumi.Input[str] message: Detailed message of the status from the Extension.
         :param pulumi.Input[str] time: DateLiteral (per ISO8601) noting the time of installation status.
         """
         if code is not None:
@@ -118,7 +379,7 @@ class ExtensionStatusArgs:
     @pulumi.getter(name="displayStatus")
     def display_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Short description of status of this instance of the extension.
+        Short description of status of the extension.
         """
         return pulumi.get(self, "display_status")
 
@@ -142,7 +403,7 @@ class ExtensionStatusArgs:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        Detailed message of the status from the Extension instance.
+        Detailed message of the status from the Extension.
         """
         return pulumi.get(self, "message")
 
@@ -166,7 +427,7 @@ class ExtensionStatusArgs:
 @pulumi.input_type
 class GitRepositoryDefinitionArgs:
     def __init__(__self__, *,
-                 https_ca_file: Optional[pulumi.Input[str]] = None,
+                 https_ca_cert: Optional[pulumi.Input[str]] = None,
                  https_user: Optional[pulumi.Input[str]] = None,
                  local_auth_ref: Optional[pulumi.Input[str]] = None,
                  repository_ref: Optional[pulumi.Input['RepositoryRefDefinitionArgs']] = None,
@@ -176,8 +437,8 @@ class GitRepositoryDefinitionArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Parameters to reconcile to the GitRepository source kind type.
-        :param pulumi.Input[str] https_ca_file: Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
-        :param pulumi.Input[str] https_user: Base64-encoded HTTPS username used to access private git repositories over HTTPS
+        :param pulumi.Input[str] https_ca_cert: Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
+        :param pulumi.Input[str] https_user: Plaintext HTTPS username used to access private git repositories over HTTPS
         :param pulumi.Input[str] local_auth_ref: Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         :param pulumi.Input['RepositoryRefDefinitionArgs'] repository_ref: The source reference for the GitRepository object.
         :param pulumi.Input[str] ssh_known_hosts: Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH
@@ -185,8 +446,8 @@ class GitRepositoryDefinitionArgs:
         :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the cluster git repository source with the remote.
         :param pulumi.Input[str] url: The URL to sync for the flux configuration git repository.
         """
-        if https_ca_file is not None:
-            pulumi.set(__self__, "https_ca_file", https_ca_file)
+        if https_ca_cert is not None:
+            pulumi.set(__self__, "https_ca_cert", https_ca_cert)
         if https_user is not None:
             pulumi.set(__self__, "https_user", https_user)
         if local_auth_ref is not None:
@@ -207,22 +468,22 @@ class GitRepositoryDefinitionArgs:
             pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter(name="httpsCAFile")
-    def https_ca_file(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="httpsCACert")
+    def https_ca_cert(self) -> Optional[pulumi.Input[str]]:
         """
         Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS
         """
-        return pulumi.get(self, "https_ca_file")
+        return pulumi.get(self, "https_ca_cert")
 
-    @https_ca_file.setter
-    def https_ca_file(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "https_ca_file", value)
+    @https_ca_cert.setter
+    def https_ca_cert(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_ca_cert", value)
 
     @property
     @pulumi.getter(name="httpsUser")
     def https_user(self) -> Optional[pulumi.Input[str]]:
         """
-        Base64-encoded HTTPS username used to access private git repositories over HTTPS
+        Plaintext HTTPS username used to access private git repositories over HTTPS
         """
         return pulumi.get(self, "https_user")
 
@@ -344,65 +605,48 @@ class HelmOperatorPropertiesArgs:
 
 
 @pulumi.input_type
-class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
+class IdentityArgs:
     def __init__(__self__, *,
-                 cluster_resource_id: pulumi.Input[str],
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
-        Properties that define a Azure Arc PrivateLinkScope resource.
-        :param pulumi.Input[str] cluster_resource_id: Managed Cluster ARM ID for the private link scope  (Required)
-        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
-        Managed Cluster ARM ID for the private link scope  (Required)
+        The identity type.
         """
-        return pulumi.get(self, "cluster_resource_id")
+        return pulumi.get(self, "type")
 
-    @cluster_resource_id.setter
-    def cluster_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cluster_resource_id", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]:
-        """
-        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]):
-        pulumi.set(self, "public_network_access", value)
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class KustomizationDefinitionArgs:
     def __init__(__self__, *,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['DependsOnDefinitionArgs']]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force: Optional[pulumi.Input[bool]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  prune: Optional[pulumi.Input[bool]] = None,
                  retry_interval_in_seconds: Optional[pulumi.Input[float]] = None,
                  sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[float]] = None,
-                 validation: Optional[pulumi.Input[Union[str, 'KustomizationValidationType']]] = None):
+                 timeout_in_seconds: Optional[pulumi.Input[float]] = None):
         """
         The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['DependsOnDefinitionArgs']]] depends_on: Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on: Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         :param pulumi.Input[bool] force: Enable/disable re-creating Kubernetes resources on the cluster when patching fails due to an immutable field change.
         :param pulumi.Input[str] path: The path in the source reference to reconcile on the cluster.
         :param pulumi.Input[bool] prune: Enable/disable garbage collections of Kubernetes objects created by this Kustomization.
         :param pulumi.Input[float] retry_interval_in_seconds: The interval at which to re-reconcile the Kustomization on the cluster in the event of failure on reconciliation.
         :param pulumi.Input[float] sync_interval_in_seconds: The interval at which to re-reconcile the Kustomization on the cluster.
         :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the Kustomization on the cluster.
-        :param pulumi.Input[Union[str, 'KustomizationValidationType']] validation: Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
         """
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
@@ -428,19 +672,17 @@ class KustomizationDefinitionArgs:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
-        if validation is not None:
-            pulumi.set(__self__, "validation", validation)
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DependsOnDefinitionArgs']]]]:
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DependsOnDefinitionArgs']]]]):
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "depends_on", value)
 
     @property
@@ -515,73 +757,114 @@ class KustomizationDefinitionArgs:
     def timeout_in_seconds(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
-    @property
-    @pulumi.getter
-    def validation(self) -> Optional[pulumi.Input[Union[str, 'KustomizationValidationType']]]:
-        """
-        Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
-        """
-        return pulumi.get(self, "validation")
 
-    @validation.setter
-    def validation(self, value: Optional[pulumi.Input[Union[str, 'KustomizationValidationType']]]):
-        pulumi.set(self, "validation", value)
+@pulumi.input_type
+class ManagedIdentityDefinitionArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None):
+        """
+        Parameters to authenticate using a Managed Identity.
+        :param pulumi.Input[str] client_id: The client Id for authenticating a Managed Identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client Id for authenticating a Managed Identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
 
 
 @pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
+class PlanArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 name: pulumi.Input[str],
+                 product: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 promotion_code: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
         """
-        A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        Plan for the resource.
+        :param pulumi.Input[str] name: A user defined name of the 3rd Party Artifact that is being procured.
+        :param pulumi.Input[str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param pulumi.Input[str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        :param pulumi.Input[str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        :param pulumi.Input[str] version: The version of the desired product/artifact.
         """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[str]]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "actions_required", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> pulumi.Input[str]:
         """
-        The reason for approval/rejection of the connection.
+        A user defined name of the 3rd Party Artifact that is being procured.
         """
-        return pulumi.get(self, "description")
+        return pulumi.get(self, "name")
 
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def product(self) -> pulumi.Input[str]:
         """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "product")
 
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
-        pulumi.set(self, "status", value)
+    @product.setter
+    def product(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @promotion_code.setter
+    def promotion_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "promotion_code", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the desired product/artifact.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -661,8 +944,8 @@ class ScopeClusterArgs:
     def __init__(__self__, *,
                  release_namespace: Optional[pulumi.Input[str]] = None):
         """
-        Specifies that the scope of the extensionInstance is Cluster
-        :param pulumi.Input[str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+        Specifies that the scope of the extension is Cluster
+        :param pulumi.Input[str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
         if release_namespace is not None:
             pulumi.set(__self__, "release_namespace", release_namespace)
@@ -671,7 +954,7 @@ class ScopeClusterArgs:
     @pulumi.getter(name="releaseNamespace")
     def release_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+        Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
         """
         return pulumi.get(self, "release_namespace")
 
@@ -685,8 +968,8 @@ class ScopeNamespaceArgs:
     def __init__(__self__, *,
                  target_namespace: Optional[pulumi.Input[str]] = None):
         """
-        Specifies that the scope of the extensionInstance is Namespace
-        :param pulumi.Input[str] target_namespace: Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+        Specifies that the scope of the extension is Namespace
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
         if target_namespace is not None:
             pulumi.set(__self__, "target_namespace", target_namespace)
@@ -695,7 +978,7 @@ class ScopeNamespaceArgs:
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+        Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         """
         return pulumi.get(self, "target_namespace")
 
@@ -710,9 +993,9 @@ class ScopeArgs:
                  cluster: Optional[pulumi.Input['ScopeClusterArgs']] = None,
                  namespace: Optional[pulumi.Input['ScopeNamespaceArgs']] = None):
         """
-        Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
-        :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extensionInstance is Cluster
-        :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extensionInstance is Namespace
+        Scope of the extension. It can be either Cluster or Namespace; but not both.
+        :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extension is Cluster
+        :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extension is Namespace
         """
         if cluster is not None:
             pulumi.set(__self__, "cluster", cluster)
@@ -723,7 +1006,7 @@ class ScopeArgs:
     @pulumi.getter
     def cluster(self) -> Optional[pulumi.Input['ScopeClusterArgs']]:
         """
-        Specifies that the scope of the extensionInstance is Cluster
+        Specifies that the scope of the extension is Cluster
         """
         return pulumi.get(self, "cluster")
 
@@ -735,12 +1018,118 @@ class ScopeArgs:
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input['ScopeNamespaceArgs']]:
         """
-        Specifies that the scope of the extensionInstance is Namespace
+        Specifies that the scope of the extension is Namespace
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input['ScopeNamespaceArgs']]):
         pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class ServicePrincipalDefinitionArgs:
+    def __init__(__self__, *,
+                 client_certificate: Optional[pulumi.Input[str]] = None,
+                 client_certificate_password: Optional[pulumi.Input[str]] = None,
+                 client_certificate_send_chain: Optional[pulumi.Input[bool]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Parameters to authenticate using Service Principal.
+        :param pulumi.Input[str] client_certificate: Base64-encoded certificate used to authenticate a Service Principal 
+        :param pulumi.Input[str] client_certificate_password: The password for the certificate used to authenticate a Service Principal 
+        :param pulumi.Input[bool] client_certificate_send_chain: Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+        :param pulumi.Input[str] client_id: The client Id for authenticating a Service Principal.
+        :param pulumi.Input[str] client_secret: The client secret for authenticating a Service Principal
+        :param pulumi.Input[str] tenant_id: The tenant Id for authenticating a Service Principal
+        """
+        if client_certificate is not None:
+            pulumi.set(__self__, "client_certificate", client_certificate)
+        if client_certificate_password is not None:
+            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+        if client_certificate_send_chain is None:
+            client_certificate_send_chain = False
+        if client_certificate_send_chain is not None:
+            pulumi.set(__self__, "client_certificate_send_chain", client_certificate_send_chain)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64-encoded certificate used to authenticate a Service Principal 
+        """
+        return pulumi.get(self, "client_certificate")
+
+    @client_certificate.setter
+    def client_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate", value)
+
+    @property
+    @pulumi.getter(name="clientCertificatePassword")
+    def client_certificate_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the certificate used to authenticate a Service Principal 
+        """
+        return pulumi.get(self, "client_certificate_password")
+
+    @client_certificate_password.setter
+    def client_certificate_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_password", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateSendChain")
+    def client_certificate_send_chain(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the Client Certificate
+        """
+        return pulumi.get(self, "client_certificate_send_chain")
+
+    @client_certificate_send_chain.setter
+    def client_certificate_send_chain(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_certificate_send_chain", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client Id for authenticating a Service Principal.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret for authenticating a Service Principal
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant Id for authenticating a Service Principal
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 

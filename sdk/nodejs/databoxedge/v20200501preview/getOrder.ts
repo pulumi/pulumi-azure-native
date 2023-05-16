@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The order details.
  */
-/** @deprecated Version 2020-05-01-preview will be removed in v2 of the provider. */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
-    pulumi.log.warn("getOrder is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20200501preview:getOrder", {
@@ -80,7 +78,6 @@ export interface GetOrderResult {
 /**
  * The order details.
  */
-/** @deprecated Version 2020-05-01-preview will be removed in v2 of the provider. */
 export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderResult> {
     return pulumi.output(args).apply((a: any) => getOrder(a, opts))
 }

@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * VnetRoute contract used to pass routing information for a vnet.
- *
- * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class ServerFarmRouteForVnet extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerFarmRouteForVnet {
-        pulumi.log.warn("ServerFarmRouteForVnet is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
         return new ServerFarmRouteForVnet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,9 +80,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: ServerFarmRouteForVnetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServerFarmRouteForVnet is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

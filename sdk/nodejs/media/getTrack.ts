@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of a Track in the Asset
- * API Version: 2021-11-01.
+ * API Version: 2022-08-01.
  */
 export function getTrack(args: GetTrackArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackResult> {
 
@@ -68,7 +68,7 @@ export interface GetTrackResult {
 }
 /**
  * Get the details of a Track in the Asset
- * API Version: 2021-11-01.
+ * API Version: 2022-08-01.
  */
 export function getTrackOutput(args: GetTrackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackResult> {
     return pulumi.output(args).apply((a: any) => getTrack(a, opts))

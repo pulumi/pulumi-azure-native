@@ -11,31 +11,14 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// The service resource.
-    /// API Version: 2020-03-01.
+    /// API Version: 2023-02-01-preview.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list that describes the correlation of the service with other services.
-        /// </summary>
-        [Output("correlationScheme")]
-        public Output<ImmutableArray<Outputs.ServiceCorrelationDescriptionResponse>> CorrelationScheme { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the move cost for the service.
-        /// </summary>
-        [Output("defaultMoveCost")]
-        public Output<string?> DefaultMoveCost { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure resource etag.
-        /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -47,58 +30,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes how the service is partitioned.
+        /// The service resource properties.
         /// </summary>
-        [Output("partitionDescription")]
-        public Output<object?> PartitionDescription { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Union<Outputs.StatefulServicePropertiesResponse, Outputs.StatelessServicePropertiesResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        [Output("placementConstraints")]
-        public Output<string?> PlacementConstraints { get; private set; } = null!;
-
-        /// <summary>
-        /// The current deployment or provisioning state, which only appears in the response
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
-        /// </summary>
-        [Output("serviceDnsName")]
-        public Output<string?> ServiceDnsName { get; private set; } = null!;
-
-        /// <summary>
-        /// The kind of service (Stateless or Stateful).
-        /// </summary>
-        [Output("serviceKind")]
-        public Output<string> ServiceKind { get; private set; } = null!;
-
-        /// <summary>
-        /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-        /// </summary>
-        [Output("serviceLoadMetrics")]
-        public Output<ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponse>> ServiceLoadMetrics { get; private set; } = null!;
-
-        /// <summary>
-        /// The activation Mode of the service package
-        /// </summary>
-        [Output("servicePackageActivationMode")]
-        public Output<string?> ServicePackageActivationMode { get; private set; } = null!;
-
-        /// <summary>
-        /// A list that describes the correlation of the service with other services.
-        /// </summary>
-        [Output("servicePlacementPolicies")]
-        public Output<ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponse>> ServicePlacementPolicies { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the service type
-        /// </summary>
-        [Output("serviceTypeName")]
-        public Output<string?> ServiceTypeName { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.
@@ -137,14 +78,17 @@ namespace Pulumi.AzureNative.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -180,41 +124,17 @@ namespace Pulumi.AzureNative.ServiceFabric
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        [Input("correlationScheme")]
-        private InputList<Inputs.ServiceCorrelationDescriptionArgs>? _correlationScheme;
-
         /// <summary>
-        /// A list that describes the correlation of the service with other services.
-        /// </summary>
-        public InputList<Inputs.ServiceCorrelationDescriptionArgs> CorrelationScheme
-        {
-            get => _correlationScheme ?? (_correlationScheme = new InputList<Inputs.ServiceCorrelationDescriptionArgs>());
-            set => _correlationScheme = value;
-        }
-
-        /// <summary>
-        /// Specifies the move cost for the service.
-        /// </summary>
-        [Input("defaultMoveCost")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.MoveCost>? DefaultMoveCost { get; set; }
-
-        /// <summary>
-        /// It will be deprecated in New API, resource location depends on the parent resource.
+        /// Resource location depends on the parent resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Describes how the service is partitioned.
+        /// The service resource properties.
         /// </summary>
-        [Input("partitionDescription")]
-        public object? PartitionDescription { get; set; }
-
-        /// <summary>
-        /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-        /// </summary>
-        [Input("placementConstraints")]
-        public Input<string>? PlacementConstraints { get; set; }
+        [Input("properties")]
+        public InputUnion<Inputs.StatefulServicePropertiesArgs, Inputs.StatelessServicePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -223,58 +143,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
-        /// </summary>
-        [Input("serviceDnsName")]
-        public Input<string>? ServiceDnsName { get; set; }
-
-        /// <summary>
-        /// The kind of service (Stateless or Stateful).
-        /// </summary>
-        [Input("serviceKind", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.ServiceKind> ServiceKind { get; set; } = null!;
-
-        [Input("serviceLoadMetrics")]
-        private InputList<Inputs.ServiceLoadMetricDescriptionArgs>? _serviceLoadMetrics;
-
-        /// <summary>
-        /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-        /// </summary>
-        public InputList<Inputs.ServiceLoadMetricDescriptionArgs> ServiceLoadMetrics
-        {
-            get => _serviceLoadMetrics ?? (_serviceLoadMetrics = new InputList<Inputs.ServiceLoadMetricDescriptionArgs>());
-            set => _serviceLoadMetrics = value;
-        }
-
-        /// <summary>
         /// The name of the service resource in the format of {applicationName}~{serviceName}.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
-
-        /// <summary>
-        /// The activation Mode of the service package
-        /// </summary>
-        [Input("servicePackageActivationMode")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.ArmServicePackageActivationMode>? ServicePackageActivationMode { get; set; }
-
-        [Input("servicePlacementPolicies")]
-        private InputList<Inputs.ServicePlacementPolicyDescriptionArgs>? _servicePlacementPolicies;
-
-        /// <summary>
-        /// A list that describes the correlation of the service with other services.
-        /// </summary>
-        public InputList<Inputs.ServicePlacementPolicyDescriptionArgs> ServicePlacementPolicies
-        {
-            get => _servicePlacementPolicies ?? (_servicePlacementPolicies = new InputList<Inputs.ServicePlacementPolicyDescriptionArgs>());
-            set => _servicePlacementPolicies = value;
-        }
-
-        /// <summary>
-        /// The name of the service type
-        /// </summary>
-        [Input("serviceTypeName")]
-        public Input<string>? ServiceTypeName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

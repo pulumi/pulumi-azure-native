@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ResourceConnector
     {
         /// <summary>
         /// Gets the details of an Appliance with a specified resource group and name.
-        /// API Version: 2021-10-31-preview.
+        /// API Version: 2022-10-27.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of an Appliance with a specified resource group and name.
-        /// API Version: 2021-10-31-preview.
+        /// API Version: 2022-10-27.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Certificates pair used to download MSI certificate from HIS
+        /// Certificates pair used to download MSI certificate from HIS. Can only be set once.
         /// </summary>
         public readonly string? PublicKey;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Version of the Appliance
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetApplianceResult(
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.ResourceConnector
 
             string type,
 
-            string version)
+            string? version)
         {
             Distro = distro;
             Id = id;

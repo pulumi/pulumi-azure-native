@@ -10,50 +10,51 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Relay
 {
     /// <summary>
-    /// Private endpoint connection resource.
-    /// API Version: 2018-01-01-preview.
+    /// Properties of the PrivateEndpointConnection.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the private endpoint object.
+        /// The Private Endpoint resource for this Connection.
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Approval state of the private link connection.
+        /// Details about the state of the connection.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.ConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the private endpoint connection.
+        /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
+        /// The system meta data relating to this resource.
         /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -109,52 +110,40 @@ namespace Pulumi.AzureNative.Relay
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the private endpoint object.
+        /// The Private Endpoint resource for this Connection.
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
 
         /// <summary>
-        /// The PrivateEndpointConnection name.
+        /// The PrivateEndpointConnection name
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// Approval state of the private link connection.
+        /// Details about the state of the connection.
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
-        public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
+        public Input<Inputs.ConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the Private Endpoint Connection.
+        /// </summary>
+        [Input("provisioningState")]
+        public InputUnion<string, Pulumi.AzureNative.Relay.EndPointProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public PrivateEndpointConnectionArgs()
         {

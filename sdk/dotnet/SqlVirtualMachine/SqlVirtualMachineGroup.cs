@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL virtual machine group.
-    /// API Version: 2017-03-01-preview.
+    /// API Version: 2022-02-01.
+    /// Previous API Version: 2017-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachineGroup")]
     public partial class SqlVirtualMachineGroup : global::Pulumi.CustomResource
@@ -65,6 +66,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public Output<string?> SqlImageSku { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -113,6 +120,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

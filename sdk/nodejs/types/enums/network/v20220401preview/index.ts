@@ -12,16 +12,6 @@ export const AddressPrefixType = {
  */
 export type AddressPrefixType = (typeof AddressPrefixType)[keyof typeof AddressPrefixType];
 
-export const AdminRuleKind = {
-    Custom: "Custom",
-    Default: "Default",
-} as const;
-
-/**
- * Whether the rule is custom or default.
- */
-export type AdminRuleKind = (typeof AdminRuleKind)[keyof typeof AdminRuleKind];
-
 export const AllowedEndpointRecordType = {
     DomainName: "DomainName",
     IPv4Address: "IPv4Address",
@@ -55,16 +45,6 @@ export const ConfigurationType = {
  */
 export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
-export const ConnectivityTopology = {
-    HubAndSpoke: "HubAndSpoke",
-    Mesh: "Mesh",
-} as const;
-
-/**
- * Connectivity topology type.
- */
-export type ConnectivityTopology = (typeof ConnectivityTopology)[keyof typeof ConnectivityTopology];
-
 export const DeleteExistingNSGs = {
     False: "False",
     True: "True",
@@ -74,16 +54,6 @@ export const DeleteExistingNSGs = {
  * Flag if need to delete existing network security groups.
  */
 export type DeleteExistingNSGs = (typeof DeleteExistingNSGs)[keyof typeof DeleteExistingNSGs];
-
-export const DeleteExistingPeering = {
-    False: "False",
-    True: "True",
-} as const;
-
-/**
- * Flag if need to remove current existing peerings.
- */
-export type DeleteExistingPeering = (typeof DeleteExistingPeering)[keyof typeof DeleteExistingPeering];
 
 export const EndpointMonitorStatus = {
     CheckingEndpoint: "CheckingEndpoint",
@@ -109,26 +79,6 @@ export const EndpointStatus = {
  */
 export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
 
-export const GroupConnectivity = {
-    None: "None",
-    DirectlyConnected: "DirectlyConnected",
-} as const;
-
-/**
- * Group connectivity type.
- */
-export type GroupConnectivity = (typeof GroupConnectivity)[keyof typeof GroupConnectivity];
-
-export const IsGlobal = {
-    False: "False",
-    True: "True",
-} as const;
-
-/**
- * Flag if global mesh is supported.
- */
-export type IsGlobal = (typeof IsGlobal)[keyof typeof IsGlobal];
-
 export const MonitorProtocol = {
     HTTP: "HTTP",
     HTTPS: "HTTPS",
@@ -139,16 +89,6 @@ export const MonitorProtocol = {
  * The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
  */
 export type MonitorProtocol = (typeof MonitorProtocol)[keyof typeof MonitorProtocol];
-
-export const NetworkIntentPolicyBasedService = {
-    None: "None",
-    All: "All",
-} as const;
-
-/**
- * Network intent policy based services.
- */
-export type NetworkIntentPolicyBasedService = (typeof NetworkIntentPolicyBasedService)[keyof typeof NetworkIntentPolicyBasedService];
 
 export const ProfileMonitorStatus = {
     CheckingEndpoints: "CheckingEndpoints",
@@ -172,17 +112,6 @@ export const ProfileStatus = {
  * The status of the Traffic Manager profile.
  */
 export type ProfileStatus = (typeof ProfileStatus)[keyof typeof ProfileStatus];
-
-export const SecurityConfigurationRuleAccess = {
-    Allow: "Allow",
-    Deny: "Deny",
-    AlwaysAllow: "AlwaysAllow",
-} as const;
-
-/**
- * Indicates the access allowed for this particular rule
- */
-export type SecurityConfigurationRuleAccess = (typeof SecurityConfigurationRuleAccess)[keyof typeof SecurityConfigurationRuleAccess];
 
 export const SecurityConfigurationRuleDirection = {
     Inbound: "Inbound",
@@ -231,16 +160,6 @@ export const TrafficViewEnrollmentStatus = {
  * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
  */
 export type TrafficViewEnrollmentStatus = (typeof TrafficViewEnrollmentStatus)[keyof typeof TrafficViewEnrollmentStatus];
-
-export const UseHubGateway = {
-    False: "False",
-    True: "True",
-} as const;
-
-/**
- * Flag if need to use hub gateway.
- */
-export type UseHubGateway = (typeof UseHubGateway)[keyof typeof UseHubGateway];
 
 export const UserRuleKind = {
     Custom: "Custom",

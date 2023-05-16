@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Deployment resource payload
- * API Version: 2020-07-01.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -51,6 +52,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.appplatform.SkuResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -80,17 +85,19 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.deploymentResourcePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Deployment" }, { type: "azure-native:appplatform/v20201101preview:Deployment" }, { type: "azure-native:appplatform/v20210601preview:Deployment" }, { type: "azure-native:appplatform/v20210901preview:Deployment" }, { type: "azure-native:appplatform/v20220101preview:Deployment" }, { type: "azure-native:appplatform/v20220301preview:Deployment" }, { type: "azure-native:appplatform/v20220401:Deployment" }, { type: "azure-native:appplatform/v20220501preview:Deployment" }, { type: "azure-native:appplatform/v20220901preview:Deployment" }, { type: "azure-native:appplatform/v20221101preview:Deployment" }, { type: "azure-native:appplatform/v20221201:Deployment" }, { type: "azure-native:appplatform/v20230101preview:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Deployment" }, { type: "azure-native:appplatform/v20201101preview:Deployment" }, { type: "azure-native:appplatform/v20210601preview:Deployment" }, { type: "azure-native:appplatform/v20210901preview:Deployment" }, { type: "azure-native:appplatform/v20220101preview:Deployment" }, { type: "azure-native:appplatform/v20220301preview:Deployment" }, { type: "azure-native:appplatform/v20220401:Deployment" }, { type: "azure-native:appplatform/v20220501preview:Deployment" }, { type: "azure-native:appplatform/v20220901preview:Deployment" }, { type: "azure-native:appplatform/v20221101preview:Deployment" }, { type: "azure-native:appplatform/v20221201:Deployment" }, { type: "azure-native:appplatform/v20230101preview:Deployment" }, { type: "azure-native:appplatform/v20230301preview:Deployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }

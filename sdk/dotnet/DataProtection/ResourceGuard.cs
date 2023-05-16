@@ -10,7 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
-    /// API Version: 2021-10-01-preview.
+    /// API Version: 2023-01-01.
+    /// Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:ResourceGuard")]
     public partial class ResourceGuard : global::Pulumi.CustomResource
@@ -20,12 +21,6 @@ namespace Pulumi.AzureNative.DataProtection
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
-
-        /// <summary>
-        /// Input Managed Identity Details
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.DppIdentityDetailsResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -132,19 +127,19 @@ namespace Pulumi.AzureNative.DataProtection
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// Input Managed Identity Details
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.DppIdentityDetailsArgs>? Identity { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// ResourceGuardResource properties
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.ResourceGuardArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

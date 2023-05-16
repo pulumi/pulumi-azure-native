@@ -63,10 +63,11 @@ def list_network_manager_deployment_status(deployment_types: Optional[Sequence[U
                                            regions: Optional[Sequence[str]] = None,
                                            resource_group_name: Optional[str] = None,
                                            skip_token: Optional[str] = None,
+                                           top: Optional[int] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNetworkManagerDeploymentStatusResult:
     """
     Post to List of Network Manager Deployment Status.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
     :param Sequence[Union[str, 'ConfigurationType']] deployment_types: List of deployment types.
@@ -74,6 +75,7 @@ def list_network_manager_deployment_status(deployment_types: Optional[Sequence[U
     :param Sequence[str] regions: List of locations.
     :param str resource_group_name: The name of the resource group.
     :param str skip_token: Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+    :param int top: An optional query parameter which specifies the maximum number of records to be returned by the server.
     """
     __args__ = dict()
     __args__['deploymentTypes'] = deployment_types
@@ -81,6 +83,7 @@ def list_network_manager_deployment_status(deployment_types: Optional[Sequence[U
     __args__['regions'] = regions
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
+    __args__['top'] = top
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:network:listNetworkManagerDeploymentStatus', __args__, opts=opts, typ=ListNetworkManagerDeploymentStatusResult).value
 
@@ -95,10 +98,11 @@ def list_network_manager_deployment_status_output(deployment_types: Optional[pul
                                                   regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   skip_token: Optional[pulumi.Input[Optional[str]]] = None,
+                                                  top: Optional[pulumi.Input[Optional[int]]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerDeploymentStatusResult]:
     """
     Post to List of Network Manager Deployment Status.
-    API Version: 2021-02-01-preview.
+    API Version: 2022-09-01.
 
 
     :param Sequence[Union[str, 'ConfigurationType']] deployment_types: List of deployment types.
@@ -106,5 +110,6 @@ def list_network_manager_deployment_status_output(deployment_types: Optional[pul
     :param Sequence[str] regions: List of locations.
     :param str resource_group_name: The name of the resource group.
     :param str skip_token: Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
+    :param int top: An optional query parameter which specifies the maximum number of records to be returned by the server.
     """
     ...

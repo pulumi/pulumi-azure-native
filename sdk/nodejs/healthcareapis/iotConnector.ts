@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Connector definition.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class IotConnector extends pulumi.CustomResource {
     /**
@@ -122,7 +123,7 @@ export class IotConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:IotConnector" }, { type: "azure-native:healthcareapis/v20211101:IotConnector" }, { type: "azure-native:healthcareapis/v20220131preview:IotConnector" }, { type: "azure-native:healthcareapis/v20220515:IotConnector" }, { type: "azure-native:healthcareapis/v20220601:IotConnector" }, { type: "azure-native:healthcareapis/v20221001preview:IotConnector" }, { type: "azure-native:healthcareapis/v20221201:IotConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:IotConnector" }, { type: "azure-native:healthcareapis/v20211101:IotConnector" }, { type: "azure-native:healthcareapis/v20220131preview:IotConnector" }, { type: "azure-native:healthcareapis/v20220515:IotConnector" }, { type: "azure-native:healthcareapis/v20220601:IotConnector" }, { type: "azure-native:healthcareapis/v20221001preview:IotConnector" }, { type: "azure-native:healthcareapis/v20221201:IotConnector" }, { type: "azure-native:healthcareapis/v20230228:IotConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotConnector.__pulumiType, name, resourceInputs, opts);
     }

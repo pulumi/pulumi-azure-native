@@ -2,31 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20180101 from "./v20180101";
 import * as v20190901 from "./v20190901";
-import * as v20200401 from "./v20200401";
 import * as v20201101 from "./v20201101";
-import * as v20210301 from "./v20210301";
-import * as v20210501 from "./v20210501";
-import * as v20210801preview from "./v20210801preview";
-import * as v20211201 from "./v20211201";
-import * as v20220201 from "./v20220201";
-import * as v20220901 from "./v20220901";
-import * as v20221001 from "./v20221001";
 import * as v20221201 from "./v20221201";
 
 export {
-    v20180101,
     v20190901,
-    v20200401,
     v20201101,
-    v20210301,
-    v20210501,
-    v20210801preview,
-    v20211201,
-    v20220201,
-    v20220901,
-    v20221001,
     v20221201,
 };
 
@@ -63,6 +45,10 @@ export const ClassDiscriminator = {
      * Data Box Heavy orders.
      */
     DataBoxHeavy: "DataBoxHeavy",
+    /**
+     * Data Box Customer Disk orders.
+     */
+    DataBoxCustomerDisk: "DataBoxCustomerDisk",
 } as const;
 
 /**
@@ -117,6 +103,22 @@ export const FilterFileType = {
  * Type of the filter file.
  */
 export type FilterFileType = (typeof FilterFileType)[keyof typeof FilterFileType];
+
+export const HardwareEncryption = {
+    /**
+     * Hardware-based encryption is enabled.
+     */
+    Enabled: "Enabled",
+    /**
+     * Hardware-based encryption is enabled.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Defines Hardware level encryption (Only for disk)
+ */
+export type HardwareEncryption = (typeof HardwareEncryption)[keyof typeof HardwareEncryption];
 
 export const JobDeliveryType = {
     /**
@@ -191,6 +193,14 @@ export const NotificationStageName = {
      * Notification at data copy started stage.
      */
     DataCopy: "DataCopy",
+    /**
+     * Notification at job created stage.
+     */
+    Created: "Created",
+    /**
+     * Notification at shipped devices to customer stage.
+     */
+    ShippedToCustomer: "ShippedToCustomer",
 } as const;
 
 /**
@@ -211,12 +221,25 @@ export const SkuName = {
      * Data Box Heavy.
      */
     DataBoxHeavy: "DataBoxHeavy",
+    /**
+     * Data Box Customer Disk.
+     */
+    DataBoxCustomerDisk: "DataBoxCustomerDisk",
 } as const;
 
 /**
  * The sku name.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const StorageAccountAccessTier = {
+    /**
+     * Archive Access Tier shares requested by the customer.
+     */
+    Archive: "Archive",
+} as const;
+
+export type StorageAccountAccessTier = (typeof StorageAccountAccessTier)[keyof typeof StorageAccountAccessTier];
 
 export const TransferConfigurationType = {
     /**

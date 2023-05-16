@@ -17,8 +17,6 @@ __all__ = [
     'get_proximity_placement_group_output',
 ]
 
-warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetProximityPlacementGroupResult:
     """
@@ -153,7 +151,6 @@ def get_proximity_placement_group(proximity_placement_group_name: Optional[str] 
     :param str proximity_placement_group_name: The name of the proximity placement group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_proximity_placement_group is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['proximityPlacementGroupName'] = proximity_placement_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -183,5 +180,4 @@ def get_proximity_placement_group_output(proximity_placement_group_name: Optiona
     :param str proximity_placement_group_name: The name of the proximity placement group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_proximity_placement_group is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
     ...

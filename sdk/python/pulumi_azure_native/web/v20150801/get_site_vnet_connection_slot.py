@@ -17,8 +17,6 @@ __all__ = [
     'get_site_vnet_connection_slot_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSiteVNETConnectionSlotResult:
     """
@@ -194,7 +192,6 @@ def get_site_vnet_connection_slot(name: Optional[str] = None,
     :param str slot: The name of the slot for this web app.
     :param str vnet_name: The name of the Virtual Network
     """
-    pulumi.log.warn("""get_site_vnet_connection_slot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -233,5 +230,4 @@ def get_site_vnet_connection_slot_output(name: Optional[pulumi.Input[str]] = Non
     :param str slot: The name of the slot for this web app.
     :param str vnet_name: The name of the Virtual Network
     """
-    pulumi.log.warn("""get_site_vnet_connection_slot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

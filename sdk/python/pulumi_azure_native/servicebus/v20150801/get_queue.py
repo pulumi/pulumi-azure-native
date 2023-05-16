@@ -17,8 +17,6 @@ __all__ = [
     'get_queue_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetQueueResult:
     """
@@ -359,7 +357,6 @@ def get_queue(namespace_name: Optional[str] = None,
     :param str queue_name: The queue name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_queue is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['queueName'] = queue_name
@@ -409,5 +406,4 @@ def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str queue_name: The queue name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_queue is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

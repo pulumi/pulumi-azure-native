@@ -4,14 +4,14 @@
 // Export sub-modules:
 import * as v20220101preview from "./v20220101preview";
 import * as v20220301 from "./v20220301";
-import * as v20220601preview from "./v20220601preview";
 import * as v20221001 from "./v20221001";
+import * as v20221101preview from "./v20221101preview";
 
 export {
     v20220101preview,
     v20220301,
-    v20220601preview,
     v20221001,
+    v20221101preview,
 };
 
 export const AccessMode = {
@@ -23,6 +23,16 @@ export const AccessMode = {
  * Access mode for storage
  */
 export type AccessMode = (typeof AccessMode)[keyof typeof AccessMode];
+
+export const Action = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * Allow or Deny rules to determine for incoming IP. Note: Rules can only consist of ALL Allow or ALL Deny
+ */
+export type Action = (typeof Action)[keyof typeof Action];
 
 export const ActiveRevisionsMode = {
     Multiple: "Multiple",
@@ -74,6 +84,15 @@ export const CookieExpirationConvention = {
  */
 export type CookieExpirationConvention = (typeof CookieExpirationConvention)[keyof typeof CookieExpirationConvention];
 
+export const ExtendedLocationTypes = {
+    CustomLocation: "CustomLocation",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
 export const ForwardProxyConvention = {
     NoProxy: "NoProxy",
     Standard: "Standard",
@@ -85,16 +104,50 @@ export const ForwardProxyConvention = {
  */
 export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
 
+export const IngressClientCertificateMode = {
+    Ignore: "ignore",
+    Accept: "accept",
+    Require: "require",
+} as const;
+
+/**
+ * Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
+ */
+export type IngressClientCertificateMode = (typeof IngressClientCertificateMode)[keyof typeof IngressClientCertificateMode];
+
 export const IngressTransportMethod = {
     Auto: "auto",
     Http: "http",
     Http2: "http2",
+    Tcp: "tcp",
 } as const;
 
 /**
  * Ingress transport protocol
  */
 export type IngressTransportMethod = (typeof IngressTransportMethod)[keyof typeof IngressTransportMethod];
+
+export const LogLevel = {
+    Info: "info",
+    Debug: "debug",
+    Warn: "warn",
+    Error: "error",
+} as const;
+
+/**
+ * Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
+export const ManagedEnvironmentOutBoundType = {
+    LoadBalancer: "LoadBalancer",
+    UserDefinedRouting: "UserDefinedRouting",
+} as const;
+
+/**
+ * Outbound type for the cluster
+ */
+export type ManagedEnvironmentOutBoundType = (typeof ManagedEnvironmentOutBoundType)[keyof typeof ManagedEnvironmentOutBoundType];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -117,6 +170,22 @@ export const Scheme = {
  * Scheme to use for connecting to the host. Defaults to HTTP.
  */
 export type Scheme = (typeof Scheme)[keyof typeof Scheme];
+
+export const SkuName = {
+    /**
+     * Consumption SKU of Managed Environment.
+     */
+    Consumption: "Consumption",
+    /**
+     * Premium SKU of Managed Environment.
+     */
+    Premium: "Premium",
+} as const;
+
+/**
+ * Name of the Sku.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const StorageType = {
     AzureFile: "AzureFile",

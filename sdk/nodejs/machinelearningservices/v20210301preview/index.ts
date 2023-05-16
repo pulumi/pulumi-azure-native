@@ -25,11 +25,6 @@ export type CodeVersion = import("./codeVersion").CodeVersion;
 export const CodeVersion: typeof import("./codeVersion").CodeVersion = null as any;
 utilities.lazyLoad(exports, ["CodeVersion"], () => require("./codeVersion"));
 
-export { ComputeArgs } from "./compute";
-export type Compute = import("./compute").Compute;
-export const Compute: typeof import("./compute").Compute = null as any;
-utilities.lazyLoad(exports, ["Compute"], () => require("./compute"));
-
 export { DataContainerArgs } from "./dataContainer";
 export type DataContainer = import("./dataContainer").DataContainer;
 export const DataContainer: typeof import("./dataContainer").DataContainer = null as any;
@@ -74,11 +69,6 @@ export { GetCodeVersionArgs, GetCodeVersionResult, GetCodeVersionOutputArgs } fr
 export const getCodeVersion: typeof import("./getCodeVersion").getCodeVersion = null as any;
 export const getCodeVersionOutput: typeof import("./getCodeVersion").getCodeVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getCodeVersion","getCodeVersionOutput"], () => require("./getCodeVersion"));
-
-export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCompute";
-export const getCompute: typeof import("./getCompute").getCompute = null as any;
-export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
-utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
 
 export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
 export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
@@ -144,21 +134,6 @@ export { GetOnlineEndpointTokenArgs, GetOnlineEndpointTokenResult, GetOnlineEndp
 export const getOnlineEndpointToken: typeof import("./getOnlineEndpointToken").getOnlineEndpointToken = null as any;
 export const getOnlineEndpointTokenOutput: typeof import("./getOnlineEndpointToken").getOnlineEndpointTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEndpointToken","getOnlineEndpointTokenOutput"], () => require("./getOnlineEndpointToken"));
-
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
-export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
-export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
-utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-
-export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
-export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
-export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
 
 export { JobArgs } from "./job";
 export type Job = import("./job").Job;
@@ -235,21 +210,6 @@ export type OnlineEndpoint = import("./onlineEndpoint").OnlineEndpoint;
 export const OnlineEndpoint: typeof import("./onlineEndpoint").OnlineEndpoint = null as any;
 utilities.lazyLoad(exports, ["OnlineEndpoint"], () => require("./onlineEndpoint"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-export { WorkspaceArgs } from "./workspace";
-export type Workspace = import("./workspace").Workspace;
-export const Workspace: typeof import("./workspace").Workspace = null as any;
-utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
-
-export { WorkspaceConnectionArgs } from "./workspaceConnection";
-export type WorkspaceConnection = import("./workspaceConnection").WorkspaceConnection;
-export const WorkspaceConnection: typeof import("./workspaceConnection").WorkspaceConnection = null as any;
-utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceConnection"));
-
 
 // Export enums:
 export * from "../../types/enums/machinelearningservices/v20210301preview";
@@ -266,8 +226,6 @@ const _module = {
                 return new CodeContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:CodeVersion":
                 return new CodeVersion(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20210301preview:Compute":
-                return new Compute(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:DataContainer":
                 return new DataContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:DataVersion":
@@ -290,12 +248,6 @@ const _module = {
                 return new OnlineDeployment(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint":
                 return new OnlineEndpoint(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20210301preview:Workspace":
-                return new Workspace(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection":
-                return new WorkspaceConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

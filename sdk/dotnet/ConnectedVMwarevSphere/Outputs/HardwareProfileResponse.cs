@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the hardware settings for the virtual machine.
     /// </summary>
     [OutputType]
     public sealed class HardwareProfileResponse

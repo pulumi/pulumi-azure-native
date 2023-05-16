@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * PublicIPAddress resource
- *
- * @deprecated Version 2015-05-01-preview will be removed in v2 of the provider.
  */
 export class PublicIpAddress extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class PublicIpAddress extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PublicIpAddress {
-        pulumi.log.warn("PublicIpAddress is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
         return new PublicIpAddress(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +93,7 @@ export class PublicIpAddress extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: PublicIpAddressArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PublicIpAddress is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -140,7 +135,7 @@ export class PublicIpAddress extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:PublicIpAddress" }, { type: "azure-native:network/v20150615:PublicIpAddress" }, { type: "azure-native:network/v20160330:PublicIpAddress" }, { type: "azure-native:network/v20160601:PublicIpAddress" }, { type: "azure-native:network/v20160901:PublicIpAddress" }, { type: "azure-native:network/v20161201:PublicIpAddress" }, { type: "azure-native:network/v20170301:PublicIpAddress" }, { type: "azure-native:network/v20170601:PublicIpAddress" }, { type: "azure-native:network/v20170801:PublicIpAddress" }, { type: "azure-native:network/v20170901:PublicIpAddress" }, { type: "azure-native:network/v20171001:PublicIpAddress" }, { type: "azure-native:network/v20171101:PublicIpAddress" }, { type: "azure-native:network/v20180101:PublicIpAddress" }, { type: "azure-native:network/v20180201:PublicIpAddress" }, { type: "azure-native:network/v20180401:PublicIpAddress" }, { type: "azure-native:network/v20180601:PublicIpAddress" }, { type: "azure-native:network/v20180701:PublicIpAddress" }, { type: "azure-native:network/v20180801:PublicIpAddress" }, { type: "azure-native:network/v20181001:PublicIpAddress" }, { type: "azure-native:network/v20181101:PublicIpAddress" }, { type: "azure-native:network/v20181201:PublicIpAddress" }, { type: "azure-native:network/v20190201:PublicIpAddress" }, { type: "azure-native:network/v20190401:PublicIpAddress" }, { type: "azure-native:network/v20190601:PublicIpAddress" }, { type: "azure-native:network/v20190701:PublicIpAddress" }, { type: "azure-native:network/v20190801:PublicIpAddress" }, { type: "azure-native:network/v20190901:PublicIpAddress" }, { type: "azure-native:network/v20191101:PublicIpAddress" }, { type: "azure-native:network/v20191201:PublicIpAddress" }, { type: "azure-native:network/v20200301:PublicIpAddress" }, { type: "azure-native:network/v20200401:PublicIpAddress" }, { type: "azure-native:network/v20200501:PublicIpAddress" }, { type: "azure-native:network/v20200601:PublicIpAddress" }, { type: "azure-native:network/v20200701:PublicIpAddress" }, { type: "azure-native:network/v20200801:PublicIpAddress" }, { type: "azure-native:network/v20201101:PublicIpAddress" }, { type: "azure-native:network/v20210201:PublicIpAddress" }, { type: "azure-native:network/v20210301:PublicIpAddress" }, { type: "azure-native:network/v20210501:PublicIpAddress" }, { type: "azure-native:network/v20210801:PublicIpAddress" }, { type: "azure-native:network/v20220101:PublicIpAddress" }, { type: "azure-native:network/v20220501:PublicIpAddress" }, { type: "azure-native:network/v20220701:PublicIpAddress" }, { type: "azure-native:network/v20220901:PublicIpAddress" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:PublicIpAddress" }, { type: "azure-native:network/v20150615:PublicIpAddress" }, { type: "azure-native:network/v20160330:PublicIpAddress" }, { type: "azure-native:network/v20160601:PublicIpAddress" }, { type: "azure-native:network/v20160901:PublicIpAddress" }, { type: "azure-native:network/v20161201:PublicIpAddress" }, { type: "azure-native:network/v20170301:PublicIpAddress" }, { type: "azure-native:network/v20170601:PublicIpAddress" }, { type: "azure-native:network/v20170801:PublicIpAddress" }, { type: "azure-native:network/v20170901:PublicIpAddress" }, { type: "azure-native:network/v20171001:PublicIpAddress" }, { type: "azure-native:network/v20171101:PublicIpAddress" }, { type: "azure-native:network/v20180101:PublicIpAddress" }, { type: "azure-native:network/v20180201:PublicIpAddress" }, { type: "azure-native:network/v20180401:PublicIpAddress" }, { type: "azure-native:network/v20180601:PublicIpAddress" }, { type: "azure-native:network/v20180701:PublicIpAddress" }, { type: "azure-native:network/v20180801:PublicIpAddress" }, { type: "azure-native:network/v20181001:PublicIpAddress" }, { type: "azure-native:network/v20181101:PublicIpAddress" }, { type: "azure-native:network/v20181201:PublicIpAddress" }, { type: "azure-native:network/v20190201:PublicIpAddress" }, { type: "azure-native:network/v20190401:PublicIpAddress" }, { type: "azure-native:network/v20190601:PublicIpAddress" }, { type: "azure-native:network/v20190701:PublicIpAddress" }, { type: "azure-native:network/v20190801:PublicIpAddress" }, { type: "azure-native:network/v20190901:PublicIpAddress" }, { type: "azure-native:network/v20191101:PublicIpAddress" }, { type: "azure-native:network/v20191201:PublicIpAddress" }, { type: "azure-native:network/v20200301:PublicIpAddress" }, { type: "azure-native:network/v20200401:PublicIpAddress" }, { type: "azure-native:network/v20200501:PublicIpAddress" }, { type: "azure-native:network/v20200601:PublicIpAddress" }, { type: "azure-native:network/v20200701:PublicIpAddress" }, { type: "azure-native:network/v20200801:PublicIpAddress" }, { type: "azure-native:network/v20201101:PublicIpAddress" }, { type: "azure-native:network/v20210201:PublicIpAddress" }, { type: "azure-native:network/v20210301:PublicIpAddress" }, { type: "azure-native:network/v20210501:PublicIpAddress" }, { type: "azure-native:network/v20210801:PublicIpAddress" }, { type: "azure-native:network/v20220101:PublicIpAddress" }, { type: "azure-native:network/v20220501:PublicIpAddress" }, { type: "azure-native:network/v20220701:PublicIpAddress" }, { type: "azure-native:network/v20220901:PublicIpAddress" }, { type: "azure-native:network/v20221101:PublicIpAddress" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PublicIpAddress.__pulumiType, name, resourceInputs, opts);
     }

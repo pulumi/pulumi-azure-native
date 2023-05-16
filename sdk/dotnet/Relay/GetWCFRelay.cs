@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Relay
     {
         /// <summary>
         /// Returns the description for the specified WCF relay.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetWCFRelayResult> InvokeAsync(GetWCFRelayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWCFRelayResult>("azure-native:relay:getWCFRelay", args ?? new GetWCFRelayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the description for the specified WCF relay.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetWCFRelayResult> Invoke(GetWCFRelayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWCFRelayResult>("azure-native:relay:getWCFRelay", args ?? new GetWCFRelayInvokeArgs(), options.WithDefaults());
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public readonly int ListenerCount;
         /// <summary>
-        /// Resource name.
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -116,7 +120,11 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public readonly bool? RequiresTransportSecurity;
         /// <summary>
-        /// Resource type.
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -138,6 +146,8 @@ namespace Pulumi.AzureNative.Relay
 
             int listenerCount,
 
+            string location,
+
             string name,
 
             string? relayType,
@@ -145,6 +155,8 @@ namespace Pulumi.AzureNative.Relay
             bool? requiresClientAuthorization,
 
             bool? requiresTransportSecurity,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -156,10 +168,12 @@ namespace Pulumi.AzureNative.Relay
             Id = id;
             IsDynamic = isDynamic;
             ListenerCount = listenerCount;
+            Location = location;
             Name = name;
             RelayType = relayType;
             RequiresClientAuthorization = requiresClientAuthorization;
             RequiresTransportSecurity = requiresTransportSecurity;
+            SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
             UserMetadata = userMetadata;

@@ -21,17 +21,21 @@ class OpenIdConnectProviderArgs:
                  service_name: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 opid: Optional[pulumi.Input[str]] = None):
+                 opid: Optional[pulumi.Input[str]] = None,
+                 use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
+                 use_in_test_console: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a OpenIdConnectProvider resource.
         :param pulumi.Input[str] client_id: Client ID of developer console which is the client application.
         :param pulumi.Input[str] display_name: User-friendly OpenID Connect Provider name.
         :param pulumi.Input[str] metadata_endpoint: Metadata endpoint URI.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] client_secret: Client Secret of developer console which is the client application.
         :param pulumi.Input[str] description: User-friendly description of OpenID Connect Provider.
         :param pulumi.Input[str] opid: Identifier of the OpenID Connect Provider.
+        :param pulumi.Input[bool] use_in_api_documentation: If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+        :param pulumi.Input[bool] use_in_test_console: If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -44,6 +48,10 @@ class OpenIdConnectProviderArgs:
             pulumi.set(__self__, "description", description)
         if opid is not None:
             pulumi.set(__self__, "opid", opid)
+        if use_in_api_documentation is not None:
+            pulumi.set(__self__, "use_in_api_documentation", use_in_api_documentation)
+        if use_in_test_console is not None:
+            pulumi.set(__self__, "use_in_test_console", use_in_test_console)
 
     @property
     @pulumi.getter(name="clientId")
@@ -85,7 +93,7 @@ class OpenIdConnectProviderArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -141,6 +149,30 @@ class OpenIdConnectProviderArgs:
     def opid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "opid", value)
 
+    @property
+    @pulumi.getter(name="useInApiDocumentation")
+    def use_in_api_documentation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_api_documentation")
+
+    @use_in_api_documentation.setter
+    def use_in_api_documentation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_in_api_documentation", value)
+
+    @property
+    @pulumi.getter(name="useInTestConsole")
+    def use_in_test_console(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_test_console")
+
+    @use_in_test_console.setter
+    def use_in_test_console(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_in_test_console", value)
+
 
 class OpenIdConnectProvider(pulumi.CustomResource):
     @overload
@@ -155,10 +187,13 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
+                 use_in_test_console: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         OpenId Connect Provider details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,8 +203,10 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: User-friendly OpenID Connect Provider name.
         :param pulumi.Input[str] metadata_endpoint: Metadata endpoint URI.
         :param pulumi.Input[str] opid: Identifier of the OpenID Connect Provider.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[bool] use_in_api_documentation: If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+        :param pulumi.Input[bool] use_in_test_console: If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
         """
         ...
     @overload
@@ -179,7 +216,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         OpenId Connect Provider details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param OpenIdConnectProviderArgs args: The arguments to use to populate this resource's properties.
@@ -204,6 +242,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
+                 use_in_test_console: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,9 +271,11 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["use_in_api_documentation"] = use_in_api_documentation
+            __props__.__dict__["use_in_test_console"] = use_in_test_console
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:OpenIdConnectProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:OpenIdConnectProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenIdConnectProvider, __self__).__init__(
             'azure-native:apimanagement:OpenIdConnectProvider',
@@ -264,6 +306,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         __props__.__dict__["metadata_endpoint"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["use_in_api_documentation"] = None
+        __props__.__dict__["use_in_test_console"] = None
         return OpenIdConnectProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -310,7 +354,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -318,7 +362,23 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useInApiDocumentation")
+    def use_in_api_documentation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_api_documentation")
+
+    @property
+    @pulumi.getter(name="useInTestConsole")
+    def use_in_test_console(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
+        """
+        return pulumi.get(self, "use_in_test_console")
 

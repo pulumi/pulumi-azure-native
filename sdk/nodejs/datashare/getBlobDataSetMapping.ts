@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getBlobDataSetMapping(args: GetBlobDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobDataSetMappingResult> {
 
@@ -105,7 +105,7 @@ export interface GetBlobDataSetMappingResult {
 }
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getBlobDataSetMappingOutput(args: GetBlobDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getBlobDataSetMapping(a, opts))

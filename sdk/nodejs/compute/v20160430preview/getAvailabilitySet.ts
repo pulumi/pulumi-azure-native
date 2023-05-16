@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about an availability set.
  */
-/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
-    pulumi.log.warn("getAvailabilitySet is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20160430preview:getAvailabilitySet", {
@@ -84,7 +82,6 @@ export interface GetAvailabilitySetResult {
 /**
  * Retrieves information about an availability set.
  */
-/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))
 }

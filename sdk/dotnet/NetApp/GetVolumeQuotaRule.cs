@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get details of the specified quota rule
-        /// API Version: 2022-01-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetVolumeQuotaRuleResult> InvokeAsync(GetVolumeQuotaRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeQuotaRuleResult>("azure-native:netapp:getVolumeQuotaRule", args ?? new GetVolumeQuotaRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of the specified quota rule
-        /// API Version: 2022-01-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetVolumeQuotaRuleResult> Invoke(GetVolumeQuotaRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeQuotaRuleResult>("azure-native:netapp:getVolumeQuotaRule", args ?? new GetVolumeQuotaRuleInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.NetApp
         public string PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

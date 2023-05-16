@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
- * API Version: 2018-05-01.
+ * API Version: 2021-02-01.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
 
@@ -23,7 +23,7 @@ export interface ListAccountKeysArgs {
      */
     accountName: string;
     /**
-     * The name of the Azure Resource Group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -33,21 +33,25 @@ export interface ListAccountKeysArgs {
  */
 export interface ListAccountKeysResult {
     /**
-     * The full Azure resource identifier of the Maps Account.
-     */
-    readonly id: string;
-    /**
      * The primary key for accessing the Maps REST APIs.
      */
     readonly primaryKey: string;
     /**
+     * The last updated date and time of the primary key.
+     */
+    readonly primaryKeyLastUpdated: string;
+    /**
      * The secondary key for accessing the Maps REST APIs.
      */
     readonly secondaryKey: string;
+    /**
+     * The last updated date and time of the secondary key.
+     */
+    readonly secondaryKeyLastUpdated: string;
 }
 /**
  * Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
- * API Version: 2018-05-01.
+ * API Version: 2021-02-01.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))
@@ -59,7 +63,7 @@ export interface ListAccountKeysOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the Azure Resource Group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements datastore GET method.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2022-07-15-preview.
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:connectedvmwarevsphere:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements datastore GET method.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2022-07-15-preview.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:connectedvmwarevsphere:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetDatastoreResult
     {
         /// <summary>
+        /// Gets or sets Maximum capacity of this datastore in GBs.
+        /// </summary>
+        public readonly double CapacityGB;
+        /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
         /// </summary>
         public readonly string CustomResourceName;
@@ -79,6 +83,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Gets or sets the extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
+        /// Gets or sets Available space of this datastore in GBs.
+        /// </summary>
+        public readonly double FreeSpaceGB;
         /// <summary>
         /// Gets or sets the Id.
         /// </summary>
@@ -138,9 +146,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetDatastoreResult(
+            double capacityGB,
+
             string customResourceName,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
+
+            double freeSpaceGB,
 
             string id,
 
@@ -170,8 +182,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string? vCenterId)
         {
+            CapacityGB = capacityGB;
             CustomResourceName = customResourceName;
             ExtendedLocation = extendedLocation;
+            FreeSpaceGB = freeSpaceGB;
             Id = id;
             InventoryItemId = inventoryItemId;
             Kind = kind;

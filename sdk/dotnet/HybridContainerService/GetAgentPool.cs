@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridContainerService
     {
         /// <summary>
         /// Gets the agent pool in the Hybrid AKS provisioned cluster
-        /// API Version: 2022-05-01-preview.
+        /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:hybridcontainerservice:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the agent pool in the Hybrid AKS provisioned cluster
-        /// API Version: 2022-05-01-preview.
+        /// API Version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:hybridcontainerservice:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
@@ -36,16 +36,16 @@ namespace Pulumi.AzureNative.HybridContainerService
         public string AgentPoolName { get; set; } = null!;
 
         /// <summary>
-        /// Parameter for the name of the provisioned cluster
-        /// </summary>
-        [Input("provisionedClustersName", required: true)]
-        public string ProvisionedClustersName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parameter for the name of the provisioned cluster
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetAgentPoolArgs()
         {
@@ -62,16 +62,16 @@ namespace Pulumi.AzureNative.HybridContainerService
         public Input<string> AgentPoolName { get; set; } = null!;
 
         /// <summary>
-        /// Parameter for the name of the provisioned cluster
-        /// </summary>
-        [Input("provisionedClustersName", required: true)]
-        public Input<string> ProvisionedClustersName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parameter for the name of the provisioned cluster
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         public GetAgentPoolInvokeArgs()
         {

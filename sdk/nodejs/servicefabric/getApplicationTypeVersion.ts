@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a Service Fabric application type version resource created or in the process of being created in the Service Fabric application type name resource.
- * API Version: 2020-03-01.
+ * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
+ * API Version: 2023-02-01-preview.
  */
 export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeVersionResult> {
 
@@ -47,19 +50,11 @@ export interface GetApplicationTypeVersionResult {
      */
     readonly appPackageUrl: string;
     /**
-     * List of application type parameters that can be overridden when creating or updating the application.
-     */
-    readonly defaultParameterList: {[key: string]: string};
-    /**
-     * Azure resource etag.
-     */
-    readonly etag: string;
-    /**
      * Azure resource identifier.
      */
     readonly id: string;
     /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
+     * Resource location depends on the parent resource.
      */
     readonly location?: string;
     /**
@@ -71,6 +66,10 @@ export interface GetApplicationTypeVersionResult {
      */
     readonly provisioningState: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.servicefabric.SystemDataResponse;
+    /**
      * Azure resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -80,8 +79,8 @@ export interface GetApplicationTypeVersionResult {
     readonly type: string;
 }
 /**
- * Get a Service Fabric application type version resource created or in the process of being created in the Service Fabric application type name resource.
- * API Version: 2020-03-01.
+ * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
+ * API Version: 2023-02-01-preview.
  */
 export function getApplicationTypeVersionOutput(args: GetApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeVersionResult> {
     return pulumi.output(args).apply((a: any) => getApplicationTypeVersion(a, opts))

@@ -28,10 +28,16 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string> Command { get; set; } = null!;
 
         /// <summary>
-        /// [Required] Compute binding for the job.
+        /// ARM resource ID of the component resource.
         /// </summary>
-        [Input("compute", required: true)]
-        public Input<Inputs.ComputeConfigurationArgs> Compute { get; set; } = null!;
+        [Input("componentId")]
+        public Input<string>? ComponentId { get; set; }
+
+        /// <summary>
+        /// ARM resource ID of the compute resource.
+        /// </summary>
+        [Input("computeId")]
+        public Input<string>? ComputeId { get; set; }
 
         /// <summary>
         /// The asset description text.
@@ -40,16 +46,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Display name of job.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
         /// </summary>
         [Input("distribution")]
         public object? Distribution { get; set; }
 
         /// <summary>
-        /// The ARM resource ID of the Environment specification for the job.
+        /// [Required] The ARM resource ID of the Environment specification for the job.
         /// </summary>
-        [Input("environmentId")]
-        public Input<string>? EnvironmentId { get; set; }
+        [Input("environmentId", required: true)]
+        public Input<string> EnvironmentId { get; set; } = null!;
 
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
@@ -70,23 +82,29 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? ExperimentName { get; set; }
 
         /// <summary>
-        /// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, or null.
+        /// Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
         /// Defaults to AmlToken if null.
         /// </summary>
         [Input("identity")]
-        public InputUnion<Inputs.AmlTokenArgs, Inputs.ManagedIdentityArgs>? Identity { get; set; }
+        public object? Identity { get; set; }
 
-        [Input("inputDataBindings")]
-        private InputMap<Inputs.InputDataBindingArgs>? _inputDataBindings;
+        [Input("inputs")]
+        private InputMap<object>? _inputs;
 
         /// <summary>
         /// Mapping of input data bindings used in the job.
         /// </summary>
-        public InputMap<Inputs.InputDataBindingArgs> InputDataBindings
+        public InputMap<object> Inputs
         {
-            get => _inputDataBindings ?? (_inputDataBindings = new InputMap<Inputs.InputDataBindingArgs>());
-            set => _inputDataBindings = value;
+            get => _inputs ?? (_inputs = new InputMap<object>());
+            set => _inputs = value;
         }
+
+        /// <summary>
+        /// Is the asset archived?
+        /// </summary>
+        [Input("isArchived")]
+        public Input<bool>? IsArchived { get; set; }
 
         /// <summary>
         /// Enum to determine the type of job.
@@ -95,24 +113,23 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("jobType", required: true)]
         public Input<string> JobType { get; set; } = null!;
 
-        [Input("outputDataBindings")]
-        private InputMap<Inputs.OutputDataBindingArgs>? _outputDataBindings;
+        /// <summary>
+        /// Command Job limit.
+        /// </summary>
+        [Input("limits")]
+        public Input<Inputs.CommandJobLimitsArgs>? Limits { get; set; }
+
+        [Input("outputs")]
+        private InputMap<object>? _outputs;
 
         /// <summary>
         /// Mapping of output data bindings used in the job.
         /// </summary>
-        public InputMap<Inputs.OutputDataBindingArgs> OutputDataBindings
+        public InputMap<object> Outputs
         {
-            get => _outputDataBindings ?? (_outputDataBindings = new InputMap<Inputs.OutputDataBindingArgs>());
-            set => _outputDataBindings = value;
+            get => _outputs ?? (_outputs = new InputMap<object>());
+            set => _outputs = value;
         }
-
-        /// <summary>
-        /// Job priority for scheduling policy. Only applies to AMLCompute.
-        /// Private preview feature and only available to users on the allow list.
-        /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -124,6 +141,25 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         {
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
+        }
+
+        /// <summary>
+        /// Compute Resource configuration for the job.
+        /// </summary>
+        [Input("resources")]
+        public Input<Inputs.JobResourceConfigurationArgs>? Resources { get; set; }
+
+        [Input("services")]
+        private InputMap<Inputs.JobServiceArgs>? _services;
+
+        /// <summary>
+        /// List of JobEndpoints.
+        /// For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        /// </summary>
+        public InputMap<Inputs.JobServiceArgs> Services
+        {
+            get => _services ?? (_services = new InputMap<Inputs.JobServiceArgs>());
+            set => _services = value;
         }
 
         [Input("tags")]
@@ -138,14 +174,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
-        /// </summary>
-        [Input("timeout")]
-        public Input<string>? Timeout { get; set; }
-
         public CommandJobArgs()
         {
+            ExperimentName = "Default";
+            IsArchived = false;
         }
         public static new CommandJobArgs Empty => new CommandJobArgs();
     }

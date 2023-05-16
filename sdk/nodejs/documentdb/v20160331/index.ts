@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { DatabaseAccountArgs } from "./databaseAccount";
-export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
-export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
-utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
-
 export { DatabaseAccountCassandraKeyspaceArgs } from "./databaseAccountCassandraKeyspace";
 export type DatabaseAccountCassandraKeyspace = import("./databaseAccountCassandraKeyspace").DatabaseAccountCassandraKeyspace;
 export const DatabaseAccountCassandraKeyspace: typeof import("./databaseAccountCassandraKeyspace").DatabaseAccountCassandraKeyspace = null as any;
@@ -54,11 +49,6 @@ export { DatabaseAccountTableArgs } from "./databaseAccountTable";
 export type DatabaseAccountTable = import("./databaseAccountTable").DatabaseAccountTable;
 export const DatabaseAccountTable: typeof import("./databaseAccountTable").DatabaseAccountTable = null as any;
 utilities.lazyLoad(exports, ["DatabaseAccountTable"], () => require("./databaseAccountTable"));
-
-export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
-export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
-export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
 
 export { GetDatabaseAccountCassandraKeyspaceArgs, GetDatabaseAccountCassandraKeyspaceResult, GetDatabaseAccountCassandraKeyspaceOutputArgs } from "./getDatabaseAccountCassandraKeyspace";
 export const getDatabaseAccountCassandraKeyspace: typeof import("./getDatabaseAccountCassandraKeyspace").getDatabaseAccountCassandraKeyspace = null as any;
@@ -123,8 +113,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:documentdb/v20160331:DatabaseAccount":
-                return new DatabaseAccount(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace":
                 return new DatabaseAccountCassandraKeyspace(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20160331:DatabaseAccountCassandraTable":

@@ -30,7 +30,7 @@ class NetworkConnectionArgs:
         """
         The set of arguments for constructing a NetworkConnection resource.
         :param pulumi.Input[Union[str, 'DomainJoinType']] domain_join_type: AAD Join type.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] subnet_id: The subnet to attach Virtual Machines to
         :param pulumi.Input[str] domain_name: Active Directory domain name
         :param pulumi.Input[str] domain_password: The password for the account used to join domain
@@ -77,7 +77,7 @@ class NetworkConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -213,7 +213,8 @@ class NetworkConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Network related settings
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,7 +226,7 @@ class NetworkConnection(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection_name: Name of the Network Connection that can be applied to a Pool.
         :param pulumi.Input[str] networking_resource_group_name: The name for resource group where NICs will be placed.
         :param pulumi.Input[str] organization_unit: Active Directory domain Organization Unit (OU)
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] subnet_id: The subnet to attach Virtual Machines to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -237,7 +238,8 @@ class NetworkConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network related settings
-        API Version: 2022-09-01-preview.
+        API Version: 2022-11-11-preview.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param NetworkConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -296,7 +298,7 @@ class NetworkConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:NetworkConnection"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:NetworkConnection"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:NetworkConnection"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:NetworkConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:NetworkConnection"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:NetworkConnection"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:NetworkConnection"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:NetworkConnection"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:NetworkConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkConnection, __self__).__init__(
             'azure-native:devcenter:NetworkConnection',

@@ -22,7 +22,7 @@ class GetEventHubResult:
     """
     Single item in List or Get Event Hub operation
     """
-    def __init__(__self__, capture_description=None, created_at=None, id=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, status=None, type=None, updated_at=None):
+    def __init__(__self__, capture_description=None, created_at=None, id=None, location=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, status=None, system_data=None, type=None, updated_at=None):
         if capture_description and not isinstance(capture_description, dict):
             raise TypeError("Expected argument 'capture_description' to be a dict")
         pulumi.set(__self__, "capture_description", capture_description)
@@ -32,6 +32,9 @@ class GetEventHubResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if message_retention_in_days and not isinstance(message_retention_in_days, float):
             raise TypeError("Expected argument 'message_retention_in_days' to be a float")
         pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
@@ -47,6 +50,9 @@ class GetEventHubResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -77,6 +83,14 @@ class GetEventHubResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="messageRetentionInDays")
@@ -119,10 +133,18 @@ class GetEventHubResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 
@@ -144,11 +166,13 @@ class AwaitableGetEventHubResult(GetEventHubResult):
             capture_description=self.capture_description,
             created_at=self.created_at,
             id=self.id,
+            location=self.location,
             message_retention_in_days=self.message_retention_in_days,
             name=self.name,
             partition_count=self.partition_count,
             partition_ids=self.partition_ids,
             status=self.status,
+            system_data=self.system_data,
             type=self.type,
             updated_at=self.updated_at)
 
@@ -159,7 +183,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubResult:
     """
     Gets an Event Hubs description for the specified Event Hub.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str event_hub_name: The Event Hub name
@@ -177,11 +201,13 @@ def get_event_hub(event_hub_name: Optional[str] = None,
         capture_description=__ret__.capture_description,
         created_at=__ret__.created_at,
         id=__ret__.id,
+        location=__ret__.location,
         message_retention_in_days=__ret__.message_retention_in_days,
         name=__ret__.name,
         partition_count=__ret__.partition_count,
         partition_ids=__ret__.partition_ids,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         updated_at=__ret__.updated_at)
 
@@ -193,7 +219,7 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubResult]:
     """
     Gets an Event Hubs description for the specified Event Hub.
-    API Version: 2017-04-01.
+    API Version: 2021-11-01.
 
 
     :param str event_hub_name: The Event Hub name

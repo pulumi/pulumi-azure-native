@@ -19,14 +19,26 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// Gets the Instance type.
         /// Expected value is 'A2A'.
         /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        [Input("instanceType", required: true)]
+        public Input<string> InstanceType { get; set; } = null!;
+
+        /// <summary>
+        /// The primary extended location.
+        /// </summary>
+        [Input("primaryExtendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? PrimaryExtendedLocation { get; set; }
 
         /// <summary>
         /// The primary zone.
         /// </summary>
         [Input("primaryZone")]
         public Input<string>? PrimaryZone { get; set; }
+
+        /// <summary>
+        /// The recovery extended location.
+        /// </summary>
+        [Input("recoveryExtendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? RecoveryExtendedLocation { get; set; }
 
         /// <summary>
         /// The recovery zone.

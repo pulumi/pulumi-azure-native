@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the agent pool in the Hybrid AKS provisioned cluster
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getAgentPool", {
         "agentPoolName": args.agentPoolName,
-        "provisionedClustersName": args.provisionedClustersName,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetAgentPoolArgs {
      */
     agentPoolName: string;
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName: string;
 }
 
 /**
@@ -121,7 +121,7 @@ export interface GetAgentPoolResult {
 }
 /**
  * Gets the agent pool in the Hybrid AKS provisioned cluster
- * API Version: 2022-05-01-preview.
+ * API Version: 2022-09-01-preview.
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
@@ -133,11 +133,11 @@ export interface GetAgentPoolOutputArgs {
      */
     agentPoolName: pulumi.Input<string>;
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName: pulumi.Input<string>;
 }

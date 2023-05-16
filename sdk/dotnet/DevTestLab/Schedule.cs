@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevTestLab
     /// <summary>
     /// A schedule.
     /// API Version: 2018-09-15.
+    /// Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

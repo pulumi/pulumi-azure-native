@@ -5,19 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AccessTier',
     'HttpProtocol',
-    'Kind',
-    'SkuName',
 ]
-
-
-class AccessTier(str, Enum):
-    """
-    Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-    """
-    HOT = "Hot"
-    COOL = "Cool"
 
 
 class HttpProtocol(str, Enum):
@@ -26,22 +15,3 @@ class HttpProtocol(str, Enum):
     """
     HTTPS_HTTP = "https,http"
     HTTPS = "https"
-
-
-class Kind(str, Enum):
-    """
-    Required. Indicates the type of storage account.
-    """
-    STORAGE = "Storage"
-    BLOB_STORAGE = "BlobStorage"
-
-
-class SkuName(str, Enum):
-    """
-    Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-    """
-    STANDARD_LRS = "Standard_LRS"
-    STANDARD_GRS = "Standard_GRS"
-    STANDARD_RAGRS = "Standard_RAGRS"
-    STANDARD_ZRS = "Standard_ZRS"
-    PREMIUM_LRS = "Premium_LRS"

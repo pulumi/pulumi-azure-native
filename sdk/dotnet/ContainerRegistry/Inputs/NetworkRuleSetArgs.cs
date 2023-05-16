@@ -33,18 +33,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
             set => _ipRules = value;
         }
 
-        [Input("virtualNetworkRules")]
-        private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;
-
-        /// <summary>
-        /// The virtual network rules.
-        /// </summary>
-        public InputList<Inputs.VirtualNetworkRuleArgs> VirtualNetworkRules
-        {
-            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.VirtualNetworkRuleArgs>());
-            set => _virtualNetworkRules = value;
-        }
-
         public NetworkRuleSetArgs()
         {
             DefaultAction = "Allow";

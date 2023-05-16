@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
     /// </summary>
-    [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteAuthSettingsSlot")]
     public partial class SiteAuthSettingsSlot : global::Pulumi.CustomResource
     {

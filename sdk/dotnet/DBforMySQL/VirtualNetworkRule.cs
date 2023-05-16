@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// A virtual network rule.
     /// API Version: 2017-12-01.
+    /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : global::Pulumi.CustomResource
@@ -73,6 +74,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:VirtualNetworkRule"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

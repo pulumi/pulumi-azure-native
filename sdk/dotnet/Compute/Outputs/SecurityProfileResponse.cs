@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly bool? EncryptionAtHost;
         /// <summary>
-        /// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+        /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set.
         /// </summary>
         public readonly string? SecurityType;
         /// <summary>

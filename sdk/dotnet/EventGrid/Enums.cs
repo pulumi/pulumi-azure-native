@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.EventGrid
         public static ChannelProvisioningState Succeeded { get; } = new ChannelProvisioningState("Succeeded");
         public static ChannelProvisioningState Canceled { get; } = new ChannelProvisioningState("Canceled");
         public static ChannelProvisioningState Failed { get; } = new ChannelProvisioningState("Failed");
+        public static ChannelProvisioningState IdleDueToMirroredPartnerTopicDeletion { get; } = new ChannelProvisioningState("IdleDueToMirroredPartnerTopicDeletion");
 
         public static bool operator ==(ChannelProvisioningState left, ChannelProvisioningState right) => left.Equals(right);
         public static bool operator !=(ChannelProvisioningState left, ChannelProvisioningState right) => !left.Equals(right);
@@ -91,7 +92,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
-    /// The type of the event channel which represents the  direction flow of events.
+    /// The type of the event channel which represents the direction flow of events.
     /// </summary>
     [EnumType]
     public readonly struct ChannelType : IEquatable<ChannelType>
@@ -104,7 +105,6 @@ namespace Pulumi.AzureNative.EventGrid
         }
 
         public static ChannelType PartnerTopic { get; } = new ChannelType("PartnerTopic");
-        public static ChannelType PartnerDestination { get; } = new ChannelType("PartnerDestination");
 
         public static bool operator ==(ChannelType left, ChannelType right) => left.Equals(right);
         public static bool operator !=(ChannelType left, ChannelType right) => !left.Equals(right);
@@ -114,6 +114,37 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ChannelType other && Equals(other);
         public bool Equals(ChannelType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Data Residency Boundary of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataResidencyBoundary : IEquatable<DataResidencyBoundary>
+    {
+        private readonly string _value;
+
+        private DataResidencyBoundary(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataResidencyBoundary WithinGeopair { get; } = new DataResidencyBoundary("WithinGeopair");
+        public static DataResidencyBoundary WithinRegion { get; } = new DataResidencyBoundary("WithinRegion");
+
+        public static bool operator ==(DataResidencyBoundary left, DataResidencyBoundary right) => left.Equals(right);
+        public static bool operator !=(DataResidencyBoundary left, DataResidencyBoundary right) => !left.Equals(right);
+
+        public static explicit operator string(DataResidencyBoundary value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataResidencyBoundary other && Equals(other);
+        public bool Equals(DataResidencyBoundary other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -202,7 +233,6 @@ namespace Pulumi.AzureNative.EventGrid
         public static EndpointType ServiceBusQueue { get; } = new EndpointType("ServiceBusQueue");
         public static EndpointType ServiceBusTopic { get; } = new EndpointType("ServiceBusTopic");
         public static EndpointType AzureFunction { get; } = new EndpointType("AzureFunction");
-        public static EndpointType PartnerDestination { get; } = new EndpointType("PartnerDestination");
 
         public static bool operator ==(EndpointType left, EndpointType right) => left.Equals(right);
         public static bool operator !=(EndpointType left, EndpointType right) => !left.Equals(right);
@@ -438,36 +468,6 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
-    /// Type of client authentication
-    /// </summary>
-    [EnumType]
-    public readonly struct PartnerClientAuthenticationType : IEquatable<PartnerClientAuthenticationType>
-    {
-        private readonly string _value;
-
-        private PartnerClientAuthenticationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PartnerClientAuthenticationType AzureAD { get; } = new PartnerClientAuthenticationType("AzureAD");
-
-        public static bool operator ==(PartnerClientAuthenticationType left, PartnerClientAuthenticationType right) => left.Equals(right);
-        public static bool operator !=(PartnerClientAuthenticationType left, PartnerClientAuthenticationType right) => !left.Equals(right);
-
-        public static explicit operator string(PartnerClientAuthenticationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PartnerClientAuthenticationType other && Equals(other);
-        public bool Equals(PartnerClientAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Provisioning state of the partner configuration.
     /// </summary>
     [EnumType]
@@ -503,134 +503,6 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
-    /// Activation state of the partner destination.
-    /// </summary>
-    [EnumType]
-    public readonly struct PartnerDestinationActivationState : IEquatable<PartnerDestinationActivationState>
-    {
-        private readonly string _value;
-
-        private PartnerDestinationActivationState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PartnerDestinationActivationState NeverActivated { get; } = new PartnerDestinationActivationState("NeverActivated");
-        public static PartnerDestinationActivationState Activated { get; } = new PartnerDestinationActivationState("Activated");
-
-        public static bool operator ==(PartnerDestinationActivationState left, PartnerDestinationActivationState right) => left.Equals(right);
-        public static bool operator !=(PartnerDestinationActivationState left, PartnerDestinationActivationState right) => !left.Equals(right);
-
-        public static explicit operator string(PartnerDestinationActivationState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PartnerDestinationActivationState other && Equals(other);
-        public bool Equals(PartnerDestinationActivationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Provisioning state of the partner destination.
-    /// </summary>
-    [EnumType]
-    public readonly struct PartnerDestinationProvisioningState : IEquatable<PartnerDestinationProvisioningState>
-    {
-        private readonly string _value;
-
-        private PartnerDestinationProvisioningState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PartnerDestinationProvisioningState Creating { get; } = new PartnerDestinationProvisioningState("Creating");
-        public static PartnerDestinationProvisioningState Updating { get; } = new PartnerDestinationProvisioningState("Updating");
-        public static PartnerDestinationProvisioningState Deleting { get; } = new PartnerDestinationProvisioningState("Deleting");
-        public static PartnerDestinationProvisioningState Succeeded { get; } = new PartnerDestinationProvisioningState("Succeeded");
-        public static PartnerDestinationProvisioningState Canceled { get; } = new PartnerDestinationProvisioningState("Canceled");
-        public static PartnerDestinationProvisioningState Failed { get; } = new PartnerDestinationProvisioningState("Failed");
-
-        public static bool operator ==(PartnerDestinationProvisioningState left, PartnerDestinationProvisioningState right) => left.Equals(right);
-        public static bool operator !=(PartnerDestinationProvisioningState left, PartnerDestinationProvisioningState right) => !left.Equals(right);
-
-        public static explicit operator string(PartnerDestinationProvisioningState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PartnerDestinationProvisioningState other && Equals(other);
-        public bool Equals(PartnerDestinationProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of the endpoint for the partner destination
-    /// </summary>
-    [EnumType]
-    public readonly struct PartnerEndpointType : IEquatable<PartnerEndpointType>
-    {
-        private readonly string _value;
-
-        private PartnerEndpointType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PartnerEndpointType WebHook { get; } = new PartnerEndpointType("WebHook");
-
-        public static bool operator ==(PartnerEndpointType left, PartnerEndpointType right) => left.Equals(right);
-        public static bool operator !=(PartnerEndpointType left, PartnerEndpointType right) => !left.Equals(right);
-
-        public static explicit operator string(PartnerEndpointType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PartnerEndpointType other && Equals(other);
-        public bool Equals(PartnerEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Visibility state of the partner registration.
-    /// </summary>
-    [EnumType]
-    public readonly struct PartnerRegistrationVisibilityState : IEquatable<PartnerRegistrationVisibilityState>
-    {
-        private readonly string _value;
-
-        private PartnerRegistrationVisibilityState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PartnerRegistrationVisibilityState Hidden { get; } = new PartnerRegistrationVisibilityState("Hidden");
-        public static PartnerRegistrationVisibilityState PublicPreview { get; } = new PartnerRegistrationVisibilityState("PublicPreview");
-        public static PartnerRegistrationVisibilityState GenerallyAvailable { get; } = new PartnerRegistrationVisibilityState("GenerallyAvailable");
-
-        public static bool operator ==(PartnerRegistrationVisibilityState left, PartnerRegistrationVisibilityState right) => left.Equals(right);
-        public static bool operator !=(PartnerRegistrationVisibilityState left, PartnerRegistrationVisibilityState right) => !left.Equals(right);
-
-        public static explicit operator string(PartnerRegistrationVisibilityState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PartnerRegistrationVisibilityState other && Equals(other);
-        public bool Equals(PartnerRegistrationVisibilityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Activation state of the partner topic.
     /// </summary>
     [EnumType]
@@ -655,6 +527,38 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PartnerTopicActivationState other && Equals(other);
         public bool Equals(PartnerTopicActivationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This determines if events published to this partner namespace should use the source attribute in the event payload
+    /// or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+    /// </summary>
+    [EnumType]
+    public readonly struct PartnerTopicRoutingMode : IEquatable<PartnerTopicRoutingMode>
+    {
+        private readonly string _value;
+
+        private PartnerTopicRoutingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnerTopicRoutingMode SourceEventAttribute { get; } = new PartnerTopicRoutingMode("SourceEventAttribute");
+        public static PartnerTopicRoutingMode ChannelNameHeader { get; } = new PartnerTopicRoutingMode("ChannelNameHeader");
+
+        public static bool operator ==(PartnerTopicRoutingMode left, PartnerTopicRoutingMode right) => left.Equals(right);
+        public static bool operator !=(PartnerTopicRoutingMode left, PartnerTopicRoutingMode right) => !left.Equals(right);
+
+        public static explicit operator string(PartnerTopicRoutingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnerTopicRoutingMode other && Equals(other);
+        public bool Equals(PartnerTopicRoutingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

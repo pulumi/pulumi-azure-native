@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * A DDoS protection plan in a resource group.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class DdosProtectionPlan extends pulumi.CustomResource {
     /**
@@ -55,6 +56,10 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The list of public IPs associated with the DDoS protection plan resource. This list is read-only.
+     */
+    public /*out*/ readonly publicIPAddresses!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    /**
      * The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
@@ -92,6 +97,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPAddresses"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetworks"] = undefined /*out*/;
@@ -100,13 +106,14 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPAddresses"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetworks"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180201:DdosProtectionPlan" }, { type: "azure-native:network/v20180401:DdosProtectionPlan" }, { type: "azure-native:network/v20180601:DdosProtectionPlan" }, { type: "azure-native:network/v20180701:DdosProtectionPlan" }, { type: "azure-native:network/v20180801:DdosProtectionPlan" }, { type: "azure-native:network/v20181001:DdosProtectionPlan" }, { type: "azure-native:network/v20181101:DdosProtectionPlan" }, { type: "azure-native:network/v20181201:DdosProtectionPlan" }, { type: "azure-native:network/v20190201:DdosProtectionPlan" }, { type: "azure-native:network/v20190401:DdosProtectionPlan" }, { type: "azure-native:network/v20190601:DdosProtectionPlan" }, { type: "azure-native:network/v20190701:DdosProtectionPlan" }, { type: "azure-native:network/v20190801:DdosProtectionPlan" }, { type: "azure-native:network/v20190901:DdosProtectionPlan" }, { type: "azure-native:network/v20191101:DdosProtectionPlan" }, { type: "azure-native:network/v20191201:DdosProtectionPlan" }, { type: "azure-native:network/v20200301:DdosProtectionPlan" }, { type: "azure-native:network/v20200401:DdosProtectionPlan" }, { type: "azure-native:network/v20200501:DdosProtectionPlan" }, { type: "azure-native:network/v20200601:DdosProtectionPlan" }, { type: "azure-native:network/v20200701:DdosProtectionPlan" }, { type: "azure-native:network/v20200801:DdosProtectionPlan" }, { type: "azure-native:network/v20201101:DdosProtectionPlan" }, { type: "azure-native:network/v20210201:DdosProtectionPlan" }, { type: "azure-native:network/v20210301:DdosProtectionPlan" }, { type: "azure-native:network/v20210501:DdosProtectionPlan" }, { type: "azure-native:network/v20210801:DdosProtectionPlan" }, { type: "azure-native:network/v20220101:DdosProtectionPlan" }, { type: "azure-native:network/v20220501:DdosProtectionPlan" }, { type: "azure-native:network/v20220701:DdosProtectionPlan" }, { type: "azure-native:network/v20220901:DdosProtectionPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180201:DdosProtectionPlan" }, { type: "azure-native:network/v20180401:DdosProtectionPlan" }, { type: "azure-native:network/v20180601:DdosProtectionPlan" }, { type: "azure-native:network/v20180701:DdosProtectionPlan" }, { type: "azure-native:network/v20180801:DdosProtectionPlan" }, { type: "azure-native:network/v20181001:DdosProtectionPlan" }, { type: "azure-native:network/v20181101:DdosProtectionPlan" }, { type: "azure-native:network/v20181201:DdosProtectionPlan" }, { type: "azure-native:network/v20190201:DdosProtectionPlan" }, { type: "azure-native:network/v20190401:DdosProtectionPlan" }, { type: "azure-native:network/v20190601:DdosProtectionPlan" }, { type: "azure-native:network/v20190701:DdosProtectionPlan" }, { type: "azure-native:network/v20190801:DdosProtectionPlan" }, { type: "azure-native:network/v20190901:DdosProtectionPlan" }, { type: "azure-native:network/v20191101:DdosProtectionPlan" }, { type: "azure-native:network/v20191201:DdosProtectionPlan" }, { type: "azure-native:network/v20200301:DdosProtectionPlan" }, { type: "azure-native:network/v20200401:DdosProtectionPlan" }, { type: "azure-native:network/v20200501:DdosProtectionPlan" }, { type: "azure-native:network/v20200601:DdosProtectionPlan" }, { type: "azure-native:network/v20200701:DdosProtectionPlan" }, { type: "azure-native:network/v20200801:DdosProtectionPlan" }, { type: "azure-native:network/v20201101:DdosProtectionPlan" }, { type: "azure-native:network/v20210201:DdosProtectionPlan" }, { type: "azure-native:network/v20210301:DdosProtectionPlan" }, { type: "azure-native:network/v20210501:DdosProtectionPlan" }, { type: "azure-native:network/v20210801:DdosProtectionPlan" }, { type: "azure-native:network/v20220101:DdosProtectionPlan" }, { type: "azure-native:network/v20220501:DdosProtectionPlan" }, { type: "azure-native:network/v20220701:DdosProtectionPlan" }, { type: "azure-native:network/v20220901:DdosProtectionPlan" }, { type: "azure-native:network/v20221101:DdosProtectionPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DdosProtectionPlan.__pulumiType, name, resourceInputs, opts);
     }

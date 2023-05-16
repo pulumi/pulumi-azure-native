@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The alert rule information
- * API Version: 2019-06-01.
+ * API Version: 2021-04-01.
+ * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
@@ -51,7 +52,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      */
     public readonly detector!: pulumi.Output<outputs.alertsmanagement.DetectorResponse>;
     /**
-     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
      */
     public readonly frequency!: pulumi.Output<string>;
     /**
@@ -175,7 +176,7 @@ export interface SmartDetectorAlertRuleArgs {
      */
     detector: pulumi.Input<inputs.alertsmanagement.DetectorArgs>;
     /**
-     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
      */
     frequency: pulumi.Input<string>;
     /**

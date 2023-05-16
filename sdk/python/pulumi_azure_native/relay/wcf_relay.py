@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['WCFRelayArgs', 'WCFRelay']
@@ -145,7 +146,8 @@ class WCFRelay(pulumi.CustomResource):
                  __props__=None):
         """
         Description of the WCF relay resource.
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
+        Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +167,8 @@ class WCFRelay(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of the WCF relay resource.
-        API Version: 2017-04-01.
+        API Version: 2021-11-01.
+        Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WCFRelayArgs args: The arguments to use to populate this resource's properties.
@@ -212,7 +215,9 @@ class WCFRelay(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["is_dynamic"] = None
             __props__.__dict__["listener_count"] = None
+            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay/v20160701:WCFRelay"), pulumi.Alias(type_="azure-native:relay/v20170401:WCFRelay"), pulumi.Alias(type_="azure-native:relay/v20211101:WCFRelay")])
@@ -242,10 +247,12 @@ class WCFRelay(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["is_dynamic"] = None
         __props__.__dict__["listener_count"] = None
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["relay_type"] = None
         __props__.__dict__["requires_client_authorization"] = None
         __props__.__dict__["requires_transport_security"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
         __props__.__dict__["user_metadata"] = None
@@ -277,9 +284,17 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -308,10 +323,18 @@ class WCFRelay(pulumi.CustomResource):
         return pulumi.get(self, "requires_transport_security")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
- * API Version: 2021-12-01-preview.
+ * API Version: 2023-04-01.
+ * Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -47,7 +48,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.MonitorPropertiesResponseErrors>;
     /**
-     * Managed service identity (user assigned identities)
+     * [currently not in use] Managed service identity(user assigned identities)
      */
     public readonly identity!: pulumi.Output<outputs.workloads.UserAssignedServiceIdentityResponse | undefined>;
     /**
@@ -169,7 +170,7 @@ export interface MonitorArgs {
      */
     appLocation?: pulumi.Input<string>;
     /**
-     * Managed service identity (user assigned identities)
+     * [currently not in use] Managed service identity(user assigned identities)
      */
     identity?: pulumi.Input<inputs.workloads.UserAssignedServiceIdentityArgs>;
     /**

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetFrontDoorResult> InvokeAsync(GetFrontDoorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontDoorResult>("azure-native:network:getFrontDoor", args ?? new GetFrontDoorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
-        /// API Version: 2020-05-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetFrontDoorResult> Invoke(GetFrontDoorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontDoorResult>("azure-native:network:getFrontDoor", args ?? new GetFrontDoorInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? EnabledState;
         /// <summary>
+        /// Key-Value pair representing additional properties for frontdoor.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> ExtendedProperties;
+        /// <summary>
         /// A friendly name for the frontDoor
         /// </summary>
         public readonly string? FriendlyName;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Network
 
             string? enabledState,
 
+            ImmutableDictionary<string, string> extendedProperties,
+
             string? friendlyName,
 
             string frontdoorId,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.Network
             BackendPoolsSettings = backendPoolsSettings;
             Cname = cname;
             EnabledState = enabledState;
+            ExtendedProperties = extendedProperties;
             FriendlyName = friendlyName;
             FrontdoorId = frontdoorId;
             FrontendEndpoints = frontendEndpoints;

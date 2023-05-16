@@ -233,7 +233,8 @@ class FrontDoor(pulumi.CustomResource):
                  __props__=None):
         """
         Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
-        API Version: 2020-05-01.
+        API Version: 2021-06-01.
+        Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,7 +259,8 @@ class FrontDoor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
-        API Version: 2020-05-01.
+        API Version: 2021-06-01.
+        Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param FrontDoorArgs args: The arguments to use to populate this resource's properties.
@@ -311,6 +313,7 @@ class FrontDoor(pulumi.CustomResource):
             __props__.__dict__["routing_rules"] = routing_rules
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cname"] = None
+            __props__.__dict__["extended_properties"] = None
             __props__.__dict__["frontdoor_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -345,6 +348,7 @@ class FrontDoor(pulumi.CustomResource):
         __props__.__dict__["backend_pools_settings"] = None
         __props__.__dict__["cname"] = None
         __props__.__dict__["enabled_state"] = None
+        __props__.__dict__["extended_properties"] = None
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["frontdoor_id"] = None
         __props__.__dict__["frontend_endpoints"] = None
@@ -391,6 +395,14 @@ class FrontDoor(pulumi.CustomResource):
         Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Key-Value pair representing additional properties for frontdoor.
+        """
+        return pulumi.get(self, "extended_properties")
 
     @property
     @pulumi.getter(name="friendlyName")

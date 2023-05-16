@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class WorkspacePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -101,7 +102,7 @@ export class WorkspacePrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221001preview:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221001preview:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230228:WorkspacePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspacePrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

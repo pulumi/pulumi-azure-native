@@ -16,27 +16,21 @@ __all__ = [
     'AutoScaleRunErrorResponse',
     'AutoScaleRunResponse',
     'AutoScaleSettingsResponse',
-    'AutoStoragePropertiesResponse',
     'AutoUserSpecificationResponse',
     'AzureBlobFileSystemConfigurationResponse',
     'AzureFileShareConfigurationResponse',
-    'BatchAccountIdentityResponse',
     'CIFSMountConfigurationResponse',
     'CertificateReferenceResponse',
     'CloudServiceConfigurationResponse',
     'ContainerConfigurationResponse',
     'ContainerRegistryResponse',
     'DataDiskResponse',
-    'DeleteCertificateErrorResponse',
     'DeploymentConfigurationResponse',
     'DiskEncryptionConfigurationResponse',
-    'EncryptionPropertiesResponse',
     'EnvironmentSettingResponse',
     'FixedScaleSettingsResponse',
     'ImageReferenceResponse',
     'InboundNatPoolResponse',
-    'KeyVaultPropertiesResponse',
-    'KeyVaultReferenceResponse',
     'LinuxUserConfigurationResponse',
     'MetadataItemResponse',
     'MountConfigurationResponse',
@@ -44,9 +38,6 @@ __all__ = [
     'NetworkConfigurationResponse',
     'NetworkSecurityGroupRuleResponse',
     'PoolEndpointConfigurationResponse',
-    'PrivateEndpointConnectionResponse',
-    'PrivateEndpointResponse',
-    'PrivateLinkServiceConnectionStateResponse',
     'PublicIPAddressConfigurationResponse',
     'ResizeErrorResponse',
     'ResizeOperationStatusResponse',
@@ -58,7 +49,6 @@ __all__ = [
     'UserAccountResponse',
     'UserIdentityResponse',
     'VirtualMachineConfigurationResponse',
-    'VirtualMachineFamilyCoreQuotaResponse',
     'WindowsConfigurationResponse',
     'WindowsUserConfigurationResponse',
 ]
@@ -218,58 +208,6 @@ class AutoScaleSettingsResponse(dict):
         If omitted, the default value is 15 minutes (PT15M).
         """
         return pulumi.get(self, "evaluation_interval")
-
-
-@pulumi.output_type
-class AutoStoragePropertiesResponse(dict):
-    """
-    Contains information about the auto-storage account associated with a Batch account.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lastKeySync":
-            suggest = "last_key_sync"
-        elif key == "storageAccountId":
-            suggest = "storage_account_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AutoStoragePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AutoStoragePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AutoStoragePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 last_key_sync: str,
-                 storage_account_id: str):
-        """
-        Contains information about the auto-storage account associated with a Batch account.
-        :param str last_key_sync: The UTC time at which storage keys were last synchronized with the Batch account.
-        :param str storage_account_id: The resource ID of the storage account to be used for auto-storage account.
-        """
-        pulumi.set(__self__, "last_key_sync", last_key_sync)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-
-    @property
-    @pulumi.getter(name="lastKeySync")
-    def last_key_sync(self) -> str:
-        """
-        The UTC time at which storage keys were last synchronized with the Batch account.
-        """
-        return pulumi.get(self, "last_key_sync")
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> str:
-        """
-        The resource ID of the storage account to be used for auto-storage account.
-        """
-        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type
@@ -493,69 +431,6 @@ class AzureFileShareConfigurationResponse(dict):
         These are 'net use' options in Windows and 'mount' options in Linux.
         """
         return pulumi.get(self, "mount_options")
-
-
-@pulumi.output_type
-class BatchAccountIdentityResponse(dict):
-    """
-    The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BatchAccountIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BatchAccountIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BatchAccountIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: str):
-        """
-        The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
-        :param str principal_id: The principal id of the Batch account. This property will only be provided for a system assigned identity.
-        :param str tenant_id: The tenant id associated with the Batch account. This property will only be provided for a system assigned identity.
-        :param str type: The type of identity used for the Batch account.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of the Batch account. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant id associated with the Batch account. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of identity used for the Batch account.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -942,63 +817,6 @@ class DataDiskResponse(dict):
 
 
 @pulumi.output_type
-class DeleteCertificateErrorResponse(dict):
-    """
-    An error response from the Batch service.
-    """
-    def __init__(__self__, *,
-                 code: str,
-                 message: str,
-                 details: Optional[Sequence['outputs.DeleteCertificateErrorResponse']] = None,
-                 target: Optional[str] = None):
-        """
-        An error response from the Batch service.
-        :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        :param str message: A message describing the error, intended to be suitable for display in a user interface.
-        :param Sequence['DeleteCertificateErrorResponse'] details: A list of additional details about the error.
-        :param str target: The target of the particular error. For example, the name of the property in error.
-        """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter
-    def code(self) -> str:
-        """
-        An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        A message describing the error, intended to be suitable for display in a user interface.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.DeleteCertificateErrorResponse']]:
-        """
-        A list of additional details about the error.
-        """
-        return pulumi.get(self, "details")
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        The target of the particular error. For example, the name of the property in error.
-        """
-        return pulumi.get(self, "target")
-
-
-@pulumi.output_type
 class DeploymentConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1069,60 +887,6 @@ class DiskEncryptionConfigurationResponse(dict):
         On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
         """
         return pulumi.get(self, "targets")
-
-
-@pulumi.output_type
-class EncryptionPropertiesResponse(dict):
-    """
-    Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keySource":
-            suggest = "key_source"
-        elif key == "keyVaultProperties":
-            suggest = "key_vault_properties"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EncryptionPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EncryptionPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_source: Optional[str] = None,
-                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
-        """
-        Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-        :param str key_source: Type of the key source.
-        :param 'KeyVaultPropertiesResponse' key_vault_properties: Additional details when using Microsoft.KeyVault
-        """
-        if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[str]:
-        """
-        Type of the key source.
-        """
-        return pulumi.get(self, "key_source")
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
-        """
-        Additional details when using Microsoft.KeyVault
-        """
-        return pulumi.get(self, "key_vault_properties")
 
 
 @pulumi.output_type
@@ -1381,87 +1145,6 @@ class InboundNatPoolResponse(dict):
         The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "network_security_group_rules")
-
-
-@pulumi.output_type
-class KeyVaultPropertiesResponse(dict):
-    """
-    KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyIdentifier":
-            suggest = "key_identifier"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KeyVaultPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KeyVaultPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_identifier: Optional[str] = None):
-        """
-        KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
-        :param str key_identifier: Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
-               
-                The Batch Account has a System Assigned identity
-                The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-                The KeyVault has soft-delete and purge protection enabled
-        """
-        if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
-
-    @property
-    @pulumi.getter(name="keyIdentifier")
-    def key_identifier(self) -> Optional[str]:
-        """
-        Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
-
-         The Batch Account has a System Assigned identity
-         The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-         The KeyVault has soft-delete and purge protection enabled
-        """
-        return pulumi.get(self, "key_identifier")
-
-
-@pulumi.output_type
-class KeyVaultReferenceResponse(dict):
-    """
-    Identifies the Azure key vault associated with a Batch account.
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 url: str):
-        """
-        Identifies the Azure key vault associated with a Batch account.
-        :param str id: The resource ID of the Azure key vault associated with the Batch account.
-        :param str url: The URL of the Azure key vault associated with the Batch account.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "url", url)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The resource ID of the Azure key vault associated with the Batch account.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def url(self) -> str:
-        """
-        The URL of the Azure key vault associated with the Batch account.
-        """
-        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -1851,181 +1534,6 @@ class PoolEndpointConfigurationResponse(dict):
         The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "inbound_nat_pools")
-
-
-@pulumi.output_type
-class PrivateEndpointConnectionResponse(dict):
-    """
-    Contains information about a private link resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-        elif key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 etag: str,
-                 id: str,
-                 name: str,
-                 provisioning_state: str,
-                 type: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
-        """
-        Contains information about a private link resource.
-        :param str etag: The ETag of the resource, used for concurrency statements.
-        :param str id: The ID of the resource.
-        :param str name: The name of the resource.
-        :param str type: The type of the resource.
-        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint of the private endpoint connection.
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state of the private endpoint connection
-        """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> str:
-        """
-        The ETag of the resource, used for concurrency statements.
-        """
-        return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the resource.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the resource.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The private endpoint of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
-        """
-        The private link service connection state of the private endpoint connection
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-
-@pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    The private endpoint of the private endpoint connection.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        The private endpoint of the private endpoint connection.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStateResponse(dict):
-    """
-    The private link service connection state of the private endpoint connection
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionRequired":
-            suggest = "action_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 action_required: str,
-                 status: str,
-                 description: Optional[str] = None):
-        """
-        The private link service connection state of the private endpoint connection
-        """
-        pulumi.set(__self__, "action_required", action_required)
-        pulumi.set(__self__, "status", status)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> str:
-        return pulumi.get(self, "action_required")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
@@ -2839,56 +2347,6 @@ class VirtualMachineConfigurationResponse(dict):
         This property must not be specified if the imageReference specifies a Linux OS image.
         """
         return pulumi.get(self, "windows_configuration")
-
-
-@pulumi.output_type
-class VirtualMachineFamilyCoreQuotaResponse(dict):
-    """
-    A VM Family and its associated core quota for the Batch account.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "coreQuota":
-            suggest = "core_quota"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineFamilyCoreQuotaResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualMachineFamilyCoreQuotaResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualMachineFamilyCoreQuotaResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 core_quota: int,
-                 name: str):
-        """
-        A VM Family and its associated core quota for the Batch account.
-        :param int core_quota: The core quota for the VM family for the Batch account.
-        :param str name: The Virtual Machine family name.
-        """
-        pulumi.set(__self__, "core_quota", core_quota)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="coreQuota")
-    def core_quota(self) -> int:
-        """
-        The core quota for the VM family for the Batch account.
-        """
-        return pulumi.get(self, "core_quota")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The Virtual Machine family name.
-        """
-        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Workspace details.
  * API Version: 2022-04-01-preview.
+ * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -100,7 +101,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:easm/v20220401preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:easm/v20220401preview:Workspace" }, { type: "azure-native:easm/v20230401preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

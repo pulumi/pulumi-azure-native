@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of an API Management service resource.
- *
- * @deprecated Version 2016-07-07 will be removed in v2 of the provider.
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ApiManagementService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiManagementService {
-        pulumi.log.warn("ApiManagementService is deprecated: Version 2016-07-07 will be removed in v2 of the provider.")
         return new ApiManagementService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -136,9 +133,7 @@ export class ApiManagementService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-07-07 will be removed in v2 of the provider. */
     constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiManagementService is deprecated: Version 2016-07-07 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -203,7 +198,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             resourceInputs["vpnconfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiManagementService" }, { type: "azure-native:apimanagement/v20161010:ApiManagementService" }, { type: "azure-native:apimanagement/v20170301:ApiManagementService" }, { type: "azure-native:apimanagement/v20180101:ApiManagementService" }, { type: "azure-native:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20190101:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20200601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20201201:ApiManagementService" }, { type: "azure-native:apimanagement/v20210101preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20210401preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20210801:ApiManagementService" }, { type: "azure-native:apimanagement/v20211201preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20220401preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20220801:ApiManagementService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiManagementService" }, { type: "azure-native:apimanagement/v20161010:ApiManagementService" }, { type: "azure-native:apimanagement/v20170301:ApiManagementService" }, { type: "azure-native:apimanagement/v20180101:ApiManagementService" }, { type: "azure-native:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20190101:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20200601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20201201:ApiManagementService" }, { type: "azure-native:apimanagement/v20210101preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20210401preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20210801:ApiManagementService" }, { type: "azure-native:apimanagement/v20211201preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20220401preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20220801:ApiManagementService" }, { type: "azure-native:apimanagement/v20220901preview:ApiManagementService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiManagementService.__pulumiType, name, resourceInputs, opts);
     }

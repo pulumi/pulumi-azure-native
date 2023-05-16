@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Storage Sync Service object.
-    /// API Version: 2020-03-01.
+    /// API Version: 2022-06-01.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:StorageSyncService")]
     public partial class StorageSyncService : global::Pulumi.CustomResource
@@ -69,6 +70,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("storageSyncServiceUid")]
         public Output<string> StorageSyncServiceUid { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

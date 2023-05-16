@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Nat Gateway resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NatGateway extends pulumi.CustomResource {
     /**
@@ -137,7 +138,7 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190201:NatGateway" }, { type: "azure-native:network/v20190401:NatGateway" }, { type: "azure-native:network/v20190601:NatGateway" }, { type: "azure-native:network/v20190701:NatGateway" }, { type: "azure-native:network/v20190801:NatGateway" }, { type: "azure-native:network/v20190901:NatGateway" }, { type: "azure-native:network/v20191101:NatGateway" }, { type: "azure-native:network/v20191201:NatGateway" }, { type: "azure-native:network/v20200301:NatGateway" }, { type: "azure-native:network/v20200401:NatGateway" }, { type: "azure-native:network/v20200501:NatGateway" }, { type: "azure-native:network/v20200601:NatGateway" }, { type: "azure-native:network/v20200701:NatGateway" }, { type: "azure-native:network/v20200801:NatGateway" }, { type: "azure-native:network/v20201101:NatGateway" }, { type: "azure-native:network/v20210201:NatGateway" }, { type: "azure-native:network/v20210301:NatGateway" }, { type: "azure-native:network/v20210501:NatGateway" }, { type: "azure-native:network/v20210801:NatGateway" }, { type: "azure-native:network/v20220101:NatGateway" }, { type: "azure-native:network/v20220501:NatGateway" }, { type: "azure-native:network/v20220701:NatGateway" }, { type: "azure-native:network/v20220901:NatGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190201:NatGateway" }, { type: "azure-native:network/v20190401:NatGateway" }, { type: "azure-native:network/v20190601:NatGateway" }, { type: "azure-native:network/v20190701:NatGateway" }, { type: "azure-native:network/v20190801:NatGateway" }, { type: "azure-native:network/v20190901:NatGateway" }, { type: "azure-native:network/v20191101:NatGateway" }, { type: "azure-native:network/v20191201:NatGateway" }, { type: "azure-native:network/v20200301:NatGateway" }, { type: "azure-native:network/v20200401:NatGateway" }, { type: "azure-native:network/v20200501:NatGateway" }, { type: "azure-native:network/v20200601:NatGateway" }, { type: "azure-native:network/v20200701:NatGateway" }, { type: "azure-native:network/v20200801:NatGateway" }, { type: "azure-native:network/v20201101:NatGateway" }, { type: "azure-native:network/v20210201:NatGateway" }, { type: "azure-native:network/v20210301:NatGateway" }, { type: "azure-native:network/v20210501:NatGateway" }, { type: "azure-native:network/v20210801:NatGateway" }, { type: "azure-native:network/v20220101:NatGateway" }, { type: "azure-native:network/v20220501:NatGateway" }, { type: "azure-native:network/v20220701:NatGateway" }, { type: "azure-native:network/v20220901:NatGateway" }, { type: "azure-native:network/v20221101:NatGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NatGateway.__pulumiType, name, resourceInputs, opts);
     }

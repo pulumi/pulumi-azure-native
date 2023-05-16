@@ -9,10 +9,6 @@ from ._enums import *
 from .access_connector import *
 from .get_access_connector import *
 from .get_private_endpoint_connection import *
-from .get_v_net_peering import *
-from .get_workspace import *
 from .private_endpoint_connection import *
-from .v_net_peering import *
-from .workspace import *
 from ._inputs import *
 from . import outputs

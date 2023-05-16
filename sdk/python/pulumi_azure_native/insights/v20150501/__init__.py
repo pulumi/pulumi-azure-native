@@ -16,11 +16,9 @@ from .get_component import *
 from .get_component_current_billing_feature import *
 from .get_export_configuration import *
 from .get_favorite import *
-from .get_my_workbook import *
 from .get_proactive_detection_configuration import *
 from .get_web_test import *
 from .get_workbook import *
-from .my_workbook import *
 from .proactive_detection_configuration import *
 from .web_test import *
 from .workbook import *

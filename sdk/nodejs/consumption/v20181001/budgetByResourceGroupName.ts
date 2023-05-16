@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A budget resource.
- *
- * @deprecated Version 2018-10-01 will be removed in v2 of the provider.
  */
 export class BudgetByResourceGroupName extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BudgetByResourceGroupName {
-        pulumi.log.warn("BudgetByResourceGroupName is deprecated: Version 2018-10-01 will be removed in v2 of the provider.")
         return new BudgetByResourceGroupName(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +85,7 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2018-10-01 will be removed in v2 of the provider. */
     constructor(name: string, args: BudgetByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BudgetByResourceGroupName is deprecated: Version 2018-10-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

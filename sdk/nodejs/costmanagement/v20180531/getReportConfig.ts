@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the report config for a subscription by report config name.
  */
-/** @deprecated Version 2018-05-31 will be removed in v2 of the provider. */
 export function getReportConfig(args: GetReportConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetReportConfigResult> {
-    pulumi.log.warn("getReportConfig is deprecated: Version 2018-05-31 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20180531:getReportConfig", {
@@ -67,7 +65,6 @@ export interface GetReportConfigResult {
 /**
  * Gets the report config for a subscription by report config name.
  */
-/** @deprecated Version 2018-05-31 will be removed in v2 of the provider. */
 export function getReportConfigOutput(args: GetReportConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportConfigResult> {
     return pulumi.output(args).apply((a: any) => getReportConfig(a, opts))
 }

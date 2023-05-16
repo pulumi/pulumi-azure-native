@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
 {
-    [Obsolete(@"Version 2016-02-01-preview will be removed in v2 of the provider.")]
     public static class GetCognitiveServicesAccount
     {
         /// <summary>

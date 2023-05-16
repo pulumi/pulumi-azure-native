@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a catalog.
- * API Version: 2022-09-01-preview.
+ * API Version: 2022-11-11-preview.
+ * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Catalog extends pulumi.CustomResource {
     /**
@@ -59,6 +60,10 @@ export class Catalog extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The synchronization state of the catalog.
+     */
+    public /*out*/ readonly syncState!: pulumi.Output<string>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
@@ -92,6 +97,7 @@ export class Catalog extends pulumi.CustomResource {
             resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["syncState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -100,11 +106,12 @@ export class Catalog extends pulumi.CustomResource {
             resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["syncState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Catalog" }, { type: "azure-native:devcenter/v20220901preview:Catalog" }, { type: "azure-native:devcenter/v20221012preview:Catalog" }, { type: "azure-native:devcenter/v20221111preview:Catalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Catalog" }, { type: "azure-native:devcenter/v20220901preview:Catalog" }, { type: "azure-native:devcenter/v20221012preview:Catalog" }, { type: "azure-native:devcenter/v20221111preview:Catalog" }, { type: "azure-native:devcenter/v20230101preview:Catalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Catalog.__pulumiType, name, resourceInputs, opts);
     }
@@ -131,7 +138,7 @@ export interface CatalogArgs {
      */
     gitHub?: pulumi.Input<inputs.devcenter.GitCatalogArgs>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Application Configuration Service resource
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ConfigurationService extends pulumi.CustomResource {
     /**
@@ -86,7 +87,7 @@ export class ConfigurationService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220301preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220401:ConfigurationService" }, { type: "azure-native:appplatform/v20220501preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220901preview:ConfigurationService" }, { type: "azure-native:appplatform/v20221101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20221201:ConfigurationService" }, { type: "azure-native:appplatform/v20230101preview:ConfigurationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220301preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220401:ConfigurationService" }, { type: "azure-native:appplatform/v20220501preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220901preview:ConfigurationService" }, { type: "azure-native:appplatform/v20221101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20221201:ConfigurationService" }, { type: "azure-native:appplatform/v20230101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20230301preview:ConfigurationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationService.__pulumiType, name, resourceInputs, opts);
     }

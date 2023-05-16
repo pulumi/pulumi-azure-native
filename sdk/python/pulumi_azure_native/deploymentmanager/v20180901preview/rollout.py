@@ -160,12 +160,7 @@ class RolloutArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2018-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Rollout(pulumi.CustomResource):
-    warnings.warn("""Version 2018-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -229,7 +224,6 @@ class Rollout(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_service_topology_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Rollout is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// Workspace data table definition.
-    /// API Version: 2021-12-01-preview.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Table")]
     public partial class Table : global::Pulumi.CustomResource
@@ -56,13 +57,19 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Search job execution statistics.
         /// </summary>
         [Output("resultStatistics")]
-        public Output<Outputs.ResultStatisticsResponse?> ResultStatistics { get; private set; } = null!;
+        public Output<Outputs.ResultStatisticsResponse> ResultStatistics { get; private set; } = null!;
 
         /// <summary>
         /// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         /// </summary>
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// True - Value originates from workspace retention in days, False - Customer specific.
+        /// </summary>
+        [Output("retentionInDaysAsDefault")]
+        public Output<bool> RetentionInDaysAsDefault { get; private set; } = null!;
 
         /// <summary>
         /// Table schema.
@@ -87,6 +94,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         [Output("totalRetentionInDays")]
         public Output<int?> TotalRetentionInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// True - Value originates from retention in days, False - Customer specific.
+        /// </summary>
+        [Output("totalRetentionInDaysAsDefault")]
+        public Output<bool> TotalRetentionInDaysAsDefault { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

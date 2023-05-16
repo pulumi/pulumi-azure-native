@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly Rules name mapping to the any Rules or secret related information.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
+ * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -41,11 +42,11 @@ export class Rule extends pulumi.CustomResource {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    public readonly actions!: pulumi.Output<(outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[]>;
+    public readonly actions!: pulumi.Output<(outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.DeliveryRuleRouteConfigurationOverrideActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[]>;
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    public readonly conditions!: pulumi.Output<(outputs.cdn.DeliveryRuleCookiesConditionResponse | outputs.cdn.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.DeliveryRulePostArgsConditionResponse | outputs.cdn.DeliveryRuleQueryStringConditionResponse | outputs.cdn.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.DeliveryRuleRequestUriConditionResponse | outputs.cdn.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.DeliveryRuleUrlPathConditionResponse)[] | undefined>;
+    public readonly conditions!: pulumi.Output<(outputs.cdn.DeliveryRuleClientPortConditionResponse | outputs.cdn.DeliveryRuleCookiesConditionResponse | outputs.cdn.DeliveryRuleHostNameConditionResponse | outputs.cdn.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.DeliveryRulePostArgsConditionResponse | outputs.cdn.DeliveryRuleQueryStringConditionResponse | outputs.cdn.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.DeliveryRuleRequestUriConditionResponse | outputs.cdn.DeliveryRuleServerPortConditionResponse | outputs.cdn.DeliveryRuleSocketAddrConditionResponse | outputs.cdn.DeliveryRuleSslProtocolConditionResponse | outputs.cdn.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.DeliveryRuleUrlPathConditionResponse)[] | undefined>;
     public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
     /**
      * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
@@ -63,6 +64,10 @@ export class Rule extends pulumi.CustomResource {
      * Provisioning status
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The name of the rule set containing the rule.
+     */
+    public readonly ruleSetName!: pulumi.Output<string>;
     /**
      * Read only system data
      */
@@ -119,6 +124,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["order"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["ruleSetName"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -136,11 +142,11 @@ export interface RuleArgs {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.DeliveryRuleRouteConfigurationOverrideActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[]>;
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCookiesConditionArgs | inputs.cdn.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.DeliveryRulePostArgsConditionArgs | inputs.cdn.DeliveryRuleQueryStringConditionArgs | inputs.cdn.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.DeliveryRuleRequestUriConditionArgs | inputs.cdn.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.DeliveryRuleUrlPathConditionArgs>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleClientPortConditionArgs | inputs.cdn.DeliveryRuleCookiesConditionArgs | inputs.cdn.DeliveryRuleHostNameConditionArgs | inputs.cdn.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.DeliveryRulePostArgsConditionArgs | inputs.cdn.DeliveryRuleQueryStringConditionArgs | inputs.cdn.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.DeliveryRuleRequestUriConditionArgs | inputs.cdn.DeliveryRuleServerPortConditionArgs | inputs.cdn.DeliveryRuleSocketAddrConditionArgs | inputs.cdn.DeliveryRuleSslProtocolConditionArgs | inputs.cdn.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.DeliveryRuleUrlPathConditionArgs>[]>;
     /**
      * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
      */
@@ -150,7 +156,7 @@ export interface RuleArgs {
      */
     order: pulumi.Input<number>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

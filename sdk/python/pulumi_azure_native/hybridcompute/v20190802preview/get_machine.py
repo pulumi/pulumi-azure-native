@@ -17,8 +17,6 @@ __all__ = [
     'get_machine_output',
 ]
 
-warnings.warn("""Version 2019-08-02-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetMachineResult:
     """
@@ -299,7 +297,6 @@ def get_machine(expand: Optional[str] = None,
     :param str name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_machine is deprecated: Version 2019-08-02-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['name'] = name
@@ -344,5 +341,4 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_machine is deprecated: Version 2019-08-02-preview will be removed in v2 of the provider.""")
     ...

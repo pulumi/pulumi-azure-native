@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Compute.V20190301
     /// <summary>
     /// Specifies information about the gallery Image Version that you want to create or update.
     /// </summary>
-    [Obsolete(@"Version 2019-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20190301:GalleryImageVersion")]
     public partial class GalleryImageVersion : global::Pulumi.CustomResource
     {

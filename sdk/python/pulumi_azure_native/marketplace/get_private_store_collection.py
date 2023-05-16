@@ -22,10 +22,19 @@ class GetPrivateStoreCollectionResult:
     """
     The Collection data structure.
     """
-    def __init__(__self__, all_subscriptions=None, claim=None, collection_id=None, collection_name=None, enabled=None, id=None, name=None, number_of_offers=None, subscriptions_list=None, system_data=None, type=None):
+    def __init__(__self__, all_subscriptions=None, applied_rules=None, approve_all_items=None, approve_all_items_modified_at=None, claim=None, collection_id=None, collection_name=None, enabled=None, id=None, name=None, number_of_offers=None, subscriptions_list=None, system_data=None, type=None):
         if all_subscriptions and not isinstance(all_subscriptions, bool):
             raise TypeError("Expected argument 'all_subscriptions' to be a bool")
         pulumi.set(__self__, "all_subscriptions", all_subscriptions)
+        if applied_rules and not isinstance(applied_rules, list):
+            raise TypeError("Expected argument 'applied_rules' to be a list")
+        pulumi.set(__self__, "applied_rules", applied_rules)
+        if approve_all_items and not isinstance(approve_all_items, bool):
+            raise TypeError("Expected argument 'approve_all_items' to be a bool")
+        pulumi.set(__self__, "approve_all_items", approve_all_items)
+        if approve_all_items_modified_at and not isinstance(approve_all_items_modified_at, str):
+            raise TypeError("Expected argument 'approve_all_items_modified_at' to be a str")
+        pulumi.set(__self__, "approve_all_items_modified_at", approve_all_items_modified_at)
         if claim and not isinstance(claim, str):
             raise TypeError("Expected argument 'claim' to be a str")
         pulumi.set(__self__, "claim", claim)
@@ -64,6 +73,30 @@ class GetPrivateStoreCollectionResult:
         Indicating whether all subscriptions are selected (=true) or not (=false).
         """
         return pulumi.get(self, "all_subscriptions")
+
+    @property
+    @pulumi.getter(name="appliedRules")
+    def applied_rules(self) -> Sequence['outputs.RuleResponse']:
+        """
+        Gets list of collection rules
+        """
+        return pulumi.get(self, "applied_rules")
+
+    @property
+    @pulumi.getter(name="approveAllItems")
+    def approve_all_items(self) -> bool:
+        """
+        Indicating whether all items are approved for this collection (=true) or not (=false).
+        """
+        return pulumi.get(self, "approve_all_items")
+
+    @property
+    @pulumi.getter(name="approveAllItemsModifiedAt")
+    def approve_all_items_modified_at(self) -> str:
+        """
+        Gets the modified date of all items approved.
+        """
+        return pulumi.get(self, "approve_all_items_modified_at")
 
     @property
     @pulumi.getter
@@ -153,6 +186,9 @@ class AwaitableGetPrivateStoreCollectionResult(GetPrivateStoreCollectionResult):
             yield self
         return GetPrivateStoreCollectionResult(
             all_subscriptions=self.all_subscriptions,
+            applied_rules=self.applied_rules,
+            approve_all_items=self.approve_all_items,
+            approve_all_items_modified_at=self.approve_all_items_modified_at,
             claim=self.claim,
             collection_id=self.collection_id,
             collection_name=self.collection_name,
@@ -170,7 +206,7 @@ def get_private_store_collection(collection_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreCollectionResult:
     """
     Gets private store collection
-    API Version: 2021-12-01.
+    API Version: 2022-09-01.
 
 
     :param str collection_id: The collection ID
@@ -184,6 +220,9 @@ def get_private_store_collection(collection_id: Optional[str] = None,
 
     return AwaitableGetPrivateStoreCollectionResult(
         all_subscriptions=__ret__.all_subscriptions,
+        applied_rules=__ret__.applied_rules,
+        approve_all_items=__ret__.approve_all_items,
+        approve_all_items_modified_at=__ret__.approve_all_items_modified_at,
         claim=__ret__.claim,
         collection_id=__ret__.collection_id,
         collection_name=__ret__.collection_name,
@@ -202,7 +241,7 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
     """
     Gets private store collection
-    API Version: 2021-12-01.
+    API Version: 2022-09-01.
 
 
     :param str collection_id: The collection ID

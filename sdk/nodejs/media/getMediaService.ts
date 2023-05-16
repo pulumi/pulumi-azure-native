@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of a Media Services account
- * API Version: 2020-05-01.
+ * API Version: 2023-01-01.
  */
 export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaServiceResult> {
 
@@ -48,6 +48,10 @@ export interface GetMediaServiceResult {
      */
     readonly identity?: outputs.media.MediaServiceIdentityResponse;
     /**
+     * The Key Delivery properties for Media Services account.
+     */
+    readonly keyDelivery?: outputs.media.KeyDeliveryResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -56,9 +60,25 @@ export interface GetMediaServiceResult {
      */
     readonly mediaServiceId: string;
     /**
+     * The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+     */
+    readonly minimumTlsVersion?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The Private Endpoint Connections created for the Media Service account.
+     */
+    readonly privateEndpointConnections: outputs.media.PrivateEndpointConnectionResponse[];
+    /**
+     * Provisioning state of the Media Services account.
+     */
+    readonly provisioningState: string;
+    /**
+     * Whether or not public network access is allowed for resources under the Media Services account.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * The storage accounts for this resource.
      */
@@ -79,7 +99,7 @@ export interface GetMediaServiceResult {
 }
 /**
  * Get the details of a Media Services account
- * API Version: 2020-05-01.
+ * API Version: 2023-01-01.
  */
 export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaServiceResult> {
     return pulumi.output(args).apply((a: any) => getMediaService(a, opts))

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20160707
 {
-    [Obsolete(@"Version 2016-07-07 will be removed in v2 of the provider.")]
     public static class GetApiManagementService
     {
         /// <summary>

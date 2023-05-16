@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Gateway certificate authority details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class GatewayCertificateAuthority extends pulumi.CustomResource {
     /**
@@ -40,11 +41,11 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
      */
     public readonly isTrusted!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -81,7 +82,7 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20201201:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210801:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220801:GatewayCertificateAuthority" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20201201:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210801:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220801:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayCertificateAuthority.__pulumiType, name, resourceInputs, opts);
     }
@@ -104,7 +105,7 @@ export interface GatewayCertificateAuthorityArgs {
      */
     isTrusted?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

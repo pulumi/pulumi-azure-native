@@ -35,4 +35,6 @@ class Type(str, Enum):
     """
     Identity Type
     """
+    NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"

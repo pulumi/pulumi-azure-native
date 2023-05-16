@@ -135,7 +135,7 @@ def get_signal_r_custom_certificate(certificate_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRCustomCertificateResult:
     """
     Get a custom certificate.
-    API Version: 2022-02-01.
+    API Version: 2023-02-01.
 
 
     :param str certificate_name: Custom certificate name
@@ -167,7 +167,7 @@ def get_signal_r_custom_certificate_output(certificate_name: Optional[pulumi.Inp
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRCustomCertificateResult]:
     """
     Get a custom certificate.
-    API Version: 2022-02-01.
+    API Version: 2023-02-01.
 
 
     :param str certificate_name: Custom certificate name

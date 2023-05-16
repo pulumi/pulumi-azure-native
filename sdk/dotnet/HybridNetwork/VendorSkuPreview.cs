@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Customer subscription which can use a sku.
-    /// API Version: 2020-01-01-preview.
+    /// API Version: 2021-05-01.
+    /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:VendorSkuPreview")]
     public partial class VendorSkuPreview : global::Pulumi.CustomResource
@@ -21,6 +22,18 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the PreviewSubscription resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

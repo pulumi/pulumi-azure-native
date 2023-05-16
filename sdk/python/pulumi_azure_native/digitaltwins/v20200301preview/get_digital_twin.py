@@ -17,8 +17,6 @@ __all__ = [
     'get_digital_twin_output',
 ]
 
-warnings.warn("""Version 2020-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetDigitalTwinResult:
     """
@@ -165,7 +163,6 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
-    pulumi.log.warn("""get_digital_twin is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -196,5 +193,4 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
-    pulumi.log.warn("""get_digital_twin is deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.""")
     ...

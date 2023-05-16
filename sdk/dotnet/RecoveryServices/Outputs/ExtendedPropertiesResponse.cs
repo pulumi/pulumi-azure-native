@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Extended Properties for Disk Exclusion.
         /// </summary>
         public readonly Outputs.DiskExclusionPropertiesResponse? DiskExclusionProperties;
+        /// <summary>
+        /// Linux VM name
+        /// </summary>
+        public readonly string? LinuxVmApplicationName;
 
         [OutputConstructor]
-        private ExtendedPropertiesResponse(Outputs.DiskExclusionPropertiesResponse? diskExclusionProperties)
+        private ExtendedPropertiesResponse(
+            Outputs.DiskExclusionPropertiesResponse? diskExclusionProperties,
+
+            string? linuxVmApplicationName)
         {
             DiskExclusionProperties = diskExclusionProperties;
+            LinuxVmApplicationName = linuxVmApplicationName;
         }
     }
 }

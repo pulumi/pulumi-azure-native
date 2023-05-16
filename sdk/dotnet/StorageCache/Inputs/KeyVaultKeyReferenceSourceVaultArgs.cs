@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
 {
 
     /// <summary>
-    /// Describes a resource Id to source Key Vault.
+    /// Describes a resource Id to source key vault.
     /// </summary>
     public sealed class KeyVaultKeyReferenceSourceVaultArgs : global::Pulumi.ResourceArgs
     {

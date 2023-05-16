@@ -20,185 +20,196 @@ __all__ = [
 @pulumi.output_type
 class GetLabResult:
     """
-    Represents a lab.
+    The lab resource.
     """
-    def __init__(__self__, created_by_object_id=None, created_by_user_principal_name=None, created_date=None, id=None, invitation_code=None, latest_operation_result=None, location=None, max_users_in_lab=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, usage_quota=None, user_access_mode=None, user_quota=None):
-        if created_by_object_id and not isinstance(created_by_object_id, str):
-            raise TypeError("Expected argument 'created_by_object_id' to be a str")
-        pulumi.set(__self__, "created_by_object_id", created_by_object_id)
-        if created_by_user_principal_name and not isinstance(created_by_user_principal_name, str):
-            raise TypeError("Expected argument 'created_by_user_principal_name' to be a str")
-        pulumi.set(__self__, "created_by_user_principal_name", created_by_user_principal_name)
-        if created_date and not isinstance(created_date, str):
-            raise TypeError("Expected argument 'created_date' to be a str")
-        pulumi.set(__self__, "created_date", created_date)
+    def __init__(__self__, auto_shutdown_profile=None, connection_profile=None, description=None, id=None, lab_plan_id=None, location=None, name=None, network_profile=None, provisioning_state=None, roster_profile=None, security_profile=None, state=None, system_data=None, tags=None, title=None, type=None, virtual_machine_profile=None):
+        if auto_shutdown_profile and not isinstance(auto_shutdown_profile, dict):
+            raise TypeError("Expected argument 'auto_shutdown_profile' to be a dict")
+        pulumi.set(__self__, "auto_shutdown_profile", auto_shutdown_profile)
+        if connection_profile and not isinstance(connection_profile, dict):
+            raise TypeError("Expected argument 'connection_profile' to be a dict")
+        pulumi.set(__self__, "connection_profile", connection_profile)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if invitation_code and not isinstance(invitation_code, str):
-            raise TypeError("Expected argument 'invitation_code' to be a str")
-        pulumi.set(__self__, "invitation_code", invitation_code)
-        if latest_operation_result and not isinstance(latest_operation_result, dict):
-            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
-        pulumi.set(__self__, "latest_operation_result", latest_operation_result)
+        if lab_plan_id and not isinstance(lab_plan_id, str):
+            raise TypeError("Expected argument 'lab_plan_id' to be a str")
+        pulumi.set(__self__, "lab_plan_id", lab_plan_id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_users_in_lab and not isinstance(max_users_in_lab, int):
-            raise TypeError("Expected argument 'max_users_in_lab' to be a int")
-        pulumi.set(__self__, "max_users_in_lab", max_users_in_lab)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        pulumi.set(__self__, "network_profile", network_profile)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if roster_profile and not isinstance(roster_profile, dict):
+            raise TypeError("Expected argument 'roster_profile' to be a dict")
+        pulumi.set(__self__, "roster_profile", roster_profile)
+        if security_profile and not isinstance(security_profile, dict):
+            raise TypeError("Expected argument 'security_profile' to be a dict")
+        pulumi.set(__self__, "security_profile", security_profile)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        pulumi.set(__self__, "title", title)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError("Expected argument 'unique_identifier' to be a str")
-        pulumi.set(__self__, "unique_identifier", unique_identifier)
-        if usage_quota and not isinstance(usage_quota, str):
-            raise TypeError("Expected argument 'usage_quota' to be a str")
-        pulumi.set(__self__, "usage_quota", usage_quota)
-        if user_access_mode and not isinstance(user_access_mode, str):
-            raise TypeError("Expected argument 'user_access_mode' to be a str")
-        pulumi.set(__self__, "user_access_mode", user_access_mode)
-        if user_quota and not isinstance(user_quota, int):
-            raise TypeError("Expected argument 'user_quota' to be a int")
-        pulumi.set(__self__, "user_quota", user_quota)
+        if virtual_machine_profile and not isinstance(virtual_machine_profile, dict):
+            raise TypeError("Expected argument 'virtual_machine_profile' to be a dict")
+        pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
 
     @property
-    @pulumi.getter(name="createdByObjectId")
-    def created_by_object_id(self) -> str:
+    @pulumi.getter(name="autoShutdownProfile")
+    def auto_shutdown_profile(self) -> 'outputs.AutoShutdownProfileResponse':
         """
-        Object id of the user that created the lab.
+        The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
         """
-        return pulumi.get(self, "created_by_object_id")
+        return pulumi.get(self, "auto_shutdown_profile")
 
     @property
-    @pulumi.getter(name="createdByUserPrincipalName")
-    def created_by_user_principal_name(self) -> str:
+    @pulumi.getter(name="connectionProfile")
+    def connection_profile(self) -> 'outputs.ConnectionProfileResponse':
         """
-        Lab creator name
+        The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
         """
-        return pulumi.get(self, "created_by_user_principal_name")
+        return pulumi.get(self, "connection_profile")
 
     @property
-    @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    @pulumi.getter
+    def description(self) -> Optional[str]:
         """
-        Creation date for the lab
+        The description of the lab.
         """
-        return pulumi.get(self, "created_date")
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="invitationCode")
-    def invitation_code(self) -> str:
+    @pulumi.getter(name="labPlanId")
+    def lab_plan_id(self) -> Optional[str]:
         """
-        Invitation code that users can use to join a lab.
+        The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
         """
-        return pulumi.get(self, "invitation_code")
-
-    @property
-    @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
-        """
-        The details of the latest operation. ex: status, error
-        """
-        return pulumi.get(self, "latest_operation_result")
+        return pulumi.get(self, "lab_plan_id")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="maxUsersInLab")
-    def max_users_in_lab(self) -> Optional[int]:
-        """
-        Maximum number of users allowed in the lab.
-        """
-        return pulumi.get(self, "max_users_in_lab")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.LabNetworkProfileResponse']:
         """
-        The provisioning status of the resource.
+        The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Current provisioning state of the lab.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="rosterProfile")
+    def roster_profile(self) -> Optional['outputs.RosterProfileResponse']:
+        """
+        The lab user list management profile.
+        """
+        return pulumi.get(self, "roster_profile")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> 'outputs.SecurityProfileResponse':
+        """
+        The lab security profile.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The lab state.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the lab.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the lab.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    @pulumi.getter(name="virtualMachineProfile")
+    def virtual_machine_profile(self) -> 'outputs.VirtualMachineProfileResponse':
         """
-        The unique immutable identifier of a resource (Guid).
+        The profile used for creating lab virtual machines.
         """
-        return pulumi.get(self, "unique_identifier")
-
-    @property
-    @pulumi.getter(name="usageQuota")
-    def usage_quota(self) -> Optional[str]:
-        """
-        Maximum duration a user can use an environment for in the lab.
-        """
-        return pulumi.get(self, "usage_quota")
-
-    @property
-    @pulumi.getter(name="userAccessMode")
-    def user_access_mode(self) -> Optional[str]:
-        """
-        Lab user access mode (open to all vs. restricted to those listed on the lab).
-        """
-        return pulumi.get(self, "user_access_mode")
-
-    @property
-    @pulumi.getter(name="userQuota")
-    def user_quota(self) -> int:
-        """
-        Maximum value MaxUsersInLab can be set to, as specified by the service
-        """
-        return pulumi.get(self, "user_quota")
+        return pulumi.get(self, "virtual_machine_profile")
 
 
 class AwaitableGetLabResult(GetLabResult):
@@ -207,80 +218,72 @@ class AwaitableGetLabResult(GetLabResult):
         if False:
             yield self
         return GetLabResult(
-            created_by_object_id=self.created_by_object_id,
-            created_by_user_principal_name=self.created_by_user_principal_name,
-            created_date=self.created_date,
+            auto_shutdown_profile=self.auto_shutdown_profile,
+            connection_profile=self.connection_profile,
+            description=self.description,
             id=self.id,
-            invitation_code=self.invitation_code,
-            latest_operation_result=self.latest_operation_result,
+            lab_plan_id=self.lab_plan_id,
             location=self.location,
-            max_users_in_lab=self.max_users_in_lab,
             name=self.name,
+            network_profile=self.network_profile,
             provisioning_state=self.provisioning_state,
+            roster_profile=self.roster_profile,
+            security_profile=self.security_profile,
+            state=self.state,
+            system_data=self.system_data,
             tags=self.tags,
+            title=self.title,
             type=self.type,
-            unique_identifier=self.unique_identifier,
-            usage_quota=self.usage_quota,
-            user_access_mode=self.user_access_mode,
-            user_quota=self.user_quota)
+            virtual_machine_profile=self.virtual_machine_profile)
 
 
-def get_lab(expand: Optional[str] = None,
-            lab_account_name: Optional[str] = None,
-            lab_name: Optional[str] = None,
+def get_lab(lab_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
-    Get lab
-    API Version: 2018-10-15.
+    Returns the properties of a lab resource.
+    API Version: 2022-08-01.
 
 
-    :param str expand: Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
-    :param str lab_account_name: The name of the lab Account.
-    :param str lab_name: The name of the lab.
-    :param str resource_group_name: The name of the resource group.
+    :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['expand'] = expand
-    __args__['labAccountName'] = lab_account_name
     __args__['labName'] = lab_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:labservices:getLab', __args__, opts=opts, typ=GetLabResult).value
 
     return AwaitableGetLabResult(
-        created_by_object_id=__ret__.created_by_object_id,
-        created_by_user_principal_name=__ret__.created_by_user_principal_name,
-        created_date=__ret__.created_date,
+        auto_shutdown_profile=__ret__.auto_shutdown_profile,
+        connection_profile=__ret__.connection_profile,
+        description=__ret__.description,
         id=__ret__.id,
-        invitation_code=__ret__.invitation_code,
-        latest_operation_result=__ret__.latest_operation_result,
+        lab_plan_id=__ret__.lab_plan_id,
         location=__ret__.location,
-        max_users_in_lab=__ret__.max_users_in_lab,
         name=__ret__.name,
+        network_profile=__ret__.network_profile,
         provisioning_state=__ret__.provisioning_state,
+        roster_profile=__ret__.roster_profile,
+        security_profile=__ret__.security_profile,
+        state=__ret__.state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
+        title=__ret__.title,
         type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        usage_quota=__ret__.usage_quota,
-        user_access_mode=__ret__.user_access_mode,
-        user_quota=__ret__.user_quota)
+        virtual_machine_profile=__ret__.virtual_machine_profile)
 
 
 @_utilities.lift_output_func(get_lab)
-def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
-                   lab_account_name: Optional[pulumi.Input[str]] = None,
-                   lab_name: Optional[pulumi.Input[str]] = None,
+def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
     """
-    Get lab
-    API Version: 2018-10-15.
+    Returns the properties of a lab resource.
+    API Version: 2022-08-01.
 
 
-    :param str expand: Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
-    :param str lab_account_name: The name of the lab Account.
-    :param str lab_name: The name of the lab.
-    :param str resource_group_name: The name of the resource group.
+    :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a policy fragment.
- * API Version: 2021-12-01-preview.
+ * API Version: 2022-08-01.
  */
 export function getPolicyFragment(args: GetPolicyFragmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFragmentResult> {
 
@@ -29,7 +29,7 @@ export interface GetPolicyFragmentArgs {
      */
     id: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -69,7 +69,7 @@ export interface GetPolicyFragmentResult {
 }
 /**
  * Gets a policy fragment.
- * API Version: 2021-12-01-preview.
+ * API Version: 2022-08-01.
  */
 export function getPolicyFragmentOutput(args: GetPolicyFragmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFragmentResult> {
     return pulumi.output(args).apply((a: any) => getPolicyFragment(a, opts))
@@ -85,7 +85,7 @@ export interface GetPolicyFragmentOutputArgs {
      */
     id: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

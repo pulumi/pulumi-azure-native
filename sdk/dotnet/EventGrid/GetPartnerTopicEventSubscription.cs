@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.EventGrid
     public static class GetPartnerTopicEventSubscription
     {
         /// <summary>
-        /// Get an event subscription of a partner topic.
-        /// API Version: 2020-04-01-preview.
+        /// Get properties of an event subscription of a partner topic.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Task<GetPartnerTopicEventSubscriptionResult> InvokeAsync(GetPartnerTopicEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionResult>("azure-native:eventgrid:getPartnerTopicEventSubscription", args ?? new GetPartnerTopicEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get an event subscription of a partner topic.
-        /// API Version: 2020-04-01-preview.
+        /// Get properties of an event subscription of a partner topic.
+        /// API Version: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerTopicEventSubscriptionResult> Invoke(GetPartnerTopicEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicEventSubscriptionResult>("azure-native:eventgrid:getPartnerTopicEventSubscription", args ?? new GetPartnerTopicEventSubscriptionInvokeArgs(), options.WithDefaults());

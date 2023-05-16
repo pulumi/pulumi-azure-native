@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// </summary>
     public sealed class DataFlowArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The builtIn transform to transform stream data
+        /// </summary>
+        [Input("builtInTransform")]
+        public Input<string>? BuiltInTransform { get; set; }
+
         [Input("destinations")]
         private InputList<string>? _destinations;
 
@@ -27,6 +33,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// The output stream of the transform. Only required if the transform changes data to a different stream.
+        /// </summary>
+        [Input("outputStream")]
+        public Input<string>? OutputStream { get; set; }
+
         [Input("streams")]
         private InputList<Union<string, Pulumi.AzureNative.Insights.KnownDataFlowStreams>>? _streams;
 
@@ -38,6 +50,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
             get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNative.Insights.KnownDataFlowStreams>>());
             set => _streams = value;
         }
+
+        /// <summary>
+        /// The KQL query to transform stream data.
+        /// </summary>
+        [Input("transformKql")]
+        public Input<string>? TransformKql { get; set; }
 
         public DataFlowArgs()
         {

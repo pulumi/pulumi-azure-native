@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20140901
 {
-    [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
     public static class GetQueueAuthorizationRule
     {
         /// <summary>

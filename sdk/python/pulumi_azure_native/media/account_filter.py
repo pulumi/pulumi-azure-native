@@ -130,7 +130,8 @@ class AccountFilter(pulumi.CustomResource):
                  __props__=None):
         """
         An Account Filter.
-        API Version: 2020-05-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,7 +150,8 @@ class AccountFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Account Filter.
-        API Version: 2020-05-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AccountFilterArgs args: The arguments to use to populate this resource's properties.

@@ -6,8 +6,6 @@ from enum import Enum
 
 __all__ = [
     'PublicNetworkAccessType',
-    'ResourceIdentityType',
-    'StatusLevelTypes',
 ]
 
 
@@ -23,19 +21,3 @@ class PublicNetworkAccessType(str, Enum):
     """
     Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
     """
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class StatusLevelTypes(str, Enum):
-    """
-    The level code.
-    """
-    INFO = "Info"
-    WARNING = "Warning"
-    ERROR = "Error"

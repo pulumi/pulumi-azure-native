@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Define the host.
- * API Version: 2020-10-01-preview.
+ * API Version: 2022-07-15-preview.
+ * Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Host extends pulumi.CustomResource {
     /**
@@ -43,6 +44,10 @@ export class Host extends pulumi.CustomResource {
      */
     public /*out*/ readonly customResourceName!: pulumi.Output<string>;
     /**
+     * Gets or sets the datastore ARM ids.
+     */
+    public /*out*/ readonly datastoreIds!: pulumi.Output<string[]>;
+    /**
      * Gets or sets the extended location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.ExtendedLocationResponse | undefined>;
@@ -70,6 +75,10 @@ export class Host extends pulumi.CustomResource {
      * Gets or sets the name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Gets or sets the network ARM ids.
+     */
+    public /*out*/ readonly networkIds!: pulumi.Output<string[]>;
     /**
      * Gets or sets the provisioning state.
      */
@@ -123,8 +132,10 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
             resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["datastoreIds"] = undefined /*out*/;
             resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkIds"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -132,6 +143,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
             resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["datastoreIds"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -139,6 +151,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["moRefId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkIds"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

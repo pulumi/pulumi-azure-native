@@ -17,8 +17,6 @@ __all__ = [
     'get_subscription_output',
 ]
 
-warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSubscriptionResult:
     """
@@ -289,7 +287,6 @@ def get_subscription(namespace_name: Optional[str] = None,
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
-    pulumi.log.warn("""get_subscription is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -336,5 +333,4 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
-    pulumi.log.warn("""get_subscription is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

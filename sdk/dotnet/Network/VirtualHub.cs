@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VirtualHub Resource.
-    /// API Version: 2020-11-01.
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHub")]
     public partial class VirtualHub : global::Pulumi.CustomResource
@@ -53,10 +54,22 @@ namespace Pulumi.AzureNative.Network
         public Output<Outputs.SubResourceResponse?> ExpressRouteGateway { get; private set; } = null!;
 
         /// <summary>
+        /// The hubRoutingPreference of this VirtualHub.
+        /// </summary>
+        [Output("hubRoutingPreference")]
+        public Output<string?> HubRoutingPreference { get; private set; } = null!;
+
+        /// <summary>
         /// List of references to IpConfigurations.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> IpConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -77,10 +90,22 @@ namespace Pulumi.AzureNative.Network
         public Output<Outputs.SubResourceResponse?> P2SVpnGateway { get; private set; } = null!;
 
         /// <summary>
+        /// The preferred gateway to route on-prem traffic
+        /// </summary>
+        [Output("preferredRoutingGateway")]
+        public Output<string?> PreferredRoutingGateway { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state of the virtual hub resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// List of references to RouteMaps.
+        /// </summary>
+        [Output("routeMaps")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> RouteMaps { get; private set; } = null!;
 
         /// <summary>
         /// The routeTable associated with this virtual hub.
@@ -135,6 +160,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("virtualRouterAsn")]
         public Output<double?> VirtualRouterAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// The VirtualHub Router autoscale configuration.
+        /// </summary>
+        [Output("virtualRouterAutoScaleConfiguration")]
+        public Output<Outputs.VirtualRouterAutoScaleConfigurationResponse?> VirtualRouterAutoScaleConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// VirtualRouter IPs.
@@ -209,6 +240,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualHub"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualHub"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -257,6 +289,12 @@ namespace Pulumi.AzureNative.Network
         public Input<Inputs.SubResourceArgs>? ExpressRouteGateway { get; set; }
 
         /// <summary>
+        /// The hubRoutingPreference of this VirtualHub.
+        /// </summary>
+        [Input("hubRoutingPreference")]
+        public InputUnion<string, Pulumi.AzureNative.Network.HubRoutingPreference>? HubRoutingPreference { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -273,6 +311,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("p2SVpnGateway")]
         public Input<Inputs.SubResourceArgs>? P2SVpnGateway { get; set; }
+
+        /// <summary>
+        /// The preferred gateway to route on-prem traffic
+        /// </summary>
+        [Input("preferredRoutingGateway")]
+        public InputUnion<string, Pulumi.AzureNative.Network.PreferredRoutingGateway>? PreferredRoutingGateway { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualHub.
@@ -339,6 +383,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("virtualRouterAsn")]
         public Input<double>? VirtualRouterAsn { get; set; }
+
+        /// <summary>
+        /// The VirtualHub Router autoscale configuration.
+        /// </summary>
+        [Input("virtualRouterAutoScaleConfiguration")]
+        public Input<Inputs.VirtualRouterAutoScaleConfigurationArgs>? VirtualRouterAutoScaleConfiguration { get; set; }
 
         [Input("virtualRouterIps")]
         private InputList<string>? _virtualRouterIps;

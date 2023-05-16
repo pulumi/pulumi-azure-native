@@ -9,14 +9,16 @@ __all__ = [
     'ConnectionType',
     'DigitalTwinsIdentityType',
     'EndpointType',
+    'IdentityType',
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
+    'RecordPropertyAndItemRemovals',
 ]
 
 
 class AuthenticationType(str, Enum):
     """
-    Specifies the authentication type being used for connecting to the endpoint.
+    Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
     """
     KEY_BASED = "KeyBased"
     IDENTITY_BASED = "IdentityBased"
@@ -31,10 +33,12 @@ class ConnectionType(str, Enum):
 
 class DigitalTwinsIdentityType(str, Enum):
     """
-    The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+    The type of Managed Identity used by the DigitalTwinsInstance.
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class EndpointType(str, Enum):
@@ -44,6 +48,14 @@ class EndpointType(str, Enum):
     EVENT_HUB = "EventHub"
     EVENT_GRID = "EventGrid"
     SERVICE_BUS = "ServiceBus"
+
+
+class IdentityType(str, Enum):
+    """
+    The type of managed identity used.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class PrivateLinkServiceConnectionStatus(str, Enum):
@@ -62,3 +74,11 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class RecordPropertyAndItemRemovals(str, Enum):
+    """
+    Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
+    """
+    TRUE = "true"
+    FALSE = "false"

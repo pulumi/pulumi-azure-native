@@ -17,8 +17,6 @@ __all__ = [
     'get_published_blueprint_output',
 ]
 
-warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetPublishedBlueprintResult:
     """
@@ -179,7 +177,6 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
     :param str management_group_name: ManagementGroup where blueprint stores.
     :param str version_id: version of the published blueprint.
     """
-    pulumi.log.warn("""get_published_blueprint is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['blueprintName'] = blueprint_name
     __args__['managementGroupName'] = management_group_name
@@ -214,5 +211,4 @@ def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] =
     :param str management_group_name: ManagementGroup where blueprint stores.
     :param str version_id: version of the published blueprint.
     """
-    pulumi.log.warn("""get_published_blueprint is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
     ...

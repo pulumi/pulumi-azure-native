@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// <summary>
     /// The resource representation of a rollout step.
     /// </summary>
-    [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:Step")]
     public partial class Step : global::Pulumi.CustomResource
     {

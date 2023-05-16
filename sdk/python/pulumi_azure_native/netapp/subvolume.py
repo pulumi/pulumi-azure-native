@@ -27,7 +27,7 @@ class SubvolumeArgs:
         The set of arguments for constructing a Subvolume resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] parent_path: parent path to the subvolume
         :param pulumi.Input[str] path: Path to the subvolume
@@ -75,7 +75,7 @@ class SubvolumeArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -160,7 +160,8 @@ class Subvolume(pulumi.CustomResource):
                  __props__=None):
         """
         Subvolume Information properties
-        API Version: 2021-10-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +169,7 @@ class Subvolume(pulumi.CustomResource):
         :param pulumi.Input[str] parent_path: parent path to the subvolume
         :param pulumi.Input[str] path: Path to the subvolume
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] size: Truncate subvolume to the provided size in bytes
         :param pulumi.Input[str] subvolume_name: The name of the subvolume.
         :param pulumi.Input[str] volume_name: The name of the volume
@@ -181,7 +182,8 @@ class Subvolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subvolume Information properties
-        API Version: 2021-10-01.
+        API Version: 2022-09-01.
+        Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param SubvolumeArgs args: The arguments to use to populate this resource's properties.
@@ -303,7 +305,7 @@ class Subvolume(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

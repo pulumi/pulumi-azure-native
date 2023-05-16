@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The SourceControl Configuration object.
- *
- * @deprecated Version 2019-11-01-preview will be removed in v2 of the provider.
  */
 export class SourceControlConfiguration extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SourceControlConfiguration {
-        pulumi.log.warn("SourceControlConfiguration is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.")
         return new SourceControlConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,9 +97,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SourceControlConfiguration is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

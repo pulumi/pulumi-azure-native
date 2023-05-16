@@ -15,11 +15,6 @@ export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null a
 export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
 
-export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
-export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
-export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getManagedCluster","getManagedClusterOutput"], () => require("./getManagedCluster"));
-
 export { ListManagedClusterAccessProfileArgs, ListManagedClusterAccessProfileResult, ListManagedClusterAccessProfileOutputArgs } from "./listManagedClusterAccessProfile";
 export const listManagedClusterAccessProfile: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfile = null as any;
 export const listManagedClusterAccessProfileOutput: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfileOutput = null as any;
@@ -35,11 +30,6 @@ export const listManagedClusterUserCredentials: typeof import("./listManagedClus
 export const listManagedClusterUserCredentialsOutput: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["listManagedClusterUserCredentials","listManagedClusterUserCredentialsOutput"], () => require("./listManagedClusterUserCredentials"));
 
-export { ManagedClusterArgs } from "./managedCluster";
-export type ManagedCluster = import("./managedCluster").ManagedCluster;
-export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
-utilities.lazyLoad(exports, ["ManagedCluster"], () => require("./managedCluster"));
-
 
 // Export enums:
 export * from "../../types/enums/containerservice/v20190401";
@@ -50,8 +40,6 @@ const _module = {
         switch (type) {
             case "azure-native:containerservice/v20190401:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
-            case "azure-native:containerservice/v20190401:ManagedCluster":
-                return new ManagedCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

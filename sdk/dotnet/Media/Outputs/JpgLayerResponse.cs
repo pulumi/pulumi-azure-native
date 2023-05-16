@@ -25,11 +25,6 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.JpgLayer'.
-        /// </summary>
-        public readonly string OdataType;
-        /// <summary>
         /// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
         /// </summary>
         public readonly int? Quality;
@@ -44,15 +39,12 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             string? label,
 
-            string odataType,
-
             int? quality,
 
             string? width)
         {
             Height = height;
             Label = label;
-            OdataType = odataType;
             Quality = quality;
             Width = width;
         }

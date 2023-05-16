@@ -7,12 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_peer_asn import *
-from .get_peering import *
-from .get_peering_service import *
-from .get_prefix import *
 from .peer_asn import *
-from .peering import *
-from .peering_service import *
-from .prefix import *
 from ._inputs import *
 from . import outputs

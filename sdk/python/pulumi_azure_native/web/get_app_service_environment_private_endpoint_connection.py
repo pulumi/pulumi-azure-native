@@ -131,8 +131,8 @@ def get_app_service_environment_private_endpoint_connection(name: Optional[str] 
                                                             resource_group_name: Optional[str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentPrivateEndpointConnectionResult:
     """
-    Gets a private endpoint connection
-    API Version: 2020-12-01.
+    Description for Gets a private endpoint connection
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -163,8 +163,8 @@ def get_app_service_environment_private_endpoint_connection_output(name: Optiona
                                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentPrivateEndpointConnectionResult]:
     """
-    Gets a private endpoint connection
-    API Version: 2020-12-01.
+    Description for Gets a private endpoint connection
+    API Version: 2022-09-01.
 
 
     :param str name: Name of the App Service Environment.

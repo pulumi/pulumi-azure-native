@@ -25,27 +25,35 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? DockerBridgeCidr;
         /// <summary>
+        /// IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
+        /// </summary>
+        public readonly ImmutableArray<string> IpFamilies;
+        /// <summary>
         /// Profile of the cluster load balancer.
         /// </summary>
         public readonly Outputs.ManagedClusterLoadBalancerProfileResponse? LoadBalancerProfile;
         /// <summary>
-        /// The load balancer sku for the managed cluster.
+        /// The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
-        /// Network mode used for building Kubernetes network.
+        /// Profile of the cluster NAT gateway.
+        /// </summary>
+        public readonly Outputs.ManagedClusterNATGatewayProfileResponse? NatGatewayProfile;
+        /// <summary>
+        /// This cannot be specified if networkPlugin is anything other than 'azure'.
         /// </summary>
         public readonly string? NetworkMode;
         /// <summary>
-        /// Network plugin used for building Kubernetes network.
+        /// Network plugin used for building the Kubernetes network.
         /// </summary>
         public readonly string? NetworkPlugin;
         /// <summary>
-        /// Network policy used for building Kubernetes network.
+        /// Network policy used for building the Kubernetes network.
         /// </summary>
         public readonly string? NetworkPolicy;
         /// <summary>
-        /// The outbound (egress) routing method.
+        /// This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         /// </summary>
         public readonly string? OutboundType;
         /// <summary>
@@ -53,9 +61,17 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? PodCidr;
         /// <summary>
+        /// One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        /// </summary>
+        public readonly ImmutableArray<string> PodCidrs;
+        /// <summary>
         /// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         /// </summary>
         public readonly string? ServiceCidr;
+        /// <summary>
+        /// One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> ServiceCidrs;
 
         [OutputConstructor]
         private ContainerServiceNetworkProfileResponse(
@@ -63,9 +79,13 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             string? dockerBridgeCidr,
 
+            ImmutableArray<string> ipFamilies,
+
             Outputs.ManagedClusterLoadBalancerProfileResponse? loadBalancerProfile,
 
             string? loadBalancerSku,
+
+            Outputs.ManagedClusterNATGatewayProfileResponse? natGatewayProfile,
 
             string? networkMode,
 
@@ -77,18 +97,26 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             string? podCidr,
 
-            string? serviceCidr)
+            ImmutableArray<string> podCidrs,
+
+            string? serviceCidr,
+
+            ImmutableArray<string> serviceCidrs)
         {
             DnsServiceIP = dnsServiceIP;
             DockerBridgeCidr = dockerBridgeCidr;
+            IpFamilies = ipFamilies;
             LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
+            NatGatewayProfile = natGatewayProfile;
             NetworkMode = networkMode;
             NetworkPlugin = networkPlugin;
             NetworkPolicy = networkPolicy;
             OutboundType = outboundType;
             PodCidr = podCidr;
+            PodCidrs = podCidrs;
             ServiceCidr = serviceCidr;
+            ServiceCidrs = serviceCidrs;
         }
     }
 }

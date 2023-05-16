@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20160401
     /// <summary>
     /// Describes a DNS zone.
     /// </summary>
-    [Obsolete(@"Version 2016-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20160401:Zone")]
     public partial class Zone : global::Pulumi.CustomResource
     {

@@ -70,11 +70,6 @@ export const getNetworkManager: typeof import("./getNetworkManager").getNetworkM
 export const getNetworkManagerOutput: typeof import("./getNetworkManager").getNetworkManagerOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkManager","getNetworkManagerOutput"], () => require("./getNetworkManager"));
 
-export { GetScopeConnectionArgs, GetScopeConnectionResult, GetScopeConnectionOutputArgs } from "./getScopeConnection";
-export const getScopeConnection: typeof import("./getScopeConnection").getScopeConnection = null as any;
-export const getScopeConnectionOutput: typeof import("./getScopeConnection").getScopeConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getScopeConnection","getScopeConnectionOutput"], () => require("./getScopeConnection"));
-
 export { GetSecurityAdminConfigurationArgs, GetSecurityAdminConfigurationResult, GetSecurityAdminConfigurationOutputArgs } from "./getSecurityAdminConfiguration";
 export const getSecurityAdminConfiguration: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfiguration = null as any;
 export const getSecurityAdminConfigurationOutput: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfigurationOutput = null as any;
@@ -84,16 +79,6 @@ export { GetSecurityUserConfigurationArgs, GetSecurityUserConfigurationResult, G
 export const getSecurityUserConfiguration: typeof import("./getSecurityUserConfiguration").getSecurityUserConfiguration = null as any;
 export const getSecurityUserConfigurationOutput: typeof import("./getSecurityUserConfiguration").getSecurityUserConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityUserConfiguration","getSecurityUserConfigurationOutput"], () => require("./getSecurityUserConfiguration"));
-
-export { GetStaticMemberArgs, GetStaticMemberResult, GetStaticMemberOutputArgs } from "./getStaticMember";
-export const getStaticMember: typeof import("./getStaticMember").getStaticMember = null as any;
-export const getStaticMemberOutput: typeof import("./getStaticMember").getStaticMemberOutput = null as any;
-utilities.lazyLoad(exports, ["getStaticMember","getStaticMemberOutput"], () => require("./getStaticMember"));
-
-export { GetSubscriptionNetworkManagerConnectionArgs, GetSubscriptionNetworkManagerConnectionResult, GetSubscriptionNetworkManagerConnectionOutputArgs } from "./getSubscriptionNetworkManagerConnection";
-export const getSubscriptionNetworkManagerConnection: typeof import("./getSubscriptionNetworkManagerConnection").getSubscriptionNetworkManagerConnection = null as any;
-export const getSubscriptionNetworkManagerConnectionOutput: typeof import("./getSubscriptionNetworkManagerConnection").getSubscriptionNetworkManagerConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getSubscriptionNetworkManagerConnection","getSubscriptionNetworkManagerConnectionOutput"], () => require("./getSubscriptionNetworkManagerConnection"));
 
 export { GetUserRuleArgs, GetUserRuleResult, GetUserRuleOutputArgs } from "./getUserRule";
 export const getUserRule: typeof import("./getUserRule").getUserRule = null as any;
@@ -160,11 +145,6 @@ export type NetworkManager = import("./networkManager").NetworkManager;
 export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
 utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
 
-export { ScopeConnectionArgs } from "./scopeConnection";
-export type ScopeConnection = import("./scopeConnection").ScopeConnection;
-export const ScopeConnection: typeof import("./scopeConnection").ScopeConnection = null as any;
-utilities.lazyLoad(exports, ["ScopeConnection"], () => require("./scopeConnection"));
-
 export { SecurityAdminConfigurationArgs } from "./securityAdminConfiguration";
 export type SecurityAdminConfiguration = import("./securityAdminConfiguration").SecurityAdminConfiguration;
 export const SecurityAdminConfiguration: typeof import("./securityAdminConfiguration").SecurityAdminConfiguration = null as any;
@@ -174,16 +154,6 @@ export { SecurityUserConfigurationArgs } from "./securityUserConfiguration";
 export type SecurityUserConfiguration = import("./securityUserConfiguration").SecurityUserConfiguration;
 export const SecurityUserConfiguration: typeof import("./securityUserConfiguration").SecurityUserConfiguration = null as any;
 utilities.lazyLoad(exports, ["SecurityUserConfiguration"], () => require("./securityUserConfiguration"));
-
-export { StaticMemberArgs } from "./staticMember";
-export type StaticMember = import("./staticMember").StaticMember;
-export const StaticMember: typeof import("./staticMember").StaticMember = null as any;
-utilities.lazyLoad(exports, ["StaticMember"], () => require("./staticMember"));
-
-export { SubscriptionNetworkManagerConnectionArgs } from "./subscriptionNetworkManagerConnection";
-export type SubscriptionNetworkManagerConnection = import("./subscriptionNetworkManagerConnection").SubscriptionNetworkManagerConnection;
-export const SubscriptionNetworkManagerConnection: typeof import("./subscriptionNetworkManagerConnection").SubscriptionNetworkManagerConnection = null as any;
-utilities.lazyLoad(exports, ["SubscriptionNetworkManagerConnection"], () => require("./subscriptionNetworkManagerConnection"));
 
 export { UserRuleArgs } from "./userRule";
 export type UserRule = import("./userRule").UserRule;
@@ -219,16 +189,10 @@ const _module = {
                 return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20210501preview:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
-            case "azure-native:network/v20210501preview:ScopeConnection":
-                return new ScopeConnection(name, <any>undefined, { urn })
             case "azure-native:network/v20210501preview:SecurityAdminConfiguration":
                 return new SecurityAdminConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20210501preview:SecurityUserConfiguration":
                 return new SecurityUserConfiguration(name, <any>undefined, { urn })
-            case "azure-native:network/v20210501preview:StaticMember":
-                return new StaticMember(name, <any>undefined, { urn })
-            case "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection":
-                return new SubscriptionNetworkManagerConnection(name, <any>undefined, { urn })
             case "azure-native:network/v20210501preview:UserRule":
                 return new UserRule(name, <any>undefined, { urn })
             case "azure-native:network/v20210501preview:UserRuleCollection":

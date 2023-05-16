@@ -18,35 +18,41 @@ class ScriptArgs:
                  cluster_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 script_url: pulumi.Input[str],
-                 script_url_sas_token: pulumi.Input[str],
                  continue_on_errors: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 script_name: Optional[pulumi.Input[str]] = None):
+                 script_content: Optional[pulumi.Input[str]] = None,
+                 script_name: Optional[pulumi.Input[str]] = None,
+                 script_url: Optional[pulumi.Input[str]] = None,
+                 script_url_sas_token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Script resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
-        :param pulumi.Input[str] script_url: The url to the KQL script blob file.
-        :param pulumi.Input[str] script_url_sas_token: The SaS token.
         :param pulumi.Input[bool] continue_on_errors: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[str] force_update_tag: A unique string. If changed the script will be applied again.
+        :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
         :param pulumi.Input[str] script_name: The name of the Kusto database script.
+        :param pulumi.Input[str] script_url: The url to the KQL script blob file. Must not be used together with scriptContent property
+        :param pulumi.Input[str] script_url_sas_token: The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "script_url", script_url)
-        pulumi.set(__self__, "script_url_sas_token", script_url_sas_token)
         if continue_on_errors is None:
             continue_on_errors = False
         if continue_on_errors is not None:
             pulumi.set(__self__, "continue_on_errors", continue_on_errors)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if script_content is not None:
+            pulumi.set(__self__, "script_content", script_content)
         if script_name is not None:
             pulumi.set(__self__, "script_name", script_name)
+        if script_url is not None:
+            pulumi.set(__self__, "script_url", script_url)
+        if script_url_sas_token is not None:
+            pulumi.set(__self__, "script_url_sas_token", script_url_sas_token)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -85,30 +91,6 @@ class ScriptArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="scriptUrl")
-    def script_url(self) -> pulumi.Input[str]:
-        """
-        The url to the KQL script blob file.
-        """
-        return pulumi.get(self, "script_url")
-
-    @script_url.setter
-    def script_url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "script_url", value)
-
-    @property
-    @pulumi.getter(name="scriptUrlSasToken")
-    def script_url_sas_token(self) -> pulumi.Input[str]:
-        """
-        The SaS token.
-        """
-        return pulumi.get(self, "script_url_sas_token")
-
-    @script_url_sas_token.setter
-    def script_url_sas_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "script_url_sas_token", value)
-
-    @property
     @pulumi.getter(name="continueOnErrors")
     def continue_on_errors(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -133,6 +115,18 @@ class ScriptArgs:
         pulumi.set(self, "force_update_tag", value)
 
     @property
+    @pulumi.getter(name="scriptContent")
+    def script_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
+        """
+        return pulumi.get(self, "script_content")
+
+    @script_content.setter
+    def script_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_content", value)
+
+    @property
     @pulumi.getter(name="scriptName")
     def script_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -143,6 +137,30 @@ class ScriptArgs:
     @script_name.setter
     def script_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script_name", value)
+
+    @property
+    @pulumi.getter(name="scriptUrl")
+    def script_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The url to the KQL script blob file. Must not be used together with scriptContent property
+        """
+        return pulumi.get(self, "script_url")
+
+    @script_url.setter
+    def script_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_url", value)
+
+    @property
+    @pulumi.getter(name="scriptUrlSasToken")
+    def script_url_sas_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
+        """
+        return pulumi.get(self, "script_url_sas_token")
+
+    @script_url_sas_token.setter
+    def script_url_sas_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_url_sas_token", value)
 
 
 class Script(pulumi.CustomResource):
@@ -155,13 +173,15 @@ class Script(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 script_content: Optional[pulumi.Input[str]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
                  script_url: Optional[pulumi.Input[str]] = None,
                  script_url_sas_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Class representing a database script.
-        API Version: 2021-01-01.
+        API Version: 2022-12-29.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,9 +190,10 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] force_update_tag: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
         :param pulumi.Input[str] script_name: The name of the Kusto database script.
-        :param pulumi.Input[str] script_url: The url to the KQL script blob file.
-        :param pulumi.Input[str] script_url_sas_token: The SaS token.
+        :param pulumi.Input[str] script_url: The url to the KQL script blob file. Must not be used together with scriptContent property
+        :param pulumi.Input[str] script_url_sas_token: The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
         """
         ...
     @overload
@@ -182,7 +203,8 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a database script.
-        API Version: 2021-01-01.
+        API Version: 2022-12-29.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.
@@ -204,6 +226,7 @@ class Script(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 script_content: Optional[pulumi.Input[str]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
                  script_url: Optional[pulumi.Input[str]] = None,
                  script_url_sas_token: Optional[pulumi.Input[str]] = None,
@@ -229,12 +252,9 @@ class Script(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["script_content"] = script_content
             __props__.__dict__["script_name"] = script_name
-            if script_url is None and not opts.urn:
-                raise TypeError("Missing required property 'script_url'")
             __props__.__dict__["script_url"] = script_url
-            if script_url_sas_token is None and not opts.urn:
-                raise TypeError("Missing required property 'script_url_sas_token'")
             __props__.__dict__["script_url_sas_token"] = script_url_sas_token
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -307,9 +327,9 @@ class Script(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scriptUrl")
-    def script_url(self) -> pulumi.Output[str]:
+    def script_url(self) -> pulumi.Output[Optional[str]]:
         """
-        The url to the KQL script blob file.
+        The url to the KQL script blob file. Must not be used together with scriptContent property
         """
         return pulumi.get(self, "script_url")
 

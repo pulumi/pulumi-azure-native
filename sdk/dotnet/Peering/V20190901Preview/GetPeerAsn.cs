@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Peering.V20190901Preview
 {
-    [Obsolete(@"Version 2019-09-01-preview will be removed in v2 of the provider.")]
     public static class GetPeerAsn
     {
         /// <summary>

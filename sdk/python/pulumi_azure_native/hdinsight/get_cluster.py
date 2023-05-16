@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     The HDInsight cluster.
     """
-    def __init__(__self__, etag=None, id=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -41,12 +41,18 @@ class GetClusterResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -60,7 +66,7 @@ class GetClusterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -74,9 +80,9 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
-        The Azure Region where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -97,6 +103,14 @@ class GetClusterResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -108,9 +122,17 @@ class GetClusterResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        The availability zones.
+        """
+        return pulumi.get(self, "zones")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -125,8 +147,10 @@ class AwaitableGetClusterResult(GetClusterResult):
             location=self.location,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            zones=self.zones)
 
 
 def get_cluster(cluster_name: Optional[str] = None,
@@ -134,7 +158,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets the specified cluster.
-    API Version: 2018-06-01-preview.
+    API Version: 2021-06-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -153,8 +177,10 @@ def get_cluster(cluster_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type)
+        type=__ret__.type,
+        zones=__ret__.zones)
 
 
 @_utilities.lift_output_func(get_cluster)
@@ -163,7 +189,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets the specified cluster.
-    API Version: 2018-06-01-preview.
+    API Version: 2021-06-01.
 
 
     :param str cluster_name: The name of the cluster.

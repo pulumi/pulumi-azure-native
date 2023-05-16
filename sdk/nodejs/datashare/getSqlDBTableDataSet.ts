@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getSqlDBTableDataSet(args: GetSqlDBTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDBTableDataSetResult> {
 
@@ -89,7 +89,7 @@ export interface GetSqlDBTableDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getSqlDBTableDataSetOutput(args: GetSqlDBTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDBTableDataSetResult> {
     return pulumi.output(args).apply((a: any) => getSqlDBTableDataSet(a, opts))

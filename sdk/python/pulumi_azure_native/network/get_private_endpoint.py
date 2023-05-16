@@ -22,10 +22,16 @@ class GetPrivateEndpointResult:
     """
     Private endpoint resource.
     """
-    def __init__(__self__, custom_dns_configs=None, etag=None, extended_location=None, id=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, subnet=None, tags=None, type=None):
+    def __init__(__self__, application_security_groups=None, custom_dns_configs=None, custom_network_interface_name=None, etag=None, extended_location=None, id=None, ip_configurations=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, subnet=None, tags=None, type=None):
+        if application_security_groups and not isinstance(application_security_groups, list):
+            raise TypeError("Expected argument 'application_security_groups' to be a list")
+        pulumi.set(__self__, "application_security_groups", application_security_groups)
         if custom_dns_configs and not isinstance(custom_dns_configs, list):
             raise TypeError("Expected argument 'custom_dns_configs' to be a list")
         pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
+        if custom_network_interface_name and not isinstance(custom_network_interface_name, str):
+            raise TypeError("Expected argument 'custom_network_interface_name' to be a str")
+        pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -35,6 +41,9 @@ class GetPrivateEndpointResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,12 +73,28 @@ class GetPrivateEndpointResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="applicationSecurityGroups")
+    def application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]:
+        """
+        Application security groups in which the private endpoint IP configuration is included.
+        """
+        return pulumi.get(self, "application_security_groups")
+
+    @property
     @pulumi.getter(name="customDnsConfigs")
     def custom_dns_configs(self) -> Optional[Sequence['outputs.CustomDnsConfigPropertiesFormatResponse']]:
         """
         An array of custom dns configurations.
         """
         return pulumi.get(self, "custom_dns_configs")
+
+    @property
+    @pulumi.getter(name="customNetworkInterfaceName")
+    def custom_network_interface_name(self) -> Optional[str]:
+        """
+        The custom name of the network interface attached to the private endpoint.
+        """
+        return pulumi.get(self, "custom_network_interface_name")
 
     @property
     @pulumi.getter
@@ -94,6 +119,14 @@ class GetPrivateEndpointResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.PrivateEndpointIPConfigurationResponse']]:
+        """
+        A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+        """
+        return pulumi.get(self, "ip_configurations")
 
     @property
     @pulumi.getter
@@ -174,10 +207,13 @@ class AwaitableGetPrivateEndpointResult(GetPrivateEndpointResult):
         if False:
             yield self
         return GetPrivateEndpointResult(
+            application_security_groups=self.application_security_groups,
             custom_dns_configs=self.custom_dns_configs,
+            custom_network_interface_name=self.custom_network_interface_name,
             etag=self.etag,
             extended_location=self.extended_location,
             id=self.id,
+            ip_configurations=self.ip_configurations,
             location=self.location,
             manual_private_link_service_connections=self.manual_private_link_service_connections,
             name=self.name,
@@ -195,7 +231,7 @@ def get_private_endpoint(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
     Gets the specified private endpoint by resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.
@@ -210,10 +246,13 @@ def get_private_endpoint(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult).value
 
     return AwaitableGetPrivateEndpointResult(
+        application_security_groups=__ret__.application_security_groups,
         custom_dns_configs=__ret__.custom_dns_configs,
+        custom_network_interface_name=__ret__.custom_network_interface_name,
         etag=__ret__.etag,
         extended_location=__ret__.extended_location,
         id=__ret__.id,
+        ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,
         manual_private_link_service_connections=__ret__.manual_private_link_service_connections,
         name=__ret__.name,
@@ -232,7 +271,7 @@ def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
     Gets the specified private endpoint by resource group.
-    API Version: 2020-11-01.
+    API Version: 2022-09-01.
 
 
     :param str expand: Expands referenced resources.

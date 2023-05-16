@@ -26,13 +26,14 @@ export const getDataPoolOutput: typeof import("./getDataPool").getDataPoolOutput
 utilities.lazyLoad(exports, ["getDataPool","getDataPoolOutput"], () => require("./getDataPool"));
 
 
+// Export enums:
+export * from "../types/enums/autonomousdevelopmentplatform";
+
 // Export sub-modules:
-import * as v20200701preview from "./v20200701preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20211101preview from "./v20211101preview";
 
 export {
-    v20200701preview,
     v20210201preview,
     v20211101preview,
 };

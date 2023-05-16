@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
     /// <summary>
     /// Description of a NotificationHub Resource.
     /// </summary>
-    [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:notificationhubs/v20140901:NotificationHub")]
     public partial class NotificationHub : global::Pulumi.CustomResource
     {

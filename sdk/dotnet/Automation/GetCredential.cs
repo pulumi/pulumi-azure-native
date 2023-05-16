@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the credential identified by credential name.
-        /// API Version: 2019-06-01.
+        /// API Version: 2022-08-08.
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:automation:getCredential", args ?? new GetCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the credential identified by credential name.
-        /// API Version: 2019-06-01.
+        /// API Version: 2022-08-08.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());

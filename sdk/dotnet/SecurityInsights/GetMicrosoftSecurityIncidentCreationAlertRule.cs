@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets the alert rule.
-        /// API Version: 2020-01-01.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Task<GetMicrosoftSecurityIncidentCreationAlertRuleResult> InvokeAsync(GetMicrosoftSecurityIncidentCreationAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the alert rule.
-        /// API Version: 2020-01-01.
+        /// API Version: 2023-02-01.
         /// </summary>
         public static Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> Invoke(GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string LastModifiedUtc;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -137,7 +137,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly ImmutableArray<string> SeveritiesFilter;
         /// <summary>
-        /// Azure resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -169,6 +173,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             ImmutableArray<string> severitiesFilter,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AlertRuleTemplateName = alertRuleTemplateName;
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             Name = name;
             ProductFilter = productFilter;
             SeveritiesFilter = severitiesFilter;
+            SystemData = systemData;
             Type = type;
         }
     }

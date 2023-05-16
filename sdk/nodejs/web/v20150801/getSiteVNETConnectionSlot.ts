@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteVNETConnectionSlot(args: GetSiteVNETConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteVNETConnectionSlotResult> {
-    pulumi.log.warn("getSiteVNETConnectionSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteVNETConnectionSlot", {
@@ -99,7 +97,6 @@ export interface GetSiteVNETConnectionSlotResult {
 /**
  * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteVNETConnectionSlotOutput(args: GetSiteVNETConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteVNETConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getSiteVNETConnectionSlot(a, opts))
 }

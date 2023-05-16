@@ -35,16 +35,6 @@ export const getEndpointVariant: typeof import("./getEndpointVariant").getEndpoi
 export const getEndpointVariantOutput: typeof import("./getEndpointVariant").getEndpointVariantOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpointVariant","getEndpointVariantOutput"], () => require("./getEndpointVariant"));
 
-export { GetLinkedWorkspaceArgs, GetLinkedWorkspaceResult, GetLinkedWorkspaceOutputArgs } from "./getLinkedWorkspace";
-export const getLinkedWorkspace: typeof import("./getLinkedWorkspace").getLinkedWorkspace = null as any;
-export const getLinkedWorkspaceOutput: typeof import("./getLinkedWorkspace").getLinkedWorkspaceOutput = null as any;
-utilities.lazyLoad(exports, ["getLinkedWorkspace","getLinkedWorkspaceOutput"], () => require("./getLinkedWorkspace"));
-
-export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
-export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
-export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
-
 export { GetMachineLearningDatasetArgs, GetMachineLearningDatasetResult, GetMachineLearningDatasetOutputArgs } from "./getMachineLearningDataset";
 export const getMachineLearningDataset: typeof import("./getMachineLearningDataset").getMachineLearningDataset = null as any;
 export const getMachineLearningDatasetOutput: typeof import("./getMachineLearningDataset").getMachineLearningDatasetOutput = null as any;
@@ -54,21 +44,6 @@ export { GetMachineLearningDatastoreArgs, GetMachineLearningDatastoreResult, Get
 export const getMachineLearningDatastore: typeof import("./getMachineLearningDatastore").getMachineLearningDatastore = null as any;
 export const getMachineLearningDatastoreOutput: typeof import("./getMachineLearningDatastore").getMachineLearningDatastoreOutput = null as any;
 utilities.lazyLoad(exports, ["getMachineLearningDatastore","getMachineLearningDatastoreOutput"], () => require("./getMachineLearningDatastore"));
-
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
-export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
-export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
-utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-
-export { LinkedWorkspaceArgs } from "./linkedWorkspace";
-export type LinkedWorkspace = import("./linkedWorkspace").LinkedWorkspace;
-export const LinkedWorkspace: typeof import("./linkedWorkspace").LinkedWorkspace = null as any;
-utilities.lazyLoad(exports, ["LinkedWorkspace"], () => require("./linkedWorkspace"));
 
 export { ListMachineLearningComputeKeysArgs, ListMachineLearningComputeKeysResult, ListMachineLearningComputeKeysOutputArgs } from "./listMachineLearningComputeKeys";
 export const listMachineLearningComputeKeys: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeys = null as any;
@@ -85,11 +60,6 @@ export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspa
 export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
 
-export { MachineLearningComputeArgs } from "./machineLearningCompute";
-export type MachineLearningCompute = import("./machineLearningCompute").MachineLearningCompute;
-export const MachineLearningCompute: typeof import("./machineLearningCompute").MachineLearningCompute = null as any;
-utilities.lazyLoad(exports, ["MachineLearningCompute"], () => require("./machineLearningCompute"));
-
 export { MachineLearningDatasetArgs } from "./machineLearningDataset";
 export type MachineLearningDataset = import("./machineLearningDataset").MachineLearningDataset;
 export const MachineLearningDataset: typeof import("./machineLearningDataset").MachineLearningDataset = null as any;
@@ -99,16 +69,6 @@ export { MachineLearningDatastoreArgs } from "./machineLearningDatastore";
 export type MachineLearningDatastore = import("./machineLearningDatastore").MachineLearningDatastore;
 export const MachineLearningDatastore: typeof import("./machineLearningDatastore").MachineLearningDatastore = null as any;
 utilities.lazyLoad(exports, ["MachineLearningDatastore"], () => require("./machineLearningDatastore"));
-
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-export { WorkspaceArgs } from "./workspace";
-export type Workspace = import("./workspace").Workspace;
-export const Workspace: typeof import("./workspace").Workspace = null as any;
-utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 
 // Export enums:
@@ -124,18 +84,10 @@ const _module = {
                 return new AKSService(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200501preview:EndpointVariant":
                 return new EndpointVariant(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200501preview:LinkedWorkspace":
-                return new LinkedWorkspace(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200501preview:MachineLearningCompute":
-                return new MachineLearningCompute(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200501preview:MachineLearningDataset":
                 return new MachineLearningDataset(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore":
                 return new MachineLearningDatastore(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20200501preview:Workspace":
-                return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

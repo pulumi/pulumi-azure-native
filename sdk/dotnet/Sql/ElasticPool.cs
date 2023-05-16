@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An elastic pool.
-    /// API Version: 2020-11-01-preview.
+    /// API Version: 2021-11-01.
+    /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ElasticPool")]
     public partial class ElasticPool : global::Pulumi.CustomResource
@@ -21,6 +22,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        /// </summary>
+        [Output("highAvailabilityReplicaCount")]
+        public Output<int?> HighAvailabilityReplicaCount { get; private set; } = null!;
 
         /// <summary>
         /// Kind of elastic pool. This is metadata used for the Azure portal experience.
@@ -51,6 +58,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("maxSizeBytes")]
         public Output<double?> MaxSizeBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// Minimal capacity that serverless pool will not shrink below, if not paused
+        /// </summary>
+        [Output("minCapacity")]
+        public Output<double?> MinCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -168,6 +181,12 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? ElasticPoolName { get; set; }
 
         /// <summary>
+        /// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        /// </summary>
+        [Input("highAvailabilityReplicaCount")]
+        public Input<int>? HighAvailabilityReplicaCount { get; set; }
+
+        /// <summary>
         /// The license type to apply for this elastic pool.
         /// </summary>
         [Input("licenseType")]
@@ -190,6 +209,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<double>? MaxSizeBytes { get; set; }
+
+        /// <summary>
+        /// Minimal capacity that serverless pool will not shrink below, if not paused
+        /// </summary>
+        [Input("minCapacity")]
+        public Input<double>? MinCapacity { get; set; }
 
         /// <summary>
         /// The per database settings for the elastic pool.

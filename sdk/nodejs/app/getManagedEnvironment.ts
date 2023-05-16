@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of a Managed Environment used to host container apps.
- * API Version: 2022-03-01.
+ * API Version: 2022-10-01.
  */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
 
@@ -42,6 +42,10 @@ export interface GetManagedEnvironmentResult {
      */
     readonly appLogsConfiguration?: outputs.app.AppLogsConfigurationResponse;
     /**
+     * Custom domain configuration for the environment
+     */
+    readonly customDomainConfiguration?: outputs.app.CustomDomainConfigurationResponse;
+    /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry
      */
     readonly daprAIConnectionString?: string;
@@ -58,9 +62,17 @@ export interface GetManagedEnvironmentResult {
      */
     readonly deploymentErrors: string;
     /**
+     * The endpoint of the eventstream of the Environment.
+     */
+    readonly eventStreamEndpoint: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Kind of the Environment.
+     */
+    readonly kind?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -73,6 +85,10 @@ export interface GetManagedEnvironmentResult {
      * Provisioning state of the Environment.
      */
     readonly provisioningState: string;
+    /**
+     * SKU properties of the Environment.
+     */
+    readonly sku?: outputs.app.EnvironmentSkuPropertiesResponse;
     /**
      * Static IP of the Environment
      */
@@ -94,13 +110,17 @@ export interface GetManagedEnvironmentResult {
      */
     readonly vnetConfiguration?: outputs.app.VnetConfigurationResponse;
     /**
+     * Workload profiles configured for the Managed Environment.
+     */
+    readonly workloadProfiles?: outputs.app.WorkloadProfileResponse[];
+    /**
      * Whether or not this Managed Environment is zone-redundant.
      */
     readonly zoneRedundant?: boolean;
 }
 /**
  * Get the properties of a Managed Environment used to host container apps.
- * API Version: 2022-03-01.
+ * API Version: 2022-10-01.
  */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getManagedEnvironment(a, opts))

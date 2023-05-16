@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the non-security related metadata of a Windows IoT Device Service.
  */
-/** @deprecated Version 2018-02-16-preview will be removed in v2 of the provider. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: Version 2018-02-16-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:windowsiot/v20180216preview:getService", {
@@ -81,7 +79,6 @@ export interface GetServiceResult {
 /**
  * Get the non-security related metadata of a Windows IoT Device Service.
  */
-/** @deprecated Version 2018-02-16-preview will be removed in v2 of the provider. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

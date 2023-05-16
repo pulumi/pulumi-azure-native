@@ -5,42 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationArtifactType',
-    'ApplicationDefinitionArtifactName',
-    'ApplicationLockLevel',
     'JitApprovalMode',
     'JitApproverType',
-    'JitSchedulingType',
     'ResourceIdentityType',
 ]
-
-
-class ApplicationArtifactType(str, Enum):
-    """
-    The managed application definition artifact type.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    TEMPLATE = "Template"
-    CUSTOM = "Custom"
-
-
-class ApplicationDefinitionArtifactName(str, Enum):
-    """
-    The managed application definition artifact name.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    APPLICATION_RESOURCE_TEMPLATE = "ApplicationResourceTemplate"
-    CREATE_UI_DEFINITION = "CreateUiDefinition"
-    MAIN_TEMPLATE_PARAMETERS = "MainTemplateParameters"
-
-
-class ApplicationLockLevel(str, Enum):
-    """
-    The managed application lock level.
-    """
-    CAN_NOT_DELETE = "CanNotDelete"
-    READ_ONLY = "ReadOnly"
-    NONE = "None"
 
 
 class JitApprovalMode(str, Enum):
@@ -58,15 +26,6 @@ class JitApproverType(str, Enum):
     """
     USER = "user"
     GROUP = "group"
-
-
-class JitSchedulingType(str, Enum):
-    """
-    The type of JIT schedule.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    ONCE = "Once"
-    RECURRING = "Recurring"
 
 
 class ResourceIdentityType(str, Enum):

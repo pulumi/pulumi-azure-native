@@ -22,7 +22,7 @@ class GetAppResult:
     """
     App resource payload
     """
-    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +38,9 @@ class GetAppResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -83,6 +86,14 @@ class GetAppResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -102,6 +113,7 @@ class AwaitableGetAppResult(GetAppResult):
             location=self.location,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -112,7 +124,7 @@ def get_app(app_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     Get an App and its properties.
-    API Version: 2020-07-01.
+    API Version: 2022-12-01.
 
 
     :param str app_name: The name of the App resource.
@@ -134,6 +146,7 @@ def get_app(app_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -145,7 +158,7 @@ def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     Get an App and its properties.
-    API Version: 2020-07-01.
+    API Version: 2022-12-01.
 
 
     :param str app_name: The name of the App resource.

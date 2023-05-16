@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Relay.V20160701
 {
-    [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.")]
     public static class GetWCFRelay
     {
         /// <summary>

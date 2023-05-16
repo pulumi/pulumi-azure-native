@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a policy assignment.
  */
-/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
-    pulumi.log.warn("getPolicyAssignment is deprecated: Version 2016-12-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20161201:getPolicyAssignment", {
@@ -69,7 +67,6 @@ export interface GetPolicyAssignmentResult {
 /**
  * Gets a policy assignment.
  */
-/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getPolicyAssignment(a, opts))
 }

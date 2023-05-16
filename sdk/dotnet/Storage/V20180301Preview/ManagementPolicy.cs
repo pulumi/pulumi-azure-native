@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
     /// </summary>
-    [Obsolete(@"Version 2018-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20180301preview:ManagementPolicy")]
     public partial class ManagementPolicy : global::Pulumi.CustomResource
     {

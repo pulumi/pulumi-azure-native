@@ -17,8 +17,6 @@ __all__ = [
     'get_mongo_db_resource_mongo_db_collection_output',
 ]
 
-warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetMongoDBResourceMongoDBCollectionResult:
     """
@@ -118,7 +116,6 @@ def get_mongo_db_resource_mongo_db_collection(account_name: Optional[str] = None
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_mongo_db_resource_mongo_db_collection is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['collectionName'] = collection_name
@@ -151,5 +148,4 @@ def get_mongo_db_resource_mongo_db_collection_output(account_name: Optional[pulu
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_mongo_db_resource_mongo_db_collection is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
     ...

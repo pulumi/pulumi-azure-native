@@ -5,55 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { CloudConnectorArgs } from "./cloudConnector";
-export type CloudConnector = import("./cloudConnector").CloudConnector;
-export const CloudConnector: typeof import("./cloudConnector").CloudConnector = null as any;
-utilities.lazyLoad(exports, ["CloudConnector"], () => require("./cloudConnector"));
-
-export { CostAllocationRuleArgs } from "./costAllocationRule";
-export type CostAllocationRule = import("./costAllocationRule").CostAllocationRule;
-export const CostAllocationRule: typeof import("./costAllocationRule").CostAllocationRule = null as any;
-utilities.lazyLoad(exports, ["CostAllocationRule"], () => require("./costAllocationRule"));
-
 export { ExportArgs } from "./export";
 export type Export = import("./export").Export;
 export const Export: typeof import("./export").Export = null as any;
 utilities.lazyLoad(exports, ["Export"], () => require("./export"));
 
-export { GetCloudConnectorArgs, GetCloudConnectorResult, GetCloudConnectorOutputArgs } from "./getCloudConnector";
-export const getCloudConnector: typeof import("./getCloudConnector").getCloudConnector = null as any;
-export const getCloudConnectorOutput: typeof import("./getCloudConnector").getCloudConnectorOutput = null as any;
-utilities.lazyLoad(exports, ["getCloudConnector","getCloudConnectorOutput"], () => require("./getCloudConnector"));
-
-export { GetCostAllocationRuleArgs, GetCostAllocationRuleResult, GetCostAllocationRuleOutputArgs } from "./getCostAllocationRule";
-export const getCostAllocationRule: typeof import("./getCostAllocationRule").getCostAllocationRule = null as any;
-export const getCostAllocationRuleOutput: typeof import("./getCostAllocationRule").getCostAllocationRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getCostAllocationRule","getCostAllocationRuleOutput"], () => require("./getCostAllocationRule"));
-
 export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
 export const getExport: typeof import("./getExport").getExport = null as any;
 export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
 utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
-
-export { GetReportArgs, GetReportResult, GetReportOutputArgs } from "./getReport";
-export const getReport: typeof import("./getReport").getReport = null as any;
-export const getReportOutput: typeof import("./getReport").getReportOutput = null as any;
-utilities.lazyLoad(exports, ["getReport","getReportOutput"], () => require("./getReport"));
-
-export { GetReportByBillingAccountArgs, GetReportByBillingAccountResult, GetReportByBillingAccountOutputArgs } from "./getReportByBillingAccount";
-export const getReportByBillingAccount: typeof import("./getReportByBillingAccount").getReportByBillingAccount = null as any;
-export const getReportByBillingAccountOutput: typeof import("./getReportByBillingAccount").getReportByBillingAccountOutput = null as any;
-utilities.lazyLoad(exports, ["getReportByBillingAccount","getReportByBillingAccountOutput"], () => require("./getReportByBillingAccount"));
-
-export { GetReportByDepartmentArgs, GetReportByDepartmentResult, GetReportByDepartmentOutputArgs } from "./getReportByDepartment";
-export const getReportByDepartment: typeof import("./getReportByDepartment").getReportByDepartment = null as any;
-export const getReportByDepartmentOutput: typeof import("./getReportByDepartment").getReportByDepartmentOutput = null as any;
-utilities.lazyLoad(exports, ["getReportByDepartment","getReportByDepartmentOutput"], () => require("./getReportByDepartment"));
-
-export { GetReportByResourceGroupNameArgs, GetReportByResourceGroupNameResult, GetReportByResourceGroupNameOutputArgs } from "./getReportByResourceGroupName";
-export const getReportByResourceGroupName: typeof import("./getReportByResourceGroupName").getReportByResourceGroupName = null as any;
-export const getReportByResourceGroupNameOutput: typeof import("./getReportByResourceGroupName").getReportByResourceGroupNameOutput = null as any;
-utilities.lazyLoad(exports, ["getReportByResourceGroupName","getReportByResourceGroupNameOutput"], () => require("./getReportByResourceGroupName"));
 
 export { GetScheduledActionArgs, GetScheduledActionResult, GetScheduledActionOutputArgs } from "./getScheduledAction";
 export const getScheduledAction: typeof import("./getScheduledAction").getScheduledAction = null as any;
@@ -79,26 +39,6 @@ export { GetViewByScopeArgs, GetViewByScopeResult, GetViewByScopeOutputArgs } fr
 export const getViewByScope: typeof import("./getViewByScope").getViewByScope = null as any;
 export const getViewByScopeOutput: typeof import("./getViewByScope").getViewByScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
-
-export { ReportArgs } from "./report";
-export type Report = import("./report").Report;
-export const Report: typeof import("./report").Report = null as any;
-utilities.lazyLoad(exports, ["Report"], () => require("./report"));
-
-export { ReportByBillingAccountArgs } from "./reportByBillingAccount";
-export type ReportByBillingAccount = import("./reportByBillingAccount").ReportByBillingAccount;
-export const ReportByBillingAccount: typeof import("./reportByBillingAccount").ReportByBillingAccount = null as any;
-utilities.lazyLoad(exports, ["ReportByBillingAccount"], () => require("./reportByBillingAccount"));
-
-export { ReportByDepartmentArgs } from "./reportByDepartment";
-export type ReportByDepartment = import("./reportByDepartment").ReportByDepartment;
-export const ReportByDepartment: typeof import("./reportByDepartment").ReportByDepartment = null as any;
-utilities.lazyLoad(exports, ["ReportByDepartment"], () => require("./reportByDepartment"));
-
-export { ReportByResourceGroupNameArgs } from "./reportByResourceGroupName";
-export type ReportByResourceGroupName = import("./reportByResourceGroupName").ReportByResourceGroupName;
-export const ReportByResourceGroupName: typeof import("./reportByResourceGroupName").ReportByResourceGroupName = null as any;
-utilities.lazyLoad(exports, ["ReportByResourceGroupName"], () => require("./reportByResourceGroupName"));
 
 export { ScheduledActionArgs } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
@@ -132,20 +72,13 @@ export * from "../types/enums/costmanagement";
 // Export sub-modules:
 import * as v20180531 from "./v20180531";
 import * as v20180801preview from "./v20180801preview";
-import * as v20190101 from "./v20190101";
 import * as v20190301preview from "./v20190301preview";
 import * as v20190401preview from "./v20190401preview";
-import * as v20190901 from "./v20190901";
 import * as v20191001 from "./v20191001";
 import * as v20191101 from "./v20191101";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200601 from "./v20200601";
-import * as v20201201preview from "./v20201201preview";
-import * as v20210101 from "./v20210101";
-import * as v20211001 from "./v20211001";
 import * as v20220401preview from "./v20220401preview";
-import * as v20220601preview from "./v20220601preview";
-import * as v20220801preview from "./v20220801preview";
 import * as v20221001 from "./v20221001";
 import * as v20221001preview from "./v20221001preview";
 import * as v20221005preview from "./v20221005preview";
@@ -153,20 +86,13 @@ import * as v20221005preview from "./v20221005preview";
 export {
     v20180531,
     v20180801preview,
-    v20190101,
     v20190301preview,
     v20190401preview,
-    v20190901,
     v20191001,
     v20191101,
     v20200301preview,
     v20200601,
-    v20201201preview,
-    v20210101,
-    v20211001,
     v20220401preview,
-    v20220601preview,
-    v20220801preview,
     v20221001,
     v20221001preview,
     v20221005preview,
@@ -176,20 +102,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:costmanagement:CloudConnector":
-                return new CloudConnector(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:CostAllocationRule":
-                return new CostAllocationRule(name, <any>undefined, { urn })
             case "azure-native:costmanagement:Export":
                 return new Export(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:Report":
-                return new Report(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ReportByBillingAccount":
-                return new ReportByBillingAccount(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ReportByDepartment":
-                return new ReportByDepartment(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ReportByResourceGroupName":
-                return new ReportByResourceGroupName(name, <any>undefined, { urn })
             case "azure-native:costmanagement:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
             case "azure-native:costmanagement:ScheduledActionByScope":

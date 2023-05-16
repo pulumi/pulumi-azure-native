@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Task<GetSAPApplicationServerInstanceResult> InvokeAsync(GetSAPApplicationServerInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPApplicationServerInstanceResult>("azure-native:workloads:getSAPApplicationServerInstance", args ?? new GetSAPApplicationServerInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-        /// API Version: 2021-12-01-preview.
+        /// API Version: 2023-04-01.
         /// </summary>
         public static Output<GetSAPApplicationServerInstanceResult> Invoke(GetSAPApplicationServerInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPApplicationServerInstanceResult>("azure-native:workloads:getSAPApplicationServerInstance", args ?? new GetSAPApplicationServerInstanceInvokeArgs(), options.WithDefaults());
@@ -128,6 +128,10 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string KernelVersion;
         /// <summary>
+        /// The Load Balancer details such as LoadBalancer ID attached to Application Server Virtual Machines
+        /// </summary>
+        public readonly Outputs.LoadBalancerDetailsResponse LoadBalancerDetails;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -143,10 +147,6 @@ namespace Pulumi.AzureNative.Workloads
         /// Defines the SAP Instance status.
         /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.StorageInformationResponse> StorageDetails;
         /// <summary>
         /// Application server Subnet.
         /// </summary>
@@ -164,9 +164,9 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The virtual machine.
+        /// The list of virtual machines.
         /// </summary>
-        public readonly string VirtualMachineId;
+        public readonly ImmutableArray<Outputs.ApplicationServerVmDetailsResponse> VmDetails;
 
         [OutputConstructor]
         private GetSAPApplicationServerInstanceResult(
@@ -192,6 +192,8 @@ namespace Pulumi.AzureNative.Workloads
 
             string kernelVersion,
 
+            Outputs.LoadBalancerDetailsResponse loadBalancerDetails,
+
             string location,
 
             string name,
@@ -199,8 +201,6 @@ namespace Pulumi.AzureNative.Workloads
             string provisioningState,
 
             string status,
-
-            ImmutableArray<Outputs.StorageInformationResponse> storageDetails,
 
             string subnet,
 
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string type,
 
-            string virtualMachineId)
+            ImmutableArray<Outputs.ApplicationServerVmDetailsResponse> vmDetails)
         {
             Errors = errors;
             GatewayPort = gatewayPort;
@@ -223,16 +223,16 @@ namespace Pulumi.AzureNative.Workloads
             IpAddress = ipAddress;
             KernelPatch = kernelPatch;
             KernelVersion = kernelVersion;
+            LoadBalancerDetails = loadBalancerDetails;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             Status = status;
-            StorageDetails = storageDetails;
             Subnet = subnet;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            VirtualMachineId = virtualMachineId;
+            VmDetails = vmDetails;
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
     /// <summary>
     /// Managed cluster.
     /// </summary>
-    [Obsolete(@"Version 2019-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20190201:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource
     {
@@ -197,6 +196,10 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221102preview:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230101:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230102preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230201:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230202preview:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230301:ManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230302preview:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

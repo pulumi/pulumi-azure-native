@@ -12,7 +12,6 @@ from ._enums import *
 
 __all__ = [
     'IdentityResponse',
-    'ObjectAnchorsAccountResponseIdentity',
     'SkuResponse',
     'SystemDataResponse',
 ]
@@ -47,66 +46,6 @@ class IdentityResponse(dict):
                  type: Optional[str] = None):
         """
         Identity for the resource.
-        :param str principal_id: The principal ID of resource identity.
-        :param str tenant_id: The tenant ID of resource.
-        :param str type: The identity type.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal ID of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant ID of resource.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ObjectAnchorsAccountResponseIdentity(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ObjectAnchorsAccountResponseIdentity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ObjectAnchorsAccountResponseIdentity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ObjectAnchorsAccountResponseIdentity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None):
-        """
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.

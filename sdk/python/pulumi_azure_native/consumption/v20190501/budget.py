@@ -161,12 +161,7 @@ class BudgetArgs:
         pulumi.set(self, "notifications", value)
 
 
-warnings.warn("""Version 2019-05-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Budget(pulumi.CustomResource):
-    warnings.warn("""Version 2019-05-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -230,7 +225,6 @@ class Budget(pulumi.CustomResource):
                  time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Budget is deprecated: Version 2019-05-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -261,7 +255,7 @@ class Budget(pulumi.CustomResource):
             __props__.__dict__["current_spend"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:consumption:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190601:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20210501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20211001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20220901:Budget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:consumption:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190601:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20210501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20211001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20220901:Budget"), pulumi.Alias(type_="azure-native:consumption/v20230301:Budget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Budget, __self__).__init__(
             'azure-native:consumption/v20190501:Budget',

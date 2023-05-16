@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The routing intent child resource of a Virtual hub.
- * API Version: 2022-01-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class RoutingIntent extends pulumi.CustomResource {
     /**
@@ -93,7 +94,7 @@ export class RoutingIntent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501:RoutingIntent" }, { type: "azure-native:network/v20210801:RoutingIntent" }, { type: "azure-native:network/v20220101:RoutingIntent" }, { type: "azure-native:network/v20220501:RoutingIntent" }, { type: "azure-native:network/v20220701:RoutingIntent" }, { type: "azure-native:network/v20220901:RoutingIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501:RoutingIntent" }, { type: "azure-native:network/v20210801:RoutingIntent" }, { type: "azure-native:network/v20220101:RoutingIntent" }, { type: "azure-native:network/v20220501:RoutingIntent" }, { type: "azure-native:network/v20220701:RoutingIntent" }, { type: "azure-native:network/v20220901:RoutingIntent" }, { type: "azure-native:network/v20221101:RoutingIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoutingIntent.__pulumiType, name, resourceInputs, opts);
     }

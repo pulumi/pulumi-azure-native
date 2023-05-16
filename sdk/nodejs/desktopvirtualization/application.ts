@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Schema for Application properties.
- * API Version: 2021-02-01-preview.
+ * API Version: 2022-09-09.
+ * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -99,6 +100,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly showInPortal!: pulumi.Output<boolean | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -141,6 +146,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["iconHash"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["applicationType"] = undefined /*out*/;
@@ -158,6 +164,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["showInPortal"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-    /// API Version: 2020-01-01-preview.
+    /// API Version: 2023-02-01-preview.
+    /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:NodeType")]
     public partial class NodeType : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional managed data disks.
+        /// </summary>
+        [Output("additionalDataDisks")]
+        public Output<ImmutableArray<Outputs.VmssDataDiskResponse>> AdditionalDataDisks { get; private set; } = null!;
+
         /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
         /// </summary>
@@ -29,10 +36,46 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<ImmutableDictionary<string, string>?> Capacities { get; private set; } = null!;
 
         /// <summary>
-        /// Disk size for each vm in the node type in GBs.
+        /// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+        /// </summary>
+        [Output("dataDiskLetter")]
+        public Output<string?> DataDiskLetter { get; private set; } = null!;
+
+        /// <summary>
+        /// Disk size for the managed disk attached to the vms on the node type in GBs.
         /// </summary>
         [Output("dataDiskSizeGB")]
-        public Output<int> DataDiskSizeGB { get; private set; } = null!;
+        public Output<int?> DataDiskSizeGB { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed data disk type. Specifies the storage account type for the managed disk
+        /// </summary>
+        [Output("dataDiskType")]
+        public Output<string?> DataDiskType { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the network interface is accelerated networking-enabled.
+        /// </summary>
+        [Output("enableAcceleratedNetworking")]
+        public Output<bool?> EnableAcceleratedNetworking { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+        /// </summary>
+        [Output("enableEncryptionAtHost")]
+        public Output<bool?> EnableEncryptionAtHost { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        /// </summary>
+        [Output("enableNodePublicIP")]
+        public Output<bool?> EnableNodePublicIP { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+        /// </summary>
+        [Output("enableOverProvisioning")]
+        public Output<bool?> EnableOverProvisioning { get; private set; } = null!;
 
         /// <summary>
         /// The range of ephemeral ports that nodes in this node type should be configured with.
@@ -41,10 +84,46 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<Outputs.EndpointRangeDescriptionResponse?> EphemeralPorts { get; private set; } = null!;
 
         /// <summary>
-        /// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+        /// Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
+        /// </summary>
+        [Output("evictionPolicy")]
+        public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+        /// </summary>
+        [Output("frontendConfigurations")]
+        public Output<ImmutableArray<Outputs.FrontendConfigurationResponse>> FrontendConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the full host group resource Id. This property is used for deploying on azure dedicated hosts.
+        /// </summary>
+        [Output("hostGroupId")]
+        public Output<string?> HostGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
         /// </summary>
         [Output("isPrimary")]
         public Output<bool> IsPrimary { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
+        /// </summary>
+        [Output("isSpotVM")]
+        public Output<bool?> IsSpotVM { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if the node type can only host Stateless workloads.
+        /// </summary>
+        [Output("isStateless")]
+        public Output<bool?> IsStateless { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        /// </summary>
+        [Output("multiplePlacementGroups")]
+        public Output<bool?> MultiplePlacementGroups { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name.
@@ -53,16 +132,58 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+        /// </summary>
+        [Output("networkSecurityRules")]
+        public Output<ImmutableArray<Outputs.NetworkSecurityRuleResponse>> NetworkSecurityRules { get; private set; } = null!;
+
+        /// <summary>
         /// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         /// </summary>
         [Output("placementProperties")]
         public Output<ImmutableDictionary<string, string>?> PlacementProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the managed cluster resource.
+        /// The provisioning state of the node type resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
+        /// </summary>
+        [Output("secureBootEnabled")]
+        public Output<bool?> SecureBootEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        /// </summary>
+        [Output("securityType")]
+        public Output<string?> SecurityType { get; private set; } = null!;
+
+        /// <summary>
+        /// The node type sku.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.NodeTypeSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
+        /// </summary>
+        [Output("spotRestoreTimeout")]
+        public Output<string?> SpotRestoreTimeout { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the resource id of the subnet for the node type.
+        /// </summary>
+        [Output("subnetId")]
+        public Output<string?> SubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.
@@ -75,6 +196,24 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        /// </summary>
+        [Output("useDefaultPublicLoadBalancer")]
+        public Output<bool?> UseDefaultPublicLoadBalancer { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether to use ephemeral os disk. The sku selected on the vmSize property needs to support this feature.
+        /// </summary>
+        [Output("useEphemeralOSDisk")]
+        public Output<bool?> UseEphemeralOSDisk { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        /// </summary>
+        [Output("useTempDataDisk")]
+        public Output<bool?> UseTempDataDisk { get; private set; } = null!;
 
         /// <summary>
         /// Set of extensions that should be installed onto the virtual machines.
@@ -95,6 +234,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string?> VmImagePublisher { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates the resource id of the vm image. This parameter is used for custom vm image.
+        /// </summary>
+        [Output("vmImageResourceId")]
+        public Output<string?> VmImageResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         /// </summary>
         [Output("vmImageSku")]
@@ -107,10 +252,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string?> VmImageVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The number of nodes in the node type.
+        /// The number of nodes in the node type. &lt;br /&gt;&lt;br /&gt;**Values:** &lt;br /&gt;-1 - Use when auto scale rules are configured or sku.capacity is defined &lt;br /&gt; 0 - Not supported &lt;br /&gt; &gt;0 - Use for manual scale.
         /// </summary>
         [Output("vmInstanceCount")]
         public Output<int> VmInstanceCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Identities to assign to the virtual machine scale set under the node type.
+        /// </summary>
+        [Output("vmManagedIdentity")]
+        public Output<Outputs.VmManagedIdentityResponse?> VmManagedIdentity { get; private set; } = null!;
 
         /// <summary>
         /// The secrets to install in the virtual machines.
@@ -119,10 +270,28 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<ImmutableArray<Outputs.VaultSecretGroupResponse>> VmSecrets { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the actions to be performed on the vms before bootstrapping the service fabric runtime.
+        /// </summary>
+        [Output("vmSetupActions")]
+        public Output<ImmutableArray<string>> VmSetupActions { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the resource id of the vm shared galleries image. This parameter is used for custom vm image.
+        /// </summary>
+        [Output("vmSharedGalleryImageId")]
+        public Output<string?> VmSharedGalleryImageId { get; private set; } = null!;
+
+        /// <summary>
         /// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         /// </summary>
         [Output("vmSize")]
         public Output<string?> VmSize { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -184,6 +353,18 @@ namespace Pulumi.AzureNative.ServiceFabric
 
     public sealed class NodeTypeArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalDataDisks")]
+        private InputList<Inputs.VmssDataDiskArgs>? _additionalDataDisks;
+
+        /// <summary>
+        /// Additional managed data disks.
+        /// </summary>
+        public InputList<Inputs.VmssDataDiskArgs> AdditionalDataDisks
+        {
+            get => _additionalDataDisks ?? (_additionalDataDisks = new InputList<Inputs.VmssDataDiskArgs>());
+            set => _additionalDataDisks = value;
+        }
+
         /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
         /// </summary>
@@ -209,10 +390,46 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Disk size for each vm in the node type in GBs.
+        /// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         /// </summary>
-        [Input("dataDiskSizeGB", required: true)]
-        public Input<int> DataDiskSizeGB { get; set; } = null!;
+        [Input("dataDiskLetter")]
+        public Input<string>? DataDiskLetter { get; set; }
+
+        /// <summary>
+        /// Disk size for the managed disk attached to the vms on the node type in GBs.
+        /// </summary>
+        [Input("dataDiskSizeGB")]
+        public Input<int>? DataDiskSizeGB { get; set; }
+
+        /// <summary>
+        /// Managed data disk type. Specifies the storage account type for the managed disk
+        /// </summary>
+        [Input("dataDiskType")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.DiskType>? DataDiskType { get; set; }
+
+        /// <summary>
+        /// Specifies whether the network interface is accelerated networking-enabled.
+        /// </summary>
+        [Input("enableAcceleratedNetworking")]
+        public Input<bool>? EnableAcceleratedNetworking { get; set; }
+
+        /// <summary>
+        /// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+        /// </summary>
+        [Input("enableEncryptionAtHost")]
+        public Input<bool>? EnableEncryptionAtHost { get; set; }
+
+        /// <summary>
+        /// Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        /// </summary>
+        [Input("enableNodePublicIP")]
+        public Input<bool>? EnableNodePublicIP { get; set; }
+
+        /// <summary>
+        /// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+        /// </summary>
+        [Input("enableOverProvisioning")]
+        public Input<bool>? EnableOverProvisioning { get; set; }
 
         /// <summary>
         /// The range of ephemeral ports that nodes in this node type should be configured with.
@@ -221,10 +438,64 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<Inputs.EndpointRangeDescriptionArgs>? EphemeralPorts { get; set; }
 
         /// <summary>
-        /// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+        /// Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
+        /// </summary>
+        [Input("evictionPolicy")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.EvictionPolicyType>? EvictionPolicy { get; set; }
+
+        [Input("frontendConfigurations")]
+        private InputList<Inputs.FrontendConfigurationArgs>? _frontendConfigurations;
+
+        /// <summary>
+        /// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+        /// </summary>
+        public InputList<Inputs.FrontendConfigurationArgs> FrontendConfigurations
+        {
+            get => _frontendConfigurations ?? (_frontendConfigurations = new InputList<Inputs.FrontendConfigurationArgs>());
+            set => _frontendConfigurations = value;
+        }
+
+        /// <summary>
+        /// Specifies the full host group resource Id. This property is used for deploying on azure dedicated hosts.
+        /// </summary>
+        [Input("hostGroupId")]
+        public Input<string>? HostGroupId { get; set; }
+
+        /// <summary>
+        /// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
         /// </summary>
         [Input("isPrimary", required: true)]
         public Input<bool> IsPrimary { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
+        /// </summary>
+        [Input("isSpotVM")]
+        public Input<bool>? IsSpotVM { get; set; }
+
+        /// <summary>
+        /// Indicates if the node type can only host Stateless workloads.
+        /// </summary>
+        [Input("isStateless")]
+        public Input<bool>? IsStateless { get; set; }
+
+        /// <summary>
+        /// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        /// </summary>
+        [Input("multiplePlacementGroups")]
+        public Input<bool>? MultiplePlacementGroups { get; set; }
+
+        [Input("networkSecurityRules")]
+        private InputList<Inputs.NetworkSecurityRuleArgs>? _networkSecurityRules;
+
+        /// <summary>
+        /// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+        /// </summary>
+        public InputList<Inputs.NetworkSecurityRuleArgs> NetworkSecurityRules
+        {
+            get => _networkSecurityRules ?? (_networkSecurityRules = new InputList<Inputs.NetworkSecurityRuleArgs>());
+            set => _networkSecurityRules = value;
+        }
 
         /// <summary>
         /// The name of the node type.
@@ -250,6 +521,36 @@ namespace Pulumi.AzureNative.ServiceFabric
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
+        /// </summary>
+        [Input("secureBootEnabled")]
+        public Input<bool>? SecureBootEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        /// </summary>
+        [Input("securityType")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.SecurityType>? SecurityType { get; set; }
+
+        /// <summary>
+        /// The node type sku.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.NodeTypeSkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
+        /// </summary>
+        [Input("spotRestoreTimeout")]
+        public Input<string>? SpotRestoreTimeout { get; set; }
+
+        /// <summary>
+        /// Indicates the resource id of the subnet for the node type.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -261,6 +562,24 @@ namespace Pulumi.AzureNative.ServiceFabric
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        /// </summary>
+        [Input("useDefaultPublicLoadBalancer")]
+        public Input<bool>? UseDefaultPublicLoadBalancer { get; set; }
+
+        /// <summary>
+        /// Indicates whether to use ephemeral os disk. The sku selected on the vmSize property needs to support this feature.
+        /// </summary>
+        [Input("useEphemeralOSDisk")]
+        public Input<bool>? UseEphemeralOSDisk { get; set; }
+
+        /// <summary>
+        /// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        /// </summary>
+        [Input("useTempDataDisk")]
+        public Input<bool>? UseTempDataDisk { get; set; }
 
         [Input("vmExtensions")]
         private InputList<Inputs.VMSSExtensionArgs>? _vmExtensions;
@@ -287,6 +606,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string>? VmImagePublisher { get; set; }
 
         /// <summary>
+        /// Indicates the resource id of the vm image. This parameter is used for custom vm image.
+        /// </summary>
+        [Input("vmImageResourceId")]
+        public Input<string>? VmImageResourceId { get; set; }
+
+        /// <summary>
         /// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         /// </summary>
         [Input("vmImageSku")]
@@ -299,10 +624,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string>? VmImageVersion { get; set; }
 
         /// <summary>
-        /// The number of nodes in the node type.
+        /// The number of nodes in the node type. &lt;br /&gt;&lt;br /&gt;**Values:** &lt;br /&gt;-1 - Use when auto scale rules are configured or sku.capacity is defined &lt;br /&gt; 0 - Not supported &lt;br /&gt; &gt;0 - Use for manual scale.
         /// </summary>
         [Input("vmInstanceCount", required: true)]
         public Input<int> VmInstanceCount { get; set; } = null!;
+
+        /// <summary>
+        /// Identities to assign to the virtual machine scale set under the node type.
+        /// </summary>
+        [Input("vmManagedIdentity")]
+        public Input<Inputs.VmManagedIdentityArgs>? VmManagedIdentity { get; set; }
 
         [Input("vmSecrets")]
         private InputList<Inputs.VaultSecretGroupArgs>? _vmSecrets;
@@ -316,14 +647,47 @@ namespace Pulumi.AzureNative.ServiceFabric
             set => _vmSecrets = value;
         }
 
+        [Input("vmSetupActions")]
+        private InputList<Union<string, Pulumi.AzureNative.ServiceFabric.VmSetupAction>>? _vmSetupActions;
+
+        /// <summary>
+        /// Specifies the actions to be performed on the vms before bootstrapping the service fabric runtime.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.ServiceFabric.VmSetupAction>> VmSetupActions
+        {
+            get => _vmSetupActions ?? (_vmSetupActions = new InputList<Union<string, Pulumi.AzureNative.ServiceFabric.VmSetupAction>>());
+            set => _vmSetupActions = value;
+        }
+
+        /// <summary>
+        /// Indicates the resource id of the vm shared galleries image. This parameter is used for custom vm image.
+        /// </summary>
+        [Input("vmSharedGalleryImageId")]
+        public Input<string>? VmSharedGalleryImageId { get; set; }
+
         /// <summary>
         /// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public NodeTypeArgs()
         {
+            EnableEncryptionAtHost = false;
+            IsStateless = false;
+            MultiplePlacementGroups = false;
         }
         public static new NodeTypeArgs Empty => new NodeTypeArgs();
     }

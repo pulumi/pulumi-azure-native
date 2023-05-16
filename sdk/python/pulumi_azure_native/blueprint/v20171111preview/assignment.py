@@ -179,12 +179,7 @@ class AssignmentArgs:
         pulumi.set(self, "subscription_id", value)
 
 
-warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Assignment(pulumi.CustomResource):
-    warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -251,7 +246,6 @@ class Assignment(pulumi.CustomResource):
                  resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupValueArgs']]]]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Assignment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

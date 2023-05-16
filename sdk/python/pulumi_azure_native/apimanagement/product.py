@@ -28,7 +28,7 @@ class ProductArgs:
         """
         The set of arguments for constructing a Product resource.
         :param pulumi.Input[str] display_name: Product name.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[bool] approval_required: whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
         :param pulumi.Input[str] description: Product description. May include HTML formatting tags.
@@ -72,7 +72,7 @@ class ProductArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -195,7 +195,8 @@ class Product(pulumi.CustomResource):
                  __props__=None):
         """
         Product details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +204,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] description: Product description. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: Product name.
         :param pulumi.Input[str] product_id: Product identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input['ProductState'] state: whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
         :param pulumi.Input[bool] subscription_required: Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
@@ -218,7 +219,8 @@ class Product(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Product details.
-        API Version: 2020-12-01.
+        API Version: 2022-08-01.
+        Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ProductArgs args: The arguments to use to populate this resource's properties.
@@ -272,7 +274,7 @@ class Product(pulumi.CustomResource):
             __props__.__dict__["terms"] = terms
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Product")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Product")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Product, __self__).__init__(
             'azure-native:apimanagement:Product',
@@ -335,7 +337,7 @@ class Product(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -375,7 +377,7 @@ class Product(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

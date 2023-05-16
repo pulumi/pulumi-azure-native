@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Sync Group object.
- * API Version: 2020-03-01.
+ * API Version: 2022-06-01.
+ * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class SyncGroup extends pulumi.CustomResource {
     /**
@@ -44,6 +48,10 @@ export class SyncGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly syncGroupStatus!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -74,11 +82,13 @@ export class SyncGroup extends pulumi.CustomResource {
             resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["syncGroupStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["syncGroupStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         }

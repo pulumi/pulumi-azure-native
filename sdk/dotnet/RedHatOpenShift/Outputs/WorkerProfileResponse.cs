@@ -17,23 +17,31 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class WorkerProfileResponse
     {
         /// <summary>
-        /// The number of worker VMs.  Must be between 3 and 20 (immutable).
+        /// The number of worker VMs.
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+        /// The resource ID of an associated DiskEncryptionSet, if applicable.
+        /// </summary>
+        public readonly string? DiskEncryptionSetId;
+        /// <summary>
+        /// The disk size of the worker VMs.
         /// </summary>
         public readonly int? DiskSizeGB;
         /// <summary>
-        /// The worker profile name.  Must be "worker" (immutable).
+        /// Whether master virtual machines are encrypted at host.
+        /// </summary>
+        public readonly string? EncryptionAtHost;
+        /// <summary>
+        /// The worker profile name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The Azure resource ID of the worker subnet (immutable).
+        /// The Azure resource ID of the worker subnet.
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// The size of the worker VMs (immutable).
+        /// The size of the worker VMs.
         /// </summary>
         public readonly string? VmSize;
 
@@ -41,7 +49,11 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
         private WorkerProfileResponse(
             int? count,
 
+            string? diskEncryptionSetId,
+
             int? diskSizeGB,
+
+            string? encryptionAtHost,
 
             string? name,
 
@@ -50,7 +62,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
             string? vmSize)
         {
             Count = count;
+            DiskEncryptionSetId = diskEncryptionSetId;
             DiskSizeGB = diskSizeGB;
+            EncryptionAtHost = encryptionAtHost;
             Name = name;
             SubnetId = subnetId;
             VmSize = vmSize;

@@ -21,7 +21,7 @@ class GetIdentityProviderResult:
     """
     Identity Provider details.
     """
-    def __init__(__self__, allowed_tenants=None, authority=None, client_id=None, client_secret=None, id=None, name=None, password_reset_policy_name=None, profile_editing_policy_name=None, signin_policy_name=None, signin_tenant=None, signup_policy_name=None, type=None):
+    def __init__(__self__, allowed_tenants=None, authority=None, client_id=None, client_library=None, client_secret=None, id=None, name=None, password_reset_policy_name=None, profile_editing_policy_name=None, signin_policy_name=None, signin_tenant=None, signup_policy_name=None, type=None):
         if allowed_tenants and not isinstance(allowed_tenants, list):
             raise TypeError("Expected argument 'allowed_tenants' to be a list")
         pulumi.set(__self__, "allowed_tenants", allowed_tenants)
@@ -31,6 +31,9 @@ class GetIdentityProviderResult:
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
+        if client_library and not isinstance(client_library, str):
+            raise TypeError("Expected argument 'client_library' to be a str")
+        pulumi.set(__self__, "client_library", client_library)
         if client_secret and not isinstance(client_secret, str):
             raise TypeError("Expected argument 'client_secret' to be a str")
         pulumi.set(__self__, "client_secret", client_secret)
@@ -84,6 +87,14 @@ class GetIdentityProviderResult:
         return pulumi.get(self, "client_id")
 
     @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> Optional[str]:
+        """
+        The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
+
+    @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
@@ -95,7 +106,7 @@ class GetIdentityProviderResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -103,7 +114,7 @@ class GetIdentityProviderResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -151,7 +162,7 @@ class GetIdentityProviderResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -165,6 +176,7 @@ class AwaitableGetIdentityProviderResult(GetIdentityProviderResult):
             allowed_tenants=self.allowed_tenants,
             authority=self.authority,
             client_id=self.client_id,
+            client_library=self.client_library,
             client_secret=self.client_secret,
             id=self.id,
             name=self.name,
@@ -182,11 +194,11 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityProviderResult:
     """
     Gets the configuration details of the identity Provider configured in specified service instance.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -200,6 +212,7 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
         allowed_tenants=__ret__.allowed_tenants,
         authority=__ret__.authority,
         client_id=__ret__.client_id,
+        client_library=__ret__.client_library,
         client_secret=__ret__.client_secret,
         id=__ret__.id,
         name=__ret__.name,
@@ -218,11 +231,11 @@ def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     Gets the configuration details of the identity Provider configured in specified service instance.
-    API Version: 2020-12-01.
+    API Version: 2022-08-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

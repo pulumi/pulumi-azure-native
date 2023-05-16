@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified vendor.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
 
@@ -47,13 +47,17 @@ export interface GetVendorResult {
      */
     readonly skus: outputs.hybridnetwork.SubResourceResponse[];
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets information about the specified vendor.
- * API Version: 2020-01-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
     return pulumi.output(args).apply((a: any) => getVendor(a, opts))

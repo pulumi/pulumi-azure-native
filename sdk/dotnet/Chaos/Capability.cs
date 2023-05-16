@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Chaos
 {
     /// <summary>
     /// Model that represents a Capability resource.
-    /// API Version: 2021-09-15-preview.
+    /// API Version: 2022-10-01-preview.
+    /// Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:Capability")]
     public partial class Capability : global::Pulumi.CustomResource
@@ -69,6 +70,7 @@ namespace Pulumi.AzureNative.Chaos
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20220701preview:Capability"},
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20221001preview:Capability"},
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230401preview:Capability"},
+                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20230415preview:Capability"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

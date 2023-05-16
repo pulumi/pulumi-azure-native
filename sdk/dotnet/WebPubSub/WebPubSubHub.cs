@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// A hub setting
-    /// API Version: 2021-10-01.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubHub")]
     public partial class WebPubSubHub : global::Pulumi.CustomResource
@@ -68,6 +69,7 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubHub"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubHub"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

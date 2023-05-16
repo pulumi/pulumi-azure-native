@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Network Virtual Appliance.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
 
@@ -57,6 +57,14 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly cloudInitConfigurationBlobs?: string[];
     /**
+     * The delegation for the Virtual Appliance
+     */
+    readonly delegation?: outputs.network.DelegationPropertiesResponse;
+    /**
+     * The deployment type. PartnerManaged for the SaaS NVA
+     */
+    readonly deploymentType: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -85,9 +93,17 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly nvaSku?: outputs.network.VirtualApplianceSkuPropertiesResponse;
     /**
+     * The delegation for the Virtual Appliance
+     */
+    readonly partnerManagedResource?: outputs.network.PartnerManagedResourcePropertiesResponse;
+    /**
      * The provisioning state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Public key for SSH login.
+     */
+    readonly sshPublicKey?: string;
     /**
      * Resource tags.
      */
@@ -97,7 +113,7 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly type: string;
     /**
-     * VirtualAppliance ASN.
+     * VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
      */
     readonly virtualApplianceAsn?: number;
     /**
@@ -115,7 +131,7 @@ export interface GetNetworkVirtualApplianceResult {
 }
 /**
  * Gets the specified Network Virtual Appliance.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
  */
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))

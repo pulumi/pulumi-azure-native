@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// Contains information about a pool.
-    /// API Version: 2021-01-01.
+    /// API Version: 2022-10-01.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
@@ -42,6 +43,8 @@ namespace Pulumi.AzureNative.Batch
 
         /// <summary>
         /// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        /// 
+        /// Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.CertificateReferenceResponse>> Certificates { get; private set; } = null!;
@@ -54,6 +57,9 @@ namespace Pulumi.AzureNative.Batch
 
         [Output("currentLowPriorityNodes")]
         public Output<int> CurrentLowPriorityNodes { get; private set; } = null!;
+
+        [Output("currentNodeCommunicationMode")]
+        public Output<string> CurrentNodeCommunicationMode { get; private set; } = null!;
 
         /// <summary>
         /// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
@@ -138,6 +144,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Output("startTask")]
         public Output<Outputs.StartTaskResponse?> StartTask { get; private set; } = null!;
+
+        /// <summary>
+        /// If omitted, the default value is Default.
+        /// </summary>
+        [Output("targetNodeCommunicationMode")]
+        public Output<string?> TargetNodeCommunicationMode { get; private set; } = null!;
 
         /// <summary>
         /// If not specified, the default is spread.
@@ -261,6 +273,8 @@ namespace Pulumi.AzureNative.Batch
 
         /// <summary>
         /// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        /// 
+        /// Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         /// </summary>
         public InputList<Inputs.CertificateReferenceArgs> Certificates
         {
@@ -345,6 +359,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Input("startTask")]
         public Input<Inputs.StartTaskArgs>? StartTask { get; set; }
+
+        /// <summary>
+        /// If omitted, the default value is Default.
+        /// </summary>
+        [Input("targetNodeCommunicationMode")]
+        public Input<Pulumi.AzureNative.Batch.NodeCommunicationMode>? TargetNodeCommunicationMode { get; set; }
 
         /// <summary>
         /// If not specified, the default is spread.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an account
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-07-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -103,7 +103,7 @@ export interface GetAccountResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.purview.AccountPropertiesResponseSystemData;
+    readonly systemData: outputs.purview.TrackedResourceResponseSystemData;
     /**
      * Tags on the azure resource.
      */
@@ -115,7 +115,7 @@ export interface GetAccountResult {
 }
 /**
  * Get an account
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-07-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

@@ -79,8 +79,6 @@ export class LinkedWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:LinkedWorkspace" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedWorkspace.__pulumiType, name, resourceInputs, opts);
     }
 }

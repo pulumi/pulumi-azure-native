@@ -12,16 +12,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AzureADPartnerClientAuthenticationResponse',
     'AzureFunctionEventSubscriptionDestinationResponse',
     'BoolEqualsAdvancedFilterResponse',
     'ConnectionStateResponse',
     'DeadLetterWithResourceIdentityResponse',
     'DeliveryWithResourceIdentityResponse',
     'DynamicDeliveryAttributeMappingResponse',
-    'EventChannelDestinationResponse',
-    'EventChannelFilterResponse',
-    'EventChannelSourceResponse',
     'EventHubEventSubscriptionDestinationResponse',
     'EventSubscriptionFilterResponse',
     'EventSubscriptionIdentityResponse',
@@ -44,12 +40,10 @@ __all__ = [
     'NumberNotInAdvancedFilterResponse',
     'NumberNotInRangeAdvancedFilterResponse',
     'PartnerAuthorizationResponse',
-    'PartnerEventSubscriptionDestinationResponse',
     'PartnerResponse',
     'PartnerTopicInfoResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
-    'ResourceMoveChangeHistoryResponse',
     'RetryPolicyResponse',
     'ServiceBusQueueEventSubscriptionDestinationResponse',
     'ServiceBusTopicEventSubscriptionDestinationResponse',
@@ -67,79 +61,7 @@ __all__ = [
     'SystemDataResponse',
     'UserIdentityPropertiesResponse',
     'WebHookEventSubscriptionDestinationResponse',
-    'WebhookPartnerDestinationInfoResponse',
 ]
-
-@pulumi.output_type
-class AzureADPartnerClientAuthenticationResponse(dict):
-    """
-    Azure Active Directory Partner Client Authentication
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientAuthenticationType":
-            suggest = "client_authentication_type"
-        elif key == "azureActiveDirectoryApplicationIdOrUri":
-            suggest = "azure_active_directory_application_id_or_uri"
-        elif key == "azureActiveDirectoryTenantId":
-            suggest = "azure_active_directory_tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureADPartnerClientAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureADPartnerClientAuthenticationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureADPartnerClientAuthenticationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_authentication_type: str,
-                 azure_active_directory_application_id_or_uri: Optional[str] = None,
-                 azure_active_directory_tenant_id: Optional[str] = None):
-        """
-        Azure Active Directory Partner Client Authentication
-        :param str client_authentication_type: Type of client authentication
-               Expected value is 'AzureAD'.
-        :param str azure_active_directory_application_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
-        :param str azure_active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
-        """
-        if client_authentication_type is None:
-            client_authentication_type = 'AzureAD'
-        pulumi.set(__self__, "client_authentication_type", 'AzureAD')
-        if azure_active_directory_application_id_or_uri is not None:
-            pulumi.set(__self__, "azure_active_directory_application_id_or_uri", azure_active_directory_application_id_or_uri)
-        if azure_active_directory_tenant_id is not None:
-            pulumi.set(__self__, "azure_active_directory_tenant_id", azure_active_directory_tenant_id)
-
-    @property
-    @pulumi.getter(name="clientAuthenticationType")
-    def client_authentication_type(self) -> str:
-        """
-        Type of client authentication
-        Expected value is 'AzureAD'.
-        """
-        return pulumi.get(self, "client_authentication_type")
-
-    @property
-    @pulumi.getter(name="azureActiveDirectoryApplicationIdOrUri")
-    def azure_active_directory_application_id_or_uri(self) -> Optional[str]:
-        """
-        The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
-        """
-        return pulumi.get(self, "azure_active_directory_application_id_or_uri")
-
-    @property
-    @pulumi.getter(name="azureActiveDirectoryTenantId")
-    def azure_active_directory_tenant_id(self) -> Optional[str]:
-        """
-        The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
-        """
-        return pulumi.get(self, "azure_active_directory_tenant_id")
-
 
 @pulumi.output_type
 class AzureFunctionEventSubscriptionDestinationResponse(dict):
@@ -435,7 +357,7 @@ class DeliveryWithResourceIdentityResponse(dict):
                  identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
         """
         Information about the delivery for an event subscription with resource identity.
-        :param Union['AzureFunctionEventSubscriptionDestinationResponse', 'EventHubEventSubscriptionDestinationResponse', 'HybridConnectionEventSubscriptionDestinationResponse', 'PartnerEventSubscriptionDestinationResponse', 'ServiceBusQueueEventSubscriptionDestinationResponse', 'ServiceBusTopicEventSubscriptionDestinationResponse', 'StorageQueueEventSubscriptionDestinationResponse', 'WebHookEventSubscriptionDestinationResponse'] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param Union['AzureFunctionEventSubscriptionDestinationResponse', 'EventHubEventSubscriptionDestinationResponse', 'HybridConnectionEventSubscriptionDestinationResponse', 'ServiceBusQueueEventSubscriptionDestinationResponse', 'ServiceBusTopicEventSubscriptionDestinationResponse', 'StorageQueueEventSubscriptionDestinationResponse', 'WebHookEventSubscriptionDestinationResponse'] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param 'EventSubscriptionIdentityResponse' identity: The identity to use when delivering events.
         """
@@ -525,159 +447,6 @@ class DynamicDeliveryAttributeMappingResponse(dict):
         JSON path in the event which contains attribute value.
         """
         return pulumi.get(self, "source_field")
-
-
-@pulumi.output_type
-class EventChannelDestinationResponse(dict):
-    """
-    Properties of the destination of an event channel.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "azureSubscriptionId":
-            suggest = "azure_subscription_id"
-        elif key == "partnerTopicName":
-            suggest = "partner_topic_name"
-        elif key == "resourceGroup":
-            suggest = "resource_group"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventChannelDestinationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EventChannelDestinationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EventChannelDestinationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 azure_subscription_id: Optional[str] = None,
-                 partner_topic_name: Optional[str] = None,
-                 resource_group: Optional[str] = None):
-        """
-        Properties of the destination of an event channel.
-        :param str azure_subscription_id: Azure subscription ID of the customer creating the event channel. The partner topic
-               associated with the event channel will be created under this Azure subscription.
-        :param str partner_topic_name: Name of the partner topic associated with the event channel.
-        :param str resource_group: Azure Resource Group of the customer creating the event channel. The partner topic
-               associated with the event channel will be created under this resource group.
-        """
-        if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
-        if partner_topic_name is not None:
-            pulumi.set(__self__, "partner_topic_name", partner_topic_name)
-        if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
-
-    @property
-    @pulumi.getter(name="azureSubscriptionId")
-    def azure_subscription_id(self) -> Optional[str]:
-        """
-        Azure subscription ID of the customer creating the event channel. The partner topic
-        associated with the event channel will be created under this Azure subscription.
-        """
-        return pulumi.get(self, "azure_subscription_id")
-
-    @property
-    @pulumi.getter(name="partnerTopicName")
-    def partner_topic_name(self) -> Optional[str]:
-        """
-        Name of the partner topic associated with the event channel.
-        """
-        return pulumi.get(self, "partner_topic_name")
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[str]:
-        """
-        Azure Resource Group of the customer creating the event channel. The partner topic
-        associated with the event channel will be created under this resource group.
-        """
-        return pulumi.get(self, "resource_group")
-
-
-@pulumi.output_type
-class EventChannelFilterResponse(dict):
-    """
-    Filter for the Event Channel.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "advancedFilters":
-            suggest = "advanced_filters"
-        elif key == "enableAdvancedFilteringOnArrays":
-            suggest = "enable_advanced_filtering_on_arrays"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventChannelFilterResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EventChannelFilterResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EventChannelFilterResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 advanced_filters: Optional[Sequence[Any]] = None,
-                 enable_advanced_filtering_on_arrays: Optional[bool] = None):
-        """
-        Filter for the Event Channel.
-        :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'IsNotNullAdvancedFilterResponse', 'IsNullOrUndefinedAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberInRangeAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'NumberNotInRangeAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotBeginsWithAdvancedFilterResponse', 'StringNotContainsAdvancedFilterResponse', 'StringNotEndsWithAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event channels.
-        :param bool enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value. The default value is either false or null.
-        """
-        if advanced_filters is not None:
-            pulumi.set(__self__, "advanced_filters", advanced_filters)
-        if enable_advanced_filtering_on_arrays is None:
-            enable_advanced_filtering_on_arrays = False
-        if enable_advanced_filtering_on_arrays is not None:
-            pulumi.set(__self__, "enable_advanced_filtering_on_arrays", enable_advanced_filtering_on_arrays)
-
-    @property
-    @pulumi.getter(name="advancedFilters")
-    def advanced_filters(self) -> Optional[Sequence[Any]]:
-        """
-        An array of advanced filters that are used for filtering event channels.
-        """
-        return pulumi.get(self, "advanced_filters")
-
-    @property
-    @pulumi.getter(name="enableAdvancedFilteringOnArrays")
-    def enable_advanced_filtering_on_arrays(self) -> Optional[bool]:
-        """
-        Allows advanced filters to be evaluated against an array of values instead of expecting a singular value. The default value is either false or null.
-        """
-        return pulumi.get(self, "enable_advanced_filtering_on_arrays")
-
-
-@pulumi.output_type
-class EventChannelSourceResponse(dict):
-    """
-    Properties of the source of an event channel.
-    """
-    def __init__(__self__, *,
-                 source: Optional[str] = None):
-        """
-        Properties of the source of an event channel.
-        :param str source: The identifier of the resource that's the source of the events.
-               This represents a unique resource in the partner's resource model.
-        """
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[str]:
-        """
-        The identifier of the resource that's the source of the events.
-        This represents a unique resource in the partner's resource model.
-        """
-        return pulumi.get(self, "source")
 
 
 @pulumi.output_type
@@ -1188,6 +957,8 @@ class InlineEventPropertiesResponse(dict):
         suggest = None
         if key == "dataSchemaUrl":
             suggest = "data_schema_url"
+        elif key == "displayName":
+            suggest = "display_name"
         elif key == "documentationUrl":
             suggest = "documentation_url"
 
@@ -1205,17 +976,21 @@ class InlineEventPropertiesResponse(dict):
     def __init__(__self__, *,
                  data_schema_url: Optional[str] = None,
                  description: Optional[str] = None,
+                 display_name: Optional[str] = None,
                  documentation_url: Optional[str] = None):
         """
         Additional information about every inline event.
         :param str data_schema_url: The dataSchemaUrl for the inline event.
         :param str description: The description for the inline event.
+        :param str display_name: The displayName for the inline event.
         :param str documentation_url: The documentationUrl for the inline event.
         """
         if data_schema_url is not None:
             pulumi.set(__self__, "data_schema_url", data_schema_url)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if documentation_url is not None:
             pulumi.set(__self__, "documentation_url", documentation_url)
 
@@ -1234,6 +1009,14 @@ class InlineEventPropertiesResponse(dict):
         The description for the inline event.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The displayName for the inline event.
+        """
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="documentationUrl")
@@ -2146,57 +1929,6 @@ class PartnerAuthorizationResponse(dict):
 
 
 @pulumi.output_type
-class PartnerEventSubscriptionDestinationResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endpointType":
-            suggest = "endpoint_type"
-        elif key == "resourceId":
-            suggest = "resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PartnerEventSubscriptionDestinationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PartnerEventSubscriptionDestinationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PartnerEventSubscriptionDestinationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 endpoint_type: str,
-                 resource_id: Optional[str] = None):
-        """
-        :param str endpoint_type: Type of the endpoint for the event subscription destination.
-               Expected value is 'PartnerDestination'.
-        :param str resource_id: The Azure Resource Id that represents the endpoint of a Partner Destination of an event subscription.
-        """
-        pulumi.set(__self__, "endpoint_type", 'PartnerDestination')
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> str:
-        """
-        Type of the endpoint for the event subscription destination.
-        Expected value is 'PartnerDestination'.
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
-        """
-        The Azure Resource Id that represents the endpoint of a Partner Destination of an event subscription.
-        """
-        return pulumi.get(self, "resource_id")
-
-
-@pulumi.output_type
 class PartnerResponse(dict):
     """
     Information about the partner.
@@ -2502,74 +2234,6 @@ class PrivateEndpointResponse(dict):
         The ARM identifier for Private Endpoint.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class ResourceMoveChangeHistoryResponse(dict):
-    """
-    The change history of the resource move.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "azureSubscriptionId":
-            suggest = "azure_subscription_id"
-        elif key == "changedTimeUtc":
-            suggest = "changed_time_utc"
-        elif key == "resourceGroupName":
-            suggest = "resource_group_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceMoveChangeHistoryResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceMoveChangeHistoryResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceMoveChangeHistoryResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 azure_subscription_id: Optional[str] = None,
-                 changed_time_utc: Optional[str] = None,
-                 resource_group_name: Optional[str] = None):
-        """
-        The change history of the resource move.
-        :param str azure_subscription_id: Azure subscription ID of the resource.
-        :param str changed_time_utc: UTC timestamp of when the resource was changed.
-        :param str resource_group_name: Azure Resource Group of the resource.
-        """
-        if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
-        if changed_time_utc is not None:
-            pulumi.set(__self__, "changed_time_utc", changed_time_utc)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @property
-    @pulumi.getter(name="azureSubscriptionId")
-    def azure_subscription_id(self) -> Optional[str]:
-        """
-        Azure subscription ID of the resource.
-        """
-        return pulumi.get(self, "azure_subscription_id")
-
-    @property
-    @pulumi.getter(name="changedTimeUtc")
-    def changed_time_utc(self) -> Optional[str]:
-        """
-        UTC timestamp of when the resource was changed.
-        """
-        return pulumi.get(self, "changed_time_utc")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[str]:
-        """
-        Azure Resource Group of the resource.
-        """
-        return pulumi.get(self, "resource_group_name")
 
 
 @pulumi.output_type
@@ -3823,162 +3487,5 @@ class WebHookEventSubscriptionDestinationResponse(dict):
         Preferred batch size in Kilobytes.
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
-
-
-@pulumi.output_type
-class WebhookPartnerDestinationInfoResponse(dict):
-    """
-    Information about the WebHook of the partner destination.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endpointType":
-            suggest = "endpoint_type"
-        elif key == "azureSubscriptionId":
-            suggest = "azure_subscription_id"
-        elif key == "clientAuthentication":
-            suggest = "client_authentication"
-        elif key == "endpointBaseUrl":
-            suggest = "endpoint_base_url"
-        elif key == "endpointServiceContext":
-            suggest = "endpoint_service_context"
-        elif key == "endpointUrl":
-            suggest = "endpoint_url"
-        elif key == "resourceGroupName":
-            suggest = "resource_group_name"
-        elif key == "resourceMoveChangeHistory":
-            suggest = "resource_move_change_history"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebhookPartnerDestinationInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebhookPartnerDestinationInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebhookPartnerDestinationInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 endpoint_type: str,
-                 azure_subscription_id: Optional[str] = None,
-                 client_authentication: Optional['outputs.AzureADPartnerClientAuthenticationResponse'] = None,
-                 endpoint_base_url: Optional[str] = None,
-                 endpoint_service_context: Optional[str] = None,
-                 endpoint_url: Optional[str] = None,
-                 name: Optional[str] = None,
-                 resource_group_name: Optional[str] = None,
-                 resource_move_change_history: Optional[Sequence['outputs.ResourceMoveChangeHistoryResponse']] = None):
-        """
-        Information about the WebHook of the partner destination.
-        :param str endpoint_type: Type of the endpoint for the partner destination
-               Expected value is 'WebHook'.
-        :param str azure_subscription_id: Azure subscription ID of the subscriber. The partner destination associated with the channel will be
-               created under this Azure subscription.
-        :param 'AzureADPartnerClientAuthenticationResponse' client_authentication: Partner client authentication
-        :param str endpoint_base_url: The base URL that represents the endpoint of the partner destination.
-        :param str endpoint_service_context: Additional context of the partner destination endpoint.
-        :param str endpoint_url: The URL that represents the endpoint of the partner destination.
-        :param str name: Name of the partner destination associated with the channel.
-        :param str resource_group_name: Azure Resource Group of the subscriber. The partner destination associated with the channel will be
-               created under this resource group.
-        :param Sequence['ResourceMoveChangeHistoryResponse'] resource_move_change_history: Change history of the resource move.
-        """
-        if endpoint_type is None:
-            endpoint_type = 'WebHook'
-        pulumi.set(__self__, "endpoint_type", 'WebHook')
-        if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
-        if client_authentication is not None:
-            pulumi.set(__self__, "client_authentication", client_authentication)
-        if endpoint_base_url is not None:
-            pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
-        if endpoint_service_context is not None:
-            pulumi.set(__self__, "endpoint_service_context", endpoint_service_context)
-        if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if resource_move_change_history is not None:
-            pulumi.set(__self__, "resource_move_change_history", resource_move_change_history)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> str:
-        """
-        Type of the endpoint for the partner destination
-        Expected value is 'WebHook'.
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    @property
-    @pulumi.getter(name="azureSubscriptionId")
-    def azure_subscription_id(self) -> Optional[str]:
-        """
-        Azure subscription ID of the subscriber. The partner destination associated with the channel will be
-        created under this Azure subscription.
-        """
-        return pulumi.get(self, "azure_subscription_id")
-
-    @property
-    @pulumi.getter(name="clientAuthentication")
-    def client_authentication(self) -> Optional['outputs.AzureADPartnerClientAuthenticationResponse']:
-        """
-        Partner client authentication
-        """
-        return pulumi.get(self, "client_authentication")
-
-    @property
-    @pulumi.getter(name="endpointBaseUrl")
-    def endpoint_base_url(self) -> Optional[str]:
-        """
-        The base URL that represents the endpoint of the partner destination.
-        """
-        return pulumi.get(self, "endpoint_base_url")
-
-    @property
-    @pulumi.getter(name="endpointServiceContext")
-    def endpoint_service_context(self) -> Optional[str]:
-        """
-        Additional context of the partner destination endpoint.
-        """
-        return pulumi.get(self, "endpoint_service_context")
-
-    @property
-    @pulumi.getter(name="endpointUrl")
-    def endpoint_url(self) -> Optional[str]:
-        """
-        The URL that represents the endpoint of the partner destination.
-        """
-        return pulumi.get(self, "endpoint_url")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the partner destination associated with the channel.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[str]:
-        """
-        Azure Resource Group of the subscriber. The partner destination associated with the channel will be
-        created under this resource group.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @property
-    @pulumi.getter(name="resourceMoveChangeHistory")
-    def resource_move_change_history(self) -> Optional[Sequence['outputs.ResourceMoveChangeHistoryResponse']]:
-        """
-        Change history of the resource move.
-        """
-        return pulumi.get(self, "resource_move_change_history")
 
 

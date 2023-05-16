@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the appliance definition.
  */
-/** @deprecated Version 2016-09-01-preview will be removed in v2 of the provider. */
 export function getApplianceDefinition(args: GetApplianceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceDefinitionResult> {
-    pulumi.log.warn("getApplianceDefinition is deprecated: Version 2016-09-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20160901preview:getApplianceDefinition", {
@@ -96,7 +94,6 @@ export interface GetApplianceDefinitionResult {
 /**
  * Gets the appliance definition.
  */
-/** @deprecated Version 2016-09-01-preview will be removed in v2 of the provider. */
 export function getApplianceDefinitionOutput(args: GetApplianceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getApplianceDefinition(a, opts))
 }

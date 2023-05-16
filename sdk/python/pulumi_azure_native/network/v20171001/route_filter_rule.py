@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
-__all__ = ['RouteFilterRuleInitArgs', 'RouteFilterRule']
+__all__ = ['RouteFilterRuleArgs', 'RouteFilterRule']
 
 @pulumi.input_type
-class RouteFilterRuleInitArgs:
+class RouteFilterRuleArgs:
     def __init__(__self__, *,
                  access: pulumi.Input[Union[str, 'Access']],
                  communities: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -175,12 +175,7 @@ class RouteFilterRuleInitArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class RouteFilterRule(pulumi.CustomResource):
-    warnings.warn("""Version 2017-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -216,18 +211,18 @@ class RouteFilterRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteFilterRuleInitArgs,
+                 args: RouteFilterRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Route Filter Rule Resource
 
         :param str resource_name: The name of the resource.
-        :param RouteFilterRuleInitArgs args: The arguments to use to populate this resource's properties.
+        :param RouteFilterRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteFilterRuleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteFilterRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -247,14 +242,13 @@ class RouteFilterRule(pulumi.CustomResource):
                  rule_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""RouteFilterRule is deprecated: Version 2017-10-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteFilterRuleInitArgs.__new__(RouteFilterRuleInitArgs)
+            __props__ = RouteFilterRuleArgs.__new__(RouteFilterRuleArgs)
 
             if access is None and not opts.urn:
                 raise TypeError("Missing required property 'access'")
@@ -278,7 +272,7 @@ class RouteFilterRule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20161201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20170301:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20170601:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20170801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20170901:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20171101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180401:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180601:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180701:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20181001:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20181101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20181201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190401:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190601:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190701:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190901:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20191101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20191201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200301:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200401:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200501:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200601:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200701:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20201101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20210201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20210301:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20210501:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20210801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20220101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20220501:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20220701:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20220901:RouteFilterRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20161201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20170301:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20170601:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20170801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20170901:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20171101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180401:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180601:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180701:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20180801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20181001:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20181101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20181201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190401:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190601:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190701:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20190901:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20191101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20191201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200301:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200401:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200501:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200601:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200701:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20200801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20201101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20210201:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20210301:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20210501:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20210801:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20220101:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20220501:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20220701:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20220901:RouteFilterRule"), pulumi.Alias(type_="azure-native:network/v20221101:RouteFilterRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RouteFilterRule, __self__).__init__(
             'azure-native:network/v20171001:RouteFilterRule',
@@ -300,7 +294,7 @@ class RouteFilterRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = RouteFilterRuleInitArgs.__new__(RouteFilterRuleInitArgs)
+        __props__ = RouteFilterRuleArgs.__new__(RouteFilterRuleArgs)
 
         __props__.__dict__["access"] = None
         __props__.__dict__["communities"] = None

@@ -15,11 +15,6 @@ export type CassandraResourceCassandraTable = import("./cassandraResourceCassand
 export const CassandraResourceCassandraTable: typeof import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable = null as any;
 utilities.lazyLoad(exports, ["CassandraResourceCassandraTable"], () => require("./cassandraResourceCassandraTable"));
 
-export { DatabaseAccountArgs } from "./databaseAccount";
-export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
-export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
-utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
-
 export { GetCassandraResourceCassandraKeyspaceArgs, GetCassandraResourceCassandraKeyspaceResult, GetCassandraResourceCassandraKeyspaceOutputArgs } from "./getCassandraResourceCassandraKeyspace";
 export const getCassandraResourceCassandraKeyspace: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspace = null as any;
 export const getCassandraResourceCassandraKeyspaceOutput: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspaceOutput = null as any;
@@ -29,11 +24,6 @@ export { GetCassandraResourceCassandraTableArgs, GetCassandraResourceCassandraTa
 export const getCassandraResourceCassandraTable: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTable = null as any;
 export const getCassandraResourceCassandraTableOutput: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTableOutput = null as any;
 utilities.lazyLoad(exports, ["getCassandraResourceCassandraTable","getCassandraResourceCassandraTableOutput"], () => require("./getCassandraResourceCassandraTable"));
-
-export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
-export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
-export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
 
 export { GetGremlinResourceGremlinDatabaseArgs, GetGremlinResourceGremlinDatabaseResult, GetGremlinResourceGremlinDatabaseOutputArgs } from "./getGremlinResourceGremlinDatabase";
 export const getGremlinResourceGremlinDatabase: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabase = null as any;
@@ -54,11 +44,6 @@ export { GetMongoDBResourceMongoDBDatabaseArgs, GetMongoDBResourceMongoDBDatabas
 export const getMongoDBResourceMongoDBDatabase: typeof import("./getMongoDBResourceMongoDBDatabase").getMongoDBResourceMongoDBDatabase = null as any;
 export const getMongoDBResourceMongoDBDatabaseOutput: typeof import("./getMongoDBResourceMongoDBDatabase").getMongoDBResourceMongoDBDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getMongoDBResourceMongoDBDatabase","getMongoDBResourceMongoDBDatabaseOutput"], () => require("./getMongoDBResourceMongoDBDatabase"));
-
-export { GetNotebookWorkspaceArgs, GetNotebookWorkspaceResult, GetNotebookWorkspaceOutputArgs } from "./getNotebookWorkspace";
-export const getNotebookWorkspace: typeof import("./getNotebookWorkspace").getNotebookWorkspace = null as any;
-export const getNotebookWorkspaceOutput: typeof import("./getNotebookWorkspace").getNotebookWorkspaceOutput = null as any;
-utilities.lazyLoad(exports, ["getNotebookWorkspace","getNotebookWorkspaceOutput"], () => require("./getNotebookWorkspace"));
 
 export { GetSqlResourceSqlContainerArgs, GetSqlResourceSqlContainerResult, GetSqlResourceSqlContainerOutputArgs } from "./getSqlResourceSqlContainer";
 export const getSqlResourceSqlContainer: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainer = null as any;
@@ -125,11 +110,6 @@ export type MongoDBResourceMongoDBDatabase = import("./mongoDBResourceMongoDBDat
 export const MongoDBResourceMongoDBDatabase: typeof import("./mongoDBResourceMongoDBDatabase").MongoDBResourceMongoDBDatabase = null as any;
 utilities.lazyLoad(exports, ["MongoDBResourceMongoDBDatabase"], () => require("./mongoDBResourceMongoDBDatabase"));
 
-export { NotebookWorkspaceArgs } from "./notebookWorkspace";
-export type NotebookWorkspace = import("./notebookWorkspace").NotebookWorkspace;
-export const NotebookWorkspace: typeof import("./notebookWorkspace").NotebookWorkspace = null as any;
-utilities.lazyLoad(exports, ["NotebookWorkspace"], () => require("./notebookWorkspace"));
-
 export { SqlResourceSqlContainerArgs } from "./sqlResourceSqlContainer";
 export type SqlResourceSqlContainer = import("./sqlResourceSqlContainer").SqlResourceSqlContainer;
 export const SqlResourceSqlContainer: typeof import("./sqlResourceSqlContainer").SqlResourceSqlContainer = null as any;
@@ -172,8 +152,6 @@ const _module = {
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20190801:CassandraResourceCassandraTable":
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
-            case "azure-native:documentdb/v20190801:DatabaseAccount":
-                return new DatabaseAccount(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20190801:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20190801:GremlinResourceGremlinGraph":
@@ -182,8 +160,6 @@ const _module = {
                 return new MongoDBResourceMongoDBCollection(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase":
                 return new MongoDBResourceMongoDBDatabase(name, <any>undefined, { urn })
-            case "azure-native:documentdb/v20190801:NotebookWorkspace":
-                return new NotebookWorkspace(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20190801:SqlResourceSqlContainer":
                 return new SqlResourceSqlContainer(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20190801:SqlResourceSqlDatabase":

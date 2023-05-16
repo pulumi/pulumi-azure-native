@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of a managed Cassandra cluster.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-11-15.
  */
 export function getCassandraCluster(args: GetCassandraClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraClusterResult> {
 
@@ -42,7 +42,7 @@ export interface GetCassandraClusterResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.documentdb.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.documentdb.ManagedCassandraManagedServiceIdentityResponse;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -66,7 +66,7 @@ export interface GetCassandraClusterResult {
 }
 /**
  * Get the properties of a managed Cassandra cluster.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-11-15.
  */
 export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraClusterResult> {
     return pulumi.output(args).apply((a: any) => getCassandraCluster(a, opts))

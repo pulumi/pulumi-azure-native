@@ -5,8 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Schema Contract details.
- * API Version: 2020-12-01.
+ * API Schema Contract details.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class ApiSchema extends pulumi.CustomResource {
     /**
@@ -36,19 +37,23 @@ export class ApiSchema extends pulumi.CustomResource {
     }
 
     /**
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+     */
+    public readonly components!: pulumi.Output<any | undefined>;
+    /**
      * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
      */
     public readonly definitions!: pulumi.Output<any | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -80,6 +85,7 @@ export class ApiSchema extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["components"] = args ? args.components : undefined;
             resourceInputs["contentType"] = args ? args.contentType : undefined;
             resourceInputs["definitions"] = args ? args.definitions : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -89,6 +95,7 @@ export class ApiSchema extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["components"] = undefined /*out*/;
             resourceInputs["contentType"] = undefined /*out*/;
             resourceInputs["definitions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -96,7 +103,7 @@ export class ApiSchema extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ApiSchema" }, { type: "azure-native:apimanagement/v20180101:ApiSchema" }, { type: "azure-native:apimanagement/v20180601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20190101:ApiSchema" }, { type: "azure-native:apimanagement/v20191201:ApiSchema" }, { type: "azure-native:apimanagement/v20191201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20200601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20201201:ApiSchema" }, { type: "azure-native:apimanagement/v20210101preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210401preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210801:ApiSchema" }, { type: "azure-native:apimanagement/v20211201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20220401preview:ApiSchema" }, { type: "azure-native:apimanagement/v20220801:ApiSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ApiSchema" }, { type: "azure-native:apimanagement/v20180101:ApiSchema" }, { type: "azure-native:apimanagement/v20180601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20190101:ApiSchema" }, { type: "azure-native:apimanagement/v20191201:ApiSchema" }, { type: "azure-native:apimanagement/v20191201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20200601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20201201:ApiSchema" }, { type: "azure-native:apimanagement/v20210101preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210401preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210801:ApiSchema" }, { type: "azure-native:apimanagement/v20211201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20220401preview:ApiSchema" }, { type: "azure-native:apimanagement/v20220801:ApiSchema" }, { type: "azure-native:apimanagement/v20220901preview:ApiSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiSchema.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,19 +118,23 @@ export interface ApiSchemaArgs {
      */
     apiId: pulumi.Input<string>;
     /**
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+     */
+    components?: any;
+    /**
      * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
      */
     contentType: pulumi.Input<string>;
     /**
-     * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
      */
     definitions?: any;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     * Schema id identifier. Must be unique in the current API Management service instance.
      */
     schemaId?: pulumi.Input<string>;
     /**

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Get the local user of the storage account by username.
-        /// API Version: 2021-08-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetLocalUserResult> InvokeAsync(GetLocalUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalUserResult>("azure-native:storage:getLocalUser", args ?? new GetLocalUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the local user of the storage account by username.
-        /// API Version: 2021-08-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetLocalUserResult> Invoke(GetLocalUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalUserResult>("azure-native:storage:getLocalUser", args ?? new GetLocalUserInvokeArgs(), options.WithDefaults());

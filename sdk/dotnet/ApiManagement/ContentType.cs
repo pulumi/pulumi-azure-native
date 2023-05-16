@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Content type contract details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2022-08-01.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ContentType")]
     public partial class ContentType : global::Pulumi.CustomResource
@@ -23,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -35,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<object?> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -80,6 +81,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ContentType"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ContentType"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ContentType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,16 +112,46 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? ContentTypeId { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// Content type description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Content type identifier
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Content type name. Must be 1 to 250 characters long.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Content type schema.
+        /// </summary>
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
 
         /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Content type version.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ContentTypeArgs()
         {

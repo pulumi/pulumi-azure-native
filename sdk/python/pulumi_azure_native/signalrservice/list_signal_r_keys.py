@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class ListSignalRKeysResult:
     """
-    A class represents the access keys of SignalR service.
+    A class represents the access keys of the resource.
     """
     def __init__(__self__, primary_connection_string=None, primary_key=None, secondary_connection_string=None, secondary_key=None):
         if primary_connection_string and not isinstance(primary_connection_string, str):
@@ -39,7 +39,7 @@ class ListSignalRKeysResult:
     @pulumi.getter(name="primaryConnectionString")
     def primary_connection_string(self) -> Optional[str]:
         """
-        SignalR connection string constructed via the primaryKey
+        Connection string constructed via the primaryKey
         """
         return pulumi.get(self, "primary_connection_string")
 
@@ -55,7 +55,7 @@ class ListSignalRKeysResult:
     @pulumi.getter(name="secondaryConnectionString")
     def secondary_connection_string(self) -> Optional[str]:
         """
-        SignalR connection string constructed via the secondaryKey
+        Connection string constructed via the secondaryKey
         """
         return pulumi.get(self, "secondary_connection_string")
 
@@ -84,12 +84,12 @@ def list_signal_r_keys(resource_group_name: Optional[str] = None,
                        resource_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSignalRKeysResult:
     """
-    Get the access keys of the SignalR resource.
-    API Version: 2020-05-01.
+    Get the access keys of the resource.
+    API Version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str resource_name: The name of the SignalR resource.
+    :param str resource_name: The name of the resource.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -109,11 +109,11 @@ def list_signal_r_keys_output(resource_group_name: Optional[pulumi.Input[str]] =
                               resource_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSignalRKeysResult]:
     """
-    Get the access keys of the SignalR resource.
-    API Version: 2020-05-01.
+    Get the access keys of the resource.
+    API Version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str resource_name: The name of the SignalR resource.
+    :param str resource_name: The name of the resource.
     """
     ...

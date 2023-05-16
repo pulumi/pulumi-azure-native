@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workload classifier
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getWorkloadClassifier(args: GetWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadClassifierResult> {
 
@@ -86,7 +86,7 @@ export interface GetWorkloadClassifierResult {
 }
 /**
  * Gets a workload classifier
- * API Version: 2020-11-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getWorkloadClassifierOutput(args: GetWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadClassifierResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadClassifier(a, opts))

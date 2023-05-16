@@ -22,7 +22,7 @@ class GetAwsCloudTrailDataConnectorResult:
     """
     Represents Amazon Web Services CloudTrail data connector.
     """
-    def __init__(__self__, aws_role_arn=None, data_types=None, etag=None, id=None, kind=None, name=None, type=None):
+    def __init__(__self__, aws_role_arn=None, data_types=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
         if aws_role_arn and not isinstance(aws_role_arn, str):
             raise TypeError("Expected argument 'aws_role_arn' to be a str")
         pulumi.set(__self__, "aws_role_arn", aws_role_arn)
@@ -41,6 +41,9 @@ class GetAwsCloudTrailDataConnectorResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -73,7 +76,7 @@ class GetAwsCloudTrailDataConnectorResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -90,15 +93,23 @@ class GetAwsCloudTrailDataConnectorResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -115,6 +126,7 @@ class AwaitableGetAwsCloudTrailDataConnectorResult(GetAwsCloudTrailDataConnector
             id=self.id,
             kind=self.kind,
             name=self.name,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -124,11 +136,11 @@ def get_aws_cloud_trail_data_connector(data_connector_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAwsCloudTrailDataConnectorResult:
     """
     Gets a data connector.
-    API Version: 2020-01-01.
+    API Version: 2023-02-01.
 
 
     :param str data_connector_id: Connector ID
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
@@ -145,6 +157,7 @@ def get_aws_cloud_trail_data_connector(data_connector_id: Optional[str] = None,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -155,11 +168,11 @@ def get_aws_cloud_trail_data_connector_output(data_connector_id: Optional[pulumi
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAwsCloudTrailDataConnectorResult]:
     """
     Gets a data connector.
-    API Version: 2020-01-01.
+    API Version: 2023-02-01.
 
 
     :param str data_connector_id: Connector ID
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     ...

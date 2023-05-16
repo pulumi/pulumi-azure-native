@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Agent resource.
- * API Version: 2022-07-01-preview.
+ * API Version: 2023-03-01.
  */
 export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
 
@@ -104,7 +104,7 @@ export interface GetAgentResult {
 }
 /**
  * Gets an Agent resource.
- * API Version: 2022-07-01-preview.
+ * API Version: 2023-03-01.
  */
 export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
     return pulumi.output(args).apply((a: any) => getAgent(a, opts))

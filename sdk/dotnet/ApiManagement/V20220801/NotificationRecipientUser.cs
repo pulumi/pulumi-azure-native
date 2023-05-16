@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:NotificationRecipientUser"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:NotificationRecipientUser"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:NotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:NotificationRecipientUser"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

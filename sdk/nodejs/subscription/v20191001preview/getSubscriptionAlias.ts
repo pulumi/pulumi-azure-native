@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get Alias Subscription.
  */
-/** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
 export function getSubscriptionAlias(args: GetSubscriptionAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionAliasResult> {
-    pulumi.log.warn("getSubscriptionAlias is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:subscription/v20191001preview:getSubscriptionAlias", {
@@ -51,7 +49,6 @@ export interface GetSubscriptionAliasResult {
 /**
  * Get Alias Subscription.
  */
-/** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
 export function getSubscriptionAliasOutput(args: GetSubscriptionAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionAliasResult> {
     return pulumi.output(args).apply((a: any) => getSubscriptionAlias(a, opts))
 }

@@ -50,7 +50,7 @@ def list_cluster_follower_databases(cluster_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterFollowerDatabasesResult:
     """
     Returns a list of databases that are owned by this cluster and were followed by another cluster.
-    API Version: 2021-01-01.
+    API Version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -72,7 +72,7 @@ def list_cluster_follower_databases_output(cluster_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterFollowerDatabasesResult]:
     """
     Returns a list of databases that are owned by this cluster and were followed by another cluster.
-    API Version: 2021-01-01.
+    API Version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

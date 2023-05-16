@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the gallery Application Definition that you want to create or update.
-    /// API Version: 2020-09-30.
+    /// API Version: 2022-03-03.
+    /// Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryApplication")]
     public partial class GalleryApplication : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+        /// </summary>
+        [Output("customActions")]
+        public Output<ImmutableArray<Outputs.GalleryApplicationCustomActionResponse>> CustomActions { get; private set; } = null!;
+
         /// <summary>
         /// The description of this gallery Application Definition resource. This property is updatable.
         /// </summary>
@@ -132,6 +139,18 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class GalleryApplicationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customActions")]
+        private InputList<Inputs.GalleryApplicationCustomActionArgs>? _customActions;
+
+        /// <summary>
+        /// A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+        /// </summary>
+        public InputList<Inputs.GalleryApplicationCustomActionArgs> CustomActions
+        {
+            get => _customActions ?? (_customActions = new InputList<Inputs.GalleryApplicationCustomActionArgs>());
+            set => _customActions = value;
+        }
+
         /// <summary>
         /// The description of this gallery Application Definition resource. This property is updatable.
         /// </summary>

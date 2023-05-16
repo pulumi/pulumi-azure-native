@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets a geo backup policy.
- * API Version: 2014-04-01.
+ * Gets a Geo backup policy for the given database resource.
+ * API Version: 2021-11-01.
  */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
 
@@ -25,7 +25,7 @@ export interface GetGeoBackupPolicyArgs {
      */
     databaseName: string;
     /**
-     * The name of the geo backup policy.
+     * The name of the Geo backup policy. This should always be 'Default'.
      */
     geoBackupPolicyName: string;
     /**
@@ -39,7 +39,7 @@ export interface GetGeoBackupPolicyArgs {
 }
 
 /**
- * A database geo backup policy.
+ * A Geo backup policy.
  */
 export interface GetGeoBackupPolicyResult {
     /**
@@ -72,8 +72,8 @@ export interface GetGeoBackupPolicyResult {
     readonly type: string;
 }
 /**
- * Gets a geo backup policy.
- * API Version: 2014-04-01.
+ * Gets a Geo backup policy for the given database resource.
+ * API Version: 2021-11-01.
  */
 export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getGeoBackupPolicy(a, opts))
@@ -85,7 +85,7 @@ export interface GetGeoBackupPolicyOutputArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the geo backup policy.
+     * The name of the Geo backup policy. This should always be 'Default'.
      */
     geoBackupPolicyName: pulumi.Input<string>;
     /**

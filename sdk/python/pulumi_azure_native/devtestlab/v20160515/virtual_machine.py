@@ -580,12 +580,7 @@ class VirtualMachineArgs:
         pulumi.set(self, "virtual_machine_creation_source", value)
 
 
-warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class VirtualMachine(pulumi.CustomResource):
-    warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -727,7 +722,6 @@ class VirtualMachine(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  virtual_machine_creation_source: Optional[pulumi.Input[Union[str, 'VirtualMachineCreationSource']]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachine is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -15,8 +15,6 @@ __all__ = [
     'get_traffic_manager_user_metrics_key',
 ]
 
-warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetTrafficManagerUserMetricsKeyResult:
     """
@@ -85,7 +83,6 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
     """
     Get the subscription-level key used for Real User Metrics collection.
     """
-    pulumi.log.warn("""get_traffic_manager_user_metrics_key is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20170901preview:getTrafficManagerUserMetricsKey', __args__, opts=opts, typ=GetTrafficManagerUserMetricsKeyResult).value

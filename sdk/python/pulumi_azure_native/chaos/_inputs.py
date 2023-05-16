@@ -19,6 +19,8 @@ __all__ = [
     'KeyValuePairArgs',
     'ResourceIdentityArgs',
     'SelectorArgs',
+    'SimpleFilterParametersArgs',
+    'SimpleFilterArgs',
     'StepArgs',
     'TargetReferenceArgs',
 ]
@@ -391,16 +393,20 @@ class SelectorArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  targets: pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgs']]],
-                 type: pulumi.Input['SelectorType']):
+                 type: pulumi.Input['SelectorType'],
+                 filter: Optional[pulumi.Input['SimpleFilterArgs']] = None):
         """
         Model that represents a selector in the Experiment resource.
         :param pulumi.Input[str] id: String of the selector ID.
         :param pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgs']]] targets: List of Target references.
         :param pulumi.Input['SelectorType'] type: Enum of the selector type.
+        :param pulumi.Input['SimpleFilterArgs'] filter: Model that represents available filter types that can be applied to a targets list.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "targets", targets)
         pulumi.set(__self__, "type", type)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
 
     @property
     @pulumi.getter
@@ -437,6 +443,83 @@ class SelectorArgs:
     @type.setter
     def type(self, value: pulumi.Input['SelectorType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['SimpleFilterArgs']]:
+        """
+        Model that represents available filter types that can be applied to a targets list.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['SimpleFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+
+@pulumi.input_type
+class SimpleFilterParametersArgs:
+    def __init__(__self__, *,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Model that represents the Simple filter parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: List of Azure availability zones to filter targets by.
+        """
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Azure availability zones to filter targets by.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
+
+@pulumi.input_type
+class SimpleFilterArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input['SimpleFilterParametersArgs']] = None):
+        """
+        Model that represents a simple target filter.
+        :param pulumi.Input[str] type: Enum that discriminates between filter types. Currently only `Simple` type is supported.
+               Expected value is 'Simple'.
+        :param pulumi.Input['SimpleFilterParametersArgs'] parameters: Model that represents the Simple filter parameters.
+        """
+        pulumi.set(__self__, "type", 'Simple')
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Enum that discriminates between filter types. Currently only `Simple` type is supported.
+        Expected value is 'Simple'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input['SimpleFilterParametersArgs']]:
+        """
+        Model that represents the Simple filter parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input['SimpleFilterParametersArgs']]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type

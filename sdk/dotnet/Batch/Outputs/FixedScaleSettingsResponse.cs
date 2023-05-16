@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.Batch.Outputs
     public sealed class FixedScaleSettingsResponse
     {
         /// <summary>
-        /// If omitted, the default value is Requeue.
-        /// </summary>
-        public readonly string? NodeDeallocationOption;
-        /// <summary>
         /// The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         /// </summary>
         public readonly string? ResizeTimeout;
@@ -32,15 +28,12 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
         [OutputConstructor]
         private FixedScaleSettingsResponse(
-            string? nodeDeallocationOption,
-
             string? resizeTimeout,
 
             int? targetDedicatedNodes,
 
             int? targetLowPriorityNodes)
         {
-            NodeDeallocationOption = nodeDeallocationOption;
             ResizeTimeout = resizeTimeout;
             TargetDedicatedNodes = targetDedicatedNodes;
             TargetLowPriorityNodes = targetLowPriorityNodes;

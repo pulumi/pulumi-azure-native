@@ -119,12 +119,7 @@ class SignalRArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2018-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class SignalR(pulumi.CustomResource):
-    warnings.warn("""Version 2018-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -180,7 +175,6 @@ class SignalR(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""SignalR is deprecated: Version 2018-10-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -208,7 +202,7 @@ class SignalR(pulumi.CustomResource):
             __props__.__dict__["server_port"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20180301preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20200501:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20200701preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20210401preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20210601preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20210901preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20211001:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalR")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20180301preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20200501:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20200701preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20210401preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20210601preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20210901preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20211001:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalR"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalR")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalR, __self__).__init__(
             'azure-native:signalrservice/v20181001:SignalR',

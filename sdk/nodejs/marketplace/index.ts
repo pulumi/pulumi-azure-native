@@ -15,11 +15,6 @@ export const getPrivateStoreCollectionOffer: typeof import("./getPrivateStoreCol
 export const getPrivateStoreCollectionOfferOutput: typeof import("./getPrivateStoreCollectionOffer").getPrivateStoreCollectionOfferOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateStoreCollectionOffer","getPrivateStoreCollectionOfferOutput"], () => require("./getPrivateStoreCollectionOffer"));
 
-export { GetPrivateStoreOfferArgs, GetPrivateStoreOfferResult, GetPrivateStoreOfferOutputArgs } from "./getPrivateStoreOffer";
-export const getPrivateStoreOffer: typeof import("./getPrivateStoreOffer").getPrivateStoreOffer = null as any;
-export const getPrivateStoreOfferOutput: typeof import("./getPrivateStoreOffer").getPrivateStoreOfferOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateStoreOffer","getPrivateStoreOfferOutput"], () => require("./getPrivateStoreOffer"));
-
 export { ListPrivateStoreNewPlansNotificationsArgs, ListPrivateStoreNewPlansNotificationsResult, ListPrivateStoreNewPlansNotificationsOutputArgs } from "./listPrivateStoreNewPlansNotifications";
 export const listPrivateStoreNewPlansNotifications: typeof import("./listPrivateStoreNewPlansNotifications").listPrivateStoreNewPlansNotifications = null as any;
 export const listPrivateStoreNewPlansNotificationsOutput: typeof import("./listPrivateStoreNewPlansNotifications").listPrivateStoreNewPlansNotificationsOutput = null as any;
@@ -45,18 +40,12 @@ export type PrivateStoreCollectionOffer = import("./privateStoreCollectionOffer"
 export const PrivateStoreCollectionOffer: typeof import("./privateStoreCollectionOffer").PrivateStoreCollectionOffer = null as any;
 utilities.lazyLoad(exports, ["PrivateStoreCollectionOffer"], () => require("./privateStoreCollectionOffer"));
 
-export { PrivateStoreOfferArgs } from "./privateStoreOffer";
-export type PrivateStoreOffer = import("./privateStoreOffer").PrivateStoreOffer;
-export const PrivateStoreOffer: typeof import("./privateStoreOffer").PrivateStoreOffer = null as any;
-utilities.lazyLoad(exports, ["PrivateStoreOffer"], () => require("./privateStoreOffer"));
-
 
 // Export enums:
 export * from "../types/enums/marketplace";
 
 // Export sub-modules:
 import * as v20200101 from "./v20200101";
-import * as v20210601 from "./v20210601";
 import * as v20211201 from "./v20211201";
 import * as v20220301 from "./v20220301";
 import * as v20220901 from "./v20220901";
@@ -64,7 +53,6 @@ import * as v20230101 from "./v20230101";
 
 export {
     v20200101,
-    v20210601,
     v20211201,
     v20220301,
     v20220901,
@@ -79,8 +67,6 @@ const _module = {
                 return new PrivateStoreCollection(name, <any>undefined, { urn })
             case "azure-native:marketplace:PrivateStoreCollectionOffer":
                 return new PrivateStoreCollectionOffer(name, <any>undefined, { urn })
-            case "azure-native:marketplace:PrivateStoreOffer":
-                return new PrivateStoreOffer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

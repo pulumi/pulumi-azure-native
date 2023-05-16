@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS zone.
- *
- * @deprecated Version 2015-05-04-preview will be removed in v2 of the provider.
  */
 export class Zone extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Zone extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Zone {
-        pulumi.log.warn("Zone is deprecated: Version 2015-05-04-preview will be removed in v2 of the provider.")
         return new Zone(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +69,7 @@ export class Zone extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2015-05-04-preview will be removed in v2 of the provider. */
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Zone is deprecated: Version 2015-05-04-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

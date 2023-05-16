@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getBlobContainerDataSet(args: GetBlobContainerDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetResult> {
 
@@ -89,7 +89,7 @@ export interface GetBlobContainerDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getBlobContainerDataSetOutput(args: GetBlobContainerDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetResult> {
     return pulumi.output(args).apply((a: any) => getBlobContainerDataSet(a, opts))

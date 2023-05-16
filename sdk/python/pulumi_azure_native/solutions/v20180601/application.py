@@ -244,12 +244,7 @@ class ApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2018-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class Application(pulumi.CustomResource):
-    warnings.warn("""Version 2018-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -328,7 +323,6 @@ class Application(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Application is deprecated: Version 2018-06-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

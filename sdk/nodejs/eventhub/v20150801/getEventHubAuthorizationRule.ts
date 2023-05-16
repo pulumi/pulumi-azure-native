@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
-    pulumi.log.warn("getEventHubAuthorizationRule is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20150801:getEventHubAuthorizationRule", {
@@ -67,7 +65,6 @@ export interface GetEventHubAuthorizationRuleResult {
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))
 }

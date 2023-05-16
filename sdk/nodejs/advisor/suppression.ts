@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
- * API Version: 2020-01-01.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Suppression extends pulumi.CustomResource {
     /**
@@ -40,7 +44,7 @@ export class Suppression extends pulumi.CustomResource {
      */
     public /*out*/ readonly expirationTimeStamp!: pulumi.Output<string>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -48,11 +52,15 @@ export class Suppression extends pulumi.CustomResource {
      */
     public readonly suppressionId!: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.advisor.SystemDataResponse>;
+    /**
      * The duration for which the suppression is valid.
      */
     public readonly ttl!: pulumi.Output<string | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -79,16 +87,18 @@ export class Suppression extends pulumi.CustomResource {
             resourceInputs["suppressionId"] = args ? args.suppressionId : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["expirationTimeStamp"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["expirationTimeStamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["suppressionId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["ttl"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:advisor/v20160712preview:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }, { type: "azure-native:advisor/v20220901:Suppression" }, { type: "azure-native:advisor/v20221001:Suppression" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:advisor/v20160712preview:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }, { type: "azure-native:advisor/v20220901:Suppression" }, { type: "azure-native:advisor/v20221001:Suppression" }, { type: "azure-native:advisor/v20230101:Suppression" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Suppression.__pulumiType, name, resourceInputs, opts);
     }

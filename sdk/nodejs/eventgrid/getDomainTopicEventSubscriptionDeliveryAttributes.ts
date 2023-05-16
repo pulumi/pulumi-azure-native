@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get all delivery attributes for an event subscription for domain topic.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getDomainTopicEventSubscriptionDeliveryAttributes(args: GetDomainTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicEventSubscriptionDeliveryAttributesResult> {
 
@@ -52,7 +52,7 @@ export interface GetDomainTopicEventSubscriptionDeliveryAttributesResult {
 }
 /**
  * Get all delivery attributes for an event subscription for domain topic.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getDomainTopicEventSubscriptionDeliveryAttributesOutput(args: GetDomainTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicEventSubscriptionDeliveryAttributesResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopicEventSubscriptionDeliveryAttributes(a, opts))

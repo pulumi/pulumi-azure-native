@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Fhir Service
- * API Version: 2022-05-15.
+ * API Version: 2022-12-01.
+ * Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class FhirService extends pulumi.CustomResource {
     /**
@@ -70,6 +71,14 @@ export class FhirService extends pulumi.CustomResource {
      * Setting indicating whether the service has a managed identity associated with it.
      */
     public readonly identity!: pulumi.Output<outputs.healthcareapis.ServiceManagedIdentityResponseIdentity | undefined>;
+    /**
+     * Implementation Guides configuration.
+     */
+    public readonly implementationGuidesConfiguration!: pulumi.Output<outputs.healthcareapis.ImplementationGuidesConfigurationResponse | undefined>;
+    /**
+     * Fhir Service import configuration.
+     */
+    public readonly importConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceImportConfigurationResponse | undefined>;
     /**
      * The kind of the service.
      */
@@ -135,6 +144,8 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["exportConfiguration"] = args ? args.exportConfiguration : undefined;
             resourceInputs["fhirServiceName"] = args ? args.fhirServiceName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["implementationGuidesConfiguration"] = args ? args.implementationGuidesConfiguration : undefined;
+            resourceInputs["importConfiguration"] = args ? args.importConfiguration : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -158,6 +169,8 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["eventState"] = undefined /*out*/;
             resourceInputs["exportConfiguration"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["implementationGuidesConfiguration"] = undefined /*out*/;
+            resourceInputs["importConfiguration"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -170,7 +183,7 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:FhirService" }, { type: "azure-native:healthcareapis/v20211101:FhirService" }, { type: "azure-native:healthcareapis/v20220131preview:FhirService" }, { type: "azure-native:healthcareapis/v20220515:FhirService" }, { type: "azure-native:healthcareapis/v20220601:FhirService" }, { type: "azure-native:healthcareapis/v20221001preview:FhirService" }, { type: "azure-native:healthcareapis/v20221201:FhirService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:FhirService" }, { type: "azure-native:healthcareapis/v20211101:FhirService" }, { type: "azure-native:healthcareapis/v20220131preview:FhirService" }, { type: "azure-native:healthcareapis/v20220515:FhirService" }, { type: "azure-native:healthcareapis/v20220601:FhirService" }, { type: "azure-native:healthcareapis/v20221001preview:FhirService" }, { type: "azure-native:healthcareapis/v20221201:FhirService" }, { type: "azure-native:healthcareapis/v20230228:FhirService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FhirService.__pulumiType, name, resourceInputs, opts);
     }
@@ -208,6 +221,14 @@ export interface FhirServiceArgs {
      * Setting indicating whether the service has a managed identity associated with it.
      */
     identity?: pulumi.Input<inputs.healthcareapis.ServiceManagedIdentityIdentityArgs>;
+    /**
+     * Implementation Guides configuration.
+     */
+    implementationGuidesConfiguration?: pulumi.Input<inputs.healthcareapis.ImplementationGuidesConfigurationArgs>;
+    /**
+     * Fhir Service import configuration.
+     */
+    importConfiguration?: pulumi.Input<inputs.healthcareapis.FhirServiceImportConfigurationArgs>;
     /**
      * The kind of the service.
      */

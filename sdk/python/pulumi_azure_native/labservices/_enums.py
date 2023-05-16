@@ -8,11 +8,13 @@ __all__ = [
     'AddRemove',
     'ConfigurationState',
     'ConnectionType',
+    'CreateOption',
     'EnableState',
-    'LabUserAccessMode',
     'ManagedLabVmSize',
     'RecurrenceFrequency',
+    'ResourceIdentityType',
     'ShutdownOnIdleMode',
+    'SkuTier',
     'WeekDay',
 ]
 
@@ -55,26 +57,26 @@ class ConnectionType(str, Enum):
     NONE = "None"
 
 
+class CreateOption(str, Enum):
+    """
+    Indicates what lab virtual machines are created from.
+    """
+    IMAGE = "Image"
+    """
+    An image is used to create all lab user virtual machines. When this option is set, no template VM will be created.
+    """
+    TEMPLATE_VM = "TemplateVM"
+    """
+    A template VM will be used to create all lab user virtual machines.
+    """
+
+
 class EnableState(str, Enum):
     """
     Whether a VM will get shutdown when it hasn't been connected to after a period of time.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class LabUserAccessMode(str, Enum):
-    """
-    Lab user access mode (open to all vs. restricted to those listed on the lab).
-    """
-    RESTRICTED = "Restricted"
-    """
-    Only users registered with the lab can access VMs.
-    """
-    OPEN = "Open"
-    """
-    Any user can register with the lab and access its VMs.
-    """
 
 
 class ManagedLabVmSize(str, Enum):
@@ -109,6 +111,13 @@ class RecurrenceFrequency(str, Enum):
     """
 
 
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
 class ShutdownOnIdleMode(str, Enum):
     """
     Whether a VM will get shutdown when it has idled for a period of time.
@@ -125,6 +134,16 @@ class ShutdownOnIdleMode(str, Enum):
     """
     The VM will be considered as idle when user is absent and the resource (CPU and disk) consumption is low.
     """
+
+
+class SkuTier(str, Enum):
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
+    FREE = "Free"
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
 
 
 class WeekDay(str, Enum):

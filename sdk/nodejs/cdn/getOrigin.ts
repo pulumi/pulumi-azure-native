@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin within an endpoint.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
 
@@ -120,7 +120,7 @@ export interface GetOriginResult {
 }
 /**
  * Gets an existing origin within an endpoint.
- * API Version: 2020-09-01.
+ * API Version: 2021-06-01.
  */
 export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {
     return pulumi.output(args).apply((a: any) => getOrigin(a, opts))

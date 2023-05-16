@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetworkGatewayInitArgs', 'VirtualNetworkGateway']
+__all__ = ['VirtualNetworkGatewayArgs', 'VirtualNetworkGateway']
 
 @pulumi.input_type
-class VirtualNetworkGatewayInitArgs:
+class VirtualNetworkGatewayArgs:
     def __init__(__self__, *,
                  gateway_type: pulumi.Input[Union[str, 'VirtualNetworkGatewayType']],
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]],
@@ -258,12 +258,7 @@ class VirtualNetworkGatewayInitArgs:
         pulumi.set(self, "vpn_client_configuration", value)
 
 
-warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class VirtualNetworkGateway(pulumi.CustomResource):
-    warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -309,18 +304,18 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkGatewayInitArgs,
+                 args: VirtualNetworkGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkGatewayInitArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -345,14 +340,13 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']]] = None,
                  vpn_type: Optional[pulumi.Input[Union[str, 'VpnType']]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualNetworkGateway is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkGatewayInitArgs.__new__(VirtualNetworkGatewayInitArgs)
+            __props__ = VirtualNetworkGatewayArgs.__new__(VirtualNetworkGatewayArgs)
 
             __props__.__dict__["active_active"] = active_active
             __props__.__dict__["bgp_settings"] = bgp_settings
@@ -381,7 +375,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetworkGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkGateway, __self__).__init__(
             'azure-native:network/v20160901:VirtualNetworkGateway',
@@ -403,7 +397,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualNetworkGatewayInitArgs.__new__(VirtualNetworkGatewayInitArgs)
+        __props__ = VirtualNetworkGatewayArgs.__new__(VirtualNetworkGatewayArgs)
 
         __props__.__dict__["active_active"] = None
         __props__.__dict__["bgp_settings"] = None

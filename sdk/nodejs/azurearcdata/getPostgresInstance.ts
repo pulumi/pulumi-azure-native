@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a postgres Instance resource
- * API Version: 2021-06-01-preview.
+ * API Version: 2023-03-15-preview.
  */
 export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetPostgresInstanceResult> {
 
@@ -40,7 +40,7 @@ export interface GetPostgresInstanceResult {
      */
     readonly extendedLocation?: outputs.azurearcdata.ExtendedLocationResponse;
     /**
-     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -60,7 +60,7 @@ export interface GetPostgresInstanceResult {
      */
     readonly sku?: outputs.azurearcdata.PostgresInstanceSkuResponse;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.azurearcdata.SystemDataResponse;
     /**
@@ -68,13 +68,13 @@ export interface GetPostgresInstanceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Retrieves a postgres Instance resource
- * API Version: 2021-06-01-preview.
+ * API Version: 2023-03-15-preview.
  */
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {
     return pulumi.output(args).apply((a: any) => getPostgresInstance(a, opts))

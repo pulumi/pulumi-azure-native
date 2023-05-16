@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * RemoteRenderingAccount Response.
  * API Version: 2021-01-01.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class RemoteRenderingAccount extends pulumi.CustomResource {
     /**

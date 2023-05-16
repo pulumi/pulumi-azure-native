@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified bandwidth schedule.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {
 
@@ -65,7 +65,7 @@ export interface GetBandwidthScheduleResult {
      */
     readonly stop: string;
     /**
-     * Bandwidth object related to ASE resource
+     * Metadata pertaining to creation and last modification of BandwidthSchedule
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
@@ -75,7 +75,7 @@ export interface GetBandwidthScheduleResult {
 }
 /**
  * Gets the properties of the specified bandwidth schedule.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
  */
 export function getBandwidthScheduleOutput(args: GetBandwidthScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthScheduleResult> {
     return pulumi.output(args).apply((a: any) => getBandwidthSchedule(a, opts))

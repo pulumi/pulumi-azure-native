@@ -16,25 +16,30 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class OnlineRequestSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of requests allowed to queue at once for this deployment.
+        /// The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
         /// </summary>
         [Input("maxConcurrentRequestsPerInstance")]
         public Input<int>? MaxConcurrentRequestsPerInstance { get; set; }
 
         /// <summary>
-        /// The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
+        /// The maximum amount of time a request will stay in the queue in ISO 8601 format.
+        /// Defaults to 500ms.
         /// </summary>
         [Input("maxQueueWait")]
         public Input<string>? MaxQueueWait { get; set; }
 
         /// <summary>
-        /// The request timeout in ISO 8601 format. Supports millisecond precision.
+        /// The scoring timeout in ISO 8601 format.
+        /// Defaults to 5000ms.
         /// </summary>
         [Input("requestTimeout")]
         public Input<string>? RequestTimeout { get; set; }
 
         public OnlineRequestSettingsArgs()
         {
+            MaxConcurrentRequestsPerInstance = 1;
+            MaxQueueWait = "PT0.5S";
+            RequestTimeout = "PT5S";
         }
         public static new OnlineRequestSettingsArgs Empty => new OnlineRequestSettingsArgs();
     }

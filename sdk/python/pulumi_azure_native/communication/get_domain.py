@@ -22,7 +22,7 @@ class GetDomainResult:
     """
     A class representing a Domains resource.
     """
-    def __init__(__self__, data_location=None, domain_management=None, from_sender_domain=None, id=None, location=None, mail_from_sender_domain=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, user_engagement_tracking=None, valid_sender_usernames=None, verification_records=None, verification_states=None):
+    def __init__(__self__, data_location=None, domain_management=None, from_sender_domain=None, id=None, location=None, mail_from_sender_domain=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, user_engagement_tracking=None, verification_records=None, verification_states=None):
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
@@ -59,9 +59,6 @@ class GetDomainResult:
         if user_engagement_tracking and not isinstance(user_engagement_tracking, str):
             raise TypeError("Expected argument 'user_engagement_tracking' to be a str")
         pulumi.set(__self__, "user_engagement_tracking", user_engagement_tracking)
-        if valid_sender_usernames and not isinstance(valid_sender_usernames, dict):
-            raise TypeError("Expected argument 'valid_sender_usernames' to be a dict")
-        pulumi.set(__self__, "valid_sender_usernames", valid_sender_usernames)
         if verification_records and not isinstance(verification_records, dict):
             raise TypeError("Expected argument 'verification_records' to be a dict")
         pulumi.set(__self__, "verification_records", verification_records)
@@ -97,7 +94,7 @@ class GetDomainResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -166,14 +163,6 @@ class GetDomainResult:
         return pulumi.get(self, "user_engagement_tracking")
 
     @property
-    @pulumi.getter(name="validSenderUsernames")
-    def valid_sender_usernames(self) -> Optional[Mapping[str, str]]:
-        """
-        Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-        """
-        return pulumi.get(self, "valid_sender_usernames")
-
-    @property
     @pulumi.getter(name="verificationRecords")
     def verification_records(self) -> 'outputs.DomainPropertiesResponseVerificationRecords':
         """
@@ -208,7 +197,6 @@ class AwaitableGetDomainResult(GetDomainResult):
             tags=self.tags,
             type=self.type,
             user_engagement_tracking=self.user_engagement_tracking,
-            valid_sender_usernames=self.valid_sender_usernames,
             verification_records=self.verification_records,
             verification_states=self.verification_states)
 
@@ -219,7 +207,7 @@ def get_domain(domain_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     Get the Domains resource and its properties.
-    API Version: 2021-10-01-preview.
+    API Version: 2023-03-01-preview.
 
 
     :param str domain_name: The name of the Domains resource.
@@ -246,7 +234,6 @@ def get_domain(domain_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         user_engagement_tracking=__ret__.user_engagement_tracking,
-        valid_sender_usernames=__ret__.valid_sender_usernames,
         verification_records=__ret__.verification_records,
         verification_states=__ret__.verification_states)
 
@@ -258,7 +245,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     Get the Domains resource and its properties.
-    API Version: 2021-10-01-preview.
+    API Version: 2023-03-01-preview.
 
 
     :param str domain_name: The name of the Domains resource.

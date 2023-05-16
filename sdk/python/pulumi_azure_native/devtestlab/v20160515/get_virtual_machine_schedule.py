@@ -17,8 +17,6 @@ __all__ = [
     'get_virtual_machine_schedule_output',
 ]
 
-warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetVirtualMachineScheduleResult:
     """
@@ -243,7 +241,6 @@ def get_virtual_machine_schedule(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_name: The name of the virtual machine.
     """
-    pulumi.log.warn("""get_virtual_machine_schedule is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name
@@ -289,5 +286,4 @@ def get_virtual_machine_schedule_output(expand: Optional[pulumi.Input[Optional[s
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_name: The name of the virtual machine.
     """
-    pulumi.log.warn("""get_virtual_machine_schedule is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
     ...

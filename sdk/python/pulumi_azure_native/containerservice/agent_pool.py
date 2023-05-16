@@ -22,11 +22,14 @@ class AgentPoolArgs:
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  count: Optional[pulumi.Input[int]] = None,
+                 creation_data: Optional[pulumi.Input['CreationDataArgs']] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 enable_ultra_ssd: Optional[pulumi.Input[bool]] = None,
                  gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
                  linux_os_config: Optional[pulumi.Input['LinuxOSConfigArgs']] = None,
@@ -43,7 +46,9 @@ class AgentPoolArgs:
                  os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
+                 power_state: Optional[pulumi.Input['PowerStateArgs']] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 scale_down_mode: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
                  scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -51,44 +56,51 @@ class AgentPoolArgs:
                  type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
                  upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[str]] = None):
+                 vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 workload_runtime: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]] = None):
         """
         The set of arguments for constructing a AgentPool resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input['CreationDataArgs'] creation_data: CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
-        :param pulumi.Input[bool] enable_encryption_at_host: Whether to enable EncryptionAtHost
-        :param pulumi.Input[bool] enable_fips: Whether to use FIPS enabled OS
-        :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
-        :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
-        :param pulumi.Input['KubeletConfigArgs'] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
-        :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
-        :param pulumi.Input['LinuxOSConfigArgs'] linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
-        :param pulumi.Input[int] max_count: Maximum number of nodes for auto-scaling
-        :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
-        :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
-        :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: AgentPoolMode represents mode of an agent pool
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
-        :param pulumi.Input[str] node_public_ip_prefix_id: Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
-        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
-        :param pulumi.Input[Union[str, 'OSSKU']] os_sku: OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
-        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param pulumi.Input[str] pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
+        :param pulumi.Input[bool] enable_encryption_at_host: This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
+        :param pulumi.Input[bool] enable_fips: See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
+        :param pulumi.Input[bool] enable_node_public_ip: Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
+        :param pulumi.Input[bool] enable_ultra_ssd: Whether to enable UltraSSD
+        :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
+        :param pulumi.Input[str] host_group_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
+        :param pulumi.Input['KubeletConfigArgs'] kubelet_config: The Kubelet configuration on the agent pool nodes.
+        :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
+        :param pulumi.Input['LinuxOSConfigArgs'] linux_os_config: The OS configuration of Linux agent nodes.
+        :param pulumi.Input[int] max_count: The maximum number of nodes for auto-scaling
+        :param pulumi.Input[int] max_pods: The maximum number of pods that can run on a node.
+        :param pulumi.Input[int] min_count: The minimum number of nodes for auto-scaling
+        :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: The node labels to be persisted across all nodes in agent pool.
+        :param pulumi.Input[str] node_public_ip_prefix_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        :param pulumi.Input[str] orchestrator_version: Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+        :param pulumi.Input[Union[str, 'OSSKU']] os_sku: Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: The operating system type. The default is Linux.
+        :param pulumi.Input[str] pod_subnet_id: If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param pulumi.Input['PowerStateArgs'] power_state: When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
-        :param pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']] scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
-        :param pulumi.Input[Union[str, 'ScaleSetPriority']] scale_set_priority: ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-        :param pulumi.Input[float] spot_max_price: SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Agent pool tags to be persisted on the agent pool virtual machine scale set.
-        :param pulumi.Input[Union[str, 'AgentPoolType']] type: AgentPoolType represents types of an agent pool
+        :param pulumi.Input[Union[str, 'ScaleDownMode']] scale_down_mode: This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+        :param pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']] scale_set_eviction_policy: This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+        :param pulumi.Input[Union[str, 'ScaleSetPriority']] scale_set_priority: The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+        :param pulumi.Input[float] spot_max_price: Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags to be persisted on the agent pool virtual machine scale set.
+        :param pulumi.Input[Union[str, 'AgentPoolType']] type: The type of Agent Pool.
         :param pulumi.Input['AgentPoolUpgradeSettingsArgs'] upgrade_settings: Settings for upgrading the agentpool
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+        :param pulumi.Input[str] vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        :param pulumi.Input[str] vnet_subnet_id: If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param pulumi.Input[Union[str, 'WorkloadRuntime']] workload_runtime: Determines the type of workload a node can run.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
@@ -98,6 +110,8 @@ class AgentPoolArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if creation_data is not None:
+            pulumi.set(__self__, "creation_data", creation_data)
         if enable_auto_scaling is not None:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_encryption_at_host is not None:
@@ -106,8 +120,12 @@ class AgentPoolArgs:
             pulumi.set(__self__, "enable_fips", enable_fips)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if enable_ultra_ssd is not None:
+            pulumi.set(__self__, "enable_ultra_ssd", enable_ultra_ssd)
         if gpu_instance_profile is not None:
             pulumi.set(__self__, "gpu_instance_profile", gpu_instance_profile)
+        if host_group_id is not None:
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
@@ -140,8 +158,12 @@ class AgentPoolArgs:
             pulumi.set(__self__, "os_type", os_type)
         if pod_subnet_id is not None:
             pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
+        if power_state is not None:
+            pulumi.set(__self__, "power_state", power_state)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if scale_down_mode is not None:
+            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
         if scale_set_eviction_policy is not None:
             pulumi.set(__self__, "scale_set_eviction_policy", scale_set_eviction_policy)
         if scale_set_priority is not None:
@@ -158,12 +180,14 @@ class AgentPoolArgs:
             pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if workload_runtime is not None:
+            pulumi.set(__self__, "workload_runtime", workload_runtime)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -199,7 +223,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -211,13 +235,25 @@ class AgentPoolArgs:
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         """
         return pulumi.get(self, "count")
 
     @count.setter
     def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> Optional[pulumi.Input['CreationDataArgs']]:
+        """
+        CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
+        """
+        return pulumi.get(self, "creation_data")
+
+    @creation_data.setter
+    def creation_data(self, value: Optional[pulumi.Input['CreationDataArgs']]):
+        pulumi.set(self, "creation_data", value)
 
     @property
     @pulumi.getter(name="enableAutoScaling")
@@ -235,7 +271,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="enableEncryptionAtHost")
     def enable_encryption_at_host(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable EncryptionAtHost
+        This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
         """
         return pulumi.get(self, "enable_encryption_at_host")
 
@@ -247,7 +283,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="enableFIPS")
     def enable_fips(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to use FIPS enabled OS
+        See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
         """
         return pulumi.get(self, "enable_fips")
 
@@ -259,7 +295,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable public IP for nodes
+        Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -268,10 +304,22 @@ class AgentPoolArgs:
         pulumi.set(self, "enable_node_public_ip", value)
 
     @property
+    @pulumi.getter(name="enableUltraSSD")
+    def enable_ultra_ssd(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable UltraSSD
+        """
+        return pulumi.get(self, "enable_ultra_ssd")
+
+    @enable_ultra_ssd.setter
+    def enable_ultra_ssd(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ultra_ssd", value)
+
+    @property
     @pulumi.getter(name="gpuInstanceProfile")
     def gpu_instance_profile(self) -> Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]]:
         """
-        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
         """
         return pulumi.get(self, "gpu_instance_profile")
 
@@ -280,10 +328,22 @@ class AgentPoolArgs:
         pulumi.set(self, "gpu_instance_profile", value)
 
     @property
+    @pulumi.getter(name="hostGroupID")
+    def host_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
+        """
+        return pulumi.get(self, "host_group_id")
+
+    @host_group_id.setter
+    def host_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_group_id", value)
+
+    @property
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> Optional[pulumi.Input['KubeletConfigArgs']]:
         """
-        KubeletConfig specifies the configuration of kubelet on agent nodes.
+        The Kubelet configuration on the agent pool nodes.
         """
         return pulumi.get(self, "kubelet_config")
 
@@ -295,7 +355,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[pulumi.Input[Union[str, 'KubeletDiskType']]]:
         """
-        KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -307,7 +367,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="linuxOSConfig")
     def linux_os_config(self) -> Optional[pulumi.Input['LinuxOSConfigArgs']]:
         """
-        LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        The OS configuration of Linux agent nodes.
         """
         return pulumi.get(self, "linux_os_config")
 
@@ -319,7 +379,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of nodes for auto-scaling
+        The maximum number of nodes for auto-scaling
         """
         return pulumi.get(self, "max_count")
 
@@ -331,7 +391,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="maxPods")
     def max_pods(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of pods that can run on a node.
+        The maximum number of pods that can run on a node.
         """
         return pulumi.get(self, "max_pods")
 
@@ -343,7 +403,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of nodes for auto-scaling
+        The minimum number of nodes for auto-scaling
         """
         return pulumi.get(self, "min_count")
 
@@ -355,7 +415,7 @@ class AgentPoolArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[str, 'AgentPoolMode']]]:
         """
-        AgentPoolMode represents mode of an agent pool
+        A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
         """
         return pulumi.get(self, "mode")
 
@@ -367,7 +427,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="nodeLabels")
     def node_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Agent pool node labels to be persisted across all nodes in agent pool.
+        The node labels to be persisted across all nodes in agent pool.
         """
         return pulumi.get(self, "node_labels")
 
@@ -379,7 +439,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="nodePublicIPPrefixID")
     def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
@@ -391,7 +451,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         """
         return pulumi.get(self, "node_taints")
 
@@ -403,7 +463,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of orchestrator specified when creating the managed cluster.
+        Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
         """
         return pulumi.get(self, "orchestrator_version")
 
@@ -415,7 +475,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="osDiskSizeGB")
     def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
@@ -427,7 +487,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> Optional[pulumi.Input[Union[str, 'OSDiskType']]]:
         """
-        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+        The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
         """
         return pulumi.get(self, "os_disk_type")
 
@@ -439,7 +499,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="osSKU")
     def os_sku(self) -> Optional[pulumi.Input[Union[str, 'OSSKU']]]:
         """
-        OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
         """
         return pulumi.get(self, "os_sku")
 
@@ -451,7 +511,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
         """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        The operating system type. The default is Linux.
         """
         return pulumi.get(self, "os_type")
 
@@ -463,13 +523,25 @@ class AgentPoolArgs:
     @pulumi.getter(name="podSubnetID")
     def pod_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Pod SubnetID specifies the VNet's subnet identifier for pods.
+        If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "pod_subnet_id")
 
     @pod_subnet_id.setter
     def pod_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pod_subnet_id", value)
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> Optional[pulumi.Input['PowerStateArgs']]:
+        """
+        When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+        """
+        return pulumi.get(self, "power_state")
+
+    @power_state.setter
+    def power_state(self, value: Optional[pulumi.Input['PowerStateArgs']]):
+        pulumi.set(self, "power_state", value)
 
     @property
     @pulumi.getter(name="proximityPlacementGroupID")
@@ -484,10 +556,22 @@ class AgentPoolArgs:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @property
+    @pulumi.getter(name="scaleDownMode")
+    def scale_down_mode(self) -> Optional[pulumi.Input[Union[str, 'ScaleDownMode']]]:
+        """
+        This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+        """
+        return pulumi.get(self, "scale_down_mode")
+
+    @scale_down_mode.setter
+    def scale_down_mode(self, value: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]]):
+        pulumi.set(self, "scale_down_mode", value)
+
+    @property
     @pulumi.getter(name="scaleSetEvictionPolicy")
     def scale_set_eviction_policy(self) -> Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]]:
         """
-        ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+        This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         """
         return pulumi.get(self, "scale_set_eviction_policy")
 
@@ -499,7 +583,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="scaleSetPriority")
     def scale_set_priority(self) -> Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]]:
         """
-        ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+        The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
         """
         return pulumi.get(self, "scale_set_priority")
 
@@ -511,7 +595,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[float]]:
         """
-        SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+        Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         """
         return pulumi.get(self, "spot_max_price")
 
@@ -523,7 +607,7 @@ class AgentPoolArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Agent pool tags to be persisted on the agent pool virtual machine scale set.
+        The tags to be persisted on the agent pool virtual machine scale set.
         """
         return pulumi.get(self, "tags")
 
@@ -535,7 +619,7 @@ class AgentPoolArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'AgentPoolType']]]:
         """
-        AgentPoolType represents types of an agent pool
+        The type of Agent Pool.
         """
         return pulumi.get(self, "type")
 
@@ -559,7 +643,7 @@ class AgentPoolArgs:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[pulumi.Input[str]]:
         """
-        Size of agent VMs.
+        VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         """
         return pulumi.get(self, "vm_size")
 
@@ -571,13 +655,25 @@ class AgentPoolArgs:
     @pulumi.getter(name="vnetSubnetID")
     def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+        If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "vnet_subnet_id")
 
     @vnet_subnet_id.setter
     def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_subnet_id", value)
+
+    @property
+    @pulumi.getter(name="workloadRuntime")
+    def workload_runtime(self) -> Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]]:
+        """
+        Determines the type of workload a node can run.
+        """
+        return pulumi.get(self, "workload_runtime")
+
+    @workload_runtime.setter
+    def workload_runtime(self, value: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]]):
+        pulumi.set(self, "workload_runtime", value)
 
 
 class AgentPool(pulumi.CustomResource):
@@ -588,11 +684,14 @@ class AgentPool(pulumi.CustomResource):
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  count: Optional[pulumi.Input[int]] = None,
+                 creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 enable_ultra_ssd: Optional[pulumi.Input[bool]] = None,
                  gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
                  linux_os_config: Optional[pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']]] = None,
@@ -609,9 +708,11 @@ class AgentPool(pulumi.CustomResource):
                  os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
+                 power_state: Optional[pulumi.Input[pulumi.InputType['PowerStateArgs']]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 scale_down_mode: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
                  scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -620,48 +721,56 @@ class AgentPool(pulumi.CustomResource):
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 workload_runtime: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]] = None,
                  __props__=None):
         """
         Agent Pool.
-        API Version: 2021-03-01.
+        API Version: 2023-01-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
-        :param pulumi.Input[bool] enable_encryption_at_host: Whether to enable EncryptionAtHost
-        :param pulumi.Input[bool] enable_fips: Whether to use FIPS enabled OS
-        :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
-        :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
-        :param pulumi.Input[pulumi.InputType['KubeletConfigArgs']] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
-        :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
-        :param pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']] linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
-        :param pulumi.Input[int] max_count: Maximum number of nodes for auto-scaling
-        :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
-        :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
-        :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: AgentPoolMode represents mode of an agent pool
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
-        :param pulumi.Input[str] node_public_ip_prefix_id: Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
-        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
-        :param pulumi.Input[Union[str, 'OSSKU']] os_sku: OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
-        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param pulumi.Input[str] pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
+        :param pulumi.Input[bool] enable_encryption_at_host: This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
+        :param pulumi.Input[bool] enable_fips: See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
+        :param pulumi.Input[bool] enable_node_public_ip: Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
+        :param pulumi.Input[bool] enable_ultra_ssd: Whether to enable UltraSSD
+        :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
+        :param pulumi.Input[str] host_group_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
+        :param pulumi.Input[pulumi.InputType['KubeletConfigArgs']] kubelet_config: The Kubelet configuration on the agent pool nodes.
+        :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
+        :param pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']] linux_os_config: The OS configuration of Linux agent nodes.
+        :param pulumi.Input[int] max_count: The maximum number of nodes for auto-scaling
+        :param pulumi.Input[int] max_pods: The maximum number of pods that can run on a node.
+        :param pulumi.Input[int] min_count: The minimum number of nodes for auto-scaling
+        :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: The node labels to be persisted across all nodes in agent pool.
+        :param pulumi.Input[str] node_public_ip_prefix_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        :param pulumi.Input[str] orchestrator_version: Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+        :param pulumi.Input[Union[str, 'OSSKU']] os_sku: Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: The operating system type. The default is Linux.
+        :param pulumi.Input[str] pod_subnet_id: If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param pulumi.Input[pulumi.InputType['PowerStateArgs']] power_state: When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
-        :param pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']] scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
-        :param pulumi.Input[Union[str, 'ScaleSetPriority']] scale_set_priority: ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-        :param pulumi.Input[float] spot_max_price: SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Agent pool tags to be persisted on the agent pool virtual machine scale set.
-        :param pulumi.Input[Union[str, 'AgentPoolType']] type: AgentPoolType represents types of an agent pool
+        :param pulumi.Input[Union[str, 'ScaleDownMode']] scale_down_mode: This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+        :param pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']] scale_set_eviction_policy: This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+        :param pulumi.Input[Union[str, 'ScaleSetPriority']] scale_set_priority: The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+        :param pulumi.Input[float] spot_max_price: Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags to be persisted on the agent pool virtual machine scale set.
+        :param pulumi.Input[Union[str, 'AgentPoolType']] type: The type of Agent Pool.
         :param pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']] upgrade_settings: Settings for upgrading the agentpool
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+        :param pulumi.Input[str] vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        :param pulumi.Input[str] vnet_subnet_id: If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param pulumi.Input[Union[str, 'WorkloadRuntime']] workload_runtime: Determines the type of workload a node can run.
         """
         ...
     @overload
@@ -671,7 +780,8 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Agent Pool.
-        API Version: 2021-03-01.
+        API Version: 2023-01-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
@@ -691,11 +801,14 @@ class AgentPool(pulumi.CustomResource):
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  count: Optional[pulumi.Input[int]] = None,
+                 creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 enable_ultra_ssd: Optional[pulumi.Input[bool]] = None,
                  gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
                  linux_os_config: Optional[pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']]] = None,
@@ -712,9 +825,11 @@ class AgentPool(pulumi.CustomResource):
                  os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
+                 power_state: Optional[pulumi.Input[pulumi.InputType['PowerStateArgs']]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 scale_down_mode: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
                  scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -723,6 +838,7 @@ class AgentPool(pulumi.CustomResource):
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 workload_runtime: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -735,11 +851,14 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["agent_pool_name"] = agent_pool_name
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["count"] = count
+            __props__.__dict__["creation_data"] = creation_data
             __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
             __props__.__dict__["enable_encryption_at_host"] = enable_encryption_at_host
             __props__.__dict__["enable_fips"] = enable_fips
             __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
+            __props__.__dict__["enable_ultra_ssd"] = enable_ultra_ssd
             __props__.__dict__["gpu_instance_profile"] = gpu_instance_profile
+            __props__.__dict__["host_group_id"] = host_group_id
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
             __props__.__dict__["linux_os_config"] = linux_os_config
@@ -756,6 +875,7 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["os_sku"] = os_sku
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["pod_subnet_id"] = pod_subnet_id
+            __props__.__dict__["power_state"] = power_state
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -763,6 +883,7 @@ class AgentPool(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["scale_down_mode"] = scale_down_mode
             __props__.__dict__["scale_set_eviction_policy"] = scale_set_eviction_policy
             __props__.__dict__["scale_set_priority"] = scale_set_priority
             __props__.__dict__["spot_max_price"] = spot_max_price
@@ -771,11 +892,12 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+            __props__.__dict__["workload_runtime"] = workload_runtime
+            __props__.__dict__["current_orchestrator_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["node_image_version"] = None
-            __props__.__dict__["power_state"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210501:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20211001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20211101preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220102preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220202preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220302preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220402preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220502preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220602preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220802preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220803preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220902preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20221002preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20221101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20221102preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20230101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20230102preview:AgentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210501:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20211001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20211101preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220102preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220202preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220302preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220402preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220502preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220602preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220802preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220803preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20220902preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20221002preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20221101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20221102preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20230101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20230102preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20230201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20230202preview:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20230301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20230302preview:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-native:containerservice:AgentPool',
@@ -801,11 +923,15 @@ class AgentPool(pulumi.CustomResource):
 
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["count"] = None
+        __props__.__dict__["creation_data"] = None
+        __props__.__dict__["current_orchestrator_version"] = None
         __props__.__dict__["enable_auto_scaling"] = None
         __props__.__dict__["enable_encryption_at_host"] = None
         __props__.__dict__["enable_fips"] = None
         __props__.__dict__["enable_node_public_ip"] = None
+        __props__.__dict__["enable_ultra_ssd"] = None
         __props__.__dict__["gpu_instance_profile"] = None
+        __props__.__dict__["host_group_id"] = None
         __props__.__dict__["kubelet_config"] = None
         __props__.__dict__["kubelet_disk_type"] = None
         __props__.__dict__["linux_os_config"] = None
@@ -827,6 +953,7 @@ class AgentPool(pulumi.CustomResource):
         __props__.__dict__["power_state"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["proximity_placement_group_id"] = None
+        __props__.__dict__["scale_down_mode"] = None
         __props__.__dict__["scale_set_eviction_policy"] = None
         __props__.__dict__["scale_set_priority"] = None
         __props__.__dict__["spot_max_price"] = None
@@ -835,13 +962,14 @@ class AgentPool(pulumi.CustomResource):
         __props__.__dict__["upgrade_settings"] = None
         __props__.__dict__["vm_size"] = None
         __props__.__dict__["vnet_subnet_id"] = None
+        __props__.__dict__["workload_runtime"] = None
         return AgentPool(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -849,9 +977,25 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter
     def count(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         """
         return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> pulumi.Output[Optional['outputs.CreationDataResponse']]:
+        """
+        CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
+        """
+        return pulumi.get(self, "creation_data")
+
+    @property
+    @pulumi.getter(name="currentOrchestratorVersion")
+    def current_orchestrator_version(self) -> pulumi.Output[str]:
+        """
+        If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
+        """
+        return pulumi.get(self, "current_orchestrator_version")
 
     @property
     @pulumi.getter(name="enableAutoScaling")
@@ -865,7 +1009,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="enableEncryptionAtHost")
     def enable_encryption_at_host(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to enable EncryptionAtHost
+        This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
         """
         return pulumi.get(self, "enable_encryption_at_host")
 
@@ -873,7 +1017,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="enableFIPS")
     def enable_fips(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to use FIPS enabled OS
+        See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
         """
         return pulumi.get(self, "enable_fips")
 
@@ -881,23 +1025,39 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable public IP for nodes
+        Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="enableUltraSSD")
+    def enable_ultra_ssd(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable UltraSSD
+        """
+        return pulumi.get(self, "enable_ultra_ssd")
 
     @property
     @pulumi.getter(name="gpuInstanceProfile")
     def gpu_instance_profile(self) -> pulumi.Output[Optional[str]]:
         """
-        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
         """
         return pulumi.get(self, "gpu_instance_profile")
+
+    @property
+    @pulumi.getter(name="hostGroupID")
+    def host_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
+        """
+        return pulumi.get(self, "host_group_id")
 
     @property
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> pulumi.Output[Optional['outputs.KubeletConfigResponse']]:
         """
-        KubeletConfig specifies the configuration of kubelet on agent nodes.
+        The Kubelet configuration on the agent pool nodes.
         """
         return pulumi.get(self, "kubelet_config")
 
@@ -905,7 +1065,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> pulumi.Output[Optional[str]]:
         """
-        KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -913,7 +1073,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="linuxOSConfig")
     def linux_os_config(self) -> pulumi.Output[Optional['outputs.LinuxOSConfigResponse']]:
         """
-        LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        The OS configuration of Linux agent nodes.
         """
         return pulumi.get(self, "linux_os_config")
 
@@ -921,7 +1081,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="maxCount")
     def max_count(self) -> pulumi.Output[Optional[int]]:
         """
-        Maximum number of nodes for auto-scaling
+        The maximum number of nodes for auto-scaling
         """
         return pulumi.get(self, "max_count")
 
@@ -929,7 +1089,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="maxPods")
     def max_pods(self) -> pulumi.Output[Optional[int]]:
         """
-        Maximum number of pods that can run on a node.
+        The maximum number of pods that can run on a node.
         """
         return pulumi.get(self, "max_pods")
 
@@ -937,7 +1097,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="minCount")
     def min_count(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum number of nodes for auto-scaling
+        The minimum number of nodes for auto-scaling
         """
         return pulumi.get(self, "min_count")
 
@@ -945,7 +1105,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[Optional[str]]:
         """
-        AgentPoolMode represents mode of an agent pool
+        A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
         """
         return pulumi.get(self, "mode")
 
@@ -961,7 +1121,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="nodeImageVersion")
     def node_image_version(self) -> pulumi.Output[str]:
         """
-        Version of node image
+        The version of node image
         """
         return pulumi.get(self, "node_image_version")
 
@@ -969,7 +1129,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="nodeLabels")
     def node_labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Agent pool node labels to be persisted across all nodes in agent pool.
+        The node labels to be persisted across all nodes in agent pool.
         """
         return pulumi.get(self, "node_labels")
 
@@ -977,7 +1137,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="nodePublicIPPrefixID")
     def node_public_ip_prefix_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
@@ -985,7 +1145,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         """
         return pulumi.get(self, "node_taints")
 
@@ -993,7 +1153,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Version of orchestrator specified when creating the managed cluster.
+        Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
         """
         return pulumi.get(self, "orchestrator_version")
 
@@ -1001,7 +1161,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="osDiskSizeGB")
     def os_disk_size_gb(self) -> pulumi.Output[Optional[int]]:
         """
-        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
@@ -1009,7 +1169,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> pulumi.Output[Optional[str]]:
         """
-        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+        The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
         """
         return pulumi.get(self, "os_disk_type")
 
@@ -1017,7 +1177,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="osSKU")
     def os_sku(self) -> pulumi.Output[Optional[str]]:
         """
-        OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
         """
         return pulumi.get(self, "os_sku")
 
@@ -1025,7 +1185,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Output[Optional[str]]:
         """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        The operating system type. The default is Linux.
         """
         return pulumi.get(self, "os_type")
 
@@ -1033,15 +1193,15 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="podSubnetID")
     def pod_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Pod SubnetID specifies the VNet's subnet identifier for pods.
+        If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "pod_subnet_id")
 
     @property
     @pulumi.getter(name="powerState")
-    def power_state(self) -> pulumi.Output['outputs.PowerStateResponse']:
+    def power_state(self) -> pulumi.Output[Optional['outputs.PowerStateResponse']]:
         """
-        Describes whether the Agent Pool is Running or Stopped
+        When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
         """
         return pulumi.get(self, "power_state")
 
@@ -1049,7 +1209,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The current deployment or provisioning state, which only appears in the response.
+        The current deployment or provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -1062,10 +1222,18 @@ class AgentPool(pulumi.CustomResource):
         return pulumi.get(self, "proximity_placement_group_id")
 
     @property
+    @pulumi.getter(name="scaleDownMode")
+    def scale_down_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+        """
+        return pulumi.get(self, "scale_down_mode")
+
+    @property
     @pulumi.getter(name="scaleSetEvictionPolicy")
     def scale_set_eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+        This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         """
         return pulumi.get(self, "scale_set_eviction_policy")
 
@@ -1073,7 +1241,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="scaleSetPriority")
     def scale_set_priority(self) -> pulumi.Output[Optional[str]]:
         """
-        ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+        The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
         """
         return pulumi.get(self, "scale_set_priority")
 
@@ -1081,7 +1249,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> pulumi.Output[Optional[float]]:
         """
-        SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+        Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         """
         return pulumi.get(self, "spot_max_price")
 
@@ -1089,7 +1257,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Agent pool tags to be persisted on the agent pool virtual machine scale set.
+        The tags to be persisted on the agent pool virtual machine scale set.
         """
         return pulumi.get(self, "tags")
 
@@ -1097,7 +1265,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        AgentPoolType represents types of an agent pool
+        Resource type
         """
         return pulumi.get(self, "type")
 
@@ -1113,7 +1281,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> pulumi.Output[Optional[str]]:
         """
-        Size of agent VMs.
+        VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         """
         return pulumi.get(self, "vm_size")
 
@@ -1121,7 +1289,15 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter(name="vnetSubnetID")
     def vnet_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
-        VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+        If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "vnet_subnet_id")
+
+    @property
+    @pulumi.getter(name="workloadRuntime")
+    def workload_runtime(self) -> pulumi.Output[Optional[str]]:
+        """
+        Determines the type of workload a node can run.
+        """
+        return pulumi.get(self, "workload_runtime")
 

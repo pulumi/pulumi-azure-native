@@ -17,22 +17,39 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
     public sealed class ApplicationHealthPolicyResponse
     {
         /// <summary>
+        /// Indicates whether warnings are treated with the same severity as errors.
+        /// </summary>
+        public readonly bool ConsiderWarningAsError;
+        /// <summary>
         /// The health policy used by default to evaluate the health of a service type.
         /// </summary>
         public readonly Outputs.ServiceTypeHealthPolicyResponse? DefaultServiceTypeHealthPolicy;
         /// <summary>
+        /// The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
+        /// The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
+        /// This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
+        /// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+        /// </summary>
+        public readonly int MaxPercentUnhealthyDeployedApplications;
+        /// <summary>
         /// The map with service type health policy per service type name. The map is empty by default.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ServiceTypeHealthPolicyResponse>? ServiceTypeHealthPolicies;
+        public readonly ImmutableDictionary<string, Outputs.ServiceTypeHealthPolicyResponse>? ServiceTypeHealthPolicyMap;
 
         [OutputConstructor]
         private ApplicationHealthPolicyResponse(
+            bool considerWarningAsError,
+
             Outputs.ServiceTypeHealthPolicyResponse? defaultServiceTypeHealthPolicy,
 
-            ImmutableDictionary<string, Outputs.ServiceTypeHealthPolicyResponse>? serviceTypeHealthPolicies)
+            int maxPercentUnhealthyDeployedApplications,
+
+            ImmutableDictionary<string, Outputs.ServiceTypeHealthPolicyResponse>? serviceTypeHealthPolicyMap)
         {
+            ConsiderWarningAsError = considerWarningAsError;
             DefaultServiceTypeHealthPolicy = defaultServiceTypeHealthPolicy;
-            ServiceTypeHealthPolicies = serviceTypeHealthPolicies;
+            MaxPercentUnhealthyDeployedApplications = maxPercentUnhealthyDeployedApplications;
+            ServiceTypeHealthPolicyMap = serviceTypeHealthPolicyMap;
         }
     }
 }

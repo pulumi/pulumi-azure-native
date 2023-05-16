@@ -22,8 +22,7 @@ class DomainArgs:
                  domain_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_engagement_tracking: Optional[pulumi.Input[Union[str, 'UserEngagementTracking']]] = None,
-                 valid_sender_usernames: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 user_engagement_tracking: Optional[pulumi.Input[Union[str, 'UserEngagementTracking']]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[Union[str, 'DomainManagement']] domain_management: Describes how a Domains resource is being managed.
@@ -33,7 +32,6 @@ class DomainArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'UserEngagementTracking']] user_engagement_tracking: Describes whether user engagement tracking is enabled or disabled.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] valid_sender_usernames: Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
         """
         pulumi.set(__self__, "domain_management", domain_management)
         pulumi.set(__self__, "email_service_name", email_service_name)
@@ -46,8 +44,6 @@ class DomainArgs:
             pulumi.set(__self__, "tags", tags)
         if user_engagement_tracking is not None:
             pulumi.set(__self__, "user_engagement_tracking", user_engagement_tracking)
-        if valid_sender_usernames is not None:
-            pulumi.set(__self__, "valid_sender_usernames", valid_sender_usernames)
 
     @property
     @pulumi.getter(name="domainManagement")
@@ -133,18 +129,6 @@ class DomainArgs:
     def user_engagement_tracking(self, value: Optional[pulumi.Input[Union[str, 'UserEngagementTracking']]]):
         pulumi.set(self, "user_engagement_tracking", value)
 
-    @property
-    @pulumi.getter(name="validSenderUsernames")
-    def valid_sender_usernames(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-        """
-        return pulumi.get(self, "valid_sender_usernames")
-
-    @valid_sender_usernames.setter
-    def valid_sender_usernames(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "valid_sender_usernames", value)
-
 
 class Domain(pulumi.CustomResource):
     @overload
@@ -158,11 +142,11 @@ class Domain(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_engagement_tracking: Optional[pulumi.Input[Union[str, 'UserEngagementTracking']]] = None,
-                 valid_sender_usernames: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A class representing a Domains resource.
-        API Version: 2021-10-01-preview.
+        API Version: 2023-03-01-preview.
+        Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +157,6 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'UserEngagementTracking']] user_engagement_tracking: Describes whether user engagement tracking is enabled or disabled.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] valid_sender_usernames: Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
         """
         ...
     @overload
@@ -183,7 +166,8 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class representing a Domains resource.
-        API Version: 2021-10-01-preview.
+        API Version: 2023-03-01-preview.
+        Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -207,7 +191,6 @@ class Domain(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_engagement_tracking: Optional[pulumi.Input[Union[str, 'UserEngagementTracking']]] = None,
-                 valid_sender_usernames: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -230,7 +213,6 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_engagement_tracking"] = user_engagement_tracking
-            __props__.__dict__["valid_sender_usernames"] = valid_sender_usernames
             __props__.__dict__["data_location"] = None
             __props__.__dict__["from_sender_domain"] = None
             __props__.__dict__["mail_from_sender_domain"] = None
@@ -240,7 +222,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["verification_records"] = None
             __props__.__dict__["verification_states"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20220701preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230331:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20220701preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230301preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230331:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-native:communication:Domain',
@@ -275,7 +257,6 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_engagement_tracking"] = None
-        __props__.__dict__["valid_sender_usernames"] = None
         __props__.__dict__["verification_records"] = None
         __props__.__dict__["verification_states"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
@@ -367,14 +348,6 @@ class Domain(pulumi.CustomResource):
         Describes whether user engagement tracking is enabled or disabled.
         """
         return pulumi.get(self, "user_engagement_tracking")
-
-    @property
-    @pulumi.getter(name="validSenderUsernames")
-    def valid_sender_usernames(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-        """
-        return pulumi.get(self, "valid_sender_usernames")
 
     @property
     @pulumi.getter(name="verificationRecords")

@@ -35,7 +35,9 @@ export const Status = {
 export type Status = (typeof Status)[keyof typeof Status];
 
 export const Type = {
+    None: "None",
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
 } as const;
 
 /**

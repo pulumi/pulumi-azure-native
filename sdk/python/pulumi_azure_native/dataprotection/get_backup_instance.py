@@ -22,7 +22,7 @@ class GetBackupInstanceResult:
     """
     BackupInstance Resource
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,6 +35,9 @@ class GetBackupInstanceResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -43,7 +46,7 @@ class GetBackupInstanceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id represents the complete path to the resource.
+        Proxy Resource Id represents the complete path to the resource.
         """
         return pulumi.get(self, "id")
 
@@ -51,7 +54,7 @@ class GetBackupInstanceResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name associated with the resource.
+        Proxy Resource name associated with the resource.
         """
         return pulumi.get(self, "name")
 
@@ -73,9 +76,17 @@ class GetBackupInstanceResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Proxy Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
-        Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+        Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """
         return pulumi.get(self, "type")
 
@@ -90,6 +101,7 @@ class AwaitableGetBackupInstanceResult(GetBackupInstanceResult):
             name=self.name,
             properties=self.properties,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -99,11 +111,11 @@ def get_backup_instance(backup_instance_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupInstanceResult:
     """
     Gets a backup instance with name in a backup vault
-    API Version: 2021-01-01.
+    API Version: 2023-01-01.
 
 
-    :param str backup_instance_name: The name of the backup instance
-    :param str resource_group_name: The name of the resource group where the backup vault is present.
+    :param str backup_instance_name: The name of the backup instance.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vault_name: The name of the backup vault.
     """
     __args__ = dict()
@@ -118,6 +130,7 @@ def get_backup_instance(backup_instance_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         system_data=__ret__.system_data,
+        tags=__ret__.tags,
         type=__ret__.type)
 
 
@@ -128,11 +141,11 @@ def get_backup_instance_output(backup_instance_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupInstanceResult]:
     """
     Gets a backup instance with name in a backup vault
-    API Version: 2021-01-01.
+    API Version: 2023-01-01.
 
 
-    :param str backup_instance_name: The name of the backup instance
-    :param str resource_group_name: The name of the resource group where the backup vault is present.
+    :param str backup_instance_name: The name of the backup instance.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vault_name: The name of the backup vault.
     """
     ...

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a DSCP Configuration.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-native:network:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a DSCP Configuration.
-        /// API Version: 2020-11-01.
+        /// API Version: 2022-09-01.
         /// </summary>
         public static Output<GetDscpConfigurationResult> Invoke(GetDscpConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscpConfigurationResult>("azure-native:network:getDscpConfiguration", args ?? new GetDscpConfigurationInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string QosCollectionId;
         /// <summary>
+        /// QoS object definitions
+        /// </summary>
+        public readonly ImmutableArray<Outputs.QosDefinitionResponse> QosDefinitionCollection;
+        /// <summary>
         /// The resource GUID property of the DSCP Configuration resource.
         /// </summary>
         public readonly string ResourceGuid;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Network
 
             string qosCollectionId,
 
+            ImmutableArray<Outputs.QosDefinitionResponse> qosDefinitionCollection,
+
             string resourceGuid,
 
             ImmutableArray<Outputs.QosIpRangeResponse> sourceIpRanges,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.Network
             Protocol = protocol;
             ProvisioningState = provisioningState;
             QosCollectionId = qosCollectionId;
+            QosDefinitionCollection = qosDefinitionCollection;
             ResourceGuid = resourceGuid;
             SourceIpRanges = sourceIpRanges;
             SourcePortRanges = sourcePortRanges;

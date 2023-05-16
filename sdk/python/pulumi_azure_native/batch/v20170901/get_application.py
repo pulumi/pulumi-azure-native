@@ -17,8 +17,6 @@ __all__ = [
     'get_application_output',
 ]
 
-warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetApplicationResult:
     """
@@ -107,7 +105,6 @@ def get_application(account_name: Optional[str] = None,
     :param str application_id: The ID of the application.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
-    pulumi.log.warn("""get_application is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['applicationId'] = application_id
@@ -136,5 +133,4 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str application_id: The ID of the application.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
-    pulumi.log.warn("""get_application is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
     ...

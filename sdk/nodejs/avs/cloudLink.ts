@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * A cloud link resource
- * API Version: 2021-06-01.
+ * API Version: 2022-05-01.
+ * Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class CloudLink extends pulumi.CustomResource {
     /**

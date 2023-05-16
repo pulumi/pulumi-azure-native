@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
     /// <summary>
     /// A NetworkInterface in a resource group
     /// </summary>
-    [Obsolete(@"Version 2015-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20150501preview:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource
     {
@@ -169,6 +168,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkInterface"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkInterface"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:NetworkInterface"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

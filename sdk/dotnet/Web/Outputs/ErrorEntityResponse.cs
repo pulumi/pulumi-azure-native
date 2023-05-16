@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? Code;
         /// <summary>
+        /// Error Details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ErrorEntityResponse> Details;
+        /// <summary>
         /// Type of error.
         /// </summary>
         public readonly string? ExtendedCode;
@@ -40,10 +44,16 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Parameters for the template.
         /// </summary>
         public readonly ImmutableArray<string> Parameters;
+        /// <summary>
+        /// The error target.
+        /// </summary>
+        public readonly string? Target;
 
         [OutputConstructor]
         private ErrorEntityResponse(
             string? code,
+
+            ImmutableArray<Outputs.ErrorEntityResponse> details,
 
             string? extendedCode,
 
@@ -53,14 +63,18 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string? messageTemplate,
 
-            ImmutableArray<string> parameters)
+            ImmutableArray<string> parameters,
+
+            string? target)
         {
             Code = code;
+            Details = details;
             ExtendedCode = extendedCode;
             InnerErrors = innerErrors;
             Message = message;
             MessageTemplate = messageTemplate;
             Parameters = parameters;
+            Target = target;
         }
     }
 }

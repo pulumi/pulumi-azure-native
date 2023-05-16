@@ -11,7 +11,6 @@ __all__ = [
     'EventSourceKind',
     'IngressStartAtType',
     'LocalTimestampFormat',
-    'PrivateEndpointServiceConnectionStatus',
     'PropertyType',
     'ReferenceDataKeyPropertyType',
     'SkuName',
@@ -65,15 +64,6 @@ class LocalTimestampFormat(str, Enum):
     An enum that represents the format of the local timestamp property that needs to be set.
     """
     EMBEDDED = "Embedded"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 class PropertyType(str, Enum):

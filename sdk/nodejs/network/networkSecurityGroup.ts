@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkSecurityGroup resource.
- * API Version: 2020-11-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
@@ -50,6 +51,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      * A collection of references to flow log resources.
      */
     public /*out*/ readonly flowLogs!: pulumi.Output<outputs.network.FlowLogResponse[]>;
+    /**
+     * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+     */
+    public readonly flushConnection!: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
@@ -101,6 +106,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["flushConnection"] = args ? args.flushConnection : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
@@ -120,6 +126,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             resourceInputs["defaultSecurityRules"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flowLogs"] = undefined /*out*/;
+            resourceInputs["flushConnection"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
@@ -131,7 +138,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150501preview:NetworkSecurityGroup" }, { type: "azure-native:network/v20150615:NetworkSecurityGroup" }, { type: "azure-native:network/v20160330:NetworkSecurityGroup" }, { type: "azure-native:network/v20160601:NetworkSecurityGroup" }, { type: "azure-native:network/v20160901:NetworkSecurityGroup" }, { type: "azure-native:network/v20161201:NetworkSecurityGroup" }, { type: "azure-native:network/v20170301:NetworkSecurityGroup" }, { type: "azure-native:network/v20170601:NetworkSecurityGroup" }, { type: "azure-native:network/v20170801:NetworkSecurityGroup" }, { type: "azure-native:network/v20170901:NetworkSecurityGroup" }, { type: "azure-native:network/v20171001:NetworkSecurityGroup" }, { type: "azure-native:network/v20171101:NetworkSecurityGroup" }, { type: "azure-native:network/v20180101:NetworkSecurityGroup" }, { type: "azure-native:network/v20180201:NetworkSecurityGroup" }, { type: "azure-native:network/v20180401:NetworkSecurityGroup" }, { type: "azure-native:network/v20180601:NetworkSecurityGroup" }, { type: "azure-native:network/v20180701:NetworkSecurityGroup" }, { type: "azure-native:network/v20180801:NetworkSecurityGroup" }, { type: "azure-native:network/v20181001:NetworkSecurityGroup" }, { type: "azure-native:network/v20181101:NetworkSecurityGroup" }, { type: "azure-native:network/v20181201:NetworkSecurityGroup" }, { type: "azure-native:network/v20190201:NetworkSecurityGroup" }, { type: "azure-native:network/v20190401:NetworkSecurityGroup" }, { type: "azure-native:network/v20190601:NetworkSecurityGroup" }, { type: "azure-native:network/v20190701:NetworkSecurityGroup" }, { type: "azure-native:network/v20190801:NetworkSecurityGroup" }, { type: "azure-native:network/v20190901:NetworkSecurityGroup" }, { type: "azure-native:network/v20191101:NetworkSecurityGroup" }, { type: "azure-native:network/v20191201:NetworkSecurityGroup" }, { type: "azure-native:network/v20200301:NetworkSecurityGroup" }, { type: "azure-native:network/v20200401:NetworkSecurityGroup" }, { type: "azure-native:network/v20200501:NetworkSecurityGroup" }, { type: "azure-native:network/v20200601:NetworkSecurityGroup" }, { type: "azure-native:network/v20200701:NetworkSecurityGroup" }, { type: "azure-native:network/v20200801:NetworkSecurityGroup" }, { type: "azure-native:network/v20201101:NetworkSecurityGroup" }, { type: "azure-native:network/v20210201:NetworkSecurityGroup" }, { type: "azure-native:network/v20210301:NetworkSecurityGroup" }, { type: "azure-native:network/v20210501:NetworkSecurityGroup" }, { type: "azure-native:network/v20210801:NetworkSecurityGroup" }, { type: "azure-native:network/v20220101:NetworkSecurityGroup" }, { type: "azure-native:network/v20220501:NetworkSecurityGroup" }, { type: "azure-native:network/v20220701:NetworkSecurityGroup" }, { type: "azure-native:network/v20220901:NetworkSecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150501preview:NetworkSecurityGroup" }, { type: "azure-native:network/v20150615:NetworkSecurityGroup" }, { type: "azure-native:network/v20160330:NetworkSecurityGroup" }, { type: "azure-native:network/v20160601:NetworkSecurityGroup" }, { type: "azure-native:network/v20160901:NetworkSecurityGroup" }, { type: "azure-native:network/v20161201:NetworkSecurityGroup" }, { type: "azure-native:network/v20170301:NetworkSecurityGroup" }, { type: "azure-native:network/v20170601:NetworkSecurityGroup" }, { type: "azure-native:network/v20170801:NetworkSecurityGroup" }, { type: "azure-native:network/v20170901:NetworkSecurityGroup" }, { type: "azure-native:network/v20171001:NetworkSecurityGroup" }, { type: "azure-native:network/v20171101:NetworkSecurityGroup" }, { type: "azure-native:network/v20180101:NetworkSecurityGroup" }, { type: "azure-native:network/v20180201:NetworkSecurityGroup" }, { type: "azure-native:network/v20180401:NetworkSecurityGroup" }, { type: "azure-native:network/v20180601:NetworkSecurityGroup" }, { type: "azure-native:network/v20180701:NetworkSecurityGroup" }, { type: "azure-native:network/v20180801:NetworkSecurityGroup" }, { type: "azure-native:network/v20181001:NetworkSecurityGroup" }, { type: "azure-native:network/v20181101:NetworkSecurityGroup" }, { type: "azure-native:network/v20181201:NetworkSecurityGroup" }, { type: "azure-native:network/v20190201:NetworkSecurityGroup" }, { type: "azure-native:network/v20190401:NetworkSecurityGroup" }, { type: "azure-native:network/v20190601:NetworkSecurityGroup" }, { type: "azure-native:network/v20190701:NetworkSecurityGroup" }, { type: "azure-native:network/v20190801:NetworkSecurityGroup" }, { type: "azure-native:network/v20190901:NetworkSecurityGroup" }, { type: "azure-native:network/v20191101:NetworkSecurityGroup" }, { type: "azure-native:network/v20191201:NetworkSecurityGroup" }, { type: "azure-native:network/v20200301:NetworkSecurityGroup" }, { type: "azure-native:network/v20200401:NetworkSecurityGroup" }, { type: "azure-native:network/v20200501:NetworkSecurityGroup" }, { type: "azure-native:network/v20200601:NetworkSecurityGroup" }, { type: "azure-native:network/v20200701:NetworkSecurityGroup" }, { type: "azure-native:network/v20200801:NetworkSecurityGroup" }, { type: "azure-native:network/v20201101:NetworkSecurityGroup" }, { type: "azure-native:network/v20210201:NetworkSecurityGroup" }, { type: "azure-native:network/v20210301:NetworkSecurityGroup" }, { type: "azure-native:network/v20210501:NetworkSecurityGroup" }, { type: "azure-native:network/v20210801:NetworkSecurityGroup" }, { type: "azure-native:network/v20220101:NetworkSecurityGroup" }, { type: "azure-native:network/v20220501:NetworkSecurityGroup" }, { type: "azure-native:network/v20220701:NetworkSecurityGroup" }, { type: "azure-native:network/v20220901:NetworkSecurityGroup" }, { type: "azure-native:network/v20221101:NetworkSecurityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -141,6 +148,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkSecurityGroup resource.
  */
 export interface NetworkSecurityGroupArgs {
+    /**
+     * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+     */
+    flushConnection?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */

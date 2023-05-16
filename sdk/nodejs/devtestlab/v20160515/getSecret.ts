@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get secret.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    pulumi.log.warn("getSecret is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getSecret", {
@@ -84,7 +82,6 @@ export interface GetSecretResult {
 /**
  * Get secret.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }

@@ -56,6 +56,11 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ProductWiki"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ProductWiki"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

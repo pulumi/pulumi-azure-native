@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
-__all__ = ['SecurityRuleInitArgs', 'SecurityRule']
+__all__ = ['SecurityRuleArgs', 'SecurityRule']
 
 @pulumi.input_type
-class SecurityRuleInitArgs:
+class SecurityRuleArgs:
     def __init__(__self__, *,
                  access: pulumi.Input[Union[str, 'SecurityRuleAccess']],
                  destination_address_prefix: pulumi.Input[str],
@@ -253,12 +253,7 @@ class SecurityRuleInitArgs:
         pulumi.set(self, "source_port_range", value)
 
 
-warnings.warn("""Version 2017-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class SecurityRule(pulumi.CustomResource):
-    warnings.warn("""Version 2017-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -304,18 +299,18 @@ class SecurityRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecurityRuleInitArgs,
+                 args: SecurityRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security rule.
 
         :param str resource_name: The name of the resource.
-        :param SecurityRuleInitArgs args: The arguments to use to populate this resource's properties.
+        :param SecurityRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecurityRuleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -340,14 +335,13 @@ class SecurityRule(pulumi.CustomResource):
                  source_address_prefix: Optional[pulumi.Input[str]] = None,
                  source_port_range: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SecurityRule is deprecated: Version 2017-03-01 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecurityRuleInitArgs.__new__(SecurityRuleInitArgs)
+            __props__ = SecurityRuleArgs.__new__(SecurityRuleArgs)
 
             if access is None and not opts.urn:
                 raise TypeError("Missing required property 'access'")
@@ -379,7 +373,7 @@ class SecurityRule(pulumi.CustomResource):
             __props__.__dict__["source_address_prefix"] = source_address_prefix
             __props__.__dict__["source_port_range"] = source_port_range
             __props__.__dict__["etag"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20201101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20201101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20221101:SecurityRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityRule, __self__).__init__(
             'azure-native:network/v20170301:SecurityRule',
@@ -401,7 +395,7 @@ class SecurityRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SecurityRuleInitArgs.__new__(SecurityRuleInitArgs)
+        __props__ = SecurityRuleArgs.__new__(SecurityRuleArgs)
 
         __props__.__dict__["access"] = None
         __props__.__dict__["description"] = None

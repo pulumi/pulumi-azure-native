@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// Class that represents a BizTalk Hybrid Connection
     /// </summary>
-    [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteRelayServiceConnection")]
     public partial class SiteRelayServiceConnection : global::Pulumi.CustomResource
     {

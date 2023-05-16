@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredProcedureArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlStoredProcedureResult> {
-    pulumi.log.warn("getSqlResourceSqlStoredProcedure is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20190801:getSqlResourceSqlStoredProcedure", {
@@ -76,7 +74,6 @@ export interface GetSqlResourceSqlStoredProcedureResult {
 /**
  * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
  */
-/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getSqlResourceSqlStoredProcedureOutput(args: GetSqlResourceSqlStoredProcedureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlStoredProcedureResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlStoredProcedure(a, opts))
 }

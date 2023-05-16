@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a buildpack binding by name.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
  */
 export function getBuildpackBinding(args: GetBuildpackBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildpackBindingResult> {
 
@@ -73,7 +73,7 @@ export interface GetBuildpackBindingResult {
 }
 /**
  * Get a buildpack binding by name.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-12-01.
  */
 export function getBuildpackBindingOutput(args: GetBuildpackBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildpackBindingResult> {
     return pulumi.output(args).apply((a: any) => getBuildpackBinding(a, opts))

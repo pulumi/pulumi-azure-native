@@ -220,7 +220,7 @@ def get_sync_group(database_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
     Gets a sync group.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.
@@ -262,7 +262,7 @@ def get_sync_group_output(database_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
     Gets a sync group.
-    API Version: 2020-11-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.

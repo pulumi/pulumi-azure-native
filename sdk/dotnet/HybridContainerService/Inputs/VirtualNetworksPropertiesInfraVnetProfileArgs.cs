@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.HybridContainerService.Inputs
         public Input<Inputs.VirtualNetworksPropertiesHciArgs>? Hci { get; set; }
 
         /// <summary>
-        /// Infra network profile for KubeVirt platform
+        /// Infra network profile for the NetworkCloud platform
         /// </summary>
-        [Input("kubevirt")]
-        public Input<Inputs.VirtualNetworksPropertiesKubevirtArgs>? Kubevirt { get; set; }
+        [Input("networkCloud")]
+        public Input<Inputs.VirtualNetworksPropertiesNetworkCloudArgs>? NetworkCloud { get; set; }
 
         /// <summary>
         /// Infra network profile for VMware platform

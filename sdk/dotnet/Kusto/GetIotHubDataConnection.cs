@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns a data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-12-29.
         /// </summary>
         public static Task<GetIotHubDataConnectionResult> InvokeAsync(GetIotHubDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:kusto:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a data connection.
-        /// API Version: 2021-01-01.
+        /// API Version: 2022-12-29.
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:kusto:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string? DataFormat;
         /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        public readonly string? DatabaseRouting;
+        /// <summary>
         /// System properties of the iot hub
         /// </summary>
         public readonly ImmutableArray<string> EventSystemProperties;
@@ -137,6 +141,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        /// </summary>
+        public readonly string? RetrievalStartDate;
+        /// <summary>
         /// The name of the share access policy
         /// </summary>
         public readonly string SharedAccessPolicyName;
@@ -155,6 +163,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string? dataFormat,
 
+            string? databaseRouting,
+
             ImmutableArray<string> eventSystemProperties,
 
             string id,
@@ -171,6 +181,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string provisioningState,
 
+            string? retrievalStartDate,
+
             string sharedAccessPolicyName,
 
             string? tableName,
@@ -179,6 +191,7 @@ namespace Pulumi.AzureNative.Kusto
         {
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;
+            DatabaseRouting = databaseRouting;
             EventSystemProperties = eventSystemProperties;
             Id = id;
             IotHubResourceId = iotHubResourceId;
@@ -187,6 +200,7 @@ namespace Pulumi.AzureNative.Kusto
             MappingRuleName = mappingRuleName;
             Name = name;
             ProvisioningState = provisioningState;
+            RetrievalStartDate = retrievalStartDate;
             SharedAccessPolicyName = sharedAccessPolicyName;
             TableName = tableName;
             Type = type;

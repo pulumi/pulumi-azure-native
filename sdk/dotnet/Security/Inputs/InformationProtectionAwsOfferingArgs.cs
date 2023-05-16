@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// The information protection for AWS offering configurations
+    /// The information protection for AWS offering
     /// </summary>
     public sealed class InformationProtectionAwsOfferingArgs : global::Pulumi.ResourceArgs
     {

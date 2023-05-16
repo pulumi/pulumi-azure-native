@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a TestLine
- * API Version: 2022-12-01-preview.
+ * API Version: 2023-01-31.
  */
 export function getTestLine(args: GetTestLineArgs, opts?: pulumi.InvokeOptions): Promise<GetTestLineResult> {
 
@@ -79,7 +79,7 @@ export interface GetTestLineResult {
 }
 /**
  * Get a TestLine
- * API Version: 2022-12-01-preview.
+ * API Version: 2023-01-31.
  */
 export function getTestLineOutput(args: GetTestLineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestLineResult> {
     return pulumi.output(args).apply((a: any) => getTestLine(a, opts))

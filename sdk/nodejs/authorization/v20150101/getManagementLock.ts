@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the management lock of a scope.
  */
-/** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
 export function getManagementLock(args: GetManagementLockArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockResult> {
-    pulumi.log.warn("getManagementLock is deprecated: Version 2015-01-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20150101:getManagementLock", {
@@ -52,7 +50,6 @@ export interface GetManagementLockResult {
 /**
  * Gets the management lock of a scope.
  */
-/** @deprecated Version 2015-01-01 will be removed in v2 of the provider. */
 export function getManagementLockOutput(args: GetManagementLockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockResult> {
     return pulumi.output(args).apply((a: any) => getManagementLock(a, opts))
 }

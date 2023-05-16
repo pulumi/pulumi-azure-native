@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The autoscale setting resource.
- * API Version: 2015-04-01.
+ * API Version: 2022-10-01.
+ * Previous API Version: 2015-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class AutoscaleSetting extends pulumi.CustomResource {
     /**
@@ -55,11 +56,19 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      */
     public readonly notifications!: pulumi.Output<outputs.insights.AutoscaleNotificationResponse[] | undefined>;
     /**
+     * the predictive autoscale policy mode.
+     */
+    public readonly predictiveAutoscalePolicy!: pulumi.Output<outputs.insights.PredictiveAutoscalePolicyResponse | undefined>;
+    /**
      * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
      */
     public readonly profiles!: pulumi.Output<outputs.insights.AutoscaleProfileResponse[]>;
     /**
-     * Resource tags
+     * The system metadata related to the response.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.SystemDataResponse>;
+    /**
+     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -97,18 +106,22 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["predictiveAutoscalePolicy"] = args ? args.predictiveAutoscalePolicy : undefined;
             resourceInputs["profiles"] = args ? args.profiles : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
             resourceInputs["targetResourceUri"] = args ? args.targetResourceUri : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notifications"] = undefined /*out*/;
+            resourceInputs["predictiveAutoscalePolicy"] = undefined /*out*/;
             resourceInputs["profiles"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetResourceLocation"] = undefined /*out*/;
             resourceInputs["targetResourceUri"] = undefined /*out*/;
@@ -146,6 +159,10 @@ export interface AutoscaleSettingArgs {
      */
     notifications?: pulumi.Input<pulumi.Input<inputs.insights.AutoscaleNotificationArgs>[]>;
     /**
+     * the predictive autoscale policy mode.
+     */
+    predictiveAutoscalePolicy?: pulumi.Input<inputs.insights.PredictiveAutoscalePolicyArgs>;
+    /**
      * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
      */
     profiles: pulumi.Input<pulumi.Input<inputs.insights.AutoscaleProfileArgs>[]>;
@@ -154,7 +171,7 @@ export interface AutoscaleSettingArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a backup instance with name in a backup vault
- * API Version: 2021-01-01.
+ * API Version: 2023-01-01.
  */
 export function getBackupInstance(args: GetBackupInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupInstanceResult> {
 
@@ -23,11 +23,11 @@ export function getBackupInstance(args: GetBackupInstanceArgs, opts?: pulumi.Inv
 
 export interface GetBackupInstanceArgs {
     /**
-     * The name of the backup instance
+     * The name of the backup instance.
      */
     backupInstanceName: string;
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -41,11 +41,11 @@ export interface GetBackupInstanceArgs {
  */
 export interface GetBackupInstanceResult {
     /**
-     * Resource Id represents the complete path to the resource.
+     * Proxy Resource Id represents the complete path to the resource.
      */
     readonly id: string;
     /**
-     * Resource name associated with the resource.
+     * Proxy Resource name associated with the resource.
      */
     readonly name: string;
     /**
@@ -57,13 +57,17 @@ export interface GetBackupInstanceResult {
      */
     readonly systemData: outputs.dataprotection.SystemDataResponse;
     /**
-     * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+     * Proxy Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
     readonly type: string;
 }
 /**
  * Gets a backup instance with name in a backup vault
- * API Version: 2021-01-01.
+ * API Version: 2023-01-01.
  */
 export function getBackupInstanceOutput(args: GetBackupInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupInstanceResult> {
     return pulumi.output(args).apply((a: any) => getBackupInstance(a, opts))
@@ -71,11 +75,11 @@ export function getBackupInstanceOutput(args: GetBackupInstanceOutputArgs, opts?
 
 export interface GetBackupInstanceOutputArgs {
     /**
-     * The name of the backup instance
+     * The name of the backup instance.
      */
     backupInstanceName: pulumi.Input<string>;
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

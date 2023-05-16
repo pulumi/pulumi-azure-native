@@ -11,11 +11,18 @@ namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// Complete information about the private endpoint.
-    /// API Version: 2020-03-01-preview.
+    /// API Version: 2020-03-01.
+    /// Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:PrivateEndpoint")]
     public partial class PrivateEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The date when this private endpoint was created.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
         /// <summary>
         /// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
         /// </summary>
@@ -23,16 +30,16 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// A list of connections to the remote resource. Immutable after it is set.
+        /// </summary>
+        [Output("manualPrivateLinkServiceConnections")]
+        public Output<ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse>> ManualPrivateLinkServiceConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The properties associated with a private endpoint.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -96,17 +103,23 @@ namespace Pulumi.AzureNative.StreamAnalytics
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
+        [Input("manualPrivateLinkServiceConnections")]
+        private InputList<Inputs.PrivateLinkServiceConnectionArgs>? _manualPrivateLinkServiceConnections;
+
+        /// <summary>
+        /// A list of connections to the remote resource. Immutable after it is set.
+        /// </summary>
+        public InputList<Inputs.PrivateLinkServiceConnectionArgs> ManualPrivateLinkServiceConnections
+        {
+            get => _manualPrivateLinkServiceConnections ?? (_manualPrivateLinkServiceConnections = new InputList<Inputs.PrivateLinkServiceConnectionArgs>());
+            set => _manualPrivateLinkServiceConnections = value;
+        }
+
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
         [Input("privateEndpointName")]
         public Input<string>? PrivateEndpointName { get; set; }
-
-        /// <summary>
-        /// The properties associated with a private endpoint.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

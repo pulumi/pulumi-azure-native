@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the schema configuration at the API level.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
 
@@ -25,11 +25,11 @@ export interface GetApiSchemaArgs {
      */
     apiId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     * Schema id identifier. Must be unique in the current API Management service instance.
      */
     schemaId: string;
     /**
@@ -39,27 +39,31 @@ export interface GetApiSchemaArgs {
 }
 
 /**
- * Schema Contract details.
+ * API Schema Contract details.
  */
 export interface GetApiSchemaResult {
+    /**
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+     */
+    readonly components?: any;
     /**
      * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
      */
     readonly contentType: string;
     /**
-     * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
      */
     readonly definitions?: any;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -69,7 +73,7 @@ export interface GetApiSchemaResult {
 }
 /**
  * Get the schema configuration at the API level.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
  */
 export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiSchemaResult> {
     return pulumi.output(args).apply((a: any) => getApiSchema(a, opts))
@@ -81,11 +85,11 @@ export interface GetApiSchemaOutputArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     * Schema id identifier. Must be unique in the current API Management service instance.
      */
     schemaId: pulumi.Input<string>;
     /**

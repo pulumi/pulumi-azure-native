@@ -17,8 +17,6 @@ __all__ = [
     'get_subnet_output',
 ]
 
-warnings.warn("""Version 2015-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSubnetResult:
     """
@@ -143,7 +141,6 @@ def get_subnet(resource_group_name: Optional[str] = None,
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("""get_subnet is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['subnetName'] = subnet_name
@@ -175,5 +172,4 @@ def get_subnet_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("""get_subnet is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.""")
     ...

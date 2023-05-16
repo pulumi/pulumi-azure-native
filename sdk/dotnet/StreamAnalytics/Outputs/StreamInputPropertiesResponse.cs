@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class StreamInputPropertiesResponse
     {
         /// <summary>
+        /// Describes how input data is compressed
+        /// </summary>
+        public readonly Outputs.CompressionResponse? Compression;
+        /// <summary>
         /// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly object? Datasource;
@@ -29,6 +33,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// partitionKey Describes a key in the input data which is used for partitioning the input data
+        /// </summary>
+        public readonly string? PartitionKey;
+        /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly object? Serialization;
@@ -40,19 +48,25 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private StreamInputPropertiesResponse(
+            Outputs.CompressionResponse? compression,
+
             object? datasource,
 
             Outputs.DiagnosticsResponse diagnostics,
 
             string etag,
 
+            string? partitionKey,
+
             object? serialization,
 
             string type)
         {
+            Compression = compression;
             Datasource = datasource;
             Diagnostics = diagnostics;
             Etag = etag;
+            PartitionKey = partitionKey;
             Serialization = serialization;
             Type = type;
         }

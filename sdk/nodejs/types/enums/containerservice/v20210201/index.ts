@@ -22,18 +22,6 @@ export const AgentPoolType = {
  */
 export type AgentPoolType = (typeof AgentPoolType)[keyof typeof AgentPoolType];
 
-export const ConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * The private link service connection status.
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
 export const ContainerServiceVMSizeTypes = {
     Standard_A1: "Standard_A1",
     Standard_A10: "Standard_A10",
@@ -216,15 +204,6 @@ export const ContainerServiceVMSizeTypes = {
  */
 export type ContainerServiceVMSizeTypes = (typeof ContainerServiceVMSizeTypes)[keyof typeof ContainerServiceVMSizeTypes];
 
-export const Expander = {
-    Least_waste: "least-waste",
-    Most_pods: "most-pods",
-    Priority: "priority",
-    Random: "random",
-} as const;
-
-export type Expander = (typeof Expander)[keyof typeof Expander];
-
 export const KubeletDiskType = {
     OS: "OS",
     Temporary: "Temporary",
@@ -234,75 +213,6 @@ export const KubeletDiskType = {
  * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
  */
 export type KubeletDiskType = (typeof KubeletDiskType)[keyof typeof KubeletDiskType];
-
-export const LicenseType = {
-    None: "None",
-    Windows_Server: "Windows_Server",
-} as const;
-
-/**
- * The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
- */
-export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
-
-export const LoadBalancerSku = {
-    Standard: "standard",
-    Basic: "basic",
-} as const;
-
-/**
- * The load balancer sku for the managed cluster.
- */
-export type LoadBalancerSku = (typeof LoadBalancerSku)[keyof typeof LoadBalancerSku];
-
-export const ManagedClusterSKUName = {
-    Basic: "Basic",
-} as const;
-
-/**
- * Name of a managed cluster SKU.
- */
-export type ManagedClusterSKUName = (typeof ManagedClusterSKUName)[keyof typeof ManagedClusterSKUName];
-
-export const ManagedClusterSKUTier = {
-    Paid: "Paid",
-    Free: "Free",
-} as const;
-
-/**
- * Tier of a managed cluster SKU.
- */
-export type ManagedClusterSKUTier = (typeof ManagedClusterSKUTier)[keyof typeof ManagedClusterSKUTier];
-
-export const NetworkMode = {
-    Transparent: "transparent",
-    Bridge: "bridge",
-} as const;
-
-/**
- * Network mode used for building Kubernetes network.
- */
-export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
-
-export const NetworkPlugin = {
-    Azure: "azure",
-    Kubenet: "kubenet",
-} as const;
-
-/**
- * Network plugin used for building Kubernetes network.
- */
-export type NetworkPlugin = (typeof NetworkPlugin)[keyof typeof NetworkPlugin];
-
-export const NetworkPolicy = {
-    Calico: "calico",
-    Azure: "azure",
-} as const;
-
-/**
- * Network policy used for building Kubernetes network.
- */
-export type NetworkPolicy = (typeof NetworkPolicy)[keyof typeof NetworkPolicy];
 
 export const OSDiskType = {
     Managed: "Managed",
@@ -324,27 +234,6 @@ export const OSType = {
  */
 export type OSType = (typeof OSType)[keyof typeof OSType];
 
-export const OutboundType = {
-    LoadBalancer: "loadBalancer",
-    UserDefinedRouting: "userDefinedRouting",
-} as const;
-
-/**
- * The outbound (egress) routing method.
- */
-export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
-
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
 export const ScaleSetEvictionPolicy = {
     Delete: "Delete",
     Deallocate: "Deallocate",
@@ -364,30 +253,3 @@ export const ScaleSetPriority = {
  * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
  */
 export type ScaleSetPriority = (typeof ScaleSetPriority)[keyof typeof ScaleSetPriority];
-
-export const UpgradeChannel = {
-    Rapid: "rapid",
-    Stable: "stable",
-    Patch: "patch",
-    None: "none",
-} as const;
-
-/**
- * upgrade channel for auto upgrade.
- */
-export type UpgradeChannel = (typeof UpgradeChannel)[keyof typeof UpgradeChannel];
-
-export const WeekDay = {
-    Sunday: "Sunday",
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-} as const;
-
-/**
- * A day in a week.
- */
-export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];

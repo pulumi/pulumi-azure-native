@@ -82,6 +82,8 @@ export class Documentation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Documentation" }, { type: "azure-native:apimanagement/v20220901preview:Documentation" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Documentation.__pulumiType, name, resourceInputs, opts);
     }
 }

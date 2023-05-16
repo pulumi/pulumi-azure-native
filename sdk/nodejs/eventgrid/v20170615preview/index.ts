@@ -20,20 +20,10 @@ export const getEventSubscriptionFullUrl: typeof import("./getEventSubscriptionF
 export const getEventSubscriptionFullUrlOutput: typeof import("./getEventSubscriptionFullUrl").getEventSubscriptionFullUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getEventSubscriptionFullUrl","getEventSubscriptionFullUrlOutput"], () => require("./getEventSubscriptionFullUrl"));
 
-export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
-export const getTopic: typeof import("./getTopic").getTopic = null as any;
-export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
-utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
-
 export { ListTopicSharedAccessKeysArgs, ListTopicSharedAccessKeysResult, ListTopicSharedAccessKeysOutputArgs } from "./listTopicSharedAccessKeys";
 export const listTopicSharedAccessKeys: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeys = null as any;
 export const listTopicSharedAccessKeysOutput: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listTopicSharedAccessKeys","listTopicSharedAccessKeysOutput"], () => require("./listTopicSharedAccessKeys"));
-
-export { TopicArgs } from "./topic";
-export type Topic = import("./topic").Topic;
-export const Topic: typeof import("./topic").Topic = null as any;
-utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
 
 // Export enums:
@@ -45,8 +35,6 @@ const _module = {
         switch (type) {
             case "azure-native:eventgrid/v20170615preview:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20170615preview:Topic":
-                return new Topic(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

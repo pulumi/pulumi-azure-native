@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a description for the specified consumer group.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
-    pulumi.log.warn("getConsumerGroup is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20150801:getConsumerGroup", {
@@ -79,7 +77,6 @@ export interface GetConsumerGroupResult {
 /**
  * Gets a description for the specified consumer group.
  */
-/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumerGroupResult> {
     return pulumi.output(args).apply((a: any) => getConsumerGroup(a, opts))
 }

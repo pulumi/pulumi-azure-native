@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly string? BufferWindow;
         /// <summary>
+        /// The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 23.
+        /// </summary>
+        public readonly double? Crf;
+        /// <summary>
         /// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
         /// </summary>
         public readonly string? EntropyMode;
@@ -56,11 +60,6 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
         /// </summary>
         public readonly int? MaxBitrate;
-        /// <summary>
-        /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.H264Layer'.
-        /// </summary>
-        public readonly string OdataType;
         /// <summary>
         /// We currently support Baseline, Main, High, High422, High444. Default is Auto.
         /// </summary>
@@ -88,6 +87,8 @@ namespace Pulumi.AzureNative.Media.Outputs
 
             string? bufferWindow,
 
+            double? crf,
+
             string? entropyMode,
 
             string? frameRate,
@@ -99,8 +100,6 @@ namespace Pulumi.AzureNative.Media.Outputs
             string? level,
 
             int? maxBitrate,
-
-            string odataType,
 
             string? profile,
 
@@ -114,13 +113,13 @@ namespace Pulumi.AzureNative.Media.Outputs
             BFrames = bFrames;
             Bitrate = bitrate;
             BufferWindow = bufferWindow;
+            Crf = crf;
             EntropyMode = entropyMode;
             FrameRate = frameRate;
             Height = height;
             Label = label;
             Level = level;
             MaxBitrate = maxBitrate;
-            OdataType = odataType;
             Profile = profile;
             ReferenceFrames = referenceFrames;
             Slices = slices;

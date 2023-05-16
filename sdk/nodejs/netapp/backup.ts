@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Backup of a Volume
- * API Version: 2020-12-01.
+ * API Version: 2022-09-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class Backup extends pulumi.CustomResource {
     /**
@@ -60,7 +64,7 @@ export class Backup extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -72,9 +76,17 @@ export class Backup extends pulumi.CustomResource {
      */
     public /*out*/ readonly size!: pulumi.Output<number>;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+     */
+    public readonly useExistingSnapshot!: pulumi.Output<boolean | undefined>;
     /**
      * Volume name
      */
@@ -109,6 +121,7 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["useExistingSnapshot"] = (args ? args.useExistingSnapshot : undefined) ?? false;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
             resourceInputs["backupId"] = undefined /*out*/;
             resourceInputs["backupType"] = undefined /*out*/;
@@ -117,6 +130,7 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["backupId"] = undefined /*out*/;
@@ -128,7 +142,9 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useExistingSnapshot"] = undefined /*out*/;
             resourceInputs["volumeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -163,9 +179,13 @@ export interface BackupArgs {
      */
     poolName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+     */
+    useExistingSnapshot?: pulumi.Input<boolean>;
     /**
      * The name of the volume
      */

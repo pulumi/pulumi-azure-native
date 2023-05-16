@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * The bandwidth schedule details.
- * API Version: 2020-12-01.
+ * API Version: 2022-03-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**
@@ -59,7 +60,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      */
     public readonly stop!: pulumi.Output<string>;
     /**
-     * Bandwidth object related to ASE resource
+     * Metadata pertaining to creation and last modification of BandwidthSchedule
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

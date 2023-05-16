@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20160601
     /// <summary>
     /// A common class for general resource information
     /// </summary>
-    [Obsolete(@"Version 2016-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20160601:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : global::Pulumi.CustomResource
     {
@@ -198,6 +197,7 @@ namespace Pulumi.AzureNative.Network.V20160601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualNetworkGatewayConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetworkGatewayConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualNetworkGatewayConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

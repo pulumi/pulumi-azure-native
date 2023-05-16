@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetMicrosoftSecurityIncidentCreationAlertRuleResult',
@@ -21,7 +22,7 @@ class GetMicrosoftSecurityIncidentCreationAlertRuleResult:
     """
     Represents MicrosoftSecurityIncidentCreation rule.
     """
-    def __init__(__self__, alert_rule_template_name=None, description=None, display_name=None, display_names_exclude_filter=None, display_names_filter=None, enabled=None, etag=None, id=None, kind=None, last_modified_utc=None, name=None, product_filter=None, severities_filter=None, type=None):
+    def __init__(__self__, alert_rule_template_name=None, description=None, display_name=None, display_names_exclude_filter=None, display_names_filter=None, enabled=None, etag=None, id=None, kind=None, last_modified_utc=None, name=None, product_filter=None, severities_filter=None, system_data=None, type=None):
         if alert_rule_template_name and not isinstance(alert_rule_template_name, str):
             raise TypeError("Expected argument 'alert_rule_template_name' to be a str")
         pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
@@ -61,6 +62,9 @@ class GetMicrosoftSecurityIncidentCreationAlertRuleResult:
         if severities_filter and not isinstance(severities_filter, list):
             raise TypeError("Expected argument 'severities_filter' to be a list")
         pulumi.set(__self__, "severities_filter", severities_filter)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -125,7 +129,7 @@ class GetMicrosoftSecurityIncidentCreationAlertRuleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -150,7 +154,7 @@ class GetMicrosoftSecurityIncidentCreationAlertRuleResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -171,10 +175,18 @@ class GetMicrosoftSecurityIncidentCreationAlertRuleResult:
         return pulumi.get(self, "severities_filter")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -198,6 +210,7 @@ class AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult(GetMicrosoftS
             name=self.name,
             product_filter=self.product_filter,
             severities_filter=self.severities_filter,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -207,10 +220,10 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult:
     """
     Gets the alert rule.
-    API Version: 2020-01-01.
+    API Version: 2023-02-01.
 
 
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
@@ -235,6 +248,7 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
         name=__ret__.name,
         product_filter=__ret__.product_filter,
         severities_filter=__ret__.severities_filter,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -245,10 +259,10 @@ def get_microsoft_security_incident_creation_alert_rule_output(resource_group_na
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftSecurityIncidentCreationAlertRuleResult]:
     """
     Gets the alert rule.
-    API Version: 2020-01-01.
+    API Version: 2023-02-01.
 
 
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """

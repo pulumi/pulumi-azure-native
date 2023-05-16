@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getSqlDWTableDataSetMapping(args: GetSqlDWTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDWTableDataSetMappingResult> {
 
@@ -97,7 +97,7 @@ export interface GetSqlDWTableDataSetMappingResult {
 }
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2020-09-01.
+ * API Version: 2021-08-01.
  */
 export function getSqlDWTableDataSetMappingOutput(args: GetSqlDWTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getSqlDWTableDataSetMapping(a, opts))

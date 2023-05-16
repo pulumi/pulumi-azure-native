@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * BackupInstance Resource
- * API Version: 2021-01-01.
+ * API Version: 2023-01-01.
+ * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class BackupInstance extends pulumi.CustomResource {
     /**
@@ -39,7 +40,7 @@ export class BackupInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name associated with the resource.
+     * Proxy Resource name associated with the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -51,7 +52,11 @@ export class BackupInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.dataprotection.SystemDataResponse>;
     /**
-     * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+     * Proxy Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -75,6 +80,7 @@ export class BackupInstance extends pulumi.CustomResource {
             resourceInputs["backupInstanceName"] = args ? args.backupInstanceName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -83,6 +89,7 @@ export class BackupInstance extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -97,7 +104,7 @@ export class BackupInstance extends pulumi.CustomResource {
  */
 export interface BackupInstanceArgs {
     /**
-     * The name of the backup instance
+     * The name of the backup instance.
      */
     backupInstanceName?: pulumi.Input<string>;
     /**
@@ -105,9 +112,13 @@ export interface BackupInstanceArgs {
      */
     properties?: pulumi.Input<inputs.dataprotection.BackupInstanceArgs>;
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Proxy Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the backup vault.
      */

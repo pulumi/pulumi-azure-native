@@ -8,43 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Authorization.V20210601
 {
     /// <summary>
-    /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
-    /// </summary>
-    [EnumType]
-    public readonly struct EnforcementMode : IEquatable<EnforcementMode>
-    {
-        private readonly string _value;
-
-        private EnforcementMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// The policy effect is enforced during resource creation or update.
-        /// </summary>
-        public static EnforcementMode Default { get; } = new EnforcementMode("Default");
-        /// <summary>
-        /// The policy effect is not enforced during resource creation or update.
-        /// </summary>
-        public static EnforcementMode DoNotEnforce { get; } = new EnforcementMode("DoNotEnforce");
-
-        public static bool operator ==(EnforcementMode left, EnforcementMode right) => left.Equals(right);
-        public static bool operator !=(EnforcementMode left, EnforcementMode right) => !left.Equals(right);
-
-        public static explicit operator string(EnforcementMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EnforcementMode other && Equals(other);
-        public bool Equals(EnforcementMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The data type of the parameter.
     /// </summary>
     [EnumType]
@@ -106,47 +69,6 @@ namespace Pulumi.AzureNative.Authorization.V20210601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PolicyType other && Equals(other);
         public bool Equals(PolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
-    /// </summary>
-    [EnumType]
-    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
-    {
-        private readonly string _value;
-
-        private ResourceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Indicates that a system assigned identity is associated with the resource.
-        /// </summary>
-        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-        /// <summary>
-        /// Indicates that a system assigned identity is associated with the resource.
-        /// </summary>
-        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
-        /// <summary>
-        /// Indicates that no identity is associated with the resource or that the existing identity should be removed.
-        /// </summary>
-        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
-
-        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(ResourceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
-        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

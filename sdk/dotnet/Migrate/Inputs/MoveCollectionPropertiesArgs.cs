@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         [Input("targetRegion", required: true)]
         public Input<string> TargetRegion { get; set; } = null!;
 
+        /// <summary>
+        /// Gets or sets the version of move collection.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public MoveCollectionPropertiesArgs()
         {
         }

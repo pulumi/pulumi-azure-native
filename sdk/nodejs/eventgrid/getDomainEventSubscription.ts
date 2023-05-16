@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of an event subscription of a domain.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getDomainEventSubscription(args: GetDomainEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainEventSubscriptionResult> {
 
@@ -59,7 +59,7 @@ export interface GetDomainEventSubscriptionResult {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.PartnerEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -107,7 +107,7 @@ export interface GetDomainEventSubscriptionResult {
 }
 /**
  * Get properties of an event subscription of a domain.
- * API Version: 2021-10-15-preview.
+ * API Version: 2022-06-15.
  */
 export function getDomainEventSubscriptionOutput(args: GetDomainEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getDomainEventSubscription(a, opts))

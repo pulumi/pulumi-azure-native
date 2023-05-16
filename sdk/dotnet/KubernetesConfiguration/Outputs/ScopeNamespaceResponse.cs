@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
 {
 
     /// <summary>
-    /// Specifies that the scope of the extensionInstance is Namespace
+    /// Specifies that the scope of the extension is Namespace
     /// </summary>
     [OutputType]
     public sealed class ScopeNamespaceResponse
     {
         /// <summary>
-        /// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+        /// Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
         /// </summary>
         public readonly string? TargetNamespace;
 

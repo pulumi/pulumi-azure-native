@@ -16,8 +16,6 @@ __all__ = [
     'get_assessment_output',
 ]
 
-warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetAssessmentResult:
     """
@@ -324,7 +322,6 @@ def get_assessment(assessment_name: Optional[str] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    pulumi.log.warn("""get_assessment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['assessmentName'] = assessment_name
     __args__['groupName'] = group_name
@@ -374,5 +371,4 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    pulumi.log.warn("""get_assessment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
     ...

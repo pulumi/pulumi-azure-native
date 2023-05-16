@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2021-03-01.
+    /// API Version: 2021-06-01.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

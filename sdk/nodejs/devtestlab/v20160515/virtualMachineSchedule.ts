@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A schedule.
- *
- * @deprecated Version 2016-05-15 will be removed in v2 of the provider.
  */
 export class VirtualMachineSchedule extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineSchedule {
-        pulumi.log.warn("VirtualMachineSchedule is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
         return new VirtualMachineSchedule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,9 +105,7 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
     constructor(name: string, args: VirtualMachineScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachineSchedule is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

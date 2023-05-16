@@ -24,7 +24,7 @@ class StorageTargetArgs:
                  clfs: Optional[pulumi.Input['ClfsTargetArgs']] = None,
                  junctions: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]]] = None,
                  nfs3: Optional[pulumi.Input['Nfs3TargetArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'OperationalStateType']]] = None,
                  storage_target_name: Optional[pulumi.Input[str]] = None,
                  unknown: Optional[pulumi.Input['UnknownTargetArgs']] = None):
         """
@@ -36,7 +36,7 @@ class StorageTargetArgs:
         :param pulumi.Input['ClfsTargetArgs'] clfs: Properties when targetType is clfs.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]] junctions: List of Cache namespace junctions to target for namespace associations.
         :param pulumi.Input['Nfs3TargetArgs'] nfs3: Properties when targetType is nfs3.
-        :param pulumi.Input[Union[str, 'ProvisioningStateType']] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        :param pulumi.Input[Union[str, 'OperationalStateType']] state: Storage target operational state.
         :param pulumi.Input[str] storage_target_name: Name of Storage Target.
         :param pulumi.Input['UnknownTargetArgs'] unknown: Properties when targetType is unknown.
         """
@@ -51,8 +51,8 @@ class StorageTargetArgs:
             pulumi.set(__self__, "junctions", junctions)
         if nfs3 is not None:
             pulumi.set(__self__, "nfs3", nfs3)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if storage_target_name is not None:
             pulumi.set(__self__, "storage_target_name", storage_target_name)
         if unknown is not None:
@@ -143,16 +143,16 @@ class StorageTargetArgs:
         pulumi.set(self, "nfs3", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]]:
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'OperationalStateType']]]:
         """
-        ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        Storage target operational state.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "state")
 
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]]):
-        pulumi.set(self, "provisioning_state", value)
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'OperationalStateType']]]):
+        pulumi.set(self, "state", value)
 
     @property
     @pulumi.getter(name="storageTargetName")
@@ -189,15 +189,16 @@ class StorageTarget(pulumi.CustomResource):
                  clfs: Optional[pulumi.Input[pulumi.InputType['ClfsTargetArgs']]] = None,
                  junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]]] = None,
                  nfs3: Optional[pulumi.Input[pulumi.InputType['Nfs3TargetArgs']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'OperationalStateType']]] = None,
                  storage_target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  unknown: Optional[pulumi.Input[pulumi.InputType['UnknownTargetArgs']]] = None,
                  __props__=None):
         """
         Type of the Storage Target.
-        API Version: 2021-03-01.
+        API Version: 2023-01-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,8 +207,8 @@ class StorageTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClfsTargetArgs']] clfs: Properties when targetType is clfs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]] junctions: List of Cache namespace junctions to target for namespace associations.
         :param pulumi.Input[pulumi.InputType['Nfs3TargetArgs']] nfs3: Properties when targetType is nfs3.
-        :param pulumi.Input[Union[str, 'ProvisioningStateType']] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
+        :param pulumi.Input[Union[str, 'OperationalStateType']] state: Storage target operational state.
         :param pulumi.Input[str] storage_target_name: Name of Storage Target.
         :param pulumi.Input[Union[str, 'StorageTargetType']] target_type: Type of the Storage Target.
         :param pulumi.Input[pulumi.InputType['UnknownTargetArgs']] unknown: Properties when targetType is unknown.
@@ -220,7 +221,8 @@ class StorageTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Type of the Storage Target.
-        API Version: 2021-03-01.
+        API Version: 2023-01-01.
+        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param StorageTargetArgs args: The arguments to use to populate this resource's properties.
@@ -242,8 +244,8 @@ class StorageTarget(pulumi.CustomResource):
                  clfs: Optional[pulumi.Input[pulumi.InputType['ClfsTargetArgs']]] = None,
                  junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]]] = None,
                  nfs3: Optional[pulumi.Input[pulumi.InputType['Nfs3TargetArgs']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'OperationalStateType']]] = None,
                  storage_target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  unknown: Optional[pulumi.Input[pulumi.InputType['UnknownTargetArgs']]] = None,
@@ -263,20 +265,22 @@ class StorageTarget(pulumi.CustomResource):
             __props__.__dict__["clfs"] = clfs
             __props__.__dict__["junctions"] = junctions
             __props__.__dict__["nfs3"] = nfs3
-            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["state"] = state
             __props__.__dict__["storage_target_name"] = storage_target_name
             if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["unknown"] = unknown
+            __props__.__dict__["allocation_percentage"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20190801preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20191101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20200301:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20201001:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210301:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210901:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:StorageTarget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20190801preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20191101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20200301:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20201001:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210301:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210901:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230501:StorageTarget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageTarget, __self__).__init__(
             'azure-native:storagecache:StorageTarget',
@@ -300,6 +304,7 @@ class StorageTarget(pulumi.CustomResource):
 
         __props__ = StorageTargetArgs.__new__(StorageTargetArgs)
 
+        __props__.__dict__["allocation_percentage"] = None
         __props__.__dict__["blob_nfs"] = None
         __props__.__dict__["clfs"] = None
         __props__.__dict__["junctions"] = None
@@ -307,11 +312,20 @@ class StorageTarget(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["nfs3"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["target_type"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unknown"] = None
         return StorageTarget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allocationPercentage")
+    def allocation_percentage(self) -> pulumi.Output[int]:
+        """
+        The percentage of cache space allocated for this storage target
+        """
+        return pulumi.get(self, "allocation_percentage")
 
     @property
     @pulumi.getter(name="blobNfs")
@@ -363,11 +377,19 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[Optional[str]]:
+        """
+        Storage target operational state.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="systemData")

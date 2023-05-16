@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201102Preview
     /// <summary>
     /// Represents a HostPool definition.
     /// </summary>
-    [Obsolete(@"Version 2020-11-02-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20201102preview:HostPool")]
     public partial class HostPool : global::Pulumi.CustomResource
     {

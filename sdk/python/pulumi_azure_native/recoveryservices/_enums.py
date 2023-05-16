@@ -5,16 +5,20 @@
 from enum import Enum
 
 __all__ = [
+    'AcquireStorageAccountLock',
     'AgentAutoUpdateStatus',
+    'AlertsState',
+    'AutomationAccountAuthenticationType',
     'BackupItemType',
     'BackupManagementType',
-    'ContainerType',
     'CreateMode',
-    'DataSourceType',
+    'CrossSubscriptionRestoreState',
     'DayOfWeek',
     'DiskAccountType',
+    'ExtendedLocationType',
     'FailoverDeploymentModel',
-    'HealthStatus',
+    'IAASVMPolicyType',
+    'ImmutabilityState',
     'InfrastructureEncryptionState',
     'LastBackupStatus',
     'LicenseType',
@@ -23,11 +27,15 @@ __all__ = [
     'PolicyType',
     'PossibleOperationsDirections',
     'PrivateEndpointConnectionStatus',
+    'ProtectableContainerType',
     'ProtectedItemHealthStatus',
     'ProtectedItemState',
+    'ProtectionIntentItemType',
     'ProtectionState',
     'ProtectionStatus',
     'ProvisioningState',
+    'PublicNetworkAccess',
+    'RecoveryPlanActionLocation',
     'RecoveryPlanGroupType',
     'ReplicationProtectedItemOperation',
     'ResourceHealthStatus',
@@ -35,12 +43,24 @@ __all__ = [
     'RetentionDurationType',
     'RetentionScheduleFormat',
     'ScheduleRunType',
+    'SecurityType',
     'SetMultiVmSyncStatus',
     'SkuName',
+    'SqlServerLicenseType',
+    'TieringMode',
+    'VaultSubResourceType',
     'WeekOfMonth',
     'WorkloadItemType',
     'WorkloadType',
 ]
+
+
+class AcquireStorageAccountLock(str, Enum):
+    """
+    Whether storage account lock is to be acquired for this container or not.
+    """
+    ACQUIRE = "Acquire"
+    NOT_ACQUIRE = "NotAcquire"
 
 
 class AgentAutoUpdateStatus(str, Enum):
@@ -49,6 +69,19 @@ class AgentAutoUpdateStatus(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class AlertsState(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class AutomationAccountAuthenticationType(str, Enum):
+    """
+    A value indicating the type authentication to use for automation Account.
+    """
+    RUN_AS_ACCOUNT = "RunAsAccount"
+    SYSTEM_ASSIGNED_IDENTITY = "SystemAssignedIdentity"
 
 
 class BackupItemType(str, Enum):
@@ -70,6 +103,7 @@ class BackupItemType(str, Enum):
     AZURE_FILE_SHARE = "AzureFileShare"
     SAP_HANA_DATABASE = "SAPHanaDatabase"
     SAPASE_DATABASE = "SAPAseDatabase"
+    SAP_HANA_DB_INSTANCE = "SAPHanaDBInstance"
 
 
 class BackupManagementType(str, Enum):
@@ -87,30 +121,6 @@ class BackupManagementType(str, Enum):
     DEFAULT_BACKUP = "DefaultBackup"
 
 
-class ContainerType(str, Enum):
-    """
-    Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-    Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-    Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-    Backup is VMAppContainer
-    """
-    INVALID = "Invalid"
-    UNKNOWN = "Unknown"
-    IAAS_VM_CONTAINER = "IaasVMContainer"
-    IAAS_VM_SERVICE_CONTAINER = "IaasVMServiceContainer"
-    DPM_CONTAINER = "DPMContainer"
-    AZURE_BACKUP_SERVER_CONTAINER = "AzureBackupServerContainer"
-    MAB_CONTAINER = "MABContainer"
-    CLUSTER = "Cluster"
-    AZURE_SQL_CONTAINER = "AzureSqlContainer"
-    WINDOWS = "Windows"
-    V_CENTER = "VCenter"
-    VM_APP_CONTAINER = "VMAppContainer"
-    SQLAG_WORK_LOAD_CONTAINER = "SQLAGWorkLoadContainer"
-    STORAGE_CONTAINER = "StorageContainer"
-    GENERIC_CONTAINER = "GenericContainer"
-
-
 class CreateMode(str, Enum):
     """
     Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -120,25 +130,10 @@ class CreateMode(str, Enum):
     RECOVER = "Recover"
 
 
-class DataSourceType(str, Enum):
-    """
-    Type of workload this item represents.
-    """
-    INVALID = "Invalid"
-    VM = "VM"
-    FILE_FOLDER = "FileFolder"
-    AZURE_SQL_DB = "AzureSqlDb"
-    SQLDB = "SQLDB"
-    EXCHANGE = "Exchange"
-    SHAREPOINT = "Sharepoint"
-    V_MWARE_VM = "VMwareVM"
-    SYSTEM_STATE = "SystemState"
-    CLIENT = "Client"
-    GENERIC_DATA_SOURCE = "GenericDataSource"
-    SQL_DATA_BASE = "SQLDataBase"
-    AZURE_FILE_SHARE = "AzureFileShare"
-    SAP_HANA_DATABASE = "SAPHanaDatabase"
-    SAPASE_DATABASE = "SAPAseDatabase"
+class CrossSubscriptionRestoreState(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    PERMANENTLY_DISABLED = "PermanentlyDisabled"
 
 
 class DayOfWeek(str, Enum):
@@ -160,6 +155,13 @@ class DiskAccountType(str, Enum):
     STANDARD_SS_D_LRS = "StandardSSD_LRS"
 
 
+class ExtendedLocationType(str, Enum):
+    """
+    The extended location type.
+    """
+    EDGE_ZONE = "EdgeZone"
+
+
 class FailoverDeploymentModel(str, Enum):
     """
     The failover deployment model.
@@ -169,14 +171,16 @@ class FailoverDeploymentModel(str, Enum):
     RESOURCE_MANAGER = "ResourceManager"
 
 
-class HealthStatus(str, Enum):
-    """
-    Health status of protected item.
-    """
-    PASSED = "Passed"
-    ACTION_REQUIRED = "ActionRequired"
-    ACTION_SUGGESTED = "ActionSuggested"
+class IAASVMPolicyType(str, Enum):
     INVALID = "Invalid"
+    V1 = "V1"
+    V2 = "V2"
+
+
+class ImmutabilityState(str, Enum):
+    DISABLED = "Disabled"
+    UNLOCKED = "Unlocked"
+    LOCKED = "Locked"
 
 
 class InfrastructureEncryptionState(str, Enum):
@@ -241,6 +245,8 @@ class PolicyType(str, Enum):
     LOG = "Log"
     COPY_ONLY_FULL = "CopyOnlyFull"
     INCREMENTAL = "Incremental"
+    SNAPSHOT_FULL = "SnapshotFull"
+    SNAPSHOT_COPY_ONLY_FULL = "SnapshotCopyOnlyFull"
 
 
 class PossibleOperationsDirections(str, Enum):
@@ -256,6 +262,33 @@ class PrivateEndpointConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class ProtectableContainerType(str, Enum):
+    """
+    Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+    Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+    Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+    Backup is VMAppContainer
+    """
+    INVALID = "Invalid"
+    UNKNOWN = "Unknown"
+    IAAS_VM_CONTAINER = "IaasVMContainer"
+    IAAS_VM_SERVICE_CONTAINER = "IaasVMServiceContainer"
+    DPM_CONTAINER = "DPMContainer"
+    AZURE_BACKUP_SERVER_CONTAINER = "AzureBackupServerContainer"
+    MAB_CONTAINER = "MABContainer"
+    CLUSTER = "Cluster"
+    AZURE_SQL_CONTAINER = "AzureSqlContainer"
+    WINDOWS = "Windows"
+    V_CENTER = "VCenter"
+    VM_APP_CONTAINER = "VMAppContainer"
+    SQLAG_WORK_LOAD_CONTAINER = "SQLAGWorkLoadContainer"
+    STORAGE_CONTAINER = "StorageContainer"
+    GENERIC_CONTAINER = "GenericContainer"
+    MICROSOFT_CLASSIC_COMPUTE_VIRTUAL_MACHINES = "Microsoft.ClassicCompute/virtualMachines"
+    MICROSOFT_COMPUTE_VIRTUAL_MACHINES = "Microsoft.Compute/virtualMachines"
+    AZURE_WORKLOAD_CONTAINER = "AzureWorkloadContainer"
 
 
 class ProtectedItemHealthStatus(str, Enum):
@@ -279,6 +312,19 @@ class ProtectedItemState(str, Enum):
     PROTECTION_ERROR = "ProtectionError"
     PROTECTION_STOPPED = "ProtectionStopped"
     PROTECTION_PAUSED = "ProtectionPaused"
+    BACKUPS_SUSPENDED = "BackupsSuspended"
+
+
+class ProtectionIntentItemType(str, Enum):
+    """
+    backup protectionIntent type.
+    """
+    INVALID = "Invalid"
+    AZURE_RESOURCE_ITEM = "AzureResourceItem"
+    RECOVERY_SERVICE_VAULT_ITEM = "RecoveryServiceVaultItem"
+    AZURE_WORKLOAD_CONTAINER_AUTO_PROTECTION_INTENT = "AzureWorkloadContainerAutoProtectionIntent"
+    AZURE_WORKLOAD_AUTO_PROTECTION_INTENT = "AzureWorkloadAutoProtectionIntent"
+    AZURE_WORKLOAD_SQL_AUTO_PROTECTION_INTENT = "AzureWorkloadSQLAutoProtectionIntent"
 
 
 class ProtectionState(str, Enum):
@@ -291,6 +337,7 @@ class ProtectionState(str, Enum):
     PROTECTION_ERROR = "ProtectionError"
     PROTECTION_STOPPED = "ProtectionStopped"
     PROTECTION_PAUSED = "ProtectionPaused"
+    BACKUPS_SUSPENDED = "BackupsSuspended"
 
 
 class ProtectionStatus(str, Enum):
@@ -314,6 +361,22 @@ class ProvisioningState(str, Enum):
     PENDING = "Pending"
 
 
+class PublicNetworkAccess(str, Enum):
+    """
+    property to enable or disable resource provider inbound network traffic from public clients
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class RecoveryPlanActionLocation(str, Enum):
+    """
+    The fabric location.
+    """
+    PRIMARY = "Primary"
+    RECOVERY = "Recovery"
+
+
 class RecoveryPlanGroupType(str, Enum):
     """
     The group type.
@@ -333,6 +396,7 @@ class ReplicationProtectedItemOperation(str, Enum):
     TEST_FAILOVER_CLEANUP = "TestFailoverCleanup"
     FAILBACK = "Failback"
     FINALIZE_FAILBACK = "FinalizeFailback"
+    CANCEL_FAILOVER = "CancelFailover"
     CHANGE_PIT = "ChangePit"
     REPAIR_REPLICATION = "RepairReplication"
     SWITCH_PROTECTION = "SwitchProtection"
@@ -363,7 +427,8 @@ class ResourceIdentityType(str, Enum):
 
 class RetentionDurationType(str, Enum):
     """
-    Retention duration type of retention policy.
+    Retention duration type: days/weeks/months/years
+    Used only if TieringMode is set to TierAfter
     """
     INVALID = "Invalid"
     DAYS = "Days"
@@ -388,6 +453,16 @@ class ScheduleRunType(str, Enum):
     INVALID = "Invalid"
     DAILY = "Daily"
     WEEKLY = "Weekly"
+    HOURLY = "Hourly"
+
+
+class SecurityType(str, Enum):
+    """
+    The target VM security type.
+    """
+    NONE = "None"
+    TRUSTED_LAUNCH = "TrustedLaunch"
+    CONFIDENTIAL_VM = "ConfidentialVM"
 
 
 class SetMultiVmSyncStatus(str, Enum):
@@ -400,10 +475,42 @@ class SetMultiVmSyncStatus(str, Enum):
 
 class SkuName(str, Enum):
     """
-    The Sku name.
+    Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
     """
     STANDARD = "Standard"
     RS0 = "RS0"
+
+
+class SqlServerLicenseType(str, Enum):
+    """
+    The SQL Server license type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NO_LICENSE_TYPE = "NoLicenseType"
+    PAYG = "PAYG"
+    AHUB = "AHUB"
+
+
+class TieringMode(str, Enum):
+    """
+    Tiering Mode to control automatic tiering of recovery points. Supported values are:
+    1. TierRecommended: Tier all recovery points recommended to be tiered
+    2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+    3. DoNotTier: Do not tier any recovery points
+    """
+    INVALID = "Invalid"
+    TIER_RECOMMENDED = "TierRecommended"
+    TIER_AFTER = "TierAfter"
+    DO_NOT_TIER = "DoNotTier"
+
+
+class VaultSubResourceType(str, Enum):
+    """
+    GroupId for the PrivateEndpointConnection - AzureBackup, AzureBackup_secondary or AzureSiteRecovery
+    """
+    AZURE_BACKUP = "AzureBackup"
+    AZURE_BACKUP_SECONDARY = "AzureBackup_secondary"
+    AZURE_SITE_RECOVERY = "AzureSiteRecovery"
 
 
 class WeekOfMonth(str, Enum):
@@ -426,6 +533,7 @@ class WorkloadItemType(str, Enum):
     SAP_HANA_DATABASE = "SAPHanaDatabase"
     SAPASE_SYSTEM = "SAPAseSystem"
     SAPASE_DATABASE = "SAPAseDatabase"
+    SAP_HANA_DB_INSTANCE = "SAPHanaDBInstance"
 
 
 class WorkloadType(str, Enum):
@@ -447,3 +555,4 @@ class WorkloadType(str, Enum):
     AZURE_FILE_SHARE = "AzureFileShare"
     SAP_HANA_DATABASE = "SAPHanaDatabase"
     SAPASE_DATABASE = "SAPAseDatabase"
+    SAP_HANA_DB_INSTANCE = "SAPHanaDBInstance"

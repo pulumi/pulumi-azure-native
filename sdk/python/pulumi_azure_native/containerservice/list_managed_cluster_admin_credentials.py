@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class ListManagedClusterAdminCredentialsResult:
     """
-    The list of credential result response.
+    The list credential result response.
     """
     def __init__(__self__, kubeconfigs=None):
         if kubeconfigs and not isinstance(kubeconfigs, list):
@@ -47,18 +47,21 @@ class AwaitableListManagedClusterAdminCredentialsResult(ListManagedClusterAdminC
 
 def list_managed_cluster_admin_credentials(resource_group_name: Optional[str] = None,
                                            resource_name: Optional[str] = None,
+                                           server_fqdn: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterAdminCredentialsResult:
     """
-    Gets cluster admin credential of the managed cluster with a specified resource group and name.
-    API Version: 2021-03-01.
+    The list credential result response.
+    API Version: 2023-01-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
+    :param str server_fqdn: server fqdn type for credentials to be returned
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
+    __args__['serverFqdn'] = server_fqdn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice:listManagedClusterAdminCredentials', __args__, opts=opts, typ=ListManagedClusterAdminCredentialsResult).value
 
@@ -69,13 +72,15 @@ def list_managed_cluster_admin_credentials(resource_group_name: Optional[str] = 
 @_utilities.lift_output_func(list_managed_cluster_admin_credentials)
 def list_managed_cluster_admin_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   resource_name: Optional[pulumi.Input[str]] = None,
+                                                  server_fqdn: Optional[pulumi.Input[Optional[str]]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterAdminCredentialsResult]:
     """
-    Gets cluster admin credential of the managed cluster with a specified resource group and name.
-    API Version: 2021-03-01.
+    The list credential result response.
+    API Version: 2023-01-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
+    :param str server_fqdn: server fqdn type for credentials to be returned
     """
     ...

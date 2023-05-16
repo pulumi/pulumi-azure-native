@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
  */
-/** @deprecated Version 2016-04-02 will be removed in v2 of the provider. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: Version 2016-04-02 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20160402:getProfile", {
@@ -72,7 +70,6 @@ export interface GetProfileResult {
 /**
  * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
  */
-/** @deprecated Version 2016-04-02 will be removed in v2 of the provider. */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }

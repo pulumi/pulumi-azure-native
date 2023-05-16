@@ -225,12 +225,7 @@ class RegisteredServerArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version 2018-04-02 will be removed in v2 of the provider.""", DeprecationWarning)
-
-
 class RegisteredServer(pulumi.CustomResource):
-    warnings.warn("""Version 2018-04-02 will be removed in v2 of the provider.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -306,7 +301,6 @@ class RegisteredServer(pulumi.CustomResource):
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""RegisteredServer is deprecated: Version 2018-04-02 will be removed in v2 of the provider.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

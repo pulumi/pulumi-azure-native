@@ -6,7 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Recipient User details.
- * API Version: 2020-12-01.
+ * API Version: 2022-08-01.
+ * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
  */
 export class NotificationRecipientUser extends pulumi.CustomResource {
     /**
@@ -36,11 +37,11 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -80,7 +81,7 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20201201:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210101preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210401preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210801:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20211201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20220401preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20220801:NotificationRecipientUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20201201:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210101preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210401preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210801:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20211201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20220401preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20220801:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20220901preview:NotificationRecipientUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationRecipientUser.__pulumiType, name, resourceInputs, opts);
     }
@@ -95,7 +96,7 @@ export interface NotificationRecipientUserArgs {
      */
     notificationName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

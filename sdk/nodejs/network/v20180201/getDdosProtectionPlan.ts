@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified DDoS protection plan.
  */
-/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
-    pulumi.log.warn("getDdosProtectionPlan is deprecated: Version 2018-02-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180201:getDdosProtectionPlan", {
@@ -76,7 +74,6 @@ export interface GetDdosProtectionPlanResult {
 /**
  * Gets information about the specified DDoS protection plan.
  */
-/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosProtectionPlanResult> {
     return pulumi.output(args).apply((a: any) => getDdosProtectionPlan(a, opts))
 }

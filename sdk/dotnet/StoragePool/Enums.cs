@@ -8,30 +8,29 @@ using Pulumi;
 namespace Pulumi.AzureNative.StoragePool
 {
     /// <summary>
-    /// Determines the SKU of VM deployed for Disk pool
+    /// Mode for Target connectivity.
     /// </summary>
     [EnumType]
-    public readonly struct DiskPoolTier : IEquatable<DiskPoolTier>
+    public readonly struct IscsiTargetAclMode : IEquatable<IscsiTargetAclMode>
     {
         private readonly string _value;
 
-        private DiskPoolTier(string value)
+        private IscsiTargetAclMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DiskPoolTier Basic { get; } = new DiskPoolTier("Basic");
-        public static DiskPoolTier Standard { get; } = new DiskPoolTier("Standard");
-        public static DiskPoolTier Premium { get; } = new DiskPoolTier("Premium");
+        public static IscsiTargetAclMode Dynamic { get; } = new IscsiTargetAclMode("Dynamic");
+        public static IscsiTargetAclMode Static { get; } = new IscsiTargetAclMode("Static");
 
-        public static bool operator ==(DiskPoolTier left, DiskPoolTier right) => left.Equals(right);
-        public static bool operator !=(DiskPoolTier left, DiskPoolTier right) => !left.Equals(right);
+        public static bool operator ==(IscsiTargetAclMode left, IscsiTargetAclMode right) => left.Equals(right);
+        public static bool operator !=(IscsiTargetAclMode left, IscsiTargetAclMode right) => !left.Equals(right);
 
-        public static explicit operator string(DiskPoolTier value) => value._value;
+        public static explicit operator string(IscsiTargetAclMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DiskPoolTier other && Equals(other);
-        public bool Equals(DiskPoolTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is IscsiTargetAclMode other && Equals(other);
+        public bool Equals(IscsiTargetAclMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

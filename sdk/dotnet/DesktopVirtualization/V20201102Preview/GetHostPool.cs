@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20201102Preview
 {
-    [Obsolete(@"Version 2020-11-02-preview will be removed in v2 of the provider.")]
     public static class GetHostPool
     {
         /// <summary>

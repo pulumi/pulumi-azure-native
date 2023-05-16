@@ -5,25 +5,22 @@
 from enum import Enum
 
 __all__ = [
-    'KustomizationValidationType',
+    'AKSIdentityType',
     'LevelType',
     'OperatorScopeType',
     'OperatorType',
-    'PrivateEndpointServiceConnectionStatus',
-    'PublicNetworkAccessType',
     'ResourceIdentityType',
     'ScopeType',
     'SourceKindType',
 ]
 
 
-class KustomizationValidationType(str, Enum):
+class AKSIdentityType(str, Enum):
     """
-    Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+    The identity type.
     """
-    NONE = "none"
-    CLIENT = "client"
-    SERVER = "server"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class LevelType(str, Enum):
@@ -50,35 +47,11 @@ class OperatorType(str, Enum):
     FLUX = "Flux"
 
 
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-
-
-class PublicNetworkAccessType(str, Enum):
-    """
-    Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-    """
-    ENABLED = "Enabled"
-    """
-    Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
-    """
-    DISABLED = "Disabled"
-    """
-    Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
-    """
-
-
 class ResourceIdentityType(str, Enum):
     """
-    The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+    The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"
 
 
 class ScopeType(str, Enum):
@@ -94,3 +67,5 @@ class SourceKindType(str, Enum):
     Source Kind to pull the configuration data from.
     """
     GIT_REPOSITORY = "GitRepository"
+    BUCKET = "Bucket"
+    AZURE_BLOB = "AzureBlob"

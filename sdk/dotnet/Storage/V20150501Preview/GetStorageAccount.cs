@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20150501Preview
 {
-    [Obsolete(@"Version 2015-05-01-preview will be removed in v2 of the provider.")]
     public static class GetStorageAccount
     {
         /// <summary>

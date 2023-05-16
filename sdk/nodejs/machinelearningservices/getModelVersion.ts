@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getModelVersion(args: GetModelVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelVersionResult> {
 
@@ -24,7 +24,7 @@ export function getModelVersion(args: GetModelVersionArgs, opts?: pulumi.InvokeO
 
 export interface GetModelVersionArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: string;
     /**
@@ -32,7 +32,7 @@ export interface GetModelVersionArgs {
      */
     resourceGroupName: string;
     /**
-     * Version identifier.
+     * Version identifier. This is case-sensitive.
      */
     version: string;
     /**
@@ -50,15 +50,15 @@ export interface GetModelVersionResult {
      */
     readonly id: string;
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly modelVersionProperties: outputs.machinelearningservices.ModelVersionResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.ModelVersionResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -68,7 +68,7 @@ export interface GetModelVersionResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * API Version: 2022-10-01.
  */
 export function getModelVersionOutput(args: GetModelVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelVersionResult> {
     return pulumi.output(args).apply((a: any) => getModelVersion(a, opts))
@@ -76,7 +76,7 @@ export function getModelVersionOutput(args: GetModelVersionOutputArgs, opts?: pu
 
 export interface GetModelVersionOutputArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: pulumi.Input<string>;
     /**
@@ -84,7 +84,7 @@ export interface GetModelVersionOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Version identifier.
+     * Version identifier. This is case-sensitive.
      */
     version: pulumi.Input<string>;
     /**

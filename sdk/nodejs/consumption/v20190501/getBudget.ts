@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the budget for the scope by budget name.
  */
-/** @deprecated Version 2019-05-01 will be removed in v2 of the provider. */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
-    pulumi.log.warn("getBudget is deprecated: Version 2019-05-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:consumption/v20190501:getBudget", {
@@ -84,7 +82,6 @@ export interface GetBudgetResult {
 /**
  * Gets the budget for the scope by budget name.
  */
-/** @deprecated Version 2019-05-01 will be removed in v2 of the provider. */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
     return pulumi.output(args).apply((a: any) => getBudget(a, opts))
 }

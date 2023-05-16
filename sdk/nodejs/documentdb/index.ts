@@ -25,11 +25,6 @@ export type CassandraResourceCassandraTable = import("./cassandraResourceCassand
 export const CassandraResourceCassandraTable: typeof import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable = null as any;
 utilities.lazyLoad(exports, ["CassandraResourceCassandraTable"], () => require("./cassandraResourceCassandraTable"));
 
-export { CassandraResourceCassandraViewArgs } from "./cassandraResourceCassandraView";
-export type CassandraResourceCassandraView = import("./cassandraResourceCassandraView").CassandraResourceCassandraView;
-export const CassandraResourceCassandraView: typeof import("./cassandraResourceCassandraView").CassandraResourceCassandraView = null as any;
-utilities.lazyLoad(exports, ["CassandraResourceCassandraView"], () => require("./cassandraResourceCassandraView"));
-
 export { DatabaseAccountArgs } from "./databaseAccount";
 export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
 export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
@@ -55,20 +50,10 @@ export const getCassandraResourceCassandraTable: typeof import("./getCassandraRe
 export const getCassandraResourceCassandraTableOutput: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTableOutput = null as any;
 utilities.lazyLoad(exports, ["getCassandraResourceCassandraTable","getCassandraResourceCassandraTableOutput"], () => require("./getCassandraResourceCassandraTable"));
 
-export { GetCassandraResourceCassandraViewArgs, GetCassandraResourceCassandraViewResult, GetCassandraResourceCassandraViewOutputArgs } from "./getCassandraResourceCassandraView";
-export const getCassandraResourceCassandraView: typeof import("./getCassandraResourceCassandraView").getCassandraResourceCassandraView = null as any;
-export const getCassandraResourceCassandraViewOutput: typeof import("./getCassandraResourceCassandraView").getCassandraResourceCassandraViewOutput = null as any;
-utilities.lazyLoad(exports, ["getCassandraResourceCassandraView","getCassandraResourceCassandraViewOutput"], () => require("./getCassandraResourceCassandraView"));
-
 export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
 export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
 export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
-
-export { GetGraphResourceGraphArgs, GetGraphResourceGraphResult, GetGraphResourceGraphOutputArgs } from "./getGraphResourceGraph";
-export const getGraphResourceGraph: typeof import("./getGraphResourceGraph").getGraphResourceGraph = null as any;
-export const getGraphResourceGraphOutput: typeof import("./getGraphResourceGraph").getGraphResourceGraphOutput = null as any;
-utilities.lazyLoad(exports, ["getGraphResourceGraph","getGraphResourceGraphOutput"], () => require("./getGraphResourceGraph"));
 
 export { GetGremlinResourceGremlinDatabaseArgs, GetGremlinResourceGremlinDatabaseResult, GetGremlinResourceGremlinDatabaseOutputArgs } from "./getGremlinResourceGremlinDatabase";
 export const getGremlinResourceGremlinDatabase: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabase = null as any;
@@ -154,11 +139,6 @@ export { GetTableResourceTableArgs, GetTableResourceTableResult, GetTableResourc
 export const getTableResourceTable: typeof import("./getTableResourceTable").getTableResourceTable = null as any;
 export const getTableResourceTableOutput: typeof import("./getTableResourceTable").getTableResourceTableOutput = null as any;
 utilities.lazyLoad(exports, ["getTableResourceTable","getTableResourceTableOutput"], () => require("./getTableResourceTable"));
-
-export { GraphResourceGraphArgs } from "./graphResourceGraph";
-export type GraphResourceGraph = import("./graphResourceGraph").GraphResourceGraph;
-export const GraphResourceGraph: typeof import("./graphResourceGraph").GraphResourceGraph = null as any;
-utilities.lazyLoad(exports, ["GraphResourceGraph"], () => require("./graphResourceGraph"));
 
 export { GremlinResourceGremlinDatabaseArgs } from "./gremlinResourceGremlinDatabase";
 export type GremlinResourceGremlinDatabase = import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase;
@@ -271,7 +251,6 @@ import * as v20151106 from "./v20151106";
 import * as v20160319 from "./v20160319";
 import * as v20160331 from "./v20160331";
 import * as v20190801 from "./v20190801";
-import * as v20190801preview from "./v20190801preview";
 import * as v20191212 from "./v20191212";
 import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
@@ -294,7 +273,10 @@ import * as v20220515preview from "./v20220515preview";
 import * as v20220815 from "./v20220815";
 import * as v20220815preview from "./v20220815preview";
 import * as v20221115 from "./v20221115";
+import * as v20221115preview from "./v20221115preview";
+import * as v20230301preview from "./v20230301preview";
 import * as v20230315 from "./v20230315";
+import * as v20230415 from "./v20230415";
 
 export {
     v20150401,
@@ -303,7 +285,6 @@ export {
     v20160319,
     v20160331,
     v20190801,
-    v20190801preview,
     v20191212,
     v20200301,
     v20200401,
@@ -326,7 +307,10 @@ export {
     v20220815,
     v20220815preview,
     v20221115,
+    v20221115preview,
+    v20230301preview,
     v20230315,
+    v20230415,
 };
 
 const _module = {
@@ -341,12 +325,8 @@ const _module = {
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
             case "azure-native:documentdb:CassandraResourceCassandraTable":
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
-            case "azure-native:documentdb:CassandraResourceCassandraView":
-                return new CassandraResourceCassandraView(name, <any>undefined, { urn })
             case "azure-native:documentdb:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
-            case "azure-native:documentdb:GraphResourceGraph":
-                return new GraphResourceGraph(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinGraph":

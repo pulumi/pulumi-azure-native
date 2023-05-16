@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// <summary>
     /// A share subscription data transfer object.
     /// </summary>
-    [Obsolete(@"Version 2018-11-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:ShareSubscription")]
     public partial class ShareSubscription : global::Pulumi.CustomResource
     {

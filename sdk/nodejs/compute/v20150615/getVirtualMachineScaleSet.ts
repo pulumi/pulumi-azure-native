@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Display information about a virtual machine scale set.
  */
-/** @deprecated Version 2015-06-15 will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
-    pulumi.log.warn("getVirtualMachineScaleSet is deprecated: Version 2015-06-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20150615:getVirtualMachineScaleSet", {
@@ -80,7 +78,6 @@ export interface GetVirtualMachineScaleSetResult {
 /**
  * Display information about a virtual machine scale set.
  */
-/** @deprecated Version 2015-06-15 will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSet(a, opts))
 }

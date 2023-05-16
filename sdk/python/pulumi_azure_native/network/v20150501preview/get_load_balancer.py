@@ -17,8 +17,6 @@ __all__ = [
     'get_load_balancer_output',
 ]
 
-warnings.warn("""Version 2015-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetLoadBalancerResult:
     """
@@ -225,7 +223,6 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
     :param str load_balancer_name: The name of the loadBalancer.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_load_balancer is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['loadBalancerName'] = load_balancer_name
     __args__['resourceGroupName'] = resource_group_name
@@ -261,5 +258,4 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     :param str load_balancer_name: The name of the loadBalancer.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_load_balancer is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.""")
     ...

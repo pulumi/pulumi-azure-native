@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
+        /// Group Ids for the Private Endpoint
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Gets or sets private endpoint associated with the private endpoint connection
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
+            ImmutableArray<string> groupIds,
+
             Outputs.PrivateEndpointResponse? privateEndpoint,
 
             Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
             string? provisioningState)
         {
+            GroupIds = groupIds;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;

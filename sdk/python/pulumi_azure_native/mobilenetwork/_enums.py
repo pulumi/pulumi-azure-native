@@ -5,9 +5,9 @@
 from enum import Enum
 
 __all__ = [
+    'AuthenticationType',
     'BillingSku',
     'CoreNetworkType',
-    'CreatedByType',
     'ManagedServiceIdentityType',
     'NaptEnabled',
     'PduSessionType',
@@ -19,37 +19,43 @@ __all__ = [
 ]
 
 
+class AuthenticationType(str, Enum):
+    """
+    How to authenticate users who access local diagnostics APIs.
+    """
+    AAD = "AAD"
+    """
+    Use AAD SSO to authenticate the user (this requires internet access).
+    """
+    PASSWORD = "Password"
+    """
+    Use locally stored passwords to authenticate the user.
+    """
+
+
 class BillingSku(str, Enum):
     """
     The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
     """
-    EVALUATION_PACKAGE = "EvaluationPackage"
+    G0 = "G0"
     """
-    Evaluation package plan
+    100 Mbps, 20 active SIMs plan, 2 RANs
     """
-    FLAGSHIP_STARTER_PACKAGE = "FlagshipStarterPackage"
+    G1 = "G1"
     """
-    Flagship starter package plan
+    1 Gbps, 100 active SIMs plan, 5 RANs
     """
-    EDGE_SITE2_GBPS = "EdgeSite2GBPS"
+    G2 = "G2"
     """
-    Edge site 2Gbps plan
+    2 Gbps, 200 active SIMs plan, 10 RANs
     """
-    EDGE_SITE3_GBPS = "EdgeSite3GBPS"
+    G5 = "G5"
     """
-    Edge site 3Gbps plan
+    5 Gbps, 500 active SIMs plan
     """
-    EDGE_SITE4_GBPS = "EdgeSite4GBPS"
+    G10 = "G10"
     """
-    Edge site 4Gbps plan
-    """
-    MEDIUM_PACKAGE = "MediumPackage"
-    """
-    Medium package plan
-    """
-    LARGE_PACKAGE = "LargePackage"
-    """
-    Large package plan
+    10 Gbps, 1000 active SIMs plan
     """
 
 
@@ -65,16 +71,6 @@ class CoreNetworkType(str, Enum):
     """
     EPC / 4G core
     """
-
-
-class CreatedByType(str, Enum):
-    """
-    The type of identity that last modified the resource.
-    """
-    USER = "User"
-    APPLICATION = "Application"
-    MANAGED_IDENTITY = "ManagedIdentity"
-    KEY = "Key"
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -115,11 +111,11 @@ class PlatformType(str, Enum):
     """
     AK_S_HCI = "AKS-HCI"
     """
-    If this option is chosen, you must set one of "azureStackEdgeDevice", "connectedCluster" or "customLocation". If multiple are set then "customLocation" will take precedence over "connectedCluster" which takes precedence over "azureStackEdgeDevice".
+    If this option is chosen, you must set one of "azureStackEdgeDevice", "connectedCluster" or "customLocation". If multiple are set, they must be consistent with each other.
     """
-    BASE_VM = "BaseVM"
+    PLATFORM_TYPE_3_P_AZUR_E_STAC_K_HCI = "3P-AZURE-STACK-HCI"
     """
-    If this option is chosen, you must set one of "connectedCluster" or "customLocation". If multiple are set then "customLocation" will take precedence over "connectedCluster".
+    If this option is chosen, you must set one of "azureStackHciCluster", "connectedCluster" or "customLocation". If multiple are set, they must be consistent with each other.
     """
 
 

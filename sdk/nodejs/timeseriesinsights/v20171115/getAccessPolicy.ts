@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the access policy with the specified name in the specified environment.
  */
-/** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
-    pulumi.log.warn("getAccessPolicy is deprecated: Version 2017-11-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20171115:getAccessPolicy", {
@@ -66,7 +64,6 @@ export interface GetAccessPolicyResult {
 /**
  * Gets the access policy with the specified name in the specified environment.
  */
-/** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
 }

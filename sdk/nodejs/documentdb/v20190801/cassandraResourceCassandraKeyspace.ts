@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Cassandra keyspace.
- *
- * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CassandraResourceCassandraKeyspace {
-        pulumi.log.warn("CassandraResourceCassandraKeyspace is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         return new CassandraResourceCassandraKeyspace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: CassandraResourceCassandraKeyspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CassandraResourceCassandraKeyspace is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -100,7 +95,7 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20150401:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20150408:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20151106:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20160319:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20160331:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200401:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200901:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210301preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210315:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210401preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210415:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210515:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210615:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210701preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20211015:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20211015preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20211115preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220215preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220515:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220515preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220815:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20221115:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20230315:CassandraResourceCassandraKeyspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20150401:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20150408:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20151106:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20160319:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20160331:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20191212:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200301:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200401:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200601preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20200901:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210115:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210301preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210315:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210401preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210415:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210515:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210615:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20210701preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20211015:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20211015preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20211115preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220215preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220515:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220515preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220815:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20220815preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20221115:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20221115preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20230301preview:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20230315:CassandraResourceCassandraKeyspace" }, { type: "azure-native:documentdb/v20230415:CassandraResourceCassandraKeyspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraResourceCassandraKeyspace.__pulumiType, name, resourceInputs, opts);
     }

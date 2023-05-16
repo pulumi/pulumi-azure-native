@@ -62,7 +62,7 @@ def list_iot_hub_resource_keys(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotHubResourceKeysResult:
     """
     Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
-    API Version: 2020-08-31.
+    API Version: 2021-07-02.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
@@ -85,7 +85,7 @@ def list_iot_hub_resource_keys_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotHubResourceKeysResult]:
     """
     Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
-    API Version: 2020-08-31.
+    API Version: 2021-07-02.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.

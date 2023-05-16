@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets private store collection
- * API Version: 2021-12-01.
+ * API Version: 2022-09-01.
  */
 export function getPrivateStoreCollection(args: GetPrivateStoreCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionResult> {
 
@@ -39,6 +39,18 @@ export interface GetPrivateStoreCollectionResult {
      * Indicating whether all subscriptions are selected (=true) or not (=false).
      */
     readonly allSubscriptions?: boolean;
+    /**
+     * Gets list of collection rules
+     */
+    readonly appliedRules: outputs.marketplace.RuleResponse[];
+    /**
+     * Indicating whether all items are approved for this collection (=true) or not (=false).
+     */
+    readonly approveAllItems: boolean;
+    /**
+     * Gets the modified date of all items approved.
+     */
+    readonly approveAllItemsModifiedAt: string;
     /**
      * Gets or sets the association with Commercial's Billing Account.
      */
@@ -82,7 +94,7 @@ export interface GetPrivateStoreCollectionResult {
 }
 /**
  * Gets private store collection
- * API Version: 2021-12-01.
+ * API Version: 2022-09-01.
  */
 export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateStoreCollection(a, opts))

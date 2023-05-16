@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
-    /// API Version: 2020-08-31.
+    /// API Version: 2021-07-02.
+    /// Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotHubResourceEventHubConsumerGroup")]
     public partial class IotHubResourceEventHubConsumerGroup : global::Pulumi.CustomResource
@@ -32,7 +33,7 @@ namespace Pulumi.AzureNative.Devices
         /// The tags.
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// the resource type.
@@ -90,6 +91,7 @@ namespace Pulumi.AzureNative.Devices
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:IotHubResourceEventHubConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,8 +130,8 @@ namespace Pulumi.AzureNative.Devices
         /// <summary>
         /// The EventHub consumer group name.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EventHubConsumerGroupNameArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.EventHubConsumerGroupNameArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.

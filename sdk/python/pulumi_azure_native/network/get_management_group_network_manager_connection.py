@@ -49,7 +49,7 @@ class GetManagementGroupNetworkManagerConnectionResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of the scope connection.
+        A description of the network manager connection.
         """
         return pulumi.get(self, "description")
 
@@ -122,7 +122,7 @@ def get_management_group_network_manager_connection(management_group_id: Optiona
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupNetworkManagerConnectionResult:
     """
     Get a specified connection created by this management group.
-    API Version: 2021-05-01-preview.
+    API Version: 2022-09-01.
 
 
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
@@ -150,7 +150,7 @@ def get_management_group_network_manager_connection_output(management_group_id: 
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupNetworkManagerConnectionResult]:
     """
     Get a specified connection created by this management group.
-    API Version: 2021-05-01-preview.
+    API Version: 2022-09-01.
 
 
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.

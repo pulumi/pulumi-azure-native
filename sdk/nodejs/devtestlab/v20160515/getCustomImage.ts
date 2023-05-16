@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get custom image.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getCustomImage(args: GetCustomImageArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomImageResult> {
-    pulumi.log.warn("getCustomImage is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20160515:getCustomImage", {
@@ -102,7 +100,6 @@ export interface GetCustomImageResult {
 /**
  * Get custom image.
  */
-/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomImageResult> {
     return pulumi.output(args).apply((a: any) => getCustomImage(a, opts))
 }

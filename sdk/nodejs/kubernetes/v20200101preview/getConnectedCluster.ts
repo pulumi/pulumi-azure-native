@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
-/** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
-    pulumi.log.warn("getConnectedCluster is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetes/v20200101preview:getConnectedCluster", {
@@ -116,7 +114,6 @@ export interface GetConnectedClusterResult {
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
-/** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
     return pulumi.output(args).apply((a: any) => getConnectedCluster(a, opts))
 }

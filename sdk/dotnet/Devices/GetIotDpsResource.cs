@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// Get the metadata of the provisioning service without SAS keys.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-12-12.
         /// </summary>
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of the provisioning service without SAS keys.
-        /// API Version: 2020-03-01.
+        /// API Version: 2022-12-12.
         /// </summary>
         public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());
@@ -92,9 +92,21 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public readonly Outputs.IotDpsPropertiesDescriptionResponse Properties;
         /// <summary>
+        /// The resource group of the resource.
+        /// </summary>
+        public readonly string? Resourcegroup;
+        /// <summary>
         /// Sku info for a provisioning Service.
         /// </summary>
         public readonly Outputs.IotDpsSkuInfoResponse Sku;
+        /// <summary>
+        /// The subscription id of the resource.
+        /// </summary>
+        public readonly string? Subscriptionid;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -116,7 +128,13 @@ namespace Pulumi.AzureNative.Devices
 
             Outputs.IotDpsPropertiesDescriptionResponse properties,
 
+            string? resourcegroup,
+
             Outputs.IotDpsSkuInfoResponse sku,
+
+            string? subscriptionid,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -127,7 +145,10 @@ namespace Pulumi.AzureNative.Devices
             Location = location;
             Name = name;
             Properties = properties;
+            Resourcegroup = resourcegroup;
             Sku = sku;
+            Subscriptionid = subscriptionid;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

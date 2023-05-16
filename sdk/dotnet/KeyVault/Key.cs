@@ -11,7 +11,8 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// The key resource.
-    /// API Version: 2019-09-01.
+    /// API Version: 2023-02-01.
+    /// Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:Key")]
     public partial class Key : global::Pulumi.CustomResource
@@ -66,6 +67,18 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Key release policy in response. It will be used for both output and input. Omitted if empty
+        /// </summary>
+        [Output("releasePolicy")]
+        public Output<Outputs.KeyReleasePolicyResponse?> ReleasePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        /// </summary>
+        [Output("rotationPolicy")]
+        public Output<Outputs.RotationPolicyResponse?> RotationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Tags assigned to the key vault resource.
@@ -138,7 +151,7 @@ namespace Pulumi.AzureNative.KeyVault
     public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the key to be created.
+        /// The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }

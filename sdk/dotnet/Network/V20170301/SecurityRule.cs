@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Network.V20170301
     /// <summary>
     /// Network security rule.
     /// </summary>
-    [Obsolete(@"Version 2017-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170301:SecurityRule")]
     public partial class SecurityRule : global::Pulumi.CustomResource
     {
@@ -157,6 +156,7 @@ namespace Pulumi.AzureNative.Network.V20170301
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:SecurityRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:SecurityRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:SecurityRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:SecurityRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

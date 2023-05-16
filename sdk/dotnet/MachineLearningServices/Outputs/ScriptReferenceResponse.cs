@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? ScriptData;
         /// <summary>
-        /// The storage source of the script: inline, workspace.
+        /// The storage source of the script: workspace.
         /// </summary>
         public readonly string? ScriptSource;
         /// <summary>

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets existing backups of an app.
- * API Version: 2020-12-01.
+ * Description for Gets existing backups of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppSiteBackups(args: ListWebAppSiteBackupsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSiteBackupsResult> {
 
@@ -45,8 +45,8 @@ export interface ListWebAppSiteBackupsResult {
     readonly value: outputs.web.BackupItemResponse[];
 }
 /**
- * Gets existing backups of an app.
- * API Version: 2020-12-01.
+ * Description for Gets existing backups of an app.
+ * API Version: 2022-09-01.
  */
 export function listWebAppSiteBackupsOutput(args: ListWebAppSiteBackupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSiteBackupsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppSiteBackups(a, opts))

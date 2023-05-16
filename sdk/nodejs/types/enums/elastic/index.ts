@@ -3,21 +3,13 @@
 
 // Export sub-modules:
 import * as v20200701 from "./v20200701";
-import * as v20200701preview from "./v20200701preview";
-import * as v20210901preview from "./v20210901preview";
-import * as v20211001preview from "./v20211001preview";
-import * as v20220505preview from "./v20220505preview";
-import * as v20220701preview from "./v20220701preview";
 import * as v20220901preview from "./v20220901preview";
+import * as v20230201preview from "./v20230201preview";
 
 export {
     v20200701,
-    v20200701preview,
-    v20210901preview,
-    v20211001preview,
-    v20220505preview,
-    v20220701preview,
     v20220901preview,
+    v20230201preview,
 };
 
 export const ManagedIdentityTypes = {

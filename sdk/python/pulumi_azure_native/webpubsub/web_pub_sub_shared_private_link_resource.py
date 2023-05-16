@@ -126,7 +126,8 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Shared Private Link Resource
-        API Version: 2021-04-01-preview.
+        API Version: 2023-02-01.
+        Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +146,8 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Shared Private Link Resource
-        API Version: 2021-04-01-preview.
+        API Version: 2023-02-01.
+        Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
@@ -196,7 +198,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSubSharedPrivateLinkResource, __self__).__init__(
             'azure-native:webpubsub:WebPubSubSharedPrivateLinkResource',
@@ -258,7 +260,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning state of the shared private link resource
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 

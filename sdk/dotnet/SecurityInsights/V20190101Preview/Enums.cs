@@ -777,7 +777,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
     /// <summary>
-    /// The classification reason the incident was closed with
+    /// The classification reason to close the incident with
     /// </summary>
     [EnumType]
     public readonly struct IncidentClassificationReason : IEquatable<IncidentClassificationReason>

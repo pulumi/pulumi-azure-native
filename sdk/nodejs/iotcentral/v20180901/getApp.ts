@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the metadata of an IoT Central application.
  */
-/** @deprecated Version 2018-09-01 will be removed in v2 of the provider. */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    pulumi.log.warn("getApp is deprecated: Version 2018-09-01 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotcentral/v20180901:getApp", {
@@ -96,7 +94,6 @@ export interface GetAppResult {
 /**
  * Get the metadata of an IoT Central application.
  */
-/** @deprecated Version 2018-09-01 will be removed in v2 of the provider. */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply((a: any) => getApp(a, opts))
 }

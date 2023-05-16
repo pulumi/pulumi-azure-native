@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network
 {
     /// <summary>
-    /// DSCP Configuration in a resource group.
-    /// API Version: 2020-11-01.
+    /// Differentiated Services Code Point configuration for any given network interface
+    /// API Version: 2022-09-01.
+    /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DscpConfiguration")]
     public partial class DscpConfiguration : global::Pulumi.CustomResource
@@ -75,6 +76,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("qosCollectionId")]
         public Output<string> QosCollectionId { get; private set; } = null!;
+
+        /// <summary>
+        /// QoS object definitions
+        /// </summary>
+        [Output("qosDefinitionCollection")]
+        public Output<ImmutableArray<Outputs.QosDefinitionResponse>> QosDefinitionCollection { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the DSCP Configuration resource.
@@ -143,6 +150,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:DscpConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:DscpConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -225,6 +233,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("protocol")]
         public InputUnion<string, Pulumi.AzureNative.Network.ProtocolType>? Protocol { get; set; }
+
+        [Input("qosDefinitionCollection")]
+        private InputList<Inputs.QosDefinitionArgs>? _qosDefinitionCollection;
+
+        /// <summary>
+        /// QoS object definitions
+        /// </summary>
+        public InputList<Inputs.QosDefinitionArgs> QosDefinitionCollection
+        {
+            get => _qosDefinitionCollection ?? (_qosDefinitionCollection = new InputList<Inputs.QosDefinitionArgs>());
+            set => _qosDefinitionCollection = value;
+        }
 
         /// <summary>
         /// The name of the resource group.

@@ -5,73 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AddressType',
-    'DoubleEncryptionStatus',
-    'NotificationStageName',
-    'OrderItemType',
     'SupportedFilterTypes',
-    'TransportShipmentTypes',
 ]
-
-
-class AddressType(str, Enum):
-    """
-    Type of address.
-    """
-    NONE = "None"
-    """
-    Address type not known.
-    """
-    RESIDENTIAL = "Residential"
-    """
-    Residential Address.
-    """
-    COMMERCIAL = "Commercial"
-    """
-    Commercial Address.
-    """
-
-
-class DoubleEncryptionStatus(str, Enum):
-    """
-    Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
-    """
-    DISABLED = "Disabled"
-    """
-    Double encryption is disabled
-    """
-    ENABLED = "Enabled"
-    """
-    Double encryption is enabled
-    """
-
-
-class NotificationStageName(str, Enum):
-    """
-    Name of the stage.
-    """
-    SHIPPED = "Shipped"
-    """
-    Notification at order item shipped from microsoft datacenter.
-    """
-    DELIVERED = "Delivered"
-    """
-    Notification at order item delivered to customer.
-    """
-
-
-class OrderItemType(str, Enum):
-    """
-    Order item type.
-    """
-    PURCHASE = "Purchase"
-    """
-    Purchase OrderItem.
-    """
-    RENTAL = "Rental"
-    """
-    Rental OrderItem.
-    """
 
 
 class SupportedFilterTypes(str, Enum):
@@ -85,18 +20,4 @@ class SupportedFilterTypes(str, Enum):
     DOUBLE_ENCRYPTION_STATUS = "DoubleEncryptionStatus"
     """
     Double encryption status
-    """
-
-
-class TransportShipmentTypes(str, Enum):
-    """
-    Indicates Shipment Logistics type that the customer preferred.
-    """
-    CUSTOMER_MANAGED = "CustomerManaged"
-    """
-    Shipment Logistics is handled by the customer.
-    """
-    MICROSOFT_MANAGED = "MicrosoftManaged"
-    """
-    Shipment Logistics is handled by Microsoft.
     """

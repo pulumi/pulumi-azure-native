@@ -190,7 +190,7 @@ class GlobalSchema(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GlobalSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GlobalSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GlobalSchema, __self__).__init__(
             'azure-native:apimanagement/v20220801:GlobalSchema',

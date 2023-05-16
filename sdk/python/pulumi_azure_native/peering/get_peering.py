@@ -170,7 +170,7 @@ def get_peering(peering_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringResult:
     """
     Gets an existing peering with the specified name under the given subscription and resource group.
-    API Version: 2021-01-01.
+    API Version: 2022-10-01.
 
 
     :param str peering_name: The name of the peering.
@@ -202,7 +202,7 @@ def get_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringResult]:
     """
     Gets an existing peering with the specified name under the given subscription and resource group.
-    API Version: 2021-01-01.
+    API Version: 2022-10-01.
 
 
     :param str peering_name: The name of the peering.

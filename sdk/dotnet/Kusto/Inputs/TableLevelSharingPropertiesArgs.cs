@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Kusto.Inputs
         private InputList<string>? _externalTablesToExclude;
 
         /// <summary>
-        /// List of external tables exclude from the follower database
+        /// List of external tables to exclude from the follower database
         /// </summary>
         public InputList<string> ExternalTablesToExclude
         {
@@ -39,11 +39,35 @@ namespace Pulumi.AzureNative.Kusto.Inputs
             set => _externalTablesToInclude = value;
         }
 
+        [Input("functionsToExclude")]
+        private InputList<string>? _functionsToExclude;
+
+        /// <summary>
+        /// List of functions to exclude from the follower database
+        /// </summary>
+        public InputList<string> FunctionsToExclude
+        {
+            get => _functionsToExclude ?? (_functionsToExclude = new InputList<string>());
+            set => _functionsToExclude = value;
+        }
+
+        [Input("functionsToInclude")]
+        private InputList<string>? _functionsToInclude;
+
+        /// <summary>
+        /// List of functions to include in the follower database
+        /// </summary>
+        public InputList<string> FunctionsToInclude
+        {
+            get => _functionsToInclude ?? (_functionsToInclude = new InputList<string>());
+            set => _functionsToInclude = value;
+        }
+
         [Input("materializedViewsToExclude")]
         private InputList<string>? _materializedViewsToExclude;
 
         /// <summary>
-        /// List of materialized views exclude from the follower database
+        /// List of materialized views to exclude from the follower database
         /// </summary>
         public InputList<string> MaterializedViewsToExclude
         {
