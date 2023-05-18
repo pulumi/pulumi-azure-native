@@ -4,6 +4,8 @@ description: Compare schema to previous release and comment on PR
 inputs:
   GITHUB_TOKEN:
     description: Token used to write the PR comment
+  compare_to:
+    description: Branch or commit to compare the new schema with
 
 outputs:
   summary:
@@ -22,9 +24,11 @@ runs:
       - name: Check Schema is Valid
         id: schema-tools
         shell: bash
+        env:
+          old_commit: ${{ inputs.compare_to != '' && format('--old-commit={0}', inputs.compare_to) || '' }}
         run: |
           echo 'summary<<EOF' >> $GITHUB_OUTPUT
-          schema-tools compare --provider="azure-native" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_OUTPUT
+          schema-tools compare --provider="azure-native" $old_commit --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Comment on PR with Details of Schema Check
