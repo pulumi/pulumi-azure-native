@@ -25,6 +25,8 @@ runs:
         id: schema-tools
         shell: bash
         env:
+          # If inputs.compare_to was given, use schema-tools `--old-commit` arg to compare to that ref.
+          # Otherwise, leave it out (empty) to default to `master`.
           old_commit: ${{ inputs.compare_to != '' && format('--old-commit={0}', inputs.compare_to) || '' }}
         run: |
           echo 'summary<<EOF' >> $GITHUB_OUTPUT
