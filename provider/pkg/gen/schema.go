@@ -2021,3 +2021,10 @@ func GoModVersion(packageVersion *semver.Version) string {
 	buildVersion.Build = nil
 	return "v" + buildVersion.String()
 }
+
+func GoModulePathVersion(packageVersion semver.Version) string {
+	if packageVersion.Major < 2 {
+		return ""
+	}
+	return "/v" + strconv.FormatUint(packageVersion.Major, 10)
+}
