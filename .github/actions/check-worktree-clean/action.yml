@@ -4,15 +4,17 @@ description: Fail if there's uncommitted changes in git worktree.
 runs:
   using: "composite"
   steps:
-      - name: Checkout Scripts Repo
-        uses: actions/checkout@v3
-        with:
-          path: ci-scripts
-          repository: pulumi/scripts
-
-      - name: Check worktree clean
+      - run: git status
         shell: bash
-        run: ./ci-scripts/ci/check-worktree-is-clean
 
-      - run: git status --porcelain
+      - name: Check git status
+        id: git-status
         shell: bash
+        run: echo "STATUS=$(git status -s)" >> $GITHUB_OUTPUT
+
+      - name: Fail if work-tree not clean
+        if: steps.git-status.STATUS != ''
+        shell: bash
+        run: |
+          echo "${{ steps.git-status.STATUS }}"
+          exit 1
