@@ -14,10 +14,10 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/versioning"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versioning"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"

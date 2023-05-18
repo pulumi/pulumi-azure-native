@@ -1,7 +1,7 @@
 package versioning
 
 import (
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 

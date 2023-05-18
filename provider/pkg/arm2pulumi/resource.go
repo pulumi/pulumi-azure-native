@@ -4,12 +4,13 @@ package arm2pulumi
 
 import (
 	"fmt"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"strings"
+
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
-	"strings"
 )
 
 func newResource(name string, rawBody map[string]interface{}, resourceToken string) (*resource, error) {

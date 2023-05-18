@@ -14,9 +14,9 @@ import (
 	"github.com/segmentio/encoding/json"
 
 	"github.com/hashicorp/hcl/v2"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"

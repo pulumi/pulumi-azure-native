@@ -10,7 +10,7 @@ import (
 
 	"github.com/segmentio/encoding/json"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/stretchr/testify/require"
 )
 

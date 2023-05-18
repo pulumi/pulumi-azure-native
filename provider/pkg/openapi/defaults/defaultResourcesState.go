@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/paths"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 )
 
 // defaultResourcesStateRaw is a map non-normalized paths. It's handy to have paths as they are in the Open API spec's

@@ -3,13 +3,14 @@
 package arm2pulumi
 
 import (
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"path/filepath"
 	"regexp"
 	"strings"
+
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 var stripScopeRegex = regexp.MustCompile(`.*providers/`)

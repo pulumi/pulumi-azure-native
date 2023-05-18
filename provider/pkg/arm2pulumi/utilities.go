@@ -4,9 +4,10 @@ package arm2pulumi
 
 import (
 	"errors"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"regexp"
 	"strings"
+
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 )
 
 func unquote(value string) string {

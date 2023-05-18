@@ -5,15 +5,16 @@ package arm2pulumi
 import (
 	"errors"
 	"fmt"
-	"github.com/zclconf/go-cty/cty"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
 
+	"github.com/zclconf/go-cty/cty"
+
 	"github.com/hashicorp/hcl/v2"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/tle"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/tle"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 )
