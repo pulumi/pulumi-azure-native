@@ -4,12 +4,12 @@ import (
 	"path"
 	"testing"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
 
 // BenchmarkGen benchmarks the generation of the Pulumi schema.
-// Run by executing `go test -benchmem -run=^$ -tags all -bench ^BenchmarkGen github.com/pulumi/pulumi-azure-native/provider/pkg/versioning -memprofile=gen.mem.pprof` in the provider folder.
+// Run by executing `go test -benchmem -run=^$ -tags all -bench ^BenchmarkGen github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versioning -memprofile=gen.mem.pprof` in the provider folder.
 // View results with `go tool pprof -http=: gen.mem.pprof`
 func BenchmarkGen(b *testing.B) {
 	b.ReportAllocs()

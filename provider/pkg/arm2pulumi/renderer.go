@@ -12,9 +12,9 @@ import (
 	"strings"
 
 	"github.com/hashicorp/hcl/v2"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
@@ -25,7 +25,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/pcl"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"github.com/sourcegraph/jsonx"
 )

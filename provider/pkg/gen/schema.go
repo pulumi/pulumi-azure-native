@@ -30,8 +30,8 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"

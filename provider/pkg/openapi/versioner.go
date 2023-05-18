@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/paths"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/segmentio/encoding/json"
 )

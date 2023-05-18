@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"gopkg.in/yaml.v3"
 )
 
