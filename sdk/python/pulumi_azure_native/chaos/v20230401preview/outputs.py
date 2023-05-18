@@ -26,7 +26,7 @@ __all__ = [
     'StepResponse',
     'SystemDataResponse',
     'TargetReferenceResponse',
-    'UserAssignedIdentitiesResponseUserAssignedIdentities',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -477,13 +477,13 @@ class ResourceIdentityResponse(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         The identity of a resource.
         :param str principal_id: GUID that represents the principal ID of this resource identity.
         :param str tenant_id: GUID that represents the tenant ID of this resource identity.
         :param str type: String of the resource identity type.
-        :param Mapping[str, 'UserAssignedIdentitiesResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -517,9 +517,9 @@ class ResourceIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
-        The list of user identities associated with the experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
@@ -816,9 +816,9 @@ class TargetReferenceResponse(dict):
 
 
 @pulumi.output_type
-class UserAssignedIdentitiesResponseUserAssignedIdentities(dict):
+class UserAssignedIdentityResponse(dict):
     """
-    The list of user identities associated with the experiment.
+    User assigned identity properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -829,23 +829,23 @@ class UserAssignedIdentitiesResponseUserAssignedIdentities(dict):
             suggest = "principal_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentitiesResponseUserAssignedIdentities.__key_warning(key)
+        UserAssignedIdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentitiesResponseUserAssignedIdentities.__key_warning(key)
+        UserAssignedIdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  client_id: str,
                  principal_id: str):
         """
-        The list of user identities associated with the experiment.
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -854,7 +854,7 @@ class UserAssignedIdentitiesResponseUserAssignedIdentities(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The client id of user assigned identity.
+        The client ID of the assigned identity.
         """
         return pulumi.get(self, "client_id")
 
@@ -862,7 +862,7 @@ class UserAssignedIdentitiesResponseUserAssignedIdentities(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal id of user assigned identity.
+        The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
 

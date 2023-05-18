@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.CostManagement.V20221001.Outputs
         /// <summary>
         /// Error code.
         /// </summary>
-        public readonly int Code;
+        public readonly string Code;
         /// <summary>
         /// Error message indicating why the operation failed.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.CostManagement.V20221001.Outputs
 
         [OutputConstructor]
         private ErrorDetailsResponse(
-            int code,
+            string code,
 
             string message)
         {

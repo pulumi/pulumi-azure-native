@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The MongoDB Atlas Driver version that you want to choose. Allowed value are 2.10.4 and 2.19.0. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? MongoDbAtlasDriverVersion;
+        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
+            object? mongoDbAtlasDriverVersion,
+
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type)
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ConnectionString = connectionString;
             Database = database;
             Description = description;
+            MongoDbAtlasDriverVersion = mongoDbAtlasDriverVersion;
             Parameters = parameters;
             Type = type;
         }

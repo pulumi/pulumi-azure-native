@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20210101:Export"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:Export"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:Export"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:Export"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

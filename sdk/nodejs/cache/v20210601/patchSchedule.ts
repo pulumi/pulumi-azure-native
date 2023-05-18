@@ -87,7 +87,7 @@ export class PatchSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache:PatchSchedule" }, { type: "azure-native:cache/v20171001:PatchSchedule" }, { type: "azure-native:cache/v20180301:PatchSchedule" }, { type: "azure-native:cache/v20190701:PatchSchedule" }, { type: "azure-native:cache/v20200601:PatchSchedule" }, { type: "azure-native:cache/v20201201:PatchSchedule" }, { type: "azure-native:cache/v20220501:PatchSchedule" }, { type: "azure-native:cache/v20220601:PatchSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:PatchSchedule" }, { type: "azure-native:cache/v20171001:PatchSchedule" }, { type: "azure-native:cache/v20180301:PatchSchedule" }, { type: "azure-native:cache/v20190701:PatchSchedule" }, { type: "azure-native:cache/v20200601:PatchSchedule" }, { type: "azure-native:cache/v20201201:PatchSchedule" }, { type: "azure-native:cache/v20220501:PatchSchedule" }, { type: "azure-native:cache/v20220601:PatchSchedule" }, { type: "azure-native:cache/v20230401:PatchSchedule" }, { type: "azure-native:cache/v20230501preview:PatchSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PatchSchedule.__pulumiType, name, resourceInputs, opts);
     }

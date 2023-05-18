@@ -152,7 +152,7 @@ export class ViewByScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ViewByScope" }, { type: "azure-native:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-native:costmanagement/v20191101:ViewByScope" }, { type: "azure-native:costmanagement/v20211001:ViewByScope" }, { type: "azure-native:costmanagement/v20220801preview:ViewByScope" }, { type: "azure-native:costmanagement/v20221001:ViewByScope" }, { type: "azure-native:costmanagement/v20221001preview:ViewByScope" }, { type: "azure-native:costmanagement/v20221005preview:ViewByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ViewByScope" }, { type: "azure-native:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-native:costmanagement/v20191101:ViewByScope" }, { type: "azure-native:costmanagement/v20211001:ViewByScope" }, { type: "azure-native:costmanagement/v20220801preview:ViewByScope" }, { type: "azure-native:costmanagement/v20221001:ViewByScope" }, { type: "azure-native:costmanagement/v20221001preview:ViewByScope" }, { type: "azure-native:costmanagement/v20221005preview:ViewByScope" }, { type: "azure-native:costmanagement/v20230401preview:ViewByScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ViewByScope.__pulumiType, name, resourceInputs, opts);
     }

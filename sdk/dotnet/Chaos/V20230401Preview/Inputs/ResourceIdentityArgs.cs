@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Chaos.V20230401Preview.Inputs
         private InputMap<object>? _userAssignedIdentities;
 
         /// <summary>
-        /// The list of user identities associated with the experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
         public InputMap<object> UserAssignedIdentities
         {

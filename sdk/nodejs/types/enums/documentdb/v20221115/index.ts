@@ -198,16 +198,6 @@ export const MinimalTlsVersion = {
  */
 export type MinimalTlsVersion = (typeof MinimalTlsVersion)[keyof typeof MinimalTlsVersion];
 
-export const MongoRoleDefinitionType = {
-    BuiltInRole: "BuiltInRole",
-    CustomRole: "CustomRole",
-} as const;
-
-/**
- * Indicates whether the Role Definition was built-in or user created.
- */
-export type MongoRoleDefinitionType = (typeof MongoRoleDefinitionType)[keyof typeof MongoRoleDefinitionType];
-
 export const NetworkAclBypass = {
     None: "None",
     AzureServices: "AzureServices",
