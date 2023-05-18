@@ -11,12 +11,15 @@ on:
       - v2.0-pre
     paths-ignore:
       - CHANGELOG.md
-  workflow_dispatch: 
+  workflow_dispatch:
     inputs:
       short_test:
         type: boolean
         description: Skip longer running tests
         default: false
+      version:
+        type: string
+        description: Override the version when building
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -48,7 +51,7 @@ jobs:
     needs: version
     with:
       ref: ${{ github.ref }}
-      version: ${{ needs.version.outputs.version }}
+      version: ${{ inputs.version || needs.version.outputs.version }}
       short_test: ${{ inputs.short_test || false }}
     secrets: inherit
 
