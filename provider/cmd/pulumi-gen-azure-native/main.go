@@ -219,19 +219,21 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 }
 
 func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
-	pkgCopy := gen.SetGoBasePath(*pkgSpec, "github.com/pulumi/pulumi-azure-native-sdk")
+	goBasePath := "github.com/pulumi/pulumi-azure-native-sdk"
+	pkgCopy := gen.SetGoBasePath(*pkgSpec, goBasePath)
 
 	ppkg, err := schema.ImportSpec(*pkgCopy, nil)
 	if err != nil {
 		return errors.Wrap(err, "reading schema")
 	}
 
+	version := gen.GoModVersion(ppkg.Version)
+	moduleVersionPath := gen.GoModulePathVersion(*ppkg.Version)
 	files, err := generate(ppkg, language)
 	if err != nil {
 		return errors.Wrapf(err, "generating %s package", language)
 	}
 
-	version := gen.GoModVersion(ppkg.Version)
 	files["pulumi-azure-native-sdk/version.txt"] = []byte(version)
 	files["pulumi-azure-native-sdk/go.mod"] = []byte(goModTemplate(GoMod{}))
 
@@ -250,8 +252,9 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 			module := filepath.Base(dir)
 			modPath := filepath.Join(dir, "go.mod")
 			modContent := goModTemplate(GoMod{
-				Version:       version,
-				SubmoduleName: module,
+				Version:           version,
+				SubmoduleName:     module,
+				ModuleVersionPath: moduleVersionPath,
 			})
 
 			if err := gen.EmitFile(path.Join(outDir, modPath), []byte(modContent)); err != nil {
@@ -270,8 +273,9 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 }
 
 type GoMod struct {
-	Version       string
-	SubmoduleName string
+	Version           string
+	SubmoduleName     string
+	ModuleVersionPath string
 }
 
 var goModTemplateCache *template.Template
@@ -281,9 +285,9 @@ func goModTemplate(goMod GoMod) string {
 	if goModTemplateCache == nil {
 		goModTemplateCache, err = template.New("go-mod").Parse(`
 {{ if eq .SubmoduleName "" }}
-module github.com/pulumi/pulumi-azure-native-sdk
+module github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }}
 {{ else }}
-module github.com/pulumi/pulumi-azure-native-sdk/{{ .SubmoduleName }}
+module github.com/pulumi/pulumi-azure-native-sdk/{{ .SubmoduleName }}{{ .ModuleVersionPath }}
 {{ end }}
 
 go 1.17
@@ -292,13 +296,13 @@ require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/pkg/errors v0.9.1
 {{ if ne .SubmoduleName "" }}
-	github.com/pulumi/pulumi-azure-native-sdk {{ .Version }}
+	github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }} {{ .Version }}
 {{ end }}
 	github.com/pulumi/pulumi/sdk/v3 v3.37.2
 )
 
 {{ if ne .SubmoduleName "" }}
-replace github.com/pulumi/pulumi-azure-native-sdk {{ .Version }} => ../
+replace github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }} {{ .Version }} => ../
 {{ end }}
 `)
 		if err != nil {
