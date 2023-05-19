@@ -212,7 +212,7 @@ var wellKnownNames = map[string]string{
 
 // ResourceName constructs a name of a resource based on Get or List operation ID,
 // e.g. "Managers_GetActivationKey" -> "ManagerActivationKey".
-func ResourceName(operationID string) string {
+func ResourceName(operationID, path string) string {
 	normalizedID := strings.ReplaceAll(operationID, "-", "_")
 	parts := strings.Split(normalizedID, "_")
 	var name, verb string
@@ -240,7 +240,18 @@ func ResourceName(operationID string) string {
 		}
 	}
 
-	return name + subName
+	resourceName := name + subName
+
+	// Special cases
+
+	// Manual override to resolve ambiguity between public and private RecordSet.
+	// See https://github.com/pulumi/pulumi-azure-native/issues/583.
+	// To be removed with https://github.com/pulumi/pulumi-azure-native/issues/690.
+	if resourceName == "RecordSet" && strings.Contains(path, "privateDns") {
+		resourceName = "PrivateRecordSet"
+	}
+
+	return resourceName
 }
 
 var referenceNameReplacer = strings.NewReplacer("CreateOrUpdateParameters", "", "Create", "", "Request", "")

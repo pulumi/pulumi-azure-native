@@ -405,14 +405,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 				panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
 			}
 
-			typeName := resources.ResourceName(pathItem.Get.ID)
-
-			// Manual override to resolve ambiguity between public and private RecordSet.
-			// See https://github.com/pulumi/pulumi-azure-native/issues/583.
-			// To be removed with https://github.com/pulumi/pulumi-azure-native/issues/690.
-			if typeName == "RecordSet" && strings.Contains(path, "privateDns") {
-				typeName = "PrivateRecordSet"
-			}
+			typeName := resources.ResourceName(pathItem.Get.ID, path)
 
 			if typeName != "" && (hasDelete || defaultState != nil) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
@@ -430,7 +423,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 				}
 			}
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
-			typeName := resources.ResourceName(pathItem.Head.ID)
+			typeName := resources.ResourceName(pathItem.Head.ID, path)
 			if typeName != "" && hasDelete {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
@@ -445,9 +438,9 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			var typeName string
 			switch {
 			case pathItemList.Get != nil && !pathItemList.Get.Deprecated:
-				typeName = resources.ResourceName(pathItemList.Get.ID)
+				typeName = resources.ResourceName(pathItemList.Get.ID, path)
 			case pathItemList.Post != nil && !pathItemList.Post.Deprecated:
-				typeName = resources.ResourceName(pathItemList.Post.ID)
+				typeName = resources.ResourceName(pathItemList.Post.ID, path)
 			}
 			if typeName != "" {
 				var defaultBody map[string]interface{}
@@ -478,7 +471,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 	// Add an entry for PATCH-based resources.
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
 		defaultState := defaults.GetDefaultResourceState(path)
-		typeName := resources.ResourceName(pathItem.Get.ID)
+		typeName := resources.ResourceName(pathItem.Get.ID, path)
 		if typeName != "" && defaultState != nil {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
@@ -517,7 +510,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 			return
 		}
 
-		typeName := resources.ResourceName(pathItem.Post.ID)
+		typeName := resources.ResourceName(pathItem.Post.ID, path)
 		if typeName != "" {
 			version.Invokes[prefix+typeName] = &ResourceSpec{
 				Path:     path,

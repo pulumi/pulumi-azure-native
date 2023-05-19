@@ -3,32 +3,53 @@
 package resources
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
+type resourceNameTestCase struct {
+	operationID string
+	path        string
+	expected    string
+}
+
 func TestResourceName(t *testing.T) {
-	testCases := map[string]string{
-		"GetUserSettings":                         "UserSettings",
-		"Mediaservices_Get":                       "MediaService",
-		"Redis_Get":                               "Redis",
-		"AssessmentsMetadata_GetInSubscription":   "AssessmentMetadataInSubscription",
-		"Caches_Get":                              "Cache",
-		"CognitiveServicesAccounts_GetProperties": "CognitiveServicesAccount",
-		"WorkspaceCollections_getByName":          "WorkspaceCollection",
-		"getUserSettingsWithLocation":             "UserSettingsWithLocation",
-		"SupportPlanTypes_ListInfo":               "SupportPlanTypeInfo",
-		"WebSite_GetWebSite":                      "WebSite",
-		"ManagedCluster_ClusterUserGet":           "ManagedClusterUser",
-		"BlobService_ServicePropertiesGet":        "BlobServiceProperties",
-		"SaasResource-listAccessToken":            "SaasResourceAccessToken",
-		"WebApps_ListApplicationSettings":         "WebAppApplicationSettings",
-		"Products_GetProducts":                    "Products",
-		"PowerBIResources_ListByResourceName":     "PowerBIResource",
+	// Empty path means "doesn't matter", not that these resources don't have a path.
+	testCases2 := []resourceNameTestCase{
+		{"GetUserSettings", "", "UserSettings"},
+		{"Mediaservices_Get", "", "MediaService"},
+		{"Redis_Get", "", "Redis"},
+		{"AssessmentsMetadata_GetInSubscription", "", "AssessmentMetadataInSubscription"},
+		{"Caches_Get", "", "Cache"},
+		{"CognitiveServicesAccounts_GetProperties", "", "CognitiveServicesAccount"},
+		{"WorkspaceCollections_getByName", "", "WorkspaceCollection"},
+		{"getUserSettingsWithLocation", "", "UserSettingsWithLocation"},
+		{"SupportPlanTypes_ListInfo", "", "SupportPlanTypeInfo"},
+		{"WebSite_GetWebSite", "", "WebSite"},
+		{"ManagedCluster_ClusterUserGet", "", "ManagedClusterUser"},
+		{"BlobService_ServicePropertiesGet", "", "BlobServiceProperties"},
+		{"SaasResource-listAccessToken", "", "SaasResourceAccessToken"},
+		{"WebApps_ListApplicationSettings", "", "WebAppApplicationSettings"},
+		{"Products_GetProducts", "", "Products"},
+		{"PowerBIResources_ListByResourceName", "", "PowerBIResource"},
+
+		// An exception for https://github.com/pulumi/pulumi-azure-native/issues/583, disambiguated by path.
+		{
+			"RecordSets_Get",
+			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+			"PrivateRecordSet",
+		},
+		{
+			"RecordSets_Get",
+			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/{recordType}/{relativeRecordSetName}",
+			"RecordSet",
+		},
 	}
-	for operationID, expected := range testCases {
-		actual := ResourceName(operationID)
-		assert.Equal(t, expected, actual)
+
+	for _, tc := range testCases2 {
+		actual := ResourceName(tc.operationID, tc.path)
+		assert.Equal(t, tc.expected, actual)
 	}
 }
 
@@ -56,7 +77,7 @@ func TestAutoName(t *testing.T) {
 		expected := values[2]
 		format := ""
 		if len(values) > 3 {
-			format =values[2]
+			format = values[2]
 		}
 		namer := NewAutoNamer(path)
 		actual, ok := namer.AutoName(name, format)
