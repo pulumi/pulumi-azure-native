@@ -64,6 +64,7 @@ jobs:
         uses: ./.github/actions/schema-check
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          compare_to: ${{  github.base_ref }}
 
       - name: Check worktree clean
         uses: ./.github/actions/check-worktree-clean
