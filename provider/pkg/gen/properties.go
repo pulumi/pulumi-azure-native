@@ -123,11 +123,12 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
+		if isOutput && resolvedProperty.ReadOnly {
+			result.requiredSpecs.Add(sdkName)
+		}
+
 		var apiProperty resources.AzureAPIProperty
 		if isOutput {
-			if resolvedProperty.ReadOnly {
-				result.requiredSpecs.Add(sdkName)
-			}
 			apiProperty = resources.AzureAPIProperty{
 				OneOf:                m.getOneOfValues(propertySpec),
 				Ref:                  propertySpec.Ref,
