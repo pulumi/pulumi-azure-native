@@ -127,36 +127,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			result.requiredSpecs.Add(sdkName)
 		}
 
-		var apiProperty resources.AzureAPIProperty
-		if isOutput {
-			apiProperty = resources.AzureAPIProperty{
-				OneOf:                m.getOneOfValues(propertySpec),
-				Ref:                  propertySpec.Ref,
-				Items:                m.itemTypeToProperty(propertySpec.Items),
-				AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
-			}
-		} else {
-			if m.isEnum(&propertySpec.TypeSpec) {
-				apiProperty = resources.AzureAPIProperty{Type: "string"}
-			} else {
-				apiProperty = resources.AzureAPIProperty{
-					Type:                 propertySpec.Type,
-					OneOf:                m.getOneOfValues(propertySpec),
-					Ref:                  propertySpec.Ref,
-					Minimum:              resolvedProperty.Minimum,
-					Maximum:              resolvedProperty.Maximum,
-					MinLength:            resolvedProperty.MinLength,
-					MaxLength:            resolvedProperty.MaxLength,
-					Pattern:              resolvedProperty.Pattern,
-					Items:                m.itemTypeToProperty(propertySpec.Items),
-					AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
-				}
-			}
-
-			// Apply manual metadata about Force New properties.
-			apiProperty.ForceNew = m.forceNew(resolvedProperty, name, isType)
-			propertySpec.WillReplaceOnChanges = apiProperty.ForceNew
-		}
+		apiProperty := m.genApiProperty(isOutput, propertySpec, resolvedProperty, name, isType)
 
 		if sdkName != name {
 			apiProperty.SdkName = sdkName
@@ -281,6 +252,40 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	return &propertySpec, nil
+}
+
+func (m *moduleGenerator) genApiProperty(isOutput bool, propertySpec *pschema.PropertySpec, resolvedProperty *openapi.Schema, name string, isType bool) resources.AzureAPIProperty {
+	var apiProperty resources.AzureAPIProperty
+	if isOutput {
+		apiProperty = resources.AzureAPIProperty{
+			OneOf:                m.getOneOfValues(propertySpec),
+			Ref:                  propertySpec.Ref,
+			Items:                m.itemTypeToProperty(propertySpec.Items),
+			AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
+		}
+	} else {
+		if m.isEnum(&propertySpec.TypeSpec) {
+			apiProperty = resources.AzureAPIProperty{Type: "string"}
+		} else {
+			apiProperty = resources.AzureAPIProperty{
+				Type:                 propertySpec.Type,
+				OneOf:                m.getOneOfValues(propertySpec),
+				Ref:                  propertySpec.Ref,
+				Minimum:              resolvedProperty.Minimum,
+				Maximum:              resolvedProperty.Maximum,
+				MinLength:            resolvedProperty.MinLength,
+				MaxLength:            resolvedProperty.MaxLength,
+				Pattern:              resolvedProperty.Pattern,
+				Items:                m.itemTypeToProperty(propertySpec.Items),
+				AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
+			}
+		}
+
+		// Apply manual metadata about Force New properties.
+		apiProperty.ForceNew = m.forceNew(resolvedProperty, name, isType)
+		propertySpec.WillReplaceOnChanges = apiProperty.ForceNew
+	}
+	return apiProperty
 }
 
 func newPropertyBag() *propertyBag {
