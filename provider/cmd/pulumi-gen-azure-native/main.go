@@ -137,7 +137,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		outdir := path.Join(".", "sdk")
+		outdir := path.Join(".", "sdk", "pulumi-azure-native-sdk")
 		pkgSpec.Version = version
 		err = emitSplitPackage(&pkgSpec, "go", outdir)
 		if err != nil {
@@ -219,7 +219,8 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 }
 
 func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
-	goBasePath := "github.com/pulumi/pulumi-azure-native-sdk"
+	moduleVersionPath := gen.GoModulePathVersion(pkgSpec.Version)
+	goBasePath := "github.com/pulumi/pulumi-azure-native-sdk" + moduleVersionPath
 	pkgCopy := gen.SetGoBasePath(*pkgSpec, goBasePath)
 
 	ppkg, err := schema.ImportSpec(*pkgCopy, nil)
@@ -228,14 +229,15 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 	}
 
 	version := gen.GoModVersion(ppkg.Version)
-	moduleVersionPath := gen.GoModulePathVersion(*ppkg.Version)
 	files, err := generate(ppkg, language)
 	if err != nil {
 		return errors.Wrapf(err, "generating %s package", language)
 	}
 
-	files["pulumi-azure-native-sdk/version.txt"] = []byte(version)
-	files["pulumi-azure-native-sdk/go.mod"] = []byte(goModTemplate(GoMod{}))
+	files["version.txt"] = []byte(version)
+	files["go.mod"] = []byte(goModTemplate(GoMod{
+		ModuleVersionPath: moduleVersionPath,
+	}))
 
 	for f, contents := range files {
 		if err := gen.EmitFile(path.Join(outDir, f), contents); err != nil {
@@ -243,7 +245,7 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 		}
 
 		// Special case for identifying where we need modules in subdirectories.
-		matched, err := filepath.Match("pulumi-azure-native-sdk/*/init.go", f)
+		matched, err := filepath.Match("*/init.go", f)
 		if err != nil {
 			return err
 		}
@@ -262,7 +264,7 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 			}
 
 			pluginPath := filepath.Join(dir, "pulumi-plugin.json")
-			pluginContent := files["pulumi-azure-native-sdk/pulumi-plugin.json"]
+			pluginContent := files["pulumi-plugin.json"]
 			if err := gen.EmitFile(path.Join(outDir, pluginPath), pluginContent); err != nil {
 				return err
 			}

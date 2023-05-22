@@ -1996,6 +1996,7 @@ func SetGoBasePath(pkgSpec schema.PackageSpec, importBasePath string) *schema.Pa
 	}
 
 	goLanguage["importBasePath"] = importBasePath
+	goLanguage["rootPackageName"] = "pulumiazurenativesdk"
 
 	pkgSpec.Language["go"] = rawMessage(goLanguage)
 	return &pkgSpec
@@ -2022,9 +2023,15 @@ func GoModVersion(packageVersion *semver.Version) string {
 	return "v" + buildVersion.String()
 }
 
-func GoModulePathVersion(packageVersion semver.Version) string {
-	if packageVersion.Major < 2 {
+func GoModulePathVersion(packageVersion string) string {
+	// Take up to the first dot
+	vString, _, found := strings.Cut(packageVersion, ".")
+	if !found {
 		return ""
 	}
-	return "/v" + strconv.FormatUint(packageVersion.Major, 10)
+	switch vString {
+	case "0", "1":
+		return ""
+	}
+	return "/v" + vString
 }
