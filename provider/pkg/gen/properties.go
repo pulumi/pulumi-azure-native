@@ -113,7 +113,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		propertySpec, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, resolvedProperty, isOutput, isType)
+		propertySpec, apiProperty, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, resolvedProperty, isOutput, isType)
 		if err != nil {
 			return nil, err
 		}
@@ -127,13 +127,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			result.requiredSpecs.Add(sdkName)
 		}
 
-		apiProperty := m.genApiProperty(isOutput, propertySpec, resolvedProperty, name, isType)
-
 		if sdkName != name {
 			apiProperty.SdkName = sdkName
 		}
 
-		result.properties[name] = apiProperty
+		result.properties[name] = *apiProperty
 		result.specs[sdkName] = *propertySpec
 	}
 
@@ -191,20 +189,20 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	return result, nil
 }
 
-func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, isOutput, isType bool) (*pschema.PropertySpec, error) {
+func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, isOutput, isType bool) (*pschema.PropertySpec, *resources.AzureAPIProperty, error) {
 	description, err := getPropertyDescription(schema, context)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	// Nil type means empty: e.g., when an input type has only read-only properties. Bubble the nil up.
 	if typeSpec == nil {
-		return nil, nil
+		return nil, nil, nil
 	}
 
 	// TODO: Remove this switch if https://github.com/Azure/azure-rest-api-specs/issues/13167 is fixed
@@ -251,7 +249,9 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		TypeSpec:    *typeSpec,
 	}
 
-	return &propertySpec, nil
+	apiProperty := m.genApiProperty(isOutput, &propertySpec, resolvedProperty, name, isType)
+
+	return &propertySpec, &apiProperty, nil
 }
 
 func (m *moduleGenerator) genApiProperty(isOutput bool, propertySpec *pschema.PropertySpec, resolvedProperty *openapi.Schema, name string, isType bool) resources.AzureAPIProperty {

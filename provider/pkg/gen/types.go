@@ -154,7 +154,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		if err != nil {
 			return nil, err
 		}
-		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, resolvedProperty, isOutput, true /* isType */)
+		itemsSpec, _, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, resolvedProperty, isOutput, true /* isType */)
 		if err != nil {
 			return nil, err
 		}
