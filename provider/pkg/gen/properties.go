@@ -279,8 +279,10 @@ func (m *moduleGenerator) genApiProperty(isOutput bool, propertySpec *pschema.Pr
 	}
 
 	// Apply manual metadata about Force New properties.
-	apiProperty.ForceNew = m.forceNew(resolvedProperty, name, isType)
-	propertySpec.WillReplaceOnChanges = apiProperty.ForceNew
+	if m.forceNew(resolvedProperty, name, isType) {
+		apiProperty.ForceNew = true
+		propertySpec.WillReplaceOnChanges = true
+	}
 	return apiProperty
 }
 
