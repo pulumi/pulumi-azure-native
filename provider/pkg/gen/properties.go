@@ -265,21 +265,17 @@ func (m *moduleGenerator) genApiProperty(isOutput bool, propertySpec *pschema.Pr
 		return apiProperty
 	}
 
+	// Input types only:
 	if m.isEnum(&propertySpec.TypeSpec) {
 		apiProperty = resources.AzureAPIProperty{Type: "string"}
 	} else {
-		apiProperty = resources.AzureAPIProperty{
-			Type:                 propertySpec.Type,
-			OneOf:                m.getOneOfValues(propertySpec),
-			Ref:                  propertySpec.Ref,
-			Minimum:              resolvedProperty.Minimum,
-			Maximum:              resolvedProperty.Maximum,
-			MinLength:            resolvedProperty.MinLength,
-			MaxLength:            resolvedProperty.MaxLength,
-			Pattern:              resolvedProperty.Pattern,
-			Items:                m.itemTypeToProperty(propertySpec.Items),
-			AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
-		}
+		// Set additional properties when it's an input
+		apiProperty.Type = propertySpec.Type
+		apiProperty.Minimum = resolvedProperty.Minimum
+		apiProperty.Maximum = resolvedProperty.Maximum
+		apiProperty.MinLength = resolvedProperty.MinLength
+		apiProperty.MaxLength = resolvedProperty.MaxLength
+		apiProperty.Pattern = resolvedProperty.Pattern
 	}
 
 	// Apply manual metadata about Force New properties.
