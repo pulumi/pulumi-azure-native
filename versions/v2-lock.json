@@ -367,6 +367,7 @@
     "CommitmentPlanAssociation": "2022-12-01",
     "Deployment": "2022-12-01",
     "PrivateEndpointConnection": "2022-12-01",
+    "SharedCommitmentPlan": "2022-12-01",
     "listAccountKeys": "2022-12-01"
   },
   "Commerce": {},

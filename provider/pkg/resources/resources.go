@@ -4,6 +4,7 @@ package resources
 
 import (
 	"fmt"
+	"log"
 	"regexp"
 	"strings"
 
@@ -236,7 +237,8 @@ func ResourceName(operationID, path string) string {
 	for i := 0; i < len(nameParts); i++ {
 		if sliceHasPrefix(subNameParts, nameParts[i:]) {
 			namePrefix := strings.Join(nameParts[:i], "")
-			return namePrefix + subName
+			name = namePrefix
+			break
 		}
 	}
 
@@ -253,12 +255,22 @@ func ResourceName(operationID, path string) string {
 
 	// ServiceFabric introduced managed clusters in a new folder servicefabricmanagedclusters but
 	// in the same Microsoft.ServiceFabric namespace. We need to disambiguate some resource names.
-	if strings.Contains(path, "ServiceFabric/managedclusters") &&
-		(resourceName == "Application" ||
-			resourceName == "ApplicationType" ||
-			resourceName == "ApplicationTypeVersion" ||
-			resourceName == "Service") {
-		resourceName = "ManagedCluster" + resourceName
+	// TODO,tkappler commented because of
+	//   https://github.com/pulumi/pulumi-azure-native/actions/runs/5052741409/jobs/9065899454?pr=2422
+	// if strings.Contains(path, "ServiceFabric/managedclusters") &&
+	// 	(resourceName == "Application" ||
+	// 		resourceName == "ApplicationType" ||
+	// 		resourceName == "ApplicationTypeVersion" ||
+	// 		resourceName == "Service") {
+	// 	resourceName = "ManagedCluster" + resourceName
+	// }
+
+	// Cognitive Services has global and per-account commitment plans with the same name.
+	// TODO,tkappler The global plan still has the description "Cognitive Services account
+	// commitment plan." - upstream issue?
+	if resourceName == "CommitmentPlan" && strings.Contains(path, "CognitiveServices/commitmentPlans/") {
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, "SharedCommitmentPlan")
+		resourceName = "SharedCommitmentPlan"
 	}
 
 	return resourceName

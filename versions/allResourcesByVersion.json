@@ -2794,6 +2794,7 @@
       "CommitmentPlanAssociation",
       "Deployment",
       "PrivateEndpointConnection",
+      "SharedCommitmentPlan",
       "listAccountKeys"
     ]
   },
