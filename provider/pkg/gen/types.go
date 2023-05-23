@@ -176,13 +176,6 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			return nil, err
 		}
 
-		// Use a generic 'object' value type for a dictionary with empty value type.
-		if additionalProperties == nil {
-			additionalProperties = &pschema.TypeSpec{
-				Ref: resources.TypeAny,
-			}
-		}
-
 		return &pschema.TypeSpec{
 			Type:                 "object",
 			AdditionalProperties: additionalProperties,

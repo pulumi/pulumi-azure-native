@@ -57,6 +57,8 @@ type AzureAPIProperty struct {
 	// - "copy" for 1-to-1 copy of the resource's logical name.
 	// - "random" for adding a random suffix to resource's logical name.
 	AutoName AutoNameKind `json:"autoname,omitempty"`
+	// If the property is represented as a map of string to nothing, the SDK represents it as a list of strings.
+	IsStringSet bool `json:"isStringSet,omitempty"`
 }
 
 // AzureAPIType represents the shape of an object property.

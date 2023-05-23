@@ -148,11 +148,11 @@ class AmlFilesystemHsmArgs:
 class AmlFilesystemIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['AmlFilesystemIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Managed Identity properties.
         :param pulumi.Input['AmlFilesystemIdentityType'] type: The type of identity used for the resource.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -173,14 +173,14 @@ class AmlFilesystemIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -519,11 +519,11 @@ class CacheEncryptionSettingsArgs:
 class CacheIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['CacheIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Cache identity properties.
         :param pulumi.Input['CacheIdentityType'] type: The type of identity used for the cache
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -544,14 +544,14 @@ class CacheIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

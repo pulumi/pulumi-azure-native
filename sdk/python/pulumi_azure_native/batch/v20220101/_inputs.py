@@ -80,11 +80,11 @@ class AutoStorageBasePropertiesArgs:
 class BatchAccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ResourceIdentityType'],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The identity of the Batch account, if configured. This is used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration or when `ManagedIdentity` is selected as the auto-storage authentication mode.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the Batch account.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the Batch account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Batch account.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -104,14 +104,14 @@ class BatchAccountIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user identities associated with the Batch account.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

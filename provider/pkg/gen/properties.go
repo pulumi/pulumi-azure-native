@@ -243,6 +243,17 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		}
 	}
 
+	// If there's no object value type, then it's just a set of strings which we'll represent as a string
+	// array in the SDK, but leave the metadata to indicate we need to convert it.
+	isStringSet := typeSpec.Type == "object" && typeSpec.AdditionalProperties == nil && typeSpec.Ref == ""
+	if isStringSet {
+		typeSpec.Type = "array"
+		typeSpec.AdditionalProperties = nil
+		typeSpec.Items = &pschema.TypeSpec{
+			Type: "string",
+		}
+	}
+
 	propertySpec := pschema.PropertySpec{
 		Description: description,
 		Default:     defaultValue,
@@ -254,6 +265,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		Ref:                  propertySpec.Ref,
 		Items:                m.itemTypeToProperty(propertySpec.Items),
 		AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
+		IsStringSet:          isStringSet,
 	}
 
 	// Input types only get extra information attached

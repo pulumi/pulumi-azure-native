@@ -447,14 +447,14 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
         public Input<bool>? IsLedgerOn { get; set; }
 
         [Input("keys")]
-        private InputMap<object>? _keys;
+        private InputList<string>? _keys;
 
         /// <summary>
         /// The resource ids of the user assigned identities to use
         /// </summary>
-        public InputMap<object> Keys
+        public InputList<string> Keys
         {
-            get => _keys ?? (_keys = new InputMap<object>());
+            get => _keys ?? (_keys = new InputList<string>());
             set => _keys = value;
         }
 

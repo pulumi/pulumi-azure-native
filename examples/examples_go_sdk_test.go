@@ -6,10 +6,11 @@ package examples
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/require"
 	"os"
 	"path/filepath"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
@@ -35,6 +36,16 @@ func TestAccClientConfigGoSdk(t *testing.T) {
 	test := getGoBaseOptionsSdk(t).
 		With(integration.ProgramTestOptions{
 			Dir: testDir(t, "go-clientconfig"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccUserAssignedIdentitySdk(t *testing.T) {
+	test := getGoBaseOptionsSdk(t).
+		With(integration.ProgramTestOptions{
+			Dir:           testDir(t, "go-user-assigned-identity"),
+			RunUpdateTest: false,
 		})
 
 	integration.ProgramTest(t, &test)
