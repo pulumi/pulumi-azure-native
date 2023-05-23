@@ -284,6 +284,16 @@ func ResourceName(operationID, path string) string {
 		resourceName = newName
 	}
 
+	// ServiceFabric introduced managed clusters in a new folder 'servicefabricmanagedclusters' but
+	// in the same Microsoft.ServiceFabric namespace. We need to disambiguate some resource names.
+	if strings.Contains(path, "ServiceFabric/managedclusters") &&
+		(resourceName == "Application" ||
+			resourceName == "ApplicationType" ||
+			resourceName == "ApplicationTypeVersion" ||
+			resourceName == "Service") {
+		resourceName = "ManagedCluster" + resourceName
+	}
+
 	return resourceName
 }
 
