@@ -3253,11 +3253,11 @@ class ThreeTierFullResourceNamesArgs:
 class UserAssignedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of manage identity
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: User assigned identities dictionary
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: User assigned identities dictionary
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -3277,14 +3277,14 @@ class UserAssignedServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         User assigned identities dictionary
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

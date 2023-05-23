@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.DevCenter.V20221111Preview.Inputs
     public sealed class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("roles")]
-        private InputMap<object>? _roles;
+        private InputList<string>? _roles;
 
         /// <summary>
         /// A map of roles to assign to the environment creator.
         /// </summary>
-        public InputMap<object> Roles
+        public InputList<string> Roles
         {
-            get => _roles ?? (_roles = new InputMap<object>());
+            get => _roles ?? (_roles = new InputList<string>());
             set => _roles = value;
         }
 
