@@ -249,41 +249,35 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		TypeSpec:    *typeSpec,
 	}
 
-	apiProperty := m.genApiProperty(name, &propertySpec, resolvedProperty, isOutput, isType)
-
-	return &propertySpec, &apiProperty, nil
-}
-
-func (m *moduleGenerator) genApiProperty(name string, propertySpec *pschema.PropertySpec, resolvedProperty *openapi.Schema, isOutput, isType bool) resources.AzureAPIProperty {
 	apiProperty := resources.AzureAPIProperty{
-		OneOf:                m.getOneOfValues(propertySpec),
+		OneOf:                m.getOneOfValues(&propertySpec),
 		Ref:                  propertySpec.Ref,
 		Items:                m.itemTypeToProperty(propertySpec.Items),
 		AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
 	}
-	if isOutput {
-		return apiProperty
+
+	// Input types only get extra information attached
+	if !isOutput {
+		if m.isEnum(&propertySpec.TypeSpec) {
+			apiProperty = resources.AzureAPIProperty{Type: "string"}
+		} else {
+			// Set additional properties when it's an input
+			apiProperty.Type = propertySpec.Type
+			apiProperty.Minimum = resolvedProperty.Minimum
+			apiProperty.Maximum = resolvedProperty.Maximum
+			apiProperty.MinLength = resolvedProperty.MinLength
+			apiProperty.MaxLength = resolvedProperty.MaxLength
+			apiProperty.Pattern = resolvedProperty.Pattern
+		}
+
+		// Apply manual metadata about Force New properties.
+		if m.forceNew(resolvedProperty, name, isType) {
+			apiProperty.ForceNew = true
+			propertySpec.WillReplaceOnChanges = true
+		}
 	}
 
-	// Input types only:
-	if m.isEnum(&propertySpec.TypeSpec) {
-		apiProperty = resources.AzureAPIProperty{Type: "string"}
-	} else {
-		// Set additional properties when it's an input
-		apiProperty.Type = propertySpec.Type
-		apiProperty.Minimum = resolvedProperty.Minimum
-		apiProperty.Maximum = resolvedProperty.Maximum
-		apiProperty.MinLength = resolvedProperty.MinLength
-		apiProperty.MaxLength = resolvedProperty.MaxLength
-		apiProperty.Pattern = resolvedProperty.Pattern
-	}
-
-	// Apply manual metadata about Force New properties.
-	if m.forceNew(resolvedProperty, name, isType) {
-		apiProperty.ForceNew = true
-		propertySpec.WillReplaceOnChanges = true
-	}
-	return apiProperty
+	return &propertySpec, &apiProperty, nil
 }
 
 func newPropertyBag() *propertyBag {
