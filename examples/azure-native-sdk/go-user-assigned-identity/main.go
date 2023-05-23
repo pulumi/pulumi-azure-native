@@ -25,7 +25,7 @@ func main() {
 		}
 
 		// Create an Azure resource (Storage Account)
-		account, err := storage.NewStorageAccount(ctx, "sa", &storage.StorageAccountArgs{
+		_, err = storage.NewStorageAccount(ctx, "sa", &storage.StorageAccountArgs{
 			ResourceGroupName: resourceGroup.Name,
 			Sku: &storage.SkuArgs{
 				Name: pulumi.String("Standard_LRS"),
