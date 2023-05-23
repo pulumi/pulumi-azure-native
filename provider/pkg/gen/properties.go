@@ -255,15 +255,13 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 }
 
 func (m *moduleGenerator) genApiProperty(isOutput bool, propertySpec *pschema.PropertySpec, resolvedProperty *openapi.Schema, name string, isType bool) resources.AzureAPIProperty {
-	var apiProperty resources.AzureAPIProperty
-	if isOutput {
-		apiProperty = resources.AzureAPIProperty{
-			OneOf:                m.getOneOfValues(propertySpec),
-			Ref:                  propertySpec.Ref,
-			Items:                m.itemTypeToProperty(propertySpec.Items),
-			AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
-		}
-	} else {
+	apiProperty := resources.AzureAPIProperty{
+		OneOf:                m.getOneOfValues(propertySpec),
+		Ref:                  propertySpec.Ref,
+		Items:                m.itemTypeToProperty(propertySpec.Items),
+		AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
+	}
+	if !isOutput {
 		if m.isEnum(&propertySpec.TypeSpec) {
 			apiProperty = resources.AzureAPIProperty{Type: "string"}
 		} else {
