@@ -113,7 +113,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		propertySpec, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, isOutput)
+		propertySpec, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, resolvedProperty, isOutput, isType)
 		if err != nil {
 			return nil, err
 		}
@@ -191,7 +191,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	return result, nil
 }
 
-func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
+func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, isOutput, isType bool) (*pschema.PropertySpec, error) {
 	description, err := getPropertyDescription(schema, context)
 	if err != nil {
 		return nil, err

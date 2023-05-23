@@ -149,7 +149,12 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 	case resolvedSchema.Items != nil && resolvedSchema.Items.Schema != nil:
 		// Resolve the element type for array types.
-		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, isOutput)
+		property := resolvedSchema.Properties[propertyName]
+		resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
+		if err != nil {
+			return nil, err
+		}
+		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, resolvedProperty, isOutput, true /* isType */)
 		if err != nil {
 			return nil, err
 		}
