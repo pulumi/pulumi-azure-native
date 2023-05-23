@@ -99,12 +99,12 @@ func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value inter
 		if prop.IsStringSet {
 			emptyValue := struct{}{}
 			setResult := map[string]interface{}{}
-			for _, v := range value.([]interface{}) {
-				if reflect.TypeOf(value).Kind() != reflect.String {
+			for _, setItem := range value.([]interface{}) {
+				if reflect.TypeOf(setItem).Kind() != reflect.String {
 					// This should have been handled by validation
 					continue
 				}
-				setResult[v.(string)] = emptyValue
+				setResult[setItem.(string)] = emptyValue
 			}
 			return setResult
 		}
