@@ -249,12 +249,12 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		TypeSpec:    *typeSpec,
 	}
 
-	apiProperty := m.genApiProperty(isOutput, &propertySpec, resolvedProperty, name, isType)
+	apiProperty := m.genApiProperty(name, &propertySpec, resolvedProperty, isOutput, isType)
 
 	return &propertySpec, &apiProperty, nil
 }
 
-func (m *moduleGenerator) genApiProperty(isOutput bool, propertySpec *pschema.PropertySpec, resolvedProperty *openapi.Schema, name string, isType bool) resources.AzureAPIProperty {
+func (m *moduleGenerator) genApiProperty(name string, propertySpec *pschema.PropertySpec, resolvedProperty *openapi.Schema, isOutput, isType bool) resources.AzureAPIProperty {
 	apiProperty := resources.AzureAPIProperty{
 		OneOf:                m.getOneOfValues(propertySpec),
 		Ref:                  propertySpec.Ref,
