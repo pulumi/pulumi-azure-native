@@ -91,7 +91,7 @@ jobs:
           - java
     name: Build & Test SDKs
     permissions:
-      id-token: write  # required for OIDC auth
+      id-token: write # required for OIDC auth
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -210,3 +210,40 @@ jobs:
 
       - name: Test Provider Library
         run: make test_provider
+
+  dist:
+    runs-on: ubuntu-latest
+    name: Provider Dist
+    needs: prerequisites
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          ref: ${{ inputs.ref }}
+
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
+        with:
+          skip_dotnet_and_java: "true"
+
+      - run: make ensure
+
+      - name: Prerequisites artifact restore
+        uses: ./.github/actions/prerequisites-artifact-restore
+
+      - name: Mark prerequisites as up-to-date
+        # Don't include provider as that's the bit we're going to rebuild
+        run: make --touch codegen schema
+
+      - name: Ensure provider build prerequisites
+        run: make provider_prebuild
+
+      - name: Build dist packages
+        run: make dist --jobs=2
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
