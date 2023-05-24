@@ -158,7 +158,10 @@ schema_squeeze: bin/schema-tools bin/schema-full.json
 explode_schema: bin/schema-full.json
 	rm -rf bin/schema
 	mkdir -p bin/schema
-	yarn && yarn explode --schema bin/schema-full.json --outDir bin/schema
+	yarn install
+	yarn explode --schema bin/schema-full.json --outDir bin/schema
+	# Write docs schema over the top so we include examples
+	yarn explode --schema provider/cmd/pulumi-resource-azure-native/schema.json --outDir bin/schema
 
 .PHONY: upgrade_tools upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
 upgrade_tools: upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
