@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -14,6 +17,7 @@ export function listEndpointIngressGatewayCredentials(args: ListEndpointIngressG
         "endpointName": args.endpointName,
         "expiresin": args.expiresin,
         "resourceUri": args.resourceUri,
+        "serviceName": args.serviceName,
     }, opts);
 }
 
@@ -30,6 +34,10 @@ export interface ListEndpointIngressGatewayCredentialsArgs {
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: string;
+    /**
+     * The name of the service.
+     */
+    serviceName?: string | enums.hybridconnectivity.v20230315.ServiceName;
 }
 
 /**
@@ -93,4 +101,8 @@ export interface ListEndpointIngressGatewayCredentialsOutputArgs {
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
+    /**
+     * The name of the service.
+     */
+    serviceName?: pulumi.Input<string | enums.hybridconnectivity.v20230315.ServiceName>;
 }

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ListEndpointIngressGatewayCredentialsResult',
@@ -143,6 +144,7 @@ class AwaitableListEndpointIngressGatewayCredentialsResult(ListEndpointIngressGa
 def list_endpoint_ingress_gateway_credentials(endpoint_name: Optional[str] = None,
                                               expiresin: Optional[int] = None,
                                               resource_uri: Optional[str] = None,
+                                              service_name: Optional[Union[str, 'ServiceName']] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointIngressGatewayCredentialsResult:
     """
     Gets the ingress gateway endpoint credentials
@@ -152,11 +154,13 @@ def list_endpoint_ingress_gateway_credentials(endpoint_name: Optional[str] = Non
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    :param Union[str, 'ServiceName'] service_name: The name of the service.
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['expiresin'] = expiresin
     __args__['resourceUri'] = resource_uri
+    __args__['serviceName'] = service_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials', __args__, opts=opts, typ=ListEndpointIngressGatewayCredentialsResult).value
 
@@ -176,6 +180,7 @@ def list_endpoint_ingress_gateway_credentials(endpoint_name: Optional[str] = Non
 def list_endpoint_ingress_gateway_credentials_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                                      expiresin: Optional[pulumi.Input[Optional[int]]] = None,
                                                      resource_uri: Optional[pulumi.Input[str]] = None,
+                                                     service_name: Optional[pulumi.Input[Optional[Union[str, 'ServiceName']]]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointIngressGatewayCredentialsResult]:
     """
     Gets the ingress gateway endpoint credentials
@@ -185,5 +190,6 @@ def list_endpoint_ingress_gateway_credentials_output(endpoint_name: Optional[pul
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    :param Union[str, 'ServiceName'] service_name: The name of the service.
     """
     ...

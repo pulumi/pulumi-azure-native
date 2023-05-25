@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Indicates whether the Role Definition was built-in or user created.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNative.DocumentDB.MongoRoleDefinitionType>? Type { get; set; }
+        public Input<double>? Type { get; set; }
 
         public MongoDBResourceMongoRoleDefinitionArgs()
         {

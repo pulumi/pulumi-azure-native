@@ -138,5 +138,5 @@ export interface MongoDBResourceMongoRoleDefinitionArgs {
     /**
      * Indicates whether the Role Definition was built-in or user created.
      */
-    type?: pulumi.Input<enums.documentdb.v20221115preview.MongoRoleDefinitionType>;
+    type?: pulumi.Input<number>;
 }

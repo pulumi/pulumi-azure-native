@@ -29,9 +29,9 @@ namespace Pulumi.AzureNative.Chaos.V20230415Preview.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of user identities associated with the experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponseUserAssignedIdentities>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ResourceIdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Chaos.V20230415Preview.Outputs
 
             string type,
 
-            ImmutableDictionary<string, Outputs.UserAssignedIdentitiesResponseUserAssignedIdentities>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

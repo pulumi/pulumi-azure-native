@@ -129,6 +129,8 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20230401preview:Budget" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Budget.__pulumiType, name, resourceInputs, opts);
     }
 }

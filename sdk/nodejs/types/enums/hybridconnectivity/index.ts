@@ -28,7 +28,7 @@ export const ServiceName = {
 } as const;
 
 /**
- * Name of the service.
+ * The name of the service.
  */
 export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
 

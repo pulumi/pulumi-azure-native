@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20180601preview from "./v20180601preview";
 import * as v20210601 from "./v20210601";
+import * as v20230415preview from "./v20230415preview";
 
 export {
     v20180601preview,
     v20210601,
+    v20230415preview,
 };
 
 export const DaysOfWeek = {

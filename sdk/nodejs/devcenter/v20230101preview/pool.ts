@@ -151,7 +151,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Pool" }, { type: "azure-native:devcenter/v20220801preview:Pool" }, { type: "azure-native:devcenter/v20220901preview:Pool" }, { type: "azure-native:devcenter/v20221012preview:Pool" }, { type: "azure-native:devcenter/v20221111preview:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:Pool" }, { type: "azure-native:devcenter/v20220801preview:Pool" }, { type: "azure-native:devcenter/v20220901preview:Pool" }, { type: "azure-native:devcenter/v20221012preview:Pool" }, { type: "azure-native:devcenter/v20221111preview:Pool" }, { type: "azure-native:devcenter/v20230401:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }

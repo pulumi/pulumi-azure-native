@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
     }
 
     /// <summary>
-    /// Name of the service.
+    /// The name of the service.
     /// </summary>
     [EnumType]
     public readonly struct ServiceName : IEquatable<ServiceName>

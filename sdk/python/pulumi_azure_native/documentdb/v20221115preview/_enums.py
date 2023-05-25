@@ -25,7 +25,6 @@ __all__ = [
     'ManagedCassandraProvisioningState',
     'ManagedCassandraResourceIdentityType',
     'MinimalTlsVersion',
-    'MongoRoleDefinitionType',
     'NetworkAclBypass',
     'PartitionKind',
     'PublicNetworkAccess',
@@ -217,14 +216,6 @@ class MinimalTlsVersion(str, Enum):
     TLS = "Tls"
     TLS11 = "Tls11"
     TLS12 = "Tls12"
-
-
-class MongoRoleDefinitionType(str, Enum):
-    """
-    Indicates whether the Role Definition was built-in or user created.
-    """
-    BUILT_IN_ROLE = "BuiltInRole"
-    CUSTOM_ROLE = "CustomRole"
 
 
 class NetworkAclBypass(str, Enum):

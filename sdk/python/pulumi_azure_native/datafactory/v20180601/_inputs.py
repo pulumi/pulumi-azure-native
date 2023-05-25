@@ -47939,6 +47939,7 @@ class MongoDbAtlasLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 mongo_db_atlas_driver_version: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Linked service for MongoDB Atlas data source.
@@ -47949,6 +47950,7 @@ class MongoDbAtlasLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
+        :param Any mongo_db_atlas_driver_version: The MongoDB Atlas Driver version that you want to choose. Allowed value are 2.10.4 and 2.19.0. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -47960,6 +47962,8 @@ class MongoDbAtlasLinkedServiceArgs:
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if mongo_db_atlas_driver_version is not None:
+            pulumi.set(__self__, "mongo_db_atlas_driver_version", mongo_db_atlas_driver_version)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
 
@@ -48035,6 +48039,18 @@ class MongoDbAtlasLinkedServiceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="mongoDbAtlasDriverVersion")
+    def mongo_db_atlas_driver_version(self) -> Optional[Any]:
+        """
+        The MongoDB Atlas Driver version that you want to choose. Allowed value are 2.10.4 and 2.19.0. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "mongo_db_atlas_driver_version")
+
+    @mongo_db_atlas_driver_version.setter
+    def mongo_db_atlas_driver_version(self, value: Optional[Any]):
+        pulumi.set(self, "mongo_db_atlas_driver_version", value)
 
     @property
     @pulumi.getter

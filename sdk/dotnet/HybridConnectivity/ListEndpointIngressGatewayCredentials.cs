@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.HybridConnectivity
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
+        [Input("serviceName")]
+        public Union<string, Pulumi.AzureNative.HybridConnectivity.ServiceName>? ServiceName { get; set; }
+
         public ListEndpointIngressGatewayCredentialsArgs()
         {
         }
@@ -72,6 +78,12 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
+        [Input("serviceName")]
+        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.ServiceName>? ServiceName { get; set; }
 
         public ListEndpointIngressGatewayCredentialsInvokeArgs()
         {

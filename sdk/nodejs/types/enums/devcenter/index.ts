@@ -5,11 +5,13 @@
 import * as v20220901preview from "./v20220901preview";
 import * as v20221111preview from "./v20221111preview";
 import * as v20230101preview from "./v20230101preview";
+import * as v20230401 from "./v20230401";
 
 export {
     v20220901preview,
     v20221111preview,
     v20230101preview,
+    v20230401,
 };
 
 export const DomainJoinType = {

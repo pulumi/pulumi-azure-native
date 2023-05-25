@@ -113,7 +113,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20210601:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20210601:Cluster" }, { type: "azure-native:hdinsight/v20230415preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

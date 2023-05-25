@@ -220,7 +220,7 @@ bin/darwin-amd64/arm2pulumi: TARGET := darwin-amd64
 bin/darwin-arm64/arm2pulumi: TARGET := darwin-arm64
 bin/windows-amd64/arm2pulumi.exe: TARGET := windows-amd64
 bin/%/arm2pulumi bin/%/arm2pulumi.exe: bin/pulumictl .make/provider_mod_download provider/cmd/arm2pulumi/* .make/arm2pulumi_prebuild $(PROVIDER_PKG)
-	cd provider && go build -o $(WORKING_DIR)/$@ $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
+	cd provider && CGO_ENABLED=0 go build -o $(WORKING_DIR)/$@ $(VERSION_FLAGS) $(PROJECT)/provider/cmd/arm2pulumi
 
 bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(CODEGEN)
@@ -236,7 +236,7 @@ provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) v
 
 bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	cd provider && \
-		go build -o $(WORKING_DIR)/bin/$(LOCAL_PROVIDER_FILENAME) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
+		CGO_ENABLED=0 go build -o $(WORKING_DIR)/bin/$(LOCAL_PROVIDER_FILENAME) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
 
 bin/linux-amd64/$(PROVIDER): TARGET := linux-amd64
 bin/linux-arm64/$(PROVIDER): TARGET := linux-arm64
@@ -249,7 +249,7 @@ bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/pulumictl .make/provider_mod_downlo
 	cd provider && \
 		export GOOS=$$(echo "$(TARGET)" | cut -d "-" -f 1) && \
 		export GOARCH=$$(echo "$(TARGET)" | cut -d "-" -f 2) && \
-		go build -o ${WORKING_DIR}/$@ $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
+		CGO_ENABLED=0 go build -o ${WORKING_DIR}/$@ $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
 
 dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz: bin/linux-amd64/$(PROVIDER)
 dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz: bin/linux-arm64/$(PROVIDER)

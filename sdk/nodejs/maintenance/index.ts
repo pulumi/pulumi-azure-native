@@ -15,6 +15,16 @@ export type ConfigurationAssignmentParent = import("./configurationAssignmentPar
 export const ConfigurationAssignmentParent: typeof import("./configurationAssignmentParent").ConfigurationAssignmentParent = null as any;
 utilities.lazyLoad(exports, ["ConfigurationAssignmentParent"], () => require("./configurationAssignmentParent"));
 
+export { ConfigurationAssignmentsForResourceGroupArgs } from "./configurationAssignmentsForResourceGroup";
+export type ConfigurationAssignmentsForResourceGroup = import("./configurationAssignmentsForResourceGroup").ConfigurationAssignmentsForResourceGroup;
+export const ConfigurationAssignmentsForResourceGroup: typeof import("./configurationAssignmentsForResourceGroup").ConfigurationAssignmentsForResourceGroup = null as any;
+utilities.lazyLoad(exports, ["ConfigurationAssignmentsForResourceGroup"], () => require("./configurationAssignmentsForResourceGroup"));
+
+export { ConfigurationAssignmentsForSubscriptionArgs } from "./configurationAssignmentsForSubscription";
+export type ConfigurationAssignmentsForSubscription = import("./configurationAssignmentsForSubscription").ConfigurationAssignmentsForSubscription;
+export const ConfigurationAssignmentsForSubscription: typeof import("./configurationAssignmentsForSubscription").ConfigurationAssignmentsForSubscription = null as any;
+utilities.lazyLoad(exports, ["ConfigurationAssignmentsForSubscription"], () => require("./configurationAssignmentsForSubscription"));
+
 export { GetConfigurationAssignmentArgs, GetConfigurationAssignmentResult, GetConfigurationAssignmentOutputArgs } from "./getConfigurationAssignment";
 export const getConfigurationAssignment: typeof import("./getConfigurationAssignment").getConfigurationAssignment = null as any;
 export const getConfigurationAssignmentOutput: typeof import("./getConfigurationAssignment").getConfigurationAssignmentOutput = null as any;
@@ -24,6 +34,16 @@ export { GetConfigurationAssignmentParentArgs, GetConfigurationAssignmentParentR
 export const getConfigurationAssignmentParent: typeof import("./getConfigurationAssignmentParent").getConfigurationAssignmentParent = null as any;
 export const getConfigurationAssignmentParentOutput: typeof import("./getConfigurationAssignmentParent").getConfigurationAssignmentParentOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationAssignmentParent","getConfigurationAssignmentParentOutput"], () => require("./getConfigurationAssignmentParent"));
+
+export { GetConfigurationAssignmentsForResourceGroupArgs, GetConfigurationAssignmentsForResourceGroupResult, GetConfigurationAssignmentsForResourceGroupOutputArgs } from "./getConfigurationAssignmentsForResourceGroup";
+export const getConfigurationAssignmentsForResourceGroup: typeof import("./getConfigurationAssignmentsForResourceGroup").getConfigurationAssignmentsForResourceGroup = null as any;
+export const getConfigurationAssignmentsForResourceGroupOutput: typeof import("./getConfigurationAssignmentsForResourceGroup").getConfigurationAssignmentsForResourceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationAssignmentsForResourceGroup","getConfigurationAssignmentsForResourceGroupOutput"], () => require("./getConfigurationAssignmentsForResourceGroup"));
+
+export { GetConfigurationAssignmentsForSubscriptionArgs, GetConfigurationAssignmentsForSubscriptionResult, GetConfigurationAssignmentsForSubscriptionOutputArgs } from "./getConfigurationAssignmentsForSubscription";
+export const getConfigurationAssignmentsForSubscription: typeof import("./getConfigurationAssignmentsForSubscription").getConfigurationAssignmentsForSubscription = null as any;
+export const getConfigurationAssignmentsForSubscriptionOutput: typeof import("./getConfigurationAssignmentsForSubscription").getConfigurationAssignmentsForSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationAssignmentsForSubscription","getConfigurationAssignmentsForSubscriptionOutput"], () => require("./getConfigurationAssignmentsForSubscription"));
 
 export { GetMaintenanceConfigurationArgs, GetMaintenanceConfigurationResult, GetMaintenanceConfigurationOutputArgs } from "./getMaintenanceConfiguration";
 export const getMaintenanceConfiguration: typeof import("./getMaintenanceConfiguration").getMaintenanceConfiguration = null as any;
@@ -43,11 +63,13 @@ export * from "../types/enums/maintenance";
 import * as v20200401 from "./v20200401";
 import * as v20210401preview from "./v20210401preview";
 import * as v20221101preview from "./v20221101preview";
+import * as v20230401 from "./v20230401";
 
 export {
     v20200401,
     v20210401preview,
     v20221101preview,
+    v20230401,
 };
 
 const _module = {
@@ -58,6 +80,10 @@ const _module = {
                 return new ConfigurationAssignment(name, <any>undefined, { urn })
             case "azure-native:maintenance:ConfigurationAssignmentParent":
                 return new ConfigurationAssignmentParent(name, <any>undefined, { urn })
+            case "azure-native:maintenance:ConfigurationAssignmentsForResourceGroup":
+                return new ConfigurationAssignmentsForResourceGroup(name, <any>undefined, { urn })
+            case "azure-native:maintenance:ConfigurationAssignmentsForSubscription":
+                return new ConfigurationAssignmentsForSubscription(name, <any>undefined, { urn })
             case "azure-native:maintenance:MaintenanceConfiguration":
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             default:

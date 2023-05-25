@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['MongoDBResourceMongoRoleDefinitionArgs', 'MongoDBResourceMongoRoleDefinition']
@@ -24,7 +23,7 @@ class MongoDBResourceMongoRoleDefinitionArgs:
                  privileges: Optional[pulumi.Input[Sequence[pulumi.Input['PrivilegeArgs']]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]] = None,
-                 type: Optional[pulumi.Input['MongoRoleDefinitionType']] = None):
+                 type: Optional[pulumi.Input[float]] = None):
         """
         The set of arguments for constructing a MongoDBResourceMongoRoleDefinition resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -34,7 +33,7 @@ class MongoDBResourceMongoRoleDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivilegeArgs']]] privileges: A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
         :param pulumi.Input[str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
         :param pulumi.Input[Sequence[pulumi.Input['RoleArgs']]] roles: The set of roles inherited by this Role Definition.
-        :param pulumi.Input['MongoRoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
+        :param pulumi.Input[float] type: Indicates whether the Role Definition was built-in or user created.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -137,14 +136,14 @@ class MongoDBResourceMongoRoleDefinitionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['MongoRoleDefinitionType']]:
+    def type(self) -> Optional[pulumi.Input[float]]:
         """
         Indicates whether the Role Definition was built-in or user created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['MongoRoleDefinitionType']]):
+    def type(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "type", value)
 
 
@@ -160,7 +159,7 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]]] = None,
-                 type: Optional[pulumi.Input['MongoRoleDefinitionType']] = None,
+                 type: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB Mongo Role Definition.
@@ -176,7 +175,7 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]] roles: The set of roles inherited by this Role Definition.
-        :param pulumi.Input['MongoRoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
+        :param pulumi.Input[float] type: Indicates whether the Role Definition was built-in or user created.
         """
         ...
     @overload
@@ -211,7 +210,7 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleArgs']]]]] = None,
-                 type: Optional[pulumi.Input['MongoRoleDefinitionType']] = None,
+                 type: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

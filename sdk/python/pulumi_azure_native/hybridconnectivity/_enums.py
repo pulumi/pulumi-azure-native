@@ -23,7 +23,7 @@ class CreatedByType(str, Enum):
 
 class ServiceName(str, Enum):
     """
-    Name of the service.
+    The name of the service.
     """
     SSH = "SSH"
     WAC = "WAC"

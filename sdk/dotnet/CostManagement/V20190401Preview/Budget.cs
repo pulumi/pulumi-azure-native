@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.CostManagement.V20190401Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:Budget"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
