@@ -321,6 +321,7 @@
   },
   "Cache": {
     "Database": "2022-01-01",
+    "EnterprisePrivateEndpointConnection": "2022-01-01",
     "FirewallRule": "2022-06-01",
     "LinkedServer": "2022-06-01",
     "PatchSchedule": "2022-06-01",
@@ -1160,8 +1161,6 @@
   "Maintenance": {
     "ConfigurationAssignment": "2022-11-01-preview",
     "ConfigurationAssignmentParent": "2022-11-01-preview",
-    "ConfigurationAssignmentsForResourceGroup": "2023-04-01",
-    "ConfigurationAssignmentsForSubscription": "2023-04-01",
     "MaintenanceConfiguration": "2022-11-01-preview"
   },
   "ManagedIdentity": {

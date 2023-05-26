@@ -266,11 +266,22 @@ func ResourceName(operationID, path string) string {
 	// }
 
 	// Cognitive Services has global and per-account commitment plans with the same name.
+	// The global ones are new, introduced in 2022-12-01, so we rename them.
 	// TODO,tkappler The global plan still has the description "Cognitive Services account
 	// commitment plan." - upstream issue?
 	if resourceName == "CommitmentPlan" && strings.Contains(path, "CognitiveServices/commitmentPlans/") {
-		log.Printf("Disambiguating %s at %s to %s", resourceName, path, "SharedCommitmentPlan")
-		resourceName = "SharedCommitmentPlan"
+		newName := "SharedCommitmentPlan"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
+	}
+
+	// Redis and RedisEnterprise are essentially distinct resources sharing the Microsoft.Cache
+	// namespace. It works out ok because each API version has only one of them, and of the shared
+	// types only PrivateEndpointConnection clashes.
+	if resourceName == "PrivateEndpointConnection" && strings.Contains(path, "Microsoft.Cache/redisEnterprise") {
+		newName := "EnterprisePrivateEndpointConnection"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
 	}
 
 	return resourceName
