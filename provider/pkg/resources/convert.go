@@ -254,10 +254,10 @@ func (k *SdkShapeConverter) SDKOutputsToSDKInputs(parameters []AzureAPIParameter
 
 // IsDefaultResponse returns true if the shape of the HTTP response matches the expected shape.
 // The following comparison rules apply:
-// - response is converted to the SDK shape of inputs (so, the structure is flattened and read-only props are removed)
-// - A boolean 'false' in the response is equivalent to a no-value in the expected map
-// - Any non-empty map or slice leads to the 'false' result (may need to revise if any API endpoints have default
-//   non-empty collections, but none are found yet)
+//   - response is converted to the SDK shape of inputs (so, the structure is flattened and read-only props are removed)
+//   - A boolean 'false' in the response is equivalent to a no-value in the expected map
+//   - Any non-empty map or slice leads to the 'false' result (may need to revise if any API endpoints have default
+//     non-empty collections, but none are found yet)
 func (k *SdkShapeConverter) IsDefaultResponse(putParameters []AzureAPIParameter, response map[string]interface{},
 	defaultBody map[string]interface{}) bool {
 	for _, param := range putParameters {
