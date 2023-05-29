@@ -1672,39 +1672,51 @@ func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []r
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	params := map[string]map[string]interface{}{
-		"body": nil,
 		"query": {
 			"api-version": clientInputs["api-version"],
 		},
 		"path": {},
 	}
 
+	// Build maps of path and query parameters.
 	for _, param := range parameters {
 		if param.Location == "body" {
-			params["body"] = k.converter.SdkPropertiesToRequestBody(param.Body.Properties, methodInputs)
-		} else {
-			var val interface{}
-			var has bool
-			sdkName := param.Name
-			if param.Value.SdkName != "" {
-				sdkName = param.Value.SdkName
-			}
-			// Look in both `method` and `client` inputs with `method` first
-			val, has = methodInputs[sdkName]
-			if !has {
-				val, has = clientInputs[sdkName]
-			}
-			if has {
-				params[param.Location][param.Name] = val
-			}
+			continue
+		}
+		var val interface{}
+		var has bool
+		sdkName := param.Name
+		if param.Value.SdkName != "" {
+			sdkName = param.Value.SdkName
+		}
+		// Look in both `method` and `client` inputs with `method` first
+		val, has = methodInputs[sdkName]
+		if !has {
+			val, has = clientInputs[sdkName]
+		}
+		if has {
+			params[param.Location][param.Name] = val
 		}
 	}
+
+	// Calculate resource ID based on path parameter values.
 	id := path
 	for key, value := range params["path"] {
 		encodedVal := autorest.Encode("path", value.(string))
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
 	}
-	return id, params["body"], params["query"], nil
+
+	// Build the body JSON.
+	var body map[string]interface{}
+	for _, param := range parameters {
+		if param.Location != "body" {
+			continue
+		}
+		body = k.converter.SdkPropertiesToRequestBody(param.Body.Properties, methodInputs)
+		break
+	}
+
+	return id, body, params["query"], nil
 }
 
 func (k *azureNativeProvider) setLoggingContext(ctx context.Context) {
