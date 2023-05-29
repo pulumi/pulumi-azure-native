@@ -544,19 +544,19 @@ func TestPreviewOutputs(t *testing.T) {
 
 func TestIsDefaultResponseTrue(t *testing.T) {
 	response := map[string]interface{}{
-		"p1": true,
-		"name": "foo",
+		"p1":             true,
+		"name":           "foo",
 		"irrelevantBool": false,
-		"untypedDict": map[string]interface{} {
-			"flag": true,
+		"untypedDict": map[string]interface{}{
+			"flag":   true,
 			"string": "bar",
 		},
 	}
 	defaultBody := map[string]interface{}{
-		"p1": true,
+		"p1":   true,
 		"name": "foo",
-		"untypedDict": map[string]interface{} {
-			"flag": true,
+		"untypedDict": map[string]interface{}{
+			"flag":   true,
 			"string": "bar",
 		},
 	}
@@ -579,14 +579,14 @@ func TestIsDefaultResponseFalse(t *testing.T) {
 	assert.False(t, actual2)
 
 	response3 := map[string]interface{}{
-		"untypedDict": map[string]interface{} {
-			"flag": true,
+		"untypedDict": map[string]interface{}{
+			"flag":   true,
 			"string": "buzz",
 		},
 	}
 	defaultBody = map[string]interface{}{
-		"untypedDict": map[string]interface{} {
-			"flag": true,
+		"untypedDict": map[string]interface{}{
+			"flag":   true,
 			"string": "bar",
 		},
 	}
