@@ -2492,6 +2492,24 @@
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
+    ],
+    "2023-04-01": [
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
+    ],
+    "2023-05-01-preview": [
+      "AccessPolicy",
+      "AccessPolicyAssignment",
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
     ]
   },
   "Capacity": {
@@ -4301,6 +4319,14 @@
       "SettingByScope",
       "View",
       "ViewByScope"
+    ],
+    "2023-04-01-preview": [
+      "Budget",
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
+      "View",
+      "ViewByScope"
     ]
   },
   "CustomProviders": {
@@ -5103,6 +5129,13 @@
       "BackupVault",
       "DppResourceGuardProxy",
       "ResourceGuard"
+    ],
+    "2023-04-01-preview": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "DppResourceGuardProxy",
+      "ResourceGuard"
     ]
   },
   "DataShare": {
@@ -5459,6 +5492,19 @@
       "Schedule"
     ],
     "2023-01-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
+    ],
+    "2023-04-01": [
       "AttachedNetworkByDevCenter",
       "Catalog",
       "DevBoxDefinition",
@@ -7292,6 +7338,16 @@
       "PrivateEndpointConnection",
       "getClusterGatewaySettings",
       "listVirtualMachineHosts"
+    ],
+    "2023-04-15-preview": [
+      "Application",
+      "Cluster",
+      "Extension",
+      "ExtensionAzureMonitorStatus",
+      "ExtensionMonitoringStatus",
+      "PrivateEndpointConnection",
+      "getClusterGatewaySettings",
+      "listVirtualMachineHosts"
     ]
   },
   "HanaOnAzure": {
@@ -7819,6 +7875,9 @@
     ],
     "2023-03-01-preview": [
       "TenantActionGroup"
+    ],
+    "2023-03-15-preview": [
+      "ScheduledQueryRule"
     ]
   },
   "Intune": {
@@ -9019,6 +9078,13 @@
     "2022-11-01-preview": [
       "ConfigurationAssignment",
       "ConfigurationAssignmentParent",
+      "MaintenanceConfiguration"
+    ],
+    "2023-04-01": [
+      "ConfigurationAssignment",
+      "ConfigurationAssignmentParent",
+      "ConfigurationAssignmentsForResourceGroup",
+      "ConfigurationAssignmentsForSubscription",
       "MaintenanceConfiguration"
     ]
   },
@@ -14552,6 +14618,40 @@
       "getEntitiesGetTimeline",
       "getEntityInsights",
       "listSourceControlRepositories"
+    ],
+    "2023-05-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
     ]
   },
   "SerialConsole": {
@@ -14870,6 +14970,15 @@
       "NodeType",
       "Service",
       "getmanagedAzResiliencyStatus"
+    ],
+    "2023-03-01-preview": [
+      "Application",
+      "ApplicationType",
+      "ApplicationTypeVersion",
+      "ManagedCluster",
+      "NodeType",
+      "Service",
+      "getmanagedAzResiliencyStatus"
     ]
   },
   "ServiceFabricMesh": {
@@ -14911,6 +15020,11 @@
   },
   "ServiceNetworking": {
     "2022-10-01-preview": [
+      "AssociationsInterface",
+      "FrontendsInterface",
+      "TrafficControllerInterface"
+    ],
+    "2023-05-01-preview": [
       "AssociationsInterface",
       "FrontendsInterface",
       "TrafficControllerInterface"
