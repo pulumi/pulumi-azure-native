@@ -148,17 +148,23 @@ CustomerLockbox:
   notes: POST-based
 DBforMariaDB:
 DBforMySQL:
-  expectAdditions: true
+  exclusions:
+    "Configuration": "2017-12-01"
+    "Database": "2017-12-01"
+    "FirewallRule": "2017-12-01"
+    "Server": "2017-12-01"
   notes: |
-    Additions seem to come from "Single Server" vs "Flexible Server"
-    PrivateEndpointConnection: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/private-endpoint-connections
-    ServerAdministrator: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/server-administrators
-    ServerKey: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/server-keys
-    VirtualNetworkRule: https://learn.microsoft.com/en-us/rest/api/mysql/singleserver/virtual-network-rules
+    "Single Server" is being retired so we don't include it in the defaults
+    https://learn.microsoft.com/en-us/azure/mysql/single-server/whats-happening-to-mysql-single-server
 DBforPostgreSQL:
-  expectAdditions: true
+  exclusions:
+    "Configuration": "2017-12-01"
+    "Database": "2017-12-01"
+    "FirewallRule": "2017-12-01"
+    "Server": "2017-12-01"
   notes: |
-    Additions seem to come from "Single Server" vs "Flexible Server"
+    "Single Server" is being retired so we don't include it in the defaults
+    https://learn.microsoft.com/en-us/azure/postgresql/single-server/whats-happening-to-postgresql-single-server
 Dashboard: 
 DataBox:
 DataBoxEdge:
@@ -271,8 +277,10 @@ KeyVault:
 KubernetesConfiguration:
 Kusto:
 LabServices:
-  expectAdditions: true
-  notes: get methods only available in older version
+  exclusions:
+    Lab: "2018-10-15"
+    User: "2018-10-15"
+  notes: version 2018-10-15 is replaced by the newer one
 LoadTestService:
 Logic:
   expectAdditions: true
