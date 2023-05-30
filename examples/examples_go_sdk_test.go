@@ -5,9 +5,13 @@
 package examples
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
+	"path"
 	"path/filepath"
+	"regexp"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -24,27 +28,20 @@ func testDir(t *testing.T, testCaseDirs ...string) string {
 }
 
 func TestAccSimpleGoSdk(t *testing.T) {
-	test := getGoBaseOptionsSdk(t).
-		With(integration.ProgramTestOptions{
-			Dir: testDir(t, "go-simple"),
-		})
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-simple"))
 
 	integration.ProgramTest(t, &test)
 }
 
 func TestAccClientConfigGoSdk(t *testing.T) {
-	test := getGoBaseOptionsSdk(t).
-		With(integration.ProgramTestOptions{
-			Dir: testDir(t, "go-clientconfig"),
-		})
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-clientconfig"))
 
 	integration.ProgramTest(t, &test)
 }
 
 func TestAccUserAssignedIdentitySdk(t *testing.T) {
-	test := getGoBaseOptionsSdk(t).
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-user-assigned-identity")).
 		With(integration.ProgramTestOptions{
-			Dir:           testDir(t, "go-user-assigned-identity"),
 			RunUpdateTest: false,
 		})
 
@@ -53,19 +50,15 @@ func TestAccUserAssignedIdentitySdk(t *testing.T) {
 
 func TestAccAksGoSdk(t *testing.T) {
 	t.Skip("Disabled due to https://github.com/pulumi/pulumi-azure-native/issues/304")
-	test := getGoBaseOptionsSdk(t).
-		With(integration.ProgramTestOptions{
-			Dir: testDir(t, "go-aks"),
-		})
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-aks"))
 
 	integration.ProgramTest(t, &test)
 }
 
 func TestServicebusRecreateSdk(t *testing.T) {
 	skipIfShort(t)
-	test := getGoBaseOptionsSdk(t).
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-servicebus-recreate", "step1")).
 		With(integration.ProgramTestOptions{
-			Dir: testDir(t, "go-servicebus-recreate", "step1"),
 			EditDirs: []integration.EditDir{
 				{
 					Dir:      testDir(t, "go-servicebus-recreate", "step2"),
@@ -77,50 +70,121 @@ func TestServicebusRecreateSdk(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func getGoBaseOptionsSdk(t *testing.T) integration.ProgramTestOptions {
+func getGoBaseOptionsSdk(t *testing.T, dir string) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
-
-	required, err := getRequiredGoPackages()
-	if err != nil {
-		t.Fatal(err)
-	}
 
 	rootSdkPath, err := filepath.Abs(sdkPath)
 	require.NoError(t, err)
 
-	dependencies := make([]string, len(required))
-	for i, pkg := range required {
-		dependencies[i] = genReplace(t, rootSdkPath, pkg)
+	replacements, err := getSdkReplacements(dir, rootSdkPath)
+	require.NoError(t, err)
+
+	goDepRoot := os.Getenv("PULUMI_GO_DEP_ROOT")
+	if goDepRoot == "" {
+		goDepRoot, err = filepath.Abs("../..")
+		if err != nil {
+			t.Fatal(err)
+		}
+	}
+	binPath, err := filepath.Abs("../bin")
+	if err != nil {
+		t.Fatal(err)
 	}
 
-	dependencies = append(dependencies, "github.com/pulumi/pulumi-azure-native-sdk="+rootSdkPath)
-
 	baseGo := base.With(integration.ProgramTestOptions{
-		Dependencies: dependencies,
+		Dir:          dir,
+		Dependencies: replacements,
+		Env: []string{
+			fmt.Sprintf("PULUMI_GO_DEP_ROOT=%s", goDepRoot),
+		},
+		LocalProviders: []integration.LocalDependency{
+			{
+				Package: "azure-native",
+				Path:    binPath,
+			},
+		},
 	})
 
 	return baseGo
 }
 
-// We don't know which packages the tests need, so we just get all of them.
-func getRequiredGoPackages() ([]string, error) {
-	dirs, err := os.ReadDir(sdkPath)
+func getSdkReplacements(dir, rootSdkPath string) ([]string, error) {
+	required, err := getRequiredPathsFromGoMod(dir)
 	if err != nil {
 		return nil, err
 	}
 
-	packages := make([]string, 0)
-	for _, entry := range dirs {
-		if entry.IsDir() {
-			packages = append(packages, entry.Name())
+	// Find pulumi-azure-native-sdk packages - ignoring the /vX suffix
+	// Match repo root or sub-packages with optional version suffix
+	matchAzureNativePackage := regexp.MustCompile(`^github\.com\/pulumi\/pulumi-azure-native-sdk\/?([^\/]*)(\/v\d+)$`)
+	var replacements []string
+	for _, pkg := range required {
+		matches := matchAzureNativePackage.FindStringSubmatch(pkg)
+		if len(matches) < 2 {
+			continue
 		}
+		module := matches[1]
+		modulePath := path.Join(rootSdkPath, module)
+		replacement := fmt.Sprintf("%s=%s", pkg, modulePath)
+		replacements = append(replacements, replacement)
 	}
-
-	return packages, nil
+	return replacements, nil
 }
 
-// For context: https://github.com/pulumi/pulumi/pull/11055
-func genReplace(t *testing.T, sdkPath string, subPkg string) string {
-	moduleDir := fmt.Sprintf("%s/%s", sdkPath, subPkg)
-	return fmt.Sprintf("github.com/pulumi/pulumi-azure-native-sdk/%s=%s", subPkg, moduleDir)
+func getRequiredPathsFromGoMod(dir string) ([]string, error) {
+	// Run the command `go mod edit --json` and parse the output to get the list of required packages
+	cmd := exec.Command("go", "mod", "edit", "--json")
+	cmd.Dir = dir
+	out, err := cmd.Output()
+	if err != nil {
+		return nil, err
+	}
+	// Deserialize output into a GoMod struct
+	var goMod GoMod
+	err = json.Unmarshal(out, &goMod)
+	if err != nil {
+		return nil, err
+	}
+	// Get the list of required packages
+	var required []string
+	for _, req := range goMod.Require {
+		required = append(required, req.Path)
+	}
+	return required, nil
+}
+
+type Module struct {
+	Path    string
+	Version string
+}
+
+type GoMod struct {
+	Module  ModPath
+	Go      string
+	Require []Require
+	Exclude []Module
+	Replace []Replace
+	Retract []Retract
+}
+
+type ModPath struct {
+	Path       string
+	Deprecated string
+}
+
+type Require struct {
+	Path     string
+	Version  string
+	Indirect bool
+}
+
+type Replace struct {
+	Old Module
+	New Module
+}
+
+type Retract struct {
+	Low       string
+	High      string
+	Rationale string
 }
