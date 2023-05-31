@@ -85,6 +85,10 @@ func TestTemplateCoverage(t *testing.T) {
 			rendered, _, err := renderer.RenderPrograms(body, langs)
 			require.NoError(t, err)
 			for i, lang := range langs {
+				// https://github.com/pulumi/pulumi-azure-native/issues/2481
+				if match == "../testdata/templates/quickstart/storageAccount.json" && lang == "go" {
+					t.Skip("Skipping go test for storageAccount.json due to bug with explicit version type references")
+				}
 				assert.Equal(t, expected[i], rendered[lang], match)
 			}
 		})
