@@ -83,6 +83,13 @@ func main() {
 			panic(err)
 		}
 
+		if namespaces == "*" && apiVersions == "" {
+			if err = buildSchemaResult.Version.WriteTo("versions"); err != nil {
+				panic(err)
+			}
+		} else {
+			fmt.Println("Note: skipping writing version metadata because DEBUG_CODEGEN_NAMESPACES or DEBUG_CODEGEN_APIVERSIONS is set.")
+		}
 		if codegenSchemaOutputPath == "" {
 			codegenSchemaOutputPath = path.Join("bin", "schema-full.json")
 		}
@@ -103,14 +110,6 @@ func main() {
 			panic(err)
 		}
 		fmt.Printf("Emitted %q.\n", codegenMetadataOutputPath)
-
-		if namespaces == "*" && apiVersions == "" {
-			if err = buildSchemaResult.Version.WriteTo("versions"); err != nil {
-				panic(err)
-			}
-		} else {
-			fmt.Println("Note: skipping writing version metadata because DEBUG_CODEGEN_NAMESPACES or DEBUG_CODEGEN_APIVERSIONS is set.")
-		}
 
 	case "docs":
 		buildSchemaArgs.ExcludeExplicitVersions = true
