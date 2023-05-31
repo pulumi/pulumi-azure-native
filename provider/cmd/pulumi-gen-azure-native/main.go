@@ -220,10 +220,8 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 
 func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 	moduleVersionPath := gen.GoModulePathVersion(pkgSpec.Version)
-	goBasePath := "github.com/pulumi/pulumi-azure-native-sdk" + moduleVersionPath
-	pkgCopy := gen.SetGoBasePath(*pkgSpec, goBasePath)
 
-	ppkg, err := schema.ImportSpec(*pkgCopy, nil)
+	ppkg, err := schema.ImportSpec(*pkgSpec, nil)
 	if err != nil {
 		return errors.Wrap(err, "reading schema")
 	}
@@ -304,7 +302,7 @@ require (
 )
 
 {{ if ne .SubmoduleName "" }}
-replace github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }} {{ .Version }} => ../
+replace github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }} => ../
 {{ end }}
 `)
 		if err != nil {
