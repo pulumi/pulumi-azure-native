@@ -189,7 +189,7 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 		for _, resourceName := range resources {
 			isExcluded, exclusionErr := providerCuration.IsExcluded(resourceName, apiVersion)
 			if exclusionErr != nil {
-				fmt.Printf("Error checking exclusion for %s/%s: %s", providerName, resourceName, exclusionErr)
+				fmt.Printf("Error checking exclusion for %s/%s: %s\n", providerName, resourceName, exclusionErr)
 			}
 			if isExcluded {
 				continue

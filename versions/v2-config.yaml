@@ -152,7 +152,11 @@ DBforMySQL:
     "Configuration": "2017-12-01"
     "Database": "2017-12-01"
     "FirewallRule": "2017-12-01"
+    "PrivateEndpointConnection": "2018-06-01"
     "Server": "2017-12-01"
+    "ServerAdministrator": "2017-12-01"
+    "ServerKey": "2020-01-01"
+    "VirtualNetworkRule": "2017-12-01"
   notes: |
     "Single Server" is being retired so we don't include it in the defaults
     https://learn.microsoft.com/en-us/azure/mysql/single-server/whats-happening-to-mysql-single-server
@@ -161,10 +165,18 @@ DBforPostgreSQL:
     "Configuration": "2017-12-01"
     "Database": "2017-12-01"
     "FirewallRule": "2017-12-01"
+    "PrivateEndpointConnection": "2018-06-01"
     "Server": "2017-12-01"
+    "ServerAdministrator": "2017-12-01"
+    "ServerKey": "2020-01-01"
+    "ServerSecurityAlertPolicy": "2017-12-01"
+    "VirtualNetworkRule": "2017-12-01"
   notes: |
     "Single Server" is being retired so we don't include it in the defaults
     https://learn.microsoft.com/en-us/azure/postgresql/single-server/whats-happening-to-postgresql-single-server
+    Note that the single server PrivateEndpointConnection was deprecated but another
+    PrivateEndpointConnection was introduced in postgresqlhsc 2022-11-08.
+  folders: ["postgresql", "postgresqlhsc"]
 Dashboard: 
 DataBox:
 DataBoxEdge:
