@@ -23,6 +23,7 @@ GOARCH ?= $(shell go env GOARCH)
 GOEXE ?= $(shell go env GOEXE)
 LOCAL_PROVIDER_FILENAME := $(PROVIDER)$(GOEXE)
 LOCAL_ARM2PULUMI_FILENAME := arm2pulumi$(GOEXE)
+export GOWORK := off
 
 ifeq ($(CI)$(PROVIDER_VERSION),true)
 $(error PROVIDER_VERSION must be set in CI environments)
@@ -144,11 +145,27 @@ clean:
 	if dotnet nuget list source | grep "$(WORKING_DIR)"; then \
 		dotnet nuget remove source "$(WORKING_DIR)" \
 	; fi
-
-.PHONY: test
-test: export PULUMI_LOCAL_NUGET=$(WORKING_DIR)/nuget
-test: build install_sdks
-	cd examples && go test -v -tags=all -timeout 2h
+ 
+.PHONY: test test_dotnet test_python test_go test_nodejs
+# Set TEST_TAGS to override -tags for tests
+TEST_TAGS ?= all
+# Set TEST_NAME to filter tests by name
+TEST_NAME ?=
+TEST_RUN =
+ifneq ($(TEST_NAME),)
+TEST_RUN = -run ^$(TEST_NAME)$$
+endif
+export PULUMI_LOCAL_NUGET=$(WORKING_DIR)/nuget
+test: provider install_sdks
+	cd examples && go test -v -tags=$(TEST_TAGS) -timeout 2h $(TEST_RUN)
+test_dotnet: provider build_dotnet install_dotnet_sdk
+	cd examples && go test -v -tags=dotnet -timeout 2h $(TEST_RUN)
+test_python: provider build_python
+	cd examples && go test -v -tags=python -timeout 2h $(TEST_RUN)
+test_go: provider generate_go
+	cd examples && go test -v -tags=go -timeout 2h $(TEST_RUN)
+test_nodejs: provider install_nodejs_sdk
+	cd examples && go test -v -tags=nodejs -timeout 2h $(TEST_RUN)
 
 .PHONY: schema_squeeze
 schema_squeeze: bin/schema-tools bin/schema-full.json
