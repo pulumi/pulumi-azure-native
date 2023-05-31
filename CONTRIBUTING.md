@@ -24,6 +24,8 @@ make build
 
 Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-azurerm` file to another location in your `$PATH`.
 
+Note: When building via make, go workspaces are ignored.
+
 ### Running a nodejs example
 
 Navigate to one of the `examples` and run Pulumi:
