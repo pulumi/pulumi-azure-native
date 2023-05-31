@@ -38,7 +38,7 @@ import (
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
-const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk"
+const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v2"
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
@@ -223,7 +223,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), version)
 			}
 			pythonModuleNames[module] = module
-			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
+			golangImportAliases[filepath.Join(goBasePath, module, "v2")] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
 			items := versionMap[version]
@@ -263,6 +263,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath":                 goBasePath,
 		"packageImportAliases":           golangImportAliases,
+		"rootPackageName":                "pulumiazurenativesdk",
 		"generateResourceContainerTypes": false,
 		"disableInputTypeRegistrations":  true,
 	})
@@ -1176,20 +1177,6 @@ func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Pac
 	}
 
 	return nil, errors.Errorf("package %s not found in the in-memory map", pkg)
-}
-
-func SetGoBasePath(pkgSpec schema.PackageSpec, importBasePath string) *schema.PackageSpec {
-	var goLanguage map[string]interface{}
-	err := json.Unmarshal(pkgSpec.Language["go"], &goLanguage)
-	if err != nil {
-		panic(err)
-	}
-
-	goLanguage["importBasePath"] = importBasePath
-	goLanguage["rootPackageName"] = "pulumiazurenativesdk"
-
-	pkgSpec.Language["go"] = rawMessage(goLanguage)
-	return &pkgSpec
 }
 
 // GoModVersion Creates a valid go mod version from our pulumictl version.
