@@ -4,6 +4,7 @@ package resources
 
 import (
 	"fmt"
+	"log"
 	"regexp"
 	"strings"
 
@@ -236,7 +237,8 @@ func ResourceName(operationID, path string) string {
 	for i := 0; i < len(nameParts); i++ {
 		if sliceHasPrefix(subNameParts, nameParts[i:]) {
 			namePrefix := strings.Join(nameParts[:i], "")
-			return namePrefix + subName
+			name = namePrefix
+			break
 		}
 	}
 
@@ -248,7 +250,19 @@ func ResourceName(operationID, path string) string {
 	// See https://github.com/pulumi/pulumi-azure-native/issues/583.
 	// To be removed with https://github.com/pulumi/pulumi-azure-native/issues/690.
 	if resourceName == "RecordSet" && strings.Contains(path, "privateDns") {
-		resourceName = "PrivateRecordSet"
+		newName := "PrivateRecordSet"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
+	}
+
+	// Cognitive Services has global and per-account commitment plans with the same name.
+	// The global ones are new, introduced in 2022-12-01, so we rename them.
+	// TODO,tkappler The global plan still has the description "Cognitive Services account
+	// commitment plan." - upstream issue?
+	if resourceName == "CommitmentPlan" && strings.Contains(path, "CognitiveServices/commitmentPlans/") {
+		newName := "SharedCommitmentPlan"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
 	}
 
 	return resourceName
