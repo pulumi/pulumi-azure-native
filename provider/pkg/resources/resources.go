@@ -265,6 +265,15 @@ func ResourceName(operationID, path string) string {
 		resourceName = newName
 	}
 
+	// Redis and RedisEnterprise are essentially distinct resources sharing the Microsoft.Cache
+	// namespace. It works out ok because each API version has only one of them, and of the shared
+	// types only PrivateEndpointConnection clashes.
+	if resourceName == "PrivateEndpointConnection" && strings.Contains(path, "Microsoft.Cache/redisEnterprise") {
+		newName := "EnterprisePrivateEndpointConnection"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
+	}
+
 	return resourceName
 }
 
