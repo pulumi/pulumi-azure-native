@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The notification registration definition.
  * API Version: 2020-11-20.
- * Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class NotificationRegistration extends pulumi.CustomResource {
     /**

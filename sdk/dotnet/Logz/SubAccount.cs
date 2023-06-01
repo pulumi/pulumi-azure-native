@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Logz
 {
     /// <summary>
     /// API Version: 2022-01-01-preview.
-    /// Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:SubAccount")]
     public partial class SubAccount : global::Pulumi.CustomResource

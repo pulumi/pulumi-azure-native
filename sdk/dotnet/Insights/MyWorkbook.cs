@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Insights
     /// <summary>
     /// An Application Insights private workbook definition.
     /// API Version: 2021-03-08.
-    /// Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:MyWorkbook")]
     public partial class MyWorkbook : global::Pulumi.CustomResource

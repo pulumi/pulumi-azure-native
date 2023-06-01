@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NetApp
     /// <summary>
     /// Backup of a Volume
     /// API Version: 2022-09-01.
-    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Backup")]
     public partial class Backup : global::Pulumi.CustomResource

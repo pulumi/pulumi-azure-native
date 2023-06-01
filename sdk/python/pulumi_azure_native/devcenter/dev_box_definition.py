@@ -179,7 +179,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         """
         Represents a definition for a Developer Machine.
         API Version: 2022-11-11-preview.
-        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +202,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         """
         Represents a definition for a Developer Machine.
         API Version: 2022-11-11-preview.
-        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param DevBoxDefinitionArgs args: The arguments to use to populate this resource's properties.

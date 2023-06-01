@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
     /// <summary>
     /// Describes an identity resource.
     /// API Version: 2023-01-31.
-    /// Previous API Version: 2018-11-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2018-11-30. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedidentity:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : global::Pulumi.CustomResource

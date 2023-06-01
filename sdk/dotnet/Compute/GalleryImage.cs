@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Specifies information about the gallery image definition that you want to create or update.
     /// API Version: 2022-03-03.
-    /// Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource

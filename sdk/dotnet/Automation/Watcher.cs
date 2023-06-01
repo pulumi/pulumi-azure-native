@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Definition of the watcher type.
     /// API Version: 2019-06-01.
-    /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource

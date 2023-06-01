@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// API Version: 2023-02-01-preview.
-    /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:NodeType")]
     public partial class NodeType : global::Pulumi.CustomResource

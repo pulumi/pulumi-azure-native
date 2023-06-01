@@ -163,7 +163,7 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
         API Version: 2019-10-01.
-        Previous API Version: 2016-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2016-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
         API Version: 2019-10-01.
-        Previous API Version: 2016-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2016-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

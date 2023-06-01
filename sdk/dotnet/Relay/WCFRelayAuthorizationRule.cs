@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Relay
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// API Version: 2021-11-01.
-    /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:WCFRelayAuthorizationRule")]
     public partial class WCFRelayAuthorizationRule : global::Pulumi.CustomResource

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Network function resource response.
  * API Version: 2021-05-01.
- * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class NetworkFunction extends pulumi.CustomResource {
     /**

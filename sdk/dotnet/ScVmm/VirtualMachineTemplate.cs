@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ScVmm
     /// <summary>
     /// The VirtualMachineTemplates resource definition.
     /// API Version: 2020-06-05-preview.
-    /// Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VirtualMachineTemplate")]
     public partial class VirtualMachineTemplate : global::Pulumi.CustomResource

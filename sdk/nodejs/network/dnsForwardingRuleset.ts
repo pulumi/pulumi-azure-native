@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Describes a DNS forwarding ruleset.
  * API Version: 2022-07-01.
- * Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class DnsForwardingRuleset extends pulumi.CustomResource {
     /**

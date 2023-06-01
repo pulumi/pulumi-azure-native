@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataMigration
     /// <summary>
     /// A Database Migration Service resource
     /// API Version: 2021-06-30.
-    /// Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Service")]
     public partial class Service : global::Pulumi.CustomResource

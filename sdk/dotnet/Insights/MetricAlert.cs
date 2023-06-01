@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Insights
     /// <summary>
     /// The metric alert resource.
     /// API Version: 2018-03-01.
-    /// Previous API Version: 2018-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2018-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:MetricAlert")]
     public partial class MetricAlert : global::Pulumi.CustomResource

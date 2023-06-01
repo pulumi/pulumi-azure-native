@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     /// <summary>
     /// Data Lake Analytics firewall rule information.
     /// API Version: 2019-11-01-preview.
-    /// Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource

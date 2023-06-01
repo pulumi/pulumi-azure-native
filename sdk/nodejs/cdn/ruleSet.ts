@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
  * API Version: 2021-06-01.
- * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class RuleSet extends pulumi.CustomResource {
     /**

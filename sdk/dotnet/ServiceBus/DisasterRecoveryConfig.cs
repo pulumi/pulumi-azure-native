@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// API Version: 2021-11-01.
-    /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : global::Pulumi.CustomResource

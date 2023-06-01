@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Kusto
     /// <summary>
     /// Class representing an event hub data connection.
     /// API Version: 2022-12-29.
-    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:EventHubDataConnection")]
     public partial class EventHubDataConnection : global::Pulumi.CustomResource

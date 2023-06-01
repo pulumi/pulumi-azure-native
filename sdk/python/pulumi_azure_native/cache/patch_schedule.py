@@ -96,7 +96,7 @@ class PatchSchedule(pulumi.CustomResource):
         """
         Response to put/get patch schedules for Redis cache.
         API Version: 2022-06-01.
-        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,7 +114,7 @@ class PatchSchedule(pulumi.CustomResource):
         """
         Response to put/get patch schedules for Redis cache.
         API Version: 2022-06-01.
-        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param PatchScheduleArgs args: The arguments to use to populate this resource's properties.

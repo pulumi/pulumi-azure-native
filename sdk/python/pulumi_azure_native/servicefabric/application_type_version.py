@@ -144,7 +144,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         """
         An application type version resource for the specified application type name resource.
         API Version: 2023-02-01-preview.
-        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         """
         An application type version resource for the specified application type name resource.
         API Version: 2023-02-01-preview.
-        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param ApplicationTypeVersionArgs args: The arguments to use to populate this resource's properties.

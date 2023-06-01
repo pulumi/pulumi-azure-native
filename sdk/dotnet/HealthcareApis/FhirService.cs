@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// <summary>
     /// The description of Fhir Service
     /// API Version: 2022-12-01.
-    /// Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:FhirService")]
     public partial class FhirService : global::Pulumi.CustomResource

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureArcData
     /// <summary>
     /// Active directory connector resource
     /// API Version: 2023-03-15-preview.
-    /// Previous API Version: 2022-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2022-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:ActiveDirectoryConnector")]
     public partial class ActiveDirectoryConnector : global::Pulumi.CustomResource

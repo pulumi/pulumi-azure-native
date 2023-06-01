@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// <summary>
     /// A node pool snapshot resource.
     /// API Version: 2023-01-01.
-    /// Previous API Version: 2021-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource

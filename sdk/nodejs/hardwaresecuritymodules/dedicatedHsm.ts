@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource information with extended details.
  * API Version: 2021-11-30.
- * Previous API Version: 2018-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2018-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class DedicatedHsm extends pulumi.CustomResource {
     /**

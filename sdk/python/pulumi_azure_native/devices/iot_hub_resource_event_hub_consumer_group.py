@@ -110,7 +110,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
         """
         The properties of the EventHubConsumerGroupInfo object.
         API Version: 2021-07-02.
-        Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
         """
         The properties of the EventHubConsumerGroupInfo object.
         API Version: 2021-07-02.
-        Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param IotHubResourceEventHubConsumerGroupArgs args: The arguments to use to populate this resource's properties.

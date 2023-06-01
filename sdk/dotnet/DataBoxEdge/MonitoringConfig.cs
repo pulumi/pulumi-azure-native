@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// <summary>
     /// The metric setting details for the role
     /// API Version: 2022-03-01.
-    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:MonitoringConfig")]
     public partial class MonitoringConfig : global::Pulumi.CustomResource

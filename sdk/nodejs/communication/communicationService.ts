@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * A class representing a CommunicationService resource.
  * API Version: 2023-03-01-preview.
- * Previous API Version: 2020-08-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2020-08-20. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**

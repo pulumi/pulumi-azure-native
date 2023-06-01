@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.PowerPlatform
     /// <summary>
     /// Definition of the EnterprisePolicy.
     /// API Version: 2020-10-30-preview.
-    /// Previous API Version: 2020-10-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-10-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform:EnterprisePolicy")]
     public partial class EnterprisePolicy : global::Pulumi.CustomResource

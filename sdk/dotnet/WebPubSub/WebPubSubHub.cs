@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.WebPubSub
     /// <summary>
     /// A hub setting
     /// API Version: 2023-02-01.
-    /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubHub")]
     public partial class WebPubSubHub : global::Pulumi.CustomResource

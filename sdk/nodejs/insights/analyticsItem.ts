@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Properties that define an Analytics item that is associated to an Application Insights component.
  * API Version: 2015-05-01.
- * Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class AnalyticsItem extends pulumi.CustomResource {
     /**

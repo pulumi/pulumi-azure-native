@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.TestBase
     /// <summary>
     /// A favorite process identifier.
     /// API Version: 2022-04-01-preview.
-    /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:FavoriteProcess")]
     public partial class FavoriteProcess : global::Pulumi.CustomResource

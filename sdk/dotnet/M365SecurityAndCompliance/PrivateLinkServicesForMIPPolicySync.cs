@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     /// <summary>
     /// The description of the service.
     /// API Version: 2021-03-25-preview.
-    /// Previous API Version: 2021-03-25-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-03-25-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance:PrivateLinkServicesForMIPPolicySync")]
     public partial class PrivateLinkServicesForMIPPolicySync : global::Pulumi.CustomResource

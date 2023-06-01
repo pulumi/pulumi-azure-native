@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DigitalTwins
     /// <summary>
     /// The description of the DigitalTwins service.
     /// API Version: 2023-01-31.
-    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:DigitalTwin")]
     public partial class DigitalTwin : global::Pulumi.CustomResource

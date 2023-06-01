@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// <summary>
     /// A Stream Analytics Cluster object
     /// API Version: 2020-03-01.
-    /// Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The properties of a storage account’s Queue service.
  * API Version: 2022-09-01.
- * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class QueueServiceProperties extends pulumi.CustomResource {
     /**

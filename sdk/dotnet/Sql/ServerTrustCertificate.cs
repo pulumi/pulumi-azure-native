@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
     /// API Version: 2021-11-01.
-    /// Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerTrustCertificate")]
     public partial class ServerTrustCertificate : global::Pulumi.CustomResource

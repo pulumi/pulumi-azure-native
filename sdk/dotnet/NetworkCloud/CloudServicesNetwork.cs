@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
     /// virtual machines and/or Hybrid AKS clusters.
     /// API Version: 2022-12-12-preview.
-    /// Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:CloudServicesNetwork")]
     public partial class CloudServicesNetwork : global::Pulumi.CustomResource

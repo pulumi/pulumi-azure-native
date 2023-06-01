@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.StorageSync
     /// <summary>
     /// Registered Server resource.
     /// API Version: 2022-06-01.
-    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:RegisteredServer")]
     public partial class RegisteredServer : global::Pulumi.CustomResource

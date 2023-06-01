@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Solutions
     /// <summary>
     /// Information about managed application definition.
     /// API Version: 2021-07-01.
-    /// Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:ApplicationDefinition")]
     public partial class ApplicationDefinition : global::Pulumi.CustomResource
