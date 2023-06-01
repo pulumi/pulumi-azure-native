@@ -86,22 +86,12 @@ func getGoBaseOptionsSdk(t *testing.T, dir string) integration.ProgramTestOption
 			t.Fatal(err)
 		}
 	}
-	binPath, err := filepath.Abs("../bin")
-	if err != nil {
-		t.Fatal(err)
-	}
 
 	baseGo := base.With(integration.ProgramTestOptions{
 		Dir:          dir,
 		Dependencies: replacements,
 		Env: []string{
 			fmt.Sprintf("PULUMI_GO_DEP_ROOT=%s", goDepRoot),
-		},
-		LocalProviders: []integration.LocalDependency{
-			{
-				Package: "azure-native",
-				Path:    binPath,
-			},
 		},
 	})
 

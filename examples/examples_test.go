@@ -5,6 +5,7 @@ package examples
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
@@ -22,10 +23,20 @@ func getLocation(t *testing.T) string {
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	azureLocation := getLocation(t)
+	binPath, err := filepath.Abs("../bin")
+	if err != nil {
+		t.Fatal(err)
+	}
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
 		Config: map[string]string{
 			"azure-native:location": azureLocation,
+		},
+		LocalProviders: []integration.LocalDependency{
+			{
+				Package: "azure-native",
+				Path:    binPath,
+			},
 		},
 	}
 }
