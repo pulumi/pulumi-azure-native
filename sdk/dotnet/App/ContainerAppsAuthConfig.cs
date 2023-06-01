@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     /// API Version: 2022-10-01.
-    /// Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsAuthConfig")]
     public partial class ContainerAppsAuthConfig : global::Pulumi.CustomResource

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform
     /// <summary>
     /// Service Registry resource
     /// API Version: 2022-12-01.
-    /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ServiceRegistry")]
     public partial class ServiceRegistry : global::Pulumi.CustomResource

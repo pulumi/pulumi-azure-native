@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AVS
     /// <summary>
     /// NSX Public IP Block
     /// API Version: 2022-05-01.
-    /// Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkPublicIP")]
     public partial class WorkloadNetworkPublicIP : global::Pulumi.CustomResource

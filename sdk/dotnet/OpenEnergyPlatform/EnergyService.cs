@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
 {
     /// <summary>
     /// API Version: 2022-04-04-preview.
-    /// Previous API Version: 2022-04-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2022-04-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:openenergyplatform:EnergyService")]
     public partial class EnergyService : global::Pulumi.CustomResource

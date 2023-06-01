@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
  * API Version: 2022-01-25.
- * Previous API Version: 2020-06-25. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2020-06-25. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.CustomResource {
     /**

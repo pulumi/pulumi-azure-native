@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.PowerBI
 {
     /// <summary>
     /// API Version: 2016-01-29.
-    /// Previous API Version: 2016-01-29. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2016-01-29. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbi:WorkspaceCollection")]
     public partial class WorkspaceCollection : global::Pulumi.CustomResource

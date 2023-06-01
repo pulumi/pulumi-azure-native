@@ -862,7 +862,7 @@ func (g *packageGenerator) formatDescription(desc string, info *spec.Info, resou
 		description = fmt.Sprintf("%s\nAPI Version: %s.", description, info.Version)
 	}
 	if resourceSpec != nil && resourceSpec.PreviousVersion != "" {
-		description = fmt.Sprintf("%s\nPrevious API Version: %s. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.", description, resourceSpec.PreviousVersion)
+		description = fmt.Sprintf("%s\nPrevious API Version: %s. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.", description, resourceSpec.PreviousVersion)
 	}
 	return description
 }

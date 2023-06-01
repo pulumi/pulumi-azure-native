@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.LabServices
     /// <summary>
     /// Represents settings of an environment, from which environment instances would be created
     /// API Version: 2018-10-15.
-    /// Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:EnvironmentSetting")]
     public partial class EnvironmentSetting : global::Pulumi.CustomResource

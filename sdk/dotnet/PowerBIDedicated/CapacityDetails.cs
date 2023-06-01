@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     /// <summary>
     /// Represents an instance of a Dedicated Capacity resource.
     /// API Version: 2021-01-01.
-    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbidedicated:CapacityDetails")]
     public partial class CapacityDetails : global::Pulumi.CustomResource

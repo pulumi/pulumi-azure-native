@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// A Geo backup policy.
     /// API Version: 2021-11-01.
-    /// Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:GeoBackupPolicy")]
     public partial class GeoBackupPolicy : global::Pulumi.CustomResource

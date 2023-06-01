@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The Job Definition resource.
  * API Version: 2023-03-01.
- * Previous API Version: 2022-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2022-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**

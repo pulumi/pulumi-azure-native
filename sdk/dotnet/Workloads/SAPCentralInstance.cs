@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Workloads
     /// <summary>
     /// Define the SAP Central Services Instance resource.
     /// API Version: 2023-04-01.
-    /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPCentralInstance")]
     public partial class SAPCentralInstance : global::Pulumi.CustomResource

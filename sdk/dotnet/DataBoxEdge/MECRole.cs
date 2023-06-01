@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// <summary>
     /// MEC role.
     /// API Version: 2022-03-01.
-    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:MECRole")]
     public partial class MECRole : global::Pulumi.CustomResource

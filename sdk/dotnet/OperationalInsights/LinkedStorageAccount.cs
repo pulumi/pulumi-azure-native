@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// <summary>
     /// Linked storage accounts top level resource container.
     /// API Version: 2020-08-01.
-    /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:LinkedStorageAccount")]
     public partial class LinkedStorageAccount : global::Pulumi.CustomResource

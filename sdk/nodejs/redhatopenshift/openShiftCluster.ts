@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
  * API Version: 2022-09-04.
- * Previous API Version: 2020-04-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2020-04-30. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class OpenShiftCluster extends pulumi.CustomResource {
     /**

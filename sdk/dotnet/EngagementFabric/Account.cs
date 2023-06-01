@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.EngagementFabric
     /// <summary>
     /// The EngagementFabric account
     /// API Version: 2018-09-01-preview.
-    /// Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:engagementfabric:Account")]
     public partial class Account : global::Pulumi.CustomResource

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Search
     /// <summary>
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
     /// API Version: 2022-09-01.
-    /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:search:SharedPrivateLinkResource")]
     public partial class SharedPrivateLinkResource : global::Pulumi.CustomResource

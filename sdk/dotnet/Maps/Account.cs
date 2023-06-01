@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Maps
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
     /// API Version: 2021-02-01.
-    /// Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:Account")]
     public partial class Account : global::Pulumi.CustomResource

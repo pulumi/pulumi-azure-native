@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
     /// API Version: 2019-04-01.
-    /// Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Task")]
     public partial class Task : global::Pulumi.CustomResource

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataShare
     /// <summary>
     /// An ADLS Gen 1 folder data set.
     /// API Version: 2021-08-01.
-    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:ADLSGen1FolderDataSet")]
     public partial class ADLSGen1FolderDataSet : global::Pulumi.CustomResource

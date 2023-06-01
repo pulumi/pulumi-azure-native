@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Cdn
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// API Version: 2021-06-01.
-    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDCustomDomain")]
     public partial class AFDCustomDomain : global::Pulumi.CustomResource

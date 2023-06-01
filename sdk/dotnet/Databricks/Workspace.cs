@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Databricks
     /// <summary>
     /// Information about workspace.
     /// API Version: 2023-02-01.
-    /// Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

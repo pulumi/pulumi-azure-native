@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
     /// <summary>
     /// A provider instance associated with a SAP monitor.
     /// API Version: 2020-02-07-preview.
-    /// Previous API Version: 2020-02-07-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-02-07-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure:ProviderInstance")]
     public partial class ProviderInstance : global::Pulumi.CustomResource

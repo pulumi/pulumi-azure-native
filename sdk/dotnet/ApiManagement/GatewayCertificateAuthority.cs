@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Gateway certificate authority details.
     /// API Version: 2022-08-01.
-    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:GatewayCertificateAuthority")]
     public partial class GatewayCertificateAuthority : global::Pulumi.CustomResource

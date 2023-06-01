@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
     /// API Version: 2023-02-01.
-    /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Watchlist")]
     public partial class Watchlist : global::Pulumi.CustomResource

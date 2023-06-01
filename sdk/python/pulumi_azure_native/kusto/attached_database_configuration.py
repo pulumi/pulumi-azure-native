@@ -196,7 +196,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
         API Version: 2022-12-29.
-        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,7 +220,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
         API Version: 2022-12-29.
-        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param AttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.

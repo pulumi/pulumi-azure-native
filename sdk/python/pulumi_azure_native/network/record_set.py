@@ -316,7 +316,7 @@ class RecordSet(pulumi.CustomResource):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
         API Version: 2018-05-01.
-        Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,7 +347,7 @@ class RecordSet(pulumi.CustomResource):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
         API Version: 2018-05-01.
-        Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+        Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
         :param RecordSetArgs args: The arguments to use to populate this resource's properties.

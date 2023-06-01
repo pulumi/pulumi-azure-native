@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// API Version: 2022-09-04.
-    /// Previous API Version: 2020-04-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2020-04-30. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:OpenShiftCluster")]
     public partial class OpenShiftCluster : global::Pulumi.CustomResource

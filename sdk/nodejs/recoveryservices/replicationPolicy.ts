@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Protection profile details.
  * API Version: 2023-02-01.
- * Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**

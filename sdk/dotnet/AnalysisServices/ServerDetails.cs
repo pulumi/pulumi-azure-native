@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AnalysisServices
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
     /// API Version: 2017-08-01.
-    /// Previous API Version: 2017-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2017-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:analysisservices:ServerDetails")]
     public partial class ServerDetails : global::Pulumi.CustomResource

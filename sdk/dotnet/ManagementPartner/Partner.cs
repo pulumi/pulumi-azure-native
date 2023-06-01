@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ManagementPartner
     /// <summary>
     /// this is the management partner operations response
     /// API Version: 2018-02-01.
-    /// Previous API Version: 2018-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2018-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:managementpartner:Partner")]
     public partial class Partner : global::Pulumi.CustomResource

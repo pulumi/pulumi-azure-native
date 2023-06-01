@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Represents a and external administrator to be created.
  * API Version: 2017-12-01.
- * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class ServerAdministrator extends pulumi.CustomResource {
     /**

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.PolicyInsights
     /// <summary>
     /// The remediation definition.
     /// API Version: 2021-10-01.
-    /// Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:RemediationAtResourceGroup")]
     public partial class RemediationAtResourceGroup : global::Pulumi.CustomResource

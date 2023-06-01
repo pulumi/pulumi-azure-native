@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Aad
     /// <summary>
     /// Resource for OuContainer.
     /// API Version: 2022-12-01.
-    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:OuContainer")]
     public partial class OuContainer : global::Pulumi.CustomResource
