@@ -274,6 +274,16 @@ func ResourceName(operationID, path string) string {
 		resourceName = newName
 	}
 
+	// Both are virtual network links, but the other side of the link is a different resource and
+	// the links have different properties.
+	// https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview#virtual-network-links
+	// https://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links
+	if resourceName == "VirtualNetworkLink" && strings.Contains(path, "Microsoft.Network/dnsForwardingRulesets") {
+		newName := "PrivateResolverVirtualNetworkLink"
+		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		resourceName = newName
+	}
+
 	return resourceName
 }
 
