@@ -5,7 +5,6 @@ package openapi
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"strings"
 
@@ -91,35 +90,4 @@ func ToFullyQualifiedName(azureProvider, resource, version string) string {
 		version = ApiToSdkVersion(version)
 	}
 	return fmt.Sprintf(fqnFmt, strings.ToLower(azureProvider), version, resource)
-}
-
-func (s RemovableResources) canBeRemoved(azureProvider, resource, version string) bool {
-	fqn := ToFullyQualifiedName(azureProvider, resource, version)
-	_, ok := s[fqn]
-	return ok
-}
-
-func RemoveResources(providers AzureProviders, removable RemovableResources) AzureProviders {
-	result := AzureProviders{}
-	removedCount := 0
-	for provider, versions := range providers {
-		newVersions := ProviderVersions{}
-		for version, resources := range versions {
-			filteredResources := VersionResources{
-				Resources: make(map[string]*ResourceSpec),
-				Invokes:   resources.Invokes,
-			}
-			for resourceName, resource := range resources.Resources {
-				if removable.canBeRemoved(provider, resourceName, version) {
-					removedCount++
-					continue
-				}
-				filteredResources.Resources[resourceName] = resource
-			}
-			newVersions[version] = filteredResources
-		}
-		result[provider] = newVersions
-	}
-	log.Printf("Removed %d resources from the spec", removedCount)
-	return result
 }

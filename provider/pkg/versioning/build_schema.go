@@ -1,6 +1,7 @@
 package versioning
 
 import (
+	"log"
 	"path"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
@@ -69,10 +70,6 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V1Lock, nil, versionMetadata.Deprecated, removed)
 	}
 
-	if args.Version2 {
-		providers = openapi.RemoveResources(providers, openapi.RemovableResources(versionMetadata.V2ResourcesToRemove))
-	}
-
 	if args.ExcludeExplicitVersions {
 		providers = openapi.SingleVersion(providers)
 	}
@@ -80,6 +77,10 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	pkgSpec, metadata, examples, err := gen.PulumiSchema(providers)
 	if err != nil {
 		return nil, err
+	}
+
+	if args.Version2 {
+		dropFromSchema(pkgSpec, versionMetadata.V2ResourcesToRemove)
 	}
 
 	if len(args.ExampleLanguages) > 0 {
@@ -98,4 +99,18 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		Metadata:    *metadata,
 		Version:     versionMetadata,
 	}, nil
+}
+
+// Caution: pkgSpec is modified in place
+func dropFromSchema(pkgSpec *schema.PackageSpec, toRemove Squeeze) {
+	removed := 0
+	for token := range toRemove {
+		if _, ok := pkgSpec.Resources[token]; ok {
+			delete(pkgSpec.Resources, token)
+			removed++
+		} else {
+			log.Printf("Warning: removable resource %s not found in schema\n", token)
+		}
+	}
+	log.Printf("Removed %d out of %d resources from schema\n", removed, len(toRemove))
 }

@@ -168,6 +168,9 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 	}, nil
 }
 
+// Keys and values are fully qualified resource names like
+// "azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule".
+// Keys are the ones that can be dropped, in favor of the corresponding value.
 type Squeeze map[string]string
 
 func ReadSqueeze(path string) (Squeeze, error) {
